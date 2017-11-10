@@ -1,4 +1,4 @@
-PyFOS - Prototype code (testing - developer unit test sanity)
+PyFOS - This is a prototype release of PyFOS. The code have only gone through developer unit testing only.
 
 env:
 
