@@ -1,0 +1,2745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyfos_switchfcport - PyFOS module to provide rest support for FC ports. &mdash; PyFOS 0.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
+    <link rel="next" title="pyfos_zone - PyFOS module to provide rest support for Zoning." href="pyfos_zone.html" />
+    <link rel="prev" title="pyfos_switch - PyFOS module to provide rest support for FC switch." href="pyfos_switch.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_zone.html" title="pyfos_zone - PyFOS module to provide rest support for Zoning."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_switch.html" title="pyfos_switch - PyFOS module to provide rest support for FC switch."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_switchfcport"></span><div class="section" id="pyfos-switchfcport-pyfos-module-to-provide-rest-support-for-fc-ports">
+<h1><a class="reference internal" href="#module-pyfos_switchfcport" title="pyfos_switchfcport: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_switchfcport</span></code></a> - PyFOS module to provide rest support for FC ports.<a class="headerlink" href="#pyfos-switchfcport-pyfos-module-to-provide-rest-support-for-fc-ports" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_switchfcport" title="pyfos_switchfcport: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_switchfcport</span></code></a> provides a REST support for FC ports.</p>
+<dl class="function">
+<dt id="pyfos_switchfcport.enabled_state_type_to_str">
+<code class="descclassname">pyfos_switchfcport.</code><code class="descname">enabled_state_type_to_str</code><span class="sig-paren">(</span><em>speed_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.enabled_state_type_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string value for enable state type in integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>es_type</strong> &#8211; enabled state type in <code class="xref py py-class docutils literal"><span class="pre">ENABLED_STATE_TYPE</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">enabled state type in string value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_switchfcport.fibrechannel">
+<em class="property">class </em><code class="descclassname">pyfos_switchfcport.</code><code class="descname">fibrechannel</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of FC ports</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>name of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_name" title="pyfos_switchfcport.fibrechannel.set_name"><code class="xref py py-func docutils literal"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_name" title="pyfos_switchfcport.fibrechannel.peek_name"><code class="xref py py-func docutils literal"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>wwn</td>
+<td>WWN of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_wwn" title="pyfos_switchfcport.fibrechannel.peek_wwn"><code class="xref py py-func docutils literal"><span class="pre">peek_wwn()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>operational-status</td>
+<td>current operational status</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_operational_status" title="pyfos_switchfcport.fibrechannel.peek_operational_status"><code class="xref py py-func docutils literal"><span class="pre">peek_operational_status()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>enabled_state</td>
+<td>enabled state of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_enabled_state" title="pyfos_switchfcport.fibrechannel.set_enabled_state"><code class="xref py py-func docutils literal"><span class="pre">set_enabled_state()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_enabled_state" title="pyfos_switchfcport.fibrechannel.peek_enabled_state"><code class="xref py py-func docutils literal"><span class="pre">peek_enabled_state()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>user-friendly-name</td>
+<td>string name of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_user_friendly_name" title="pyfos_switchfcport.fibrechannel.set_user_friendly_name"><code class="xref py py-func docutils literal"><span class="pre">set_user_friendly_name()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_user_friendly_name" title="pyfos_switchfcport.fibrechannel.peek_user_friendly_name"><code class="xref py py-func docutils literal"><span class="pre">peek_user_friendly_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>speed</td>
+<td>speed of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_speed" title="pyfos_switchfcport.fibrechannel.set_speed"><code class="xref py py-func docutils literal"><span class="pre">set_speed()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_speed" title="pyfos_switchfcport.fibrechannel.peek_speed"><code class="xref py py-func docutils literal"><span class="pre">peek_speed()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>auto-negotiate</td>
+<td>indicate if auto negotiate is
+enabled or not</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_auto_negotiate" title="pyfos_switchfcport.fibrechannel.peek_auto_negotiate"><code class="xref py py-func docutils literal"><span class="pre">peek_auto_negotiate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>g-port-locked</td>
+<td>indicate locked to G_Port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_g_port_locked" title="pyfos_switchfcport.fibrechannel.set_g_port_locked"><code class="xref py py-func docutils literal"><span class="pre">set_g_port_locked()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_g_port_locked" title="pyfos_switchfcport.fibrechannel.peek_g_port_locked"><code class="xref py py-func docutils literal"><span class="pre">peek_g_port_locked()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>e-port-disable</td>
+<td>indicate E_Port disabled</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_e_port_disable" title="pyfos_switchfcport.fibrechannel.set_e_port_disable"><code class="xref py py-func docutils literal"><span class="pre">set_e_port_disable()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_e_port_disable" title="pyfos_switchfcport.fibrechannel.peek_e_port_disable"><code class="xref py py-func docutils literal"><span class="pre">peek_e_port_disable()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>d-port-enable</td>
+<td>indicate D_Port enabled</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_d_port_enable" title="pyfos_switchfcport.fibrechannel.set_d_port_enable"><code class="xref py py-func docutils literal"><span class="pre">set_d_port_enable()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_d_port_enable" title="pyfos_switchfcport.fibrechannel.peek_d_port_enable"><code class="xref py py-func docutils literal"><span class="pre">peek_d_port_enable()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>persistent-disable</td>
+<td>indicate persistently disabled
+port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_persistent_disable" title="pyfos_switchfcport.fibrechannel.set_persistent_disable"><code class="xref py py-func docutils literal"><span class="pre">set_persistent_disable()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_persistent_disable" title="pyfos_switchfcport.fibrechannel.peek_persistent_disable"><code class="xref py py-func docutils literal"><span class="pre">peek_persistent_disable()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>neighboar/wwn</td>
+<td>list of neighbors&#8217; WWNs</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_neighbor_wwn" title="pyfos_switchfcport.fibrechannel.peek_neighbor_wwn"><code class="xref py py-func docutils literal"><span class="pre">peek_neighbor_wwn()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fcid</td>
+<td>FCID of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_fcid" title="pyfos_switchfcport.fibrechannel.peek_fcid"><code class="xref py py-func docutils literal"><span class="pre">peek_fcid()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-type</td>
+<td>type of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_port_type" title="pyfos_switchfcport.fibrechannel.peek_port_type"><code class="xref py py-func docutils literal"><span class="pre">peek_port_type()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>qos-enabled</td>
+<td>indicate QoS mode</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_qos_enabled" title="pyfos_switchfcport.fibrechannel.set_qos_enabled"><code class="xref py py-func docutils literal"><span class="pre">set_qos_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_qos_enabled" title="pyfos_switchfcport.fibrechannel.peek_qos_enabled"><code class="xref py py-func docutils literal"><span class="pre">peek_qos_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>compression-configured</td>
+<td>indicate compression mode</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_compression_configured" title="pyfos_switchfcport.fibrechannel.set_compression_configured"><code class="xref py py-func docutils literal"><span class="pre">set_compression_configured()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_compression_configured" title="pyfos_switchfcport.fibrechannel.peek_compression_configured"><code class="xref py py-func docutils literal"><span class="pre">peek_compression_configured()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>compression-active</td>
+<td>indicate active compression</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_compression_active" title="pyfos_switchfcport.fibrechannel.peek_compression_active"><code class="xref py py-func docutils literal"><span class="pre">peek_compression_active()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>encryption-active</td>
+<td>indicate active encryption</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_encryption_active" title="pyfos_switchfcport.fibrechannel.peek_encryption_active"><code class="xref py py-func docutils literal"><span class="pre">peek_encryption_active()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>target-driven-zoning-enable</td>
+<td>target driven zoning mode</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel.set_target_driven_zoning_enable" title="pyfos_switchfcport.fibrechannel.set_target_driven_zoning_enable"><code class="xref py py-func docutils literal"><span class="pre">set_target_driven_zoning_enable()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel.peek_target_driven_zoning_enable" title="pyfos_switchfcport.fibrechannel.peek_target_driven_zoning_enable"><code class="xref py py-func docutils literal"><span class="pre">peek_target_driven_zoning_enable()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_switchfcport.fibrechannel.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_switchfcport.fibrechannel" title="pyfos_switchfcport.fibrechannel"><code class="xref py py-class docutils literal"><span class="pre">fibrechannel</span></code></a> object or a list of
+objects filled with attributes gathered
+from switch. If optional name is given, either an
+object matching the name of the port is returned
+or an empty object is returned if no match is found.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed
+through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a <a class="reference internal" href="#pyfos_switchfcport.fibrechannel" title="pyfos_switchfcport.fibrechannel"><code class="xref py py-class docutils literal"><span class="pre">fibrechannel</span></code></a> object if name is
+given or a list of objects if there are more than one</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply configurable attribute(s) within the object to
+a port of the switch.</p>
+<p><em>Below is an example using individual sets:</em></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
+<span class="n">switch</span> <span class="o">=</span> <span class="n">pyfos_switch</span><span class="o">.</span><span class="n">fibrechannel</span><span class="p">()</span>
+<span class="c1"># set the enabled-state attribute to</span>
+<span class="c1"># enable the port 0/0 on the switch</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;0/0&quot;</span><span class="p">)</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">set_enabled_state</span><span class="p">(</span><span class="n">pyfos_switchfcport</span><span class="o">.</span><span class="n">enableState</span><span class="p">)</span>
+<span class="c1"># execute HTTP patch command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>Below is an example of combining object</dt>
+<dd>initialization and attribute sets:*</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># initialize the switch object and set the</span>
+<span class="c1"># enable-state attribute</span>
+<span class="n">switch</span> <span class="o">=</span> <span class="n">pyfos_switch</span><span class="o">.</span><span class="n">fibrechannel</span><span class="p">({</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;0/0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;enabled-state&quot;</span> <span class="p">:</span> <span class="n">pyfos_switch</span><span class="o">.</span><span class="n">enableState</span><span class="p">})</span>
+<span class="c1"># execute HTTP patch command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a dictionary of error or success information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; port name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_wwn">
+<code class="descname">peek_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port WWN in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port WWN</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_operational_status">
+<code class="descname">peek_operational_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_operational_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads operational status of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port WWN</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_enabled_state">
+<code class="descname">set_enabled_state</code><span class="sig-paren">(</span><em>newstate</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets enabled state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newstate</strong> &#8211; new port state to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_enabled_state">
+<code class="descname">peek_enabled_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads enabled state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or enabled state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_user_friendly_name">
+<code class="descname">set_user_friendly_name</code><span class="sig-paren">(</span><em>newname</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_user_friendly_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets user friendly name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newname</strong> &#8211; new name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_user_friendly_name">
+<code class="descname">peek_user_friendly_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_user_friendly_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads user friendly name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or user friendly name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_speed">
+<code class="descname">set_speed</code><span class="sig-paren">(</span><em>newspeed</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets new speed in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newspeed</strong> &#8211; new speed to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_speed">
+<code class="descname">peek_speed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads speed of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or speed of port</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_auto_negotiate">
+<code class="descname">peek_auto_negotiate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_auto_negotiate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads indicate if auto negotiate mode is on in the object.
+When speed is set to auto negotiate, this attribute will return
+True while speed attribute will indicate the negotiated speed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_g_port_locked">
+<code class="descname">set_g_port_locked</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_g_port_locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets G_Port locked indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_g_port_locked">
+<code class="descname">peek_g_port_locked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_g_port_locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads G_Port locked mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_e_port_disable">
+<code class="descname">set_e_port_disable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_e_port_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets E_Port disable mode indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_e_port_disable">
+<code class="descname">peek_e_port_disable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_e_port_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads E_Port disable mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_d_port_enable">
+<code class="descname">set_d_port_enable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_d_port_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets D_Port enable indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_d_port_enable">
+<code class="descname">peek_d_port_enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_d_port_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads D_Port mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_persistent_disable">
+<code class="descname">set_persistent_disable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_persistent_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets persistently disabled indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_persistent_disable">
+<code class="descname">peek_persistent_disable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_persistent_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads persistent disabled mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_neighbor_wwn">
+<code class="descname">peek_neighbor_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_neighbor_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a list of neighboar WWNs of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or a list of WWNs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_fcid">
+<code class="descname">peek_fcid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_fcid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FCID of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or FCID</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_port_type">
+<code class="descname">peek_port_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_port_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port type of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_qos_enabled">
+<code class="descname">set_qos_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_qos_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets QoS mode indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_qos_enabled">
+<code class="descname">peek_qos_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_qos_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads QoS mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_compression_configured">
+<code class="descname">set_compression_configured</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_compression_configured" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets compression mode indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_compression_configured">
+<code class="descname">peek_compression_configured</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_compression_configured" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads compression mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_compression_active">
+<code class="descname">peek_compression_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_compression_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads compression mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_encryption_active">
+<code class="descname">peek_encryption_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_encryption_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads encryption mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.set_target_driven_zoning_enable">
+<code class="descname">set_target_driven_zoning_enable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.set_target_driven_zoning_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets target driven zoning mode indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel.peek_target_driven_zoning_enable">
+<code class="descname">peek_target_driven_zoning_enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel.peek_target_driven_zoning_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads target driven zoning mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics">
+<em class="property">class </em><code class="descclassname">pyfos_switchfcport.</code><code class="descname">fibrechannel_diagnostics</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of FC port diagnostics</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="26%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>name of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_name" title="pyfos_switchfcport.fibrechannel_diagnostics.set_name"><code class="xref py py-func docutils literal"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_name" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_name"><code class="xref py py-func docutils literal"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>diagnostic-control</td>
+<td>set mode to stop, start,
+or restart</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_diagnostic_control" title="pyfos_switchfcport.fibrechannel_diagnostics.set_diagnostic_control"><code class="xref py py-func docutils literal"><span class="pre">set_diagnostic_control()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_diagnostic_control" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_diagnostic_control"><code class="xref py py-func docutils literal"><span class="pre">peek_diagnostic_control()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>mode</td>
+<td>display manual or auto mode</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_mode" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_mode"><code class="xref py py-func docutils literal"><span class="pre">peek_mode()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>state</td>
+<td>test status</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_state" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_state"><code class="xref py py-func docutils literal"><span class="pre">peek_state()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>distance</td>
+<td>estimated ISL distance</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_distance" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_distance"><code class="xref py py-func docutils literal"><span class="pre">peek_distance()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>electrical-loopback-test/result</td>
+<td>test status result</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_electrical_loopback_test_result" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_electrical_loopback_test_result"><code class="xref py py-func docutils literal"><span class="pre">peek_electrical_loopback_test_result()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>electrical-loopback-test/comments</td>
+<td>test status detail comments</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_electrical_loopback_test_comments" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_electrical_loopback_test_comments"><code class="xref py py-func docutils literal"><span class="pre">peek_electrical_loopback_test_comments()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>optical-loopback-test/result</td>
+<td>test status result</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_optical_loopback_test_result" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_optical_loopback_test_result"><code class="xref py py-func docutils literal"><span class="pre">peek_optical_loopback_test_result()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>optical-loopback-test/comments</td>
+<td>test status detail comments</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_optical_loopback_test_comments" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_optical_loopback_test_comments"><code class="xref py py-func docutils literal"><span class="pre">peek_optical_loopback_test_comments()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>link-traffic-test/result</td>
+<td>test status result</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_link_traffic_test_result" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_link_traffic_test_result"><code class="xref py py-func docutils literal"><span class="pre">peek_link_traffic_test_result()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>link-traffic-test/comments</td>
+<td>test status detail comments</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_link_traffic_test_comments" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_link_traffic_test_comments"><code class="xref py py-func docutils literal"><span class="pre">peek_link_traffic_test_comments()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>start-time</td>
+<td>start time of the test</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_start_time" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_start_time"><code class="xref py py-func docutils literal"><span class="pre">peek_start_time()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>frame-count</td>
+<td>number of frames for link test</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_frame_count" title="pyfos_switchfcport.fibrechannel_diagnostics.set_frame_count"><code class="xref py py-func docutils literal"><span class="pre">set_frame_count()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_frame_count" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_frame_count"><code class="xref py py-func docutils literal"><span class="pre">peek_frame_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>frame-size</td>
+<td>size of frames for link test</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_frame_size" title="pyfos_switchfcport.fibrechannel_diagnostics.set_frame_size"><code class="xref py py-func docutils literal"><span class="pre">set_frame_size()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_frame_size" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_frame_size"><code class="xref py py-func docutils literal"><span class="pre">peek_frame_size()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>time</td>
+<td>duration of test</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_time" title="pyfos_switchfcport.fibrechannel_diagnostics.set_time"><code class="xref py py-func docutils literal"><span class="pre">set_time()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_time" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_time"><code class="xref py py-func docutils literal"><span class="pre">peek_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>payload-pattern/pattern</td>
+<td>industry defined pattern names</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_payload_pattern_pattern" title="pyfos_switchfcport.fibrechannel_diagnostics.set_payload_pattern_pattern"><code class="xref py py-func docutils literal"><span class="pre">set_payload_pattern_pattern()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_payload_pattern_pattern" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_payload_pattern_pattern"><code class="xref py py-func docutils literal"><span class="pre">peek_payload_pattern_pattern()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>payload-pattern/payload</td>
+<td>user defined pattern</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_payload_pattern_payload" title="pyfos_switchfcport.fibrechannel_diagnostics.set_payload_pattern_payload"><code class="xref py py-func docutils literal"><span class="pre">set_payload_pattern_payload()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_payload_pattern_payload" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_payload_pattern_payload"><code class="xref py py-func docutils literal"><span class="pre">peek_payload_pattern_payload()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fec/enable</td>
+<td>set FEC mode</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_fec_enable" title="pyfos_switchfcport.fibrechannel_diagnostics.set_fec_enable"><code class="xref py py-func docutils literal"><span class="pre">set_fec_enable()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_fec_enable" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_fec_enable"><code class="xref py py-func docutils literal"><span class="pre">peek_fec_enable()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fec/active</td>
+<td>show FEC mode</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_fec_active" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_fec_active"><code class="xref py py-func docutils literal"><span class="pre">peek_fec_active()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>cr/enable</td>
+<td>set CR mode</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_cr_enable" title="pyfos_switchfcport.fibrechannel_diagnostics.set_cr_enable"><code class="xref py py-func docutils literal"><span class="pre">set_cr_enable()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_cr_enable" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_cr_enable"><code class="xref py py-func docutils literal"><span class="pre">peek_cr_enable()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>cr/active</td>
+<td>show CR mode</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_cr_active" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_cr_active"><code class="xref py py-func docutils literal"><span class="pre">peek_cr_active()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>rt-latency</td>
+<td>round trip latency</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_rt_latency" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_rt_latency"><code class="xref py py-func docutils literal"><span class="pre">peek_rt_latency()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>buffers-required</td>
+<td>buffer required for link</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_buffers_required" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_buffers_required"><code class="xref py py-func docutils literal"><span class="pre">peek_buffers_required()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>failure-report/errors-detected-local</td>
+<td>failure detected locally</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_failure_report_errors_detected_local" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_failure_report_errors_detected_local"><code class="xref py py-func docutils literal"><span class="pre">peek_failure_report_errors_detected_local()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>failure-report/errors-detected-remote</td>
+<td>failure detected remotely</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_failure_report_errors_detected_remote" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_failure_report_errors_detected_remote"><code class="xref py py-func docutils literal"><span class="pre">peek_failure_report_errors_detected_remote()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>end-time</td>
+<td>diag end time stamp</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_end_time" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_end_time"><code class="xref py py-func docutils literal"><span class="pre">peek_end_time()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>egress-power-loss/tx</td>
+<td>local power transmitted</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_tx" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_tx"><code class="xref py py-func docutils literal"><span class="pre">peek_egress_power_loss_tx()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>egress-power-loss/rx</td>
+<td>local power received</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_rx" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_rx"><code class="xref py py-func docutils literal"><span class="pre">peek_egress_power_loss_rx()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>egress-power-loss/loss</td>
+<td>local power loss</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_loss" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_loss"><code class="xref py py-func docutils literal"><span class="pre">peek_egress_power_loss_loss()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>egress-power-loss/comments</td>
+<td>local power loss details</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_comments" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_comments"><code class="xref py py-func docutils literal"><span class="pre">peek_egress_power_loss_comments()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ingress-power-loss/tx</td>
+<td>remote power transmitted</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_tx" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_tx"><code class="xref py py-func docutils literal"><span class="pre">peek_ingress_power_loss_tx()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ingress-power-loss/rx</td>
+<td>remote power received</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_rx" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_rx"><code class="xref py py-func docutils literal"><span class="pre">peek_ingress_power_loss_rx()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ingress-power-loss/loss</td>
+<td>remote power loss</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_loss" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_loss"><code class="xref py py-func docutils literal"><span class="pre">peek_ingress_power_loss_loss()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ingress-power-loss/comments</td>
+<td>remote power loss details</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_comments" title="pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_comments"><code class="xref py py-func docutils literal"><span class="pre">peek_ingress_power_loss_comments()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_switchfcport.fibrechannel_diagnostics" title="pyfos_switchfcport.fibrechannel_diagnostics"><code class="xref py py-class docutils literal"><span class="pre">fibrechannel_diagnostics</span></code></a> object or a
+list of objects filled with attributes gathered
+from switch. If optional name is given, either an
+object matching the name of the port is returned
+or an empty object is returned if no match is found.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a <a class="reference internal" href="#pyfos_switchfcport.fibrechannel" title="pyfos_switchfcport.fibrechannel"><code class="xref py py-class docutils literal"><span class="pre">fibrechannel</span></code></a> object if name is given
+or a list of objects if there are more than one</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply configurable attribute(s) within the object
+to a port of the switch.</p>
+<p><em>Below is an example using individual sets:</em></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># once d_port is enabled on the port</span>
+<span class="c1"># set the payload</span>
+<span class="n">diag_info</span> <span class="o">=</span> <span class="n">pyfos_switchfcport</span><span class="o">.</span><span class="n">fibrechannel_diagnostics</span><span class="p">()</span>
+<span class="n">diag_info</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">diag_info</span><span class="o">.</span><span class="n">set_payload_pattern_payload</span><span class="p">(</span><span class="s2">&quot;305402420&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">diag_info</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+<span class="n">pyfos_util</span><span class="o">.</span><span class="n">response_print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="c1"># on enabled port, restart the test</span>
+<span class="n">diag_info</span> <span class="o">=</span> <span class="n">pyfos_switchfcport</span><span class="o">.</span><span class="n">fibrechannel_diagnostics</span><span class="p">()</span>
+<span class="n">diag_info</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">diag_info</span><span class="o">.</span><span class="n">set_diagnostic_control</span><span class="p">(</span><span class="n">pyfos_switchfcport</span><span class="o">.</span><span class="n">DIAG_RESTART</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">diag_info</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+<span class="n">pyfos_util</span><span class="o">.</span><span class="n">response_print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><a href="#id3"><span class="problematic" id="id4">*</span></a>Below is an example of combining object initialization</dt>
+<dd>and attribute sets:*</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># once d_port is enabled on the port</span>
+<span class="c1"># set the payload</span>
+<span class="n">diag_info</span> <span class="o">=</span> <span class="n">pyfos_switchfcport</span><span class="o">.</span><span class="n">fibrechannel_diagnostics</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+    <span class="s2">&quot;payload-pattern&quot;</span> <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;payload&quot;</span> <span class="p">:</span> <span class="s2">&quot;305402420&quot;</span><span class="p">}})</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">diag_info</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+<span class="n">pyfos_util</span><span class="o">.</span><span class="n">response_print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="c1"># on enabled port, restart the test</span>
+<span class="n">diag_info</span> <span class="o">=</span> <span class="n">pyfos_switchfcport</span><span class="o">.</span><span class="n">fibrechannel_diagnostics</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+    <span class="s2">&quot;diagnostic-control&quot;</span> <span class="p">:</span> <span class="n">pyfos_switchfcport</span><span class="o">.</span><span class="n">DIAG_RESTART</span><span class="p">})</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">diag_info</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+<span class="n">pyfos_util</span><span class="o">.</span><span class="n">response_print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a dictionary of error or success information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; port name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_diagnostic_control">
+<code class="descname">set_diagnostic_control</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_diagnostic_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets diag control mode in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode <code class="xref py py-data docutils literal"><span class="pre">DIAG_STOP</span></code>, <code class="xref py py-data docutils literal"><span class="pre">DIAG_START</span></code>,
+or <code class="xref py py-data docutils literal"><span class="pre">DIAG_RESTART</span></code> to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_diagnostic_control">
+<code class="descname">peek_diagnostic_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_diagnostic_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads diag control mode in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or diag control mode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_mode">
+<code class="descname">peek_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads either manual or automatic mode in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or current mode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_state">
+<code class="descname">peek_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads current diag state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or current diag state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_distance">
+<code class="descname">peek_distance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads estimated ISL distsance in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or estimated ISL distsance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_electrical_loopback_test_result">
+<code class="descname">peek_electrical_loopback_test_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_electrical_loopback_test_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test result in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or test result</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_electrical_loopback_test_comments">
+<code class="descname">peek_electrical_loopback_test_comments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_electrical_loopback_test_comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test details in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or test details</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_optical_loopback_test_result">
+<code class="descname">peek_optical_loopback_test_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_optical_loopback_test_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test result in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or test result</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_optical_loopback_test_comments">
+<code class="descname">peek_optical_loopback_test_comments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_optical_loopback_test_comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test details in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_link_traffic_test_result">
+<code class="descname">peek_link_traffic_test_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_link_traffic_test_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test result in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or test result</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_link_traffic_test_comments">
+<code class="descname">peek_link_traffic_test_comments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_link_traffic_test_comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test details in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or test details</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_start_time">
+<code class="descname">peek_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads diag start timestamp in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or diag start timestamp</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_frame_count">
+<code class="descname">set_frame_count</code><span class="sig-paren">(</span><em>newcount</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_frame_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets frame count to be used in diag in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newcount</strong> &#8211; new count to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_frame_count">
+<code class="descname">peek_frame_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_frame_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads frame count in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or frame count</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_frame_size">
+<code class="descname">set_frame_size</code><span class="sig-paren">(</span><em>newsize</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_frame_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets frame size to be used in diag in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newsize</strong> &#8211; new size to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_frame_size">
+<code class="descname">peek_frame_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_frame_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads frame size in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or frame size</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_time">
+<code class="descname">set_time</code><span class="sig-paren">(</span><em>newtime</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets test duration to be used in diag in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newtime</strong> &#8211; new test duration to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_time">
+<code class="descname">peek_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads duration of the test in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or duration of the test</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_payload_pattern_pattern">
+<code class="descname">set_payload_pattern_pattern</code><span class="sig-paren">(</span><em>newpattern</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_payload_pattern_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets test pattern name to be used in diag in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newpattern</strong> &#8211; new test pattern name to
+be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_payload_pattern_pattern">
+<code class="descname">peek_payload_pattern_pattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_payload_pattern_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test pattern name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or test pattern name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_payload_pattern_payload">
+<code class="descname">set_payload_pattern_payload</code><span class="sig-paren">(</span><em>newpayload</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_payload_pattern_payload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets test payload in hex to be used in diag in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newpayload</strong> &#8211; new test pattern to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_payload_pattern_payload">
+<code class="descname">peek_payload_pattern_payload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_payload_pattern_payload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test pattern in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or known test pattern</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_fec_enable">
+<code class="descname">set_fec_enable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_fec_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets fec mode to be used in diag in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode of &#8220;yes&#8221; or &#8220;no&#8221; to
+be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_fec_enable">
+<code class="descname">peek_fec_enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_fec_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads fec mode in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or fec mode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_fec_active">
+<code class="descname">peek_fec_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_fec_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads active state of fec in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or active state of fec</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.set_cr_enable">
+<code class="descname">set_cr_enable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.set_cr_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets cr mode to be used in diag in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> &#8211; new mode of &#8220;yes&#8221; or &#8220;no&#8221; to
+be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_cr_enable">
+<code class="descname">peek_cr_enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_cr_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads cr mode in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or cr mode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_cr_active">
+<code class="descname">peek_cr_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_cr_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads active state of cr in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or active state of cr</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_rt_latency">
+<code class="descname">peek_rt_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_rt_latency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads round trip latency in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or round trip latency</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_buffers_required">
+<code class="descname">peek_buffers_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_buffers_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of buffers required in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of buffers required</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_failure_report_errors_detected_local">
+<code class="descname">peek_failure_report_errors_detected_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_failure_report_errors_detected_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads local failure report in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or local failure report</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_failure_report_errors_detected_remote">
+<code class="descname">peek_failure_report_errors_detected_remote</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_failure_report_errors_detected_remote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads remove failure report in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or remote failure report</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_end_time">
+<code class="descname">peek_end_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_end_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads test end timestamp in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or test end timestamp</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_tx">
+<code class="descname">peek_egress_power_loss_tx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_tx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads local transmit power loss in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or local transmit power loss</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_rx">
+<code class="descname">peek_egress_power_loss_rx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads local receive power loss in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or local receive power loss</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_loss">
+<code class="descname">peek_egress_power_loss_loss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads local power loss in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or local power loss</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_comments">
+<code class="descname">peek_egress_power_loss_comments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_egress_power_loss_comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads local power loss details in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_tx">
+<code class="descname">peek_ingress_power_loss_tx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_tx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads remote transmit power loss in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or remote transmit power loss</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_rx">
+<code class="descname">peek_ingress_power_loss_rx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads remote receive power loss in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or remote receive power loss</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_loss">
+<code class="descname">peek_ingress_power_loss_loss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads remote power loss in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or remote power loss</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_comments">
+<code class="descname">peek_ingress_power_loss_comments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_diagnostics.peek_ingress_power_loss_comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads remote power loss details in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or remote power loss details</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_switchfcport.fibrechannel_statistics">
+<em class="property">class </em><code class="descclassname">pyfos_switchfcport.</code><code class="descname">fibrechannel_statistics</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of FC port statistics</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="27%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>name of port</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.set_name" title="pyfos_switchfcport.fibrechannel_statistics.set_name"><code class="xref py py-func docutils literal"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_name" title="pyfos_switchfcport.fibrechannel_statistics.peek_name"><code class="xref py py-func docutils literal"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sampling-interval</td>
+<td>sampling interval in secs</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_sampling_interval" title="pyfos_switchfcport.fibrechannel_statistics.peek_sampling_interval"><code class="xref py py-func docutils literal"><span class="pre">peek_sampling_interval()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>time-generated</td>
+<td>timestamp of stats generation</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_time_generated" title="pyfos_switchfcport.fibrechannel_statistics.peek_time_generated"><code class="xref py py-func docutils literal"><span class="pre">peek_time_generated()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>reset-statistics</td>
+<td>reset the stats to zero</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_reset_statistics" title="pyfos_switchfcport.fibrechannel_statistics.peek_reset_statistics"><code class="xref py py-func docutils literal"><span class="pre">peek_reset_statistics()</span></code></a>
+<a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_reset_statistics" title="pyfos_switchfcport.fibrechannel_statistics.peek_reset_statistics"><code class="xref py py-func docutils literal"><span class="pre">peek_reset_statistics()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-octets</td>
+<td>ingress octets</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_octets" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_octets"><code class="xref py py-func docutils literal"><span class="pre">peek_in_octets()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-octets</td>
+<td>egress octets</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_octets" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_octets"><code class="xref py py-func docutils literal"><span class="pre">peek_out_octets()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-multicast-pkts</td>
+<td>ingress multicast packets</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_multicast_pkts" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_multicast_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_in_multicast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-multicast-pkts</td>
+<td>egress multicast packets</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_multicast_pkts" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_multicast_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_out_multicast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-link-resets</td>
+<td>ingress link resets</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_link_resets" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_link_resets"><code class="xref py py-func docutils literal"><span class="pre">peek_in_link_resets()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-link-resets</td>
+<td>egress link resets</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_link_resets" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_link_resets"><code class="xref py py-func docutils literal"><span class="pre">peek_out_link_resets()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-offline-sequences</td>
+<td>ingress offline sequences</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_offline_sequences" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_offline_sequences"><code class="xref py py-func docutils literal"><span class="pre">peek_in_offline_sequences()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-offline-sequences</td>
+<td>egress offline sequences</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_offline_sequences" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_offline_sequences"><code class="xref py py-func docutils literal"><span class="pre">peek_out_offline_sequences()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>invalid-ordered-sets</td>
+<td>invalid ordered sets</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_invalid_ordered_sets" title="pyfos_switchfcport.fibrechannel_statistics.peek_invalid_ordered_sets"><code class="xref py py-func docutils literal"><span class="pre">peek_invalid_ordered_sets()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>frames-too-long</td>
+<td>number of too long frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_frames_too_long" title="pyfos_switchfcport.fibrechannel_statistics.peek_frames_too_long"><code class="xref py py-func docutils literal"><span class="pre">peek_frames_too_long()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>truncated-frames</td>
+<td>truncated frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_truncated_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_truncated_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_truncated_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>address-errors</td>
+<td>address errors</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_address_errors" title="pyfos_switchfcport.fibrechannel_statistics.peek_address_errors"><code class="xref py py-func docutils literal"><span class="pre">peek_address_errors()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>delimiter-errors</td>
+<td>delimiter errors</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_delimiter_errors" title="pyfos_switchfcport.fibrechannel_statistics.peek_delimiter_errors"><code class="xref py py-func docutils literal"><span class="pre">peek_delimiter_errors()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>encoding-disparity-errors</td>
+<td>encoding disparity errors</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_encoding_disparity_errors" title="pyfos_switchfcport.fibrechannel_statistics.peek_encoding_disparity_errors"><code class="xref py py-func docutils literal"><span class="pre">peek_encoding_disparity_errors()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>too-many-rdys</td>
+<td>too many RDYs</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_too_many_rdys" title="pyfos_switchfcport.fibrechannel_statistics.peek_too_many_rdys"><code class="xref py py-func docutils literal"><span class="pre">peek_too_many_rdys()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-crc-errors</td>
+<td>total ingress CRC errors</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_crc_errors" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_crc_errors"><code class="xref py py-func docutils literal"><span class="pre">peek_in_crc_errors()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>crc-errors</td>
+<td>CRC errors</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_crc_errors" title="pyfos_switchfcport.fibrechannel_statistics.peek_crc_errors"><code class="xref py py-func docutils literal"><span class="pre">peek_crc_errors()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>bad-eofs-received</td>
+<td>ingress bad EOFs</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_bad_eofs_received" title="pyfos_switchfcport.fibrechannel_statistics.peek_bad_eofs_received"><code class="xref py py-func docutils literal"><span class="pre">peek_bad_eofs_received()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>encoding-errors-outside-frame</td>
+<td>encoding err outside of frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_encoding_errors_outside_frame" title="pyfos_switchfcport.fibrechannel_statistics.peek_encoding_errors_outside_frame"><code class="xref py py-func docutils literal"><span class="pre">peek_encoding_errors_outside_frame()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>multicast-timeouts</td>
+<td>multicast timeouts</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_multicast_timeouts" title="pyfos_switchfcport.fibrechannel_statistics.peek_multicast_timeouts"><code class="xref py py-func docutils literal"><span class="pre">peek_multicast_timeouts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-lcs</td>
+<td>ingress LCS</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_lcs" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_lcs"><code class="xref py py-func docutils literal"><span class="pre">peek_in_lcs()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-frame-rate</td>
+<td>ingress frame rate</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_frame_rate" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_frame_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_in_frame_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-frame-rate</td>
+<td>egress frame rate</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_frame_rate" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_frame_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_out_frame_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-max-frame-rate</td>
+<td>ingress max frame rate</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_max_frame_rate" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_max_frame_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_in_max_frame_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-max-frame-rate</td>
+<td>egress max frame rate</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_max_frame_rate" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_max_frame_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_out_max_frame_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-rate</td>
+<td>ingress byte rate</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_rate" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_in_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-rate</td>
+<td>egress byte rate</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_rate" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_out_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-peak-rate</td>
+<td>ingress peak rate</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_peak_rate" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_peak_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_in_peak_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-peak-rate</td>
+<td>egress peak rate</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_peak_rate" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_peak_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_out_peak_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-frames</td>
+<td>ingress frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_in_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_in_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-frames</td>
+<td>egress frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_out_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_out_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>bb-credit-zero</td>
+<td>bb credit zero events</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_bb_credit_zero" title="pyfos_switchfcport.fibrechannel_statistics.peek_bb_credit_zero"><code class="xref py py-func docutils literal"><span class="pre">peek_bb_credit_zero()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>input-buffer-full</td>
+<td>input buffer full events</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_input_buffer_full" title="pyfos_switchfcport.fibrechannel_statistics.peek_input_buffer_full"><code class="xref py py-func docutils literal"><span class="pre">peek_input_buffer_full()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>f-busy-frames</td>
+<td>F_BSY frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_f_busy_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_f_busy_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_f_busy_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>p-busy-frames</td>
+<td>P_BSY frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_p_busy_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_p_busy_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_p_busy_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>f-rjt-frames</td>
+<td>F_RJT frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_f_rjt_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_f_rjt_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_f_rjt_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>p-rjt-frames</td>
+<td>P_RJT frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_p_rjt_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_p_rjt_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_p_rjt_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>class-1-frames</td>
+<td>class 1 frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class_1_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_class_1_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_class_1_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>class-2-frames</td>
+<td>class 2 frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class_2_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_class_2_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_class_2_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>class-3-frames</td>
+<td>class 3 frames</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class_3_frames" title="pyfos_switchfcport.fibrechannel_statistics.peek_class_3_frames"><code class="xref py py-func docutils literal"><span class="pre">peek_class_3_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>class-3-discards</td>
+<td>classs 3 discards</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class_3_discards" title="pyfos_switchfcport.fibrechannel_statistics.peek_class_3_discards"><code class="xref py py-func docutils literal"><span class="pre">peek_class_3_discards()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>link-failures</td>
+<td>link failures</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_link_failures" title="pyfos_switchfcport.fibrechannel_statistics.peek_link_failures"><code class="xref py py-func docutils literal"><span class="pre">peek_link_failures()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>invalid-transmission-words</td>
+<td>invalid transmission words</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_invalid_transmission_words" title="pyfos_switchfcport.fibrechannel_statistics.peek_invalid_transmission_words"><code class="xref py py-func docutils literal"><span class="pre">peek_invalid_transmission_words()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>primitive-sequence-protocol-error</td>
+<td>primitive sequence proto err</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_primitive_sequence_protocol_error" title="pyfos_switchfcport.fibrechannel_statistics.peek_primitive_sequence_protocol_error"><code class="xref py py-func docutils literal"><span class="pre">peek_primitive_sequence_protocol_error()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>loss-of-signal</td>
+<td>loss of signal</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_loss_of_signal" title="pyfos_switchfcport.fibrechannel_statistics.peek_loss_of_signal"><code class="xref py py-func docutils literal"><span class="pre">peek_loss_of_signal()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>loss-of-sync</td>
+<td>loss of sync</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_loss_of_sync" title="pyfos_switchfcport.fibrechannel_statistics.peek_loss_of_sync"><code class="xref py py-func docutils literal"><span class="pre">peek_loss_of_sync()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>class3-in-discards</td>
+<td>class 3 ingress discards</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class3_in_discards" title="pyfos_switchfcport.fibrechannel_statistics.peek_class3_in_discards"><code class="xref py py-func docutils literal"><span class="pre">peek_class3_in_discards()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>class3-out-discards</td>
+<td>class 3 egress discards</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class3_out_discards" title="pyfos_switchfcport.fibrechannel_statistics.peek_class3_out_discards"><code class="xref py py-func docutils literal"><span class="pre">peek_class3_out_discards()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>pcs-block-errors</td>
+<td>PCS block errors</td>
+<td><a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics.peek_pcs_block_errors" title="pyfos_switchfcport.fibrechannel_statistics.peek_pcs_block_errors"><code class="xref py py-func docutils literal"><span class="pre">peek_pcs_block_errors()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics" title="pyfos_switchfcport.fibrechannel_statistics"><code class="xref py py-class docutils literal"><span class="pre">fibrechannel_statistics</span></code></a> object or
+a list of objects filled with attributes gathered
+from switch. If optional name is given, either an
+object matching the name of the port is returned
+or an empty object is returned if no match is found.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed
+through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a <a class="reference internal" href="#pyfos_switchfcport.fibrechannel_statistics" title="pyfos_switchfcport.fibrechannel_statistics"><code class="xref py py-class docutils literal"><span class="pre">fibrechannel_statistics</span></code></a>
+object if name is given or a list of objects
+if there are more than one</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; port name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_sampling_interval">
+<code class="descname">peek_sampling_interval</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_sampling_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads sampling interval in seconds in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or sampling interval</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_time_generated">
+<code class="descname">peek_time_generated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_time_generated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads time generated, which indicates when statistics
+were captured, in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or time generated</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.set_reset_statistics">
+<code class="descname">set_reset_statistics</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.set_reset_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets reset mode in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; port name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_reset_statistics">
+<code class="descname">peek_reset_statistics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_reset_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads reset mode in the object. It should alwasy be 0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_octets">
+<code class="descname">peek_in_octets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_octets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress octets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress octets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_octets">
+<code class="descname">peek_out_octets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_octets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress octets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress octets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_multicast_pkts">
+<code class="descname">peek_in_multicast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_multicast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress multicast packets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress multicast packets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_multicast_pkts">
+<code class="descname">peek_out_multicast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_multicast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress multicast packets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress multicast packets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_link_resets">
+<code class="descname">peek_in_link_resets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_link_resets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress link resets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress link resets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_link_resets">
+<code class="descname">peek_out_link_resets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_link_resets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress link resets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress link resets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_offline_sequences">
+<code class="descname">peek_in_offline_sequences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_offline_sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress offline sequences in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress offline sequences</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_offline_sequences">
+<code class="descname">peek_out_offline_sequences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_offline_sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress offline sequences in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress offline sequences</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_invalid_ordered_sets">
+<code class="descname">peek_invalid_ordered_sets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_invalid_ordered_sets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of invalid ordered sets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of invalid ordered sets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_frames_too_long">
+<code class="descname">peek_frames_too_long</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_frames_too_long" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of frames too long in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of frames too long</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_truncated_frames">
+<code class="descname">peek_truncated_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_truncated_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of truncated frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of truncated frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_address_errors">
+<code class="descname">peek_address_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_address_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of address errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of address errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_delimiter_errors">
+<code class="descname">peek_delimiter_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_delimiter_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of delimiter errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of delimiter errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_encoding_disparity_errors">
+<code class="descname">peek_encoding_disparity_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_encoding_disparity_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of encoding disparity errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of encoding disparity errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_too_many_rdys">
+<code class="descname">peek_too_many_rdys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_too_many_rdys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of too many rdys in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of too many rdys</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_crc_errors">
+<code class="descname">peek_in_crc_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_crc_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress CRC errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress CRC errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_crc_errors">
+<code class="descname">peek_crc_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_crc_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of crc errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of crc errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_bad_eofs_received">
+<code class="descname">peek_bad_eofs_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_bad_eofs_received" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of bad EOFs in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of bad EOFs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_encoding_errors_outside_frame">
+<code class="descname">peek_encoding_errors_outside_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_encoding_errors_outside_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of encoding errors outside of frame in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of encoding errors outside of frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_multicast_timeouts">
+<code class="descname">peek_multicast_timeouts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_multicast_timeouts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of multicast timeouts in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of multicast timeouts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_lcs">
+<code class="descname">peek_in_lcs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_lcs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress LCS in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress LCS</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_frame_rate">
+<code class="descname">peek_in_frame_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_frame_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ingress frame rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ingress frame rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_frame_rate">
+<code class="descname">peek_out_frame_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_frame_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads egress frame rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or egress frame rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_max_frame_rate">
+<code class="descname">peek_in_max_frame_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_max_frame_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ingress max frame rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ingress max frame rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_max_frame_rate">
+<code class="descname">peek_out_max_frame_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_max_frame_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads egress max frame rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or egress max frame rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_rate">
+<code class="descname">peek_in_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ingress rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ingress rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_rate">
+<code class="descname">peek_out_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads egress rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or egress rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_peak_rate">
+<code class="descname">peek_in_peak_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_peak_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ingress peak rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ingress peak rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_peak_rate">
+<code class="descname">peek_out_peak_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_peak_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress peak rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or egress peak rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_in_frames">
+<code class="descname">peek_in_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_in_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_out_frames">
+<code class="descname">peek_out_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_out_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_bb_credit_zero">
+<code class="descname">peek_bb_credit_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_bb_credit_zero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of times when bb credit went to zero in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of times when bb credit went to zero</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_input_buffer_full">
+<code class="descname">peek_input_buffer_full</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_input_buffer_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of times when input buffer wass full in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of times when input buffer was full</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_f_busy_frames">
+<code class="descname">peek_f_busy_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_f_busy_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of f busy frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of f busy frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_p_busy_frames">
+<code class="descname">peek_p_busy_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_p_busy_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of p busy frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of p busy frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_f_rjt_frames">
+<code class="descname">peek_f_rjt_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_f_rjt_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of f reject frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of f reject frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_p_rjt_frames">
+<code class="descname">peek_p_rjt_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_p_rjt_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of p reject frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of p reject frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_class_1_frames">
+<code class="descname">peek_class_1_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class_1_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 1 frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 1 frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_class_2_frames">
+<code class="descname">peek_class_2_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class_2_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 2 frames sets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 2 frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_class_3_frames">
+<code class="descname">peek_class_3_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class_3_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 3 frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 3 frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_class_3_discards">
+<code class="descname">peek_class_3_discards</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class_3_discards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 3 discards in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 3 discards</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_link_failures">
+<code class="descname">peek_link_failures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_link_failures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of link failures in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of link failures</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_invalid_transmission_words">
+<code class="descname">peek_invalid_transmission_words</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_invalid_transmission_words" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of invalid transmission words in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of invalid transmission words</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_primitive_sequence_protocol_error">
+<code class="descname">peek_primitive_sequence_protocol_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_primitive_sequence_protocol_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of primitive sequence protocl errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of primitive sequence protocol errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_loss_of_signal">
+<code class="descname">peek_loss_of_signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_loss_of_signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of loss of signal events in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of loss of signal events</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_loss_of_sync">
+<code class="descname">peek_loss_of_sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_loss_of_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of loss of sync events in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of loss of sync events</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_class3_in_discards">
+<code class="descname">peek_class3_in_discards</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class3_in_discards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 3 ingress discards in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 3 ingress discards</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_class3_out_discards">
+<code class="descname">peek_class3_out_discards</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_class3_out_discards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 3 egress discards in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 3 egress discards</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_switchfcport.fibrechannel_statistics.peek_pcs_block_errors">
+<code class="descname">peek_pcs_block_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.fibrechannel_statistics.peek_pcs_block_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of pcs block errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of pcs block errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_switchfcport.operational_status_type_to_str">
+<code class="descclassname">pyfos_switchfcport.</code><code class="descname">operational_status_type_to_str</code><span class="sig-paren">(</span><em>speed_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.operational_status_type_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string value for operational status type in integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>os_type</strong> &#8211; operational status type in <code class="xref py py-class docutils literal"><span class="pre">OPERATIONAL_STATUS_TYPE</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">operational status type in string value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_switchfcport.port_type_to_str">
+<code class="descclassname">pyfos_switchfcport.</code><code class="descname">port_type_to_str</code><span class="sig-paren">(</span><em>port_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.port_type_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string value for port type in integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port_type</strong> &#8211; port type in <code class="xref py py-class docutils literal"><span class="pre">PORT_TYPE</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">port type in string value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_switchfcport.speed_type_to_str">
+<code class="descclassname">pyfos_switchfcport.</code><code class="descname">speed_type_to_str</code><span class="sig-paren">(</span><em>speed_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_switchfcport.speed_type_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string value for speed type in integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>speed_type</strong> &#8211; speed type in <code class="xref py py-class docutils literal"><span class="pre">SPEED_TYPE</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">speed type in string value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_switch.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">pyfos_switch</span></code> - PyFOS module to provide rest support for FC switch.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_zone.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">pyfos_zone</span></code> - PyFOS module to provide rest support for Zoning.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_switchfcport.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_zone.html" title="pyfos_zone - PyFOS module to provide rest support for Zoning."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_switch.html" title="pyfos_switch - PyFOS module to provide rest support for FC switch."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Daniel Chung.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

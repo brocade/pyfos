@@ -1,0 +1,9 @@
+.. automodule:: pyfos_extension_iproute
+	:platform: Linux
+	:synopsis: PyFOS module to support object based module for developer.
+	:members:
+
+.. seealso::
+
+	Module :mod:`pyfos_rest_utils`
+	Module :mod:`pyfos_auth`

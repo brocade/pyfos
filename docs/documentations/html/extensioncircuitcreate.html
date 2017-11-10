@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>extensioncircuitcreate - PyFOS util for creating a circuit object. &mdash; PyFOS 0.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
+    <link rel="next" title="extensioncircuitdelete - PyFOS util for deleting a circuit object." href="extensioncircuitdelete.html" />
+    <link rel="prev" title="defzone - PyFOS util for specific Zoning use case." href="defzone.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extensioncircuitdelete.html" title="extensioncircuitdelete - PyFOS util for deleting a circuit object."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="defzone.html" title="defzone - PyFOS util for specific Zoning use case."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-extensioncircuitcreate"></span><div class="section" id="extensioncircuitcreate-pyfos-util-for-creating-a-circuit-object">
+<h1><a class="reference internal" href="#module-extensioncircuitcreate" title="extensioncircuitcreate: PyFOS module to create a extension tunnel use case (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">extensioncircuitcreate</span></code></a> - PyFOS util for creating a circuit object.<a class="headerlink" href="#extensioncircuitcreate-pyfos-util-for-creating-a-circuit-object" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-extensioncircuitcreate" title="extensioncircuitcreate: PyFOS module to create a extension tunnel use case (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">extensioncircuitcreate</span></code></a> provides circuit creation functionality.</p>
+<p>This module is a standalone script that can be used to create an extension
+circuit.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>-L=&lt;login&gt;: Login ID. If not provided, interactive</dt>
+<dd><p class="first last">prompt will request one.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>-P=&lt;password&gt;: Password. If not provided, interactive</dt>
+<dd><p class="first last">prompt will request one.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">-i=&lt;IP address&gt;: IP address</p>
+</li>
+<li><dl class="first docutils">
+<dt>-n=&lt;name&gt;: slot/port name of the tunnel object for which this</dt>
+<dd><p class="first last">circuit is created.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">-c=&lt;circuit-id&gt;: circuit Id of the circuit</p>
+</li>
+<li><p class="first">-S=&lt;local-ip-address&gt;: Local IP Address of the circuit.</p>
+</li>
+<li><p class="first">-D=&lt;remote-ip-address&gt;: Remote IP Address of the circuit.</p>
+</li>
+<li><p class="first">-b=&lt;minimum-communication-rate&gt;: min comm rate of the circuit.</p>
+</li>
+<li><p class="first">-B=&lt;maximum-communication-rate&gt;: max comm rate of the circuit.</p>
+</li>
+<li><dl class="first docutils">
+<dt>-f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,</dt>
+<dd><p class="first last">VFID of 128 is assumed.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">-a=&lt;admin-enabled&gt;: If circuit is admin enabled</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><ul class="first last simple">
+<li>Python dictionary content with RESTCONF response data</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="extensioncircuitcreate.extensioncircuitcreate.create_extension_circuit">
+<code class="descclassname">extensioncircuitcreate.</code><code class="descname">create_extension_circuit</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>cid</em>, <em>local</em>, <em>remote</em>, <em>minB = 500000</em>, <em>maxB=50000</em><span class="sig-paren">)</span><a class="headerlink" href="#extensioncircuitcreate.extensioncircuitcreate.create_extension_circuit" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Create extension circuit</em></p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">extensioncircuitcreate</span><span class="o">.</span><span class="n">create_extension_circuit</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span>                <span class="n">local</span><span class="p">,</span> <span class="n">remote</span><span class="p">,</span> <span class="n">minB</span> <span class="o">=</span> <span class="mi">500000</span><span class="p">,</span> <span class="n">maxB</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">circuit</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;circuit-id&quot;</span><span class="p">:</span> <span class="n">circuit</span><span class="p">,</span>
+                <span class="s2">&quot;local-ip-address&quot;</span><span class="p">:</span> <span class="n">local</span><span class="p">,</span>
+                <span class="s2">&quot;remote-ip-address&quot;</span> <span class="p">:</span> <span class="n">remote</span><span class="p">,</span>
+                <span class="s2">&quot;minimum-communication-rate&quot;</span><span class="p">:</span> <span class="n">minB</span><span class="p">,</span>
+                <span class="s2">&quot;maximum-communication-rate&quot;</span><span class="p">:</span> <span class="n">maxB</span><span class="p">,</span>
+          <span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">extensioncircuitcreate</span><span class="o">.</span><span class="n">_create_extension_circuit</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">circuit</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">VE port name expressed as slot/port.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param cid:</th><td class="field-body">circuit ID .</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param local:</th><td class="field-body">circuit local IP address.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param remote:</th><td class="field-body">circuit Remote IP Address.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param minB:</th><td class="field-body">Min comm rate for the circuit.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param maxB:</th><td class="field-body">Max comm rate for the circuit.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:    </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>use cases</em></p>
+<ol class="arabic simple">
+<li>create a new circuit to an existing tunnel</li>
+</ol>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="defzone.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">defzone</span></code> - PyFOS util for specific Zoning use case.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extensioncircuitdelete.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">extensioncircuitdelete</span></code> - PyFOS util for deleting a circuit object.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/extensioncircuitcreate.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extensioncircuitdelete.html" title="extensioncircuitdelete - PyFOS util for deleting a circuit object."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="defzone.html" title="defzone - PyFOS util for specific Zoning use case."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Daniel Chung.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

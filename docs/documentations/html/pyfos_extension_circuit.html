@@ -1,0 +1,1460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyfos_extension_circuit - PyFOS module to provide rest support for Extension Circuit objects. &mdash; PyFOS 0.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
+    <link rel="next" title="pyfos_extension_ipaddress - PyFOS module to provide rest support for Extension IP Address objects." href="pyfos_extension_ipaddress.html" />
+    <link rel="prev" title="pyfos_brocade_gigabitethernet - PyFOS module to provide rest support for GigE objects." href="pyfos_brocade_gigabitethernet.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_extension_ipaddress.html" title="pyfos_extension_ipaddress - PyFOS module to provide rest support for Extension IP Address objects."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_gigabitethernet.html" title="pyfos_brocade_gigabitethernet - PyFOS module to provide rest support for GigE objects."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_extension_circuit"></span><div class="section" id="pyfos-extension-circuit-pyfos-module-to-provide-rest-support-for-extension-circuit-objects">
+<h1><a class="reference internal" href="#module-pyfos_extension_circuit" title="pyfos_extension_circuit: PyFOS module to support object based module for developer. (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_extension_circuit</span></code></a> - PyFOS module to provide rest support for Extension Circuit objects.<a class="headerlink" href="#pyfos-extension-circuit-pyfos-module-to-provide-rest-support-for-extension-circuit-objects" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_extension_circuit" title="pyfos_extension_circuit: PyFOS module to support object based module for developer. (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_extension_circuit</span></code></a> provides a REST support for Extension  Circuit objects.</p>
+<dl class="class">
+<dt id="pyfos_extension_circuit.extension_circuit">
+<em class="property">class </em><code class="descclassname">pyfos_extension_circuit.</code><code class="descname">extension_circuit</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of extension_circuit</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="28%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used functions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>The slot/port name of VE port</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_name" title="pyfos_extension_circuit.extension_circuit.peek_name"><code class="xref py py-func docutils literal"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>The slot/port name of VE port</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_name" title="pyfos_extension_circuit.extension_circuit.set_name"><code class="xref py py-func docutils literal"><span class="pre">set_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>circuit-id</td>
+<td>Circuit ID</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_circuit_id" title="pyfos_extension_circuit.extension_circuit.peek_circuit_id"><code class="xref py py-func docutils literal"><span class="pre">peek_circuit_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>circuit-id</td>
+<td>Circuit ID</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_circuit_id" title="pyfos_extension_circuit.extension_circuit.set_circuit_id"><code class="xref py py-func docutils literal"><span class="pre">set_circuit_id()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>local-ip-address</td>
+<td>Ciruit local IP address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_local_ip_address" title="pyfos_extension_circuit.extension_circuit.peek_local_ip_address"><code class="xref py py-func docutils literal"><span class="pre">peek_local_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>local-ip-address</td>
+<td>Ciruit local IP address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_local_ip_address" title="pyfos_extension_circuit.extension_circuit.set_local_ip_address"><code class="xref py py-func docutils literal"><span class="pre">set_local_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>remote-ip-address</td>
+<td>Ciruit remote IP address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_remote_ip_address" title="pyfos_extension_circuit.extension_circuit.peek_remote_ip_address"><code class="xref py py-func docutils literal"><span class="pre">peek_remote_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>remote-ip-address</td>
+<td>Ciruit remote IP address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_remote_ip_address" title="pyfos_extension_circuit.extension_circuit.set_remote_ip_address"><code class="xref py py-func docutils literal"><span class="pre">set_remote_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>local-ha-ip-address</td>
+<td>Ciruit local HA IP address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_local_ha_ip_address" title="pyfos_extension_circuit.extension_circuit.peek_local_ha_ip_address"><code class="xref py py-func docutils literal"><span class="pre">peek_local_ha_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>local-ha-ip-address</td>
+<td>Ciruit local HA IP address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_local_ha_ip_address" title="pyfos_extension_circuit.extension_circuit.set_local_ha_ip_address"><code class="xref py py-func docutils literal"><span class="pre">set_local_ha_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>remote-ha-ip-address</td>
+<td>Ciruit remote HA IP address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_remote_ha_ip_address" title="pyfos_extension_circuit.extension_circuit.peek_remote_ha_ip_address"><code class="xref py py-func docutils literal"><span class="pre">peek_remote_ha_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>remote-ha-ip-address</td>
+<td>Ciruit remote HA IP address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_remote_ha_ip_address" title="pyfos_extension_circuit.extension_circuit.set_remote_ha_ip_address"><code class="xref py py-func docutils literal"><span class="pre">set_remote_ha_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>metric</td>
+<td>Circuit metric value</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_metric" title="pyfos_extension_circuit.extension_circuit.peek_metric"><code class="xref py py-func docutils literal"><span class="pre">peek_metric()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>metric</td>
+<td>Circuit metric value</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_metric" title="pyfos_extension_circuit.extension_circuit.set_metric"><code class="xref py py-func docutils literal"><span class="pre">set_metric()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>admin-enabled</td>
+<td>The admin enabled tnl state</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_admin_enabled" title="pyfos_extension_circuit.extension_circuit.peek_admin_enabled"><code class="xref py py-func docutils literal"><span class="pre">peek_admin_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>admin-enabled</td>
+<td>The admin enabled tnl state</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_admin_enabled" title="pyfos_extension_circuit.extension_circuit.set_admin_enabled"><code class="xref py py-func docutils literal"><span class="pre">set_admin_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>circuit-status</td>
+<td>The Circuit status</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_circuit_status" title="pyfos_extension_circuit.extension_circuit.peek_circuit_status"><code class="xref py py-func docutils literal"><span class="pre">peek_circuit_status()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>path-mtu-discovered</td>
+<td>Path MTU discovered</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_path_mtu_discovered" title="pyfos_extension_circuit.extension_circuit.peek_path_mtu_discovered"><code class="xref py py-func docutils literal"><span class="pre">peek_path_mtu_discovered()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>failover-group-id</td>
+<td>Circuit Failover group ID</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_failover_group_id" title="pyfos_extension_circuit.extension_circuit.peek_failover_group_id"><code class="xref py py-func docutils literal"><span class="pre">peek_failover_group_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>failover-group-id</td>
+<td>Circuit Failover group ID</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_failover_group_id" title="pyfos_extension_circuit.extension_circuit.set_failover_group_id"><code class="xref py py-func docutils literal"><span class="pre">set_failover_group_id()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>minimum-communication-rate</td>
+<td>Min Comm rate of circuit</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_minimum_communication_rate" title="pyfos_extension_circuit.extension_circuit.peek_minimum_communication_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_minimum_communication_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>minimum-communication-rate</td>
+<td>Min Comm rate of circuit</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_minimum_communication_rate" title="pyfos_extension_circuit.extension_circuit.set_minimum_communication_rate"><code class="xref py py-func docutils literal"><span class="pre">set_minimum_communication_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>maximum-communication-rate</td>
+<td>Max Comm rate of circuit</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_maximum_communication_rate" title="pyfos_extension_circuit.extension_circuit.peek_maximum_communication_rate"><code class="xref py py-func docutils literal"><span class="pre">peek_maximum_communication_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>maximum-communication-rate</td>
+<td>Max Comm rate of circuit</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_maximum_communication_rate" title="pyfos_extension_circuit.extension_circuit.set_maximum_communication_rate"><code class="xref py py-func docutils literal"><span class="pre">set_maximum_communication_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vlan-id</td>
+<td>The Circuit vlan ID</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_vlan_id" title="pyfos_extension_circuit.extension_circuit.peek_vlan_id"><code class="xref py py-func docutils literal"><span class="pre">peek_vlan_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>l2-cos</td>
+<td>l2cos</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos" title="pyfos_extension_circuit.extension_circuit.peek_l2_cos"><code class="xref py py-func docutils literal"><span class="pre">peek_l2_cos()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>l2-cos</td>
+<td>l2cos</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos" title="pyfos_extension_circuit.extension_circuit.set_l2_cos"><code class="xref py py-func docutils literal"><span class="pre">set_l2_cos()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>priority-control</td>
+<td>control priority</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_priority_control" title="pyfos_extension_circuit.extension_circuit.peek_l2_cos_priority_control"><code class="xref py py-func docutils literal"><span class="pre">peek_l2_cos_priority_control()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>priority-control</td>
+<td>control priority</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_priority_control" title="pyfos_extension_circuit.extension_circuit.set_l2_cos_priority_control"><code class="xref py py-func docutils literal"><span class="pre">set_l2_cos_priority_control()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fc-priority-high</td>
+<td>FC QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_high" title="pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_high"><code class="xref py py-func docutils literal"><span class="pre">peek_l2_cos_fc_priority_high()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fc-priority-high</td>
+<td>FC QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_high" title="pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_high"><code class="xref py py-func docutils literal"><span class="pre">set_l2_cos_fc_priority_high()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fc-priority-medium</td>
+<td>FC QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_medium" title="pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_medium"><code class="xref py py-func docutils literal"><span class="pre">peek_l2_cos_fc_priority_medium()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fc-priority-medium</td>
+<td>FC QOS Medium</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_medium" title="pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_medium"><code class="xref py py-func docutils literal"><span class="pre">set_l2_cos_fc_priority_medium()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fc-priority-low</td>
+<td>FC QOS Low</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_low" title="pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_low"><code class="xref py py-func docutils literal"><span class="pre">peek_l2_cos_fc_priority_low()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fc-priority-low</td>
+<td>FC QOS Low</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_low" title="pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_low"><code class="xref py py-func docutils literal"><span class="pre">set_l2_cos_fc_priority_low()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ip-priority-high</td>
+<td>IP QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_high" title="pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_high"><code class="xref py py-func docutils literal"><span class="pre">peek_l2_cos_ip_priority_high()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ip-priority-high</td>
+<td>IP QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_high" title="pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_high"><code class="xref py py-func docutils literal"><span class="pre">set_l2_cos_ip_priority_high()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ip-priority-medium</td>
+<td>IP QOS Medium</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_medium" title="pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_medium"><code class="xref py py-func docutils literal"><span class="pre">peek_l2_cos_ip_priority_medium()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ip-priority-medium</td>
+<td>IP QOS Medium</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_medium" title="pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_medium"><code class="xref py py-func docutils literal"><span class="pre">set_l2_cos_ip_priority_medium()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ip-priority-low</td>
+<td>IP QOS Low</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_low" title="pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_low"><code class="xref py py-func docutils literal"><span class="pre">peek_l2_cos_ip_priority_low()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ip-priority-low</td>
+<td>IP QOS LOw</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_low" title="pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_low"><code class="xref py py-func docutils literal"><span class="pre">set_l2_cos_ip_priority_low()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>dscp</td>
+<td>dscp</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_dscp" title="pyfos_extension_circuit.extension_circuit.peek_dscp"><code class="xref py py-func docutils literal"><span class="pre">peek_dscp()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>dscp</td>
+<td>dscp</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_dscp" title="pyfos_extension_circuit.extension_circuit.set_dscp"><code class="xref py py-func docutils literal"><span class="pre">set_dscp()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>priority-control</td>
+<td>control priority</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_priority_control" title="pyfos_extension_circuit.extension_circuit.peek_dscp_priority_control"><code class="xref py py-func docutils literal"><span class="pre">peek_dscp_priority_control()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>priority-control</td>
+<td>control priority</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_dscp_priority_control" title="pyfos_extension_circuit.extension_circuit.set_dscp_priority_control"><code class="xref py py-func docutils literal"><span class="pre">set_dscp_priority_control()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fc-priority-high</td>
+<td>FC QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_high" title="pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_high"><code class="xref py py-func docutils literal"><span class="pre">peek_dscp_fc_priority_high()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fc-priority-high</td>
+<td>FC QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_high" title="pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_high"><code class="xref py py-func docutils literal"><span class="pre">set_dscp_fc_priority_high()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fc-priority-medium</td>
+<td>FC QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_medium" title="pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_medium"><code class="xref py py-func docutils literal"><span class="pre">peek_dscp_fc_priority_medium()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fc-priority-medium</td>
+<td>FC QOS Medium</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_medium" title="pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_medium"><code class="xref py py-func docutils literal"><span class="pre">set_dscp_fc_priority_medium()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fc-priority-low</td>
+<td>FC QOS Low</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_low" title="pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_low"><code class="xref py py-func docutils literal"><span class="pre">peek_dscp_fc_priority_low()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fc-priority-low</td>
+<td>FC QOS Low</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_low" title="pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_low"><code class="xref py py-func docutils literal"><span class="pre">set_dscp_fc_priority_low()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ip-priority-high</td>
+<td>IP QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_high" title="pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_high"><code class="xref py py-func docutils literal"><span class="pre">peek_dscp_ip_priority_high()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ip-priority-high</td>
+<td>IP QOS High</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_high" title="pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_high"><code class="xref py py-func docutils literal"><span class="pre">set_dscp_ip_priority_high()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ip-priority-medium</td>
+<td>IP QOS Medium</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_medium" title="pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_medium"><code class="xref py py-func docutils literal"><span class="pre">peek_dscp_ip_priority_medium()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ip-priority-medium</td>
+<td>IP QOS Medium</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_medium" title="pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_medium"><code class="xref py py-func docutils literal"><span class="pre">set_dscp_ip_priority_medium()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ip-priority-low</td>
+<td>IP QOS Low</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_low" title="pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_low"><code class="xref py py-func docutils literal"><span class="pre">peek_dscp_ip_priority_low()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ip-priority-low</td>
+<td>IP QOS LOw</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_low" title="pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_low"><code class="xref py py-func docutils literal"><span class="pre">set_dscp_ip_priority_low()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>arl-algorithm-mode</td>
+<td>ARL alogirithm</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_arl_algorithm_mode" title="pyfos_extension_circuit.extension_circuit.peek_arl_algorithm_mode"><code class="xref py py-func docutils literal"><span class="pre">peek_arl_algorithm_mode()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>arl-algorithm-mode</td>
+<td>ARL algorithm</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.set_arl_algorithm_mode" title="pyfos_extension_circuit.extension_circuit.set_arl_algorithm_mode"><code class="xref py py-func docutils literal"><span class="pre">set_arl_algorithm_mode()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>keep-alive-timeout</td>
+<td>Keep alive timeout</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit.peek_keep_alive_timeout" title="pyfos_extension_circuit.extension_circuit.peek_keep_alive_timeout"><code class="xref py py-func docutils literal"><span class="pre">peek_keep_alive_timeout()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the object with values for all the attributes. Once filled, the object can be printed
+using <code class="xref py py-func docutils literal"><span class="pre">pyfos_utils.response_print()</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute functions</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads name from the tunnel object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_circuit_id">
+<code class="descname">peek_circuit_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_circuit_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads circuit ID from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_local_ip_address">
+<code class="descname">peek_local_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_local_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads local IP address from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_remote_ip_address">
+<code class="descname">peek_remote_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_remote_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads remote IP address from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_local_ha_ip_address">
+<code class="descname">peek_local_ha_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_local_ha_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads local HA IP address from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_remote_ha_ip_address">
+<code class="descname">peek_remote_ha_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_remote_ha_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads remote HA IP address from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_metric">
+<code class="descname">peek_metric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads metric from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_admin_enabled">
+<code class="descname">peek_admin_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_admin_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads admin enabled from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_circuit_status">
+<code class="descname">peek_circuit_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_circuit_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ciruit status from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_path_mtu_discovered">
+<code class="descname">peek_path_mtu_discovered</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_path_mtu_discovered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads path MTU discovered from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_failover_group_id">
+<code class="descname">peek_failover_group_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_failover_group_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads failover group id from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_minimum_communication_rate">
+<code class="descname">peek_minimum_communication_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_minimum_communication_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads minimum communication rate from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_maximum_communication_rate">
+<code class="descname">peek_maximum_communication_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_maximum_communication_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads maximum communication rate from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_vlan_id">
+<code class="descname">peek_vlan_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_vlan_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads vlan-id from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_l2_cos">
+<code class="descname">peek_l2_cos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads l2 cos from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_l2_cos_priority_control">
+<code class="descname">peek_l2_cos_priority_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_priority_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads priority control l2 cos from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_high">
+<code class="descname">peek_l2_cos_fc_priority_high</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_high" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FC high l2 cos from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_medium">
+<code class="descname">peek_l2_cos_fc_priority_medium</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_medium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FC medium l2 cos from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_low">
+<code class="descname">peek_l2_cos_fc_priority_low</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_fc_priority_low" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FC low l2 cos from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_high">
+<code class="descname">peek_l2_cos_ip_priority_high</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_high" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP high l2 cos from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_medium">
+<code class="descname">peek_l2_cos_ip_priority_medium</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_medium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP medium l2 cos from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_low">
+<code class="descname">peek_l2_cos_ip_priority_low</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_l2_cos_ip_priority_low" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP low l2 cos from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_dscp">
+<code class="descname">peek_dscp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_dscp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads dscp value from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_dscp_priority_control">
+<code class="descname">peek_dscp_priority_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_priority_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads priority control dscp value from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_high">
+<code class="descname">peek_dscp_fc_priority_high</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_high" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FC high dscp value from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_medium">
+<code class="descname">peek_dscp_fc_priority_medium</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_medium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FC medium dscp value from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_low">
+<code class="descname">peek_dscp_fc_priority_low</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_fc_priority_low" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FC low dscp value from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_high">
+<code class="descname">peek_dscp_ip_priority_high</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_high" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP High dscp value from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_medium">
+<code class="descname">peek_dscp_ip_priority_medium</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_medium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP medium dscp value from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_low">
+<code class="descname">peek_dscp_ip_priority_low</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_dscp_ip_priority_low" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP low dscp value from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_arl_algorithm_mode">
+<code class="descname">peek_arl_algorithm_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_arl_algorithm_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ARL algorithm from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.peek_keep_alive_timeout">
+<code class="descname">peek_keep_alive_timeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.peek_keep_alive_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads keep alive timeout from the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the name in the tunnel object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;name&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_circuit_id">
+<code class="descname">set_circuit_id</code><span class="sig-paren">(</span><em>ciruitID</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_circuit_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the circuit ID in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;circuit-id&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_local_ip_address">
+<code class="descname">set_local_ip_address</code><span class="sig-paren">(</span><em>localIP</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_local_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the local circuit IP address in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;local-ip-address&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_remote_ip_address">
+<code class="descname">set_remote_ip_address</code><span class="sig-paren">(</span><em>remoteIP</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_remote_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the Remote circuit IP address in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;remote-ip-address&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_local_ha_ip_address">
+<code class="descname">set_local_ha_ip_address</code><span class="sig-paren">(</span><em>localHAIP</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_local_ha_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the local HA circuit IP address in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;local-ha-ip-address&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_remote_ha_ip_address">
+<code class="descname">set_remote_ha_ip_address</code><span class="sig-paren">(</span><em>remoteHAIP</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_remote_ha_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the Remote HA circuit IP address in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;remote-ha-ip-address&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_metric">
+<code class="descname">set_metric</code><span class="sig-paren">(</span><em>metric</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the metric in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;metric&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_admin_enabled">
+<code class="descname">set_admin_enabled</code><span class="sig-paren">(</span><em>adminState</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_admin_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the admin enabled in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;admin-enabled&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_failover_group_id">
+<code class="descname">set_failover_group_id</code><span class="sig-paren">(</span><em>failoverGroup</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_failover_group_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the failover group id in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;failover-group-id&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_minimum_communication_rate">
+<code class="descname">set_minimum_communication_rate</code><span class="sig-paren">(</span><em>minCommRate</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_minimum_communication_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the min comm rate in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;minimum-communication-rate&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_maximum_communication_rate">
+<code class="descname">set_maximum_communication_rate</code><span class="sig-paren">(</span><em>maxCommRate</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_maximum_communication_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the max comm rate in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;maximum-communication-rate&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_l2_cos">
+<code class="descname">set_l2_cos</code><span class="sig-paren">(</span><em>l2cos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;l2-cos&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_l2_cos_priority_control">
+<code class="descname">set_l2_cos_priority_control</code><span class="sig-paren">(</span><em>controll2Cos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_priority_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the priority control l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;priority-control&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_high">
+<code class="descname">set_l2_cos_fc_priority_high</code><span class="sig-paren">(</span><em>fcHighl2Cos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_high" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the FC high l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;fc-priority-high&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_medium">
+<code class="descname">set_l2_cos_fc_priority_medium</code><span class="sig-paren">(</span><em>fcMedl2Cos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_medium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the FC medium l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;fc-priority-medium&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_low">
+<code class="descname">set_l2_cos_fc_priority_low</code><span class="sig-paren">(</span><em>fcLowl2Cos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_fc_priority_low" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the FC low l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;fc-priority-low&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_high">
+<code class="descname">set_l2_cos_ip_priority_high</code><span class="sig-paren">(</span><em>ipHighl2Cos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_high" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the IP high l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;ip-priority-high&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_medium">
+<code class="descname">set_l2_cos_ip_priority_medium</code><span class="sig-paren">(</span><em>ipMediuml2Cos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_medium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the IP medium l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;ip-priority-medium&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_low">
+<code class="descname">set_l2_cos_ip_priority_low</code><span class="sig-paren">(</span><em>iplowl2Cos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_l2_cos_ip_priority_low" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the IP low l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;ip-priority-low&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_dscp">
+<code class="descname">set_dscp</code><span class="sig-paren">(</span><em>dscp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_dscp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the dscp in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;l2-cos&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_dscp_priority_control">
+<code class="descname">set_dscp_priority_control</code><span class="sig-paren">(</span><em>controldscp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_dscp_priority_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the priority control l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;priority-control&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_high">
+<code class="descname">set_dscp_fc_priority_high</code><span class="sig-paren">(</span><em>fcHighdscp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_high" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the FC high l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;fc-priority-high&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_medium">
+<code class="descname">set_dscp_fc_priority_medium</code><span class="sig-paren">(</span><em>fcMeddscp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_medium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the FC medium l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;fc-priority-medium&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_low">
+<code class="descname">set_dscp_fc_priority_low</code><span class="sig-paren">(</span><em>fcLowdscp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_dscp_fc_priority_low" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the FC low l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;fc-priority-low&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_high">
+<code class="descname">set_dscp_ip_priority_high</code><span class="sig-paren">(</span><em>ipHighdscp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_high" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the IP high l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;ip-priority-high&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_medium">
+<code class="descname">set_dscp_ip_priority_medium</code><span class="sig-paren">(</span><em>ipMediumdscp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_medium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the IP medium l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;ip-priority-medium&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_low">
+<code class="descname">set_dscp_ip_priority_low</code><span class="sig-paren">(</span><em>iplowdscp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_dscp_ip_priority_low" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the IP low l2 cos in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;ip-priority-low&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit.set_arl_algorithm_mode">
+<code class="descname">set_arl_algorithm_mode</code><span class="sig-paren">(</span><em>arlAlgorithmMode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit.set_arl_algorithm_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ARL algorithm in the circuit object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;arl-algorithm-mode&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics">
+<em class="property">class </em><code class="descclassname">pyfos_extension_circuit.</code><code class="descname">extension_circuit_statistics</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of extension_circuit_statistics</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="28%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used functions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>The slot/port name of GE port</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_name" title="pyfos_extension_circuit.extension_circuit_statistics.peek_name"><code class="xref py py-func docutils literal"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>The slot/port name of GE port</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.set_name" title="pyfos_extension_circuit.extension_circuit_statistics.set_name"><code class="xref py py-func docutils literal"><span class="pre">set_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>circuit-id</td>
+<td>Circuit ID</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_circuit_id" title="pyfos_extension_circuit.extension_circuit_statistics.peek_circuit_id"><code class="xref py py-func docutils literal"><span class="pre">peek_circuit_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>circuit-id</td>
+<td>Circuit ID</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.set_circuit_id" title="pyfos_extension_circuit.extension_circuit_statistics.set_circuit_id"><code class="xref py py-func docutils literal"><span class="pre">set_circuit_id()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>flow-status</td>
+<td>The IPv4/IPv6 address</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_flow_status" title="pyfos_extension_circuit.extension_circuit_statistics.peek_flow_status"><code class="xref py py-func docutils literal"><span class="pre">peek_flow_status()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>operational-status</td>
+<td>Data-path Processor ID</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_operational_status" title="pyfos_extension_circuit.extension_circuit_statistics.peek_operational_status"><code class="xref py py-func docutils literal"><span class="pre">peek_operational_status()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>connection-count</td>
+<td>The prefix length of IP</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_connection_count" title="pyfos_extension_circuit.extension_circuit_statistics.peek_connection_count"><code class="xref py py-func docutils literal"><span class="pre">peek_connection_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>duration</td>
+<td>The maximum transmission unit</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_duration" title="pyfos_extension_circuit.extension_circuit_statistics.peek_duration"><code class="xref py py-func docutils literal"><span class="pre">peek_duration()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>metric</td>
+<td>Circuit metric value</td>
+<td><a class="reference internal" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_metric" title="pyfos_extension_circuit.extension_circuit_statistics.peek_metric"><code class="xref py py-func docutils literal"><span class="pre">peek_metric()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the object with values for all the attributes. Once filled, the object can be printed
+using <code class="xref py py-func docutils literal"><span class="pre">pyfos_utils.response_print()</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute functions</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads name from the circuit stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.peek_circuit_id">
+<code class="descname">peek_circuit_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_circuit_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads circuit ID from the circuit stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.peek_flow_status">
+<code class="descname">peek_flow_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_flow_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads flow status from the circuit stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.peek_operational_status">
+<code class="descname">peek_operational_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_operational_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the operation status from the circuit stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.peek_connection_count">
+<code class="descname">peek_connection_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_connection_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the connection count from the circuit stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.peek_duration">
+<code class="descname">peek_duration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the duration for from the circuit stats object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.peek_metric">
+<code class="descname">peek_metric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.peek_metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads metric from the circuit stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;name&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_extension_circuit.extension_circuit_statistics.set_circuit_id">
+<code class="descname">set_circuit_id</code><span class="sig-paren">(</span><em>circuitID</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_extension_circuit.extension_circuit_statistics.set_circuit_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the circuit ID name in the circuit stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;circuit-id&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <code class="xref py py-mod docutils literal"><span class="pre">pyfos_rest_utils</span></code>
+Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_gigabitethernet.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">pyfos_brocade_gigabitethernet</span></code> - PyFOS module to provide rest support for GigE objects.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_extension_ipaddress.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">pyfos_extension_ipaddress</span></code> - PyFOS module to provide rest support for Extension IP Address objects.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_extension_circuit.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_extension_ipaddress.html" title="pyfos_extension_ipaddress - PyFOS module to provide rest support for Extension IP Address objects."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_gigabitethernet.html" title="pyfos_brocade_gigabitethernet - PyFOS module to provide rest support for GigE objects."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Daniel Chung.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyfos_brocade_gigabitethernet - PyFOS module to provide rest support for GigE objects. &mdash; PyFOS 0.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
+    <link rel="next" title="pyfos_extension_circuit - PyFOS module to provide rest support for Extension Circuit objects." href="pyfos_extension_circuit.html" />
+    <link rel="prev" title="pyfos_zone - PyFOS module to provide rest support for Zoning." href="pyfos_zone.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_extension_circuit.html" title="pyfos_extension_circuit - PyFOS module to provide rest support for Extension Circuit objects."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_zone.html" title="pyfos_zone - PyFOS module to provide rest support for Zoning."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_gigabitethernet"></span><div class="section" id="pyfos-brocade-gigabitethernet-pyfos-module-to-provide-rest-support-for-gige-objects">
+<h1><a class="reference internal" href="#module-pyfos_brocade_gigabitethernet" title="pyfos_brocade_gigabitethernet: PyFOS module to support object based module for developer. (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_brocade_gigabitethernet</span></code></a> - PyFOS module to provide rest support for GigE objects.<a class="headerlink" href="#pyfos-brocade-gigabitethernet-pyfos-module-to-provide-rest-support-for-gige-objects" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_gigabitethernet" title="pyfos_brocade_gigabitethernet: PyFOS module to support object based module for developer. (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_brocade_gigabitethernet</span></code></a> provides a REST support for GigE objects.</p>
+<dl class="class">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_gigabitethernet.</code><code class="descname">extension_gigabitethernet</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Important class members:</p>
+<blockquote>
+<div><blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="31%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used functions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>The slot/port name of GE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_name" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_name"><code class="xref py py-func docutils literal"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>The slot/port name of GE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_name" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_name"><code class="xref py py-func docutils literal"><span class="pre">set_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>enabled-state</td>
+<td>The state of the GiGE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_enabled_state" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_enabled_state"><code class="xref py py-func docutils literal"><span class="pre">peek_enabled_state()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>enabled-state</td>
+<td>The state of the GiGE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_enabled_state" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_enabled_state"><code class="xref py py-func docutils literal"><span class="pre">set_enabled_state()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>speed</td>
+<td>The speed of GiGE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_speed" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_speed"><code class="xref py py-func docutils literal"><span class="pre">peek_speed()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>speed</td>
+<td>The speed of GiGE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_speed" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_speed"><code class="xref py py-func docutils literal"><span class="pre">set_speed()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>mac-address</td>
+<td>The mac-address of GiGE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_mac_address" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_mac_address"><code class="xref py py-func docutils literal"><span class="pre">peek_mac_address()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>operational-status</td>
+<td>GiGE port operational-status</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_operational_status" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_operational_status"><code class="xref py py-func docutils literal"><span class="pre">peek_operational_status()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>persistent-disable</td>
+<td>GiGE port persistent disabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_persistent_disable" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_persistent_disable"><code class="xref py py-func docutils literal"><span class="pre">peek_persistent_disable()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>persistent-disable</td>
+<td>GiGE port persistent disabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_persistent_disable" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_persistent_disable"><code class="xref py py-func docutils literal"><span class="pre">set_persistent_disable()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the object with values for all the attributes. Once filled, the object can be printed
+using <code class="xref py py-func docutils literal"><span class="pre">pyfos_utils.response_print()</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute functions</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads name from the GiGE port object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_enabled_state">
+<code class="descname">peek_enabled_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads enabled state from GiGE port object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_speed">
+<code class="descname">peek_speed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the speed from the GiGE port Object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_mac_address">
+<code class="descname">peek_mac_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_mac_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the mac address from the GiGE port object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_operational_status">
+<code class="descname">peek_operational_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_operational_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads operational status from the GiGE port object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_persistent_disable">
+<code class="descname">peek_persistent_disable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.peek_persistent_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads persistent disable state from the GiGE port object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the name in the GiGE port object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;name&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_enabled_state">
+<code class="descname">set_enabled_state</code><span class="sig-paren">(</span><em>enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the enabled state in the GiGE port object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;ip-address&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_speed">
+<code class="descname">set_speed</code><span class="sig-paren">(</span><em>speed</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the Speed in the GiGE port object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;dp-id&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_persistent_disable">
+<code class="descname">set_persistent_disable</code><span class="sig-paren">(</span><em>disabled</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet.set_persistent_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the persistent disabled in the GiGE port object..</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;ip-prefix-length&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_gigabitethernet.</code><code class="descname">extension_gigabitethernet_statistics</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Important class members:</p>
+<blockquote>
+<div><blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="31%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used functions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>The slot/port name of GE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_name" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_name"><code class="xref py py-func docutils literal"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>The slot/port name of GE port</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.set_name" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.set_name"><code class="xref py py-func docutils literal"><span class="pre">set_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>reset-statistics</td>
+<td>Reset the GigE statistic</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_reset_statistics" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_reset_statistics"><code class="xref py py-func docutils literal"><span class="pre">peek_reset_statistics()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>reset-statistics</td>
+<td>Reset the GigE statistic</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.set_reset_statistics" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.set_reset_statistics"><code class="xref py py-func docutils literal"><span class="pre">set_reset_statistics()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-pkts</td>
+<td>The total out packets</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_out_pkts()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-octets</td>
+<td>The total out octets</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_octets" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_octets"><code class="xref py py-func docutils literal"><span class="pre">peek_out_octets()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-unicast-pkts</td>
+<td>The total out unicast pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_unicast_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_unicast_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_out_unicast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-multicast-pkts</td>
+<td>The total out multicast pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_multicast_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_multicast_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_out_multicast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-broadcast-pkts</td>
+<td>The total out broadcast pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_broadcast_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_broadcast_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_out_broadcast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-vlan-pkts</td>
+<td>The total out vlan pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_vlan_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_vlan_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_out_vlan_pkts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-pause-pkts</td>
+<td>The total out pause pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_pause_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_pause_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_out_pause_pkts()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-pkts</td>
+<td>The total in packets</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_in_pkts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-octets</td>
+<td>The total in octets</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_octets" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_octets"><code class="xref py py-func docutils literal"><span class="pre">peek_in_octets()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-unicast-pkts</td>
+<td>The total in unicast pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_unicast_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_unicast_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_in_unicast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-multicast-pkts</td>
+<td>The total in multicast pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_multicast_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_multicast_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_in_multicast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-broadcast-pkts</td>
+<td>The total in broadcast pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_broadcast_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_broadcast_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_in_broadcast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-vlan-pkts</td>
+<td>The total in vlan pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_vlan_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_vlan_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_in_vlan_pkts()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-pause-pkts</td>
+<td>The total in pause pkts</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_pause_pkts" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_pause_pkts"><code class="xref py py-func docutils literal"><span class="pre">peek_in_pause_pkts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>carrier-loss-error</td>
+<td>The total carrier loss err</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_carrier_loss_error" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_carrier_loss_error"><code class="xref py py-func docutils literal"><span class="pre">peek_carrier_loss_error()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>crc-error</td>
+<td>The total crc err</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_crc_error" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_crc_error"><code class="xref py py-func docutils literal"><span class="pre">peek_crc_error()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>jabber-error</td>
+<td>The total jabber err</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_jabber_error" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_jabber_error"><code class="xref py py-func docutils literal"><span class="pre">peek_jabber_error()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>time-generated</td>
+<td>The time stats were generated</td>
+<td><a class="reference internal" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_time_generated" title="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_time_generated"><code class="xref py py-func docutils literal"><span class="pre">peek_time_generated()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the object with values for all the attributes. Once filled, the object can be printed
+using <code class="xref py py-func docutils literal"><span class="pre">pyfos_utils.response_print()</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; session handler returned by <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute functions</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads name from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_reset_statistics">
+<code class="descname">peek_reset_statistics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_reset_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads reset statistics state from GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_pkts">
+<code class="descname">peek_out_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the outgoing packets from the GiGE port stats object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_octets">
+<code class="descname">peek_out_octets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_octets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the outgoing octets from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_unicast_pkts">
+<code class="descname">peek_out_unicast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_unicast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads outgoing unicast packets from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_multicast_pkts">
+<code class="descname">peek_out_multicast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_multicast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads outgoing multicast packets from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_broadcast_pkts">
+<code class="descname">peek_out_broadcast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_broadcast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads outgoing broadcast packets from GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_vlan_pkts">
+<code class="descname">peek_out_vlan_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_vlan_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the outgoing vlan packets from the GiGE port stats object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_pause_pkts">
+<code class="descname">peek_out_pause_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_out_pause_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the outgoing pause packets from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_pkts">
+<code class="descname">peek_in_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the incoming packets from the GiGE port stats object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_octets">
+<code class="descname">peek_in_octets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_octets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the incoming octets from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_unicast_pkts">
+<code class="descname">peek_in_unicast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_unicast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads incoming unicast packets from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_multicast_pkts">
+<code class="descname">peek_in_multicast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_multicast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads incoming multicast packets from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_broadcast_pkts">
+<code class="descname">peek_in_broadcast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_broadcast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads incoming broadcast packets from GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_vlan_pkts">
+<code class="descname">peek_in_vlan_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_vlan_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the incomin vlan packets from the GiGE port stats object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_pause_pkts">
+<code class="descname">peek_in_pause_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_in_pause_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the incoming pause packets from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_carrier_loss_error">
+<code class="descname">peek_carrier_loss_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_carrier_loss_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads total carrier loss errors from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_crc_error">
+<code class="descname">peek_crc_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_crc_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads total CRC errors from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_jabber_error">
+<code class="descname">peek_jabber_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_jabber_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads total jabber errors from the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_time_generated">
+<code class="descname">peek_time_generated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.peek_time_generated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the generation time of GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the name in the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;name&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.set_reset_statistics">
+<code class="descname">set_reset_statistics</code><span class="sig-paren">(</span><em>reset</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_gigabitethernet.extension_gigabitethernet_statistics.set_reset_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the reset statistics in the GiGE port stats object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value with &#8220;reset-statistics&#8221; as key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <code class="xref py py-mod docutils literal"><span class="pre">pyfos_rest_utils</span></code>
+Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_zone.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">pyfos_zone</span></code> - PyFOS module to provide rest support for Zoning.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_extension_circuit.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">pyfos_extension_circuit</span></code> - PyFOS module to provide rest support for Extension Circuit objects.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_gigabitethernet.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_extension_circuit.html" title="pyfos_extension_circuit - PyFOS module to provide rest support for Extension Circuit objects."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_zone.html" title="pyfos_zone - PyFOS module to provide rest support for Zoning."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Daniel Chung.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

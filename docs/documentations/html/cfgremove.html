@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cfgremove - PyFOS util for specific Zoning use case. &mdash; PyFOS 0.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
+    <link rel="next" title="cfgsave - PyFOS util for specific Zoning use case." href="cfgsave.html" />
+    <link rel="prev" title="cfgenable - PyFOS util for specific Zoning use case." href="cfgenable.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cfgsave.html" title="cfgsave - PyFOS util for specific Zoning use case."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cfgenable.html" title="cfgenable - PyFOS util for specific Zoning use case."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-cfgremove"></span><div class="section" id="cfgremove-pyfos-util-for-specific-zoning-use-case">
+<h1><a class="reference internal" href="#module-cfgremove" title="cfgremove: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">cfgremove</span></code></a> - PyFOS util for specific Zoning use case.<a class="headerlink" href="#cfgremove-pyfos-util-for-specific-zoning-use-case" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-cfgremove" title="cfgremove: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">cfgremove</span></code></a> provides for specific Zoning use case.</p>
+<p>This module is a standalone script and API that can be used to remove existing
+member(s) from existing cfg(s).</p>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>-L=&lt;login&gt;: Login ID. If not provided, interactive</dt>
+<dd><p class="first last">prompt will request one.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>-P=&lt;password&gt;: Password. If not provided, interactive</dt>
+<dd><p class="first last">prompt will request one.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">-i=&lt;IP address&gt;: IP address</p>
+</li>
+<li><p class="first">-n=&lt;cfg name&gt;: string name of an existing cfg</p>
+</li>
+<li><p class="first">-m=&lt;member list&gt;: list of members seperated by &#8221;:&#8221;</p>
+</li>
+<li><dl class="first docutils">
+<dt>-f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,</dt>
+<dd><p class="first last">VFID of 128 is assumed.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><ul class="first last simple">
+<li>Python dictionary content with RESTCONF response data</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="cfgremove.cfgremove">
+<code class="descclassname">cfgremove.</code><code class="descname">cfgremove</code><span class="sig-paren">(</span><em>session</em>, <em>cfgs</em><span class="sig-paren">)</span><a class="headerlink" href="#cfgremove.cfgremove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove from existing cfg(s) specified member(s)</p>
+<p>Example usage of the method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cfgs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;cfg-name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;member-zone&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;zone-name&quot;</span><span class="p">:</span> <span class="n">members</span><span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">cfgremove</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">cfgs</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> &#8211; session returned by login</li>
+<li><strong>cfgs</strong> &#8211; an array of cfg and members</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dictionary of return status matching rest response</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>use cases</em></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>remove members from existing cfg</li>
+</ol>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cfgenable.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">cfgenable</span></code> - PyFOS util for specific Zoning use case.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cfgsave.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">cfgsave</span></code> - PyFOS util for specific Zoning use case.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cfgremove.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cfgsave.html" title="cfgsave - PyFOS util for specific Zoning use case."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cfgenable.html" title="cfgenable - PyFOS util for specific Zoning use case."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Daniel Chung.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

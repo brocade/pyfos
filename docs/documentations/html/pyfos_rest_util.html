@@ -1,0 +1,674 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyfos_rest_util - PyFOS module to provide rest support for FOS objects. &mdash; PyFOS 0.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
+    <link rel="next" title="pyfos_util - PyFOS module to provide utility functions." href="pyfos_util.html" />
+    <link rel="prev" title="pyfos_auth - PyFOS module to faciliate estabishing a session to FOS switch" href="pyfos_auth.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_util.html" title="pyfos_util - PyFOS module to provide utility functions."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_auth.html" title="pyfos_auth - PyFOS module to faciliate estabishing a session to FOS switch"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_rest_util"></span><div class="section" id="pyfos-rest-util-pyfos-module-to-provide-rest-support-for-fos-objects">
+<h1><a class="reference internal" href="#module-pyfos_rest_util" title="pyfos_rest_util: PyFOS module to provide REST utiity functions (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_rest_util</span></code></a> - PyFOS module to provide rest support for FOS objects.<a class="headerlink" href="#pyfos-rest-util-pyfos-module-to-provide-rest-support-for-fos-objects" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_rest_util" title="pyfos_rest_util: PyFOS module to provide REST utiity functions (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_rest_util</span></code></a> provides a framework to add new FOS objects for REST support.</p>
+<dl class="docutils">
+<dt>-Steps to add REST support for new FOS object</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Add a new enum for your FOS object in the rest_obj_type class.</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<dl class="last docutils">
+<dt><code class="docutils literal"><span class="pre">class</span> <span class="pre">rest_obj_type():</span></code></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">unknown</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">=</span> <span class="pre">0</span></code>
+<code class="docutils literal"><span class="pre">**ipif**</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">=</span> <span class="pre">**11**</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Add the name of your FOS object type in the function getrestobjectname.</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><dl class="first last docutils">
+<dt><code class="docutils literal"><span class="pre">elif</span> <span class="pre">objtype</span> <span class="pre">==</span> <span class="pre">rest_obj_type.ipif:</span></code></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">return</span> <span class="pre">&quot;Extension</span> <span class="pre">IP</span> <span class="pre">ADDRESS&quot;</span></code></p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><p class="first">Inherit from class rest_object and init the base class.</p>
+</li>
+<li><p class="first">Add attributes as per the yang definitions as per <cite>Steps to add a Rest Attribute</cite>.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><dl class="first last docutils">
+<dt><code class="docutils literal"><span class="pre">class</span> <span class="pre">extension_ipaddress(rest_object):</span></code></dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal"><span class="pre">def</span> <span class="pre">__init__(self,</span> <span class="pre">session,</span> <span class="pre">dictvalues={}):</span></code></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">rest_object.__init__(self,</span> <span class="pre">session,</span> <span class="pre">rest_obj_type.ipif,</span> <span class="pre">&quot;/rest/running/brocade-interface/extension-ip-interface&quot;)</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;name&quot;,</span> <span class="pre">None,</span> <span class="pre">1,</span> <span class="pre">0))</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;ip-address&quot;,</span> <span class="pre">None,</span> <span class="pre">1,</span> <span class="pre">0))</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;dp-id&quot;,</span> <span class="pre">None,</span> <span class="pre">1,</span> <span class="pre">0))</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;ip-prefix-length&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1))</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;mtu-size&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1))</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;vlan-id&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1))</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;status-flags&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">0))</span></code>
+<code class="docutils literal"><span class="pre">self.load(dictvalues)</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+<dt>-Steps to add REST attributes in a FOS object.</dt>
+<dd><ul class="first last">
+<li><p class="first">Leaf attribute with no parent.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;name&quot;,</span> <span class="pre">None,</span> <span class="pre">1,</span> <span class="pre">0))</span></code></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Container or list attribute</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;l2-cos&quot;,</span> <span class="pre">dict(),</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">**1**))</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><p class="first">leaf attribute with another container or list as its parent.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;priority-control&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1),</span> <span class="pre">**[&quot;l2-cos&quot;]**)</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;fc-priority-high&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1),</span> <span class="pre">**[&quot;l2-cos&quot;]**)</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;fc-priority-medium&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1),</span> <span class="pre">**[&quot;l2-cos&quot;]**)</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;fc-priority-low&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1),</span> <span class="pre">**[&quot;l2-cos&quot;]**)</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;ip-priority-high&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1),</span> <span class="pre">**[&quot;l2-cos&quot;]**)</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;ip-priority-medium&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1),**[&quot;l2-cos&quot;]**)</span></code>
+<code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;ip-priority-low&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1),</span> <span class="pre">**[l2-cos]**)</span></code></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+<dt>-setters and getters for attributes</dt>
+<dd><p class="first">Any attrbute added in the derived class of rest object has the option to get
+and set value for each attribute. For each attribute in the derived class a
+default setter and getter function is installed and can be invoked independently
+as and when needed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body"><ol class="first last arabic simple">
+<li>The getters and setters are prefixed with <a href="#id1"><span class="problematic" id="id2">get_</span></a> or <a href="#id3"><span class="problematic" id="id4">set_</span></a>.</li>
+<li>Then it contains all the parents string starting from the top level container till the immediate parent concatenated with an underscore &#8216;_&#8217;.</li>
+<li>Then it contains the corresponding attrbute name.</li>
+<li>All &#8216;-&#8216; are replaced with &#8216;_&#8217; and in lowercase for installing the function.</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="last">
+<li><dl class="first docutils">
+<dt>Leaf attribute with no parent:  </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;vlan-id&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1))</span></code></p>
+<ul class="simple">
+<li>Default setter: <strong>set_vlan_id</strong></li>
+<li>Default getter: <strong>get_vlan_id</strong></li>
+</ul>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body"><p class="first">In test code following can be invoked by the user as below.</p>
+<p class="last"><code class="docutils literal"><span class="pre">myipobject</span> <span class="pre">=</span> <span class="pre">pyfos_extension_ipaddress.extension_ipaddress(session)</span></code>
+<code class="docutils literal"><span class="pre">myipobject.set_vlan_id(800)</span></code>
+<code class="docutils literal"><span class="pre">myipobject.get_vlan_id()</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Container or List attribute.</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;l2-cos&quot;,</span> <span class="pre">dict(),</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">**1**))</span></code></p>
+<ul class="simple">
+<li>Default setter: <strong>set_l2_cos</strong></li>
+<li>Default getter: <strong>get_l2cos</strong></li>
+</ul>
+<blockquote class="last">
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body"><p class="first">The value for setter will be a list of dictionary values from its child attributes.</p>
+<p class="last"><code class="docutils literal"><span class="pre">mytunnelobject</span> <span class="pre">=</span> <span class="pre">pyfos_extn_tunnel.extension_tunnel(session)</span></code>
+<code class="docutils literal"><span class="pre">mytunnelobject.set_l2_cos([{</span> <span class="pre">'priority-control&quot;:</span> <span class="pre">0,</span> <span class="pre">'fc-priority-high&quot;</span> <span class="pre">:</span> <span class="pre">1</span> <span class="pre">........}])</span></code>
+<code class="docutils literal"><span class="pre">mytunnelobject.get_l2_cos()</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Leaf attribute with another container or list as its parent.</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">self.add(rest_attribute(&quot;fc-priority-low&quot;,</span> <span class="pre">None,</span> <span class="pre">0,</span> <span class="pre">1),</span> <span class="pre">``</span>
+<span class="pre">**[&quot;l2-cos&quot;]**</span>
+<span class="pre">``)</span></code></p>
+<ul class="simple">
+<li>Default setter: <strong>set_l2_cos_fc_priority_low</strong></li>
+<li>Default getter: <strong>get_l2cos_fc_priority_low</strong></li>
+</ul>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body"><p class="first">The value for setter will be a list of dictionary values from its child attributes.</p>
+<p class="last"><code class="docutils literal"><span class="pre">mytunnelobject</span> <span class="pre">=</span> <span class="pre">pyfos_extn_tunnel.extension_tunnel(session)</span></code>
+<code class="docutils literal"><span class="pre">mytunnelobject.set_l2_cos_fc_priority_low(5)</span></code>
+<code class="docutils literal"><span class="pre">mytunnelobject.get_l2_cos_fc_priority_low()</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>-writting a test code.</p>
+<dl class="function">
+<dt id="pyfos_rest_util.getrestobjectname">
+<code class="descclassname">pyfos_rest_util.</code><code class="descname">getrestobjectname</code><span class="sig-paren">(</span><em>objtype</em>, <em>fmt=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.getrestobjectname" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function provides the name for all instance of rest_object supported by FOS</p>
+<p>All derived class from rest_object should define their object name.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_rest_util.rest_attribute">
+<em class="property">class </em><code class="descclassname">pyfos_rest_util.</code><code class="descname">rest_attribute</code><span class="sig-paren">(</span><em>name</em>, <em>a_type</em>, <em>value={}</em>, <em>properties={}</em>, <em>parent=0</em>, <em>list_count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class encompasses a rest attribute and may be a leaf or be a container attribute as per yang</p>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd><p class="first">name: The <cite>name</cite> of the attribute as per the yang definition.
+is_config:  The <cite>is_config</cite> indicates if its a config attribute as per yang.
+isattributemap:  The <cite>isattributemap</cite> indicates if its a container attribute as per yang.
+is_key: The <cite>is_key</cite> confirms if its key attribute.
+parent: The <cite>parent</cite> is the parent container of object.
+value: The <cite>value</cite> of the attribute. The details of attribute value is as below.</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>Leaf Attribute <strong>value</strong> is the value of the object</li>
+<li>Container Attribute <strong>value</strong> is the value of its children dictionary.</li>
+<li>Leaf List Attribute <strong>Value</strong> is a list of values.</li>
+<li>Container List Attribute <strong>value</strong> is a list of dictionary values of a child.</li>
+</ul>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.addchild">
+<code class="descname">addchild</code><span class="sig-paren">(</span><em>attribute</em>, <em>list_count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.addchild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a child attribute to anpther attribute which is a map</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.addhierarchy">
+<code class="descname">addhierarchy</code><span class="sig-paren">(</span><em>attribute</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.addhierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a child attribute to anpther attribute which is a map</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.clone">
+<code class="descname">clone</code><span class="sig-paren">(</span><em>list_count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clone an Attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.clone_hierarchy">
+<code class="descname">clone_hierarchy</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>parent</em>, <em>list_count</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.clone_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clone the attribute hierarchy of the attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.compare">
+<code class="descname">compare</code><span class="sig-paren">(</span><em>retdict</em>, <em>reset_modified=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare the object to the passed dictionary values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy Constructor for an Attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.create_html_content">
+<code class="descname">create_html_content</code><span class="sig-paren">(</span><em>optype</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.create_html_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the post string data equivalent for an Attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.display">
+<code class="descname">display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display an Attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.fromdict">
+<code class="descname">fromdict</code><span class="sig-paren">(</span><em>attribdict</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.fromdict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign the attrbiute value from a dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getallparentstring">
+<code class="descname">getallparentstring</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getallparentstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the parent string for generic setters and getters implementation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getchildattrib">
+<code class="descname">getchildattrib</code><span class="sig-paren">(</span><em>name</em>, <em>list_count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getchildattrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Child attribute for this Attribute.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getclonename">
+<code class="descname">getclonename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getclonename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the clone name of the rest_attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.gethierarchy">
+<code class="descname">gethierarchy</code><span class="sig-paren">(</span><em>attribute</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.gethierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the clone hierarchy of the attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getisattributelist">
+<code class="descname">getisattributelist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getisattributelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the isattributemap value of this attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getisattributemap">
+<code class="descname">getisattributemap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getisattributemap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the isattributemap value of this attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getisconfig">
+<code class="descname">getisconfig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getisconfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the is_config value of this attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getiskey">
+<code class="descname">getiskey</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getiskey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the is_key value of this attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getisvaluechanged">
+<code class="descname">getisvaluechanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getisvaluechanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get if the value is changed for the object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getname">
+<code class="descname">getname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of the rest_attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getuservalue">
+<code class="descname">getuservalue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getuservalue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute this is External function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.getvalue">
+<code class="descname">getvalue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.getvalue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute this is internal function for the object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.is_top_level">
+<code class="descname">is_top_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.is_top_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the attribute is top level i.e direct child attribute of the rest object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.modified">
+<code class="descname">modified</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if any of the values in the object is modified</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.objdisplay">
+<code class="descname">objdisplay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.objdisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display an Attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.reprJSON">
+<code class="descname">reprJSON</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.reprJSON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the JSON representation of the rest_attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.setclonename">
+<code class="descname">setclonename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.setclonename" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the cloning name and should be called after linking it with the Parent is complete</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.setparent">
+<code class="descname">setparent</code><span class="sig-paren">(</span><em>parent</em>, <em>list_count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.setparent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parent of the rest_attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.setuservalue">
+<code class="descname">setuservalue</code><span class="sig-paren">(</span><em>value</em>, <em>changed=1</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.setuservalue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the attribute External function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.setvalue">
+<code class="descname">setvalue</code><span class="sig-paren">(</span><em>value</em>, <em>changed=1</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.setvalue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the attribute internal function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.setvaluechanged">
+<code class="descname">setvaluechanged</code><span class="sig-paren">(</span><em>changed</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.setvaluechanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set if the value is changed for the object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.supportedop">
+<code class="descname">supportedop</code><span class="sig-paren">(</span><em>op</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.supportedop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the attribute is supported for the GET methods requested</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.todict">
+<code class="descname">todict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.todict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the attribute in to a dictonary</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_attribute.uri_string">
+<code class="descname">uri_string</code><span class="sig-paren">(</span><em>optype</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_attribute.uri_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the uri string data equivalent for an Attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_rest_util.rest_get_method">
+<em class="property">class </em><code class="descclassname">pyfos_rest_util.</code><code class="descname">rest_get_method</code><a class="headerlink" href="#pyfos_rest_util.rest_get_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides enum definition for different request methods for rest_handler class</p>
+<p>Based on these enum definitions the rest handler class creates appropriate URI and or POST data for request.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_rest_util.rest_handler">
+<em class="property">class </em><code class="descclassname">pyfos_rest_util.</code><code class="descname">rest_handler</code><span class="sig-paren">(</span><em>uri_base</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class encompasses all the REST operations supported from the FOS Objects as per yang</p>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>session: The login <cite>session</cite> to a FOS switch.
+uri_base:  The <cite>uri_base</cite> is the base URI string to access the corresponding object.
+obj:  The <cite>obj</cite> is the corresponding rest object instance for rest_handler to work on.
+test: The <cite>test</cite> dictionary is to capture all the different test executions.</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_rest_util.rest_obj_type">
+<em class="property">class </em><code class="descclassname">pyfos_rest_util.</code><code class="descname">rest_obj_type</code><a class="headerlink" href="#pyfos_rest_util.rest_obj_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class identifies the different rest objects supported by FOS</p>
+<p>All derived class from rest_object should define their enum here accordingly</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_rest_util.rest_object">
+<em class="property">class </em><code class="descclassname">pyfos_rest_util.</code><code class="descname">rest_object</code><span class="sig-paren">(</span><em>obj_type</em>, <em>uri</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class encompasses a REST supported FOS object as per yang</p>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>obj_type: The <cite>obj_type</cite> corresponding to a FOS object.
+uri_base:  The <cite>uri_base</cite> is the base URI string to access the corresponding object.
+obj:  The <cite>obj</cite> is the corresponding rest object instance for rest_handler to work on.
+test: The <cite>test</cite> dictionary is to capture all the different test executions.</dd>
+</dl>
+<dl class="method">
+<dt id="pyfos_rest_util.rest_object.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>attribute</em>, <em>parents=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function is to add the attribute to the rest object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_object.addclone">
+<code class="descname">addclone</code><span class="sig-paren">(</span><em>name</em>, <em>attribute</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object.addclone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the clone instance Update</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_object.display">
+<code class="descname">display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function is to serialize the object to a dictionary</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_object.getcontainer">
+<code class="descname">getcontainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object.getcontainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rest container object name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_object.gethierarchy">
+<code class="descname">gethierarchy</code><span class="sig-paren">(</span><em>clonename</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object.gethierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the clone hierarchy given a clone name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_object.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>dictvalues</em>, <em>changed=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function is to load or deserialze from a dictionary of values into the object itself</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_object.objdisplay">
+<code class="descname">objdisplay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object.objdisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function is to serialize the object to a dictionary with object pointer details</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_rest_util.rest_object.reprJSON">
+<code class="descname">reprJSON</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_rest_util.rest_object.reprJSON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represent the rest object in the JSON format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_auth.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">pyfos_auth</span></code> - PyFOS module to faciliate         estabishing a session to FOS switch</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_util.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">pyfos_util</span></code> - PyFOS module to provide utility functions.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_rest_util.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_util.html" title="pyfos_util - PyFOS module to provide utility functions."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_auth.html" title="pyfos_auth - PyFOS module to faciliate estabishing a session to FOS switch"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Daniel Chung.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>
