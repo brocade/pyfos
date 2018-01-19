@@ -29,7 +29,7 @@ Providing invalid session information will result in error.
     termination of a session is recommended after usage.
 
 .. note::
-    A session is defaulted to Virtual Fabric ID of 128 at the time
+    A session is defaulted to Virtual Fabric ID of -1 at the time
     of login. And must be changed using :func:`vfid_set` to
     direct the subsequent requests to a given VFID.
 
@@ -94,12 +94,12 @@ def login(username, password, ip_addr, isHttps):
             return {CREDENTIAL_KEY:
                     {LOGIN_ERROR_KEY: ip_addr + " refused connection"},
                     "ip_addr": ip_addr,
-                    "vfid": 128, "ishttps": isHttps, "debug": 0}
+                    "vfid": -1, "ishttps": isHttps, "debug": 0}
         elif serr.errno == errno.EHOSTUNREACH:
             return {CREDENTIAL_KEY:
                     {LOGIN_ERROR_KEY: ip_addr + " not reachable"},
                     "ip_addr": ip_addr,
-                    "vfid": 128, "ishttps": isHttps, "debug": 0}
+                    "vfid": -1, "ishttps": isHttps, "debug": 0}
         else:
             print("unknown error:", serr.errno)
 
@@ -107,7 +107,7 @@ def login(username, password, ip_addr, isHttps):
         return credential
     else:
         return {CREDENTIAL_KEY: credential, "ip_addr": ip_addr,
-                "vfid": 128, "ishttps": isHttps, "debug": 0}
+                "vfid": -1, "ishttps": isHttps, "debug": 0}
 
 
 def logout(session):
