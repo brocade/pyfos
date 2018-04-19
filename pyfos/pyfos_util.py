@@ -1,4 +1,5 @@
-# Copyright 2017 Brocade Communications Systems, Inc.  All rights reserved.
+# Copyright © 2018 Broadcom.  All rights reserved.
+# The term "Broadcom" refers to Broadcom Inc. and /or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,13 +16,16 @@
 
 :mod:`pyfos_util` - PyFOS module to provide utility functions.
 *********************************************************************************************************
-The :mod:`pyfos_util` provides a utility functions.
+The :mod:`pyfos_util` provides utility functions.
 
 """
+from colorconsole import terminal
 
 import http.client as httplib
 import json
+import ssl
 import xmltodict
+import time
 from requests.utils import quote
 
 VF_ID = "?vf-id="
@@ -43,6 +47,8 @@ class test():
         self.overall_passed = True
         self.overall_result_description = None
         self.requests = []
+        self.logs = None
+        self.myobject = None
 
 
 class result():
@@ -56,6 +62,7 @@ class result():
 current_test = None
 executed_tests = []
 current_request = None
+screen = None
 
 
 class json_encoder(json.JSONEncoder):
@@ -91,15 +98,9 @@ def set_response_parse(response):
                      "redirection-message": response.reason,
                      "redirection-type": "Redirection"}
     elif response.status >= 400 and response.status < 500:
-        # if response.status == 404:
-        #     ret_error = {"server-error-code": response.status,
-        #                  "server-error-message": response.reason,
-        #                  "server-error-type": "Server error",
-        #                  "error-message": "No such URI"}
-        #     return ret_error
-        # page = response.read()
-        # print page
-        ret_error = parse_page(page)
+        ret_error = {"client-error-code": response.status,
+                     "client-error-message": response.reason,
+                     "client-errors": parse_page(page)}
     else:
         ret_error = {"server-error-code": response.status,
                      "server-error-message": response.reason,
@@ -108,11 +109,11 @@ def set_response_parse(response):
     return ret_error
 
 
-def get_response_parse(response):
+def get_response_parse(response, is_options=False):
 
     page = response.read()
 
-    # print page
+    # print(page)
 
     test_parse_response(response, page)
 
@@ -123,17 +124,20 @@ def get_response_parse(response):
         return ret_error
     elif response.status >= 200 and response.status < 300:
         # print page
-        ret_elements = parse_page(page)
-        return ret_elements["Response"]
+        if is_options:
+            return response.getheader("Allow").split(", ")
+        else:
+            ret_elements = parse_page(page)
+            return ret_elements["Response"]
     elif response.status >= 300 and response.status < 400:
         ret_error = {"redirection-code": response.status,
                      "redirection-message": response.reason,
                      "redirection-type": "Redirection"}
         return ret_error
     elif response.status >= 400 and response.status < 500:
-        # page = response.read()
-        # print page
-        ret_error = parse_page(page)
+        ret_error = {"client-error-code": response.status,
+                     "client-error-message": response.reason,
+                     "client-errors": parse_page(page)}
     else:
         ret_error = {"server-error-code": response.status,
                      "server-error-message": response.reason,
@@ -144,14 +148,80 @@ def get_response_parse(response):
 
 def test_title_set(title, description):
     global current_test
-
+    global screen
+    if screen is None:
+        screen = terminal.get_terminal(conEmu=False)
     if current_test is None:
-        print("Starting test case", title, ":", description)
+        print('\nStarting test case:', title, "::", description, "::", end="")
         current_test = test(title, description)
     else:
+        print_current_test()
         executed_tests.append(current_test)
-        print("Starting test case", title, ":", description)
+        print('Starting test case:', title, "::", description, "::", end="")
         current_test = test(title, description)
+
+
+def print_test_red(arg):
+    global screen
+    if screen is not None:
+        screen.cprint(terminal.colors["RED"], None, arg + "\n")
+        screen.reset_colors()
+    else:
+        print(arg)
+
+
+def print_test_green(arg):
+    global screen
+    if screen is not None:
+        screen.cprint(terminal.colors["GREEN"], None, arg + "\n")
+        screen.reset_colors()
+    else:
+        print(arg)
+
+
+def print_test_yellow(arg):
+    global screen
+    if screen is not None:
+        screen.cprint(terminal.colors["YELLOW"], None, arg + "\n")
+        screen.reset_colors()
+    else:
+        print(arg)
+
+
+def print_test_blue(arg):
+    global screen
+    if screen is not None:
+        screen.cprint(terminal.colors["BLUE"], None, arg + "\n")
+        screen.reset_colors()
+    else:
+        print(arg)
+
+
+def print_test_lblue(arg):
+    global screen
+    if screen is not None:
+        screen.cprint(terminal.colors["LBLUE"], None, arg + "\n")
+        screen.reset_colors()
+    else:
+        print(arg)
+
+
+def print_test_lgreen(arg):
+    global screen
+    if screen is not None:
+        screen.cprint(terminal.colors["LGREEN"], None, arg + "\n")
+        screen.reset_colors()
+    else:
+        print(arg)
+
+
+def print_test_lred(arg):
+    global screen
+    if screen is not None:
+        screen.cprint(terminal.colors["LRED"], None, arg + "\n")
+        screen.reset_colors()
+    else:
+        print(arg)
 
 
 def test_explicit_result_passed(description):
@@ -194,6 +264,46 @@ def test_negative_test_set(isErrReq):
     isErrorRequest = isErrReq
 
 
+def print_current_test():
+    global current_test
+    if current_test:
+        if current_test.overall_passed is True:
+            if isErrorRequest == 0:
+                print_test_green("Pass")
+            else:
+                print_test_yellow("Pass")
+        if current_test.overall_passed is False:
+            print_test_red("Fail")
+
+
+def test_add_logs(isVerbose, log, myobject=None):
+    global current_test
+    if current_test:
+        current_test.logs = log
+        if myobject is not None:
+            current_test.myobject = str(myobject)
+    if isVerbose == 1:
+        test_print_verbose_logs()
+
+
+def test_print_verbose_logs():
+    global current_test
+    if current_test:
+        if current_test.logs is not None:
+            print_test_yellow("\nDebug Logs for testcase::")
+            print_test_lblue(current_test.logs)
+        if current_test.myobject is not None:
+            print_test_yellow("Object details::")
+            print_test_lgreen(current_test.myobject)
+        print_test_yellow("Request/Response details::")
+        if len(current_test.requests) > 0:
+            print("===============================")
+            for request in current_test.requests:
+                print_test_lblue(request.request)
+                print_test_lgreen(request.response)
+                print(" ")
+
+
 def test_parse_response(response, page):
     # Print switch response as is if isDebug is set
     # and set the failed error if response has error
@@ -207,9 +317,9 @@ def test_parse_response(response, page):
 
 
 def response_print(response):
-    """Print dictionary into JSON format
+    """Prints dictionary into JSON format.
 
-    :param response: dictionary of information to be printed
+    :param response: Dictionary of information to be printed.
     """
     print(json.dumps(response, cls=json_encoder, sort_keys=True, indent=4))
 
@@ -221,6 +331,7 @@ def test_results_print():
     # make sure to pick up the last test
     if current_test is not None:
         executed_tests.append(current_test)
+        print_current_test()
 
     total = len(executed_tests)
     failed = 0
@@ -238,34 +349,36 @@ def test_results_print():
             else:
                 failed_requests += 1
 
-    print("\nTEST RESULTS SUMMARY:")
-    print("=====================\n")
-    print("Passed test cases:\t\t", passed)
-    print("Failed test cases:\t\t", failed)
-    print("Total test cases:\t\t", total)
-    print("Successful requests:\t\t", passed_requests)
-    print("Failed requests:\t\t", failed_requests)
-    print("Total requests:\t\t\t", passed_requests + failed_requests)
+    print_test_yellow("\nTEST RESULTS SUMMARY:")
+    print("=================================\n")
+    print_test_lgreen('{0:50}:{1:4}'.format("Passed test cases:", passed))
+    print_test_lred('{0:50}:{1:4}'.format("Failed test cases:", failed))
+    print_test_lblue('{0:50}:{1:4}'.format("Total test cases:", total))
+    print_test_green('{0:50}:{1:4}'.format("Successful requests:",
+                                           passed_requests))
+    print_test_red('{0:50}:{1:4}'.format("Failed requests:", failed_requests))
+    print_test_lblue('{0:50}:{1:4}'.format("Total requests:",
+                                           passed_requests + failed_requests))
 
     if failed == 0:
-        print("\nTest cases completed successfully.\n")
+        print_test_lgreen("\nTest cases completed successfully.")
     else:
-        print("\nFailed tests:")
+        print_test_lred("\nFailed tests:")
         print("=========================\n")
 
         count = 0
         for test in executed_tests:
             if test.overall_passed is False:
-                print("Error #", count, ":", test.title)
-                print("Test description:", test.description)
+                print_test_yellow("Error #" + str(count) + ":" + test.title)
+                print_test_lred("Test description:" + test.description + "\n")
                 if test.overall_result_description is not None:
-                    print("Test result description:",
-                          test.overall_result_description)
+                    print_test_red("Test result description:" +
+                                   str(test.overall_result_description))
                 if len(test.requests) > 0:
-                    print("=========")
+                    print("=================")
                     for request in test.requests:
-                        print(request.request)
-                        print(request.response)
+                        print_test_lblue(request.request)
+                        print_test_lred(request.response)
                         print(" ")
                         count += 1
 
@@ -274,7 +387,10 @@ def http_connection(session):
     ip_addr = session.get("ip_addr")
     isHttps = session.get("ishttps")
 
-    if isHttps == "1":
+    if isHttps == "self":
+        conn = httplib.HTTPSConnection(
+                ip_addr, context=ssl._create_unverified_context())
+    elif isHttps == "CA":
         conn = httplib.HTTPSConnection(ip_addr)
     else:
         conn = httplib.HTTPConnection(ip_addr)
@@ -294,7 +410,9 @@ def debug(session, http_cmd, cmd, content):
     debug = session.get("debug")
     isHttps = session.get("ishttps")
 
-    if isHttps == "1":
+    if isHttps == "self":
+        http_cmd += HTTPS
+    elif isHttps == "CA":
         http_cmd += HTTPS
     else:
         http_cmd += HTTP
@@ -314,6 +432,24 @@ def debug(session, http_cmd, cmd, content):
     current_request = request
 
 
+def options_request(session, cmd, content):
+    credential = session.get("credential")
+    vfidstr = vfidstr_get(session)
+
+    conn = http_connection(session)
+
+    debug(session, GET, cmd + vfidstr, content)
+
+    conn.request("OPTIONS", cmd + vfidstr, content, credential)
+
+    delay = session.get("throttle_delay")
+    if delay > 0:
+        time.sleep(delay)
+
+    resp = conn.getresponse()
+    return get_response_parse(resp, True)
+
+
 def get_request(session, cmd, content):
     credential = session.get("credential")
     vfidstr = vfidstr_get(session)
@@ -323,6 +459,10 @@ def get_request(session, cmd, content):
     debug(session, GET, cmd + vfidstr, content)
 
     conn.request("GET", cmd + vfidstr, content, credential)
+
+    delay = session.get("throttle_delay")
+    if delay > 0:
+        time.sleep(delay)
 
     resp = conn.getresponse()
     return get_response_parse(resp)
@@ -342,6 +482,10 @@ def put_request_orig(session, cmd, content):
 
     conn.request("PUT", cmd + vfidstr, content, credential)
 
+    delay = session.get("throttle_delay")
+    if delay > 0:
+        time.sleep(delay)
+
     resp = conn.getresponse()
     return set_response_parse(resp)
 
@@ -355,6 +499,10 @@ def patch_request(session, cmd, content):
     debug(session, PATCH, cmd + vfidstr, content)
 
     conn.request("PATCH", cmd + vfidstr, content, credential)
+
+    delay = session.get("throttle_delay")
+    if delay > 0:
+        time.sleep(delay)
 
     resp = conn.getresponse()
     return set_response_parse(resp)
@@ -370,6 +518,10 @@ def post_request(session, cmd, content):
 
     conn.request("POST", cmd + vfidstr, content, credential)
 
+    delay = session.get("throttle_delay")
+    if delay > 0:
+        time.sleep(delay)
+
     resp = conn.getresponse()
     return set_response_parse(resp)
 
@@ -383,6 +535,10 @@ def delete_request(session, cmd, content):
     debug(session, DELETE, cmd + vfidstr, content)
 
     conn.request("DELETE", cmd + vfidstr, content, credential)
+
+    delay = session.get("throttle_delay")
+    if delay > 0:
+        time.sleep(delay)
 
     resp = conn.getresponse()
     return set_response_parse(resp)
@@ -421,9 +577,68 @@ def is_success_resp(resp):
 
 
 def is_failed_resp(resp):
-    if isinstance(resp, dict) and 'errors' in resp:
+    if isinstance(resp, dict) and 'client-error-code' in resp:
         return True
     elif isinstance(resp, dict) and 'server-error-code' in resp:
         return True
     else:
         return False
+
+
+def isWWN(inputstring):
+    if inputstring.count(":") != 7:
+        return False
+    for i in inputstring.split(":"):
+        try:
+            int(i, 16)
+        except ValueError:
+            return False
+
+    return True
+
+
+def isIPAddr(inputstring):
+    # check for IPv4
+    if inputstring.count(".") == 3:
+        for i in inputstring.split("."):
+            try:
+                int(i, 10)
+            except ValueError:
+                return False
+
+        return True
+    # check for IPv6
+    elif inputstring.count(":") == 7:
+        for i in inputstring.split(":"):
+            try:
+                int(i, 16)
+            except ValueError:
+                return False
+
+            if len(i) != 4:
+                return False
+
+        return True
+    else:
+        return False
+
+
+def isInt(inputstring):
+    try:
+        int(inputstring, 10)
+    except ValueError:
+        return False
+
+    return True
+
+
+def isSlotPort(inputstring):
+    if inputstring.count("/") != 1:
+        return False
+    for i in inputstring.split("/"):
+        try:
+            int(i, 10)
+        except ValueError:
+            return False
+
+    return True

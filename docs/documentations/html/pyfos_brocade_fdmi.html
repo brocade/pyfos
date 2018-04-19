@@ -1,0 +1,1174 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_fdmi - PyFOS module to provide REST support for FDMI. &#8212; PyFOS 0.9.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_fibrechannel_logical_switch - PyFOS module to provide REST support for Logical Switch objects." href="pyfos_brocade_fibrechannel_logical_switch.html" />
+    <link rel="prev" title="pyfos_brocade_zone - PyFOS module to provide rest support for Zoning." href="pyfos_brocade_zone.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fibrechannel_logical_switch.html" title="pyfos_brocade_fibrechannel_logical_switch - PyFOS module to provide REST support for Logical Switch objects."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_zone.html" title="pyfos_brocade_zone - PyFOS module to provide rest support for Zoning."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_fdmi"></span><div class="section" id="pyfos-brocade-fdmi-pyfos-module-to-provide-rest-support-for-fdmi">
+<h1><a class="reference internal" href="#module-pyfos_brocade_fdmi" title="pyfos_brocade_fdmi: PyFOS module to provide REST support for FDMI (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fdmi</span></code></a> - PyFOS module to provide REST support for FDMI.<a class="headerlink" href="#pyfos-brocade-fdmi-pyfos-module-to-provide-rest-support-for-fdmi" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_fdmi" title="pyfos_brocade_fdmi: PyFOS module to provide REST support for FDMI (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fdmi</span></code></a> provides REST support for FDMI.</p>
+<dl class="class">
+<dt id="pyfos_brocade_fdmi.hba">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_fdmi.</code><code class="descname">hba</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of FDMI HBA</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="25%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>hba-id</td>
+<td>Unique HBA identifier</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_hba_id" title="pyfos_brocade_fdmi.hba.peek_hba_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_hba_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>domain-id</td>
+<td>Domain ID HBA is directly
+attached to</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_domain_id" title="pyfos_brocade_fdmi.hba.peek_domain_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_domain_id()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>manufacturer</td>
+<td>Manufacturer of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_manufacturer" title="pyfos_brocade_fdmi.hba.peek_manufacturer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_manufacturer()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>serial-number</td>
+<td>Serial number of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_serial_number" title="pyfos_brocade_fdmi.hba.peek_serial_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_serial_number()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>model</td>
+<td>Model of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_model" title="pyfos_brocade_fdmi.hba.peek_model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_model()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>model-description</td>
+<td>Describes HBA model</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_model_description" title="pyfos_brocade_fdmi.hba.peek_model_description"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_model_description()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>node-name</td>
+<td>Node name of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_node_name" title="pyfos_brocade_fdmi.hba.peek_node_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_node_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>node-symbolic-name</td>
+<td>Symbolic node name of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_node_symbolic_name" title="pyfos_brocade_fdmi.hba.peek_node_symbolic_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_node_symbolic_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>hardware-version</td>
+<td>Hardware version of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_hardware_version" title="pyfos_brocade_fdmi.hba.peek_hardware_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_hardware_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>driver-version</td>
+<td>Driver version of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_driver_version" title="pyfos_brocade_fdmi.hba.peek_driver_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_driver_version()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>option-rom-version</td>
+<td>Option ROM or BIOS version of
+HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_option_rom_version" title="pyfos_brocade_fdmi.hba.peek_option_rom_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_option_rom_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>firmware-version</td>
+<td>Firmware version of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_firmware_version" title="pyfos_brocade_fdmi.hba.peek_firmware_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_firmware_version()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>os-name-and-version</td>
+<td>Type and version of the HBA’s
+OS</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_os_name_and_version" title="pyfos_brocade_fdmi.hba.peek_os_name_and_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_os_name_and_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>max-ct-payload</td>
+<td>Maximum CT payload size</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_max_ct_payload" title="pyfos_brocade_fdmi.hba.peek_max_ct_payload"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_max_ct_payload()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vendor-id</td>
+<td>Vendor ID of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_vendor_id" title="pyfos_brocade_fdmi.hba.peek_vendor_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vendor_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vendor-specific-info</td>
+<td>Vendor specific information</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_vendor_specific_info" title="pyfos_brocade_fdmi.hba.peek_vendor_specific_info"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vendor_specific_info()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>number-of-ports</td>
+<td>Number of Nx_Ports on HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_number_of_ports" title="pyfos_brocade_fdmi.hba.peek_number_of_ports"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_number_of_ports()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fabric-name</td>
+<td>Fabric name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_fabric_name" title="pyfos_brocade_fdmi.hba.peek_fabric_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fabric_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>boot-bios-version</td>
+<td>Boot BIOS version of HBA</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_boot_bios_version" title="pyfos_brocade_fdmi.hba.peek_boot_bios_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_boot_bios_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>boot-bios-enabled</td>
+<td>Indicate if boot BIOS is
+enabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_boot_bios_enabled" title="pyfos_brocade_fdmi.hba.peek_boot_bios_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_boot_bios_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>hba-port-list</td>
+<td>List of HBA ports</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.hba.peek_hba_port_list" title="pyfos_brocade_fdmi.hba.peek_hba_port_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_hba_port_list()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_fdmi.hba.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>hba_identifier=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_fdmi.hba" title="pyfos_brocade_fdmi.hba"><code class="xref py py-class docutils literal notranslate"><span class="pre">hba</span></code></a> object or a list of objects filled with
+FDMI HBA attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_fdmi.hba" title="pyfos_brocade_fdmi.hba"><code class="xref py py-class docutils literal notranslate"><span class="pre">hba</span></code></a> object or list of objects. Dictionary in case
+of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_hba_id">
+<code class="descname">peek_hba_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_hba_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads HBA identifier from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or HBA identifier of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_domain_id">
+<code class="descname">peek_domain_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_domain_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads domain ID from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or domain ID the HBA is directly attached to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_manufacturer">
+<code class="descname">peek_manufacturer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_manufacturer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads manufacturer from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or manufacturer of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_serial_number">
+<code class="descname">peek_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads serial number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or serial number of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_model">
+<code class="descname">peek_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads model from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or model of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_model_description">
+<code class="descname">peek_model_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_model_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads model description from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or model description of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_node_name">
+<code class="descname">peek_node_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_node_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads node name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or node name of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_node_symbolic_name">
+<code class="descname">peek_node_symbolic_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_node_symbolic_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads node symbolic name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or node symbolic name of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_hardware_version">
+<code class="descname">peek_hardware_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_hardware_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads hardware version from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or hardware version of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_driver_version">
+<code class="descname">peek_driver_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_driver_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads driver version from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or driver version of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_option_rom_version">
+<code class="descname">peek_option_rom_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_option_rom_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads option rom version from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or option rom version of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_firmware_version">
+<code class="descname">peek_firmware_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_firmware_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads firmware version from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or firmware version of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_os_name_and_version">
+<code class="descname">peek_os_name_and_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_os_name_and_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads OS name and version from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or OS name and version of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_max_ct_payload">
+<code class="descname">peek_max_ct_payload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_max_ct_payload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads max CT payload from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or max CT payload of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_vendor_id">
+<code class="descname">peek_vendor_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_vendor_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads vendor identifier from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or vendor identifier of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_vendor_specific_info">
+<code class="descname">peek_vendor_specific_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_vendor_specific_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads vendor specific info from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or vendor specific info of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_number_of_ports">
+<code class="descname">peek_number_of_ports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_number_of_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ports from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ports of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_fabric_name">
+<code class="descname">peek_fabric_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_fabric_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads fabric name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or fabric name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_boot_bios_version">
+<code class="descname">peek_boot_bios_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_boot_bios_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads boot bios version from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or boot bios version of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_boot_bios_enabled">
+<code class="descname">peek_boot_bios_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_boot_bios_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads boot bios enabled from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or boolean indicating boot bios state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.hba.peek_hba_port_list">
+<code class="descname">peek_hba_port_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.hba.peek_hba_port_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads hba port list from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or list of HBA port(s)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_fdmi.port">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_fdmi.</code><code class="descname">port</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of FDMI port</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="25%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>port-name</td>
+<td>Port name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_port_name" title="pyfos_brocade_fdmi.port.peek_port_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>hba-id</td>
+<td>Unique HBA identifier</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_hba_id" title="pyfos_brocade_fdmi.port.peek_hba_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_hba_id()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>domain-id</td>
+<td>Domain ID HBA port is directly
+attached to</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_domain_id" title="pyfos_brocade_fdmi.port.peek_domain_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_domain_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-symbolic-name</td>
+<td>Symbolic port name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_port_symbolic_name" title="pyfos_brocade_fdmi.port.peek_port_symbolic_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_symbolic_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port-id</td>
+<td>Port identifier</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_port_id" title="pyfos_brocade_fdmi.port.peek_port_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-type</td>
+<td>Port type</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_port_type" title="pyfos_brocade_fdmi.port.peek_port_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_type()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>supported-class-of-service</td>
+<td>Supported class of service(s)</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_supported_class_of_service" title="pyfos_brocade_fdmi.port.peek_supported_class_of_service"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_supported_class_of_service()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>supported-fc4-type</td>
+<td>Supported FC4 type(s)</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_supported_fc4_type" title="pyfos_brocade_fdmi.port.peek_supported_fc4_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_supported_fc4_type()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>active-fc4-type</td>
+<td>Active FC4 type</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_active_fc4_type" title="pyfos_brocade_fdmi.port.peek_active_fc4_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_active_fc4_type()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>supported-speed</td>
+<td>Supported port speed(s)</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_supported_speed" title="pyfos_brocade_fdmi.port.peek_supported_speed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_supported_speed()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>current-port-speed</td>
+<td>Current port speed</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_current_port_speed" title="pyfos_brocade_fdmi.port.peek_current_port_speed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_current_port_speed()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>maximum-frame-size</td>
+<td>Maximum frame size</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_maximum_frame_size" title="pyfos_brocade_fdmi.port.peek_maximum_frame_size"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_maximum_frame_size()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>os-device-name</td>
+<td>OS device name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_os_device_name" title="pyfos_brocade_fdmi.port.peek_os_device_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_os_device_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>host-name</td>
+<td>Host name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_host_name" title="pyfos_brocade_fdmi.port.peek_host_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_host_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>node-name</td>
+<td>Node name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_node_name" title="pyfos_brocade_fdmi.port.peek_node_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_node_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fabric-name</td>
+<td>Fabric name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_fabric_name" title="pyfos_brocade_fdmi.port.peek_fabric_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fabric_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port-state</td>
+<td>State of the port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_port_state" title="pyfos_brocade_fdmi.port.peek_port_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_state()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>number-of-discovered-ports</td>
+<td>Number of discovered ports</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_number_of_discovered_ports" title="pyfos_brocade_fdmi.port.peek_number_of_discovered_ports"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_number_of_discovered_ports()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vsa-service-category</td>
+<td>VSA service category</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_service_category" title="pyfos_brocade_fdmi.port.peek_vsa_service_category"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_service_category()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vsa-guid</td>
+<td>VSA GUID</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_guid" title="pyfos_brocade_fdmi.port.peek_vsa_guid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_guid()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vsa-version</td>
+<td>VSA version</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_version" title="pyfos_brocade_fdmi.port.peek_vsa_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vsa-product-name</td>
+<td>VSA product name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_product_name" title="pyfos_brocade_fdmi.port.peek_vsa_product_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_product_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vsa-port-info</td>
+<td>VSA port info</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_port_info" title="pyfos_brocade_fdmi.port.peek_vsa_port_info"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_port_info()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vsa-qos-supported</td>
+<td>VSA QOS support</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_qos_supported" title="pyfos_brocade_fdmi.port.peek_vsa_qos_supported"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_qos_supported()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vsa-security</td>
+<td>VSA security</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_security" title="pyfos_brocade_fdmi.port.peek_vsa_security"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_security()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vsa-connected-ports</td>
+<td>List of VSA connected port(s)</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_connected_ports" title="pyfos_brocade_fdmi.port.peek_vsa_connected_ports"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_connected_ports()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vsa-storage-array-family</td>
+<td>VSA storage array family</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_family" title="pyfos_brocade_fdmi.port.peek_vsa_storage_array_family"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_storage_array_family()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vsa-storage-array-name</td>
+<td>VSA storage array name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_name" title="pyfos_brocade_fdmi.port.peek_vsa_storage_array_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_storage_array_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vsa-storage-array-system-model</td>
+<td>VSA storage array system model</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_system_model" title="pyfos_brocade_fdmi.port.peek_vsa_storage_array_system_model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_storage_array_system_model()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vsa-storage-array-os</td>
+<td>VSA storage array OS</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_os" title="pyfos_brocade_fdmi.port.peek_vsa_storage_array_os"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_storage_array_os()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vsa-storage-array-node-count</td>
+<td>VSA storage array node count</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_node_count" title="pyfos_brocade_fdmi.port.peek_vsa_storage_array_node_count"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_storage_array_node_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vsa-storage-array-nodes</td>
+<td>List of VSA storage array
+node(s)</td>
+<td><a class="reference internal" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_nodes" title="pyfos_brocade_fdmi.port.peek_vsa_storage_array_nodes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vsa_storage_array_nodes()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_fdmi.port.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>port_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_fdmi.port" title="pyfos_brocade_fdmi.port"><code class="xref py py-class docutils literal notranslate"><span class="pre">port</span></code></a> object or a list of objects filled with
+FDMI port attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_fdmi.port" title="pyfos_brocade_fdmi.port"><code class="xref py py-class docutils literal notranslate"><span class="pre">port</span></code></a> object or list of objects. Dictionary in case
+of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_port_name">
+<code class="descname">peek_port_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_port_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_hba_id">
+<code class="descname">peek_hba_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_hba_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads HBA identifier from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or HBA identifier of the HBA</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_domain_id">
+<code class="descname">peek_domain_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_domain_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads domain ID from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or domain ID the HBA port is directly attached to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_port_symbolic_name">
+<code class="descname">peek_port_symbolic_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_port_symbolic_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port symbolic name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port symbolic name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_port_id">
+<code class="descname">peek_port_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_port_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port identifier from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port identifier</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_port_type">
+<code class="descname">peek_port_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_port_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port type from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_supported_class_of_service">
+<code class="descname">peek_supported_class_of_service</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_supported_class_of_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads supported class of service from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or supported class of service</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_supported_fc4_type">
+<code class="descname">peek_supported_fc4_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_supported_fc4_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads supported fc4 type from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or supported fc4 type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_active_fc4_type">
+<code class="descname">peek_active_fc4_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_active_fc4_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads active fc4 type from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or active fc4 type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_supported_speed">
+<code class="descname">peek_supported_speed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_supported_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads supported speed from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or supported speed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_current_port_speed">
+<code class="descname">peek_current_port_speed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_current_port_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads current port speed from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or current port speed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_maximum_frame_size">
+<code class="descname">peek_maximum_frame_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_maximum_frame_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads maximum frame size from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or maximum frame size</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_os_device_name">
+<code class="descname">peek_os_device_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_os_device_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads os device name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or os device name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_host_name">
+<code class="descname">peek_host_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_host_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads host name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or host name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_node_name">
+<code class="descname">peek_node_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_node_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads node name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or node name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_fabric_name">
+<code class="descname">peek_fabric_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_fabric_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads fabric name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or fabric name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_port_state">
+<code class="descname">peek_port_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_port_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port state from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_number_of_discovered_ports">
+<code class="descname">peek_number_of_discovered_ports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_number_of_discovered_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of discovered ports from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of discovered ports</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_service_category">
+<code class="descname">peek_vsa_service_category</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_service_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA service category from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA service category</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_guid">
+<code class="descname">peek_vsa_guid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_guid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA GUID from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA GUID</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_version">
+<code class="descname">peek_vsa_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA version from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA version</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_product_name">
+<code class="descname">peek_vsa_product_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_product_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA product name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA product name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_port_info">
+<code class="descname">peek_vsa_port_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_port_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA port info from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA port info</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_qos_supported">
+<code class="descname">peek_vsa_qos_supported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_qos_supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA QOS supported from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA QOS supported</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_security">
+<code class="descname">peek_vsa_security</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_security" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA security from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA security</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_connected_ports">
+<code class="descname">peek_vsa_connected_ports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_connected_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA connected ports from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA connected ports</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_storage_array_family">
+<code class="descname">peek_vsa_storage_array_family</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_family" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA storage array family from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA storage array family</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_storage_array_name">
+<code class="descname">peek_vsa_storage_array_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA storage array name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA storage array name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_storage_array_system_model">
+<code class="descname">peek_vsa_storage_array_system_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_system_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA storage array system model from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA storage array system model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_storage_array_os">
+<code class="descname">peek_vsa_storage_array_os</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_os" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA storage array OS from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA storage array OS</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_storage_array_node_count">
+<code class="descname">peek_vsa_storage_array_node_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_node_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA storage array node count from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA storage array node count</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fdmi.port.peek_vsa_storage_array_nodes">
+<code class="descname">peek_vsa_storage_array_nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fdmi.port.peek_vsa_storage_array_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VSA storage array nodes from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VSA storage array nodes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_zone.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_zone</span></code> - PyFOS module to provide rest         support for Zoning.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_fibrechannel_logical_switch.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_fibrechannel_logical_switch</span></code> - PyFOS module to         provide REST support for Logical Switch objects.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_fdmi.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fibrechannel_logical_switch.html" title="pyfos_brocade_fibrechannel_logical_switch - PyFOS module to provide REST support for Logical Switch objects."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_zone.html" title="pyfos_brocade_zone - PyFOS module to provide rest support for Zoning."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

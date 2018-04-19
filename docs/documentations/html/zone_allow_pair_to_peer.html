@@ -1,33 +1,23 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>zone_allow_pair_to_peer - PyFOS util for specific Zoning use case. &mdash; PyFOS 0.9.0 documentation</title>
-    
+    <title>zone_allow_pair_to_peer - PyFOS util for specific Zoning use case. &#8212; PyFOS 0.9.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.9.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
-    <link rel="next" title="switchipinterfacecreate - PyFOS util for creating a switch IP address." href="switchipinterfacecreate.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="fport_list_show - PyFOS util to show the f-port information." href="fport_list_show.html" />
     <link rel="prev" title="zone_allow_pair - PyFOS util for specific Zoning use case." href="zone_allow_pair.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -38,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="switchipinterfacecreate.html" title="switchipinterfacecreate - PyFOS util for creating a switch IP address."
+          <a href="fport_list_show.html" title="fport_list_show - PyFOS util to show the f-port information."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="zone_allow_pair.html" title="zone_allow_pair - PyFOS util for specific Zoning use case."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -53,43 +43,36 @@
           <div class="body" role="main">
             
   <span class="target" id="module-zone_allow_pair_to_peer"></span><div class="section" id="zone-allow-pair-to-peer-pyfos-util-for-specific-zoning-use-case">
-<h1><a class="reference internal" href="#module-zone_allow_pair_to_peer" title="zone_allow_pair_to_peer: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">zone_allow_pair_to_peer</span></code></a> - PyFOS util for specific Zoning use case.<a class="headerlink" href="#zone-allow-pair-to-peer-pyfos-util-for-specific-zoning-use-case" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-zone_allow_pair_to_peer" title="zone_allow_pair_to_peer: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">zone_allow_pair_to_peer</span></code></a> provides for specific Zoning use case.</p>
-<p>This module is a standalone script and API that can be used to create a
-Peer Zone between a pair of host/target without having to go through Zone DB
-management of creating Zones, adding to CFG, enabling CFG, etc. The script
-will create a new Peer Zone using target name along with a
-prefix, add port WWNs to the newly create zone, add to the current CFG or
-create a new CFG to add the newly create Zone, &amp; enable the CFG. If a Peer
-Zoning with the target name already exists, the new target is simply added</p>
-<ul>
+<h1><a class="reference internal" href="#module-zone_allow_pair_to_peer" title="zone_allow_pair_to_peer: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zone_allow_pair_to_peer</span></code></a> - PyFOS util for specific Zoning use case.<a class="headerlink" href="#zone-allow-pair-to-peer-pyfos-util-for-specific-zoning-use-case" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-zone_allow_pair_to_peer" title="zone_allow_pair_to_peer: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zone_allow_pair_to_peer</span></code></a> provides for a specific Zoning use case.</p>
+<p>This module is a stand-alone script and API that can be used to create a
+Peer Zone between a pair of hosts/targets without having to go through a
+Zone DB management of creating Zones, adding to CFG, enabling CFG, etc.
+The script creates a new Peer Zone a using target name along with a
+prefix, adds port WWNs to the newly created zone, adds to the current CFG or
+creates a new CFG to add the newly created Zone, and enable the CFG. If a Peer
+Zoning with the target name already exists, the new target is simply added.</p>
+<ul class="simple">
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Inputs:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt>-L=&lt;login&gt;: Login ID. If not provided, interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dt>-L=&lt;login&gt;: Login ID. If not provided, an interactive</dt>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>-P=&lt;password&gt;: Password. If not provided, interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dt>-P=&lt;password&gt;: Password. If not provided, an interactive</dt>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: IP address</p>
-</li>
-<li><p class="first">&#8211;hostport=&lt;WWN&gt;: PWWN of the host</p>
-</li>
-<li><p class="first">&#8211;targetname=&lt;hostname&gt;: string name of the target or target port</p>
-</li>
-<li><p class="first">&#8211;targetport=&lt;WWN&gt;: PWWN of the target</p>
-</li>
+<li>-i=&lt;IP address&gt;: IP address.</li>
+<li>–hostport=&lt;WWN&gt;: PWWN of the host.</li>
+<li>–targetname=&lt;hostname&gt;: String name of the target or target port.</li>
+<li>–targetport=&lt;WWN&gt;: PWWN of the target.</li>
 <li><dl class="first docutils">
 <dt>-f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd><p class="first last">VFID of 128 is assumed.</p>
-</dd>
+<dd>a  VFID of 128 is assumed.</dd>
 </dl>
 </li>
 </ul>
@@ -97,10 +80,10 @@ Zoning with the target name already exists, the new target is simply added</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
-<dd><ul class="first last simple">
-<li>Indicate if Zone DB has been changed or not due to the execution</li>
-<li>Python dictionary content with details string descriptions</li>
+<dt>Outputs:</dt>
+<dd><ul class="first last">
+<li>Indicates if Zone DB has been changed or not due to the execution.</li>
+<li>Python dictionary content with detailed string descriptions.</li>
 </ul>
 </dd>
 </dl>
@@ -109,15 +92,15 @@ Zoning with the target name already exists, the new target is simply added</p>
 <dl class="function">
 <dt id="zone_allow_pair_to_peer.zone_allow_pair_to_peer">
 <code class="descclassname">zone_allow_pair_to_peer.</code><code class="descname">zone_allow_pair_to_peer</code><span class="sig-paren">(</span><em>session</em>, <em>prefix</em>, <em>hostport</em>, <em>targetname</em>, <em>targetport</em>, <em>if_no_cfg</em>, <em>checkmode</em><span class="sig-paren">)</span><a class="headerlink" href="#zone_allow_pair_to_peer.zone_allow_pair_to_peer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create/add a pair of host and target to a peer Zone</p>
+<dd><p>Create/add a pair of hosts and targets to a peer Zone.</p>
 <p>Example usage of the method to create a new peer zone with a pair:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ret_code</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">zone_allow_pair_to_peer</span><span class="o">.</span><span class="n">zone_allow_pair_to_peer</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret_code</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">zone_allow_pair_to_peer</span><span class="o">.</span><span class="n">zone_allow_pair_to_peer</span><span class="p">(</span>
     <span class="n">session</span><span class="p">,</span> <span class="s2">&quot;az__pz__&quot;</span><span class="p">,</span> <span class="s2">&quot;11:22:33:44:55:66:77:88&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mytarget&quot;</span><span class="p">,</span> <span class="s2">&quot;88:77:66:55:44:33:22:11&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg_if_there_is_non&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="s2">&quot;mytarget&quot;</span><span class="p">,</span> <span class="s2">&quot;88:77:66:55:44:33:22:11&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg_if_there_is_non&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">ret_code</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;zone db changed&quot;</span><span class="p">,</span> <span class="n">ret_code</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;zone db changed&quot;</span><span class="p">,</span> <span class="n">ret_code</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;zone db didn&#39;t change&quot;</span><span class="p">,</span> <span class="n">ret_code</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;zone db didn&#39;t change&quot;</span><span class="p">,</span> <span class="n">ret_code</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -125,27 +108,27 @@ Zoning with the target name already exists, the new target is simply added</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> &#8211; session returned by login</li>
-<li><strong>prefix</strong> &#8211; prefix for the peer Zone name</li>
-<li><strong>hostport</strong> &#8211; WWN of the host port</li>
-<li><strong>targetname</strong> &#8211; string name of the target</li>
-<li><strong>targetport</strong> &#8211; WWN of the target port</li>
-<li><strong>if_no_cfg</strong> &#8211; CFG name to be used if there are no enabled CFG</li>
-<li><strong>checkmode</strong> &#8211; indicate if Zone DB is to be updated or
-return status only</li>
+<li><strong>session</strong> – session returned by login.</li>
+<li><strong>prefix</strong> – prefix for the peer Zone name.</li>
+<li><strong>hostport</strong> – WWN of the host port.</li>
+<li><strong>targetname</strong> – string name of the target.</li>
+<li><strong>targetport</strong> – WWN of the target port.</li>
+<li><strong>if_no_cfg</strong> – CFG name to be used if there are no enabled CFG.</li>
+<li><strong>checkmode</strong> – indicate if Zone DB is to be updated or
+return status only.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">return code and dictionary of status description</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Return code and dictionary of status description.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p><em>use cases</em></p>
+<p><em>Use cases</em></p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>pass in host/target pair to create peer zone</li>
-<li>pass in host/target pair to create peer zone</li>
+<li>Pass in host/target pair to create peer zone.</li>
+<li>Pass in host/target pair to create peer zone.</li>
 </ol>
 </div></blockquote>
 </dd></dl>
@@ -153,7 +136,7 @@ return status only</li>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a></p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
 </div>
 
 
@@ -164,28 +147,27 @@ return status only</li>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="zone_allow_pair.html"
-                        title="previous chapter"><code class="docutils literal"><span class="pre">zone_allow_pair</span></code> - PyFOS util for specific Zoning use case.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">zone_allow_pair</span></code> - PyFOS util for specific Zoning use case.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="switchipinterfacecreate.html"
-                        title="next chapter"><code class="docutils literal"><span class="pre">switchipinterfacecreate</span></code> - PyFOS util for creating a switch IP address.</a></p>
+  <p class="topless"><a href="fport_list_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">fport_list_show</span></code> - PyFOS util to show the f-port information.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/zone_allow_pair_to_peer.txt"
+      <li><a href="_sources/zone_allow_pair_to_peer.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -202,17 +184,17 @@ return status only</li>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="switchipinterfacecreate.html" title="switchipinterfacecreate - PyFOS util for creating a switch IP address."
+          <a href="fport_list_show.html" title="fport_list_show - PyFOS util to show the f-port information."
              >next</a> |</li>
         <li class="right" >
           <a href="zone_allow_pair.html" title="zone_allow_pair - PyFOS util for specific Zoning use case."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Daniel Chung.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

@@ -1,0 +1,622 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_name_server - PyFOS module to provide rest support for Name Server. &#8212; PyFOS 0.9.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_gigabitethernet - PyFOS module for GigE port objects." href="pyfos_brocade_gigabitethernet.html" />
+    <link rel="prev" title="pyfos_brocade_fibrechannel_logical_switch - PyFOS module to provide REST support for Logical Switch objects." href="pyfos_brocade_fibrechannel_logical_switch.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_gigabitethernet.html" title="pyfos_brocade_gigabitethernet - PyFOS module for GigE port objects."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fibrechannel_logical_switch.html" title="pyfos_brocade_fibrechannel_logical_switch - PyFOS module to provide REST support for Logical Switch objects."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_name_server"></span><div class="section" id="pyfos-brocade-name-server-pyfos-module-to-provide-rest-support-for-name-server">
+<h1><a class="reference internal" href="#module-pyfos_brocade_name_server" title="pyfos_brocade_name_server: PyFOS module to provide REST support for NS (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_name_server</span></code></a> - PyFOS module to provide rest support for Name Server.<a class="headerlink" href="#pyfos-brocade-name-server-pyfos-module-to-provide-rest-support-for-name-server" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_name_server" title="pyfos_brocade_name_server: PyFOS module to provide REST support for NS (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_name_server</span></code></a> provides REST support for Name Server.</p>
+<dl class="class">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_name_server.</code><code class="descname">fibrechannel_name_server</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of Name Server</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>port-id</td>
+<td>Fibrechannel address</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_id" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>class-of-service</td>
+<td>Class of service levels
+supported by the device</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_class_of_service" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_class_of_service"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_class_of_service()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port-name</td>
+<td>Device port WWN</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_name" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>node-name</td>
+<td>Device node WWN</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_node_name" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_node_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_node_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port-symbolic-name</td>
+<td>Symbolic port name of device</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_symbolic_name" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_symbolic_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_symbolic_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>node-symbolic-name</td>
+<td>Symbolic node name of device</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_node_symbolic_name" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_node_symbolic_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_node_symbolic_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fc4-type</td>
+<td>Registered FC-4 types</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_fc4_type" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_fc4_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fc4_type()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-type</td>
+<td>List of principal device</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_type" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_type()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>state-change-registeration</td>
+<td>State change registration of
+device</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_state_change_registration" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_state_change_registration"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_state_change_registration()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>name-server-device-type</td>
+<td>Definition for the type and
+role of a device</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_name_server_device_type" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_name_server_device_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_name_server_device_type()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fabric-port-name</td>
+<td>The F_Port WWN to which
+N_Port connects</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_fabric_port_name" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_fabric_port_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fabric_port_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-index</td>
+<td>Index number of N_Port to
+which device connects</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_index" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_index()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>share-area</td>
+<td>Indicates if port uses shared
+area or 10 bit area addressing</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_share_area" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_share_area"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_share_area()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>frame-redirection</td>
+<td>Port involved in Frame
+Redirection zoning</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_frame_redirection" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_frame_redirection"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_frame_redirection()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>partial</td>
+<td>Indicates if device entry is
+incomplete</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_partial" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_partial"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_partial()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>lsan</td>
+<td>Indicates if device is part of
+active LSAN zone</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_lsan" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_lsan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_lsan()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>link-speed</td>
+<td>Displays link speed</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_link_speed" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_link_speed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_link_speed()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-properties</td>
+<td>port properties</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_properties" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_properties"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_properties()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>connected-through-ag</td>
+<td>Indicates if device is
+connected through AG</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_connected_through_ag" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_connected_through_ag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_connected_through_ag()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>real-device-behind-ag</td>
+<td>Indicates if device non NPIV</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_real_device_behind_ag" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_real_device_behind_ag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_real_device_behind_ag()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>cascaded-ag</td>
+<td>Indicates if device is
+connected via cascaded AG</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_cascaded_ag" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_cascaded_ag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_cascaded_ag()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>slow-drain-device-quarantine</td>
+<td>Indicates if device is
+credit stalled</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_slow_drain_device_quarantine" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_slow_drain_device_quarantine"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_slow_drain_device_quarantine()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fcoe-device</td>
+<td>Indicates if device is FCoE</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_fcoe_device" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_fcoe_device"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fcoe_device()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fc4-features</td>
+<td>Indicates registered FC-4
+Features bits for FC-4 Types</td>
+<td><a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_fc4_features" title="pyfos_brocade_name_server.fibrechannel_name_server.peek_fc4_features"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fc4_features()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>port_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_name_server.fibrechannel_name_server" title="pyfos_brocade_name_server.fibrechannel_name_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">fibrechannel_name_server</span></code></a> object or a list of
+objects filled with Name Server attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">port-id</span></code> object or list of objects. Dictionary in
+case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_id">
+<code class="descname">peek_port_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port identifier from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port identifier of the device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_class_of_service">
+<code class="descname">peek_class_of_service</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_class_of_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads class of service from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or class of service supported by the device.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_name">
+<code class="descname">peek_port_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads device port WWN.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port WWN of device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_node_name">
+<code class="descname">peek_node_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_node_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads device node WWN.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or node WWN of device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_symbolic_name">
+<code class="descname">peek_port_symbolic_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_symbolic_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads symbolic port name of device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or symbolic port name of device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_node_symbolic_name">
+<code class="descname">peek_node_symbolic_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_node_symbolic_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads symbolic node name of the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or symbolic node name of the device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">peek_node_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Reads node name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or node name of device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_fc4_type">
+<code class="descname">peek_fc4_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_fc4_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads values of type field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or values of type field</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_type">
+<code class="descname">peek_port_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads principal device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or principal device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_state_change_registration">
+<code class="descname">peek_state_change_registration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_state_change_registration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads state change registration of device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or state change registration</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_name_server_device_type">
+<code class="descname">peek_name_server_device_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_name_server_device_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads type and role of a device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Name Server device type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_fabric_port_name">
+<code class="descname">peek_fabric_port_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_fabric_port_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the F_Port WWN to which N_Port connects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or F_Port WWN</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_index">
+<code class="descname">peek_port_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Index number of N_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Index number of N_Port</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_share_area">
+<code class="descname">peek_share_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_share_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads if port uses Brocade Shared Area.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or share area</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_frame_redirection">
+<code class="descname">peek_frame_redirection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_frame_redirection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port involved in frame redirection zoning.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port involved in frame redirection zoning</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_partial">
+<code class="descname">peek_partial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_partial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads if device entry is incomplete.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or device entry</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_lsan">
+<code class="descname">peek_lsan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_lsan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads active LSAN zone of device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or device LSAN zone</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_link_speed">
+<code class="descname">peek_link_speed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_link_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads link speed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or link speed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_port_properties">
+<code class="descname">peek_port_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_port_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port properties</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_connected_through_ag">
+<code class="descname">peek_connected_through_ag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_connected_through_ag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads if device is connected through AG.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or if device is connected through AG</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_real_device_behind_ag">
+<code class="descname">peek_real_device_behind_ag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_real_device_behind_ag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads if device is not a NPIV connected AG.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or if device is not a NPIV connected AG</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_cascaded_ag">
+<code class="descname">peek_cascaded_ag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_cascaded_ag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads if device connected via cascaded AG.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or if device connected via cascaded AG</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_slow_drain_device_quarantine">
+<code class="descname">peek_slow_drain_device_quarantine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_slow_drain_device_quarantine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads if device is stalling credit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or if device is stalling credit</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_fcoe_device">
+<code class="descname">peek_fcoe_device</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_fcoe_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads if device is FCoE.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or if device is FCoE</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_name_server.fibrechannel_name_server.peek_fc4_features">
+<code class="descname">peek_fc4_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_name_server.fibrechannel_name_server.peek_fc4_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads registered FC-4 features.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or FC-4 features</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_fibrechannel_logical_switch.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_fibrechannel_logical_switch</span></code> - PyFOS module to         provide REST support for Logical Switch objects.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_gigabitethernet.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_gigabitethernet</span></code> - PyFOS module for GigE port objects.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_name_server.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_gigabitethernet.html" title="pyfos_brocade_gigabitethernet - PyFOS module for GigE port objects."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fibrechannel_logical_switch.html" title="pyfos_brocade_fibrechannel_logical_switch - PyFOS module to provide REST support for Logical Switch objects."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

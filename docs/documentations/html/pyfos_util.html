@@ -1,33 +1,23 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>pyfos_util - PyFOS module to provide utility functions. &mdash; PyFOS 0.9.0 documentation</title>
-    
+    <title>pyfos_util - PyFOS module to provide utility functions. &#8212; PyFOS 0.9.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.9.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
-    <link rel="next" title="pyfos_fabric - PyFOS module to provide rest support for Fabric." href="pyfos_fabric.html" />
-    <link rel="prev" title="pyfos_rest_util - PyFOS module to provide rest support for FOS objects." href="pyfos_rest_util.html" /> 
-  </head>
-  <body role="document">
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_access_gateway - PyFOS Module to Provide REST Support for Access Gateway." href="pyfos_brocade_access_gateway.html" />
+    <link rel="prev" title="pyfos_rest_util - PyFOS module to provide REST support for FOS objects." href="pyfos_rest_util.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -38,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_fabric.html" title="pyfos_fabric - PyFOS module to provide rest support for Fabric."
+          <a href="pyfos_brocade_access_gateway.html" title="pyfos_brocade_access_gateway - PyFOS Module to Provide REST Support for Access Gateway."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pyfos_rest_util.html" title="pyfos_rest_util - PyFOS module to provide rest support for FOS objects."
+          <a href="pyfos_rest_util.html" title="pyfos_rest_util - PyFOS module to provide REST support for FOS objects."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -53,17 +43,43 @@
           <div class="body" role="main">
             
   <span class="target" id="module-pyfos_util"></span><div class="section" id="pyfos-util-pyfos-module-to-provide-utility-functions">
-<h1><a class="reference internal" href="#module-pyfos_util" title="pyfos_util: PyFOS module to provide utility functions (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_util</span></code></a> - PyFOS module to provide utility functions.<a class="headerlink" href="#pyfos-util-pyfos-module-to-provide-utility-functions" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-pyfos_util" title="pyfos_util: PyFOS module to provide utility functions (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_util</span></code></a> provides a utility functions.</p>
+<h1><a class="reference internal" href="#module-pyfos_util" title="pyfos_util: PyFOS module to provide utility functions (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_util</span></code></a> - PyFOS module to provide utility functions.<a class="headerlink" href="#pyfos-util-pyfos-module-to-provide-utility-functions" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_util" title="pyfos_util: PyFOS module to provide utility functions (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_util</span></code></a> provides utility functions.</p>
+<dl class="class">
+<dt id="pyfos_util.json_encoder">
+<em class="property">class </em><code class="descclassname">pyfos_util.</code><code class="descname">json_encoder</code><span class="sig-paren">(</span><em>skipkeys=False</em>, <em>ensure_ascii=True</em>, <em>check_circular=True</em>, <em>allow_nan=True</em>, <em>sort_keys=False</em>, <em>indent=None</em>, <em>separators=None</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_util.json_encoder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyfos_util.json_encoder.default">
+<code class="descname">default</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_util.json_encoder.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method in a subclass such that it returns
+a serializable object for <code class="docutils literal notranslate"><span class="pre">o</span></code>, or calls the base implementation
+(to raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>).</p>
+<p>For example, to support arbitrary iterators, you could
+implement default like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">iterable</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+    <span class="c1"># Let the base class default method raise the TypeError</span>
+    <span class="k">return</span> <span class="n">JSONEncoder</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="function">
 <dt id="pyfos_util.response_print">
 <code class="descclassname">pyfos_util.</code><code class="descname">response_print</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_util.response_print" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print dictionary into JSON format</p>
+<dd><p>Prints dictionary into JSON format.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>response</strong> &#8211; dictionary of information to be printed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>response</strong> – Dictionary of information to be printed.</td>
 </tr>
 </tbody>
 </table>
@@ -78,7 +94,7 @@
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a></p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
 </div>
 
 
@@ -89,28 +105,27 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="pyfos_rest_util.html"
-                        title="previous chapter"><code class="docutils literal"><span class="pre">pyfos_rest_util</span></code> - PyFOS module to provide rest support for FOS objects.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_rest_util</span></code> - PyFOS module to provide REST support for FOS objects.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="pyfos_fabric.html"
-                        title="next chapter"><code class="docutils literal"><span class="pre">pyfos_fabric</span></code> - PyFOS module to provide rest support for Fabric.</a></p>
+  <p class="topless"><a href="pyfos_brocade_access_gateway.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_access_gateway</span></code> - PyFOS Module to Provide         REST Support for Access Gateway.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/pyfos_util.txt"
+      <li><a href="_sources/pyfos_util.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -127,17 +142,17 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_fabric.html" title="pyfos_fabric - PyFOS module to provide rest support for Fabric."
+          <a href="pyfos_brocade_access_gateway.html" title="pyfos_brocade_access_gateway - PyFOS Module to Provide REST Support for Access Gateway."
              >next</a> |</li>
         <li class="right" >
-          <a href="pyfos_rest_util.html" title="pyfos_rest_util - PyFOS module to provide rest support for FOS objects."
+          <a href="pyfos_rest_util.html" title="pyfos_rest_util - PyFOS module to provide REST support for FOS objects."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Daniel Chung.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

@@ -1,0 +1,222 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>extension_ip_interface_create - PyFOS util for creating an IP Interface &#8212; PyFOS 0.9.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="extension_ip_interface_modify - PyFOS util to modify an IP Interface." href="extension_ip_interface_modify.html" />
+    <link rel="prev" title="device_find - PyFOS util for misc use case." href="device_find.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extension_ip_interface_modify.html" title="extension_ip_interface_modify - PyFOS util to modify an IP Interface."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="device_find.html" title="device_find - PyFOS util for misc use case."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-extension_ip_interface_create"></span><div class="section" id="extension-ip-interface-create-pyfos-util-for-creating-an-ip-interface">
+<h1><a class="reference internal" href="#module-extension_ip_interface_create" title="extension_ip_interface_create: PyFOS module to create an IP interface on an Extension GE port use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_ip_interface_create</span></code></a> - PyFOS util for creating an IP Interface<a class="headerlink" href="#extension-ip-interface-create-pyfos-util-for-creating-an-ip-interface" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-extension_ip_interface_create" title="extension_ip_interface_create: PyFOS module to create an IP interface on an Extension GE port use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_ip_interface_create</span></code></a> Util is used for IP Interface creation.</p>
+<p>This module is a stand-alone script that can be used to create an extension
+IP address.</p>
+<p>extension_ip_interface_create.py: Usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: IP address of FOS switch.</li>
+<li>-L,–login=LOGIN: Login name.</li>
+<li>-P,–password=PASSWORD: Password.</li>
+<li>-f,–vfid=VFID: VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: HTTPS mode “self” or “CA”[Optional].</li>
+<li>-v,–verbose: Verbose mode[Optional].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util scripts options:</dt>
+<dd><ul class="first last">
+<li>-n,–name=NAME: Set name.</li>
+<li>-m,–mtu-size=VALUE: Set mtu-size.</li>
+<li>-p,–ip-prefix-length=VALUE: Set ip-prefix-length.</li>
+<li>-d,–dp-id=VALUE: Set dp-id.</li>
+<li>–ip-address=VALUE: Set ip-address.</li>
+<li>–vlan-id=VALUE: Set vlan-id.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Outputs:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="extension_ip_interface_create.extension_ip_interface_create.create_extension_ip">
+<code class="descclassname">extension_ip_interface_create.</code><code class="descname">create_extension_ip</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>dp</em>, <em>ip</em>, <em>prefix</em>, <em>vlan=None</em>, <em>mtu=None</em><span class="sig-paren">)</span><a class="headerlink" href="#extension_ip_interface_create.extension_ip_interface_create.create_extension_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Create extension IP Address</em></p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_ip_interface_create</span><span class="o">.</span><span class="n">create_extension_ip</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+<span class="n">name</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">vlan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mtu</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IP</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;dp-id&quot;</span><span class="p">:</span> <span class="n">dp</span><span class="p">,</span>
+                <span class="s2">&quot;ip-address&quot;</span><span class="p">:</span> <span class="n">ip</span>
+                <span class="s2">&quot;ip-prefix-length&quot;</span><span class="p">:</span> <span class="n">prefix</span>
+                <span class="s2">&quot;vlan-id&quot;</span><span class="p">:</span> <span class="n">vlan</span>
+                <span class="s2">&quot;mtu-size&quot;</span><span class="p">:</span> <span class="n">mtu</span>
+          <span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">extension_ip_interface_create</span><span class="o">.</span><span class="n">_create_extension_ip</span><span class="p">(</span>
+<span class="n">session</span><span class="p">,</span> <span class="n">IP</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">Session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">GE port name expressed as slot/port.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param dp-id:</th><td class="field-body">DP Instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param ip:</th><td class="field-body">Extension IP-Address.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param prefix:</th><td class="field-body">Prefix length for the IP Address.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param vlan:</th><td class="field-body">VLAN ID.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param mtu:</th><td class="field-body">MTU size.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>Use cases</em></p>
+<blockquote>
+<div>Create a new extension IP Interface.</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_extension_ip_interface.html#module-pyfos_brocade_extension_ip_interface" title="pyfos_brocade_extension_ip_interface: PyFOS module to support Extension IP Interface module for REST. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_extension_ip_interface</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="device_find.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">device_find</span></code> - PyFOS util for misc use case.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extension_ip_interface_modify.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_ip_interface_modify</span></code> - PyFOS util to modify an IP Interface.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/extension_ip_interface_create.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extension_ip_interface_modify.html" title="extension_ip_interface_modify - PyFOS util to modify an IP Interface."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="device_find.html" title="device_find - PyFOS util for misc use case."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

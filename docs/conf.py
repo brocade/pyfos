@@ -22,9 +22,14 @@ sys.path.insert(0, os.path.abspath('../pyfos'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/config'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/extension'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/fdmi'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/port'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/switch'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/zoning'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/name_server'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/misc'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/access_gateway'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/logical_switch'))
 
 # -- General configuration ------------------------------------------------
 
@@ -52,7 +57,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'PyFOS'
-copyright = u'2017, Daniel Chung'
+copyright = u'2018, Brocade Communications Systems LLC.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-# Copyright 2017 Brocade Communications Systems, Inc.  All rights reserved.
+# Copyright © 2018 Broadcom. All rights reserved. The term "Broadcom"
+# refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,43 +18,42 @@
 
 :mod:`zone_allow_pair_to_peer` - PyFOS util for specific Zoning use case.
 ***********************************************************************************
-The :mod:`zone_allow_pair_to_peer` provides for specific Zoning use case.
+The :mod:`zone_allow_pair_to_peer` provides for a specific Zoning use case.
 
-This module is a standalone script and API that can be used to create a
-Peer Zone between a pair of host/target without having to go through Zone DB
-management of creating Zones, adding to CFG, enabling CFG, etc. The script
-will create a new Peer Zone using target name along with a
-prefix, add port WWNs to the newly create zone, add to the current CFG or
-create a new CFG to add the newly create Zone, & enable the CFG. If a Peer
-Zoning with the target name already exists, the new target is simply added
+This module is a stand-alone script and API that can be used to create a
+Peer Zone between a pair of hosts/targets without having to go through a
+Zone DB management of creating Zones, adding to CFG, enabling CFG, etc.
+The script creates a new Peer Zone a using target name along with a
+prefix, adds port WWNs to the newly created zone, adds to the current CFG or
+creates a new CFG to add the newly created Zone, and enable the CFG. If a Peer
+Zoning with the target name already exists, the new target is simply added.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Inputs:
+    * -L=<login>: Login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * --hostport=<WWN>: PWWN of the host
-    * --targetname=<hostname>: string name of the target or target port
-    * --targetport=<WWN>: PWWN of the target
+    * -i=<IP address>: IP address.
+    * --hostport=<WWN>: PWWN of the host.
+    * --targetname=<hostname>: String name of the target or target port.
+    * --targetport=<WWN>: PWWN of the target.
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+       a  VFID of 128 is assumed.
 
-* outputs:
-    * Indicate if Zone DB has been changed or not due to the execution
-    * Python dictionary content with details string descriptions
+* Outputs:
+    * Indicates if Zone DB has been changed or not due to the execution.
+    * Python dictionary content with detailed string descriptions.
 
 """
 
 
 import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_zone as pyfos_zone
+import pyfos.pyfos_brocade_zone as pyfos_zone
 import pyfos.pyfos_util as pyfos_util
 import pyfos.utils.brcd_util as brcd_util
 import inspect
 import sys
 
-isHttps = "0"
 session = None
 ZONE_PREFIX = "az__pz__"
 CFG_NAME = "az__cfg"
@@ -73,10 +73,12 @@ RET_ZONE_CREATED_IN_CFG = 8
 
 
 def usage():
-    print("usage:")
-    print('zone_allow_pair_to_peer.py -i <ipaddr>'
-          ' --hostport=<host port wwn> --targetname=<targetname>'
-          ' --targetport=<target port wwn>')
+    print("  Script specific options:")
+    print("")
+    print("    --hostport=HOSTPORT          WWN of host port")
+    print("    --targetname=TARGETNAME      name of target")
+    print("    --targetport=TARGETPORT      WWN of target port")
+    print("")
 
 
 def find_matching_zone(prezone_defined, zonename, hostport, targetport):
@@ -119,7 +121,7 @@ def find_matching_cfg(prezone_defined, cfgname, zonename):
 
 def zone_allow_pair_to_peer(session, prefix, hostport,
                             targetname, targetport, if_no_cfg, checkmode):
-    """Create/add a pair of host and target to a peer Zone
+    """Create/add a pair of hosts and targets to a peer Zone.
 
     Example usage of the method to create a new peer zone with a pair::
 
@@ -131,20 +133,20 @@ def zone_allow_pair_to_peer(session, prefix, hostport,
         else:
             print ("zone db didn't change", ret_code, result)
 
-    :param session: session returned by login
-    :param prefix: prefix for the peer Zone name
-    :param hostport: WWN of the host port
-    :param targetname: string name of the target
-    :param targetport: WWN of the target port
-    :param if_no_cfg: CFG name to be used if there are no enabled CFG
+    :param session: session returned by login.
+    :param prefix: prefix for the peer Zone name.
+    :param hostport: WWN of the host port.
+    :param targetname: string name of the target.
+    :param targetport: WWN of the target port.
+    :param if_no_cfg: CFG name to be used if there are no enabled CFG.
     :param checkmode: indicate if Zone DB is to be updated or
-        return status only
-    :rtype: return code and dictionary of status description
+        return status only.
+    :rtype: Return code and dictionary of status description.
 
-    *use cases*
+    *Use cases*
 
-        1. pass in host/target pair to create peer zone
-        2. pass in host/target pair to create peer zone
+        1. Pass in host/target pair to create peer zone.
+        2. Pass in host/target pair to create peer zone.
 
     """
 
@@ -351,15 +353,17 @@ def zone_allow_pair_to_peer(session, prefix, hostport,
 
 
 def main(argv):
-    inputs = brcd_util.generic_input(argv, usage)
+    valid_options = ["hostport", "targetname", "targetport"]
+    inputs = brcd_util.generic_input(argv, usage, valid_options)
 
     session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], isHttps)
+                               inputs["ipaddr"], inputs["secured"],
+                               verbose=inputs["verbose"])
     if pyfos_auth.is_failed_login(session):
         print("login failed because",
               session.get(pyfos_auth.CREDENTIAL_KEY)
               [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
 
     brcd_util.exit_register(session)

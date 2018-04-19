@@ -1,0 +1,14 @@
+[
+    { "fibrechannel-switch" :
+        [
+            "domain-name",
+            "user-friendly-name"
+        ]
+    },
+    { "fibrechannel" :
+        [
+            "g-port-locked",
+            "user-friendly-name"
+        ] 
+    }
+]

@@ -1,33 +1,23 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>pyfos_auth - PyFOS module to faciliate estabishing a session to FOS switch &mdash; PyFOS 0.9.0 documentation</title>
-    
+    <title>pyfos_auth - PyFOS module to facilitate establishing a session to a FOS switch. &#8212; PyFOS 0.9.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.9.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="PyFOS 0.9.0 documentation" href="index.html" />
-    <link rel="next" title="pyfos_rest_util - PyFOS module to provide rest support for FOS objects." href="pyfos_rest_util.html" />
-    <link rel="prev" title="Welcome to PyFOS’ documentation!" href="index.html" /> 
-  </head>
-  <body role="document">
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_rest_util - PyFOS module to provide REST support for FOS objects." href="pyfos_rest_util.html" />
+    <link rel="prev" title="Welcome to PyFOS’ Documentation!" href="index.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -38,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_rest_util.html" title="pyfos_rest_util - PyFOS module to provide rest support for FOS objects."
+          <a href="pyfos_rest_util.html" title="pyfos_rest_util - PyFOS module to provide REST support for FOS objects."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to PyFOS’ documentation!"
+          <a href="index.html" title="Welcome to PyFOS’ Documentation!"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -52,39 +42,59 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-pyfos_auth"></span><div class="section" id="pyfos-auth-pyfos-module-to-faciliate-estabishing-a-session-to-fos-switch">
-<h1><a class="reference internal" href="#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a> - PyFOS module to faciliate         estabishing a session to FOS switch<a class="headerlink" href="#pyfos-auth-pyfos-module-to-faciliate-estabishing-a-session-to-fos-switch" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal"><span class="pre">pyfos_auth</span></code></a> module provides functions to establish,
-modify and terminate a session to FOS switch for management.
-Information from the session is referenced by each subsequent calls.
+  <span class="target" id="module-pyfos_auth"></span><div class="section" id="pyfos-auth-pyfos-module-to-facilitate-establishing-a-session-to-a-fos-switch">
+<h1><a class="reference internal" href="#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a> - PyFOS module to facilitate         establishing a session to a FOS switch.<a class="headerlink" href="#pyfos-auth-pyfos-module-to-facilitate-establishing-a-session-to-a-fos-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a> module provides functions to establish,
+modify, and terminate a session to a FOS switch for management.
+Information from the session is referenced by each subsequent call.
 Providing invalid session information will result in error.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Session idle timeout is set to 2 hours on FOS switch.</p>
+<p class="last">The session idle timeout is set to 2 hours on a FOS switch.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Only limited number of sessions are available. Thus proper
+<p class="last">Only a limited number of sessions are available. Thus, proper
 termination of a session is recommended after usage.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">A session is defaulted to Virtual Fabric ID of 128 at the time
-of login. And must be changed using <a class="reference internal" href="#pyfos_auth.vfid_set" title="pyfos_auth.vfid_set"><code class="xref py py-func docutils literal"><span class="pre">vfid_set()</span></code></a> to
+<p class="last">A session defaults to the Virtual Fabric ID (VFID) of -1 at the time
+of login. It must be changed using <a class="reference internal" href="#pyfos_auth.vfid_set" title="pyfos_auth.vfid_set"><code class="xref py py-func docutils literal notranslate"><span class="pre">vfid_set()</span></code></a> to
 direct the subsequent requests to a given VFID.</p>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last">
+<li><p class="first">If using HTTP, None should passed to pyfos_auth.login()             for the isHttps parameter. Typically, there is no need             to pass the “–secured” option for utility scripts             provided by Brocade.</p>
+</li>
+<li><p class="first">If using HTTPS with a self-signed certificate generated             in FOS using &lt;b&gt;seccertmgmt generate -cert https&lt;/b&gt;,             “self” is passed to pyfos_auth.login(). For utility             scripts provided by Brocade, “–secured=self” needs             to be provided.</p>
+</li>
+<li><p class="first">If using HTTPS with a certificate generated by a CA or generated             locally within your own org, “CA” is passed to             pyfos_auth.login(). For utility scripts provided by             Brocade, “–secured=CA” must be provided. Also, a             root certificate of CA or of the local issuer must             be added to your platform. For example, on Red Hat, the             steps to add the root certificate are:</p>
+<blockquote>
+<div><blockquote>
+<div><ol class="arabic simple">
+<li>sudo cp &lt;root cert file name, such as xxxx.pem&gt;                         /usr/local/share/ca-certificates/xxxx.crt</li>
+<li>sudo update-ca-certificates</li>
+</ol>
+</div></blockquote>
+<p>Please reference pyfos/docs/CA_Setup_Reference_Examples.doc                     for additional details.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
 <p>Example usage of the module:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">session</span> <span class="o">=</span> <span class="n">pyfos_auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">&quot;myname&quot;</span><span class="p">,</span> <span class="s2">&quot;mypassword&quot;</span><span class="p">,</span> <span class="s2">&quot;10.10.10.10&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">pyfos_auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">&quot;myname&quot;</span><span class="p">,</span> <span class="s2">&quot;mypassword&quot;</span><span class="p">,</span> <span class="s2">&quot;10.10.10.10&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">pyfos_auth</span><span class="o">.</span><span class="n">is_failed_login</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;login failed because&quot;</span><span class="p">,</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;login failed because&quot;</span><span class="p">,</span>
           <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pyfos_auth</span><span class="o">.</span><span class="n">CREDENTIAL_KEY</span><span class="p">)[</span><span class="n">pyfos</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">LOGIN_ERROR_KEY</span><span class="p">])</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
 <span class="n">pyfos_auth</span><span class="o">.</span><span class="n">logout</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<p id="error-structure-reference">PyFOS functions generally returns generic error structure upon failure.</p>
+<p id="error-structure-reference">PyFOS functions generally return a generic error structure upon failure.</p>
 <p>Generic error structure:</p>
 <blockquote>
 <div><table border="1" class="docutils">
@@ -94,7 +104,7 @@ direct the subsequent requests to a given VFID.</p>
 <col width="42%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Dictionary key</th>
+<tr class="row-odd"><th class="head">Dictionary Key</th>
 <th class="head">Description</th>
 <th class="head">Example</th>
 </tr>
@@ -105,46 +115,48 @@ direct the subsequent requests to a given VFID.</p>
 <td>Error, Info, or Warning</td>
 </tr>
 <tr class="row-odd"><td>error-info</td>
-<td>Array of &#8220;error-code&#8221;</td>
+<td>Array of “error-code”</td>
 <td>-20</td>
 </tr>
 <tr class="row-even"><td>error-message</td>
 <td>Error message in string</td>
-<td>Invalid speed ...</td>
+<td>Invalid speed …</td>
 </tr>
 <tr class="row-odd"><td>error-path</td>
 <td>URI path</td>
 <td>/fibrechannel/name/0/0/speed</td>
 </tr>
 <tr class="row-even"><td>error-tag</td>
-<td>mapped to HTTP error</td>
+<td>Mapped to HTTP error</td>
 <td>Operation-failed</td>
 </tr>
 <tr class="row-odd"><td>error-type</td>
 <td>Error type</td>
-<td>application or protocol</td>
+<td>Application or protocol</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 <dl class="function">
 <dt id="pyfos_auth.login">
-<code class="descclassname">pyfos_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>ip_addr</em>, <em>isHttps</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.login" title="Permalink to this definition">¶</a></dt>
-<dd><p>Establish a session to FOS switch based on valid login credential</p>
+<code class="descclassname">pyfos_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>ip_addr</em>, <em>isHttps</em>, <em>throttle_delay=1.1</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Establish a session to the FOS switch based on a valid login credential.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>username</strong> &#8211; user name to be used to establish a session</li>
-<li><strong>password</strong> &#8211; password to be used to establish a session</li>
-<li><strong>ip_addr</strong> &#8211; IP address of the FOS switch to establish a session with</li>
-<li><strong>isHttps</strong> &#8211; 0 or 1 to indicate to use http or https</li>
+<li><strong>username</strong> – User name to establish a session.</li>
+<li><strong>password</strong> – Password to establish a session.</li>
+<li><strong>ip_addr</strong> – IP address of the FOS switch with which to             establish a session.</li>
+<li><strong>isHttps</strong> – None to indicate HTTP, “self” to indicate             HTTPS with a self-signed certificate, and “CA” to indicate             HTTPS with a CA-signed certificate.</li>
+<li><strong>throttle_delay</strong> – Delay in seconds, to account for the maximum             number of requests allowed on FOS RESTCONF. The maximum number             of request per period is configurable on FOS.</li>
+<li><strong>verbose</strong> – 1 for verbose session.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dictionary of error description
-<span class="xref std std-ref">error-structure-reference</span> or session description</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Dictionary of the error description.
+<a class="reference internal" href="#error-structure-reference"><span class="std std-ref">Generic error structure</span></a>                 or session description.</p>
 </td>
 </tr>
 </tbody>
@@ -154,14 +166,37 @@ direct the subsequent requests to a given VFID.</p>
 <dl class="function">
 <dt id="pyfos_auth.logout">
 <code class="descclassname">pyfos_auth.</code><code class="descname">logout</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.logout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Terminate a session to FOS</p>
+<dd><p>Terminate a session to FOS.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; dictionary of session returned by <a class="reference internal" href="#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Dictionary of the session returned by <a class="reference internal" href="#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">none</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_auth.throttle_delay_set">
+<code class="descclassname">pyfos_auth.</code><code class="descname">throttle_delay_set</code><span class="sig-paren">(</span><em>session</em>, <em>delay</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.throttle_delay_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a new throttle delay to a session. The throttle delay
+value, in seconds, is added to each request to avoid hitting
+RESTCONF throttling limit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> – Dictionary of session returned by <a class="reference internal" href="#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">login()</span></code></a>.</li>
+<li><strong>delay</strong> – New delay to be assigned to the session, in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">None.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -170,18 +205,18 @@ direct the subsequent requests to a given VFID.</p>
 <dl class="function">
 <dt id="pyfos_auth.vfid_set">
 <code class="descclassname">pyfos_auth.</code><code class="descname">vfid_set</code><span class="sig-paren">(</span><em>session</em>, <em>vfid</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.vfid_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assign a new VFDI to a session</p>
+<dd><p>Assign a new VFID to a session.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> &#8211; dictionary of session returned by <a class="reference internal" href="#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal"><span class="pre">login()</span></code></a></li>
-<li><strong>vfid</strong> &#8211; new VFID to be assigned to the session</li>
+<li><strong>session</strong> – Dictionary of session returned by <a class="reference internal" href="#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">login()</span></code></a>.</li>
+<li><strong>vfid</strong> – New VFID to be assigned to the session.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">none</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">None.</p>
 </td>
 </tr>
 </tbody>
@@ -198,28 +233,27 @@ direct the subsequent requests to a given VFID.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to PyFOS&#8217; documentation!</a></p>
+                        title="previous chapter">Welcome to PyFOS’ Documentation!</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="pyfos_rest_util.html"
-                        title="next chapter"><code class="docutils literal"><span class="pre">pyfos_rest_util</span></code> - PyFOS module to provide rest support for FOS objects.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_rest_util</span></code> - PyFOS module to provide REST support for FOS objects.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/pyfos_auth.txt"
+      <li><a href="_sources/pyfos_auth.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -236,17 +270,17 @@ direct the subsequent requests to a given VFID.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_rest_util.html" title="pyfos_rest_util - PyFOS module to provide rest support for FOS objects."
+          <a href="pyfos_rest_util.html" title="pyfos_rest_util - PyFOS module to provide REST support for FOS objects."
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to PyFOS’ documentation!"
+          <a href="index.html" title="Welcome to PyFOS’ Documentation!"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Daniel Chung.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

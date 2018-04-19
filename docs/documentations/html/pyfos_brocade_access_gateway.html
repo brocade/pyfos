@@ -1,0 +1,1411 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_access_gateway - PyFOS Module to Provide REST Support for Access Gateway. &#8212; PyFOS 0.9.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_fabric - PyFOS module to provide rest support for Fabric." href="pyfos_brocade_fabric.html" />
+    <link rel="prev" title="pyfos_util - PyFOS module to provide utility functions." href="pyfos_util.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fabric.html" title="pyfos_brocade_fabric - PyFOS module to provide rest support for Fabric."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_util.html" title="pyfos_util - PyFOS module to provide utility functions."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_access_gateway"></span><div class="section" id="pyfos-brocade-access-gateway-pyfos-module-to-provide-rest-support-for-access-gateway">
+<h1><a class="reference internal" href="#module-pyfos_brocade_access_gateway" title="pyfos_brocade_access_gateway: PyFOS module to provide REST support for Access Gateway (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_access_gateway</span></code></a> - PyFOS Module to Provide         REST Support for Access Gateway.<a class="headerlink" href="#pyfos-brocade-access-gateway-pyfos-module-to-provide-rest-support-for-access-gateway" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_access_gateway" title="pyfos_brocade_access_gateway: PyFOS module to provide REST support for Access Gateway (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_access_gateway</span></code></a> module provides REST support         for the Access Gateway.</p>
+<dl class="class">
+<dt id="pyfos_brocade_access_gateway.f_port_list">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_access_gateway.</code><code class="descname">f_port_list</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides F_Port information on an Access Gateway.</p>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="23%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>f-port</td>
+<td>F_Port interface</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list.set_f_port" title="pyfos_brocade_access_gateway.f_port_list.set_f_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_f_port()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port" title="pyfos_brocade_access_gateway.f_port_list.peek_f_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>online-status</td>
+<td>F_Port online status.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list.peek_online_status" title="pyfos_brocade_access_gateway.f_port_list.peek_online_status"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_online_status()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>f-port-info/fcid</td>
+<td>Fibre Channel ID of the F_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_fcid" title="pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_fcid"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_port_info_fcid()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>f-port-info/attached-port-wwn</td>
+<td>Attached port WWN of the F_Port.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_attached_port_wwn" title="pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_attached_port_wwn"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_port_info_attached_port_wwn()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>f-port-info/n-port</td>
+<td>N_Port currently mapped to
+by the F_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_n_port" title="pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_n_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_port_info_n_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>f-port-info/login-exceeded</td>
+<td>Whether login exceeded on the
+F_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_login_exceeded" title="pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_login_exceeded"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_port_info_login_exceeded()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.f_port_list.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list" title="pyfos_brocade_access_gateway.f_port_list"><code class="xref py py-class docutils literal notranslate"><span class="pre">f_port_list</span></code></a>
+object with values for all attributes. The f-port-info
+attributes are available only for the online F_Ports.
+The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of errors or
+<a class="reference internal" href="#pyfos_brocade_access_gateway.f_port_list" title="pyfos_brocade_access_gateway.f_port_list"><code class="xref py py-class docutils literal notranslate"><span class="pre">f_port_list</span></code></a> objects.</td>
+</tr>
+</tbody>
+</table>
+<p>Example usage of the method to get information for all F_Ports:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fport_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">f_port_list</span><span class="p">()</span>
+<span class="n">fport_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example usage of the method to get information for a
+specific F_Port, say “0/8”:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fport_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">f_port_list</span><span class="p">()</span>
+<span class="n">fport_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s2">&quot;0/8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.f_port_list.set_f_port">
+<code class="descname">set_f_port</code><span class="sig-paren">(</span><em>f-port</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list.set_f_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets F_Port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f-port</strong> – F_Port interface.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.f_port_list.peek_f_port">
+<code class="descname">peek_f_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads F_Port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or F_Port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.f_port_list.peek_online_status">
+<code class="descname">peek_online_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list.peek_online_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads F_Port online status in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">0 (Offline) or 1 (Online)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_fcid">
+<code class="descname">peek_f_port_info_fcid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_fcid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Fibre Channel ID of the online F_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Fibre Channel ID.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_attached_port_wwn">
+<code class="descname">peek_f_port_info_attached_port_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_attached_port_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the WWN of the port attached to the F_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the port WWN.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_n_port">
+<code class="descname">peek_f_port_info_n_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_n_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current mapped N_Port of the F_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or N_Port interface.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_login_exceeded">
+<code class="descname">peek_f_port_info_login_exceeded</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list.peek_f_port_info_login_exceeded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads whether the logins were exceeded on the F_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or 0 (login not exceeded) or 1 (login exceeded)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_access_gateway.n_port_map">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_access_gateway.</code><code class="descname">n_port_map</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides options to display and configure N_Port-to
+-F_Port mapping.</p>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="24%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>n-port</td>
+<td>N_Port interface</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.set_n_port" title="pyfos_brocade_access_gateway.n_port_map.set_n_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_n_port()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port" title="pyfos_brocade_access_gateway.n_port_map.peek_n_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_n_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>failover-enabled</td>
+<td>N_Port failover configuration</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_failover_enabled" title="pyfos_brocade_access_gateway.n_port_map.peek_failover_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_failover_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.set_failover_enabled" title="pyfos_brocade_access_gateway.n_port_map.set_failover_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_failover_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>failback-enabled</td>
+<td>N_Port failback configuration</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_failback_enabled" title="pyfos_brocade_access_gateway.n_port_map.peek_failback_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_failback_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.set_failback_enabled" title="pyfos_brocade_access_gateway.n_port_map.set_failback_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_failback_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>configured-f-port-list/f-port</td>
+<td>Mapped F_Ports</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_configured_f_port_list_f_port" title="pyfos_brocade_access_gateway.n_port_map.peek_configured_f_port_list_f_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_configured_f_port_list_f_port()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.set_configured_f_port_list_f_port" title="pyfos_brocade_access_gateway.n_port_map.set_configured_f_port_list_f_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_configured_f_port_list_f_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>static-f-port-list/f-port</td>
+<td>Statically mapped F_Ports</td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_static_f_port_list_f_port()</span></code>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">set_static_f_port_list_f_port()</span></code></td>
+</tr>
+<tr class="row-odd"><td>online-status</td>
+<td>Online status of the N_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_online_status" title="pyfos_brocade_access_gateway.n_port_map.peek_online_status"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_online_status()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>reliable-status</td>
+<td>Reliable status of the N_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_reliable_status" title="pyfos_brocade_access_gateway.n_port_map.peek_reliable_status"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_reliable_status()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>n-port-info/attached-fabric-name</td>
+<td>WWN of the attached fabric</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_fabric_name" title="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_fabric_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_n_port_info_attached_fabric_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>n-port-info/attached-port-wwn</td>
+<td>WWN of the attached port</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_port_wwn" title="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_port_wwn"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_n_port_info_attached_port_wwn()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>n-port-info/n-port-fcid</td>
+<td>Fibre Channel ID of the N_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_n_port_fcid" title="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_n_port_fcid"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_n_port_info_n_port_fcid()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>n-port-info/attached-switch-user-friendly-name</td>
+<td>The attached switch’s user
+friendly name</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_user_friendly_name" title="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_user_friendly_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_n_port_info_attached_switch_user_friendly_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>n-port-info/attached-switch-f-port</td>
+<td>Fabric switchpPort name of the
+port attached to the N_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_f_port" title="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_f_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_n_port_info_attached_switch_f_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>n-port-info/attached-switch-ip-address</td>
+<td>The attached switch out-of-band
+IP address</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_ip_address" title="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_ip_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_n_port_info_attached_switch_ip_address()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map" title="pyfos_brocade_access_gateway.n_port_map"><code class="xref py py-class docutils literal notranslate"><span class="pre">n_port_map</span></code></a> object or a list of objects
+filled with attributes gathered from the Access Gateway. If the
+optional N_Port is given, either an object matching the name of the
+port is returned or an empty object is returned
+if no match is found.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes can be accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">An <a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_map" title="pyfos_brocade_access_gateway.n_port_map"><code class="xref py py-class docutils literal notranslate"><span class="pre">n_port_map</span></code></a> object if there is
+only one N_Port Configured in the switch or
+a list of objects if there are more than one.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies configurable attribute(s) within the object to
+an N_Port map of the Access Gateway. This method configures a
+specified list of F_Ports to be mapped (static/configured) to
+a given N_Port. This new map configuration will overwrite
+any existing map configuration for the specified N_Port.
+Also, this method is used to update the failover and failback
+configuration for a given N_Port.</p>
+<p><em>The following is an example using individual sets:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the Access Gateway object</span>
+<span class="n">nport</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">n_port_map</span><span class="p">();</span>
+<span class="c1"># set the failover-enabled attribute to</span>
+<span class="c1"># enable failover for N_Port 0/47 on the Access Gateway</span>
+<span class="n">nport</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="s2">&quot;0/47&quot;</span><span class="p">)</span>
+<span class="n">nport</span><span class="o">.</span><span class="n">set_failover_enabled</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="c1"># execute the HTTP patch method to apply the object to the</span>
+<span class="c1"># switch connected through the session</span>
+<span class="n">nport</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or success information.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add members to a list attribute of the object. This method is used
+to add a specified list of F_Ports (configured and static)
+to a given N_Port.</p>
+<p>Example usage of the method to create a new mappings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the Access Gateway object</span>
+<span class="n">nport</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">n_port_map</span><span class="p">();</span>
+<span class="c1"># set the failover-enabled attribute to</span>
+<span class="c1"># enable failover for N_Port 0/47 on the Access Gateway</span>
+<span class="n">nport</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="s2">&quot;0/47&quot;</span><span class="p">)</span>
+<span class="n">new_nport</span><span class="o">.</span><span class="n">set_configured_f_port_list_f_port</span><span class="p">(</span><span class="s2">&quot;0/1;0/2&quot;</span><span class="p">);</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">new_nport</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes members from a list attribute of the object.
+This method is used to remove/clear the specified list of
+configured and static F_Ports from the mapping for N_Port.</p>
+<p>Example usage of the method to create a new mappings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the Access Gateway object</span>
+<span class="n">nport</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">n_port_map</span><span class="p">();</span>
+<span class="c1"># set the failover-enabled attribute to</span>
+<span class="c1"># enable failover for N_Port 0/47 on the switch</span>
+<span class="n">nport</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="s2">&quot;0/47&quot;</span><span class="p">)</span>
+<span class="n">new_nport</span><span class="o">.</span><span class="n">set_configured_f_port_list_f_port</span><span class="p">(</span><span class="s2">&quot;0/1;0/2&quot;</span><span class="p">);</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">new_nport</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.set_n_port">
+<code class="descname">set_n_port</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.set_n_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – Port name to be set within the object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_n_port">
+<code class="descname">peek_n_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the N_Port name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.set_failover_enabled">
+<code class="descname">set_failover_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.set_failover_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the failover-enabled state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – New mode to be set within the object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_failover_enabled">
+<code class="descname">peek_failover_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_failover_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the failover-enabled state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the failover state of the N_Port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.set_failback_enabled">
+<code class="descname">set_failback_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.set_failback_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the failback-enabled state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – New mode to be set within the object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_failback_enabled">
+<code class="descname">peek_failback_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_failback_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the failback-enabled state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the failback state of the N_Port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.set_configured_f_port_list_f_port">
+<code class="descname">set_configured_f_port_list_f_port</code><span class="sig-paren">(</span><em>fport_list</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.set_configured_f_port_list_f_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a list of configured F_Port mappings for the
+N_Port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fport_list</strong> – List of F_Ports to be mapped.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_configured_f_port_list_f_port">
+<code class="descname">peek_configured_f_port_list_f_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_configured_f_port_list_f_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of configured F_Port mappings for the
+N_Port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or a list of mapped F_Ports.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.set_static_f_port_list_fport">
+<code class="descname">set_static_f_port_list_fport</code><span class="sig-paren">(</span><em>fport_list</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.set_static_f_port_list_fport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a list of static F_Port mappings for the
+N_Port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fport_list</strong> – List of F_Ports to be mapped statically.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_static_f_port_list_fport">
+<code class="descname">peek_static_f_port_list_fport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_static_f_port_list_fport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of static F_Port mappings for N_Port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or a list of statically mapped F_Ports.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_online_status">
+<code class="descname">peek_online_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_online_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the online status of the N_Port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the online status of the N_Port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_reliable_status">
+<code class="descname">peek_reliable_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_reliable_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reliable status of the N_Port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the reliable status of N_Port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_fabric_name">
+<code class="descname">peek_n_port_info_attached_fabric_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_fabric_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the WWN of the fabric attached to the N_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the WWN of the fabric attached to the N_Port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_port_wwn">
+<code class="descname">peek_n_port_info_attached_port_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_port_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the WWN of the port attached to the N_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the WWN of the port attached to the N_Port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_n_port_fcid">
+<code class="descname">peek_n_port_info_n_port_fcid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_n_port_fcid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the Fibre Channel ID of the N_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the Fibre Channel ID of the N_Port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_user_friendly_name">
+<code class="descname">peek_n_port_info_attached_switch_user_friendly_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_user_friendly_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the name of the fabric switch attached to the N_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the name of the fabric switch.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_f_port">
+<code class="descname">peek_n_port_info_attached_switch_f_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_f_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the fabric switch port name of the
+port attached to the N_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the fabric switch port name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_ip_address">
+<code class="descname">peek_n_port_info_attached_switch_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_map.peek_n_port_info_attached_switch_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the out-of-band IP addresses of the fabric switch
+attached to the N_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the out-of-band IP addresses of the fabric switch.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_access_gateway.n_port_settings">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_access_gateway.</code><code class="descname">n_port_settings</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides options to set the N_Port settings.</p>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="23%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>reliability-counter</td>
+<td>Reads/Sets the reliability
+counter for a N_Port.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_settings.set_reliability_counter" title="pyfos_brocade_access_gateway.n_port_settings.set_reliability_counter"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_reliability_counter()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_settings.peek_reliability_counter" title="pyfos_brocade_access_gateway.n_port_settings.peek_reliability_counter"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_reliability_counter()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_settings.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_settings.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_settings" title="pyfos_brocade_access_gateway.n_port_settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">n_port_settings</span></code></a>
+object with values for all the attributes.
+The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_access_gateway.n_port_settings" title="pyfos_brocade_access_gateway.n_port_settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">n_port_settings</span></code></a> object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_settings.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_settings.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces entry members. Fields involved are set within the object
+using the attribute’s set method. This method is used to
+set the N_Port settings, for example, reliability counter.</p>
+<p>Example usage of the method to set the reliability counter to 20:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nportsettings_obj</span> <span class="o">=</span>
+    <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">n_port_settings</span><span class="p">()</span>
+<span class="n">nportsettings_obj</span><span class="o">.</span><span class="n">set_reliability_counter</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">nportsettings_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_settings.set_reliability_counter">
+<code class="descname">set_reliability_counter</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_settings.set_reliability_counter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the N_Port reliability counter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> – The N_Port reliability count value to be set.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.n_port_settings.peek_reliability_counter">
+<code class="descname">peek_reliability_counter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.n_port_settings.peek_reliability_counter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current count of N_Port reliability counter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Counter value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_access_gateway.policy">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_access_gateway.</code><code class="descname">policy</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides methods to retrieve/configure the Access Gateway
+policies.</p>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="23%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>port-group-policy-enabled</td>
+<td>Enables/Disables the port group
+policy.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.policy.set_port_group_policy_enabled" title="pyfos_brocade_access_gateway.policy.set_port_group_policy_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port_group_policy_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.policy.peek_port_group_policy_enabled" title="pyfos_brocade_access_gateway.policy.peek_port_group_policy_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_group_policy_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>auto-policy-enabled</td>
+<td>Enables/Disables the auto
+policy.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.policy.set_auto_policy_enabled" title="pyfos_brocade_access_gateway.policy.set_auto_policy_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_auto_policy_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.policy.peek_auto_policy_enabled" title="pyfos_brocade_access_gateway.policy.peek_auto_policy_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_auto_policy_enabled()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.policy.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.policy.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#pyfos_brocade_access_gateway.policy" title="pyfos_brocade_access_gateway.policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">policy</span></code></a>
+object with values for all attributes.
+The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_access_gateway.policy" title="pyfos_brocade_access_gateway.policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">policy</span></code></a> object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.policy.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.policy.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces entry members. Fields involved are set within the object
+using the attribute’s set method. This command is used to
+enable or disable the Access Gateway policies.</p>
+<p>Example usage of the method to enable the port
+group policy on an AG:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">policy_obj</span> <span class="o">=</span>
+    <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">policy</span><span class="p">()</span>
+<span class="n">policy_obj</span><span class="o">.</span><span class="n">set_port_group_policy_enabled</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">policy_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.policy.set_port_group_policy_enabled">
+<code class="descname">set_port_group_policy_enabled</code><span class="sig-paren">(</span><em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.policy.set_port_group_policy_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables the portgroup policy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable</strong> – Set to 1 to enable and 0 to disable
+the portgroup policy.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.policy.peek_port_group_policy_enabled">
+<code class="descname">peek_port_group_policy_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.policy.peek_port_group_policy_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current state of the port group policy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">0 (disabled) or 1 (enabled)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.policy.set_auto_policy_enabled">
+<code class="descname">set_auto_policy_enabled</code><span class="sig-paren">(</span><em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.policy.set_auto_policy_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables the auto policy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable</strong> – Set to 1 to enable and 0 to disable auto policy.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.policy.peek_auto_policy_enabled">
+<code class="descname">peek_auto_policy_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.policy.peek_auto_policy_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current state of the auto policy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">0 (disabled) or 1 (enabled)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_access_gateway.port_group">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_access_gateway.</code><code class="descname">port_group</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides methods/options to retrieve
+and configure port groups. The port groups can be configured
+provided that the port-group AG policy is activated.</p>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="22%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>port-group-id</td>
+<td>Port group ID.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.set_port_group_id" title="pyfos_brocade_access_gateway.port_group.set_port_group_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port_group_id()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_id" title="pyfos_brocade_access_gateway.port_group.peek_port_group_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_group_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-group-name</td>
+<td>Port group name.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.set_port_group_name" title="pyfos_brocade_access_gateway.port_group.set_port_group_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port_group_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_name" title="pyfos_brocade_access_gateway.port_group.peek_port_group_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_group_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port-group-n-ports/n-port</td>
+<td>N_Ports present in the port
+group.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.set_port_group_n_ports_n_port" title="pyfos_brocade_access_gateway.port_group.set_port_group_n_ports_n_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port_group_n_ports_n_port()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_n_ports_n_port" title="pyfos_brocade_access_gateway.port_group.peek_port_group_n_ports_n_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_group_n_ports_n_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-group-f-ports/f-port</td>
+<td>F_Ports present in the port
+group.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.set_port_group_f_ports_f_port" title="pyfos_brocade_access_gateway.port_group.set_port_group_f_ports_f_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port_group_f_ports_f_port()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_f_ports_f_port" title="pyfos_brocade_access_gateway.port_group.peek_port_group_f_ports_f_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_group_f_ports_f_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td><dl class="first last docutils">
+<dt>port-group-mode/</dt>
+<dd>load-balancing-mode-enabled</dd>
+</dl>
+</td>
+<td>Whether load balancing mode is
+enabled in the port group.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.set_port_group_mode_load_balancing_mode_enabled" title="pyfos_brocade_access_gateway.port_group.set_port_group_mode_load_balancing_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port_group_mode_load_balancing_mode_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_mode_load_balancing_mode_enabled" title="pyfos_brocade_access_gateway.port_group.peek_port_group_mode_load_balancing_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_group_mode_load_balancing_mode_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td><dl class="first last docutils">
+<dt>port-group-mode/</dt>
+<dd>multiple-fabric-name-monitoring-mode-enabled</dd>
+</dl>
+</td>
+<td>Whether multiple fabric name
+monitoring mode is enabled in
+the port group.</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.set_port_group_mode_multiple_fabric_name_monitoring_mode_enabled" title="pyfos_brocade_access_gateway.port_group.set_port_group_mode_multiple_fabric_name_monitoring_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port_group_mode_multiple_fabric_name_monitoring_mode_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_mode_multiple_fabric_name_monitoring_mode_enabled" title="pyfos_brocade_access_gateway.port_group.peek_port_group_mode_multiple_fabric_name_monitoring_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_group_mode_multiple_fabric_name_monitoring_mode_enabled()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the <a class="reference internal" href="#pyfos_brocade_access_gateway.port_group" title="pyfos_brocade_access_gateway.port_group"><code class="xref py py-class docutils literal notranslate"><span class="pre">port_group</span></code></a>
+object with values for all the attributes.
+The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_access_gateway.port_group" title="pyfos_brocade_access_gateway.port_group"><code class="xref py py-class docutils literal notranslate"><span class="pre">port_group</span></code></a> object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.post">
+<code class="descname">post</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an entry or adds members. Fields involved are set
+within the object using the attribute’s set method.
+This method is used to create a new port group with a group
+of N_Ports or to add N_Ports or F_Ports to an existing port group.</p>
+<p>Example usage of the method to create a new port group:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span>
+    <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">port_group</span><span class="p">()</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_n_ports_n_port</span><span class="p">(</span><span class="s2">&quot;0/40;0/41&quot;</span><span class="p">)</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above example will add N_Ports if the port group with ID 1
+exists already.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method. This command is used to
+replace the existing member N_Ports or F_Ports, the
+rename port group, and the enable or disable port group modes.</p>
+<p>Example usage of the method to enable load balancing mode in a PG:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span>
+    <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">port_group</span><span class="p">()</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_mode_load_balancing_mode_enabled</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes an entry or entry members. Fields involved are
+set within the object using the attribute’s
+set method. This command is used to delete a port group
+or to delete the existing members from N_Ports or F_Ports.</p>
+<p>Example usage of the method to delete port group 1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span>
+    <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">port_group</span><span class="p">()</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example usage of the method to delete N_Ports from port group 1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span>
+    <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">port_group</span><span class="p">()</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_n_ports_n_port</span><span class="p">(</span><span class="s2">&quot;0/40;0/41&quot;</span><span class="p">)</span>
+<span class="n">portgroup_obj</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – Session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.set_port_group_id">
+<code class="descname">set_port_group_id</code><span class="sig-paren">(</span><em>pgid</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.set_port_group_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the pgid in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pgid</strong> – Port-group identifier.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.peek_port_group_id">
+<code class="descname">peek_port_group_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the port-group identifier in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the pgid.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.set_port_group_name">
+<code class="descname">set_port_group_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.set_port_group_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the port-group name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – Name of the port group.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.peek_port_group_name">
+<code class="descname">peek_port_group_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the port-group name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the port-group name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.set_port_group_n_ports_n_port">
+<code class="descname">set_port_group_n_ports_n_port</code><span class="sig-paren">(</span><em>nport_list</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.set_port_group_n_ports_n_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a list of N_Ports in the port-group object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nport_list</strong> – List of N_Port members of the port-group.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.peek_port_group_n_ports_n_port">
+<code class="descname">peek_port_group_n_ports_n_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_n_ports_n_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a list of N_Ports in the port-group object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or a list of N_Port members.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.set_port_group_f_ports_f_port">
+<code class="descname">set_port_group_f_ports_f_port</code><span class="sig-paren">(</span><em>fport_list</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.set_port_group_f_ports_f_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a list of F_Ports in the port-group object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nport_list</strong> – List of F_Port members of the port-group.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.peek_port_group_f_ports_f_port">
+<code class="descname">peek_port_group_f_ports_f_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_f_ports_f_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a list of F_Ports in the port-group object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or a list of _Port members.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.set_port_group_mode_load_balancing_mode_enabled">
+<code class="descname">set_port_group_mode_load_balancing_mode_enabled</code><span class="sig-paren">(</span><em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.set_port_group_mode_load_balancing_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables the load balancing mode in the port-group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable</strong> – Load balancing mode enabled(1) or disabled(0).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.peek_port_group_mode_load_balancing_mode_enabled">
+<code class="descname">peek_port_group_mode_load_balancing_mode_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_mode_load_balancing_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the load balancing mode status in the port-group object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the load balancing mode status.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.set_port_group_mode_multiple_fabric_name_monitoring_mode_enabled">
+<code class="descname">set_port_group_mode_multiple_fabric_name_monitoring_mode_enabled</code><span class="sig-paren">(</span><em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.set_port_group_mode_multiple_fabric_name_monitoring_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables multiple fabric name monitoring mode
+in the port-group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable</strong> – Multiple fabric name monitoring mode enabled(1)
+or disabled(0).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.port_group.peek_port_group_mode_multiple_fabric_name_monitoring_mode_enabled">
+<code class="descname">peek_port_group_mode_multiple_fabric_name_monitoring_mode_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.port_group.peek_port_group_mode_multiple_fabric_name_monitoring_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the multiple fabric name monitoring mode status in
+the port-group object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the multiple fabric name monitoring mode status.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_util.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_util</span></code> - PyFOS module to provide utility functions.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_fabric.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_fabric</span></code> - PyFOS module to provide rest support for Fabric.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_access_gateway.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fabric.html" title="pyfos_brocade_fabric - PyFOS module to provide rest support for Fabric."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_util.html" title="pyfos_util - PyFOS module to provide utility functions."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

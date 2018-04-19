@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
- Copyright 2017 Brocade Communications Systems, Inc.  All rights reserved.
+ Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,17 +17,20 @@
 
 import pyfos.pyfos_auth as pyfos_auth
 import pyfos.pyfos_util as pyfos_util
-import pyfos.pyfos_zone as pyfos_zone
+import pyfos.pyfos_brocade_zone as pyfos_zone
 import sys
-import cfgsave
+import pyfos.utils.zoning.zoning_cfg_save as cfgsave
+import pyfos.utils.zoning.zoning_cfg_abort as cfgabort
+import pyfos.utils.brcd_util as brcd_util
 
 
 def zone_name_members_pmembers_func(session, inputs, usage, func):
     # comment zone helper to execute & commit
     # name, member, and principal member based operations
     if "name" not in inputs:
+        print("*** missing input: name")
         pyfos_auth.logout(session)
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
     name = inputs["name"]
 
@@ -42,62 +45,93 @@ def zone_name_members_pmembers_func(session, inputs, usage, func):
         pmembers = inputs["pmembers"]
 
     if members is None and pmembers is None:
+        print("*** missing input: members & pmembers")
         pyfos_auth.logout(session)
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
 
     current_effective = pyfos_zone.effective_configuration.get(session)
 
+    print("executing", func.__name__)
     result = func(session, name, members, pmembers)
     if pyfos_util.is_failed_resp(result):
         pyfos_util.response_print(result)
+        print(func.__name__, "failed. Aborting transaction.")
+        result = cfgabort.cfgabort(session)
+        pyfos_util.response_print(result)
     else:
         pyfos_util.response_print(result)
+        print(func.__name__, "succeeded. Saving transaction.")
         result = cfgsave.cfgsave(session, current_effective.peek_checksum())
-        pyfos_util.response_print(result)
+        if pyfos_util.is_failed_resp(result):
+            pyfos_util.response_print(result)
+            print(func.__name__, "failed. Aborting transaction.")
+            result = cfgabort.cfgabort(session)
+            pyfos_util.response_print(result)
 
 
 def zone_name_members_func(session, inputs, usage, func):
     # comment zone helper to execute & commit
     # name, and member based operations
     if "name" not in inputs:
+        print("*** missing input: name")
         pyfos_auth.logout(session)
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
     name = inputs["name"]
 
     if "members" not in inputs:
+        print("*** missing input: members")
         pyfos_auth.logout(session)
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
     members = inputs["members"]
 
     current_effective = pyfos_zone.effective_configuration.get(session)
 
+    print("executing", func.__name__)
     result = func(session, name, members)
     if pyfos_util.is_failed_resp(result):
         pyfos_util.response_print(result)
+        print(func.__name__, "failed. Aborting transaction.")
+        result = cfgabort.cfgabort(session)
+        pyfos_util.response_print(result)
     else:
         pyfos_util.response_print(result)
+        print(func.__name__, "succeeded. Saving transaction.")
         result = cfgsave.cfgsave(session, current_effective.peek_checksum())
-        pyfos_util.response_print(result)
+        if pyfos_util.is_failed_resp(result):
+            pyfos_util.response_print(result)
+            print(func.__name__, "failed. Aborting transaction.")
+            result = cfgabort.cfgabort(session)
+            pyfos_util.response_print(result)
 
 
 def zone_name_func(session, inputs, usage, func):
     # comment zone helper to execute & commit
     # name based operations
     if "name" not in inputs:
+        print("*** missing input: name")
         pyfos_auth.logout(session)
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
     name = inputs["name"]
 
     current_effective = pyfos_zone.effective_configuration.get(session)
 
+    print("executing", func.__name__)
     result = func(session, name)
     if pyfos_util.is_failed_resp(result):
         pyfos_util.response_print(result)
+        print(func.__name__, "failed. Aborting transaction.")
+        result = cfgabort.cfgabort(session)
+        pyfos_util.response_print(result)
     else:
         pyfos_util.response_print(result)
+        print(func.__name__, "succeeded. Saving transaction.")
         result = cfgsave.cfgsave(session, current_effective.peek_checksum())
-        pyfos_util.response_print(result)
+        if pyfos_util.is_failed_resp(result):
+            pyfos_util.response_print(result)
+            print(func.__name__, "failed. Aborting transaction.")
+            result = cfgabort.cfgabort(session)
+            pyfos_util.response_print(result)

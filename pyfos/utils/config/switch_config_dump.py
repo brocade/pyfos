@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-# Copyright 2017 Brocade Communications Systems, Inc.  All rights reserved.
+# Copyright © 2018 Broadcom. All rights reserved. The term "Broadcom"
+# refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,61 +18,66 @@
 
 :mod:`switch_config_dump` - PyFOS util for specific config op use case.
 ***********************************************************************************
-The :mod:`switch_config_dump` provides for specific config op use case.
+The :mod:`switch_config_dump` provides for a specific config op use case.
 
-This module is a standalone script that can be used to dump
+This module is a stand-alone script that can be used to dump
 JSON encoded switch configuration files into a timestamped
 directory. The resulting directory can be used to monitor drift
-or apply to switch.
+or apply to a switch.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Inputs:
+    * -L=<login>: Login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
+    * -i=<IP address>: IP address.
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+        a VFID of 128 is assumed.
 
-* outputs:
+* Outputs:
     * None
 
 """
 
 import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_zone as pyfos_zone
-import pyfos.pyfos_switch as pyfos_switch
-import pyfos.pyfos_switchfcport as pyfos_switchfcport
-import pyfos.pyfos_fabric as pyfos_fabric
-import pyfos.pyfos_util as pyfos_util
+import pyfos.pyfos_brocade_zone as pyfos_zone
+import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
+import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+import pyfos.pyfos_brocade_fabric as pyfos_fabric
+import pyfos.pyfos_rest_util as pyfos_rest_util
 import sys
 import pyfos.utils.brcd_util as brcd_util
 import json
 import os
-import time
+import switch_config_util
 
 
 def usage():
-    print("usage:")
-    print('switch_config_dump.py -i <ipaddr>')
+    print("")
 
 
 def dump_object(session, dir_name, pyfos_class):
-    object = pyfos_class.get(session)
+    fos_object = pyfos_class.get(session)
+
     fp = open(dir_name + "/" + pyfos_class.__name__, 'w')
-    fp.write(
-            json.dumps(
-                object, cls=pyfos_util.json_encoder, sort_keys=True, indent=4))
+
+    fp.write(json.dumps(
+        fos_object,
+        cls=pyfos_rest_util.rest_object_encoder,
+        sort_keys=True, indent=4))
+
     fp.close()
+
+    print("dumped", pyfos_class.__name__)
 
 
 def main(argv):
-    isHttps = "0"
-
-    inputs = brcd_util.generic_input(argv, usage)
+    valid_options = []
+    inputs = brcd_util.generic_input(argv, usage, valid_options)
 
     session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], isHttps)
+                               inputs["ipaddr"], inputs["secured"],
+                               verbose=inputs["verbose"])
     if pyfos_auth.is_failed_login(session):
         print("login failed because",
               session.get(pyfos_auth.CREDENTIAL_KEY)
@@ -88,11 +94,10 @@ def main(argv):
     if vfid is not None:
         pyfos_auth.vfid_set(session, vfid)
 
-    dir_name = ("FOS_" + inputs["ipaddr"] + "_" +
-                time.strftime("%Y_%m_%d_%H:%M:%S"))
+    dir_name = switch_config_util.get_dirname(inputs['ipaddr'])
     try:
         os.stat(dir_name)
-    except:
+    except OSError:
         os.mkdir(dir_name)
 
     dump_object(session, dir_name, pyfos_switch.fibrechannel_switch)
@@ -100,6 +105,8 @@ def main(argv):
     dump_object(session, dir_name, pyfos_fabric.fabric_switch)
     dump_object(session, dir_name, pyfos_zone.defined_configuration)
     dump_object(session, dir_name, pyfos_zone.effective_configuration)
+
+    print("done")
 
     pyfos_auth.logout(session)
 

@@ -1,4 +1,4 @@
-# Copyright 2017 Brocade Communications Systems, Inc.  All rights reserved.
+# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -67,29 +67,36 @@ class pyfos_type():
             cur_value = str(value)
             if isinstance(cur_value, str):
                 return True, cur_value
-        if cur_type == pyfos_type.type_na:
+        elif cur_type == pyfos_type.type_ipv6_addr:
+            cur_value = str(value)
+            if isinstance(cur_value, str):
+                return True, cur_value
+        elif cur_type == pyfos_type.type_na:
             return True, value
         else:
             return False, None
 
     def validate_peek(self, value):
-        if isinstance(value, list):
-            # if the list is empty, just return
-            if not list:
-                return True, value
-
-            # otherwise, walk through element
-            # and see if they are of the type
-            # expected
-            ret_list = []
-            for cur_value in value:
-                correct_type, cast_value = self.__validate_peek_help(
-                        self.pyfos_type, cur_value)
+        if isinstance(self.pyfos_type, list):
+            for cur_type in self.pyfos_type:
+                correct_type, cast_value = self.__validate_peek_help(cur_type,
+                                                                     value)
                 if correct_type is True:
-                    ret_list.append(cast_value)
-                else:
-                    print("invalid type", value, cur_value, self.pyfos_type)
-
-            return True, ret_list
+                    return correct_type, cast_value
+            return False, None
         else:
             return self.__validate_peek_help(self.pyfos_type, value)
+
+
+class rest_yang_type():
+    yang_leaf = 0x00010000
+    yang_container = 0x00020000
+    yang_list = 0x00040000
+    yang_leaf_list = 0x00080000
+
+
+class rest_yang_config():
+    yang_key = 0x01000000
+    yang_config = 0x02000000
+    yang_not_config = 0x02000000
+    yang_mandatory = 0x04000000

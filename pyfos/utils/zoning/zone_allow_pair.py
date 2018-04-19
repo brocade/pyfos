@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-# Copyright 2017 Brocade Communications Systems, Inc.  All rights reserved.
+# Copyright © 2018 Broadcom. All rights reserved. The term "Broadcom"
+# refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,43 +18,42 @@
 
 :mod:`zone_allow_pair` - PyFOS util for specific Zoning use case.
 ***********************************************************************************
-The :mod:`zone_allow_pair` provides for specific Zoning use case.
+The :mod:`zone_allow_pair` provides for a specific Zoning use case.
 
-This module is a standalone script and API that can be used to create a Zone
-between a pair of host/target without having to go through Zone DB
+This module is a stand-alone script and API that can be used to create a Zone
+between a pair of hosts/targets without having to go through the Zone DB
 management of creating Zones, adding to CFG, enabling CFG, etc. The script
-will create a new zone using host and target name along with a
-prefix, add port WWNs to the newly create Zone, add to the current CFG or
-create a new CFG to add the newly create Zone, & enable the CFG.
+creates a new zone using a host and target name along with a
+prefix, adds port WWNs to the newly created Zone, adds to the current CFG or
+creates a new CFG to add to the newly created Zone, and enables the CFG.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Inputs:
+    * -L=<login>: Login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * --hostname=<hostname>: string name of the host or host port
-    * --hostport=<WWN>: PWWN of the host
-    * --targetname=<targetname>: string name of the target or target port
-    * --targetport=<WWN>: PWWN of the target
+    * -i=<IP address>: IP address.
+    * --hostname=<hostname>: String name of the host or host port.
+    * --hostport=<WWN>: PWWN of the host.
+    * --targetname=<targetname>: String name of the target or target port.
+    * --targetport=<WWN>: PWWN of the target.
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+       a VFID of 128 is assumed.
 
-* outputs:
-    * Indicate if Zone DB has been changed or not due to the execution
-    * Python dictionary content with details string descriptions
+* Outputs:
+    * Indicates if Zone DB has been changed or not due to the execution.
+    * Python dictionary content with detailed string descriptions.
 
 """
 
 
 import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_zone as pyfos_zone
+import pyfos.pyfos_brocade_zone as pyfos_zone
 import pyfos.pyfos_util as pyfos_util
 import pyfos.utils.brcd_util as brcd_util
 import inspect
 import sys
 
-isHttps = "0"
 session = None
 ZONE_PREFIX = "az_tupl_"
 CFG_NAME = "az__cfg"
@@ -70,10 +70,13 @@ RET_ZONE_CREATED_IN_CFG = 8
 
 
 def usage():
-    print("usage:")
-    print('zone_allow_pair.py -i <ipaddr>'
-          ' --hostname=<hostname> --hostport=<host port wwn> '
-          ' --targetname=<targetname> --targetport=<target port wwn>')
+    print("  Script specific options:")
+    print("")
+    print("    --hostname=HOSTNAME          name of host")
+    print("    --hostport=HOSTPORT          WWN of host port")
+    print("    --targetname=TARGETNAME      name of target")
+    print("    --targetport=TARGETPORT      WWN of target port")
+    print("")
 
 
 def zonename_get(prefix, hostname, targetname):
@@ -82,7 +85,7 @@ def zonename_get(prefix, hostname, targetname):
 
 def zone_allow_pair(session, prefix, hostname, hostport,
                     targetname, targetport, if_no_cfg, checkmode):
-    """Create/add a pair of host and target to a tuple Zone
+    """Create/add a pair of hosts and targets to a tuple Zone.
 
     Example usage of the method to create a new tuple zone with a pair::
 
@@ -94,21 +97,21 @@ def zone_allow_pair(session, prefix, hostname, hostport,
         else:
             print ("zone db didn't change", result)
 
-    :param session: session returned by login
-    :param prefix: prefix for the peer Zone name
-    :param hostname: string name of the host
-    :param hostport: WWN of the host port
-    :param targetname: string name of the target
-    :param targetport: WWN of the target port
-    :param if_no_cfg: CFG name to be used if there are no enabled CFG
-    :param checkmode: indicate if Zone DB is to be updated or
-        return status only
-    :rtype: return code and dictionary of status description
+    :param session: session returned by login.
+    :param prefix: prefix for the peer Zone name.
+    :param hostname: string name of the host.
+    :param hostport: WWN of the host port.
+    :param targetname: string name of the target.
+    :param targetport: WWN of the target port.
+    :param if_no_cfg: CFG name to be used if there is no enabled CFG.
+    :param checkmode: indicates if Zone DB is to be updated or
+        return status only.
+    :rtype: Return code and dictionary of status description.
 
-    *use cases*
+    *Use cases*
 
-        1. pass in host/target pair to create tuple zone
-        2. pass in host/target pair to create tuple zone
+        1. Pass in host/target pair to create tuple zone.
+        2. Pass in host/target pair to create tuple zone.
 
     """
 
@@ -231,15 +234,17 @@ def zone_allow_pair(session, prefix, hostname, hostport,
 
 
 def main(argv):
-    inputs = brcd_util.generic_input(argv, usage)
+    valid_options = ["hostname", "hostport", "targetname", "targetport"]
+    inputs = brcd_util.generic_input(argv, usage, valid_options)
 
     session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], isHttps)
+                               inputs["ipaddr"], inputs["secured"],
+                               verbose=inputs["verbose"])
     if pyfos_auth.is_failed_login(session):
         print("login failed because",
               session.get(pyfos_auth.CREDENTIAL_KEY)
               [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
 
     brcd_util.exit_register(session)
@@ -250,6 +255,26 @@ def main(argv):
 
     if vfid is not None:
         pyfos_auth.vfid_set(session, vfid)
+
+    if "hostname" not in inputs:
+        print("--hostname is mandatory")
+        brcd_util.full_usage(usage)
+        sys.exit()
+
+    if "hostport" not in inputs:
+        print("--hostport is mandatory")
+        brcd_util.full_usage(usage)
+        sys.exit()
+
+    if "targetname" not in inputs:
+        print("--targetname is mandatory")
+        brcd_util.full_usage(usage)
+        sys.exit()
+
+    if "targetport" not in inputs:
+        print("--targetport is mandatory")
+        brcd_util.full_usage(usage)
+        sys.exit()
 
     ret_code, details = zone_allow_pair(
             session, ZONE_PREFIX, inputs["hostname"], inputs["hostport"],

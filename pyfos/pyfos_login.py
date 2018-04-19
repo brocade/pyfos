@@ -1,4 +1,4 @@
-# Copyright 2017 Brocade Communications Systems, Inc.  All rights reserved.
+# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
 
 import http.client as httplib
 import base64
+import ssl
 import pyfos.pyfos_util as pyfos_util
 
 LOGIN_RESTCONF = "/rest/login"
@@ -29,7 +30,10 @@ def credential_to_user(credential):
 
 
 def login(user, password, ip_addr, isHttps):
-    if isHttps == "1":
+    if isHttps == "self":
+        conn = httplib.HTTPSConnection(
+                ip_addr, context=ssl._create_unverified_context())
+    elif isHttps == "CA":
         conn = httplib.HTTPSConnection(ip_addr)
     else:
         conn = httplib.HTTPConnection(ip_addr)
@@ -45,16 +49,23 @@ def login(user, password, ip_addr, isHttps):
     conn.request("POST", LOGIN_RESTCONF, "", credential)
 
     resp = conn.getresponse()
-#    print resp.status
 #    print resp.reason
 #    page = resp.read()
 #    print page
     auth = resp.getheader('authorization')
+    content = resp.getheader('content-type')
 
     if auth is None:
-        errors = pyfos_util.set_response_parse(resp)
-        if 'errors' in errors:
-            return {"login-error": errors['errors']['error']['error-message']}
+        if resp.status == 404 and content in 'text/html; charset=iso-8859-1':
+            return {"login-error": "Rest unsupported FOS version"}
+        else:
+            errors = pyfos_util.set_response_parse(resp)
+
+        if 'client-error-message' in errors:
+            return {
+                    "login-error":
+                    errors['client-errors']['errors']['error']['error-message']
+                    }
         elif 'server-error-message' in errors:
             return {"login-error": errors['server-error-message']}
         else:
@@ -64,7 +75,10 @@ def login(user, password, ip_addr, isHttps):
 
 
 def logout(credential, ip_addr, isHttps):
-    if isHttps == "1":
+    if isHttps == "self":
+        conn = httplib.HTTPSConnection(
+                ip_addr, context=ssl._create_unverified_context())
+    elif isHttps == "CA":
         conn = httplib.HTTPSConnection(ip_addr)
     else:
         conn = httplib.HTTPConnection(ip_addr)
@@ -79,4 +93,7 @@ def logout(credential, ip_addr, isHttps):
 #    page = resp.read()
 #    print resp.getheaders()
 
+    content = resp.getheader('content-type')
+    if resp.status == 404 and content in 'text/html; charset=iso-8859-1':
+        return {"login-error": "Rest unsupported FOS version"}
     return pyfos_util.set_response_parse(resp)

@@ -1,0 +1,15 @@
+.. automodule:: pyfos_brocade_extension_ipsec_policy
+	:platform: Linux
+	:synopsis: PyFOS module to support IPSec Policy module for REST.
+	:members:
+
+.. seealso::
+
+	Module :mod:`pyfos_rest_util`
+	Module :mod:`pyfos_auth`
+
+.. seealso:: The Example utils
+
+	Module :mod:`extension_ipsec_policy_create`
+	Module :mod:`extension_ipsec_policy_delete`
+	Module :mod:`extension_ipsec_policy_show`

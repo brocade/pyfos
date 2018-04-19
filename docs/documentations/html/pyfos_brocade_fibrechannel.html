@@ -1,0 +1,2670 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_fibrechannel - PyFOS module to provide rest support for FC ports. &#8212; PyFOS 0.9.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_fibrechannel_diagnostics - PyFOS module to provide rest support for FC port diagnostics." href="pyfos_brocade_fibrechannel_diagnostics.html" />
+    <link rel="prev" title="pyfos_brocade_fabric - PyFOS module to provide rest support for Fabric." href="pyfos_brocade_fabric.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fibrechannel_diagnostics.html" title="pyfos_brocade_fibrechannel_diagnostics - PyFOS module to provide rest support for FC port diagnostics."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fabric.html" title="pyfos_brocade_fabric - PyFOS module to provide rest support for Fabric."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_fibrechannel"></span><div class="section" id="pyfos-brocade-fibrechannel-pyfos-module-to-provide-rest-support-for-fc-ports">
+<h1><a class="reference internal" href="#module-pyfos_brocade_fibrechannel" title="pyfos_brocade_fibrechannel: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fibrechannel</span></code></a> - PyFOS module to provide         rest support for FC ports.<a class="headerlink" href="#pyfos-brocade-fibrechannel-pyfos-module-to-provide-rest-support-for-fc-ports" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_fibrechannel" title="pyfos_brocade_fibrechannel: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fibrechannel</span></code></a> provides a REST support         for FC ports.</p>
+<dl class="function">
+<dt id="pyfos_brocade_fibrechannel.enabled_state_type_to_str">
+<code class="descclassname">pyfos_brocade_fibrechannel.</code><code class="descname">enabled_state_type_to_str</code><span class="sig-paren">(</span><em>speed_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.enabled_state_type_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string value for enable state type in integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>es_type</strong> – enabled state type in <code class="xref py py-class docutils literal notranslate"><span class="pre">ENABLED_STATE_TYPE</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">enabled state type in string value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_fibrechannel.</code><code class="descname">fibrechannel</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of FC ports</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>name of port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_name" title="pyfos_brocade_fibrechannel.fibrechannel.set_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_name" title="pyfos_brocade_fibrechannel.fibrechannel.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>wwn</td>
+<td>WWN of port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_wwn" title="pyfos_brocade_fibrechannel.fibrechannel.peek_wwn"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_wwn()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>operational-status</td>
+<td>current operational status</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_operational_status" title="pyfos_brocade_fibrechannel.fibrechannel.peek_operational_status"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_operational_status()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>enabled_state</td>
+<td>enabled state of port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_enabled_state" title="pyfos_brocade_fibrechannel.fibrechannel.set_enabled_state"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_enabled_state()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_enabled_state" title="pyfos_brocade_fibrechannel.fibrechannel.peek_enabled_state"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_enabled_state()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>user-friendly-name</td>
+<td>string name of port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_user_friendly_name" title="pyfos_brocade_fibrechannel.fibrechannel.set_user_friendly_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_user_friendly_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_user_friendly_name" title="pyfos_brocade_fibrechannel.fibrechannel.peek_user_friendly_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_user_friendly_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>speed</td>
+<td>speed of port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_speed" title="pyfos_brocade_fibrechannel.fibrechannel.set_speed"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_speed()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_speed" title="pyfos_brocade_fibrechannel.fibrechannel.peek_speed"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_speed()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>auto-negotiate</td>
+<td>indicate if auto negotiate is
+enabled or not</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_auto_negotiate" title="pyfos_brocade_fibrechannel.fibrechannel.peek_auto_negotiate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_auto_negotiate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>g-port-locked</td>
+<td>indicate locked to G_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_g_port_locked" title="pyfos_brocade_fibrechannel.fibrechannel.set_g_port_locked"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_g_port_locked()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_g_port_locked" title="pyfos_brocade_fibrechannel.fibrechannel.peek_g_port_locked"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_g_port_locked()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>e-port-disable</td>
+<td>indicate E_Port disabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_e_port_disable" title="pyfos_brocade_fibrechannel.fibrechannel.set_e_port_disable"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_e_port_disable()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_e_port_disable" title="pyfos_brocade_fibrechannel.fibrechannel.peek_e_port_disable"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_e_port_disable()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>d-port-enable</td>
+<td>indicate D_Port enabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_d_port_enable" title="pyfos_brocade_fibrechannel.fibrechannel.set_d_port_enable"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_d_port_enable()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_d_port_enable" title="pyfos_brocade_fibrechannel.fibrechannel.peek_d_port_enable"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_d_port_enable()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>persistent-disable</td>
+<td>indicate persistently disabled
+port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_persistent_disable" title="pyfos_brocade_fibrechannel.fibrechannel.set_persistent_disable"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_persistent_disable()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_persistent_disable" title="pyfos_brocade_fibrechannel.fibrechannel.peek_persistent_disable"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_persistent_disable()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>neighboar/wwn</td>
+<td>list of neighbors’ WWNs</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_neighbor_wwn" title="pyfos_brocade_fibrechannel.fibrechannel.peek_neighbor_wwn"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_neighbor_wwn()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fcid</td>
+<td>FCID of port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_fcid" title="pyfos_brocade_fibrechannel.fibrechannel.peek_fcid"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_fcid()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-type</td>
+<td>type of port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_port_type" title="pyfos_brocade_fibrechannel.fibrechannel.peek_port_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_type()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>qos-enabled</td>
+<td>indicate QoS mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_qos_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_qos_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_qos_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_qos_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_qos_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qos_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>compression-configured</td>
+<td>indicate compression mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_compression_configured" title="pyfos_brocade_fibrechannel.fibrechannel.set_compression_configured"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_compression_configured()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_compression_configured" title="pyfos_brocade_fibrechannel.fibrechannel.peek_compression_configured"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_compression_configured()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>compression-active</td>
+<td>indicate active compression</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_compression_active" title="pyfos_brocade_fibrechannel.fibrechannel.peek_compression_active"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_compression_active()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>encryption-active</td>
+<td>indicate active encryption</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_encryption_active" title="pyfos_brocade_fibrechannel.fibrechannel.peek_encryption_active"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_encryption_active()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>target-driven-zoning-enable</td>
+<td>target driven zoning mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_target_driven_zoning_enable" title="pyfos_brocade_fibrechannel.fibrechannel.set_target_driven_zoning_enable"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_target_driven_zoning_enable()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_target_driven_zoning_enable" title="pyfos_brocade_fibrechannel.fibrechannel.peek_target_driven_zoning_enable"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_target_driven_zoning_enable()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>mirror-port-enabled</td>
+<td>mirrorport  mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_mirror_port_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_mirror_port_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_mirror_port_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_mirror_port_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_mirror_port_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_mirror_port_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sim-port-enabled</td>
+<td>sim port mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_sim_port_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_sim_port_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_sim_port_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_sim_port_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_sim_port_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sim_port_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>isl-ready-mode-enabled</td>
+<td>isl ready mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_isl_ready_mode_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_isl_ready_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_isl_ready_mode_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_isl_ready_mode_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_isl_ready_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_isl_ready_mode_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>trunk-port-enabled</td>
+<td>trunk-port-enabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_trunk_port_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_trunk_port_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_trunk_port_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_trunk_port_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_trunk_port_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_trunk_port_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>long-distance</td>
+<td>long distance</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_long_distance" title="pyfos_brocade_fibrechannel.fibrechannel.peek_long_distance"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_long_distance()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vc-link-init</td>
+<td>vc link init</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_vc_link_init" title="pyfos_brocade_fibrechannel.fibrechannel.peek_vc_link_init"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_vc_link_init()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ex-port-enabled</td>
+<td>ex port mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_ex_port_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_ex_port_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_ex_port_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_ex_port_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_ex_port_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ex_port_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>npiv-enabled</td>
+<td>Npiv Enabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_npiv_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_npiv_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_npiv_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_npiv_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>npiv-pp-limit</td>
+<td>Npiv pp-limit</td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">set_npiv_pp_limit()</span></code>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">peek_npiv_pp_limit()</span></code></td>
+</tr>
+<tr class="row-even"><td>rate-limit-enabled</td>
+<td>Rate Limit</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_rate_limit_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_rate_limit_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_rate_limit_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_rate_limit_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_rate_limit_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_rate_limit_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>csctl-mode-enabled</td>
+<td>csctl mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_csctl_mode_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_csctl_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_csctl_mode_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_csctl_mode_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_csctl_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_csctl_mode_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port-autodisable-enabled</td>
+<td>sim port mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_port_autodisable_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_port_autodisable_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port_autodisable_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_port_autodisable_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_port_autodisable_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_autodisable_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>e-port-credit</td>
+<td>e-port-credit</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_e_port_credit" title="pyfos_brocade_fibrechannel.fibrechannel.set_e_port_credit"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_e_port_credit()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_e_port_credit" title="pyfos_brocade_fibrechannel.fibrechannel.peek_e_port_credit"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_e_port_credit()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>octet-speed-combo</td>
+<td>octet-speed-combo</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_octet_speed_combo" title="pyfos_brocade_fibrechannel.fibrechannel.set_octet_speed_combo"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_octet_speed_combo()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_octet_speed_combo" title="pyfos_brocade_fibrechannel.fibrechannel.peek_octet_speed_combo"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_octet_speed_combo()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>non-dfe-enabled</td>
+<td>non-dfe enabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_non_dfe_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_non_dfe_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_non_dfe_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_non_dfe_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_non_dfe_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_non_dfe_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fec-enabled</td>
+<td>fec mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_fec_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_fec_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_fec_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_fec_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_fec_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_fec_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>via-tts-fec-enabled</td>
+<td>via-tts-fec mode</td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">set_via_tts_fec_enabled()</span></code>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_via_tts_fec_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_via_tts_fec_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_via_tts_fec_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>npiv-flogi-logout-enabled</td>
+<td>npiv-flogi-logout mode</td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">set_npiv_flogi_logout_enabled()</span></code>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_flogi_logout_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_flogi_logout_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_npiv_flogi_logout_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>f-port-buffers</td>
+<td>f-port-buffers</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_f_port_buffers" title="pyfos_brocade_fibrechannel.fibrechannel.set_f_port_buffers"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_f_port_buffers()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_f_port_buffers" title="pyfos_brocade_fibrechannel.fibrechannel.peek_f_port_buffers"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_port_buffers()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fault-delay-enabled</td>
+<td>fault-delay mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_fault_delay_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_fault_delay_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_fault_delay_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_fault_delay_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_fault_delay_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_fault_delay_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>credit-recovery-enabled</td>
+<td>credit recovery mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_credit_recovery_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_credit_recovery_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_credit_recovery_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_credit_recovery_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_credit_recovery_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_credit_recovery_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>rscn-suppression-enabled</td>
+<td>rscn suppression mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_rscn_suppression_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_rscn_suppression_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_rscn_suppression_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_rscn_suppression_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_rscn_suppression_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_rscn_suppression_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>los-tov-mode-enabled</td>
+<td>los tov mode mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.set_los_tov_mode_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.set_los_tov_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_los_tov_mode_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_los_tov_mode_enabled" title="pyfos_brocade_fibrechannel.fibrechannel.peek_los_tov_mode_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_los_tov_mode_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>credit-recovery-active</td>
+<td>credit recovery active state</td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_credir_recovery_active()</span></code></td>
+</tr>
+<tr class="row-odd"><td>fec-active</td>
+<td>fec active state</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_fec_active" title="pyfos_brocade_fibrechannel.fibrechannel.peek_fec_active"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_fec_active()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel" title="pyfos_brocade_fibrechannel.fibrechannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">fibrechannel</span></code></a> object or a list of
+objects filled with attributes gathered
+from switch. If optional name is given, either an
+object matching the name of the port is returned
+or an empty object is returned if no match is found.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed
+through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a <a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel" title="pyfos_brocade_fibrechannel.fibrechannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">fibrechannel</span></code></a> object if name is
+given or a list of objects if there are more than one</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply configurable attribute(s) within the object to
+a port of the switch.</p>
+<p><em>Below is an example using individual sets:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the switch object</span>
+<span class="n">switch</span> <span class="o">=</span> <span class="n">pyfos_switch</span><span class="o">.</span><span class="n">fibrechannel</span><span class="p">()</span>
+<span class="c1"># set the enabled-state attribute to</span>
+<span class="c1"># enable the port 0/0 on the switch</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;0/0&quot;</span><span class="p">)</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">set_enabled_state</span><span class="p">(</span><span class="n">pyfos_switchfcport</span><span class="o">.</span><span class="n">enableState</span><span class="p">)</span>
+<span class="c1"># execute HTTP patch command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Below is an example of combining object                     initialization and attribute sets:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the switch object and set the</span>
+<span class="c1"># enable-state attribute</span>
+<span class="n">switch</span> <span class="o">=</span> <span class="n">pyfos_switch</span><span class="o">.</span><span class="n">fibrechannel</span><span class="p">({</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;0/0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;enabled-state&quot;</span> <span class="p">:</span> <span class="n">pyfos_switch</span><span class="o">.</span><span class="n">enableState</span><span class="p">})</span>
+<span class="c1"># execute HTTP patch command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">switch</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a dictionary of error or success information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – port name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_wwn">
+<code class="descname">peek_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port WWN in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port WWN</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_operational_status">
+<code class="descname">peek_operational_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_operational_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads operational status of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port WWN</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_enabled_state">
+<code class="descname">set_enabled_state</code><span class="sig-paren">(</span><em>newstate</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets enabled state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newstate</strong> – new port state to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_enabled_state">
+<code class="descname">peek_enabled_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads enabled state in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or enabled state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_user_friendly_name">
+<code class="descname">set_user_friendly_name</code><span class="sig-paren">(</span><em>newname</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_user_friendly_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets user friendly name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newname</strong> – new name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_user_friendly_name">
+<code class="descname">peek_user_friendly_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_user_friendly_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads user friendly name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or user friendly name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_speed">
+<code class="descname">set_speed</code><span class="sig-paren">(</span><em>newspeed</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets new speed in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newspeed</strong> – new speed to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_speed">
+<code class="descname">peek_speed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads speed of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or speed of port</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_auto_negotiate">
+<code class="descname">peek_auto_negotiate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_auto_negotiate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads indicate if auto negotiate mode is on in the object.
+When speed is set to auto negotiate, this attribute will return
+True while speed attribute will indicate the negotiated speed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_g_port_locked">
+<code class="descname">set_g_port_locked</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_g_port_locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets G_Port locked indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_g_port_locked">
+<code class="descname">peek_g_port_locked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_g_port_locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads G_Port locked mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_e_port_disable">
+<code class="descname">set_e_port_disable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_e_port_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets E_Port disable mode indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_e_port_disable">
+<code class="descname">peek_e_port_disable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_e_port_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads E_Port disable mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_d_port_enable">
+<code class="descname">set_d_port_enable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_d_port_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets D_Port enable indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_d_port_enable">
+<code class="descname">peek_d_port_enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_d_port_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads D_Port mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_persistent_disable">
+<code class="descname">set_persistent_disable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_persistent_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets persistently disabled indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_persistent_disable">
+<code class="descname">peek_persistent_disable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_persistent_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads persistent disabled mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_neighbor_wwn">
+<code class="descname">peek_neighbor_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_neighbor_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a list of neighboar WWNs of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or a list of WWNs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_fcid">
+<code class="descname">peek_fcid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_fcid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FCID of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or FCID</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_port_type">
+<code class="descname">peek_port_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_port_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port type of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_qos_enabled">
+<code class="descname">set_qos_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_qos_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets QoS mode indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_qos_enabled">
+<code class="descname">peek_qos_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_qos_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads QoS mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_compression_configured">
+<code class="descname">set_compression_configured</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_compression_configured" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets compression mode indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_compression_configured">
+<code class="descname">peek_compression_configured</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_compression_configured" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads compression mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_compression_active">
+<code class="descname">peek_compression_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_compression_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads compression mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_encryption_active">
+<code class="descname">peek_encryption_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_encryption_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads encryption mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_target_driven_zoning_enable">
+<code class="descname">set_target_driven_zoning_enable</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_target_driven_zoning_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets target driven zoning mode indication in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_target_driven_zoning_enable">
+<code class="descname">peek_target_driven_zoning_enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_target_driven_zoning_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads target driven zoning mode of port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None, True, or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_mirror_port_enabled">
+<code class="descname">set_mirror_port_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_mirror_port_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets mirrorport config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_mirror_port_enabled">
+<code class="descname">peek_mirror_port_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_mirror_port_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets mirrorport config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_sim_port_enabled">
+<code class="descname">set_sim_port_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_sim_port_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets simport config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_sim_port_enabled">
+<code class="descname">peek_sim_port_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_sim_port_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets simport config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_isl_ready_mode_enabled">
+<code class="descname">set_isl_ready_mode_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_isl_ready_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets isl ready mode config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_isl_ready_mode_enabled">
+<code class="descname">peek_isl_ready_mode_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_isl_ready_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets isl ready mode config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_trunk_port_enabled">
+<code class="descname">set_trunk_port_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_trunk_port_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets trunkport config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_trunk_port_enabled">
+<code class="descname">peek_trunk_port_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_trunk_port_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets trunkport config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_long_distance">
+<code class="descname">peek_long_distance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_long_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets long distance mode config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_vc_link_init">
+<code class="descname">peek_vc_link_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_vc_link_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets vc link init mode config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_ex_port_enabled">
+<code class="descname">set_ex_port_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_ex_port_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets export config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_ex_port_enabled">
+<code class="descname">peek_ex_port_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_ex_port_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets export config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_npiv_enabled">
+<code class="descname">set_npiv_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_npiv_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets npiv capable config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_enabled">
+<code class="descname">peek_npiv_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets npiv capable config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_npiv_pp_limit_enabled">
+<code class="descname">set_npiv_pp_limit_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_npiv_pp_limit_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets npiv login limit config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_pp_limit_enabled">
+<code class="descname">peek_npiv_pp_limit_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_pp_limit_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets npiv login limit config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_rate_limit_enabled">
+<code class="descname">set_rate_limit_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_rate_limit_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets rate limit config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_rate_limit_enabled">
+<code class="descname">peek_rate_limit_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_rate_limit_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets rate limit config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_csctl_mode_enabled">
+<code class="descname">set_csctl_mode_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_csctl_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets csctl config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_csctl_mode_enabled">
+<code class="descname">peek_csctl_mode_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_csctl_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets csctl config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_port_autodisable_enabled">
+<code class="descname">set_port_autodisable_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_port_autodisable_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets port auto disable mode config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_port_autodisable_enabled">
+<code class="descname">peek_port_autodisable_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_port_autodisable_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets port auto disable mode config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_e_port_credit">
+<code class="descname">set_e_port_credit</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_e_port_credit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets e port credits config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_e_port_credit">
+<code class="descname">peek_e_port_credit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_e_port_credit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets e port credits config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_octet_speed_combo">
+<code class="descname">set_octet_speed_combo</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_octet_speed_combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets octet speed combo config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_octet_speed_combo">
+<code class="descname">peek_octet_speed_combo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_octet_speed_combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets octet speed combo config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_non_dfe_enabled">
+<code class="descname">set_non_dfe_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_non_dfe_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets non-dfe config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_non_dfe_enabled">
+<code class="descname">peek_non_dfe_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_non_dfe_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets non-dfe config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_fec_enabled">
+<code class="descname">set_fec_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_fec_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets fec config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_fec_enabled">
+<code class="descname">peek_fec_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_fec_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets fec config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_via_tts_fec_enabled">
+<code class="descname">peek_via_tts_fec_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_via_tts_fec_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets fec via tts config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_flogi_logout_enabled">
+<code class="descname">peek_npiv_flogi_logout_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_npiv_flogi_logout_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets npiv flogi logout config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_f_port_buffers">
+<code class="descname">set_f_port_buffers</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_f_port_buffers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets f port buffers config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_f_port_buffers">
+<code class="descname">peek_f_port_buffers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_f_port_buffers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets f port buffers config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_fault_delay_enabled">
+<code class="descname">set_fault_delay_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_fault_delay_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets falut delay  config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_fault_delay_enabled">
+<code class="descname">peek_fault_delay_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_fault_delay_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets falut delay  config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_credit_recovery_enabled">
+<code class="descname">set_credit_recovery_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_credit_recovery_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets credit recovery config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_credit_recovery_enabled">
+<code class="descname">peek_credit_recovery_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_credit_recovery_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets credit recovery config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_rscn_suppression_enabled">
+<code class="descname">set_rscn_suppression_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_rscn_suppression_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets rscn suppression config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_rscn_suppression_enabled">
+<code class="descname">peek_rscn_suppression_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_rscn_suppression_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets rscn suppression config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.set_los_tov_mode_enabled">
+<code class="descname">set_los_tov_mode_enabled</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.set_los_tov_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets los tov mode config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_los_tov_mode_enabled">
+<code class="descname">peek_los_tov_mode_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_los_tov_mode_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets los tov mode config for the port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> – new mode to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_credit_recovery_active">
+<code class="descname">peek_credit_recovery_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_credit_recovery_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the status of the credit recovery’s active status</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Returns the state of credit recovery of port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel.peek_fec_active">
+<code class="descname">peek_fec_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel.peek_fec_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the status of the fec’s active status</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Returns the state of fec of port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_fibrechannel.</code><code class="descname">fibrechannel_statistics</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of FC port statistics</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="27%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>name of port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.set_name" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.set_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_name" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sampling-interval</td>
+<td>sampling interval in secs</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_sampling_interval" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_sampling_interval"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sampling_interval()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>time-generated</td>
+<td>timestamp of stats generation</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_time_generated" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_time_generated"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_time_generated()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>reset-statistics</td>
+<td>reset the stats to zero</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.set_reset_statistics" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.set_reset_statistics"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_reset_statistics()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_reset_statistics" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_reset_statistics"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_reset_statistics()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-octets</td>
+<td>ingress octets</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_octets" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_octets"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_octets()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-octets</td>
+<td>egress octets</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_octets" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_octets"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_octets()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-multicast-pkts</td>
+<td>ingress multicast packets</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_multicast_pkts" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_multicast_pkts"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_multicast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-multicast-pkts</td>
+<td>egress multicast packets</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_multicast_pkts" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_multicast_pkts"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_multicast_pkts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-link-resets</td>
+<td>ingress link resets</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_link_resets" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_link_resets"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_link_resets()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-link-resets</td>
+<td>egress link resets</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_link_resets" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_link_resets"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_link_resets()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-offline-sequences</td>
+<td>ingress offline sequences</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_offline_sequences" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_offline_sequences"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_offline_sequences()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>out-offline-sequences</td>
+<td>egress offline sequences</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_offline_sequences" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_offline_sequences"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_offline_sequences()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>invalid-ordered-sets</td>
+<td>invalid ordered sets</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_invalid_ordered_sets" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_invalid_ordered_sets"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_invalid_ordered_sets()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>frames-too-long</td>
+<td>number of too long frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_frames_too_long" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_frames_too_long"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_frames_too_long()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>truncated-frames</td>
+<td>truncated frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_truncated_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_truncated_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_truncated_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>address-errors</td>
+<td>address errors</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_address_errors" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_address_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_address_errors()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>delimiter-errors</td>
+<td>delimiter errors</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_delimiter_errors" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_delimiter_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_delimiter_errors()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>encoding-disparity-errors</td>
+<td>encoding disparity errors</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_encoding_disparity_errors" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_encoding_disparity_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_encoding_disparity_errors()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>too-many-rdys</td>
+<td>too many RDYs</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_too_many_rdys" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_too_many_rdys"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_too_many_rdys()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-crc-errors</td>
+<td>total ingress CRC errors</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_crc_errors" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_crc_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_crc_errors()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>crc-errors</td>
+<td>CRC errors</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_crc_errors" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_crc_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_crc_errors()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>bad-eofs-received</td>
+<td>ingress bad EOFs</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_bad_eofs_received" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_bad_eofs_received"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_bad_eofs_received()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>encoding-errors-outside-frame</td>
+<td>encoding err outside of frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_encoding_errors_outside_frame" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_encoding_errors_outside_frame"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_encoding_errors_outside_frame()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>multicast-timeouts</td>
+<td>multicast timeouts</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_multicast_timeouts" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_multicast_timeouts"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_multicast_timeouts()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>in-lcs</td>
+<td>ingress LCS</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_lcs" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_lcs"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_lcs()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-frame-rate</td>
+<td>ingress frame rate</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_frame_rate" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_frame_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_frame_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-frame-rate</td>
+<td>egress frame rate</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_frame_rate" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_frame_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_frame_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-max-frame-rate</td>
+<td>ingress max frame rate</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_max_frame_rate" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_max_frame_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_max_frame_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-max-frame-rate</td>
+<td>egress max frame rate</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_max_frame_rate" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_max_frame_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_max_frame_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-rate</td>
+<td>ingress byte rate</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_rate" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-rate</td>
+<td>egress byte rate</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_rate" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-peak-rate</td>
+<td>ingress peak rate</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_peak_rate" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_peak_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_peak_rate()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-peak-rate</td>
+<td>egress peak rate</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_peak_rate" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_peak_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_peak_rate()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>in-frames</td>
+<td>ingress frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_in_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>out-frames</td>
+<td>egress frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_out_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>bb-credit-zero</td>
+<td>bb credit zero events</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_bb_credit_zero" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_bb_credit_zero"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_bb_credit_zero()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>input-buffer-full</td>
+<td>input buffer full events</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_input_buffer_full" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_input_buffer_full"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_input_buffer_full()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>f-busy-frames</td>
+<td>F_BSY frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_f_busy_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_f_busy_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_busy_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>p-busy-frames</td>
+<td>P_BSY frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_p_busy_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_p_busy_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_p_busy_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>f-rjt-frames</td>
+<td>F_RJT frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_f_rjt_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_f_rjt_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_rjt_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>p-rjt-frames</td>
+<td>P_RJT frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_p_rjt_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_p_rjt_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_p_rjt_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>class-1-frames</td>
+<td>class 1 frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_1_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_1_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_class_1_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>class-2-frames</td>
+<td>class 2 frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_2_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_2_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_class_2_frames()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>class-3-frames</td>
+<td>class 3 frames</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_3_frames" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_3_frames"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_class_3_frames()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>class-3-discards</td>
+<td>classs 3 discards</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_3_discards" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_3_discards"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_class_3_discards()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>link-failures</td>
+<td>link failures</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_link_failures" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_link_failures"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_link_failures()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>invalid-transmission-words</td>
+<td>invalid transmission words</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_invalid_transmission_words" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_invalid_transmission_words"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_invalid_transmission_words()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>primitive-sequence-protocol-error</td>
+<td>primitive sequence proto err</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_primitive_sequence_protocol_error" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_primitive_sequence_protocol_error"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_primitive_sequence_protocol_error()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>loss-of-signal</td>
+<td>loss of signal</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_loss_of_signal" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_loss_of_signal"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_loss_of_signal()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>loss-of-sync</td>
+<td>loss of sync</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_loss_of_sync" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_loss_of_sync"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_loss_of_sync()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>class3-in-discards</td>
+<td>class 3 ingress discards</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class3_in_discards" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class3_in_discards"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_class3_in_discards()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>class3-out-discards</td>
+<td>class 3 egress discards</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class3_out_discards" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class3_out_discards"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_class3_out_discards()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>pcs-block-errors</td>
+<td>PCS block errors</td>
+<td><a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_pcs_block_errors" title="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_pcs_block_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_pcs_block_errors()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics" title="pyfos_brocade_fibrechannel.fibrechannel_statistics"><code class="xref py py-class docutils literal notranslate"><span class="pre">fibrechannel_statistics</span></code></a> object or
+a list of objects filled with attributes gathered
+from switch. If optional name is given, either an
+object matching the name of the port is returned
+or an empty object is returned if no match is found.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed
+through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a <a class="reference internal" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics" title="pyfos_brocade_fibrechannel.fibrechannel_statistics"><code class="xref py py-class docutils literal notranslate"><span class="pre">fibrechannel_statistics</span></code></a>
+object if name is given or a list of objects
+if there are more than one</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – port name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_sampling_interval">
+<code class="descname">peek_sampling_interval</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_sampling_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads sampling interval in seconds in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or sampling interval</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_time_generated">
+<code class="descname">peek_time_generated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_time_generated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads time generated, which indicates when statistics
+were captured, in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or time generated</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.set_reset_statistics">
+<code class="descname">set_reset_statistics</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.set_reset_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets reset mode in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – port name to be set within the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_reset_statistics">
+<code class="descname">peek_reset_statistics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_reset_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads reset mode in the object. It should alwasy be 0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_octets">
+<code class="descname">peek_in_octets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_octets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress octets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress octets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_octets">
+<code class="descname">peek_out_octets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_octets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress octets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress octets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_multicast_pkts">
+<code class="descname">peek_in_multicast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_multicast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress multicast packets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress multicast packets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_multicast_pkts">
+<code class="descname">peek_out_multicast_pkts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_multicast_pkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress multicast packets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress multicast packets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_link_resets">
+<code class="descname">peek_in_link_resets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_link_resets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress link resets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress link resets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_link_resets">
+<code class="descname">peek_out_link_resets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_link_resets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress link resets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress link resets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_offline_sequences">
+<code class="descname">peek_in_offline_sequences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_offline_sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress offline sequences in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress offline sequences</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_offline_sequences">
+<code class="descname">peek_out_offline_sequences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_offline_sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress offline sequences in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress offline sequences</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_invalid_ordered_sets">
+<code class="descname">peek_invalid_ordered_sets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_invalid_ordered_sets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of invalid ordered sets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of invalid ordered sets</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_frames_too_long">
+<code class="descname">peek_frames_too_long</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_frames_too_long" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of frames too long in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of frames too long</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_truncated_frames">
+<code class="descname">peek_truncated_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_truncated_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of truncated frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of truncated frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_address_errors">
+<code class="descname">peek_address_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_address_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of address errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of address errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_delimiter_errors">
+<code class="descname">peek_delimiter_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_delimiter_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of delimiter errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of delimiter errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_encoding_disparity_errors">
+<code class="descname">peek_encoding_disparity_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_encoding_disparity_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of encoding disparity errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of encoding disparity errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_too_many_rdys">
+<code class="descname">peek_too_many_rdys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_too_many_rdys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of too many rdys in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of too many rdys</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_crc_errors">
+<code class="descname">peek_in_crc_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_crc_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress CRC errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress CRC errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_crc_errors">
+<code class="descname">peek_crc_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_crc_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of crc errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of crc errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_bad_eofs_received">
+<code class="descname">peek_bad_eofs_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_bad_eofs_received" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of bad EOFs in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of bad EOFs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_encoding_errors_outside_frame">
+<code class="descname">peek_encoding_errors_outside_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_encoding_errors_outside_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of encoding errors outside of frame in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of encoding errors outside of frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_multicast_timeouts">
+<code class="descname">peek_multicast_timeouts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_multicast_timeouts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of multicast timeouts in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of multicast timeouts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_lcs">
+<code class="descname">peek_in_lcs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_lcs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress LCS in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress LCS</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_frame_rate">
+<code class="descname">peek_in_frame_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_frame_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ingress frame rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ingress frame rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_frame_rate">
+<code class="descname">peek_out_frame_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_frame_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads egress frame rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or egress frame rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_max_frame_rate">
+<code class="descname">peek_in_max_frame_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_max_frame_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ingress max frame rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ingress max frame rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_max_frame_rate">
+<code class="descname">peek_out_max_frame_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_max_frame_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads egress max frame rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or egress max frame rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_rate">
+<code class="descname">peek_in_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ingress rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ingress rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_rate">
+<code class="descname">peek_out_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads egress rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or egress rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_peak_rate">
+<code class="descname">peek_in_peak_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_peak_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ingress peak rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ingress peak rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_peak_rate">
+<code class="descname">peek_out_peak_rate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_peak_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress peak rate in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or egress peak rate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_frames">
+<code class="descname">peek_in_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_in_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of ingress frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of ingress frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_frames">
+<code class="descname">peek_out_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_out_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of egress frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of egress frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_bb_credit_zero">
+<code class="descname">peek_bb_credit_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_bb_credit_zero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of times when bb credit went to zero in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of times when bb credit went to zero</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_input_buffer_full">
+<code class="descname">peek_input_buffer_full</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_input_buffer_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of times when input buffer wass full in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of times when input buffer was full</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_f_busy_frames">
+<code class="descname">peek_f_busy_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_f_busy_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of f busy frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of f busy frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_p_busy_frames">
+<code class="descname">peek_p_busy_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_p_busy_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of p busy frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of p busy frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_f_rjt_frames">
+<code class="descname">peek_f_rjt_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_f_rjt_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of f reject frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of f reject frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_p_rjt_frames">
+<code class="descname">peek_p_rjt_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_p_rjt_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of p reject frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of p reject frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_1_frames">
+<code class="descname">peek_class_1_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_1_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 1 frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 1 frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_2_frames">
+<code class="descname">peek_class_2_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_2_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 2 frames sets in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 2 frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_3_frames">
+<code class="descname">peek_class_3_frames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_3_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 3 frames in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 3 frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_3_discards">
+<code class="descname">peek_class_3_discards</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class_3_discards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 3 discards in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 3 discards</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_link_failures">
+<code class="descname">peek_link_failures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_link_failures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of link failures in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of link failures</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_invalid_transmission_words">
+<code class="descname">peek_invalid_transmission_words</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_invalid_transmission_words" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of invalid transmission words in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of invalid transmission words</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_primitive_sequence_protocol_error">
+<code class="descname">peek_primitive_sequence_protocol_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_primitive_sequence_protocol_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of primitive sequence protocl errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of primitive sequence protocol errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_loss_of_signal">
+<code class="descname">peek_loss_of_signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_loss_of_signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of loss of signal events in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of loss of signal events</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_loss_of_sync">
+<code class="descname">peek_loss_of_sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_loss_of_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of loss of sync events in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of loss of sync events</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class3_in_discards">
+<code class="descname">peek_class3_in_discards</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class3_in_discards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 3 ingress discards in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 3 ingress discards</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class3_out_discards">
+<code class="descname">peek_class3_out_discards</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_class3_out_discards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of class 3 egress discards in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of class 3 egress discards</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_pcs_block_errors">
+<code class="descname">peek_pcs_block_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.fibrechannel_statistics.peek_pcs_block_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of pcs block errors in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or number of pcs block errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_fibrechannel.operational_status_type_to_str">
+<code class="descclassname">pyfos_brocade_fibrechannel.</code><code class="descname">operational_status_type_to_str</code><span class="sig-paren">(</span><em>speed_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.operational_status_type_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string value for operational status type in integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>os_type</strong> – operational status type in <code class="xref py py-class docutils literal notranslate"><span class="pre">OPERATIONAL_STATUS_TYPE</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">operational status type in string value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_fibrechannel.port_type_to_str">
+<code class="descclassname">pyfos_brocade_fibrechannel.</code><code class="descname">port_type_to_str</code><span class="sig-paren">(</span><em>port_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.port_type_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string value for port type in integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port_type</strong> – port type in <code class="xref py py-class docutils literal notranslate"><span class="pre">PORT_TYPE</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">port type in string value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_fibrechannel.speed_type_to_str">
+<code class="descclassname">pyfos_brocade_fibrechannel.</code><code class="descname">speed_type_to_str</code><span class="sig-paren">(</span><em>speed_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fibrechannel.speed_type_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string value for speed type in integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>speed_type</strong> – speed type in <code class="xref py py-class docutils literal notranslate"><span class="pre">SPEED_TYPE</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">speed type in string value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_fabric.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_fabric</span></code> - PyFOS module to provide rest support for Fabric.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_fibrechannel_diagnostics.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_fibrechannel_diagnostics</span></code> - PyFOS module to         provide rest support for FC port diagnostics.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_fibrechannel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fibrechannel_diagnostics.html" title="pyfos_brocade_fibrechannel_diagnostics - PyFOS module to provide rest support for FC port diagnostics."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fabric.html" title="pyfos_brocade_fabric - PyFOS module to provide rest support for Fabric."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>
