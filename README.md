@@ -156,7 +156,7 @@ PyFOS - 1.0
     changed to
 
         switch = pyfos_switch.fibrechannel_switch.get(session)
-        print(port.peek_name())
+        print(switch.peek_name())
 
     When wanting to create/update/delete, you would want to use post(),
     patch() or delete() function provided by the object. Typically,
