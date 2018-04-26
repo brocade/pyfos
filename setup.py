@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
 	name='pyfos',
-	version='0.9.0',
+	version='1.0.0',
 	description='Brocade FOS Library.',
 	author='Brocade Communications Systems LLC.',
 	author_email='Automation.BSN@broadcom.com',
