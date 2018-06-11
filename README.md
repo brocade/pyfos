@@ -83,6 +83,7 @@ PyFOS - 1.0
 
     if library path is used for pyfos & dependencies only - remove the directory as a whole
     if library path is used by other modules also - remove pyfos & dependencies manually
+        If installed pyfos using pip3, use uninstall option to remove
 
 ### Contact ###
 
