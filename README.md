@@ -64,9 +64,15 @@ PyFOS - 1.0
         pip3 install xlrd --prefix=~<login>/python_lib
         pip3 install colorconsole --prefix=~<login>/python_lib
 
-    4) install pyfos modules into the library path
-    cd <pyfos directory>
-    python3 setup.py install --prefix=~<login>/python_lib
+    4) pyfos can be installed directly from github.com or using pip
+
+        4.1) install pyfos directly from github.com into the library path
+            cd <pyfos directory>
+            python3 setup.py install --prefix=~<login>/python_lib
+
+        4.2) install pyfos using pip into the library path
+            cd <pyfos directory>
+            pip3 install pyfos --prefix=~<login>/python_lib
 
 ### HTML based documentation ###
 
@@ -77,6 +83,7 @@ PyFOS - 1.0
 
     if library path is used for pyfos & dependencies only - remove the directory as a whole
     if library path is used by other modules also - remove pyfos & dependencies manually
+        If installed pyfos using pip3, use uninstall option to remove
 
 ### Contact ###
 
