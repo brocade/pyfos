@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_access_gateway - PyFOS Module to Provide REST Support for Access Gateway. &#8212; PyFOS 0.9.0 documentation</title>
+    <title>pyfos_brocade_access_gateway - PyFOS Module to Provide REST Support for Access Gateway. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_util.html" title="pyfos_util - PyFOS module to provide utility functions."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -45,6 +45,141 @@
   <span class="target" id="module-pyfos_brocade_access_gateway"></span><div class="section" id="pyfos-brocade-access-gateway-pyfos-module-to-provide-rest-support-for-access-gateway">
 <h1><a class="reference internal" href="#module-pyfos_brocade_access_gateway" title="pyfos_brocade_access_gateway: PyFOS module to provide REST support for Access Gateway (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_access_gateway</span></code></a> - PyFOS Module to Provide         REST Support for Access Gateway.<a class="headerlink" href="#pyfos-brocade-access-gateway-pyfos-module-to-provide-rest-support-for-access-gateway" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-pyfos_brocade_access_gateway" title="pyfos_brocade_access_gateway: PyFOS module to provide REST support for Access Gateway (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_access_gateway</span></code></a> module provides REST support         for the Access Gateway.</p>
+<dl class="class">
+<dt id="pyfos_brocade_access_gateway.device_list">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_access_gateway.</code><code class="descname">device_list</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.device_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information about the devices logged in Access Gateway.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="23%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>wwn</td>
+<td>port wwn of the device</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.device_list.peek_wwn" title="pyfos_brocade_access_gateway.device_list.peek_wwn"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_wwn()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fcid</td>
+<td>Fibrechannel ID of the device</td>
+<td><a class="reference internal" href="#pyfos_brocade_access_gateway.device_list.peek_fcid" title="pyfos_brocade_access_gateway.device_list.peek_fcid"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_fcid()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>f-port</td>
+<td>F-port  to which the device is
+connected</td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_f_port()</span></code></td>
+</tr>
+<tr class="row-odd"><td>n-port</td>
+<td>N-port to which the device
+f-port is mapped</td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_n_port()</span></code></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.device_list.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.device_list.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <a class="reference internal" href="#pyfos_brocade_access_gateway.device_list" title="pyfos_brocade_access_gateway.device_list"><code class="xref py py-class docutils literal notranslate"><span class="pre">device_list</span></code></a>
+object with values for all the attributes.
+The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_access_gateway.device_list" title="pyfos_brocade_access_gateway.device_list"><code class="xref py py-class docutils literal notranslate"><span class="pre">device_list</span></code></a> object</td>
+</tr>
+</tbody>
+</table>
+<p>Example usage of the method to get information of all wwns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">wwn_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">device_list</span><span class="p">()</span>
+<span class="n">wwn_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example usage of the method to get information of a
+specific , wwn say “30:08:09:27:f8:8b:74:62”:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">device_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">device_list</span><span class="p">()</span>
+<span class="n">device_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s2">&quot;30:08:09:27:f8:8b:74:62&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_access_gateway.device_list.peek_wwn">
+<code class="descname">peek_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.device_list.peek_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads wwn in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or wwn.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.device_list.peek_fcid">
+<code class="descname">peek_fcid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.device_list.peek_fcid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Fibrechannel ID of the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or fibrechannel ID.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.device_list.peek_nport">
+<code class="descname">peek_nport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.device_list.peek_nport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current mapped n-port of the f-port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or n-port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_access_gateway.device_list.peek_fport">
+<code class="descname">peek_fport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.device_list.peek_fport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads f-port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or fport.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
 <dl class="class">
 <dt id="pyfos_brocade_access_gateway.f_port_list">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_access_gateway.</code><code class="descname">f_port_list</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_access_gateway.f_port_list" title="Permalink to this definition">¶</a></dt>
@@ -116,13 +251,13 @@ The object can be printed using <code class="xref py py-func docutils literal no
 </tbody>
 </table>
 <p>Example usage of the method to get information for all F_Ports:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fport_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">f_port_list</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">fport_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">f_port_list</span><span class="p">()</span>
 <span class="n">fport_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example usage of the method to get information for a
 specific F_Port, say “0/8”:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fport_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">f_port_list</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">fport_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">f_port_list</span><span class="p">()</span>
 <span class="n">fport_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s2">&quot;0/8&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -355,7 +490,7 @@ any existing map configuration for the specified N_Port.
 Also, this method is used to update the failover and failback
 configuration for a given N_Port.</p>
 <p><em>The following is an example using individual sets:</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the Access Gateway object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the Access Gateway object</span>
 <span class="n">nport</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">n_port_map</span><span class="p">();</span>
 <span class="c1"># set the failover-enabled attribute to</span>
 <span class="c1"># enable failover for N_Port 0/47 on the Access Gateway</span>
@@ -386,7 +521,7 @@ configuration for a given N_Port.</p>
 to add a specified list of F_Ports (configured and static)
 to a given N_Port.</p>
 <p>Example usage of the method to create a new mappings:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the Access Gateway object</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="c1"># initialize the Access Gateway object</span>
 <span class="n">nport</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">n_port_map</span><span class="p">();</span>
 <span class="c1"># set the failover-enabled attribute to</span>
 <span class="c1"># enable failover for N_Port 0/47 on the Access Gateway</span>
@@ -415,7 +550,7 @@ to a given N_Port.</p>
 This method is used to remove/clear the specified list of
 configured and static F_Ports from the mapping for N_Port.</p>
 <p>Example usage of the method to create a new mappings:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the Access Gateway object</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="c1"># initialize the Access Gateway object</span>
 <span class="n">nport</span> <span class="o">=</span> <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">n_port_map</span><span class="p">();</span>
 <span class="c1"># set the failover-enabled attribute to</span>
 <span class="c1"># enable failover for N_Port 0/47 on the switch</span>
@@ -767,7 +902,7 @@ The object can be printed using <code class="xref py py-func docutils literal no
 using the attribute’s set method. This method is used to
 set the N_Port settings, for example, reliability counter.</p>
 <p>Example usage of the method to set the reliability counter to 20:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nportsettings_obj</span> <span class="o">=</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">nportsettings_obj</span> <span class="o">=</span>
     <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">n_port_settings</span><span class="p">()</span>
 <span class="n">nportsettings_obj</span><span class="o">.</span><span class="n">set_reliability_counter</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">nportsettings_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
@@ -887,7 +1022,7 @@ using the attribute’s set method. This command is used to
 enable or disable the Access Gateway policies.</p>
 <p>Example usage of the method to enable the port
 group policy on an AG:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">policy_obj</span> <span class="o">=</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">policy_obj</span> <span class="o">=</span>
     <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">policy</span><span class="p">()</span>
 <span class="n">policy_obj</span><span class="o">.</span><span class="n">set_port_group_policy_enabled</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">policy_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
@@ -1070,7 +1205,7 @@ within the object using the attribute’s set method.
 This method is used to create a new port group with a group
 of N_Ports or to add N_Ports or F_Ports to an existing port group.</p>
 <p>Example usage of the method to create a new port group:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">portgroup_obj</span> <span class="o">=</span>
     <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">port_group</span><span class="p">()</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_n_ports_n_port</span><span class="p">(</span><span class="s2">&quot;0/40;0/41&quot;</span><span class="p">)</span>
@@ -1100,7 +1235,7 @@ using the attribute’s set method. This command is used to
 replace the existing member N_Ports or F_Ports, the
 rename port group, and the enable or disable port group modes.</p>
 <p>Example usage of the method to enable load balancing mode in a PG:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">portgroup_obj</span> <span class="o">=</span>
     <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">port_group</span><span class="p">()</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_mode_load_balancing_mode_enabled</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1128,14 +1263,14 @@ set within the object using the attribute’s
 set method. This command is used to delete a port group
 or to delete the existing members from N_Ports or F_Ports.</p>
 <p>Example usage of the method to delete port group 1:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">portgroup_obj</span> <span class="o">=</span>
     <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">port_group</span><span class="p">()</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example usage of the method to delete N_Ports from port group 1:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">portgroup_obj</span> <span class="o">=</span>
     <span class="n">pyfos_brocade_access_gateway</span><span class="o">.</span><span class="n">port_group</span><span class="p">()</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_n_ports_n_port</span><span class="p">(</span><span class="s2">&quot;0/40;0/41&quot;</span><span class="p">)</span>
@@ -1400,7 +1535,7 @@ the port-group object.</p>
         <li class="right" >
           <a href="pyfos_util.html" title="pyfos_util - PyFOS module to provide utility functions."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

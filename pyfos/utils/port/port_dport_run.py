@@ -163,7 +163,7 @@ def main(argv):
 
     diag_info = pyfos_diag.fibrechannel_diagnostics(
         {"name": name, "payload-pattern": {"payload": "0x30540242"}})
-    print("set new payload")
+    print("SET new attributes and Restart the diagnostics test")
     result = diag_info.patch(session)
     pyfos_util.response_print(result)
 

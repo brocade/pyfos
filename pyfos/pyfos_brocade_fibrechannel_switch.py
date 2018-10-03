@@ -23,6 +23,7 @@ The :mod:`pyfos_brocade_fibrechannel_switch` provides a REST support for \
 
 import pyfos.pyfos_rest_util as pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
+import pyfos.pyfos_version as version
 
 UNDEFINED = 0
 ENABLE = 2
@@ -35,47 +36,60 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
     Important class members:
 
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | Attribute name                | Description                   |Frequstly used methods                 |
-        +===============================+===============================+=======================================+
-        | name                          | WWN name of switch            |:meth:`set_name`                       |
-        |                               |                               |:meth:`peek_name`                      |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | domain-id                     | domain id of switch           |:meth:`peek_domain_id`                 |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | user-friendly-name            | user friendly name of switch  |:meth:`set_user_friendly_name`         |
-        |                               |                               |:meth:`peek_user_friendly_name`        |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | fcid                          | FCID of switch                |:meth:`peek_fcid`                      |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | vf-id                         | VFID of switch                |:meth:`peek_vf_id`                     |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | principal                     | indicate if principal or not  |:meth:`peek_principal`                 |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | enabled-state                 | Enabled or disabled state     |:meth:`set_enabled_state`              |
-        |                               |                               |:meth:`peek_enabled_state`             |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | up-time                       | Uptime of the switch          |:meth:`peek_up_time`                   |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | model                         | Model of the switch           |:meth:`peek_model`                     |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | firmware-version              | FOS version of switch         |:meth:`peek_firmware_version`          |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | ip-address                    | List of IPv4 address          |:meth:`set_ip_address`                 |
-        |                               | note the same name of         |:meth:`peek_ip_address`                |
-        |                               | leaf list elements            |                                       |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | domain-name                   | DNS domain name of switch     |:meth:`set_domain_name`                |
-        |                               |                               |:meth:`peek_domain_name`               |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | fabric-user-friendly-name     | user friendly name of fabric  |:meth:`set_fabric_user_friendly_name`  |
-        |                               |                               |:meth:`peek_fabric_user_friendly_name` |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | ag-mode                       | indicate if ag is enabled or  |:meth:`peek_ag_mode`                   |
-        |                               | not                           |                                       |
-        +-------------------------------+-------------------------------+---------------------------------------+
-
-    *Object methods*
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | Attribute name                | Description                   |Frequently used methods                               |
+        +===============================+===============================+======================================================+
+        | name                          | WWN name of switch            |:meth:`set_name`                                      |
+        |                               |                               |:meth:`peek_name`                                     |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | domain-id                     | domain id of switch           |:meth:`peek_domain_id`                                |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | user-friendly-name            | user friendly name of switch  |:meth:`set_user_friendly_name`                        |
+        |                               |                               |:meth:`peek_user_friendly_name`                       |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | fcid                          | FCID of switch                |:meth:`peek_fcid`                                     |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | vf-id                         | VFID of switch                |:meth:`peek_vf_id`                                    |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | principal                     | indicate if principal or not  |:meth:`peek_principal`                                |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | enabled-state                 | Enabled or disabled state     |:meth:`set_enabled_state`                             |
+        |                               |                               |:meth:`peek_enabled_state`                            |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | up-time                       | Uptime of the switch          |:meth:`peek_up_time`                                  |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | model                         | Model of the switch           |:meth:`peek_model`                                    |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | firmware-version              | FOS version of switch         |:meth:`peek_firmware_version`                         |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | ip-address/ip-address         | List of IPv4/IPv6 address     |:meth:`set_ip_address_ip_address`                     |
+        |                               | note the same name of         |:meth:`peek_ip_address_ip_address`                    |
+        |                               | leaf list elements            |                                                      |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | ip-static-gateway-list/       | IPv4 and IPv6 static gateway  |:meth:`set_ip_static_gateway_list_ip_static_gateway`  |
+        | ip-static-gateway             | addresses for the switch IP   |:meth:`peek_ip_static_gateway_list_ip_static_gateway` |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | subnet-mask                   | IPv4 subnet mask of the       |:meth:`set_subnet_mask`                               |
+        |                               | switch IP network             |:meth:`peek_subnet_mask`                              |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | domain-name                   | DNS domain name of switch     |:meth:`set_domain_name`                               |
+        |                               |                               |:meth:`peek_domain_name`                              |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | dns-servers/dns-server        | List of addresses of DNS      |:meth:`set_dns_servers_dns_server`                    |
+        |                               | servers containing the map    |:meth:`peek_dns_servers_dns_server`                   |
+        |                               | of switch domain name to      |                                                      |
+        |                               | ipv4/ipv6 addresses.          |                                                      |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | fabric-user-friendly-name     | user friendly name of fabric  |:meth:`set_fabric_user_friendly_name`                 |
+        |                               |                               |:meth:`peek_fabric_user_friendly_name`                |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | ag-mode                       | Enable or disable ag mode     |:meth:`set_ag_mode`                                   |
+        |                               |                               |:meth:`peek_ag_mode`                                  |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | banner                        | Banner message while login    |:meth:`set_banner`                                    |
+        |                               |                               |:meth:`peek_banner`                                   |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
 
         .. method:: get(session, name=None)
 
@@ -218,17 +232,42 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
             :rtype: None or FOS firmware version of the switch
 
-        .. method:: set_ip_address(ipaddress)
+        .. method:: set_ip_address_ip_address(ipaddress)
 
             Sets using a new list of IP addresses
 
             :rtype: None or dictionary of error information
 
-        .. method:: peek_ip_address()
+        .. method:: peek_ip_address_ip_address()
 
             Reads a list of IP addresses of the switch in the object.
 
             :rtype: None or a list of IP addresses
+
+        .. method:: set_ip_static_gateway_list_ip_static_gateway \
+(ip-static-gateway-list)
+
+            Sets new IPv4, IPv6 static gateway addresses for the switch.
+
+            :rtype: None or dictionary of error information
+
+        .. method:: peek_ip_static_gateway_list_ip_static_gateway()
+
+            Reads the static gateway IP addresses set for the switch.
+
+            :rtype: None or list of IPv4 and IPv6 static gateway addresses
+
+        .. method:: set_subnet_mask(subnet_mask)
+
+            Sets new subnet mask of the switch
+
+            :rtype: None or dictionary of error information
+
+        .. method:: peek_subnet_mask()
+
+            Reads subnet mask of the swich.
+
+            :rtype: None or subnet mask
 
         .. method:: set_domain_name(domain_name)
 
@@ -242,6 +281,18 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
             :rtype: None or domain name
 
+        .. method:: set_dns_servers_dns_server(dns-servers)
+
+            Sets new DNS Servers for the switch with their IPv4/IPv6 addresses.
+
+            :rtype: None or dictionary of error information
+
+        .. method:: peek_dns_servers_dns_server()
+
+            Reads the IP address of DNS servers set for the switch.
+
+            :rtype: None or list of IP addresses
+
         .. method:: set_fabric_user_friendly_name(name)
 
             Sets fabric user friendly name in the object.
@@ -254,13 +305,29 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
             :rtype: None or fabric user friendly name of the switch
 
+        .. method:: set_ag_mode(value)
+
+            Sets the ag-mode enabled state of the switch.
+
+            :rtype: None or dictionary of error information
+
         .. method:: peek_ag_mode()
 
             Reads Access Gateway mode in the object.
-
             :rtype: None or AG mode of the switch
 
-        """
+        .. method:: set_banner(value)
+
+           Sets the Banner message while login
+
+           :rtype: None or dictionary of error information
+
+        .. method:: peek_banner()
+
+           Reads the Banner message while login
+
+           :rtype: None or Banner message while login
+         """
 
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.switch,
@@ -303,16 +370,41 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
             "ip-address", pyfos_type.type_ip_addr,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["ip-address"])
         self.add(pyfos_rest_util.rest_attribute(
+            "ip-static-gateway-list", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER,
+            version.VER_RANGE_821_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "ip-static-gateway", pyfos_type.type_ip_addr,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST,
+            version.VER_RANGE_821_and_ABOVE),
+            ["ip-static-gateway-list"])
+        self.add(pyfos_rest_util.rest_attribute(
+            "subnet-mask", pyfos_type.type_ip_addr,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_821_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
             "domain-name", pyfos_type.type_str,
-            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_821_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "dns-servers", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER,
+            version.VER_RANGE_821_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "dns-server", pyfos_type.type_ip_addr,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST,
+            version.VER_RANGE_821_and_ABOVE), ["dns-servers"])
         self.add(pyfos_rest_util.rest_attribute(
             "fabric-user-friendly-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "ag-mode", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "fcid-hex", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "banner", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)

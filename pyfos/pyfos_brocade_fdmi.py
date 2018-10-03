@@ -604,7 +604,7 @@ class port(pyfos_rest_util.rest_object):
             "port-symbolic-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "port-id", pyfos_type.type_int,
+            "port-id", pyfos_type.type_hex_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "port-type", pyfos_type.type_str,

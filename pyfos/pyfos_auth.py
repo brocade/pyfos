@@ -61,6 +61,9 @@ Providing invalid session information will result in error.
             Please reference pyfos/docs/CA_Setup_Reference_Examples.doc \
                     for additional details.
 
+            Please reference pyfos/docs/CA_Setup_Reference_Examples.doc \
+                    for additional details
+
 Example usage of the module::
 
     session = pyfos_auth.login("myname", "mypassword", "10.10.10.10", 1)
@@ -222,9 +225,14 @@ def logout(session):
     delay = session.get("throttle_delay")
     if delay > 0:
         time.sleep(delay)
-
-    return pyfos_login.logout(session.get(CREDENTIAL_KEY),
-                              session.get("ip_addr"), session.get("ishttps"))
+    try:
+        ret = pyfos_login.logout(session.get(CREDENTIAL_KEY),
+                                 session.get("ip_addr"),
+                                 session.get("ishttps"))
+    except socket_error as serr:
+        ret = {'logout-error': serr}
+        # print(ret)
+    return ret
 
 
 def throttle_delay_set(session, delay):

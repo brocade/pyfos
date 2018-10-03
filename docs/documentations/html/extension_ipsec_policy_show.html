@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>extension_ipsec_policy_show - PyFOS util for Displaying IPsec policy. &#8212; PyFOS 0.9.0 documentation</title>
+    <title>extension_ipsec_policy_show - PyFOS util for Displaying IPsec policy. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="extension_ipsec_policy_delete.html" title="extension_ipsec_policy_delete - PyFOS util for deleting IPsec policy."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -48,10 +48,10 @@
 <p>This module is a stand-alone script that can be used to show an extension
 ipsec policy.
 extension_ipsec_policy_show: Usage</p>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt>Infrastructure options :</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>-i,–ipaddr=IPADDR: IP address of FOS switch.</li>
 <li>-L,–login=LOGIN: Login name.</li>
 <li>-P,–password=PASSWORD: Password.</li>
@@ -64,7 +64,7 @@ extension_ipsec_policy_show: Usage</p>
 </li>
 <li><dl class="first docutils">
 <dt>Script specific options:</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>–policy-name: Set policy-name.</li>
 </ul>
 </dd>
@@ -72,7 +72,7 @@ extension_ipsec_policy_show: Usage</p>
 </li>
 <li><dl class="first docutils">
 <dt>Outputs:</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
@@ -85,14 +85,14 @@ extension_ipsec_policy_show: Usage</p>
 <dd><p><em>show extension ipsec policy</em></p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span>
 <span class="n">extensionipsecpolicyshow</span><span class="o">.</span><span class="n">show_extension_ipsec_policy</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
 <span class="n">name</span><span class="p">,</span> <span class="n">profile</span><span class="p">,</span> <span class="n">auth</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;extension-ipsec-policy&quot;</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="s2">&quot;extension-ipsec-policy&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;authentication-data&quot;</span><span class="p">:</span> <span class="s2">&quot;1111111111111111111111111111&quot;</span><span class="p">,</span>
     <span class="s2">&quot;policy-name&quot;</span><span class="p">:</span> <span class="s2">&quot;mynewipsecpolicy&quot;</span><span class="p">,</span>
     <span class="s2">&quot;profile-name&quot;</span><span class="p">:</span> <span class="s2">&quot;preshared&quot;</span>
@@ -102,7 +102,7 @@ extension_ipsec_policy_show: Usage</p>
 <span class="n">restobject</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt>Inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -199,7 +199,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_ipsec_policy.
         <li class="right" >
           <a href="extension_ipsec_policy_delete.html" title="extension_ipsec_policy_delete - PyFOS util for deleting IPsec policy."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

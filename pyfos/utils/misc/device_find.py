@@ -39,52 +39,60 @@ is connected locally and where in the Zone DB it is mentioned.
 """
 import pyfos.pyfos_auth as pyfos_auth
 import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
 import pyfos.pyfos_brocade_name_server as pyfos_name_server
-import pyfos.pyfos_util as pyfos_util
 import sys
 import pyfos.utils.brcd_util as brcd_util
 
 
-def print_connected_location(session, device_wwn):
-    connected_ports = []
-    ports = pyfos_switchfcport.fibrechannel.get(session)
-    if not pyfos_util.is_failed_resp(ports):
-        # check the list of ports
-        if isinstance(ports, list):
-            for port in ports:
-                neighbor_list = port.peek_neighbor_wwn()
-                if len(neighbor_list) > 0:
-                    for device in neighbor_list:
-                        if device_wwn == device:
-                            connected_ports.append(port.peek_name())
-        # otherwise, just one port returned
-        else:
-            neighbor_list = ports.peek_neighbor_wwn()
-            if len(neighbor_list) > 0:
-                for device in neighbor_list:
-                    if device_wwn == device:
-                        connected_ports.append(ports.peek_name())
+def is_device_local(ns_entry, domain_id):
+    # Local variables
+    port = None
 
-    return connected_ports
+    # Get PID
+    pid = ns_entry.peek_port_id()
+
+    # Mask PID to get domain
+    entry_domain = pid[2] + pid[3]
+
+    # Compare domains
+    if domain_id == int(entry_domain, 16):
+        port = ns_entry.peek_port_index()
+
+    return port
 
 
+# Find device entry in Name Server
 def find_in_name_server(session, device_wwn):
-    ns_attributes = pyfos_name_server.fibrechannel_name_server.get(session, None)
-    ns_entries = []
-    if isinstance(ns_attributes, list):
-        for ns_attribute in ns_attributes:
-            if ns_attribute.peek_node_name() == device_wwn:
-                ns_entries.append(ns_attribute.peek_port_id())
-            elif ns_attribute.peek_port_name() == device_wwn:
-                ns_entries.append(ns_attribute.peek_port_id())
-    else:
-        if ns_attributes.peek_node_name() == device_wwn:
-            ns_entries.append(ns_attributes.peek_port_id())
-        elif ns_attributes.peek_port_name() == device_wwn:
-            ns_entries.append(ns_attributes.peek_port_id())
+    # Local variables
+    local_ports = []
+    device_pids = []
 
-    return ns_entries
+    # Get Name Server database
+    ns_entries = pyfos_name_server.fibrechannel_name_server.get(session, None)
+
+    # Get domain ID
+    switch_info = pyfos_switch.fibrechannel_switch.get(session, None)
+    domain_id = switch_info.peek_domain_id()
+
+    # Iterate through Name Server entries
+    if isinstance(ns_entries, list):
+        for entry in ns_entries:
+            if (entry.peek_node_name() == device_wwn or
+                    entry.peek_port_name() == device_wwn):
+                device_pids.append(entry.peek_port_id())
+                port = is_device_local(entry, domain_id)
+                if port is not None:
+                    local_ports.append(int(port))
+    else:
+        if (ns_entries.peek_node_name() == device_wwn or
+                ns_entries.peek_port_name() == device_wwn):
+            device_pids.append(ns_entries.peek_port_id())
+            port = is_device_local(ns_entries, domain_id)
+            if port is not None:
+                local_ports.append(port)
+
+    return (device_pids, local_ports)
 
 
 def find_in_aliases(session, device_wwn):
@@ -173,24 +181,22 @@ def main(argv):
         sys.exit()
     device_wwn = inputs["device"]
 
-    connected_ports = print_connected_location(session, device_wwn)
-    if connected_ports:
+    (device_pids, local_ports) = find_in_name_server(session, device_wwn)
+    if local_ports:
         print(" ")
-        for connected_port in connected_ports:
-            print(device_wwn + " is locally connected at " + connected_port)
+        for local_port in local_ports:
+            print(device_wwn + " is locally connected at " + str(local_port))
     else:
         print(" ")
         print(device_wwn + " is NOT locally connected")
 
-    ns_entries = find_in_name_server(session, device_wwn)
-    if ns_entries:
+    if device_pids:
         print(" ")
-        for ns_entry in ns_entries:
-            print(device_wwn + " is connected in fabric at " + ns_entry)
+        for pid in device_pids:
+            print(device_wwn + " is connected in fabric at " + pid)
     else:
         print(" ")
         print("the device is NOT in NS Database")
-
 
     aliases = find_in_aliases(session, device_wwn)
     if aliases:

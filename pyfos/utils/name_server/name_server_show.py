@@ -51,7 +51,8 @@ isHttps = "0"
 def main(argv):
     # Parse input arguments
     filters = ['port_id']
-    inputs = brcd_util.parse(argv, pyfos_name_server.fibrechannel_name_server, filters)
+    inputs = brcd_util.parse(argv, pyfos_name_server.fibrechannel_name_server,
+                             filters)
 
     # Get Name Server object
     name_server_object = inputs['utilobject']
@@ -65,7 +66,7 @@ def main(argv):
 
     # Logout
     pyfos_auth.logout(session)
-    
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

@@ -145,6 +145,38 @@ def get_response_parse(response, is_options=False):
 
     return ret_error
 
+def rpc_response_parse(response):
+
+    page = response.read()
+
+    # print(page)
+
+    test_parse_response(response, page)
+
+    if response.status >= 100 and response.status < 200:
+        ret_error = {"info-code": response.status,
+                     "info-message": response.reason,
+                     "info-type": "Informational"}
+        return ret_error
+    elif response.status >= 200 and response.status < 300:
+        # print page
+        ret_elements = parse_page(page)
+        return ret_elements["Response"]
+    elif response.status >= 300 and response.status < 400:
+        ret_error = {"redirection-code": response.status,
+                     "redirection-message": response.reason,
+                     "redirection-type": "Redirection"}
+        return ret_error
+    elif response.status >= 400 and response.status < 500:
+        ret_error = {"client-error-code": response.status,
+                     "client-error-message": response.reason,
+                     "client-errors": parse_page(page)}
+    else:
+        ret_error = {"server-error-code": response.status,
+                     "server-error-message": response.reason,
+                     "server-error-type": "Server error"}
+
+    return ret_error
 
 def test_title_set(title, description):
     global current_test
@@ -543,6 +575,22 @@ def delete_request(session, cmd, content):
     resp = conn.getresponse()
     return set_response_parse(resp)
 
+def rpc_request(session, cmd, content):
+    credential = session.get("credential")
+    vfidstr = vfidstr_get(session)
+
+    conn = http_connection(session)
+
+    debug(session, POST, cmd + vfidstr, content)
+
+    conn.request("POST", cmd + vfidstr, content, credential)
+
+    delay = session.get("throttle_delay")
+    if delay > 0:
+        time.sleep(delay)
+
+    resp = conn.getresponse()
+    return rpc_response_parse(resp)
 
 def encode_slotport(name):
     return quote(name, safe='')
@@ -636,6 +684,17 @@ def isSlotPort(inputstring):
     if inputstring.count("/") != 1:
         return False
     for i in inputstring.split("/"):
+        try:
+            int(i, 10)
+        except ValueError:
+            return False
+
+    return True
+
+def isDCommaI(inputstring):
+    if inputstring.count(",") != 1:
+        return False
+    for i in inputstring.split(","):
         try:
             int(i, 10)
         except ValueError:

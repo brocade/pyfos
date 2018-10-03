@@ -26,12 +26,69 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    pyfos_brocade_access_gateway
    pyfos_brocade_fabric
    pyfos_brocade_fibrechannel
+   pyfos_brocade_fibrechannel_configuration
    pyfos_brocade_fibrechannel_diagnostics
    pyfos_brocade_fibrechannel_switch
+   pyfos_brocade_fibrechannel_trunk
    pyfos_brocade_zone
    pyfos_brocade_fdmi
    pyfos_brocade_fibrechannel_logical_switch
    pyfos_brocade_name_server
+   pyfos_brocade_security
+   pyfos_brocade_chassis
+   pyfos_brocade_media
+   pyfos_brocade_fru
+   pyfos_brocade_logging
+   pyfos_brocade_license
+   pyfos_brocade_maps
+   pyfos_brocade_time
+
+*PyFOS Operation Support Modules*
+
+.. toctree::
+   :maxdepth: 2
+
+   pyfos_brocade_operation_supportsave
+   pyfos_brocade_operation_show_status
+
+*PyFOS Logging utils Modules*
+
+.. toctree::
+   :maxdepth: 2
+
+   log_quiet_control_get
+   log_quiet_control_modify
+   log_setting_keep_alive_period_get
+   log_setting_keep_alive_period_set
+   raslog_get
+   raslog_message_enabled_set
+   raslog_module_set
+   raslog_current_severity_set
+   raslog_syslog_enabled_set
+   syslog_show
+   syslog_modify
+   syslog_create
+   syslog_delete
+   syslog_facility_modify
+   syslog_facility_show
+   audit_show
+   audit_modify
+
+*PyFOS Configuration utils Modules*
+
+.. toctree::
+   :maxdepth: 2
+
+   switch_configuration_get
+   switch_configuration_modify
+   f_port_login_settings_get
+   f_port_login_settings_modify
+   dns_config_get
+   dns_config_modify
+   switch_ip_config_get
+   switch_ip_config_modify
+   configure_fabric_show
+   configure_fabric_modify
 
 *PyFOS Extension Support Modules*
 
@@ -50,6 +107,10 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    :maxdepth: 2
 
    bulk_zoning
+   configure_port_show
+   configure_port_name_set
+   configure_dport_mode_modify
+   configure_zone_show
    device_find
    extension_ip_interface_create
    extension_ip_interface_modify
@@ -63,6 +124,7 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    extension_circuit_modify
    extension_circuit_show
    extension_circuit_statistics_show
+   extension_circuit_statistics_pktloss_show
    extensionShell
    extension_tunnel_create
    extension_tunnel_modify
@@ -70,6 +132,7 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    extension_tunnel_show
    extension_tunnel_statistics_show
    extension_ipsec_policy_create
+   extension_ipsec_policy_modify
    extension_ipsec_policy_delete
    extension_ipsec_policy_show
    fabric_show
@@ -94,6 +157,7 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    port_trunk_state_set.rst
    port_resilience_set.rst
    port_stats_show.rst
+   switch_ag_mode_set.rst
    switch_name_set
    switch_show
    switch_config_apply
@@ -112,6 +176,7 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    zoning_cfg_save
    zoning_cfg_show
    zoning_def_zone
+   zoning_hanging_zone_find
    zoning_pzone_create_add
    zoning_pzone_delete
    zoning_pzone_remove
@@ -120,6 +185,8 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    zoning_zone_remove
    zone_allow_pair
    zone_allow_pair_to_peer
+   license_show 
+
 
 *PyFOS Access Gateway Mode utils Modules*
 
@@ -152,8 +219,153 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    logical_switch_modify
    logical_switch_show
 
-Indices and Tables
-==================
+*PyFOS System Security utils modules:*
+
+.. toctree::
+   :maxdepth: 2
+
+   sshutil_key_show
+   sshutil_key_create
+   sshutil_modify
+   sshutil_key_delete
+   sshutil_public_key_show
+   sshutil_public_key_delete
+   sshutil_public_key_modify
+   seccertmgmt_show
+   seccertmgmt_create
+   seccertmgmt_action
+   seccertmgmt_delete
+   passwd_modify
+   auth_spec_show
+   auth_spec_set
+   radius_server_show
+   radius_server_create
+   radius_server_set
+   radius_server_delete
+   tacacs_server_show
+   tacacs_server_create
+   tacacs_server_set
+   tacacs_server_delete
+   ldap_server_show
+   ldap_server_create
+   ldap_server_set
+   ldap_server_delete
+   ldap_role_map_show
+   ldap_role_map_create
+   ldap_role_map_set
+   ldap_role_map_delete
+   password_cfg_show
+   password_cfg_set
+   user_specific_password_cfg_show
+   user_specific_password_cfg_create
+   user_specific_password_cfg_set
+   user_specific_password_cfg_delete
+   time_zone_show
+   time_zone_set
+   time_zone_name_set
+   clock_server_show
+   clock_server_set
+   ipfilter_policy_show
+   ipfilter_policy_create
+   ipfilter_policy_clone_set
+   ipfilter_policy_activate_set
+   ipfilter_policy_delete
+   ipfilter_rule_show
+   ipfilter_rule_create
+   ipfilter_rule_delete
+   seccryptocfg_show
+   seccryptocfgtemplate_show
+   seccryptocfg_export
+   seccryptocfg_import
+   seccryptocfg_apply_set
+   seccryptocfg_verify
+   seccryptocfg_delete
+   user_config_show
+   user_config_create
+   user_config_set
+   user_config_delete
+
+*PyFOS Chassis utils modules:*
+
+.. toctree::
+   :maxdepth: 2
+
+   ha_status_show
+   chassis_show
+   chassis_name_set
+   chassis_vf_enabled_set
+
+*PyFOS Media utils modules:*
+
+.. toctree::
+   :maxdepth: 2
+
+   media_rdp_show
+
+*PyFOS Fru utils modules:*
+
+.. toctree::
+   :maxdepth: 2
+
+   fan_show
+   powersupply_show
+   blade_show
+   blade_extncfg_set
+
+*PyFOS MAPS utils modules:*
+
+.. toctree::
+   :maxdepth: 2
+
+   maps_policy_create
+   maps_policy_patch
+   maps_policy_delete
+   maps_policy_show
+   maps_policy_enable
+   maps_group_create
+   maps_group_delete
+   maps_group_show
+   maps_group_patch
+   maps_rule_create
+   maps_rule_delete
+   maps_rule_update
+   maps_rule_show
+   monitoring_system_matrix
+   maps_config_patch
+   maps_config_show
+   maps_paused_cfg_post
+   maps_paused_cfg_delete
+   maps_paused_cfg_show
+   maps_system_resources_show
+   maps_dashboard_misc_show
+   maps_dashboard_misc_patch
+   maps_dashboard_rule_show
+   maps_get_ssp_report
+
+
+*PyFOS Trunk utils Modules*
+
+.. toctree::
+   :maxdepth: 2
+
+   port_trunk_area_create_add
+   port_trunk_area_delete
+   port_trunk_area_show_all
+   port_trunk_area_show
+   trunk_perf_show_all
+   trunk_perf_show
+   trunk_show_all
+   trunk_show
+
+ 
+*PyFOS Operation utils Modules*
+
+.. toctree::
+   :maxdepth: 2
+
+   supportsave
+ 
+Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`

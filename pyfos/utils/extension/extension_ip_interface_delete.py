@@ -18,7 +18,8 @@
 
 :mod:`extension_ip_interface_delete` - PyFOS util to delete an IP interface
 ********************************************************************************
-The :mod:`extension_ip_interface_delete` Util is used for IP Interface deletion.
+The :mod:`extension_ip_interface_delete` Util is used for IP Interface\
+deletion.
 
 This module is a stand-alone script that can be used to delete an extension
 IP Interface.

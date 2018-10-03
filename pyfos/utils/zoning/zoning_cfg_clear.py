@@ -40,6 +40,11 @@ This module is a stand-alone script and API that can be used to clear a Zone DB.
     Therefore, zoning_cfg_disable.py should normally be executed
     before zoning_cfg_clear.py to avoid unexpected errors.
 
+.. note::
+    Internally, the script does cfgsave after cfgclear.
+    So, zoning_cfg_disable.py should normally be executed
+    before zoning_cfg_clear.py to avoid expected errors.
+
 """
 
 import pyfos.pyfos_auth as pyfos_auth
@@ -110,7 +115,7 @@ def main(argv):
         result = cfgsave.cfgsave(session, current_effective.peek_checksum())
         pyfos_util.response_print(result)
         if pyfos_util.is_failed_resp(result):
-            print("failed. Aborting transaction.")
+            print("failed. \n\nAborting transaction.")
             result = cfgabort.cfgabort(session)
             pyfos_util.response_print(result)
 

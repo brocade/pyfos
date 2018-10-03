@@ -98,7 +98,7 @@ def pzonecreate(session, zones):
 
 def __pzonecreate(session, name, members, pmembers):
     zones = []
-    if members and pmembers == None:
+    if members and pmembers is None:
         zones.append(
                 {
                     "zone-name": name,
@@ -108,7 +108,7 @@ def __pzonecreate(session, name, members, pmembers):
                                     }
                 }
             )
-    elif members == None and pmembers:
+    elif members is None and pmembers:
         zones.append(
                 {
                     "zone-name": name,

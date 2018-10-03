@@ -20,6 +20,7 @@ Extension Tunnel objects.
 """
 import pyfos.pyfos_rest_util as pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
+import pyfos.pyfos_version as pyfos_version
 
 
 class extension_tunnel(pyfos_rest_util.rest_object):
@@ -1743,4 +1744,12 @@ class extension_circuit_statistics(pyfos_rest_util.rest_object):
             self.add(pyfos_rest_util.rest_attribute("duration",
                      pyfos_type.type_int, None,
                      pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+            self.add(pyfos_rest_util.rest_attribute("out-packet-lost",
+                     pyfos_type.type_int, None,
+                     pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+                     pyfos_version.VER_RANGE_821_and_ABOVE))
+            self.add(pyfos_rest_util.rest_attribute("out-packet-total",
+                     pyfos_type.type_int, None,
+                     pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+                     pyfos_version.VER_RANGE_821_and_ABOVE))
             self.load(dictvalues, 1)

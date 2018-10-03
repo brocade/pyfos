@@ -132,6 +132,10 @@ def validate(ls_obj):
     if (vfid is None):
         print("Missing fabric-id option in commandline:")
         return 1
+    lisl = ls_obj.peek_logical_isl_enabled()
+    if (lisl is not None and lisl != 0 and lisl != 1):
+        print("Invalid input for logical_isl_enabled option in commandline:")
+        return 1
     return 0
 
 

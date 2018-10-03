@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>nport_map_add - PyFOS util for adding F-port to N-port mappings &#8212; PyFOS 0.9.0 documentation</title>
+    <title>nport_map_add - PyFOS util for adding F-port to N-port mappings &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="fport_list_show.html" title="fport_list_show - PyFOS util to show the f-port information."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -73,10 +73,10 @@ Access Gateway mode.</p>
 <div class="line">–config-f-ports=CONFIG-F-PORTS           List of mapped F-ports</div>
 </div>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt>outputs:</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>Status of the mappings add operation</li>
 </ul>
 </dd>
@@ -90,19 +90,19 @@ Access Gateway mode.</p>
 <li><p class="first">Map F-port to an N-port</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_add</span><span class="o">.</span><span class="n">add_mapped_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">mfports</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_add</span><span class="o">.</span><span class="n">add_mapped_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">mfports</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
 <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="n">nport</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">mfports</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_configured_f_port_list_f_port</span><span class="p">(</span><span class="n">mfports</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_add_access_gateway_nportmap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -148,19 +148,19 @@ Access Gateway mode.</p>
 <li><p class="first">Statically Map F-port to an N-port</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_add</span><span class="o">.</span><span class="n">add_static_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">sfports</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_add</span><span class="o">.</span><span class="n">add_static_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">sfports</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
 <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="n">nport</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">sfports</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_configured_f_port_list_f_port</span><span class="p">(</span><span class="n">sfports</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_add_access_gateway_nportmap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -258,7 +258,7 @@ Module <a class="reference internal" href="pyfos_brocade_access_gateway.html#mod
         <li class="right" >
           <a href="fport_list_show.html" title="fport_list_show - PyFOS util to show the f-port information."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

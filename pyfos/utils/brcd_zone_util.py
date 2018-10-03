@@ -56,16 +56,16 @@ def zone_name_members_pmembers_func(session, inputs, usage, func):
     result = func(session, name, members, pmembers)
     if pyfos_util.is_failed_resp(result):
         pyfos_util.response_print(result)
-        print(func.__name__, "failed. Aborting transaction.")
+        print(func.__name__, "failed. \n\nAborting transaction.")
         result = cfgabort.cfgabort(session)
         pyfos_util.response_print(result)
     else:
         pyfos_util.response_print(result)
-        print(func.__name__, "succeeded. Saving transaction.")
+        print(func.__name__, "succeeded. \n\nSaving transaction.")
         result = cfgsave.cfgsave(session, current_effective.peek_checksum())
         if pyfos_util.is_failed_resp(result):
             pyfos_util.response_print(result)
-            print(func.__name__, "failed. Aborting transaction.")
+            print(func.__name__, "failed. \n\nAborting transaction.")
             result = cfgabort.cfgabort(session)
             pyfos_util.response_print(result)
 
@@ -93,16 +93,16 @@ def zone_name_members_func(session, inputs, usage, func):
     result = func(session, name, members)
     if pyfos_util.is_failed_resp(result):
         pyfos_util.response_print(result)
-        print(func.__name__, "failed. Aborting transaction.")
+        print(func.__name__, "failed. \n\nAborting transaction.")
         result = cfgabort.cfgabort(session)
         pyfos_util.response_print(result)
     else:
         pyfos_util.response_print(result)
-        print(func.__name__, "succeeded. Saving transaction.")
+        print(func.__name__, "succeeded. \n\nSaving transaction.")
         result = cfgsave.cfgsave(session, current_effective.peek_checksum())
         if pyfos_util.is_failed_resp(result):
             pyfos_util.response_print(result)
-            print(func.__name__, "failed. Aborting transaction.")
+            print(func.__name__, "failed. \n\nAborting transaction.")
             result = cfgabort.cfgabort(session)
             pyfos_util.response_print(result)
 
@@ -123,15 +123,15 @@ def zone_name_func(session, inputs, usage, func):
     result = func(session, name)
     if pyfos_util.is_failed_resp(result):
         pyfos_util.response_print(result)
-        print(func.__name__, "failed. Aborting transaction.")
+        print(func.__name__, "failed. \n\nAborting transaction.")
         result = cfgabort.cfgabort(session)
         pyfos_util.response_print(result)
     else:
         pyfos_util.response_print(result)
-        print(func.__name__, "succeeded. Saving transaction.")
+        print(func.__name__, "succeeded. \n\nSaving transaction.")
         result = cfgsave.cfgsave(session, current_effective.peek_checksum())
         if pyfos_util.is_failed_resp(result):
             pyfos_util.response_print(result)
-            print(func.__name__, "failed. Aborting transaction.")
+            print(func.__name__, "failed. \n\nAborting transaction.")
             result = cfgabort.cfgabort(session)
             pyfos_util.response_print(result)

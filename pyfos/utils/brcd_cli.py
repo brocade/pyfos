@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 # Used to document the utils scripts mapping to pyfos objects
 """
 UTILS Dictionary start
@@ -56,7 +55,215 @@ brcd_utils_dict.update({
              "logical_isl_enabled",
              "port_member_list_port_member",
              "ge_port_member_list_port_member"]
+    },
+})
+
+brcd_utils_dict.update({
+    "time_zone": {
+        "time-zone":
+            ["name",
+             "gmt_offset_hours",
+             "gmt_offset_minutes"]
+    },
+    "clock_server": {
+        "clock-server":
+            ["ntp_server_address"]
     }
+})
+
+brcd_utils_dict.update({
+    "radius_server": {
+        "radius-server":
+            ["server",
+             "port",
+             "timeout",
+             "secret",
+             "authentication",
+             "position",
+             "encryption_type"]
+    },
+    "tacacs_server": {
+        "tacacs-server":
+            ["server",
+             "port",
+             "timeout",
+             "secret",
+             "authentication",
+             "position",
+             "encryption_type"]
+    },
+    "ldap_server": {
+        "ldap-server":
+            ["server",
+             "port",
+             "timeout",
+             "domain",
+             "position"]
+    },
+    "auth_spec": {
+        "auth-spec":
+            ["authentication_mode",
+             "activate_no_log_out",
+             "primary_auth_log_messages"]
+    },
+    "ipfilter_policy": {
+        "ipfilter-policy":
+            ["name",
+             "ip_version",
+             "action",
+             "clone_destination_policy_name"]
+    },
+    "ipfilter_rule": {
+        "ipfilter-rule":
+            ["policy_name",
+             "index",
+             "source_ip",
+             "destination_start_port",
+             "destination_end_port",
+             "protocol",
+             "permission",
+             "traffic_type",
+             "destination_ip"]
+    },
+    "sec_crypto_cfg": {
+        "sec-crypto-cfg":
+            None
+    },
+    "sec_crypto_cfg_template": {
+        "sec-crypto-cfg-template":
+            ["name"]
+    },
+    "sec_crypto_cfg_template_action": {
+        "sec-crypto-cfg-template-action":
+            ["template_name",
+             "remote_user_name",
+             "action",
+             "remote_host_ip",
+             "remote_user_password",
+             "remote_directory",
+             "file_transfer_protocol_type"]
+    },
+    "ldap_role_map": {
+        "ldap-role-map":
+            ["ldap_role",
+             "switch_role",
+             "home_virtual_fabric",
+             "chassis_access_role",
+             "map_attributes_virtual_fabric_role_id"]
+    },
+    "password_cfg": {
+        "password-cfg":
+            ["minimum_length",
+             "character_set",
+             "user_name_allowed",
+             "minimum_lower_case_character",
+             "minimum_upper_case_character",
+             "minimum_numeric_character",
+             "minimum_special_character",
+             "past_password_history",
+             "minimum_password_age",
+             "maximum_password_age",
+             "warn_on_expire",
+             "lock_out_threshold",
+             "lock_out_duration",
+             "admin_lock_out_enabled",
+             "repeat_character_limit",
+             "sequence_character_limit",
+             "password_config_changed",
+             "reverse_user_name_allowed",
+             "hash_type",
+             "manual_hash_enabled",
+             "enforce_expire",
+             "minimum_difference",
+             "password_action"]
+    },
+    "user_specific_password_cfg": {
+        "user-specific-password-cfg":
+            ["minimum_password_age",
+             "maximum_password_age",
+             "warn_on_expire",
+             "enforce_expire",
+             "hash_type"]
+    },
+    "user_config": {
+        "user-config":
+            ["name",
+             "password",
+             "role",
+             "account_description",
+             "account_enabled",
+             "password_change_enforced",
+             "account_locked",
+             "access_start_time",
+             "access_end_time",
+             "home_virtual_fabric",
+             "chassis_access_role",
+             "virtual_fabric_role_id_list"]
+    },
+    "sshutil": {
+        "sshutil":
+            ["allow_user_name",
+             "rekey_interval"]
+    },
+    "sshutil_key": {
+        "sshutil-key":
+            ["algorithm_type",
+             "key_type",
+             "passphrase"]
+    },
+    "sshutil_public_key": {
+        "sshutil-public-key":
+            ["user_name"]
+    },
+    "sshutil_public_key_action": {
+        "sshutil-public-key-action":
+            ["user_name",
+             "public_key_name",
+             "remote_host_ip",
+             "remote_directory",
+             "remote_user_name",
+             "remote_user_password",
+             "algorithm_type",
+             "action"]
+    },
+    "password": {
+        "password":
+            ["user_name",
+             "old_password",
+             "new_password"]
+    },
+    "security_certificate": {
+        "security-certificate":
+            ["certificate_entity",
+             "certificate_type"]
+    },
+    "security_certificate_generate": {
+        "security-certificate-generate":
+            ["certificate_entity",
+             "certificate_type",
+             "algorithm_type",
+             "key_size",
+             "hash_type",
+             "years",
+             "country_name",
+             "state_name",
+             "locality_name",
+             "organization_name",
+             "unit_name",
+             "domain_name"]
+    },
+    "security_certificate_action": {
+        "security-certificate-action":
+            ["certificate_entity",
+             "certificate_type",
+             "certificate_name",
+             "operation",
+             "remote_host_ip",
+             "protocol",
+             "remote_directory",
+             "remote_user_name",
+             "remote_user_password"]
+    },
 })
 
 brcd_utils_dict.update({
@@ -78,6 +285,49 @@ brcd_utils_dict.update({
     },
 })
 
+brcd_utils_dict.update({
+    "powersupply": {
+        "power-supply":
+            None
+    },
+    "blade_extncfg": {
+        "blade":
+            ["extension-app-mode",
+             "extension-ve-mode",
+             "extension-ge-mode",
+             "slot-number"]
+    },
+    "fan": {
+        "fan":
+            None
+    },
+    "blade": {
+        "blade":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "chassis": {
+        "chassis":
+            None
+    },
+    "chassis_name": {
+        "chassis":
+            ["chassis-user-friendly-name"]
+    },
+    "chassis_vf_enabled": {
+        "chassis":
+            ["vf-enabled"]
+    },
+})
+
+brcd_utils_dict.update({
+    "media": {
+        "media_rdp":
+            None
+    },
+})
 brcd_utils_dict.update({
     "name_server": {
         "fibrechannel-name-server":
@@ -110,6 +360,175 @@ brcd_utils_dict.update({
     }
 })
 
+brcd_utils_dict.update({
+    "configure_dport": {
+        "port-configuration":
+            None
+    },
+    "configure_fabric": {
+        "fabric":
+            None
+    },
+    "configure_port": {
+        "port-configuration":
+            None
+    },
+    "configure_zone": {
+        "zone-configuration":
+            None
+    }
+})
+
+brcd_utils_dict.update({
+    "dns_config": {
+        "fibrechannel-switch":
+            ["dns_servers_dns_server",
+             "domain_name"]
+    }
+})
+
+brcd_utils_dict.update({
+    "switch_ip_config": {
+        "fibrechannel-switch":
+            ["ip_address_ip_address",
+             "ip_static_gateway_list_ip_static_gateway",
+             "subnet_mask"]
+    }
+})
+
+brcd_utils_dict.update({
+    "syslog": {
+        "syslog-server":
+            ["server",
+             "port",
+             "secure-mode"]
+    }
+})
+
+brcd_utils_dict.update({
+    "syslog_facility": {
+        "log-setting":
+            ["syslog-facility-level"]
+    }
+})
+
+brcd_utils_dict.update({
+    "port_trunk_area": {
+        "trunk_area":
+            ["trunk_index",
+             "trunk_members_trunk_member"]
+    }
+})
+
+brcd_utils_dict.update({
+    "trunk_perf": {
+        "performance":
+            ["group"]
+    }
+})
+
+brcd_utils_dict.update({
+    "trunk_show": {
+        "trunk":
+            ["group",
+             "source_port"]
+    }
+})
+
+brcd_utils_dict.update({
+   "maps_policy": {
+        "maps-policy":
+            ["name",
+             "rule_list",
+             "is_active_policy"]
+    }
+})
+
+brcd_utils_dict.update({
+    "maps_group": {
+        "group":
+            ["name",
+             "group_type",
+             "group_type",
+             "group_feature",
+             "members"]
+    }
+})
+
+brcd_utils_dict.update({
+    "maps_rule": {
+        "rule":
+            ["name",
+             "monitoring_system",
+             "time_base",
+             "logical_operator",
+             "threshold_value",
+             "group_name",
+             "actions"]
+    }
+})
+
+brcd_utils_dict.update({
+    "maps_config": {
+        "maps-config":
+            ["actions",
+             "decommission_cfg",
+             "recipient_address_list",
+             "sender_address",
+             "relay_ip_address"]
+    }
+})
+
+brcd_utils_dict.update({
+    "maps_paused_cfg": {
+        "paused-cfg":
+            ["group_type",
+             "members"]
+    }
+})
+
+brcd_utils_dict.update({
+    "maps_dashboard_misc": {
+        "dashboard-misc":
+            ["clear_data"]
+    }
+})
+
+brcd_utils_dict.update({
+    "maps_get_ssp_report": {
+        "switch-status-policy-report":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "monitoring_system_matrix": {
+        "monitoring-system-matrix":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "maps_system_resources": {
+        "system-resources":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "maps_dashboard_rule": {
+        "dashboard-rule":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "fabric": {
+        "fabric-switch":
+            None
+    },
+})
+
 # Used to document the CLI options
 brcd_utils_cli_dict = dict()
 
@@ -137,10 +556,7 @@ brcd_utils_cli_dict.update({
             "soption": None,
             "value": 0
         }
-    }
-})
-
-brcd_utils_cli_dict.update({
+    },
     "defined-configuration": {
         "alias_alias_name": {
             "help": "set \"alias-name\"",
@@ -457,13 +873,13 @@ brcd_utils_cli_dict.update({
             "optional": 1,
             "soption": None
         },
-        "port_group_n_ports_n_port": {
+        "port_group_n_ports": {
             "help": "N-port members of the port group",
             "loption": "n-port",
             "optional": 0,
             "soption": None
         },
-        "port_group_f_ports_f_port": {
+        "port_group_f_ports": {
             "help": "F-port members of the port group",
             "loption": "f-port",
             "optional": 0,
@@ -529,6 +945,12 @@ brcd_utils_cli_dict.update({
             "optional": 0,
             "soption": "m"
         },
+        "enabled_state": {
+            "help": "\"enable | disable\" <0|1>",
+            "loption": "enabled_state",
+            "optional": 0,
+            "soption": "e"
+        },
         "fault_delay_enabled": {
             "help": "Set \"fault-delay-enabled\" <0|1>",
             "loption": "fault_delay_enabled",
@@ -574,13 +996,13 @@ brcd_utils_cli_dict.update({
             "optional": 0,
             "soption": None
         },
-        "configured_f_port_list_f_port": {
+        "configured_f_port_list": {
             "help": "List of mapped F-ports",
             "loption": "config-f-ports",
             "optional": 1,
             "soption": None
         },
-        "static_f_port_list_f_port": {
+        "static_f_port_list": {
             "help": "List of statically mapped F-ports",
             "loption": "static-f-ports",
             "optional": 1,
@@ -621,6 +1043,54 @@ brcd_utils_cli_dict.update({
     }
 })
 brcd_utils_cli_dict.update({
+    "port-configuration": {
+        "portname_mode": {
+            "help": "Portname mode",
+            "loption": "portname-mode",
+            "optional": 1,
+            "soption": None
+        },
+        "dynamic_portname_format": {
+            "help": "Dynamic portname format [OPTIONAL]",
+            "loption": "dynamic-portname-format",
+            "optional": 1,
+            "soption": None
+        },
+        "dynamic_d_port_enabled": {
+            "help": "Dynamic D-port mode",
+            "loption": "dynamic-d-port-enabled",
+            "optional": 0,
+            "soption": None
+        },
+        "on_demand_d_port_enabled": {
+            "help": "On Demand D-port mode",
+            "loption": "on-demand-d-port-enabled",
+            "optional": 0,
+            "soption": None
+        }
+    },
+    "zone-configuration": {
+        "node_name_zoning_enabled": {
+            "help": "Enable node name zoning",
+            "loption": "node-name-zoning-enabled",
+            "optional": 0,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "fabric": {
+        "insistent_domain_id_enabled": {
+            "help": "Set consistent domain ID of the switch",
+            "loption": "insistent-domain-id-enabled",
+            "optional": 0,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
     "fibrechannel-logical-switch": {
         "fabric_id": {
             "help": "set Fabric ID of LS this action is targeting",
@@ -658,5 +1128,1595 @@ brcd_utils_cli_dict.update({
             "optional": 1,
             "soption": None
         }
+    }
+})
+brcd_utils_cli_dict.update({
+    "sshutil": {
+        "allow_user_name": {
+            "help": "allow-user-name",
+            "loption": "allow-user-name",
+            "optional": 1,
+            "soption": None
+        },
+        "rekey_interval": {
+            "help": "rekey duration",
+            "loption": "rekey-interval",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "sshutil-key": {
+        "algorithm_type": {
+            "help": "algorithm type",
+            "loption": "algorithm-type",
+            "optional": 1,
+            "soption": None
+        },
+        "key_type": {
+            "help": "key type(public-private-key or host-key)",
+            "loption": "key-type",
+            "optional": 1,
+            "soption": None
+        },
+        "passphrase": {
+            "help": "passphrase for creating public-private key pair",
+            "loption": "passphrase",
+            "optional": 0,
+            "soption": None
+        }
+    }
+})
+brcd_utils_cli_dict.update({
+    "sshutil-public-key": {
+        "user_name": {
+            "help": "user-name",
+            "loption": "user-name",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "sshutil-public-key-action": {
+        "user_name": {
+            "help": "user-name",
+            "loption": "user-name",
+            "optional": 1,
+            "soption": None
+        },
+        "public_key_name": {
+            "help": "public key name with a .pub extension",
+            "loption": "public-key-name",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_host_ip": {
+            "help": "remote host ip address",
+            "loption": "remote-host-ip",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_directory": {
+            "help": "remote directory name",
+            "loption": "remote-dir",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_user_name": {
+            "help": "remote host's user name",
+            "loption": "remote-user-name",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_user_password": {
+            "help": "remote host's password",
+            "loption": "remote-user-password",
+            "optional": 1,
+            "soption": None
+        },
+        "algorithm_type": {
+            "help": "algorithm type",
+            "loption": "algorithm-type",
+            "optional": 1,
+            "soption": None
+        },
+        "action": {
+            "help": "operation to perform",
+            "loption": "action",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+brcd_utils_cli_dict.update({
+    "password": {
+        "user_name": {
+            "help": "user-name",
+            "loption": "user-name",
+            "optional": 1,
+            "soption": None
+        },
+        "old_password": {
+            "help": "existing pasword",
+            "loption": "old-password",
+            "optional": 1,
+            "soption": None
+        },
+        "new_password": {
+            "help": "new password",
+            "loption": "new-password",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "security_certificate": {
+        "certificate_entity": {
+            "help": "CSR/switch/CA-client/CA-server certificate",
+            "loption": "certificate-entity",
+            "optional": 1,
+            "soption": None
+        },
+        "certificate_type": {
+            "help": "Certificate type",
+            "loption": "certificate-type",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "security_certificate_generate": {
+        "certificate_entity": {
+            "help": "CSR/switch/CA-client/CA-server certificate",
+            "loption": "certificate-entity",
+            "optional": 1,
+            "soption": None
+        },
+        "certificate_type": {
+            "help": "Certificate type",
+            "loption": "certificate-type",
+            "optional": 1,
+            "soption": None
+        },
+        "algorithm_type": {
+            "help": "algorithm type",
+            "loption": "algorithm-type",
+            "optional": 1,
+            "soption": None
+        },
+        "key_size": {
+            "help": "size of the key",
+            "loption": "key-size",
+            "optional": 1,
+            "soption": None
+        },
+        "hash_type": {
+            "help": "hash type",
+            "loption": "hash-type",
+            "optional": 1,
+            "soption": None
+        },
+        "years": {
+            "help": "certificate validity",
+            "loption": "years",
+            "optional": 1,
+            "soption": None
+        },
+        "country_name": {
+            "help": "country name",
+            "loption": "country-name",
+            "optional": 1,
+            "soption": None
+        },
+        "state_name": {
+            "help": "state name",
+            "loption": "state-name",
+            "optional": 1,
+            "soption": None
+        },
+        "locality_name": {
+            "help": "locality name",
+            "loption": "locality-name",
+            "optional": 1,
+            "soption": None
+        },
+        "organization_name": {
+            "help": "organization name",
+            "loption": "organization-name",
+            "optional": 1,
+            "soption": None
+        },
+        "unit_name": {
+            "help": "unit name",
+            "loption": "unit-name",
+            "optional": 1,
+            "soption": None
+        },
+        "domain_name": {
+            "help": "domain name",
+            "loption": "domain-name",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "security_certificate_action": {
+        "certificate_entity": {
+            "help": "CSR/switch/CA-client/CA-server certificate",
+            "loption": "certificate-entity",
+            "optional": 1,
+            "soption": None
+        },
+        "certificate_type": {
+            "help": "Certificate type",
+            "loption": "certificate-type",
+            "optional": 1,
+            "soption": None
+        },
+        "certificate_name": {
+            "help": "certificate name",
+            "loption": "certificate-name",
+            "optional": 1,
+            "soption": None
+        },
+        "operation": {
+            "help": "seccertmgmt operation",
+            "loption": "operation",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_host_ip": {
+            "help": "remote host ip address",
+            "loption": "remote-host-ip",
+            "optional": 1,
+            "soption": None
+        },
+        "protocol": {
+            "help": "remote connection protocol",
+            "loption": "protocol",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_directory": {
+            "help": "remote directory name",
+            "loption": "remote-dir",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_user_name": {
+            "help": "remote host's user name",
+            "loption": "remote-user-name",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_user_password": {
+            "help": "remote host's password",
+            "loption": "remote-user-password",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "fibrechannel-switch": {
+        "ag_mode": {
+            "help": "set ag-mode (enable = 3, disable = 1)",
+            "loption": "ag-mode",
+            "optional": 0,
+            "soption": None
+        },
+        "dns_servers_dns_server": {
+            "help": "\tSet list of maximum 2 DNS servers in IP Address;" +
+            "IP Address format",
+            "loption": "dns-servers",
+            "optional": 1,
+            "soption": "d"
+        },
+        "domain_name": {
+            "help": "\tSet domain name of the switch",
+            "loption": "domain-name",
+            "optional": 1,
+            "soption": "n"
+        },
+        "ip_address_ip_address": {
+            "help": "\tSet list of maximum 2 addresses in IP Address;" +
+            "IP Address format",
+            "loption": "addresses",
+            "optional": 1,
+            "soption": None
+        },
+        "ip_static_gateway_list_ip_static_gateway": {
+            "help": "\tSet list of maximum 2 gateways in IP Address;" +
+            "IP Address format",
+            "loption": "gateways",
+            "optional": 1,
+            "soption": "g"
+        },
+        "subnet_mask": {
+            "help": "\tSet subnet mask for the switch",
+            "loption": "mask",
+            "optional": 1,
+            "soption": "m"
+        }
+    }
+})
+brcd_utils_cli_dict.update({
+    "chassis": {
+        "chassis_user_friendly_name": {
+            "help": "set user friendly name",
+            "loption": "user-name",
+            "optional": 0,
+            "soption": None
+        },
+        "vf_enabled": {
+            "help": "set VF enabled-state (enable=true, disable=false)",
+            "loption": "vf-enabled",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "media-rdp": {
+        "name": {
+            "help": "Port in Interface/slot/port.",
+            "loption": "name",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "trunk_area": {
+        "trunk_index": {
+            "help": "Trunk Index of trunk group",
+            "loption": "trunk_index",
+            "optional": 0,
+            "soption": None
+        },
+        "trunk_members": {
+            "help": "Trunk members of trunk group slot/port format",
+            "loption": "trunk_members",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "trunk": {
+        "group": {
+            "help": "Trunk Index of trunk group",
+            "loption": "group",
+            "optional": 0,
+            "soption": None
+        },
+        "source_port": {
+            "help": "Source port of the trunk group",
+            "loption": "source_port",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "performance": {
+        "group": {
+            "help": "Trunk Index of trunk group",
+            "loption": "group",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "auth-spec": {
+        "authentication_mode": {
+            "help": "Authentication mode for RADIUS, TACACS+ and LDAP",
+            "loption": "authentication-mode",
+            "optional": 0,
+            "soption": None
+        },
+        "activate_no_log_out": {
+            "help": "Enable/disable log out session after changing mode",
+            "loption": "activate-no-log-out",
+            "optional": 0,
+            "soption": None
+        },
+        "primary_auth_log_messages": {
+            "help": "Enable/disable messages for authentication failure",
+            "loption": "primary-auth-log-messages",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "radius-server": {
+        "server": {
+            "help": "Set an IP address or a server name in " +
+            "dot-decimal notation",
+            "loption": "server",
+            "optional": 1,
+            "soption": None
+        },
+        "port": {
+            "help": "Set the RADIUS server port number",
+            "loption": "port",
+            "optional": 1,
+            "soption": None
+        },
+        "timeout": {
+            "help": "Set the response timeout for the RADIUS server",
+            "loption": "timeout",
+            "optional": 1,
+            "soption": None
+        },
+        "secret": {
+            "help": "Set a common secret between the switch and the" +
+            " RADIUS  server",
+            "loption": "secret",
+            "optional": 1,
+            "soption": None
+        },
+        "authentication": {
+            "help": "Set the remote authentication protocol for the" +
+            " RADIUS server",
+            "loption": "authentication",
+            "optional": 1,
+            "soption": None
+        },
+        "position": {
+            "help": "Set the position to which RADIUS server" +
+            " needs to be moved",
+            "loption": "position",
+            "optional": 1,
+            "soption": None
+        },
+        "encryption_type": {
+            "help": "Set the Encryption algorithm type for" +
+            " the RADIUS server.",
+            "loption": "encryption-type",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "tacacs-server": {
+        "server": {
+            "help": "Set an IP address or a server name in" +
+            " dot-decimal notation",
+            "loption": "server",
+            "optional": 1,
+            "soption": None
+        },
+        "port": {
+            "help": "Set the TACACS+ server port number",
+            "loption": "port",
+            "optional": 1,
+            "soption": None
+        },
+        "timeout": {
+            "help": "Set the response timeout for the TACACS+ server",
+            "loption": "timeout",
+            "optional": 1,
+            "soption": None
+        },
+        "secret": {
+            "help": "Set a common secret between the switch and" +
+            " the TACACS+ server",
+            "loption": "secret",
+            "optional": 1,
+            "soption": None
+        },
+        "authentication": {
+            "help": "Set the remote authentication protocol for" +
+            " the TACACS+ server",
+            "loption": "authentication",
+            "optional": 1,
+            "soption": None
+        },
+        "position": {
+            "help": "Set the position to which TACACS+ server" +
+            " needs to be moved",
+            "loption": "position",
+            "optional": 1,
+            "soption": None
+        },
+        "encryption_type": {
+            "help": "Set the Encryption algorithm type for the TACACS+ server",
+            "loption": "encryption-type",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "ldap-server": {
+        "server": {
+            "help": "Set an IP address or a server name in" +
+            " dot-decimal notation",
+            "loption": "server",
+            "optional": 1,
+            "soption": None
+        },
+        "port": {
+            "help": "Set the LDAP server port number",
+            "loption": "port",
+            "optional": 1,
+            "soption": None
+        },
+        "timeout": {
+            "help": "Set the response timeout for the LDAP server",
+            "loption": "timeout",
+            "optional": 1,
+            "soption": None
+        },
+        "domain": {
+            "help": "Set the name of the active directory domain",
+            "loption": "domain",
+            "optional": 1,
+            "soption": None
+        },
+        "position": {
+            "help": "Set the position to which LDAP server needs to be moved",
+            "loption": "position",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "ldap-role-map": {
+        "ldap_role": {
+            "help": "Set the LDAP role to be mapped to a switch role",
+            "loption": "ldap-role",
+            "optional": 1,
+            "soption": None
+        },
+        "switch_role": {
+            "help": "Set the switch role to which the LDAP role is mapped",
+            "loption": "switch-role",
+            "optional": 1,
+            "soption": None
+        },
+        "home_virtual_fabric": {
+            "help": "Set the account's home Fabric ID",
+            "loption": "home-id",
+            "optional": 1,
+            "soption": None
+        },
+        "chassis_access_role": {
+            "help": "Set the account's access permissions regarding" +
+            " chassis-level commands",
+            "loption": "chassis-access-role",
+            "optional": 1,
+            "soption": None
+        },
+        "map_attributes_virtual_fabric_role_id": {
+            "help": "Set the attributes to an existing LDAP role",
+            "loption": "map-attributes",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "password-cfg": {
+        "minimum_length": {
+            "help": "Set the minimum length of the password",
+            "loption": "minimum-length",
+            "optional": 1,
+            "soption": None
+        },
+        "character_set": {
+            "help": "Set the minimum criteria on the character set",
+            "loption": "character-set",
+            "optional": 1,
+            "soption": None
+        },
+        "user_name_allowed": {
+            "help": "Set to determine if the username is used in the password",
+            "loption": "user-name-allowed",
+            "optional": 1,
+            "soption": None
+        },
+        "minimum_lower_case_character": {
+            "help": "Set the minimum number of lowercase" +
+            " alphabetic characters",
+            "loption": "min-lower-case-char",
+            "optional": 1,
+            "soption": None
+        },
+        "minimum_upper_case_character": {
+            "help": "Set the minimum number of uppercase" +
+            " alphabetic characters",
+            "loption": "min-upper-case-char",
+            "optional": 1,
+            "soption": None
+        },
+        "minimum_numeric_character": {
+            "help": "Set the minimum number of numeric digits",
+            "loption": "min-numeric-char",
+            "optional": 1,
+            "soption": None
+        },
+        "minimum_special_character": {
+            "help": "Set the minimum number of punctuation characters",
+            "loption": "min-special-char",
+            "optional": 1,
+            "soption": None
+        },
+        "past_password_history": {
+            "help": "Set the number of past password values that are" +
+            " disallowed",
+            "loption": "past-password-history",
+            "optional": 1,
+            "soption": None
+        },
+        "minimum_password_age": {
+            "help": "Set the minimum number of days before which the" +
+            " password cannot be modified",
+            "loption": "min-password-age",
+            "optional": 1,
+            "soption": None
+        },
+        "maximum_password_age": {
+            "help": "Set the maximum number of days after which the" +
+            " password should be modified",
+            "loption": "max-password-age",
+            "optional": 1,
+            "soption": None
+        },
+        "warn_on_expire": {
+            "help": "Set the number of days to display warning" +
+            " message till password expiration",
+            "loption": "warn-on-expire",
+            "optional": 1,
+            "soption": None
+        },
+        "lock_out_threshold": {
+            "help": "Set the number of times a user can specify" +
+            " an incorrect password",
+            "loption": "lock-out-threshold",
+            "optional": 1,
+            "soption": None
+        },
+        "lock_out_duration": {
+            "help": "Set the time to unlock automatically if already locked",
+            "loption": "lock-out-duration",
+            "optional": 1,
+            "soption": None
+        },
+        "admin_lock_out_enabled": {
+            "help": "Set the admin lockout policy",
+            "loption": "admin-lock-out-enabled",
+            "optional": 1,
+            "soption": None
+        },
+        "repeat_character_limit": {
+            "help": "Set the length of repeated character sequences",
+            "loption": "repeat-char-limit",
+            "optional": 1,
+            "soption": None
+        },
+        "sequence_character_limit": {
+            "help": "Set the the length of sequential character sequences",
+            "loption": "sequence-character-limit",
+            "optional": 1,
+            "soption": None
+        },
+        "password_config_changed": {
+            "help": "Set the account password policy status",
+            "loption": "password-config-changed",
+            "optional": 1,
+            "soption": None
+        },
+        "reverse_user_name_allowed": {
+            "help": "Set to determine whether the password is an exact" +
+            " reverse username",
+            "loption": "reverse-user-name-allowed",
+            "optional": 1,
+            "soption": None
+        },
+        "hash_type": {
+            "help": "Set the hash type",
+            "loption": "hash-type",
+            "optional": 1,
+            "soption": None
+        },
+        "manual_hash_enabled": {
+            "help": "Set the password change due to hash type change" +
+            " can be manual",
+            "loption": "manual-hash-enabled",
+            "optional": 1,
+            "soption": None
+        },
+        "enforce_expire": {
+            "help": "Set to expires the password for the specified user",
+            "loption": "enforce-expire",
+            "optional": 1,
+            "soption": None
+        },
+        "minimum_difference": {
+            "help": "Set the number of minium difference between old" +
+            " and new password",
+            "loption": "min-diff",
+            "optional": 1,
+            "soption": None
+        },
+        "password_action": {
+            "help": "Set the action to perform",
+            "loption": "password-action",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "user-specific-password-cfg": {
+        "minimum_password_age": {
+            "help": "Set the minimum number of days before which the" +
+            " password cannot be modified",
+            "loption": "min-password-age",
+            "optional": 1,
+            "soption": None
+        },
+        "maximum_password_age": {
+            "help": "Set the maximum number of days after which the" +
+            " password should be modified",
+            "loption": "max-password-age",
+            "optional": 1,
+            "soption": None
+        },
+        "warn_on_expire": {
+            "help": "Set the number of days prior to password expiration",
+            "loption": "warn-on-expire",
+            "optional": 1,
+            "soption": None
+        },
+        "enforce_expire": {
+            "help": "Set to expires the password for the specified user",
+            "loption": "enforce-expire",
+            "optional": 1,
+            "soption": None
+        },
+        "hash_type": {
+            "help": "hash type",
+            "loption": "hash-type",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "user-config": {
+        "name": {
+            "help": "Set the login name of the account",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+        "password": {
+            "help": "Set a password for the account",
+            "loption": "passwd",
+            "optional": 1,
+            "soption": None
+        },
+        "role": {
+            "help": "Set the account's role",
+            "loption": "role",
+            "optional": 1,
+            "soption": None
+        },
+        "account_description": {
+            "help": "Set the description for the new account",
+            "loption": "account-description",
+            "optional": 1,
+            "soption": None
+        },
+        "account_enabled": {
+            "help": "Enable/disable a user account",
+            "loption": "account-enabled",
+            "optional": 1,
+            "soption": None
+        },
+        "password_change_enforced": {
+            "help": "Set to expires password",
+            "loption": "password-change-enforced",
+            "optional": 1,
+            "soption": None
+        },
+        "account_locked": {
+            "help": "Set to unlock the specified user" +
+            " account if already locked",
+            "loption": "account-locked",
+            "optional": 1,
+            "soption": None
+        },
+        "access_start_time": {
+            "help": "Set the starting time the users can access",
+            "loption": "access-start-time",
+            "optional": 1,
+            "soption": None
+        },
+        "access_end_time": {
+            "help": "Set the ending time the users can access",
+            "loption": "access-end-time",
+            "optional": 1,
+            "soption": None
+        },
+        "home_virtual_fabric": {
+            "help": "Set the account's home Virtual Fabric",
+            "loption": "home-virtual-fabric",
+            "optional": 1,
+            "soption": None
+        },
+        "chassis_access_role": {
+            "help": "Set the account's access permissions" +
+            " regarding chassis-level commands",
+            "loption": "chassis-access-role",
+            "optional": 1,
+            "soption": None
+        },
+        "virtual_fabric_role_id_list": {
+            "help": "Set the Virtual Fabrics role and ID to be added",
+            "loption": "vf-role-id-list",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "ipfilter-policy": {
+        "name": {
+            "help": "Set an IP filter policy name",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+        "ip_version": {
+            "help": "Set an IP filter policy with the type IPv4 or IPv6",
+            "loption": "ip-version",
+            "optional": 1,
+            "soption": None
+        },
+        "action": {
+            "help": "Set the action that must be taken on IpFilter policies",
+            "loption": "action",
+            "optional": 1,
+            "soption": None
+        },
+        "clone_destination_policy_name": {
+            "help": "Set the destination IPFilter policy name for" +
+            " clone operation",
+            "loption": "destination-policy-name",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "ipfilter-rule": {
+        "policy_name": {
+            "help": "Set the name of the ipfilter policy whose rule" +
+            " is to be accessed/modified",
+            "loption": "policy-name",
+            "optional": 1,
+            "soption": None
+        },
+        "index": {
+            "help": "Set the position of the ipfilter rule entry in" +
+            " the ip filter table",
+            "loption": "index",
+            "optional": 1,
+            "soption": None
+        },
+        "source_ip": {
+            "help": "Set the source IP address",
+            "loption": "source-ip",
+            "optional": 1,
+            "soption": None
+        },
+        "destination_start_port": {
+            "help": "Set the starting destination port number of the range",
+            "loption": "destination-start-port",
+            "optional": 1,
+            "soption": None
+        },
+        "destination_end_port": {
+            "help": "Set the ending destination port number of the range",
+            "loption": "destination-end-port",
+            "optional": 1,
+            "soption": None
+        },
+        "protocol": {
+            "help": "Set the protocol type, for example, tcp or udp",
+            "loption": "protocol",
+            "optional": 1,
+            "soption": None
+        },
+        "permission": {
+            "help": "Set the permit or deny action associated with this rule",
+            "loption": "permission",
+            "optional": 1,
+            "soption": None
+        },
+        "traffic_type": {
+            "help": "Set the type of traffic that is allowed." +
+            " e.g: Input/Forward",
+            "loption": "traffic-type",
+            "optional": 1,
+            "soption": None
+        },
+        "destination_ip": {
+            "help": "Set the destination IP address",
+            "loption": "destination-ip",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "sec-crypto-cfg-template": {
+        "name": {
+            "help": "Set the template name",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "sec-crypto-cfg-template-action": {
+        "template_name": {
+            "help": "Set the template name",
+            "loption": "template-name",
+            "optional": 1,
+            "soption": None
+        },
+        "action": {
+            "help": "Set the operation to perform",
+            "loption": "action",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_user_name": {
+            "help": "Set the user name for the host",
+            "loption": "user-name",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_host_ip": {
+            "help": "Set the remote host ip address",
+            "loption": "host-ip",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_user_password": {
+            "help": "Set the remote user password",
+            "loption": "remote-user-password",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_directory": {
+            "help": "Set the remote directory absolute path",
+            "loption": "remote-directory",
+            "optional": 1,
+            "soption": None
+        },
+        "file_transfer_protocol_type": {
+            "help": "Set the protocol as either SCP, SFTP, or FTP for file",
+            "loption": "protocol-type",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "sec-crypto-cfg": {
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "time-zone": {
+        "name": {
+            "help": "Set the name of a time zone from the time zone database",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+        "gmt_offset_hours": {
+            "help": "Set the number of hours relative to GMT",
+            "loption": "gmt-offset-hours",
+            "optional": 1,
+            "soption": None
+        },
+        "gmt_offset_minutes": {
+            "help": "Set the number of minutes relative to hour offset",
+            "loption": "gmt-offset-minutes",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "clock-server": {
+        "ntp_server_address": {
+            "help": "Set the NTP address(es)/LOCL",
+            "loption": "ntp_server_address",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "blade": {
+        "slot_number": {
+            "help": "set \"slot-number\"",
+            "loption": "slot-number",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+        "extension_app_mode": {
+            "help": "set \"extension-app-mode\"",
+            "loption": "app-mode",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+        "extension_enabled": {
+            "help": "set \"extension-enabled\"",
+            "loption": "extension-enabled",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+        "extension_ge_mode": {
+            "help": "set \"extension-ge-mode\"",
+            "loption": "ge-mode",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+        "extension_ve_mode": {
+            "help": "set \"extension-ve-mode\"",
+            "loption": "ve-mode",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "fan": {
+        "unit_number": {
+            "help": "set \"unit-number\"",
+            "loption": "unit-number",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "power-supply": {
+        "unit_number": {
+            "help": "set \"unit-number\"",
+            "loption": "unit-number",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "connection": {
+        "host": {
+            "help": "Set the remote host",
+            "loption": "host",
+            "optional": 1,
+            "soption": None
+        },
+        "protocol": {
+            "help": "Set protocol",
+            "loption": "protocol",
+            "optional": 1,
+            "soption": None
+        },
+        "remote_directory": {
+            "help": "Set remote directory",
+            "loption": "path",
+            "optional": 1,
+            "soption": None
+        },
+        "user_name": {
+            "help": "Set user name in remote server",
+            "loption": "user",
+            "optional": 1,
+            "soption": None
+        },
+        "password": {
+            "help": "Set password",
+            "loption": "passwd",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "switch-configuration": {
+        "edge_hold_time": {
+            "help": "\tConfigures Edge hold time in seconds. [OPTIONAL]",
+            "loption": "edge-hold-time",
+            "optional": 1,
+            "soption": None
+        },
+        "wwn_port_id_mode": {
+            "help": "\tConfigures port id based on wwn. [OPTIONAL]",
+            "loption": "wwn-mode",
+            "optional": 1,
+            "soption": None
+        },
+        "area_mode": {
+            "help": "\tConfigures port id based on area. [OPTIONAL]",
+            "loption": "area-mode",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "f-port-login-settings": {
+        "enforce_login": {
+            "help": "\tConfigures the login type precedence" +
+            " during collision for login. [OPTIONAL]",
+            "loption": "enforce-login",
+            "optional": 1,
+            "soption": None
+        },
+        "free_fdisc": {
+            "help": "\tConfigures freely allowed fdisc logins before staging. [OPTIONAL]",
+            "loption": "free-fdisc",
+            "optional": 1,
+            "soption": None
+        },
+        "max_flogi_rate_per_port": {
+            "help": "\tConfigures Max Logins per second in a port. [OPTIONAL]",
+            "loption": "max-logins-port",
+            "optional": 1,
+            "soption": None
+        },
+        "max_flogi_rate_per_switch": {
+            "help": "\tConfigures Max Logins per second in a switch. [OPTIONAL]",
+            "loption": "max-logins-switch",
+            "optional": 1,
+            "soption": None
+        },
+        "max_logins": {
+            "help": "\tConfigures system wide Max logins. [OPTIONAL]",
+            "loption": "max-logins",
+            "optional": 1,
+            "soption": None
+        },
+        "stage_interval": {
+            "help": "\tConfigures stage interval time in milliseconds. [OPTIONAL]",
+            "loption": "stage-interval",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "raslog": {
+        "message_id": {
+            "help": "\tSet Message Id. ",
+            "loption": "msg",
+            "optional": 0,
+            "soption": None
+        },
+        "message_enabled": {
+            "help": "\tSet Message Status flag for the raslog <True|False>.",
+            "loption": "enable",
+            "optional": 1,
+            "soption": None
+        },
+        "syslog_enabled": {
+            "help": "\tSet Syslog Status flag for the raslog <True|False>.",
+            "loption": "syslog-enable",
+            "optional": 1,
+            "soption": None
+        },
+        "current_severity": {
+            "help": "\tSet Message Severity for the raslog.",
+            "loption": "severity",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "raslog-module": {
+        "module_id": {
+            "help": "\tSet FOS Module Id. ",
+            "loption": "module-id",
+            "optional": 0,
+            "soption": None
+        },
+        "log_enabled": {
+            "help": "\tSet Message Status flag for all the raslog of the" +
+            " FOS Module <True|False>. ",
+            "loption": "enable",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "log-quiet-control": {
+        "log_type": {
+            "help": "\tSet Log type. ",
+            "loption": "log-type",
+            "optional": 0,
+            "soption": None
+        },
+        "quiet_enabled": {
+            "help": "\tSet Quiet status flag <True|False>. ",
+            "loption": "quiet",
+            "optional": 0,
+            "soption": None
+        },
+        "start_time": {
+            "help": "\tSet quiet start time <hh:mm>. ",
+            "loption": "stime",
+            "optional": 1,
+            "soption": None
+        },
+        "end_time": {
+            "help": "\tSet quiet end time <hh:mm>. ",
+            "loption": "etime",
+            "optional": 1,
+            "soption": None
+        },
+        "days_of_week_day": {
+            "help": "\tSet days for quiet, eg. --dow \"mon;tue\". ",
+            "loption": "dow",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "log-setting": {
+        "keep_alive_period": {
+            "help": "\tSet alive period for log in hours. ",
+            "loption": "alive",
+            "optional": 1,
+            "soption": None
+        },
+        "syslog_facility_level": {
+            "help": "\tSet facility level. ",
+            "loption": "syslog-facility-level",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "syslog-server": {
+        "server": {
+            "help": "\tsyslog server address",
+            "loption": "server",
+            "optional": 0,
+            "soption": None
+        },
+        "secure-mode": {
+            "help": "\tEnables or disables secure syslog mode",
+            "loption": "secure-mode",
+            "optional": 1,
+            "soption": None
+        },
+        "port": {
+            "help": "\tsyslog server's port number",
+            "loption": "port",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+brcd_utils_cli_dict.update({
+    "audit": {
+        "audit_enabled": {
+            "help": "\tEnable or disable audit log configuration",
+            "loption": "enable",
+            "optional": 1,
+            "soption": None
+        },
+        "severity_level": {
+            "help": "\tConfigure severity level for audit",
+            "loption": "severity",
+            "optional": 1,
+            "soption": None
+        },
+        "filter_class_list_filter_class": {
+            "help": "\tConfigure filter class for audit",
+            "loption": "filter",
+            "optional": 1,
+            "soption": None
+        }
+     }
+})
+
+brcd_utils_cli_dict.update({
+    "maps-policy": {
+        "name": {
+            "help": "Set the MAPS policy name",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+        "rule_list": {
+            "help": "Set the list of rules in the policy",
+            "loption": "rule-list",
+            "optional": 1,
+            "soption": None
+        },
+        "is_active_policy": {
+            "help": "Enables MAPS policy when set to true",
+            "loption": "is-active-policy",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "group": {
+        "name": {
+            "help": "Set the MAPS group name",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+        "group_type": {
+            "help": "Set the group type",
+            "loption": "group-type",
+            "optional": 1,
+            "soption": None
+        },
+        "group_feature": {
+            "help": "Set the group feature",
+            "loption": "group-feature",
+            "optional": 0,
+            "soption": None
+        },
+        "feature_pattern": {
+            "help": "Set the feature pattern",
+            "loption": "feature-pattern",
+            "optional": 0,
+            "soption": None
+        },
+        "members": {
+            "help": "Set the members",
+            "loption": "members",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "rule": {
+        "name": {
+            "help": "Set the MAPS rule name",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+        "monitoring_system": {
+            "help": "Set the monitoring system",
+            "loption": "monitoring-system",
+            "optional": 1,
+            "soption": None
+        },
+        "time_base": {
+            "help": "Set the time base",
+            "loption": "time-base",
+            "optional": 1,
+            "soption": None
+        },
+        "logical_operator": {
+            "help": "Set the logical operator",
+            "loption": "logical-operator",
+            "optional": 1,
+            "soption": None
+        },
+        "threshold_value": {
+            "help": "Set the threshold value",
+            "loption": "threshold-value",
+            "optional": 1,
+            "soption": None
+        },
+        "group_name": {
+            "help": "Set the group name",
+            "loption": "group-name",
+            "optional": 1,
+            "soption": None
+        },
+        "actions": {
+            "help": "Set the list of actions",
+            "loption": "actions",
+            "optional": 1,
+            "soption": None
+        },
+        "event_severity": {
+            "help": "Set the event severity level",
+            "loption": "event-severity",
+            "optional": 0,
+            "soption": None
+        },
+        "toggle_time": {
+            "help": "Set the toggle time",
+            "loption": "toggle-time",
+            "optional": 0,
+            "soption": None
+        },
+        "quiet_time": {
+            "help": "Set the quiet time interval",
+            "loption": "quiet-time",
+            "optional": 0,
+            "soption": None
+        },
+        "quiet_time_clear": {
+            "help": "Clears quiet time interval if this flag is set",
+            "loption": "quiet-time-clear",
+            "optional": 0,
+            "soption": None
+        },
+        "un_quarantine_timeout": {
+            "help": "Set the unquarantine timeout value",
+            "loption": "un-quarantine-timeout",
+            "optional": 0,
+            "soption": None
+        },
+        "un_quarantine_clear": {
+            "help": "Clears the unquarantine timeout value" +
+            " if this flag is set",
+            "loption": "un-quarantine-clear",
+            "optional": 0,
+            "soption": None
+        },
+        "is_rule_on_rule": {
+            "help": "This flag is set for creating RoR rules",
+            "loption": "is-rule-on-rule",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "maps-config": {
+        "actions": {
+            "help": "Set the MAPS global actions",
+            "loption": "actions",
+            "optional": 0,
+            "soption": None
+        },
+        "decommission_cfg": {
+            "help": "Set the decommision behaviour - default or impair",
+            "loption": "decommission-cfg",
+            "optional": 0,
+            "soption": None
+        },
+        "recipient_address_list": {
+            "help": "Set the recipient email address list",
+            "loption": "recipient-address-list",
+            "optional": 0,
+            "soption": None
+        },
+        "sender_address": {
+            "help": "Set the sender email address",
+            "loption": "sender-address",
+            "optional": 0,
+            "soption": None
+        },
+        "domain_name": {
+            "help": "Set the domain name",
+            "loption": "domain-name",
+            "optional": 0,
+            "soption": None
+        },
+        "relay_ip_address": {
+            "help": "Set the relay IP address",
+            "loption": "relay-ip-address",
+            "optional": 0,
+            "soption": None
+        },
+        "test_email": {
+            "help": "Set the subject and body for sending test mail",
+            "loption": "test-email",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "switch-status-policy-report": {
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "monitoring-system-matrix": {
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "paused-cfg": {
+        "group_type": {
+            "help": "Set the group type",
+            "loption": "group-type",
+            "optional": 1,
+            "soption": None
+        },
+        "members": {
+            "help": "Set the members",
+            "loption": "members",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "system-resources": {
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "dashboard-misc": {
+        "clear_data": {
+            "help": "Clears DB data if this flag is set",
+            "loption": "clear-data",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "dashboard-rule": {
     }
 })

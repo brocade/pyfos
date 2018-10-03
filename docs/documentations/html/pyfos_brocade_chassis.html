@@ -1,0 +1,663 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_chassis - PyFOS module to provide REST support for Chassis objects. &#8212; PyFOS 1.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_media - PyFOS module to provide rest support for port sfp-rdp media." href="pyfos_brocade_media.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="pyfos_brocade_security.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_media.html" title="pyfos_brocade_media - PyFOS module to provide rest support for port sfp-rdp media."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_security.html" title="&lt;no title&gt;"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_chassis"></span><div class="section" id="pyfos-brocade-chassis-pyfos-module-to-provide-rest-support-for-chassis-objects">
+<h1><a class="reference internal" href="#module-pyfos_brocade_chassis" title="pyfos_brocade_chassis: PyFOS module to provide REST support for Chassis (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_chassis</span></code></a> - PyFOS module to provide REST     support for Chassis objects.<a class="headerlink" href="#pyfos-brocade-chassis-pyfos-module-to-provide-rest-support-for-chassis-objects" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_chassis" title="pyfos_brocade_chassis: PyFOS module to provide REST support for Chassis (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_chassis</span></code></a> provides a REST support for      Chassis objects.</p>
+<dl class="class">
+<dt id="pyfos_brocade_chassis.chassis">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_chassis.</code><code class="descname">chassis</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information of the Chassis</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="31%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>chassis-user-friendly-name</td>
+<td>user friendly name of chassis</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.set_chassis_user_friendly_name" title="pyfos_brocade_chassis.chassis.set_chassis_user_friendly_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_chassis_user_friendly_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_chassis_user_friendly_name" title="pyfos_brocade_chassis.chassis.peek_chassis_user_friendly_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_chassis_user_friendly_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>chassis-wwn</td>
+<td>WWN of chassis</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_chassis_wwn" title="pyfos_brocade_chassis.chassis.peek_chassis_wwn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_chassis_wwn()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>serial-number</td>
+<td>Serial number of chassis</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_serial_number" title="pyfos_brocade_chassis.chassis.peek_serial_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_serial_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>manufacturer</td>
+<td>Manufacturer of chassis</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_manufacturer" title="pyfos_brocade_chassis.chassis.peek_manufacturer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_manufacturer()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>part-number</td>
+<td>Part number of chassis</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_part_number" title="pyfos_brocade_chassis.chassis.peek_part_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_part_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>max-blades-supported</td>
+<td>Maximum number of blades
+supported by chassis</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_max_blades_supported" title="pyfos_brocade_chassis.chassis.peek_max_blades_supported"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_max_blades_supported()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vendor-serial-number</td>
+<td>Externally supplied serial
+number of chassis</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_vendor_serial_number" title="pyfos_brocade_chassis.chassis.peek_vendor_serial_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vendor_serial_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vendor-part-number</td>
+<td>Externally supplied part
+number of chassis</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_vendor_part_number" title="pyfos_brocade_chassis.chassis.peek_vendor_part_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vendor_part_number()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>product-name</td>
+<td>Name by which chassis is
+generally known</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_product_name" title="pyfos_brocade_chassis.chassis.peek_product_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_product_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vendor-revision-number</td>
+<td>supplier revision number</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_vendor_revision_number" title="pyfos_brocade_chassis.chassis.peek_vendor_revision_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vendor_revision_number()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>vf-enabled</td>
+<td>VF enabled or disabled state</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.set_vf_enabled" title="pyfos_brocade_chassis.chassis.set_vf_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_vf_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_vf_enabled" title="pyfos_brocade_chassis.chassis.peek_vf_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vf_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>vf-supported</td>
+<td>VF supported or not</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_vf_supported" title="pyfos_brocade_chassis.chassis.peek_vf_supported"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vf_supported()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_chassis.chassis.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_chassis.chassis" title="pyfos_brocade_chassis.chassis"><code class="xref py py-class docutils literal notranslate"><span class="pre">chassis</span></code></a> object filled with values for all
+the attributes obtained using the session passed in.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_chassis.chassis" title="pyfos_brocade_chassis.chassis"><code class="xref py py-class docutils literal notranslate"><span class="pre">chassis</span></code></a> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using attribute’s set method. This command is used to
+set the chassis name.</p>
+<p>Example usage of the method to set the chassis user friendly name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">chassis_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_chassis</span><span class="o">.</span><span class="n">chassis</span><span class="p">()</span>
+<span class="n">chassis_obj</span><span class="o">.</span><span class="n">set_chassis_user_friendly_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">chassis_obj</span><span class="o">.</span><span class="n">set_vf_enabled</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>
+<span class="n">chassis_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.set_chassis_user_friendly_name">
+<code class="descname">set_chassis_user_friendly_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.set_chassis_user_friendly_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets chassis user friendly name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – user friendly name of the chassis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_chassis_user_friendly_name">
+<code class="descname">peek_chassis_user_friendly_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_chassis_user_friendly_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads user friendly name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or user friendly name of the chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_chassis_wwn">
+<code class="descname">peek_chassis_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_chassis_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads chassis WWN from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or chassis WWN</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_serial_number">
+<code class="descname">peek_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads serial number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or serial number of the Chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_manufacturer">
+<code class="descname">peek_manufacturer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_manufacturer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads manufacturer from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or manufacturer of the Chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_part_number">
+<code class="descname">peek_part_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_part_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads part number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or part number of the Chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_max_blades_supported">
+<code class="descname">peek_max_blades_supported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_max_blades_supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads maximum number of blades supported from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or maximum number of blades supported</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_vendor_serial_number">
+<code class="descname">peek_vendor_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_vendor_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads vendor serial number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or vendor serial number of the Chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_vendor_part_number">
+<code class="descname">peek_vendor_part_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_vendor_part_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads vendor part number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or vendor part number of the Chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_vendor_revision_number">
+<code class="descname">peek_vendor_revision_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_vendor_revision_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads vendor revision number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or vendor revision number of the Chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_product_name">
+<code class="descname">peek_product_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_product_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads product name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or product name of the Chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.set_vf_enabled">
+<code class="descname">set_vf_enabled</code><span class="sig-paren">(</span><em>newstate</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.set_vf_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets VF enabled state of the chassis in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newstate</strong> – VF enabled state of the chassis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_vf_enabled">
+<code class="descname">peek_vf_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_vf_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VF enabled state of the chassis in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VF enabled state of the chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_vf_supported">
+<code class="descname">peek_vf_supported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_vf_supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads VF supported state of the chassis in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VF supported state of the chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_chassis.ha_status">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_chassis.</code><code class="descname">ha_status</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of Chassis</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="28%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>active-cp</td>
+<td>Active CP id</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_active_cp" title="pyfos_brocade_chassis.ha_status.peek_active_cp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_active_cp()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>standby-cp</td>
+<td>Standby CP id</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_standby_cp" title="pyfos_brocade_chassis.ha_status.peek_standby_cp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_standby_cp()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>active-slot</td>
+<td>Active slot number</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_active_slot" title="pyfos_brocade_chassis.ha_status.peek_active_slot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_active_slot()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>standby-slot</td>
+<td>Standby slot
+number</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_standby_slot" title="pyfos_brocade_chassis.ha_status.peek_standby_slot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_standby_slot()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>recovery-type</td>
+<td>Warm/Cold Recovery</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_recovery_type" title="pyfos_brocade_chassis.ha_status.peek_recovery_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_recovery_type()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>recovery-complete</td>
+<td>Recovery progress
+status</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_recovery_complete" title="pyfos_brocade_chassis.ha_status.peek_recovery_complete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_recovery_complete()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>standby-health</td>
+<td>Health status of
+standby CP</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_standby_health" title="pyfos_brocade_chassis.ha_status.peek_standby_health"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_standby_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ha-enabled</td>
+<td>HA enabled status</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_ha_enabled" title="pyfos_brocade_chassis.ha_status.peek_ha_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_ha_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>heartbeat-up</td>
+<td>Heartbeat between
+CP is up or down</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_heartbeat_up" title="pyfos_brocade_chassis.ha_status.peek_heartbeat_up"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_heartbeat_up()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ha-synchronized</td>
+<td>HA synchronization
+status</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.ha_status.peek_ha_synchronized" title="pyfos_brocade_chassis.ha_status.peek_ha_synchronized"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_ha_synchronized()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<dl class="method">
+<dt id="pyfos_brocade_chassis.ha_status.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <a class="reference internal" href="#pyfos_brocade_chassis.ha_status" title="pyfos_brocade_chassis.ha_status"><code class="xref py py-class docutils literal notranslate"><span class="pre">ha_status</span></code></a></p>
+<p>object or a list of objects filled with attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+</dd></dl>
+
+<p><em>Attribute functions</em></p>
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_active_cp">
+<code class="descname">peek_active_cp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_active_cp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads details about Active CP from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_standby_cp">
+<code class="descname">peek_standby_cp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_standby_cp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads details about Standby CP from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_active_slot">
+<code class="descname">peek_active_slot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_active_slot" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">Reads details about Active CP from the object.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_standby_slot">
+<code class="descname">peek_standby_slot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_standby_slot" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">Reads details about Active CP slot from the object.</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_recovery_type">
+<code class="descname">peek_recovery_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_recovery_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads recovery type cold/warm from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_recovery_complete">
+<code class="descname">peek_recovery_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_recovery_complete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads recovery completion status from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_standby_health">
+<code class="descname">peek_standby_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_standby_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads standby health status from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_ha_enabled">
+<code class="descname">peek_ha_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_ha_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads HA enabled status from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_heartbeat_up">
+<code class="descname">peek_heartbeat_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_heartbeat_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads heartbeat status from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_chassis.ha_status.peek_ha_synchronized">
+<code class="descname">peek_ha_synchronized</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.ha_status.peek_ha_synchronized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads HA Synchronization status from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_security.html"
+                        title="previous chapter">&lt;no title&gt;</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_media.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_media</span></code> - PyFOS module to provide         rest support for port sfp-rdp media.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_chassis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_media.html" title="pyfos_brocade_media - PyFOS module to provide rest support for port sfp-rdp media."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_security.html" title="&lt;no title&gt;"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

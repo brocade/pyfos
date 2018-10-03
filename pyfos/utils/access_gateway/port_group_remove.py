@@ -83,8 +83,9 @@ def remove_port_group(session, pgid):
 
 def validate(portgroup_obj):
     if portgroup_obj.peek_port_group_id() is None:
-            print("Missing input(s)")
-            sys.exit()
+        print("Missing input(s)")
+        return 1
+    return 0
 
 
 def main(argv):

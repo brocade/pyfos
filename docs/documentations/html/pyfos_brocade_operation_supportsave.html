@@ -1,0 +1,277 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation &#8212; PyFOS 1.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_operation_show_status - PyFOS module for supportsaveoperation status" href="pyfos_brocade_operation_show_status.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="pyfos_brocade_time.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_show_status.html" title="pyfos_brocade_operation_show_status - PyFOS module for supportsaveoperation status"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_time.html" title="&lt;no title&gt;"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_operation_supportsave"></span><div class="section" id="pyfos-brocade-operation-supportsave-pyfos-module-for-supportsave-operation">
+<h1><a class="reference internal" href="#module-pyfos_brocade_operation_supportsave" title="pyfos_brocade_operation_supportsave: PyFOS module to trigger supportsave operation (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_operation_supportsave</span></code></a> - PyFOS module for supportsave operation<a class="headerlink" href="#pyfos-brocade-operation-supportsave-pyfos-module-for-supportsave-operation" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>The <a class="reference internal" href="#module-pyfos_brocade_operation_supportsave" title="pyfos_brocade_operation_supportsave: PyFOS module to trigger supportsave operation (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_operation_supportsave</span></code></a> provides REST support for</dt>
+<dd>supportsave operation.</dd>
+</dl>
+<dl class="class">
+<dt id="pyfos_brocade_operation_supportsave.supportsave">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_operation_supportsave.</code><code class="descname">supportsave</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_supportsave.supportsave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of supportsave operation</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>host</td>
+<td>ipaddress of the remote host</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_supportsave.supportsave.set_host" title="pyfos_brocade_operation_supportsave.supportsave.set_host"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_host()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>user-name</td>
+<td>user-name of the remote host</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_supportsave.supportsave.set_user_name" title="pyfos_brocade_operation_supportsave.supportsave.set_user_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_user_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>password</td>
+<td>password for the remote user</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_supportsave.supportsave.set_password" title="pyfos_brocade_operation_supportsave.supportsave.set_password"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_password()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>remote-directory</td>
+<td>path for the remote host</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_supportsave.supportsave.set_remote_directory" title="pyfos_brocade_operation_supportsave.supportsave.set_remote_directory"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_remote_directory()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>protocol</td>
+<td>protocol to access the host</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_supportsave.supportsave.set_protocol" title="pyfos_brocade_operation_supportsave.supportsave.set_protocol"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_protocol()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_operation_supportsave.supportsave.post">
+<code class="descname">post</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_supportsave.supportsave.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an object and do post. Fields involved are set
+within the object using attribute’s set method.
+This method is used to trigger supportsave operation in the 
+switch.</p>
+<p>Example usage of the method to post supportsave operation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">ss_obj</span> <span class="o">=</span>
+    <span class="n">pyfos_brocade_operation_supportsave</span><span class="o">.</span><span class="n">supportsave</span><span class="p">()</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_host</span><span class="p">(</span><span class="s2">&quot;1.1.1.1&quot;</span><span class="p">)</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_user_name</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_remote_directory</span><span class="p">(</span><span class="s2">&quot;/a/b/c/d&quot;</span><span class="p">)</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_protcolo</span><span class="p">(</span><span class="s2">&quot;scp&quot;</span><span class="p">)</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above example will trigger supportsave operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_operation_supportsave.supportsave.set_host">
+<code class="descname">set_host</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_supportsave.supportsave.set_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets host in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> – host name of the remote server</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_operation_supportsave.supportsave.set_user_name">
+<code class="descname">set_user_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_supportsave.supportsave.set_user_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets user name of the remote host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>username</strong> – username of the remote server</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_operation_supportsave.supportsave.set_password">
+<code class="descname">set_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_supportsave.supportsave.set_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setss remote username’s password.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>password</strong> – password of the remote user</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_operation_supportsave.supportsave.set_remote_directory">
+<code class="descname">set_remote_directory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_supportsave.supportsave.set_remote_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads remote server path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – path to store the supportsave logs</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_operation_supportsave.supportsave.set_protocol">
+<code class="descname">set_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_supportsave.supportsave.set_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads protocol of the remote server access.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>protocol</strong> – protocol to communicate with server</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_time.html"
+                        title="previous chapter">&lt;no title&gt;</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_operation_show_status.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_show_status</span></code> - PyFOS module for supportsaveoperation status</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_operation_supportsave.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_show_status.html" title="pyfos_brocade_operation_show_status - PyFOS module for supportsaveoperation status"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_time.html" title="&lt;no title&gt;"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

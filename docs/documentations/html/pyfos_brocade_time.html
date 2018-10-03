@@ -1,0 +1,412 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>&lt;no title&gt; &#8212; PyFOS 1.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation" href="pyfos_brocade_operation_supportsave.html" />
+    <link rel="prev" title="pyfos_brocade_maps - PyFOS module to provide rest support for MAPS." href="pyfos_brocade_maps.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_supportsave.html" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_maps.html" title="pyfos_brocade_maps - PyFOS module to provide rest support for MAPS."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_time"></span><dl class="docutils">
+<dt><a class="reference internal" href="#module-pyfos_brocade_time" title="pyfos_brocade_time: PyFOS module to manage FOS Time Server (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_time</span></code></a> - PyFOS module to provide rest support for</dt>
+<dd>time server.</dd>
+</dl>
+<dl class="class">
+<dt id="pyfos_brocade_time.clock_server">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_time.</code><code class="descname">clock_server</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.clock_server" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>This class provides NTP clock server information and also can configure the</dt>
+<dd>list of NTP clock server or LOCL.</dd>
+</dl>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="28%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ntp-server-address/server-address</td>
+<td>NTP server address list or LOCL</td>
+<td><a class="reference internal" href="#pyfos_brocade_time.clock_server.set_ntp_server_address_server_address" title="pyfos_brocade_time.clock_server.set_ntp_server_address_server_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_ntp_server_address_server_address()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_time.clock_server.peek_ntp_server_address_server_address" title="pyfos_brocade_time.clock_server.peek_ntp_server_address_server_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ntp_server_address_server_address()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_time.clock_server.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.clock_server.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a <a class="reference internal" href="#pyfos_brocade_time.clock_server" title="pyfos_brocade_time.clock_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">clock_server</span></code></a> object filled with TS</dt>
+<dd>Clock Server attributes.</dd>
+</dl>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_time.clock_server" title="pyfos_brocade_time.clock_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">clock_server</span></code></a> object. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.clock_server.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.clock_server.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace existing configuration. Fields involved are set within
+the object using attribute’s set method. This command is used to
+replace the existing NTP clock server configuration.</p>
+<p>Example usage of the method to configure ntp clock server:
+.. code-block:: python</p>
+<blockquote>
+<div>ts_obj = pyfos_brocade_time.clock_server()
+tz_obj.set_ntp_server_address_server-address(“1.2.3.4”,”5.6.7.8”)
+tz_obj.patch(session)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_time.clock_server.peek_ntp_server_address_server_address">
+<code class="descname">peek_ntp_server_address_server_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.clock_server.peek_ntp_server_address_server_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads list or single ntp clock server from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.clock_server.set_ntp_server_address_server_address">
+<code class="descname">set_ntp_server_address_server_address</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.clock_server.set_ntp_server_address_server_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets ntp clock server in the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – list of server ip’s</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_time.time_zone">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_time.</code><code class="descname">time_zone</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>This class provides system time zone information and also can configure the</dt>
+<dd>time zone by both name and offset values.</dd>
+</dl>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="33%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>Time zone by name</td>
+<td><a class="reference internal" href="#pyfos_brocade_time.time_zone.set_name" title="pyfos_brocade_time.time_zone.set_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_time.time_zone.peek_name" title="pyfos_brocade_time.time_zone.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>gmt-offset-hours</td>
+<td>Hours offset values</td>
+<td><a class="reference internal" href="#pyfos_brocade_time.time_zone.set_gmt_offset_hours" title="pyfos_brocade_time.time_zone.set_gmt_offset_hours"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_gmt_offset_hours()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_time.time_zone.peek_gmt_offset_hours" title="pyfos_brocade_time.time_zone.peek_gmt_offset_hours"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_gmt_offset_hours()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>gmt-offset-minutes</td>
+<td>Minutes offset values</td>
+<td><a class="reference internal" href="#pyfos_brocade_time.time_zone.set_gmt_offset_minutes" title="pyfos_brocade_time.time_zone.set_gmt_offset_minutes"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_gmt_offset_minutes()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_time.time_zone.peek_gmt_offset_minutes" title="pyfos_brocade_time.time_zone.peek_gmt_offset_minutes"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_gmt_offset_minutes()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_time.time_zone.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a <a class="reference internal" href="#pyfos_brocade_time.time_zone" title="pyfos_brocade_time.time_zone"><code class="xref py py-class docutils literal notranslate"><span class="pre">time_zone</span></code></a> object filled with TS Time Zone</dt>
+<dd>attributes.</dd>
+</dl>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_time.time_zone" title="pyfos_brocade_time.time_zone"><code class="xref py py-class docutils literal notranslate"><span class="pre">time_zone</span></code></a> object. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.time_zone.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace existing configuration. Fields involved are set within
+the object using attribute’s set method. This command is used to
+replace the existing time zone configuration.</p>
+<p>Example usage of the method to configure time zone by name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">tz_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_time</span><span class="o">.</span><span class="n">time_zone</span><span class="p">()</span>
+<span class="n">tz_obj</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;Africa/Accra&quot;</span><span class="p">)</span>
+<span class="n">tz_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_time.time_zone.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads time zone name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.time_zone.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets name in the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – time zone by name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.time_zone.peek_gmt_offset_hours">
+<code class="descname">peek_gmt_offset_hours</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone.peek_gmt_offset_hours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads time zone hours offset value from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.time_zone.set_gmt_offset_hours">
+<code class="descname">set_gmt_offset_hours</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone.set_gmt_offset_hours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets value in the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – time zone by hours offset</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.time_zone.peek_gmt_offset_minutes">
+<code class="descname">peek_gmt_offset_minutes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone.peek_gmt_offset_minutes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads time zone minutes offset value from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.time_zone.set_gmt_offset_minutes">
+<code class="descname">set_gmt_offset_minutes</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.time_zone.set_gmt_offset_minutes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets value in the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – time zone by minutes offset</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_maps.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_maps</span></code> - PyFOS module to provide rest support for MAPS.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_operation_supportsave.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_supportsave</span></code> - PyFOS module for supportsave operation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_time.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_supportsave.html" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_maps.html" title="pyfos_brocade_maps - PyFOS module to provide rest support for MAPS."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

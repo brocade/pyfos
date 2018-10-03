@@ -16,7 +16,7 @@
 
 """
 
-:mod:`extension_ip_interface_show` - PyFOS util for displaying the IP Interface.
+:mod:`extension_ip_interface_show` - PyFOS util for displaying the IP Interface
 ********************************************************************************
 The :mod:`extension_ip_interface_show` Util for IP Interface display.
 

@@ -644,7 +644,7 @@ class effective_configuration(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "enabled-zone", pyfos_type.type_na,
-            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER_LIST))
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER_LIST_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "zone-name", pyfos_type.type_zoning_name,
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY), ["enabled-zone"])

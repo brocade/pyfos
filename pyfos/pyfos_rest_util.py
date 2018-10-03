@@ -73,7 +73,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
     5. Leaf attribute with no parent.
 
        Module Example::
-        
+
            self.add(pyfos_rest_util.rest_attribute("name",
                       pyfos_type.type_str, None,
                       pyfos_rest_util.REST_ATTRIBUTE_KEY)
@@ -81,7 +81,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
     6. Container or list attribute.
     
        Module Example::
-        
+
             self.add(pyfos_rest_util.rest_attribute("l2-cos",
                      pyfos_type.type_na, dict(),
                      pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
@@ -89,7 +89,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
     7. Leaf attribute with another container or list as its parent.
 
         Module Example::
-        
+
             self.add(pyfos_rest_util.rest_attribute("priority-control",
                      pyfos_type.type_str, None,
                      pyfos_rest_util.REST_ATTRIBUTE_CONFIG), ["l2-cos"])
@@ -130,11 +130,11 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
     8. Leaf attribute with no parent.:
     
         Module Example::
-        
+
             self.add(pyfos_rest_util.rest_attribute("vlan-id",
                      pyfos_type.type_str, None,
                      pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
-            
+
         * Default setter: **set_vlan_id**
         * Default getter: **peek_vlan_id**
 
@@ -151,11 +151,11 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
     9. Container or List attribute.
     
         Module Example::
-        
+
             self.add(pyfos_rest_util.rest_attribute("l2-cos",
                      pyfos_type.type_na, dict(),
                      pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
-            
+
         * Default setter: **set_l2_cos**
         * Default getter: **peek_l2cos**
 
@@ -183,11 +183,11 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
             
          The value for the setter will be a list of dictionary values from its child attributes.
 
-        Script Example::    
+        Script Example::
          mytunnelobject = pyfos_extn_tunnel.extension_tunnel(session)
          mytunnelobject.set_l2_cos_fc_priority_low(5)
          mytunnelobject.peek_l2_cos_fc_priority_low()
-         
+
 **Versioning Support**:
 
     Any FOS object module can have custom versioning details defined for itself 
@@ -209,22 +209,22 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
 
        VER_RANGE_820_to_820a = {'START': "8.2.0", 'END': "8.2.0a"}
        VER_RANGE_820_and_ABOVE = {'START': "8.2.0", 'END': "9999.9999.9"}
-    
+
     * Object versioning:
 
      The object versioning must be specified to the constructor of the super class.
 
      Module Example::
-    
+
        super().__init__(pyfos_rest_util.rest_obj_type.ipif,
               "/rest/running/brocade-interface/vobject", VER_RANGE_820_and_ABOVE)
-    
+
     * Attribute versioning:
 
      The attribute versioning must be given while defining the object model as per YANG.
 
      Module Example::
-    
+
        super().__init__(pyfos_rest_util.rest_obj_type.ipif,
               "/rest/running/brocade-interface/vobject", VER_RANGE_820_to_820a)
 
@@ -294,6 +294,27 @@ class rest_obj_type():
     fdmi_port       = 111
     logical_switch  = 112
     name_server     = 113
+    fibrechannel_configuration_port = 121
+    fibrechannel_configuration_zone = 122
+    #configuration
+    switch_configuration    = 130
+    f_port_login_settings   = 131
+    chassis_ha      = 150
+    port_trunk_area = 151
+    port_trunk_show = 152
+    port_trunk_perf_show = 153
+    media_rdp       = 154
+    fan_unit        = 155
+    ps_unit         = 156
+    blade_slot      = 157
+    chassis_show    = 158
+    #logging
+    audit           = 170
+    syslog          = 171
+    log_setting     = 172
+    raslog          = 173
+    raslog_module   = 174
+    log_quiet_control       = 175
     #AG objects
     ag_start        = 200
     ag_portgroup    = 201
@@ -301,10 +322,59 @@ class rest_obj_type():
     ag_fportlist    = 203
     ag_policy       = 204
     ag_nportsettings = 205
+    ag_device_list   = 206
     ag_end          = 299
-    fos_end         = 300
+    #system security objects 400 - 500
+    time_zone       = 400
+    clock_server    = 401
+    ipfilter_policy = 402
+    ipfilter_rule   = 403
+    radius_server   = 404
+    tacacs_server   = 405
+    ldap_server     = 406
+    sec_crypto_cfg  = 407
+    sec_crypto_cfg_template = 408
+    ldap_role_map   = 409
+    auth_spec       = 410
+    password_cfg    = 411
+    user_config     = 412
+    sshutil         = 413
+    password        = 414
+    security_certificate    = 415
+    fan_unit        = 416
+    ps_unit         = 417
+    user_specific_password_cfg = 418
+    sec_crypto_cfg_template_action = 419
+    security_certificate_generate     = 420
+    security_certificate_action  = 421
+    sshutil_key     = 422
+    sshutil_public_key  = 423
+    sshutil_public_key_action  = 424
+    fos_end         = 425
     #use enums from 100 onwards
-    
+
+    license_start   = 500
+    license         = 501
+    license_end     = 599
+
+    #MAPS
+    maps_policy    = 700
+    group          = 701
+    rule           = 702
+    switch_status_policy_report = 703
+    monitoring_system_matrix    = 704
+    maps_config    = 705
+    paused_cfg     = 706
+    system_resources = 707
+    dashboard_misc = 708
+    dashboard_rule = 709
+
+    rpc_start       = 5000
+    rpc_show_status = 5001
+    rpc_supportsave = 5002
+
+    rpc_end         = 6000
+
 def getrestobjectname(objtype, fmt = 0):
     """
     This function provides the name for all instances of rest_object that are supported by FOS.
@@ -346,7 +416,7 @@ def getrestobjectname(objtype, fmt = 0):
         elif objtype == rest_obj_type.port_stats:
             return "FOS Port Stats"
         elif objtype == rest_obj_type.port_diag:
-            return "FOS Port Diag"    
+            return "FOS Port Diag"
         elif objtype == rest_obj_type.ag_portgroup:
             return "AG Port group"
         elif objtype == rest_obj_type.ag_nportmap:
@@ -357,6 +427,8 @@ def getrestobjectname(objtype, fmt = 0):
             return "AG Policy"
         elif objtype == rest_obj_type.ag_nportsettings:
             return "AG N-port settings"
+        elif objtype == rest_obj_type.ag_device_list:
+            return "AG Device list"
         elif objtype == rest_obj_type.fdmi_hba:
             return "FOS FDMI HBA"
         elif objtype == rest_obj_type.fdmi_port:
@@ -365,6 +437,96 @@ def getrestobjectname(objtype, fmt = 0):
             return "FOS Logical Switch"
         elif objtype == rest_obj_type.name_server:
             return "FOS Name Server"
+        elif objtype == rest_obj_type.fibrechannel_configuration_port:
+            return "FOS Fibrechannel Configuration Port"
+        elif objtype == rest_obj_type.fibrechannel_configuration_zone:
+            return "FOS Fibrechannel Configuration Zone"
+        elif objtype == rest_obj_type.time_zone:
+            return "Time Zone"
+        elif objtype == rest_obj_type.clock_server:
+            return "Clock Sever"
+        elif objtype == rest_obj_type.ipfilter_policy:
+            return "IPFilter Policy"
+        elif objtype == rest_obj_type.ipfilter_rule:
+            return "IPFilter Rule"
+        elif objtype == rest_obj_type.radius_server:
+            return "Radius Server"
+        elif objtype == rest_obj_type.tacacs_server:
+            return "Tacacs+ Server"
+        elif objtype == rest_obj_type.ldap_server:
+            return "Ldap Server"
+        elif objtype == rest_obj_type.sec_crypto_cfg:
+            return "Seccrypto Configuration"
+        elif objtype == rest_obj_type.sec_crypto_cfg_template:
+            return "Seccrypto Template configuration"
+        elif objtype == rest_obj_type.sec_crypto_cfg_template_action:
+            return "Seccrypto Template action"
+        elif objtype == rest_obj_type.ldap_role_map:
+            return "LDAP role mapping"
+        elif objtype == rest_obj_type.auth_spec:
+            return "Authentication mode"
+        elif objtype == rest_obj_type.password_cfg:
+            return "Password configuration"
+        elif objtype == rest_obj_type.user_specific_password_cfg:
+            return "User specific password configuration"
+        elif objtype == rest_obj_type.user_config:
+            return "User account configuration"
+        elif objtype == rest_obj_type.sshutil:
+            return "sshutil for allow user name and rekey interval"
+        elif objtype == rest_obj_type.sshutil_key:
+            return "sshutil for keys"
+        elif objtype == rest_obj_type.sshutil_public_key:
+            return "sshutil for public key"
+        elif objtype == rest_obj_type.sshutil_public_key_action:
+            return "sshutil action for public key"
+        elif objtype == rest_obj_type.password:
+            return "Password Configuration"
+        elif objtype == rest_obj_type.security_certificate:
+            return "Show security certificate"
+        elif objtype == rest_obj_type.security_certificate_generate:
+            return "Generate security certificate"
+        elif objtype == rest_obj_type.security_certificate_action:
+            return "Security certificate action"
+        elif objtype == rest_obj_type.chassis_ha:
+            return "Chassis HA Status"
+        elif objtype == rest_obj_type.port_trunk_area:
+            return "Port Trunk Area"
+        elif objtype == rest_obj_type.fan_unit:
+            return "fan unit"
+        elif objtype == rest_obj_type.ps_unit:
+            return "powersupply unit"
+        elif objtype == rest_obj_type.port_trunk_show:
+            return "Trunk Show"
+        elif objtype == rest_obj_type.port_trunk_perf_show:
+            return "Trunk Performance Show"
+        elif objtype == rest_obj_type.blade_slot:
+            return "Blade details"
+        elif objtype == rest_obj_type.chassis_show:
+            return "Chassis details"
+        elif objtype == rest_obj_type.media_rdp:
+            return "media rdp details"
+        elif objtype == rest_obj_type.audit:
+            return "audit cfg details"
+        elif objtype == rest_obj_type.syslog:
+            return "syslog server details"
+        elif objtype == rest_obj_type.log_setting:
+            return "log setting details"
+        elif objtype == rest_obj_type.rpc_show_status:
+            return "rpc show status"
+        elif objtype == rest_obj_type.rpc_supportsave:
+            return "rpc supportsave"
+        elif objtype == rest_obj_type.raslog:
+            return "raslog details"
+        elif objtype == rest_obj_type.raslog_module:
+            return "raslog module details"
+        elif objtype == rest_obj_type.log_quiet_control:
+            return "log quiet details"
+        elif objtype == rest_obj_type.switch_configuration:
+            return "configure switch details"
+        elif objtype == rest_obj_type.f_port_login_settings:
+            return "configure f-port login details"
+        elif objtype == rest_obj_type.license:
+            return "license"
         else:
             return "NOT_EXT_OBJECT"
     else :
@@ -404,6 +566,12 @@ def getrestobjectname(objtype, fmt = 0):
             return "portstats"
         elif objtype == rest_obj_type.port_diag:
             return "portdiag"
+        elif objtype == rest_obj_type.name_server:
+            return "nameserver"
+        elif objtype == rest_obj_type.fibrechannel_configuration_port:
+            return "portconfig"
+        elif objtype == rest_obj_type.fibrechannel_configuration_zone:
+            return "zoneconfig"
         elif objtype == rest_obj_type.ag_portgroup:
             return "agportgroup"
         elif objtype == rest_obj_type.ag_nportmap:
@@ -414,6 +582,58 @@ def getrestobjectname(objtype, fmt = 0):
             return "agpolicy"
         elif objtype == rest_obj_type.ag_nportsettings:
             return "agpnportsettings"
+        elif objtype == rest_obj_type.ag_device_list:
+            return "agdevice_list"
+        elif objtype == rest_obj_type.logical_switch:
+            return "Logicalswitch"
+        elif objtype == rest_obj_type.time_zone:
+            return "time_zone"
+        elif objtype == rest_obj_type.clock_server:
+            return "clock_server"
+        elif objtype == rest_obj_type.ipfilter_policy:
+            return "ipfilter_policy"
+        elif objtype == rest_obj_type.ipfilter_rule:
+            return "ipfilter_rule"
+        elif objtype == rest_obj_type.radius_server:
+            return "radius_server"
+        elif objtype == rest_obj_type.tacacs_server:
+            return "tacacs_server"
+        elif objtype == rest_obj_type.ldap_server:
+            return "ldap_server"
+        elif objtype == rest_obj_type.sec_crypto_cfg:
+            return "sec_crypto_cfg"
+        elif objtype == rest_obj_type.sec_crypto_template:
+            return "sec_crypto_template"
+        elif objtype == rest_obj_type.sec_crypto_template_action:
+            return "sec_crypto_template_action"
+        elif objtype == rest_obj_type.ldap_role_map:
+            return "ldap_role_map"
+        elif objtype == rest_obj_type.auth_spec:
+            return "auth_spec"
+        elif objtype == rest_obj_type.password_cfg:
+            return "password_cfg"
+        elif objtype == rest_obj_type.user_specific_password_cfg:
+            return "user_specific_password_cfg"
+        elif objtype == rest_obj_type.user_config:
+            return "user_config"
+        elif objtype == rest_obj_type.sshutil:
+            return "sshutil"
+        elif objtype == rest_obj_type.sshutil_key:
+            return "sshutil-key"
+        elif objtype == rest_obj_type.sshutil_public_key:
+            return "sshutil-public-key"
+        elif objtype == rest_obj_type.sshutil_public_key_action:
+            return "sshutil-public-key-action"
+        elif objtype == rest_obj_type.password:
+            return "password"
+        elif objtype == rest_obj_type.security_certificate:
+            return "security_certificate"
+        elif objtype == rest_obj_type.security_certificate_generate:
+            return "security_certificate_generate"
+        elif objtype == rest_obj_type.security_certificate_action:
+            return "security_certificate_action"
+        elif objtype == rest_obj_type.chassis_ha:
+            return "chassishastatus"
         elif objtype == rest_obj_type.fdmi_hba:
             return "fdmihba"
         elif objtype == rest_obj_type.fdmi_port:
@@ -422,9 +642,47 @@ def getrestobjectname(objtype, fmt = 0):
             return "Logicalswitch"
         elif objtype == rest_obj_type.name_server:
             return "nameserver"
+        elif objtype == rest_obj_type.port_trunk_area:
+            return "porttrunkarea"
+        elif objtype == rest_obj_type.fan_unit:
+            return "fanunitdetails"
+        elif objtype == rest_obj_type.ps_unit:
+            return "powersupplyunitdetails"
+        elif objtype == rest_obj_type.port_trunk_show:
+            return "trunkshow"
+        elif objtype == rest_obj_type.port_trunk_perf_show:
+            return "TrunkPerfShow"
+        elif objtype == rest_obj_type.media_rdp:
+            return "sfp_rdp_media"
+        elif objtype == rest_obj_type.blade_slot:
+            return "bladedetails"
+        elif objtype == rest_obj_type.chassis_show:
+            return "chassisdetails"
+        elif objtype == rest_obj_type.audit:
+            return "auditcfg"
+        elif objtype == rest_obj_type.syslog:
+            return "syslogserver"
+        elif objtype == rest_obj_type.log_setting:
+            return "logsetting"
+        elif objtype == rest_obj_type.rpc_show_status:
+            return "rpcshowstatus"
+        elif objtype == rest_obj_type.rpc_supportsave:
+            return "rpcsupportsave"
+        elif objtype == rest_obj_type.raslog:
+            return "raslog"
+        elif objtype == rest_obj_type.raslog_module:
+            return "raslog_module"
+        elif objtype == rest_obj_type.log_quiet_control:
+            return "log_quiet_control"
+        elif objtype == rest_obj_type.switch_configuration:
+            return "switch_configuration"
+        elif objtype == rest_obj_type.f_port_login_settings:
+            return "f_port_login_settings"
+        elif objtype == rest_obj_type.license:
+            return "license"
         else:
             return "Unknown"
-        
+
 
 
 class rest_get_method():
@@ -437,8 +695,9 @@ class rest_get_method():
     GET_ALL_CONFIG = 2
     GET_MODIFIED_CONFIG = 3
     GET_KEY_AND_MODIFIED_CONFIG = 4
-    GET_ALL_FILTERS = 5
-    GET_ALL_FILTERS_KEY = 6
+    GET_KEY_AND_MODIFIED_CONFIG_DELETE=5
+    GET_ALL_FILTERS = 6
+    GET_ALL_FILTERS_KEY = 7
 
 
 global  REST_ATTRIBUTE_KEY
@@ -449,15 +708,17 @@ global  REST_ATTRIBUTE_CONTAINER
 global  REST_ATTRIBUTE_LEAF_LIST
 global  REST_ATTRIBUTE_CONTAINER_LIST
 
-    
+
 
 REST_ATTRIBUTE_KEY = (rest_yang_type.yang_leaf | rest_yang_config.yang_key)
 REST_ATTRIBUTE_CONFIG = (rest_yang_type.yang_leaf | rest_yang_config.yang_config)
 REST_ATTRIBUTE_CONFIG_MANDATORY = (rest_yang_type.yang_leaf | rest_yang_config.yang_config | rest_yang_config.yang_mandatory)
 REST_ATTRIBUTE_NOT_CONFIG = (rest_yang_type.yang_leaf)
 REST_ATTRIBUTE_CONTAINER = (rest_yang_type.yang_container | rest_yang_config.yang_config)
+REST_ATTRIBUTE_CONTAINER_NOT_CONFIG = (rest_yang_type.yang_container)
 REST_ATTRIBUTE_LEAF_LIST = (rest_yang_type.yang_leaf_list | rest_yang_config.yang_config)
 REST_ATTRIBUTE_CONTAINER_LIST = (rest_yang_type.yang_container | rest_yang_type.yang_list | rest_yang_config.yang_config)
+REST_ATTRIBUTE_CONTAINER_LIST_NOT_CONFIG = (rest_yang_type.yang_container | rest_yang_type.yang_list)
 
 
 IGN=0
@@ -508,7 +769,7 @@ class rest_debug():
 
     def setdbg_mode(self, enabled=0):
         self.dbg_mode = enabled
-        
+
     def getdbg_level_string(self, level):
         if level == IGN:
             return "IGNORE"
@@ -518,8 +779,8 @@ class rest_debug():
             return "WARNING"
         if level == ERR:
             return "ERROR"
-       
-    
+
+
 class rest_attribute_encoder(json.JSONEncoder):
     def default(self, obj):
         if hasattr(obj, 'reprJSON'):
@@ -536,7 +797,7 @@ class rest_useropt():
     FILTER_CMDLINE_MANDATORY = 5
     FILTER_CMDLINE_OPTIONAL = 6
 
-     
+
 class rest_attribute():
     """
     This class encompasses a REST attribute and may be a leaf or be a container attribute as per YANG.
@@ -556,7 +817,7 @@ class rest_attribute():
         4. The Container List Attribute **value** is a list of dictionary values of a child.
     """
 
-    def __init__(self, name, a_type, value=dict(), rest_type=0, ver=None, parent=None, list_count = 0):     
+    def __init__(self, name, a_type, value=dict(), rest_type=0, ver=None, parent=None, list_count = 0):
         """Instantiate a rest_attribute """
         # TODO Compact the attribute class based on new defines
         self.name = name
@@ -608,8 +869,13 @@ class rest_attribute():
         if filters is not None and self.uname in filters or filters is None:
             return 1
         return 0
-        
 
+    def Iclonename(self):
+        name = str(self.uname)
+        if (self.list_count > 0):
+            name = str(self.uname) + "_" + str(self.list_count)
+        return name
+        
     def setusage(self):
         """ Sets the usage of the attribute parsing. """
         if self.checkusagefilter(None) == 0:
@@ -787,7 +1053,7 @@ class rest_attribute():
             else:
                 return False
 
-    
+
     def reprJSON(self, ver = None):
         """Gets the JSON representation of the rest_attribute."""          
         if self.is_attribute_map and not self.is_list:
@@ -842,12 +1108,12 @@ class rest_attribute():
                 return self.value
             else:
                 return None
-            
+
 
     def getclonename(self):
         """Gets the clone name of the rest_attribute."""
         return (self.uname)
-     
+
     def getname(self):
         """Gets the name of the rest_attribute. """
         return self.name
@@ -856,11 +1122,11 @@ class rest_attribute():
         """Sets the parent of the rest_attribute. """
         if  parent.getisattributelist() or parent.parent_is_list:
             self.parent = parent
-            self.parent_is_list = 1          
+            self.parent_is_list = 1
         else:
             self.parent = parent
         return
-    
+
     def compare(self, retdict, reset_modified = 0):
         """Compares the object to the passed dictionary values. """
         if self.getisattributemap() and not self.getisattributelist():
@@ -899,7 +1165,7 @@ class rest_attribute():
                         for i in range(len (self.value)):
                             value = self.value[i]
                             compare = len(value)
-                            
+
                             for k1,v1 in value.items():
                                 for j in range(len(retdict)):
                                     compare = len(value)
@@ -911,7 +1177,7 @@ class rest_attribute():
                                             compare -= 1
                                             if compare == 0:
                                                 break
-                                        
+
                                 if compare == 0:
                                     break;
                             if compare != 0:
@@ -919,7 +1185,7 @@ class rest_attribute():
                     return 0
                 else:
                     return 1
-                
+
             else:
                 if self.is_leaf:
                     for i in range (len(self.value)):
@@ -936,7 +1202,7 @@ class rest_attribute():
                             if k1 in myvalue.keys():
                                 if v1.compare(myvalue[k1]) == 1:
                                     return 1
-            return 0            
+            return 0
         else:
             if self.getiskey() and self.getisconfig():
                 if value == None or value == retdict:
@@ -966,8 +1232,8 @@ class rest_attribute():
                     return 1
                 else:
                     return 0
-                
-            #Not leaf list 
+
+            #Not leaf list
             for i in range(len(self.value.items())):
                 value = self.value[i]
                 for k1,v1 in  value.items():
@@ -991,7 +1257,7 @@ class rest_attribute():
             #Leaf list handling
             if self.is_leaf:
                 self.value.clear()
-                self.value = [] 
+                self.value = []
                 return 0
             #Not leaf list
             list_count = len(self.value) - 1
@@ -1040,14 +1306,14 @@ class rest_attribute():
                     value.update(attribute.todict())
                     attribute.setparent(self)
                     self.value[list_count] = value
-           
+
         else:
             self.dbg_print(ERR, "Parent not an attribute map or list ",
                              self.name)
             self.dbg_print(ERR, "Cannot add attribute ",
                              attribute.name, "for parent", self.name)
             return 0
-        
+
         if self.restobject.initialized == 0:
             self.addhierarchy(attribute)
 
@@ -1063,7 +1329,7 @@ class rest_attribute():
     def gethierarchy(self, attribute):
         """Returns the clone hierarchy of the attribute."""
         if self.getisattributelist() or self.getisattributemap():
-            self.hierarchy            
+            self.hierarchy
 
     def getuservalue(self):
         """Gets the value of the attribute. This is the external function. """
@@ -1074,7 +1340,7 @@ class rest_attribute():
             self.dbg_print(ERR, "type of" + str(self.a_type.get_type()),\
                              "missmatched to " + str(self.getvalue()))
             return "type of" + str(self.a_type.get_type()) + "missmatched to " + str(self.getvalue())
-        
+
     def getvalue(self):
         """Gets the value of the attribute. This is the internal function for the object. """
         if self.getisattributemap() and not self.getisattributelist() :
@@ -1085,7 +1351,7 @@ class rest_attribute():
         if self.getisattributelist() :
             if self.is_leaf:
                 return (self.value)
-            
+
             mylist = []
             for i in range(len(self.value)):
                 value = self.value[i]
@@ -1096,7 +1362,7 @@ class rest_attribute():
             return mylist
         else:
             return self.value
-       
+
     def is_top_level(self):
         """Checks if the attribute is top level, that is, a direct child attribute of the REST object."""
         if self.getallparentstring() == "":
@@ -1122,7 +1388,7 @@ class rest_attribute():
     def getisattributemap(self):
         """Gets the isattributemap value of this attribute."""
         return self.is_attribute_map
-    
+
     def getisattributelist(self):
         """Gets the isattributemap value of this attribute."""
         return self.is_list
@@ -1144,7 +1410,7 @@ class rest_attribute():
         """Sets if the value is changed for the object."""
         self.value_changed = changed
         return
-        
+
     def copy(self):
         """Copies the constructor for an attribute."""
         return rest_attribute(self.name, self.value, self.is_key, self.is_config)
@@ -1155,7 +1421,7 @@ class rest_attribute():
             hierarchy = self.restobject.gethierarchy(self.uname)
             self.dbg_print(DBG,"Hierarchy ", hierarchy, self.uname, "\n")
             self.clone_hierarchy(hierarchy, self, list_count)
-            
+
     def clone_hierarchy(self, hierarchy,  parent, list_count):
         """Clones the attribute hierarchy of the attribute."""
         if isinstance(hierarchy, list):
@@ -1168,9 +1434,10 @@ class rest_attribute():
                 self.addchild(attribute, list_count)
                 attribute.setclonename()
                 attribute.setusage()
+                self.restobject.setIndexedClonename(attribute)
                 # The list_count always starts from 0 becuase we are inside a container or list
                 attribute.clone(0)
-           
+
     def setuservalue(self, value, changed = 1, to_add = False):
         """Sets the value of the attribute external function."""
         if self.supportedop(rest_get_method.GET_ALL_KEY_CONFIG, self.version_active):
@@ -1190,10 +1457,10 @@ class rest_attribute():
         correct_type, rvalue = self.a_type.validate_peek(value)
         if not correct_type:
             self.dbg_print(ERR, "type of" + str(self.a_type.get_type()),\
-                             "missmatched to " + type(value))
+                             "missmatched to ", type(value))
             return {"info-code": -1, "info-message": "Setting of the value failed",\
-                    "info-type": "Incorrect type/format of value passed expected " +
-                    str(self.a_type.get_type())}
+                    "info-type": "Incorrect type/format of value passed expected \'" +
+                    self.a_type.get_type_str() + "\'"}
 
         #validate Format
         result = self.setvalue(value, changed, to_add)
@@ -1248,10 +1515,10 @@ class rest_attribute():
                             ver.from_string(v1.version_active.to_string())
                             self.dbg_print(DBG, self.name,\
                                 v1.version_active.to_string(), ver.to_string())
-                            
+
                         v1.setvalue(myvalue[k1], changed)
                         self.dbg_print(DBG, "calling setvalue", v1.name)
-                        
+
         elif self.getisattributelist():
             if isinstance(value, list) :
                 if self.is_leaf:
@@ -1262,7 +1529,7 @@ class rest_attribute():
                         self.value.append(v1)
                     self.dbg_print(DBG, "Leaf List ", self.name,
                                      self.value, value)
-                else :    
+                else :
                     for i in range(len(value)):
                         if len(self.value) <= i :
                             self.clone(i)
@@ -1301,7 +1568,19 @@ class rest_attribute():
                             if k1 in value.keys():
                                 v1.setvalue(value[k1], changed)
         else :
-            self.value = value
+            if self.a_type.get_type() == pyfos_type.type_bool:
+                correct_type, rvalue = self.a_type.validate_peek(value)
+                if correct_type is True:
+                    if rvalue is True:
+                        self.value = 'true'
+                    else:
+                        self.value = 'false'
+                else:
+                    self.dbg_print(ERR, self.name,
+                                   ":Incorrect bool value found:",
+                                    value)
+            else:
+                self.value = value
 
         if ver > self.version_active:
             self.version_active.from_string(ver.to_string())
@@ -1320,17 +1599,17 @@ class rest_attribute():
                     list1 = []
                     for k1, v1 in tmpdict.items():
                         list1.append(tmpdict[k1].objdisplay(ver))
-                    mydisplay.append(list1)                 
+                    mydisplay.append(list1)
             else:
                 for k1, v1 in self.value.items():
                     if ver == None or v1.version_supported.visible(ver):
                         mydisplay.append(self.value[k1].objdisplay(ver))
 
-     
+
             mydict={"name": self.name, "pointer" :self,"value" :mydisplay,  "iskey": self.is_key, "isconfig" : self.is_config}
         else :
             mydict={"name": self.name, "pointer" :self,"value" :self.value,  "iskey": self.is_key, "isconfig" : self.is_config}
-            
+
         self.dbg_print(DBG, mydict)
         return mydict
 
@@ -1351,7 +1630,7 @@ class rest_attribute():
                             list1.append(v1.display(ver))
                     if  len(list1)>0:
                         mydisplay.append(list1)
-            else:               
+            else:
                 for k1, v1 in self.value.items():
                     if v1.version_supported.visible(ver):
                         #mydisplay.append(self.value[k1].display(ver))
@@ -1361,12 +1640,16 @@ class rest_attribute():
             if self.version_supported.visible(ver):
                 mydict={self.name: mydisplay}
                 self.dbg_print(DBG, self.name, "::", mydict)
-                    
+
         else :
             #mydict={"name": self.name, "value" :self.value}
             if self.version_supported.visible(ver):
-                mydict={self.name:self.value}
-            
+                correct_type, value = self.a_type.validate_peek(self.getvalue())
+                if correct_type:
+                    mydict={self.name:value}
+                else:
+                    print("processing error", self.name, self.value)
+
         self.dbg_print(DBG, mydict)
         return mydict
 
@@ -1393,7 +1676,8 @@ class rest_attribute():
             if op == rest_get_method.GET_ALL_KEY or op == rest_get_method.GET_ALL_FILTERS_KEY:
                 if self.getiskey():
                     return 1
-            if op == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG:
+            if op == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG or \
+               op == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE:
                 if self.getisconfig() and self.getisvaluechanged() or self.getiskey():
                     self.dbg_print(DBG, self.name, " :", self.value, "Changes:", self.getisvaluechanged())
                     return 1
@@ -1406,13 +1690,17 @@ class rest_attribute():
         elif self.getisattributelist():
             for i in range(len(self.value)):
                 for k1,v1 in self.value[i].items():
-                    if v1.supportedop(op, ver) == 1:
-                        return 1
+                    if (op == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG):
+                        if v1.supportedop(op, ver) == 1 and not v1.is_key:
+                            return 1
+                    else:
+                        if v1.supportedop(op, ver) == 1:
+                            return 1
         elif self.getisattributemap():
             for k1,v1 in self.value.items():
                 if v1.supportedop(op, ver) == 1:
                     return 1
-                
+
         return 0
 
 
@@ -1423,7 +1711,7 @@ class rest_attribute():
         if optype == rest_get_method.GET_ALL_FILTERS or \
             optype == rest_get_method.GET_ALL_FILTERS_KEY:
             usefilter = 1
-        self.dbg_print(DBG, self.name , " : ", self.value, "OP :",  self.supportedop(optype, version)) 
+        self.dbg_print(DBG, self.name , " : ", self.value, "OP :",  self.supportedop(optype, version))
         if self.getisattributemap() and not self.getisattributelist() and \
                self.supportedop(optype, version):
             poststringchild = ""
@@ -1450,16 +1738,23 @@ class rest_attribute():
                         value = listvalue[i]
                         # Leaf List Handling
                         if self.is_leaf:
-                            if value != "undef" :
+                            if value is not None:
                                 poststring += "\n<" + self.name + ">" + value + "</" + self.name + ">"
                         else:
                             # Not a Leaf List Handling
+                            skip_only_keys = False
+                            if (optype == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG):
+                                skip_only_keys =  True
+
                             for k1, v1 in value.items():
+                                if skip_only_keys is True and v1.supportedop(optype, version) == 1 and not v1.is_key:
+                                    skip_only_keys = False
                                 poststringchild += v1.create_html_content(optype, version)
-                                
-                            if (len(poststringchild)):
+
+                            if (len(poststringchild)) and not skip_only_keys:
                                 poststringchild = re.sub("\n", "\n\t", poststringchild)
                                 poststring += "\n<" + self.name + ">" + poststringchild + "\n</" + self.name + ">"
+
                     return poststring
         else:
             if self.filter == 1 and usefilter == 1:
@@ -1467,7 +1762,7 @@ class rest_attribute():
             elif self.value != None and self.supportedop(optype, version):
                 return ("\n<" + self.name + ">" + str(self.value) + "</" + self.name + ">");
         return ""
-        
+
     def uri_string(self, optype, ver):
         """Creates the URI string data equivalent for an attribute."""
         if (self.getisattributemap() or self.getisattributelist()) and self.is_leaf == 0:
@@ -1502,16 +1797,16 @@ class rest_handler(rest_debug):
     global test
     test = dict()
     test.update({1 : {"total_tc": 0,"show_all": 0, "get" : 0, "get_uri": 0, "post": 0, "patch": 0, "create_uri":0, "delete" :0, "delete_uri":0, "modify_put" :0, "modify_put_uri" :0, "modify_patch": 0, "modify_patch_uri" :0}})
-    
+
 
     def __init__(self, uri_base):
         rest_debug.__init__(self)
         self.uri_base = uri_base
         self.obj = self
-        
+
         if not self.obj.obj_type in test.keys():
             test.update({self.obj.obj_type : {"show_all": 0, "get" : 0, "get_uri": 0, "post": 0, "patch": 0, "create_uri":0, "delete" :0, "delete_uri":0, "modify_put" :0, "modify_put_uri" :0, "modify_patch": 0, "modify_patch_uri" :0}})
-        
+
     def createtest(self, request, negative = 0):
         dictglobal = test[1]
         dictobj = test[self.obj.obj_type]
@@ -1546,7 +1841,7 @@ class rest_handler(rest_debug):
                 return False
             else:
                 return True
-        
+
     def validate(self, negative, retdict):
         if self.checkstatus(retdict):
                 if not negative:
@@ -1564,10 +1859,10 @@ class rest_handler(rest_debug):
                             print ("Return Dict:\n",getdict,"\nObj Display:\n")
                             self.obj.display()
                             #print "\n"
-                            
-                
+
+
         return retdict
-        
+
 
     def show_all(self, session, negative = 0, is_tc=0):
         ret = self.obj.is_valid(session)
@@ -1582,14 +1877,14 @@ class rest_handler(rest_debug):
         ret = self.obj.is_valid(session)
         if ( ret["info-code"] != 0 ) :
             return ret;
-        if is_tc: 
+        if is_tc:
             self.createtest( "get", negative)
         if self.isfilterset() > 0:
             ret =  pyfos_util.get_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_ALL_FILTERS_KEY, session))
         else:
             ret =  pyfos_util.get_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_ALL_KEY, session))
         return (ret)
-    
+
 
     def get_uri(self, session, negative = 0, is_tc = 0):
         ret = self.obj.is_valid(session)
@@ -1619,7 +1914,10 @@ class rest_handler(rest_debug):
             return ret;
         if is_tc:
             self.createtest("post", negative)
-        ret = pyfos_util.post_request(session, self.uri_base, self.obj.create_html_content(0, session))
+        if self.rpc == 1:
+          ret = pyfos_util.rpc_request(session, self.uri_base, self.obj.create_html_content(0, session))
+        else:
+          ret = pyfos_util.post_request(session, self.uri_base, self.obj.create_html_content(0, session))
         self.dbg_print(DBG,"Create:\n", self.uri_base, self.obj.create_html_content(0, session), ret)
         return ret
 
@@ -1630,8 +1928,8 @@ class rest_handler(rest_debug):
             return ret
         if is_tc :
             self.createtest("delete", negative)
-        ret = pyfos_util.delete_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, session))
-        self.dbg_print(DBG,"Delete:\n", self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, session), ret)
+        ret = pyfos_util.delete_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session))
+        self.dbg_print(DBG,"Delete:\n", self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session), ret)
         return ret
 
 
@@ -1641,8 +1939,8 @@ class rest_handler(rest_debug):
             return ret
         if is_tc:
             self.createtest("delete_uri", negative)
-        ret = pyfos_util.delete_request(session, self.uri_base + self.obj.uri_string(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, session), "")
-        self.dbg_print(DBG,"Delete:\n", self.uri_base + self.obj.uri_string(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, session), ret)
+        ret = pyfos_util.delete_request(session, self.uri_base + self.obj.uri_string(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session), "")
+        self.dbg_print(DBG,"Delete:\n", self.uri_base + self.obj.uri_string(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session), ret)
         return ret
 
 
@@ -1693,7 +1991,7 @@ class rest_handler(rest_debug):
         "The post_all handler handles more than one object to perform post operation; for example, a list of ports."
 
         buf = ""
-        
+
         if "Authorization" in session['credential'].keys() == 0:
             return {"info-code": -1, "info-message": "Invalid session", "info-type": "Incorrect auth details in session"}
 
@@ -1726,7 +2024,7 @@ class rest_handler(rest_debug):
         ret = pyfos_util.patch_request(session, self.uri_base + self.obj.uri_string(rest_get_method.GET_ALL_KEY, session), self.obj.create_html_content(rest_get_method.GET_MODIFIED_CONFIG, session))
         return self.validate(negative, ret)
 
-    
+
 class rest_object_encoder(json.JSONEncoder):
     def default(self, obj):
         if hasattr(obj, 'reprJSON'):
@@ -1734,7 +2032,7 @@ class rest_object_encoder(json.JSONEncoder):
         else:
             return json.JSONEncoder.default(self, obj)
 
-    
+
 class rest_object(rest_handler):
     """ This class encompasses a REST-supported FOS object as per YANG.
     
@@ -1744,7 +2042,7 @@ class rest_object(rest_handler):
         obj:  The `obj` is the corresponding REST object instance for rest_handler to work on.
         test: The `test` dictionary captures all the different test executions.
 
-        
+
     .. classmethod:: get(session, args=None, filters=None)
 
       Returns a :class: of type `cls` object or a list of
@@ -1768,7 +2066,7 @@ class rest_object(rest_handler):
       Get using a key in a dictionary::
     
        # Importing the module
-       
+
        from pyfos.pyfos_brocade_gigabitethernet import extension_gigabitethernet
 
        # Using key as a dictionary
@@ -1790,9 +2088,9 @@ class rest_object(rest_handler):
        # Display the object
        # print (myobj.display())
        pyfos_util.response_print(myobj)
-       
+
       Get all::
-    
+
        # Importing the module
 
        from pyfos.pyfos_brocade_gigabitethernet import extension_gigabitethernet
@@ -1806,7 +2104,8 @@ class rest_object(rest_handler):
        pyfos_util.response_print(objlist)
 
     """
-    def __init__(self, obj_type, uri, visible_version = VER_RANGE_820_ABOVE):
+    def __init__(self, obj_type, uri, visible_version = VER_RANGE_820_ABOVE,
+        rpc=0, container=None):
         """ This is the constructor of the class."""
         self.obj_type = obj_type
         self.attributes_dict = dict()
@@ -1814,7 +2113,10 @@ class rest_object(rest_handler):
         self.clone_instance = dict()
         uriarray = uri.split("/")
         i = len(uriarray)
-        self.container = uriarray[i-1]
+        if container is None:
+            self.container = uriarray[i-1]
+        else:
+            self.container = container
         self.initialized = 0
         rest_handler.__init__(self, uri)
         self.version_supported = fosversion_range(visible_version)
@@ -1822,7 +2124,7 @@ class rest_object(rest_handler):
         self.keyslist = []
         self.use_custom_cli = 1
         self.use_custom_dict = None
-
+        self.rpc = rpc
 
     def load(self, dictvalues, changed = 0, ver = None):
         """The function loads or deserialzes from a dictionary of values into the object itself."""
@@ -1844,7 +2146,7 @@ class rest_object(rest_handler):
                     self.dbg_print(ERR, "Unknown Attribute \"" + k1 +
                                      "\" found in Object load",
                                      getrestobjectname(self.obj_type))
-                    
+
         if ver != self.version_active:
             self.version_active.from_string(ver.to_string());
 
@@ -1858,6 +2160,8 @@ class rest_object(rest_handler):
     def getInstances(self, session, filters=None):
         get_by_key = 0
         obj = self.__class__()
+        if filters is not None and len(self.keyslist) == 0:
+            get_by_key = 1
         for i in range(len (self.keyslist)):
             if self.keyslist[i].value is not None:
                 get_by_key = 1
@@ -1870,13 +2174,13 @@ class rest_object(rest_handler):
 
             if filters is not None:
                 self.removefilter(filters)
-            
+
         else:
             obj_list = obj.show_all(session)
-            
-        self.dbg_print(DBG, obj_list) 
+
+        self.dbg_print(DBG, obj_list)
         if pyfos_util.is_failed_resp(obj_list):
-            self.dbg_print(ERR, obj_list) 
+            self.dbg_print(ERR, obj_list)
             return obj_list
         # Additional check for reponse data
         elif not isinstance(obj_list, dict) or \
@@ -1890,6 +2194,8 @@ class rest_object(rest_handler):
             if obj_list[obj.getcontainer()] is not None:
                 #self.dbg_print(DBG, pyfos_util.response_print(obj_list[obj.getcontainer()]))
                 self.load(obj_list[obj.getcontainer()])
+                if filters is not None and get_by_key == 0:
+                    self.clean(filters)
             return self
         else:
             retobj_list = []
@@ -1937,7 +2243,7 @@ class rest_object(rest_handler):
         retdict = { self.container : mydict}
         return retdict
 
-        
+
     def objdisplay(self, ver=None):
         """The function serializes the object to a dictionary with object pointer details."""
         #if ver == None:
@@ -1949,7 +2255,19 @@ class rest_object(rest_handler):
         retdict = { self.container : mydict}
         return mydict
 
-            
+    def getIndexedClonename(self, attribute):
+            if attribute.parent is None:
+                return (attribute.Iclonename())
+            else:
+                return (attribute.parent.Iclonename() + attribute.Iclonename())
+
+    def setIndexedClonename(self, attribute):
+        #Indexedclone
+        myfunc = self.getIndexedClonename(attribute)
+        setattr(self, "set_" + myfunc.lower(), attribute.setuservalue)
+        setattr(self, "peek_" + myfunc.lower(), attribute.getuservalue)
+
+
     def add(self, attribute, parents=[]):
         """The function adds the attribute to the REST object."""
         if attribute.version_active == None:
@@ -1984,17 +2302,18 @@ class rest_object(rest_handler):
         # Install the generic Setters and getters of the function
         setattr(self, "set_" + myfunc.lower(), attribute.setuservalue)
         setattr(self, "peek_" + myfunc.lower(), attribute.getuservalue)
+        self.setIndexedClonename(attribute)       
         self.addclone(attribute.uname, attribute)
 
         if attribute.is_key:
             self.keyslist.append(attribute)
-            
+
 
     def addclone(self, name, attribute):
         """Adds the clone instance Update."""
         self.clone_instance.update({name: attribute})
         self.dbg_print(INF, "clone instance ", name, self.clone_instance)
-        
+
 
     def default_set(self, value, changed=1):
         parentcaller = str(inspect.stack()[1][4])
@@ -2007,7 +2326,7 @@ class rest_object(rest_handler):
                 print  ("Unsupported: ", "set_" + myfunc, " function is not allowed for the attribute \"", attribute.getname(),"\".\n")
         else :
             print ("CALL: ", parentcaller, "FUNC: ", myfunc, self.name_dict.keys())
-            return {"info-code": -1, "info-message": "Incorrect call", "info-type": "Unable to locate the attrib in the calls"}       
+            return {"info-code": -1, "info-message": "Incorrect call", "info-type": "Unable to locate the attrib in the calls"}
 
 
     def default_get(self):
@@ -2037,7 +2356,7 @@ class rest_object(rest_handler):
         """Gets the REST container object name."""
         return self.container
 
-        
+
     def gethierarchy(self, clonename):
         """Gets the clone hierarchy given a clone name."""
         if clonename in self.clone_instance.keys():
@@ -2045,7 +2364,7 @@ class rest_object(rest_handler):
             if attribute.getisattributelist() or attribute.getisattributemap():
                 return attribute.hierarchy
 
-            
+
     def addfilter(self, filters):
         """Adds the filter for an attribute. """
         for i in range(len(filters)):
@@ -2063,7 +2382,7 @@ class rest_object(rest_handler):
                 attribute = self.clone_instance[filters[i]]
                 attribute.resetfilter()
 
-                
+
     def overwriteparser(self, clonename):
         if self.use_custom_cli and self.use_custom_dict is not None:
             if clonename in self.use_custom_dict.keys():
@@ -2098,9 +2417,9 @@ class rest_object(rest_handler):
         usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-f,", "vfid=VFID", "VFID of LS context to which the request is directed to [OPTIONAL].")
         usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-s,", "secured=MODE", "HTTPS mode \"self\" or \"CA\" [OPTIONAL].")
         usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-v,", "verbose", "verbose mode[OPTIONAL].")
-        usagestr += "\n  Util scripts options:\n\n"
+        usagestr += "\n  Utils script specific options:\n\n"
         usagestr += objusagestr
-            
+
         return (usagestr)
 
 
@@ -2109,7 +2428,7 @@ class rest_object(rest_handler):
         myobj = cls()
         return (myobj.showusage(filters))
 
-        
+
     def getmyopts(self, useropt, filters=None):
         if useropt == rest_useropt.FILTER_LGETOPT:
             myopts=[]
@@ -2143,7 +2462,7 @@ class rest_object(rest_handler):
                         return 1
                 return 0
         return 1
-    
+
 
     def setmycustomcli(self, mydict):
         if mydict is not None:
@@ -2153,8 +2472,8 @@ class rest_object(rest_handler):
                 v1.setusage()
         else:
             self.use_custom_dict = None
-            self.use_custom_cli = 0            
-        
+            self.use_custom_cli = 0
+
 
     def resetmycustomcli(self):
         self.use_custom_dict = None
@@ -2162,7 +2481,7 @@ class rest_object(rest_handler):
         for k1,v1 in self.clone_instance.items():
             v1.setusage()
 
- 
+
     def displaycustomcli(self):
         retdict=dict()
         for k1,v1 in self.clone_instance.items():
@@ -2170,7 +2489,7 @@ class rest_object(rest_handler):
             if attribdict is not None:
                 retdict.update(attribdict)
         return {self.container : retdict}
-            
+
 
 
     @classmethod
@@ -2246,9 +2565,9 @@ class rest_object(rest_handler):
 
         if "secured" not in inputs.keys():
             inputs.update({'secured': None})
-            
+
         return myobj
-               
+
 
     def showfilter(self):
         filters = []
@@ -2268,7 +2587,7 @@ class rest_object(rest_handler):
         attrib = self.attributes_dict[name]
         return (attrib)
 
-    
+
     def getparent(self, parents, ver, list_count=0):
         parentobj = None
         for i in range(len(parents)):
@@ -2302,20 +2621,20 @@ class rest_object(rest_handler):
         del self.attributes_dict[attribute.getname()]
         return
 
-    
+
     def update(self, attribute):
         myattrib = self.attributes_dict[attribute.getname()]
         myattrib.setvalue(attribute.getvalue)
         return
 
-      
+
     def is_empty(self):
         count = len(self.attributes_dict)
         if count > 0 :
             return 0
         return 1
 
-    
+
     def namekeys(self):
         return (self.attributes_dict.keys())
 
@@ -2324,7 +2643,7 @@ class rest_object(rest_handler):
         attrib = self.attributes_dict[name]
         return attrib.getiskey()
 
-    
+
     def is_config_attrib(self, name):
         return self.attributes_dict[name].getisconfig()
 
@@ -2332,7 +2651,7 @@ class rest_object(rest_handler):
     def is_value_changed(self, name):
         return self.attributes_dict[name].getisvaluechanged()
 
-    
+
     def set_value_changed(self, name, changed = 0):
         return self.attributes_dict[name].setvaluechanged(changed)
 
@@ -2345,14 +2664,14 @@ class rest_object(rest_handler):
         if len(retdict):
             if self.container in retdict.keys():
                 retdict = retdict[self.container]
-            
+
         for k1,v1 in self.attributes_dict.items():
             if k1 in retdict:
                 if v1.compare(retdict[k1], reset_changed) == 0:
                     return 0
             else :
                 return 0
-            
+
         return 1
 
 
@@ -2414,7 +2733,7 @@ class rest_object(rest_handler):
         self.dbg_print(INF,"HTML CONTENT DATA:\n", string_post)
         return (string_post)
 
-    
+
     def uri_string(self, optype = 0, session=None):
         version = None
         if session is not None:

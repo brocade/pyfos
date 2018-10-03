@@ -1,0 +1,2958 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_maps - PyFOS module to provide rest support for MAPS. &#8212; PyFOS 1.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="pyfos_brocade_time.html" />
+    <link rel="prev" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric." href="pyfos_brocade_license.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_time.html" title="&lt;no title&gt;"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_license.html" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_maps"></span><div class="section" id="pyfos-brocade-maps-pyfos-module-to-provide-rest-support-for-maps">
+<h1><a class="reference internal" href="#module-pyfos_brocade_maps" title="pyfos_brocade_maps: PyFOS module to manage FOS MAPS (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_maps</span></code></a> - PyFOS module to provide rest support for MAPS.<a class="headerlink" href="#pyfos-brocade-maps-pyfos-module-to-provide-rest-support-for-maps" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_maps" title="pyfos_brocade_maps: PyFOS module to manage FOS MAPS (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_maps</span></code></a> provides a REST support for MAPS.</p>
+<dl class="class">
+<dt id="pyfos_brocade_maps.dashboard_misc">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">dashboard_misc</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Represents dashboard’s misc intomation such as starttime and operation.</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>maps-start-time</td>
+<td>MAPS monitoring start time</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_misc.peek_maps_start_time" title="pyfos_brocade_maps.dashboard_misc.peek_maps_start_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_maps_start_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>clear-data</td>
+<td>Represents operation to clear the
+dashboard data</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_misc.set_clear_data" title="pyfos_brocade_maps.dashboard_misc.set_clear_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_clear_data()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.dashboard_misc.peek_clear_data" title="pyfos_brocade_maps.dashboard_misc.peek_clear_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_clear_data()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.dashboard_misc.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.dashboard_misc" title="pyfos_brocade_maps.dashboard_misc"><code class="xref py py-class docutils literal notranslate"><span class="pre">dashboard_misc</span></code></a> object.
+Returns dashboard miscellaneous information such as maps start time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.dashboard_misc" title="pyfos_brocade_maps.dashboard_misc"><code class="xref py py-class docutils literal notranslate"><span class="pre">dashboard_misc</span></code></a> object. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pyfos_brocade_maps.dashboard_misc.patch">
+<em class="property">static </em><code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the MAPS dashboard information when clear-data attribute is set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Success or dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_misc.peek_maps_start_time">
+<code class="descname">peek_maps_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc.peek_maps_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Monitoring start time. MAPS is restartable service so the start time
+could be different than system up time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_misc.set_clear_data">
+<code class="descname">set_clear_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc.set_clear_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents operation to clear the dashboard data. True - clears the
+data and false - no action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_misc.peek_clear_data">
+<code class="descname">peek_clear_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc.peek_clear_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of clear-data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.dashboard_rule">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">dashboard_rule</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Manages the dashboard. Use this module to view the events or
+rules triggered and the objects on which the rules were triggered over a
+specified period of time, and to clear the  dashboard data.</p>
+<p>User can get triggered rules list for the last 7 days. Rule list is
+needed to get the complete picture of switch operation. Data provides
+two views of operating state - state since mid night and last 7 days.
+For both the views user needs complete details of the each rules
+triggered and all the rules data.</p>
+</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="33%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>category</td>
+<td>Represents dashboard category</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule.peek_category" title="pyfos_brocade_maps.dashboard_rule.peek_category"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_category()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>Represents rule name</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule.peek_name" title="pyfos_brocade_maps.dashboard_rule.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>triggered-count</td>
+<td>Represents the total rule count
+triggered for the category</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule.peek_triggered_count" title="pyfos_brocade_maps.dashboard_rule.peek_triggered_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_triggered_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>time-stamp</td>
+<td>Represents last triggered time</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule.peek_time_stamp" title="pyfos_brocade_maps.dashboard_rule.peek_time_stamp"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_time_stamp()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>repetition-count</td>
+<td>Represents rule repetition count</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule.peek_repetition_count" title="pyfos_brocade_maps.dashboard_rule.peek_repetition_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_repetition_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>objects/object</td>
+<td>Represents objects violated the rule
+- for example ports, circuits</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule.peek_objects_object" title="pyfos_brocade_maps.dashboard_rule.peek_objects_object"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_objects_object()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.dashboard_rule.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule" title="pyfos_brocade_maps.dashboard_rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">dashboard_rule</span></code></a> object.
+Returns the maps dashborad information, switch summary for last 7 days.
+and the rule violations affecting health.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule" title="pyfos_brocade_maps.dashboard_rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">dashboard_rule</span></code></a> object. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_rule.peek_category">
+<code class="descname">peek_category</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.peek_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the dashboard category</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_rule.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>gives the rule name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_rule.peek_triggered_count">
+<code class="descname">peek_triggered_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.peek_triggered_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>represents the total rule count triggered for the category</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_rule.peek_time_stamp">
+<code class="descname">peek_time_stamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.peek_time_stamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents last triggered time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_rule.peek_repetition_count">
+<code class="descname">peek_repetition_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.peek_repetition_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents rule repetition count i.e., how many times a rule has
+been triggered. Same rule could be triggered multiple times for
+same or different objects. For example defALL_D_PORTSCRC_10 might
+triggered 20 times in an hour for the same or different objects -
+in this case repetition-count would be 20</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_rule.peek_objects_object">
+<code class="descname">peek_objects_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.peek_objects_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents objects violated the rule - for example ports, circuits</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.group">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">group</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>This class manages the groups. Use this module to create and  modify groups of
+elements that  are  to be monitored using the same set of thresholds.
+For example, you can create a group of ports that behave in a similar
+manner, such as UNIX ports or long-distance ports. The elements in a
+group must be of the same type:  ports,  circuits,  or  SFP.
+By creating a group of similar elements, you can manage these elements
+as a single  entity.</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="28%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>Represents the group name</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.group.set_name" title="pyfos_brocade_maps.group.set_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.group.peek_name" title="pyfos_brocade_maps.group.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>group-type</td>
+<td>Represents the group type</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.group.set_group_type" title="pyfos_brocade_maps.group.set_group_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_group_type()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.group.peek_group_type" title="pyfos_brocade_maps.group.peek_group_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_group_type()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>group-feature</td>
+<td>Represents the group feature</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.group.set_group_feature" title="pyfos_brocade_maps.group.set_group_feature"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_group_feature()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.group.peek_group_feature" title="pyfos_brocade_maps.group.peek_group_feature"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_group_feature()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>feature-pattern</td>
+<td>Represents the feature pattern</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.group.set_feature_pattern" title="pyfos_brocade_maps.group.set_feature_pattern"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_feature_pattern()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.group.peek_feature_pattern" title="pyfos_brocade_maps.group.peek_feature_pattern"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_feature_pattern()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>is-predefined</td>
+<td>Returns true if group is
+pre-defined group</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.group.peek_is_predefined" title="pyfos_brocade_maps.group.peek_is_predefined"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_predefined()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>is-modifiable</td>
+<td>Indicates whether group is
+modifiable or not</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.group.peek_is_modifiable" title="pyfos_brocade_maps.group.peek_is_modifiable"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_modifiable()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>members/member</td>
+<td>Members - for example list of
+ports, sfps or circuits</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.group.set_members_member" title="pyfos_brocade_maps.group.set_members_member"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_members_member()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.group.peek_members_member" title="pyfos_brocade_maps.group.peek_members_member"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_members_member()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.group.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.group" title="pyfos_brocade_maps.group"><code class="xref py py-class docutils literal notranslate"><span class="pre">group</span></code></a> object if group name is provided.
+Else returns all the objects of the <a class="reference internal" href="#pyfos_brocade_maps.group" title="pyfos_brocade_maps.group"><code class="xref py py-class docutils literal notranslate"><span class="pre">group</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.group" title="pyfos_brocade_maps.group"><code class="xref py py-class docutils literal notranslate"><span class="pre">group</span></code></a> object. Dictionary in case of error.
+objects if there are more than one. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to create MAPS group on switch.
+post method is also used to create dynamic groups.
+If group is already present then post method is used for adding members
+to the group.</p>
+<p>Example usage of the method to create new group on switch</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<span class="n">maps_grp</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="c1"># set the policy name</span>
+<span class="n">maps_grp</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;group1&quot;</span><span class="p">)</span>
+<span class="c1"># execute HTTP post command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">maps_grp</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>patch method is used for updating dynamic groups only.
+for static groups, adding members, post operation to be used.
+for static groups, deleting members, delete operations to be used.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to delete MAPS group if members are empty.
+If members are present, then this operation deletes members from group.</p>
+<p>Example usage of the method to delete MAPS group</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<span class="n">maps_grp</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="c1"># set the group name</span>
+<span class="n">maps_grp</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;group1&quot;</span><span class="p">)</span>
+<span class="c1"># execute HTTP post command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">maps_grp</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.group.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the MAPS group name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the MAPS group name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.set_group_type">
+<code class="descname">set_group_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.set_group_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the group type. Group type can be PORT, SFP or CIRCUITS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.peek_group_type">
+<code class="descname">peek_group_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.peek_group_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the group type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.set_group_feature">
+<code class="descname">set_group_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.set_group_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the dynamic group feature. There are two types of Group in MAPS.
+Dynamic group and static groups. If this feature is set then group is
+considered as Dynamic group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.peek_group_feature">
+<code class="descname">peek_group_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.peek_group_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dynamic group feature configured.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.set_feature_pattern">
+<code class="descname">set_feature_pattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.set_feature_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the dynamic group feature pattern. it can be port-name or node-wwn</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.peek_feature_pattern">
+<code class="descname">peek_feature_pattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.peek_feature_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dynamic group feature configured.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.peek_is_predefined">
+<code class="descname">peek_is_predefined</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.peek_is_predefined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if the group is pre-defined.
+There are two types of group, pre-defined and user-defined.
+pre-defined groups are the ones defined default by the switch.
+user-defined groups are the ones defined/configured by user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.peek_is_modifiable">
+<code class="descname">peek_is_modifiable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.peek_is_modifiable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if group is modifiable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.set_members_member">
+<code class="descname">set_members_member</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.set_members_member" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets list of members to be monitored as part of the group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.group.peek_members_member">
+<code class="descname">peek_members_member</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.peek_members_member" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets list of members that are monitored as part of the group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.maps_config">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">maps_config</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><dl class="docutils">
+<dt>Manages the MAPS behavior for the switch. Use  this  module  to</dt>
+<dd>perform the following MAPS functions:</dd>
+</dl>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Define the list of allowable actions that can be taken on the switch</dt>
+<dd><p class="first last">when a threshold is triggered.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Configure  e-mail  address  to  which  the alerts must be delivered.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Delete all user-defined MAPS  configurations  related  to rules, groups,</dt>
+<dd><p class="first last">policies, and so on.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Display MAPS settings.</p>
+</li>
+</ol>
+</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>actions/action</td>
+<td>Represents global actions list</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_actions_action" title="pyfos_brocade_maps.maps_config.set_actions_action"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_actions_action()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_actions_action" title="pyfos_brocade_maps.maps_config.peek_actions_action"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_actions_action()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>decommission-cfg</td>
+<td>Represents the decommission behavior
+- default or impair.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_decommission_cfg" title="pyfos_brocade_maps.maps_config.set_decommission_cfg"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_decommission_cfg()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_decommission_cfg" title="pyfos_brocade_maps.maps_config.peek_decommission_cfg"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_decommission_cfg()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>recipient-address-list/recipient-address</td>
+<td>Represents recipient email addresses</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_recipient_address_list_recipient_address" title="pyfos_brocade_maps.maps_config.set_recipient_address_list_recipient_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_recipient_address_list_recipient_address()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_recipient_address_list_recipient_address" title="pyfos_brocade_maps.maps_config.peek_recipient_address_list_recipient_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_recipient_address_list_recipient_address()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sender-address</td>
+<td>Represents sender email address</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_sender_address" title="pyfos_brocade_maps.maps_config.set_sender_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_sender_address()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_sender_address" title="pyfos_brocade_maps.maps_config.peek_sender_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sender_address()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>domain-name</td>
+<td>Represents domain name</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_domain_name" title="pyfos_brocade_maps.maps_config.set_domain_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_domain_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_domain_name" title="pyfos_brocade_maps.maps_config.peek_domain_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_domain_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>relay-ip-address</td>
+<td>Represents relay IP address</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_relay_ip_address" title="pyfos_brocade_maps.maps_config.set_relay_ip_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_relay_ip_address()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_relay_ip_address" title="pyfos_brocade_maps.maps_config.peek_relay_ip_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_relay_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>test-email/subject</td>
+<td>configure subject for sending test email</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_test_email_subject" title="pyfos_brocade_maps.maps_config.set_test_email_subject"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_test_email_subject()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_test_email_subject" title="pyfos_brocade_maps.maps_config.peek_test_email_subject"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_test_email_subject()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>test-email/body</td>
+<td>configure body for sending test email</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_test_email_body" title="pyfos_brocade_maps.maps_config.set_test_email_body"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_test_email_body()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_test_email_body" title="pyfos_brocade_maps.maps_config.peek_test_email_body"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_test_email_body()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.maps_config.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.maps_config" title="pyfos_brocade_maps.maps_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_config</span></code></a> object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.rule" title="pyfos_brocade_maps.rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">rule</span></code></a> object. Dictionary in case of error.
+objects if there are more than one. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pyfos_brocade_maps.maps_config.patch">
+<em class="property">static </em><code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>patch method is used to update any member of maps-config class.
+Example usage of the method</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<span class="n">maps_config_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">maps_config</span><span class="p">()</span>
+<span class="c1"># set the rule name</span>
+<span class="n">maps_config_obj</span><span class="o">.</span><span class="n">set_sender_address</span><span class="p">(</span><span class="s2">&quot;temp1@broadcom.com&quot;</span><span class="p">)</span>
+<span class="c1"># patch operation</span>
+<span class="n">maps_config_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_actions_action">
+<code class="descname">set_actions_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_actions_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the list of global actions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_actions_action">
+<code class="descname">peek_actions_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_actions_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the list of global actions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_decommission_cfg">
+<code class="descname">set_decommission_cfg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_decommission_cfg" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the decommission behavior - default or impair</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_decommission_cfg">
+<code class="descname">peek_decommission_cfg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_decommission_cfg" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the decommission behavior - default or impair</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_recipient_address_list_recipient_address">
+<code class="descname">set_recipient_address_list_recipient_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_recipient_address_list_recipient_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>configure the recipient email address, max count is 5</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_recipient_address_list_recipient_address">
+<code class="descname">peek_recipient_address_list_recipient_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_recipient_address_list_recipient_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the configured list of recipient email address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_sender_address">
+<code class="descname">set_sender_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_sender_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>configure sender email address</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_sender_address">
+<code class="descname">peek_sender_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_sender_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the configured sender email address</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_domain_name">
+<code class="descname">set_domain_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_domain_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>configure domain name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_domain_name">
+<code class="descname">peek_domain_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_domain_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the configured domain name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_relay_ip_address">
+<code class="descname">set_relay_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_relay_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>configure relay ip address</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_relay_ip_address">
+<code class="descname">peek_relay_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_relay_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the configured relay ip address</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_test_email_subject">
+<code class="descname">set_test_email_subject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_test_email_subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the subject for test email</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_test_email_subject">
+<code class="descname">peek_test_email_subject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_test_email_subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the configured subject for test email</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_test_email_body">
+<code class="descname">set_test_email_body</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_test_email_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>configures the email body for test email</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_test_email_body">
+<code class="descname">peek_test_email_body</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_test_email_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the configured email body for test email</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.maps_policy">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">maps_policy</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>This class Manages policies - create and manage monitoring policies.
+A MAPS policy is a set of rules that define thresholds for measures
+and actions to take when a threshold is triggered. When you enable a
+policy, all of the rules in the policy are in effect. A switch can have
+multiple policies.</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="28%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>Represents the policy name</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_policy.set_name" title="pyfos_brocade_maps.maps_policy.set_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_policy.peek_name" title="pyfos_brocade_maps.maps_policy.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>rule-list/rule</td>
+<td>List of rules in the policy</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_policy.set_rule_list_rule" title="pyfos_brocade_maps.maps_policy.set_rule_list_rule"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_rule_list_rule()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_policy.peek_rule_list_rule" title="pyfos_brocade_maps.maps_policy.peek_rule_list_rule"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_rule_list_rule()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>is-predefined-policy</td>
+<td>Represents policy is active
+or non-active</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_policy.peek_is_predefined_policy" title="pyfos_brocade_maps.maps_policy.peek_is_predefined_policy"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_predefined_policy()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>is-active-policy</td>
+<td>Represents policy is predefined
+or user-defined</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_policy.set_is_active_policy" title="pyfos_brocade_maps.maps_policy.set_is_active_policy"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_is_active_policy()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_policy.peek_is_active_policy" title="pyfos_brocade_maps.maps_policy.peek_is_active_policy"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_active_policy()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.maps_policy.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.maps_policy" title="pyfos_brocade_maps.maps_policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_policy</span></code></a> object if group name is provided.
+Else returns all the objects of the <a class="reference internal" href="#pyfos_brocade_maps.maps_policy" title="pyfos_brocade_maps.maps_policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_policy</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.maps_policy" title="pyfos_brocade_maps.maps_policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_policy</span></code></a> object. Dictionary in case of error.
+objects if there are more than one. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to create a MAPS policy and add rules to existing policy.
+If rules list is empty then an empty MAPS policy(without any rules) will be created.
+If policy is already present, then in post session rules will be added into policy.</p>
+<p>Example usage of the method to create new policy on switch</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<span class="n">maps_pol</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">maps_policy</span><span class="p">()</span>
+<span class="c1"># set the policy name</span>
+<span class="n">maps_pol</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;policy1&quot;</span><span class="p">)</span>
+<span class="c1"># execute HTTP post command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">maps_pol</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the list of rules in a policy with the input rules. Note when
+patch operation is executed all the rules will be replaced by the ones
+provided in the CLI.
+For adding rules to an existing policy, post operation to be used.
+For deleting rules from an existing policy, delete operation to be used.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to delete MAPS policy and rules present in the policy.
+If rule list is empty then MAPS policy is deleted.
+If rule list is not empty then rules will be deleted from the policy.</p>
+<p>Example usage of the method to delete MAPS policy</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<span class="n">maps_pol</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">maps_policy</span><span class="p">()</span>
+<span class="c1"># set the policy name</span>
+<span class="n">maps_pol</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;policy1&quot;</span><span class="p">)</span>
+<span class="c1"># execute HTTP post command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">maps_pol</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the MAPS policy name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the MAPS policy name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.set_rule_list_rule">
+<code class="descname">set_rule_list_rule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.set_rule_list_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the list of rules in rule-list container which will be part of
+a MAPS policy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.peek_rule_list_rule">
+<code class="descname">peek_rule_list_rule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.peek_rule_list_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the list of rules configured in a policy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.peek_is_predefined_policy">
+<code class="descname">peek_is_predefined_policy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.peek_is_predefined_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether policy is pre-defined or not</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.peek_is_active_policy">
+<code class="descname">peek_is_active_policy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.peek_is_active_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether policy is active or not</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_policy.set_is_active_policy">
+<code class="descname">set_is_active_policy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.set_is_active_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the Policy name and when PATCH operation is performed, then
+specified MAPS policy will be enabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">monitoring_system_matrix</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Represents list of monitoring systems. Each monitoring sytem can support
+different time bases or actions, thresholds. Certain monitoring systems
+are supported on certain system - for example circuit or tunnel monitoring
+systems are supported on extension platforms.</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="29%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>monitoring-system</td>
+<td>Represents monitoring system name</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_system" title="pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_system"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_monitoring_system()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>dashboard-category</td>
+<td>Represents dashboard category of the
+monitoring system</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_dashbroad_category" title="pyfos_brocade_maps.monitoring_system_matrix.peek_dashbroad_category"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_dashbroad_category()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>group-type</td>
+<td>Represents group type</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_group_type" title="pyfos_brocade_maps.monitoring_system_matrix.peek_group_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_group_type()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>base-time-bases/time-base</td>
+<td>Represents the timebases supported</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_base_time_bases_time_base" title="pyfos_brocade_maps.monitoring_system_matrix.peek_base_time_bases_time_base"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_base_time_bases_time_base()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>rule-on-rule-time-bases/rule-on-rule-time-base</td>
+<td>Represents supported time bases for rule
+on rules</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_rule_on_rule_time_bases_rule_on_rule_time_base" title="pyfos_brocade_maps.monitoring_system_matrix.peek_rule_on_rule_time_bases_rule_on_rule_time_base"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_rule_on_rule_time_bases_rule_on_rule_time_base()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>is-read-only</td>
+<td>true for Read only monitoring systems</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_read_only" title="pyfos_brocade_maps.monitoring_system_matrix.peek_is_read_only"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_read_only()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>monitored-logical-switch</td>
+<td>monitoring can be in all the logical
+switches or only in default logical switch</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitored_logical_switch" title="pyfos_brocade_maps.monitoring_system_matrix.peek_monitored_logical_switch"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_monitored_logical_switch()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>is-rule-on-rule-supported</td>
+<td>true if Rule-on-rule supported</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_rule_on_rule_supported" title="pyfos_brocade_maps.monitoring_system_matrix.peek_is_rule_on_rule_supported"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_rule_on_rule_supported()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>is-quiet-time-supported</td>
+<td>true if Quiet time feature supported</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_quiet_time_supported" title="pyfos_brocade_maps.monitoring_system_matrix.peek_is_quiet_time_supported"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_quiet_time_supported()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>minimum-quiet-time</td>
+<td>Quiet time feature supported</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_minimum_quiet_time" title="pyfos_brocade_maps.monitoring_system_matrix.peek_minimum_quiet_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_minimum_quiet_time()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>monitoring-type</td>
+<td>Monitorting type of the monitoring systems</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_type" title="pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_monitoring_type()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>data-type</td>
+<td>Represents the unit of the data</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_data_type" title="pyfos_brocade_maps.monitoring_system_matrix.peek_data_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_data_type()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>description</td>
+<td>Description of the monitoring system</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_description" title="pyfos_brocade_maps.monitoring_system_matrix.peek_description"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_description()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>actions/action</td>
+<td>Represents global actions list</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_actions_action" title="pyfos_brocade_maps.monitoring_system_matrix.peek_actions_action"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_actions_action()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>unit</td>
+<td>Represents data unit</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_unit" title="pyfos_brocade_maps.monitoring_system_matrix.peek_unit"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unit()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>data-range</td>
+<td>Represents data range</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_data_range" title="pyfos_brocade_maps.monitoring_system_matrix.peek_data_range"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_data_range()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>logical-operators/logical-operator</td>
+<td>Supported logical operator</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_logical_operators_logical_operator" title="pyfos_brocade_maps.monitoring_system_matrix.peek_logical_operators_logical_operator"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_logical_operators_logical_operator()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all <a class="reference internal" href="monitoring_system_matrix.html#module-monitoring_system_matrix" title="monitoring_system_matrix: PyFOS module to list all monitoring systems in MAPS (Linux)"><code class="xref py py-class docutils literal notranslate"><span class="pre">monitoring_system_matrix</span></code></a> objects.
+individual attributes accessed through peek methods</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="monitoring_system_matrix.html#module-monitoring_system_matrix" title="monitoring_system_matrix: PyFOS module to list all monitoring systems in MAPS (Linux)"><code class="xref py py-class docutils literal notranslate"><span class="pre">monitoring_system_matrix</span></code></a> object. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_system">
+<code class="descname">peek_monitoring_system</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the monitoring system name. Ex: CRC, SEC_LV</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_dashbroad_category">
+<code class="descname">peek_dashbroad_category</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_dashbroad_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents dashboard category of the monitoring system</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_group_type">
+<code class="descname">peek_group_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_group_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents group type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_base_time_bases_time_base">
+<code class="descname">peek_base_time_bases_time_base</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_base_time_bases_time_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the timebases supported</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_rule_on_rule_time_bases_rule_on_rule_time_base">
+<code class="descname">peek_rule_on_rule_time_bases_rule_on_rule_time_base</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_rule_on_rule_time_bases_rule_on_rule_time_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents supported time bases for rule on rules.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_is_read_only">
+<code class="descname">peek_is_read_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_read_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns true for Read only monitoring systems</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_monitored_logical_switch">
+<code class="descname">peek_monitored_logical_switch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitored_logical_switch" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns “all-logical-switches” if it is monitored on all logical switches
+returns “default-switch-only” if it is monitored on default logical switch</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_is_rule_on_rule_supported">
+<code class="descname">peek_is_rule_on_rule_supported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_rule_on_rule_supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns true if Rule-on-rule supported</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_is_quiet_time_supported">
+<code class="descname">peek_is_quiet_time_supported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_quiet_time_supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns true if Quiet time feature supported</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_minimum_quiet_time">
+<code class="descname">peek_minimum_quiet_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_minimum_quiet_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quiet time feature supported</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_type">
+<code class="descname">peek_monitoring_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns monitorting type of the monitoring systems</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_data_type">
+<code class="descname">peek_data_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the unit of the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_description">
+<code class="descname">peek_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the monitoring system</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_actions_action">
+<code class="descname">peek_actions_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_actions_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents global actions list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_unit">
+<code class="descname">peek_unit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents data unit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_data_range">
+<code class="descname">peek_data_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_data_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents data range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_logical_operators_logical_operator">
+<code class="descname">peek_logical_operators_logical_operator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_logical_operators_logical_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns supported logical operator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.paused_cfg">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">paused_cfg</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>This class Manages pause and continue feature of MAPS. Use this module to pause
+monitoring of any element or group of elements.
+Manages only port, SFP, and circuit to pause or resume monitoring.</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>group-type</td>
+<td>Represents group type for pausing
+or resuming monitoring</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.paused_cfg.set_group_type" title="pyfos_brocade_maps.paused_cfg.set_group_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_group_type()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.paused_cfg.peek_group_type" title="pyfos_brocade_maps.paused_cfg.peek_group_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_group_type()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>members/member</td>
+<td>members for pausing or resuming
+monitoring</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.paused_cfg.set_members_member" title="pyfos_brocade_maps.paused_cfg.set_members_member"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_members_member()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.paused_cfg.peek_members_member" title="pyfos_brocade_maps.paused_cfg.peek_members_member"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_members_member()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.paused_cfg.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.paused_cfg" title="pyfos_brocade_maps.paused_cfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">paused_cfg</span></code></a> object.
+returns list of all the members which are currently paused for monitoring.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.paused_cfg" title="pyfos_brocade_maps.paused_cfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">paused_cfg</span></code></a> object. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pyfos_brocade_maps.paused_cfg.post">
+<em class="property">static </em><code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>members specified will be paused from monitoring.
+members can be “fc-port”, “sfp” or “circuit”.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pyfos_brocade_maps.paused_cfg.delete">
+<em class="property">static </em><code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>members specified will continue with monitoring.
+members can be “fc-port”, “sfp” or “circuit”.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.paused_cfg.set_group_type">
+<code class="descname">set_group_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.set_group_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents group Type - can be “fc-port”, “sfp” or “circuit”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.paused_cfg.peek_group_type">
+<code class="descname">peek_group_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.peek_group_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the configured group type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.paused_cfg.set_members_member">
+<code class="descname">set_members_member</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.set_members_member" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of members which will be either paused or resumed for monitoring</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.paused_cfg.peek_members_member">
+<code class="descname">peek_members_member</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.peek_members_member" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the list of members</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.rule">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">rule</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Manages the rules. Use this module to configure and manage MAPS
+monitoring rules and to display the configured rules. A rule associates a
+condition  with  actions that must be triggered when the specified
+condition is evaluated to be true. When you modify a rule, the rule does not
+take effect until you enable the policy. If the rule is part of the enabled
+policy, you must re-enable the policy for the rule to take effect.</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="35%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>Represents the rule name</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_name" title="pyfos_brocade_maps.rule.set_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_name" title="pyfos_brocade_maps.rule.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>is-rule-on-rule</td>
+<td>Represents the rule type</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_is_rule_on_rule" title="pyfos_brocade_maps.rule.set_is_rule_on_rule"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_is_rule_on_rule()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_is_rule_on_rule" title="pyfos_brocade_maps.rule.peek_is_rule_on_rule"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_rule_on_rule()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>monitoring-system</td>
+<td>Represents the stats or error being
+monitored. example CRC, ITW, PS_STATE</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_monitoring_system" title="pyfos_brocade_maps.rule.set_monitoring_system"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_monitoring_system()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_monitoring_system" title="pyfos_brocade_maps.rule.peek_monitoring_system"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_monitoring_system()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>time-base</td>
+<td>Represents timebase in the rule</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_time_base" title="pyfos_brocade_maps.rule.set_time_base"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_time_base()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_time_base" title="pyfos_brocade_maps.rule.peek_time_base"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_time_base()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>logical-operator</td>
+<td>Represents logical operators</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_logical_operator" title="pyfos_brocade_maps.rule.set_logical_operator"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_logical_operator()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_logical_operator" title="pyfos_brocade_maps.rule.peek_logical_operator"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_logical_operator()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>threshold-value</td>
+<td>Represents threshold value</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_threshold_value" title="pyfos_brocade_maps.rule.set_threshold_value"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_threshold_value()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_threshold_value" title="pyfos_brocade_maps.rule.peek_threshold_value"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_threshold_value()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>group-name</td>
+<td>Represents group name. example - ALL_PORTS</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_group_name" title="pyfos_brocade_maps.rule.set_group_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_group_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_group_name" title="pyfos_brocade_maps.rule.peek_group_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_group_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>actions/action</td>
+<td>Represents actions list</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_actions_action" title="pyfos_brocade_maps.rule.set_actions_action"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_actions_action()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_actions_action" title="pyfos_brocade_maps.rule.peek_actions_action"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_actions_action()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>is-predefined</td>
+<td>Returns true if the rule is system defined</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.peek_is_predefined" title="pyfos_brocade_maps.rule.peek_is_predefined"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_predefined()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>event-severity</td>
+<td>Represents user configured severity -
+warning, error, critical, info.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_event_severity" title="pyfos_brocade_maps.rule.set_event_severity"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_event_severity()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_event_severity" title="pyfos_brocade_maps.rule.peek_event_severity"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_event_severity()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>toggle-time</td>
+<td>Represents port toggle time</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_toggle_time" title="pyfos_brocade_maps.rule.set_toggle_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_toggle_time()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_toggle_time" title="pyfos_brocade_maps.rule.peek_toggle_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_toggle_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>quiet-time</td>
+<td>Represents quiet time (QT) - means rule
+does not get trigger until QT expires</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_quiet_time" title="pyfos_brocade_maps.rule.set_quiet_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_quiet_time()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_quiet_time" title="pyfos_brocade_maps.rule.peek_quiet_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_quiet_time()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>quiet-time-clear</td>
+<td>Represents operation to clear
+quiet-time-out.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_quiet_time_clear" title="pyfos_brocade_maps.rule.set_quiet_time_clear"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_quiet_time_clear()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_quiet_time_clear" title="pyfos_brocade_maps.rule.peek_quiet_time_clear"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_quiet_time_clear()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>un-quarantine-timeout</td>
+<td>Represents un-quarantine timeout</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_un_quarantine_timeout" title="pyfos_brocade_maps.rule.set_un_quarantine_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_un_quarantine_timeout()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_un_quarantine_timeout" title="pyfos_brocade_maps.rule.peek_un_quarantine_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_un_quarantine_timeout()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>un-quarantine-clear</td>
+<td>Represents opearation to clear the
+un-quarantine-timeout</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_un_quarantine_clear" title="pyfos_brocade_maps.rule.set_un_quarantine_clear"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_un_quarantine_clear()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.rule.peek_un_quarantine_clear" title="pyfos_brocade_maps.rule.peek_un_quarantine_clear"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_un_quarantine_clear()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.rule.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.rule" title="pyfos_brocade_maps.rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">rule</span></code></a> object if rule name is provided.
+Else returns all the objects of the <a class="reference internal" href="#pyfos_brocade_maps.rule" title="pyfos_brocade_maps.rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">rule</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.rule" title="pyfos_brocade_maps.rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">rule</span></code></a> object. Dictionary in case of error.
+objects if there are more than one. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a MAPS rule. Fields involved are set
+within the object using attribute’s set method.
+This method is used to create new rule on switch</p>
+<p>Example usage of the method to create new rule on switch</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<span class="n">maps_Rule</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">rule</span><span class="p">()</span>
+<span class="c1"># set the rule name</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;rule1&quot;</span><span class="p">)</span>
+<span class="c1"># set group to be monitored</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_group_name</span><span class="p">(</span><span class="s2">&quot;ALL_PORTS&quot;</span><span class="p">)</span>
+<span class="c1"># set the monitoring stat</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_monitoring_system</span><span class="p">(</span><span class="s2">&quot;CRC&quot;</span><span class="p">)</span>
+<span class="c1"># set the interval for monitoring</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_time_base</span><span class="p">(</span><span class="s2">&quot;min&quot;</span><span class="p">)</span>
+<span class="c1"># set the condition for threshold</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_logical_operator</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+<span class="c1"># set the threshold value</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_threshold_value</span><span class="p">(</span><span class="s2">&quot;100&quot;</span><span class="p">)</span>
+<span class="c1"># set the action to be triggered</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_actions_action</span><span class="p">(</span><span class="s2">&quot;raslog&quot;</span><span class="p">)</span>
+<span class="c1"># execute HTTP post command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is to update the rule, can be used to modify threshold
+values, or interval of monitoring etc..
+If a rule which is part of active policy is changed, then
+policy has to be re-activated for the rule to take effect</p>
+<p>Example usage of the method to update existing rule on switch</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<span class="n">maps_Rule</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">rule</span><span class="p">()</span>
+<span class="c1"># set the rule name</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;rule1&quot;</span><span class="p">)</span>
+<span class="c1"># set group to be monitored</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_group_name</span><span class="p">(</span><span class="s2">&quot;ALL_PORTS&quot;</span><span class="p">)</span>
+<span class="c1"># set the monitoring stat</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_monitoring_system</span><span class="p">(</span><span class="s2">&quot;CRC&quot;</span><span class="p">)</span>
+<span class="c1"># set the interval for monitoring</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_time_base</span><span class="p">(</span><span class="s2">&quot;min&quot;</span><span class="p">)</span>
+<span class="c1"># set the condition for threshold</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_logical_operator</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+<span class="c1"># set the threshold value</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_threshold_value</span><span class="p">(</span><span class="s2">&quot;200&quot;</span><span class="p">)</span>
+<span class="c1"># set the action to be triggered</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_actions_action</span><span class="p">(</span><span class="s2">&quot;raslog&quot;</span><span class="p">)</span>
+<span class="c1"># execute HTTP post command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a MAPS group. Fields involved are
+set within the object using attribute’s
+set method. This method is used to delete a MAPS group</p>
+<p>Example usage of the method to delete MAPS group</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<span class="n">maps_Rule</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">rule</span><span class="p">()</span>
+<span class="c1"># set the rule name</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;rule1&quot;</span><span class="p">)</span>
+<span class="c1"># execute HTTP post command to apply the object to the</span>
+<span class="c1"># switch connected through session</span>
+<span class="n">maps_Rule</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the MAPS rule name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the MAPS rule name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_is_rule_on_rule">
+<code class="descname">set_is_rule_on_rule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_is_rule_on_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets “is-rule-on-rule” flag
+This flag has to be set while creating RoR rules.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_is_rule_on_rule">
+<code class="descname">peek_is_rule_on_rule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_is_rule_on_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the value of RoR flag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_monitoring_system">
+<code class="descname">set_monitoring_system</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_monitoring_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the monitoring stat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_monitoring_system">
+<code class="descname">peek_monitoring_system</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_monitoring_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the monitoring stat for the given rule.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_time_base">
+<code class="descname">set_time_base</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_time_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the time base which is the interval for monitoring</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_time_base">
+<code class="descname">peek_time_base</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_time_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the time base configured for the rule</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_logical_operator">
+<code class="descname">set_logical_operator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_logical_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the logical operator, the condition for which threshold will be met</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_logical_operator">
+<code class="descname">peek_logical_operator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_logical_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the condition on which threshold will be met</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_threshold_value">
+<code class="descname">set_threshold_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_threshold_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the threshold value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_threshold_value">
+<code class="descname">peek_threshold_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_threshold_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the threshold value configured.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_group_name">
+<code class="descname">set_group_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_group_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the group name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_group_name">
+<code class="descname">peek_group_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_group_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the group name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_actions_action">
+<code class="descname">set_actions_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_actions_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the list of actions which will be triggered when rule violation happens</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_actions_action">
+<code class="descname">peek_actions_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_actions_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the list of actions which will be triggered when rule violation happens</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_is_predefined">
+<code class="descname">peek_is_predefined</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_is_predefined" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns true if the rule is system defined.
+returns false if the rule is user defined</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_event_severity">
+<code class="descname">set_event_severity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_event_severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the event severity.
+Possible values are “[critical | error | warning | info] | default”</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_event_severity">
+<code class="descname">peek_event_severity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_event_severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the event severity configured.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_toggle_time">
+<code class="descname">set_toggle_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_toggle_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the toggle time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_toggle_time">
+<code class="descname">peek_toggle_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_toggle_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the toggle time configured</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_quiet_time">
+<code class="descname">set_quiet_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_quiet_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the quiet time. If quiet time is configured, then reporting of
+rule violations will be done only after the expiry of quiet time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_quiet_time">
+<code class="descname">peek_quiet_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_quiet_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the quiet time configured.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_quiet_time_clear">
+<code class="descname">set_quiet_time_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_quiet_time_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>updates the flag to clear quiet time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_quiet_time_clear">
+<code class="descname">peek_quiet_time_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_quiet_time_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets quiet time clear</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_un_quarantine_timeout">
+<code class="descname">set_un_quarantine_timeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_un_quarantine_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets un-quarantine timeout value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_un_quarantine_timeout">
+<code class="descname">peek_un_quarantine_timeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_un_quarantine_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the un-quarantine timeout value configured.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.set_un_quarantine_clear">
+<code class="descname">set_un_quarantine_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_un_quarantine_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets un-quarantine-clear</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.rule.peek_un_quarantine_clear">
+<code class="descname">peek_un_quarantine_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_un_quarantine_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the flag un-quarantine-clear</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.switch_status_policy_report">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">switch_status_policy_report</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Manages the switch status policy report. Use this module to retrieve
+the SSP state. SSP provides the overall status of the switch. If the
+over all status is not healthy, then module provides the contributing
+factors.</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="32%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>switch-health</td>
+<td>Represents switch state. Switch health
+represents switch operating health</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_switch_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_switch_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_switch_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>power-supply-health</td>
+<td>Represents state of power supplies</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_power_supply_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_power_supply_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_power_supply_health()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fan-health</td>
+<td>Represents state of fans</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_fan_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_fan_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_fan_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>wwn-health</td>
+<td>Represents state of WWNs cards</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_wwn_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_wwn_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_wwn_health()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>temperature-sensor-health</td>
+<td>Represents state of temperature sensors</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_temperature_sensor_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_temperature_sensor_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_temperature_sensor_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ha-health</td>
+<td>Represents state of high availability
+state - means both CPs are in sync</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_ha_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_ha_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ha_health()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>control-processor-health</td>
+<td>Represents state of CPs</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_control_processor_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_control_processor_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_control_processor_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>core-blade-health</td>
+<td>Represents state of core blades</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_core_blade_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_core_blade_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_core_blade_health()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>blade-health</td>
+<td>Represents state of AP blades</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_blade_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_blade_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_blade_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>flash-health</td>
+<td>Represents flash usage state. Flash usage
+could be above threshold or limit</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_flash_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_flash_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_flash_health()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>marginal-port-health</td>
+<td>Represents the mariginal ports state</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_marginal_port_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>faulty-port-health</td>
+<td>Represents the faulty ports state</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_faulty_port_health()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>missing-sfp-health</td>
+<td>Represents the missing SFPs state</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_missing_sfp_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>error-port-health</td>
+<td>Represents the error ports state</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_error_port_health()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>expired-certificate-health</td>
+<td>Represents the expired certificate state</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_expired_certificate_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_expired_certificate_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_expired_certificate_health()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>airflow-mismatch-health</td>
+<td>Represents the air flow mismatch state</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_airflow_mismatch_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_airflow_mismatch_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_airflow_mismatch_health()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report" title="pyfos_brocade_maps.switch_status_policy_report"><code class="xref py py-class docutils literal notranslate"><span class="pre">switch_status_policy_report</span></code></a> object.
+individual attributes accessed through peek methods</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report" title="pyfos_brocade_maps.switch_status_policy_report"><code class="xref py py-class docutils literal notranslate"><span class="pre">switch_status_policy_report</span></code></a> object. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_switch_health">
+<code class="descname">peek_switch_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_switch_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the switch state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_power_supply_health">
+<code class="descname">peek_power_supply_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_power_supply_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the state of power supplies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_fan_health">
+<code class="descname">peek_fan_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_fan_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the state of fans</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_wwn_health">
+<code class="descname">peek_wwn_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_wwn_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the state of WWNs cards</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_temperature_sensor_health">
+<code class="descname">peek_temperature_sensor_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_temperature_sensor_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the state of temperature sensors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_ha_health">
+<code class="descname">peek_ha_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_ha_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the state of high availability state - means both CPs are in sync</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_control_processor_health">
+<code class="descname">peek_control_processor_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_control_processor_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the state of CPs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_core_blade_health">
+<code class="descname">peek_core_blade_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_core_blade_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the state of core blades</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_blade_health">
+<code class="descname">peek_blade_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_blade_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the state of AP blades</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_flash_health">
+<code class="descname">peek_flash_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_flash_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the flash usage state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health">
+<code class="descname">peek_marginal_port_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the mariginal ports state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health">
+<code class="descname">peek_faulty_port_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the faulty ports state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health">
+<code class="descname">peek_missing_sfp_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the missing SFPs state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health">
+<code class="descname">peek_error_port_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the error ports state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_expired_certificate_health">
+<code class="descname">peek_expired_certificate_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_expired_certificate_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the expired certificate state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_airflow_mismatch_health">
+<code class="descname">peek_airflow_mismatch_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_airflow_mismatch_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the air flow mismatch state</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.system_resources">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">system_resources</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.system_resources" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Manages the system resources - flash, RAM, and CPU usage. Usage is not
+real time and delayed up to 2 minutes.</div></blockquote>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cpu-usage</td>
+<td>Represents CPU usage</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.system_resources.peek_cpu_usage" title="pyfos_brocade_maps.system_resources.peek_cpu_usage"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_cpu_usage()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>memory-usage</td>
+<td>Represents memory usage</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.system_resources.peek_memory_usage" title="pyfos_brocade_maps.system_resources.peek_memory_usage"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_memory_usage()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>total-memory</td>
+<td>Represents total memory</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.system_resources.peek_total_memory" title="pyfos_brocade_maps.system_resources.peek_total_memory"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_total_memory()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>flash-usage</td>
+<td>Represents flash usage</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.system_resources.peek_flash_usage" title="pyfos_brocade_maps.system_resources.peek_flash_usage"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_flash_usage()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.system_resources.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.system_resources.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.system_resources" title="pyfos_brocade_maps.system_resources"><code class="xref py py-class docutils literal notranslate"><span class="pre">system_resources</span></code></a> object.
+Returns usage of system resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_maps.system_resources" title="pyfos_brocade_maps.system_resources"><code class="xref py py-class docutils literal notranslate"><span class="pre">system_resources</span></code></a> object. Dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.system_resources.peek_cpu_usage">
+<code class="descname">peek_cpu_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.system_resources.peek_cpu_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns CPU usage</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.system_resources.peek_memory_usage">
+<code class="descname">peek_memory_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.system_resources.peek_memory_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Memory usage</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.system_resources.peek_total_memory">
+<code class="descname">peek_total_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.system_resources.peek_total_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Total memory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.system_resources.peek_flash_usage">
+<code class="descname">peek_flash_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.system_resources.peek_flash_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Flash usage</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_policy_post</span></code>
+Module <a class="reference internal" href="maps_group_create.html#module-maps_group_create" title="maps_group_create: PyFOS module to create MAPS group (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_group_create</span></code></a>
+Module <a class="reference internal" href="maps_rule_create.html#module-maps_rule_create" title="maps_rule_create: PyFOS module to create MAPS rule (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_rule_create</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_license.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_license</span></code> - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_time.html"
+                        title="next chapter">&lt;no title&gt;</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_maps.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_time.html" title="&lt;no title&gt;"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_license.html" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

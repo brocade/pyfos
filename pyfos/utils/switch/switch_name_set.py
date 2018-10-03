@@ -38,7 +38,7 @@ This module is a stand-alone script that can be used to set a switch name.
 """
 
 import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
+from pyfos.pyfos_brocade_fibrechannel_switch import fibrechannel_switch
 import pyfos.pyfos_util as pyfos_util
 import sys
 import pyfos.utils.brcd_util as brcd_util
@@ -51,41 +51,21 @@ def usage():
     print("")
 
 
+def validate(fcObject):
+    if fcObject.peek_user_friendly_name() is None or \
+       fcObject.peek_name() is None:
+        return 1
+    return 0
+
+
 def main(argv):
-    valid_options = ["username"]
-    inputs = brcd_util.generic_input(argv, usage, valid_options)
+    filters = ["user_friendly_name", "name"]
+    inputs = brcd_util.parse(argv, fibrechannel_switch, filters, validate)
 
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
-              [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
-        sys.exit()
+    switchObject = inputs['utilobject']
 
-    brcd_util.exit_register(session)
-
-    vfid = None
-    if 'vfid' in inputs:
-        vfid = inputs['vfid']
-
-    if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
-
-    if "username" not in inputs:
-        usage()
-        sys.exit()
-    username = inputs["username"]
-
-    current_switch = pyfos_switch.fibrechannel_switch.get(session)
-
-    switch = pyfos_switch.fibrechannel_switch()
-    name = current_switch.peek_name()
-    switch.set_name(name)
-    switch.set_user_friendly_name(username)
-    result = switch.patch(session)
+    session = brcd_util.getsession(inputs)
+    result = switchObject.patch(session)
     pyfos_util.response_print(result)
 
     pyfos_auth.logout(session)

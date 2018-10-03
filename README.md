@@ -1,5 +1,5 @@
-PyFOS - 1.0
-=======
+PyFOS - 1.1
+===========
 
 ### What is PyFOS ###
 
@@ -26,7 +26,7 @@ PyFOS - 1.0
 
 ### FOS and PyFOS versions ###
 
-    PyFOS 1.0 covers up to FOS 8.2.0b
+    PyFOS 1.1 covers up to FOS 8.2.1
 
 ### Directory structure ###
 
@@ -46,10 +46,7 @@ PyFOS - 1.0
 ### Installation ###
 
     1) create library directories
-    mkdir ~<login>/python_lib
-    mkdir ~<login>/python_lib/lib
-    mkdir ~<login>/python_lib/lib/python3.5
-    mkdir ~<login>/python_lib/lib/python3.5/site-packages
+        mkdir -p ~<login>/python_lib/lib/python3.5/site-packages
 
     2) set env variable for library directory according to your shell env
 
@@ -58,11 +55,7 @@ PyFOS - 1.0
             setenv PYTHONPATH ~<login>/python_lib/lib/python3.5/site-packages
 
     3) install dependencies
-        pip3 install xmltodict --prefix=~<login>/python_lib
-        pip3 install requests --prefix=~<login>/python_lib
-        pip3 install jsondiff --prefix=~<login>/python_lib
-        pip3 install xlrd --prefix=~<login>/python_lib
-        pip3 install colorconsole --prefix=~<login>/python_lib
+        pip3 install openpyxl colorconsole xlrd jsondiff requests xmltodict --prefix=~<login>/python_lib
 
     4) pyfos can be installed directly from github.com or using pip
 

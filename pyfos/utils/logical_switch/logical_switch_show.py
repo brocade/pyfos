@@ -20,6 +20,8 @@
 The :mod:`logical_switch_show` displays Logical switch configuration.
 
 This module is a standalone script and API that can be used to display
+logical switch configuration with specified VFID. If no VFID is given,
+configuration of all logical switches are displayed.
 logical switch configuration with specified Fabric ID. If no Fabric ID is
 given, configuration of all logical switches are displayed.
 

@@ -199,6 +199,10 @@ class fibrechannel(pyfos_rest_util.rest_object):
         | g-port-locked                 | indicate locked to G_Port     |:func:`set_g_port_locked`               |
         |                               |                               |:func:`peek_g_port_locked`              |
         +-------------------------------+-------------------------------+----------------------------------------+
+        | n-port-enabled                | Port is configured as N-port  |:func:`set_n_port_enabled`              |
+        |                               | when switch is in Access      |:func:`peek_n_port_enabled`             |
+        |                               | Gateway mode                  |                                        |
+        +-------------------------------+-------------------------------+----------------------------------------+
         | e-port-disable                | indicate E_Port disabled      |:func:`set_e_port_disable`              |
         |                               |                               |:func:`peek_e_port_disable`             |
         +-------------------------------+-------------------------------+----------------------------------------+
@@ -297,6 +301,10 @@ class fibrechannel(pyfos_rest_util.rest_object):
         | credit-recovery-active        | credit recovery active state  |:func:`peek_credir_recovery_active`     |
         +-------------------------------+-------------------------------+----------------------------------------+
         | fec-active                    | fec active state              |:func:`peek_fec_active`                 |
+        +-------------------------------+-------------------------------+----------------------------------------+
+        | max-speed			| Max Speed of the port         |:func:`peek_max_speed` 		 |
+        +-------------------------------+-------------------------------+----------------------------------------+
+        | default-index			| Default Index of the port	|:func:`peek_default_index`		 |
         +-------------------------------+-------------------------------+----------------------------------------+
 
     *Object methods*
@@ -438,6 +446,21 @@ class fibrechannel(pyfos_rest_util.rest_object):
         .. method:: peek_g_port_locked()
 
             Reads G_Port locked mode of port in the object.
+
+            :rtype: None, True, or False
+
+        .. method:: set_n_port_enabled(newmode)
+
+            Sets N_Port enabled indication in the object. A port can be
+            configured as N-port only when the switch is in
+            Access Gateway mode.
+
+            :param newmode: new mode to be set within the object
+            :rtype: None or dictionary of error information
+
+        .. method:: peek_n_port_enabled()
+
+            Reads N_Port enabled mode of port in the object.
 
             :rtype: None, True, or False
 
@@ -837,6 +860,18 @@ class fibrechannel(pyfos_rest_util.rest_object):
 
             :rtype: Returns the state of fec of port.
 
+        .. method:: peek_max_speed()
+
+            Gets the max speed of the Port is capable of. 
+
+            :rtype: Returns Max Speed of The Port 
+
+        .. method:: peek_default_index()
+
+            Gets the default index of the port
+
+            :rtype: Returns default index of the port
+
 
         """
 
@@ -867,6 +902,9 @@ class fibrechannel(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "g-port-locked", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "n-port-enabled", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "e-port-disable", pyfos_type.type_int,
@@ -1008,6 +1046,14 @@ class fibrechannel(pyfos_rest_util.rest_object):
             "fcid-hex", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
             version.VER_RANGE_820a_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "max-speed", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "default-index", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821_and_ABOVE))
 
         """
         self.add(pyfos_rest_util.rest_attribute(
@@ -1504,6 +1550,62 @@ class fibrechannel_statistics(pyfos_rest_util.rest_object):
 
             :rtype: None or number of pcs block errors
 
+        .. method:: peek_remote_link_failures()
+
+            Reads number of number of link failures at remote port.
+
+            :rtype: None or number of link failures
+
+        .. method:: peek_remote_invalid_transmission_words()
+
+            Reads number of invalid transmission words received at remote port
+
+            :rtype: None or number of invalid transmission words
+
+        .. method:: peek_primitive_sequence_protocol_error()
+
+            Reads number of primitive sequence protocol errors detected at
+            remote port
+
+            :rtype: None or number of primitive sequence protocol errors
+
+        .. method:: peek_remote_loss_of_signal()
+
+            Reads number of instances of signal loss detected at remote port.
+
+            :rtype: None or number of instances of signal loss
+
+        .. method:: peek_remote_loss_of_sync()
+
+            Reads number of instances of synchronization loss detected at
+            remote port.
+
+            :rtype: None or number of instances of synchronization loss
+
+        .. method:: peek_remote_crc_errors()
+
+            Reads number of frames received with invalid CRC at remote port.
+
+            :rtype: None or number of frames received with invalid CRC
+
+        .. method:: peek_remote_fec_uncorrected()
+
+            Reads number of frames uncorrected by FEC block.
+
+            :rtype: None or number of frames uncorrected by FEC block
+
+        .. method:: peek_remote_buffer_credit_info_bb_credit()
+
+            Reads number of credits available to the attached devices.
+
+            :rtype: None or number of credits available
+
+        .. method:: peek_remote_buffer_credit_info_peer_bb_credit()
+
+           Reads number of credits available to the switch port.
+
+           :rtype: None or number of credits available to the switch port
+
 
         """
 
@@ -1671,5 +1773,37 @@ class fibrechannel_statistics(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "pcs-block-errors", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remote-link-failures", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remote-invalid-transmission-words", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remote-primitive-sequence-protocol-error", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remote-loss-of-signal", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remote-loss-of-sync", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remote-crc-errors", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remote-fec-uncorrected", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remote-buffer-credit-info", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+        self.add(pyfos_rest_util.rest_attribute(
+            "bb-credit", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG),
+            ["remote-buffer-credit-info"])
+        self.add(pyfos_rest_util.rest_attribute(
+            "peer-bb-credit", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG),
+            ["remote-buffer-credit-info"])
 
         self.load(dictvalues, 1)

@@ -80,7 +80,9 @@ def base_generic_input(argv, usage, valid_options):
                     "enable",
                     "filename=",
                     "help",
+                    "hbaid=",
                     "hostname=",
+                    "banner=",
                     "hostport=",
                     "ipaddr=",
                     "login=",
@@ -88,6 +90,7 @@ def base_generic_input(argv, usage, valid_options):
                     "name=",
                     "password=",
                     "pmembers=",
+                    "portid=",
                     "reffcport=",
                     "secured=",
                     "speed=",
@@ -100,6 +103,7 @@ def base_generic_input(argv, usage, valid_options):
                     "vfid=",
                     "xlsapply=",
                     "xlscheck=",
+                    "json",
                 ]
                 )
     except getopt.GetoptError as err:
@@ -145,8 +149,12 @@ def base_generic_input(argv, usage, valid_options):
             ret_dict["vfid"] = int(arg)
         elif opt in ("--filename"):
             ret_dict["filename"] = arg
+        elif opt in ("--hbaid"):
+            ret_dict["hbaid"] = arg
         elif opt in ("--hostname"):
             ret_dict["hostname"] = arg
+        elif opt in ("--banner"):
+            ret_dict["banner"] = arg
         elif opt in ("--hostport"):
             if not pyfos_util.isWWN(arg):
                 print("*** Invalid hostport:", arg)
@@ -161,6 +169,8 @@ def base_generic_input(argv, usage, valid_options):
                 sys.exit(5)
 
             ret_dict["ipaddr"] = arg
+        elif opt in ("--json"):
+            ret_dict["json"] = True
         elif opt in ("-L", "--login"):
             ret_dict["login"] = arg
         elif opt in ("--members"):
@@ -171,6 +181,8 @@ def base_generic_input(argv, usage, valid_options):
             ret_dict["pmembers"] = arg.split(";")
         elif opt in ("-P", "--password"):
             ret_dict["password"] = arg
+        elif opt in ("--portid"):
+            ret_dict["portid"] = arg
         elif opt in ("--reffcport"):
             if not pyfos_util.isSlotPort(arg):
                 print("*** Invalid reffcport:", arg)

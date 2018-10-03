@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>port_group_create_add - PyFOS util to create a new port-group or add n-ports to an existing port-group. &#8212; PyFOS 0.9.0 documentation</title>
+    <title>port_group_create_add - PyFOS util to create a new port-group or add n-ports to an existing port-group. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="port_group_fport_add.html" title="port_group_fport_add - PyFOS util for adding f-ports to a portgroup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -75,10 +75,10 @@ existing port-group.</p>
 <div class="line">–id=ID             Port group ID</div>
 </div>
 </div></blockquote>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt>outputs:</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>Status of the portgroup create operation</li>
 </ul>
 </dd>
@@ -94,13 +94,13 @@ existing port-group.</p>
 <li><p class="first">Create a portgroup</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">port_group_create_add</span><span class="o">.</span><span class="n">create_add_port_group</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">port_group_create_add</span><span class="o">.</span><span class="n">create_add_port_group</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
           <span class="s2">&quot;pg1&quot;</span><span class="p">,</span> <span class="s2">&quot;0/40 0/41&quot;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span> <span class="n">port_group</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">portgroup_obj</span> <span class="o">=</span> <span class="n">port_group</span><span class="p">()</span>
 <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_id</span><span class="p">(</span><span class="n">pgid</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">pgname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">set_port_group_name</span><span class="p">(</span><span class="n">pgname</span><span class="p">)</span>
@@ -110,7 +110,7 @@ existing port-group.</p>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -145,12 +145,13 @@ existing port-group.</p>
 </li>
 </ul>
 <p><em>use cases</em></p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><dl class="first docutils">
 <dt>Create a new port group:</dt>
 <dd><dl class="first last docutils">
 <dt>port_group_create_add_nport.py -i 10.17.31.172 –id=1</dt>
-<dd>–name=”pg1”–n-port=0/40</dd>
+<dd><p class="first last">–name=”pg1”–n-port=0/40</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -159,7 +160,8 @@ existing port-group.</p>
 <dt>Add n-ports to an existing port group 1:</dt>
 <dd><dl class="first last docutils">
 <dt>port_group_create_add_nport.py -i 10.17.31.172 –id=1</dt>
-<dd>–n-port=”0/42;0/43”</dd>
+<dd><p class="first last">–n-port=”0/42;0/43”</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -227,7 +229,7 @@ Module <a class="reference internal" href="pyfos_brocade_access_gateway.html#mod
         <li class="right" >
           <a href="port_group_fport_add.html" title="port_group_fport_add - PyFOS util for adding f-ports to a portgroup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

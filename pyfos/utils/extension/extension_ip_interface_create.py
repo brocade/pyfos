@@ -18,7 +18,8 @@
 
 :mod:`extension_ip_interface_create` - PyFOS util for creating an IP Interface
 *******************************************************************************
-The :mod:`extension_ip_interface_create` Util is used for IP Interface creation.
+The :mod:`extension_ip_interface_create` Util is used for IP Interface\
+creation.
 
 This module is a stand-alone script that can be used to create an extension
 IP address.

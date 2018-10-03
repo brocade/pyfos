@@ -21,9 +21,15 @@
 The :mod:`switch_config_dump` provides for a specific config op use case.
 
 This module is a stand-alone script that can be used to dump
-JSON encoded switch configuration files into a timestamped
-directory. The resulting directory can be used to monitor drift
-or apply to a switch.
+spreadsheet or JSON encoded switch configuration files into
+a timestamped file or directory. The resulting configuration
+files can be used to monitor drift or apply to a switch.
+
+The configuration files can be in spreadsheet format or in JSON format.
+By default, spreadsheet format is used. Resulting name of the
+spreadsheet is given without .<vfid>.xlsx file extension for
+--compare option. For JSON format configuration files, --json option
+added to --compare option and directory name is given instead.
 
 * Inputs:
     * -L=<login>: Login ID. If not provided, an interactive
@@ -31,8 +37,6 @@ or apply to a switch.
     * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: IP address.
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        a VFID of 128 is assumed.
 
 * Outputs:
     * None
@@ -45,34 +49,64 @@ import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
 import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
 import pyfos.pyfos_brocade_fabric as pyfos_fabric
 import pyfos.pyfos_rest_util as pyfos_rest_util
+import pyfos.pyfos_util as pyfos_util
+import pyfos.pyfos_brocade_fibrechannel_logical_switch as fc_ls
 import sys
 import pyfos.utils.brcd_util as brcd_util
 import json
 import os
 import switch_config_util
+import switch_config_obj
+import openpyxl
 
 
 def usage():
     print("")
 
 
-def dump_object(session, dir_name, pyfos_class):
-    fos_object = pyfos_class.get(session)
+def dump_by_vf(session, envelope_name, in_json, vf):
+    if vf is 128:
+        print("dumping for default switch or non-vf")
+    else:
+        print("dumping for VFID", vf)
 
-    fp = open(dir_name + "/" + pyfos_class.__name__, 'w')
+    pyfos_auth.vfid_set(session, vf)
 
-    fp.write(json.dumps(
-        fos_object,
-        cls=pyfos_rest_util.rest_object_encoder,
-        sort_keys=True, indent=4))
+    dir_name = None
+    if in_json:
+        if vf is 128:
+            dir_name = envelope_name
+        else:
+            dir_name = envelope_name + "." + str(vf)
+        try:
+            os.stat(dir_name)
+        except OSError:
+            os.mkdir(dir_name)
+    else:
+        wb = openpyxl.Workbook()
 
-    fp.close()
+    for obj in switch_config_obj.objects_to_process:
+        writer = None
+        if in_json:
+            switch_config_util.dump_object_in_json(session, obj["obj_name"], dir_name)
+        else:
+            if "writer" in obj:
+                writer = obj["writer"]
+            else:
+                writer = switch_config_util.write_simple_object
+            writer(session, obj["obj_name"], wb)
 
-    print("dumped", pyfos_class.__name__)
+    if not in_json:
+        file_name = None
+        if vf == 128:
+            file_name = envelope_name + ".xlsx"
+        else:
+            file_name = envelope_name + "." + str(vf) + ".xlsx"
+        wb.save(filename=file_name)
 
 
 def main(argv):
-    valid_options = []
+    valid_options = ["json", "compare"]
     inputs = brcd_util.generic_input(argv, usage, valid_options)
 
     session = pyfos_auth.login(inputs["login"], inputs["password"],
@@ -94,17 +128,18 @@ def main(argv):
     if vfid is not None:
         pyfos_auth.vfid_set(session, vfid)
 
-    dir_name = switch_config_util.get_dirname(inputs['ipaddr'])
-    try:
-        os.stat(dir_name)
-    except OSError:
-        os.mkdir(dir_name)
+    in_json = False
+    if 'json' in inputs:
+        in_json = inputs['json']
 
-    dump_object(session, dir_name, pyfos_switch.fibrechannel_switch)
-    dump_object(session, dir_name, pyfos_switchfcport.fibrechannel)
-    dump_object(session, dir_name, pyfos_fabric.fabric_switch)
-    dump_object(session, dir_name, pyfos_zone.defined_configuration)
-    dump_object(session, dir_name, pyfos_zone.effective_configuration)
+    envelope_name = switch_config_util.get_envelope_name(inputs['ipaddr'])
+
+    result = fc_ls.fibrechannel_logical_switch.get(session)
+    if pyfos_util.is_failed_resp(result):
+        dump_by_vf(session, envelope_name, in_json, 128)
+    else:
+        for switch in result:
+            dump_by_vf(session, envelope_name, in_json, switch.peek_fabric_id())
 
     print("done")
 

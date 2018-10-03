@@ -121,8 +121,7 @@ def main(argv):
         # argv = myinput.split()
         filters = ["name", "ip_prefix_length", "ip_address", "dp_id",
                    "ip_gateway"]
-        inputs = brcd_util.parse(argv, extension_ip_route, filters,
-                                 validate)
+        inputs = brcd_util.parse(argv, extension_ip_route, filters, validate)
         iprouteobject = inputs['utilobject']
         session = brcd_util.getsession(inputs)
         result = _delete_extension_ip_route(session, iprouteobject)

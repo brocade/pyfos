@@ -38,67 +38,43 @@ a port
 """
 
 import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+from pyfos.pyfos_brocade_fibrechannel import fibrechannel
 import pyfos.pyfos_util as pyfos_util
 import sys
 import pyfos.utils.brcd_util as brcd_util
 
 
+def validate(fcObject):
+    if fcObject.peek_name() is None or \
+       fcObject.peek_enabled_state() is None:
+        return 1
+    return 0
+
+
 def usage():
-    print("  Script specific options:")
-    print("")
-    print("    --name=NAME                  name of port")
-    print("    --enable                     to enable")
-    print("    --disable                    to disable")
-    print("")
+    print("  Util scripts options:\n")
+    print("    -n,--name=NAME                 " +
+          "             Port in slot/port.")
+    print("    -e,--enabled_state=ENABLED_STATE" +
+          "            enable | disable <0|1>")
 
 
 def main(argv):
-    valid_options = ["name", "enable", "disable"]
-    inputs = brcd_util.generic_input(argv, usage, valid_options)
+    filters = ["name", "enabled_state"]
+    inputs = brcd_util.parse(argv, fibrechannel, filters, validate)
 
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
-              [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
-        sys.exit()
-
-    brcd_util.exit_register(session)
-
-    vfid = None
-    if 'vfid' in inputs:
-        vfid = inputs['vfid']
-
-    if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
-
-    if "name" not in inputs:
-        pyfos_auth.logout(session)
-        usage()
-        sys.exit()
-    name = inputs["name"]
-
-    if "enable" not in inputs and "disable" not in inputs:
-        pyfos_auth.logout(session)
-        usage()
-        sys.exit()
-
-    if "enable" in inputs:
-        enabled = 1
-    if "disable" in inputs:
-        enabled = 0
-
-    port = pyfos_switchfcport.fibrechannel()
-    port.set_name(name)
-    if enabled:
-        port.set_enabled_state(pyfos_switchfcport.ENABLED_STATE_TYPE.ONLINE)
+    fcObject = inputs['utilobject']
+    if fcObject.peek_enabled_state() == 1:
+        fcObject.set_enabled_state(2)
+    elif fcObject.peek_enabled_state() == 0:
+        fcObject.set_enabled_state(6)
     else:
-        port.set_enabled_state(pyfos_switchfcport.ENABLED_STATE_TYPE.OFFLINE)
-    result = port.patch(session)
+        print("Invalid value for enabled_state")
+        brcd_util.full_usage(usage)
+        sys.exit()
+    session = brcd_util.getsession(inputs)
+
+    result = fcObject.patch(session)
     pyfos_util.response_print(result)
 
     pyfos_auth.logout(session)

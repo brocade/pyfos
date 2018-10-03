@@ -100,7 +100,6 @@ import pyfos.utils.zoning.zoning_cfg_create_add as cfgcreate
 import pyfos.utils.zoning.zoning_cfg_enable as cfgenable
 import sys
 import re
-import time
 import xlrd
 
 WARN = '\x1b[1;30;41m'

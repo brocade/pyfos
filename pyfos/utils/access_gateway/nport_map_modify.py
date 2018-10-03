@@ -232,8 +232,6 @@ def main(argv):
         'failback_enabled', 'failover_enabled']
     inputs = brcd_util.parse(argv, n_port_map, filters, validate)
 
-    # print(nportmap_obj.peek_failover_enabled())
-
     session = brcd_util.getsession(inputs)
 
     result = _set_access_gateway_nportmap(

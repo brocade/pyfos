@@ -39,7 +39,7 @@ This module is a stand-alone script that can be used to set a port name.
 """
 
 import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+from pyfos.pyfos_brocade_fibrechannel import fibrechannel
 import pyfos.pyfos_util as pyfos_util
 import sys
 import pyfos.utils.brcd_util as brcd_util
@@ -53,45 +53,22 @@ def usage():
     print("")
 
 
+def validate(fcObject):
+    if fcObject.peek_name() is None or \
+       fcObject.peek_user_friendly_name() is None:
+        return 1
+    return 0
+
+
 def main(argv):
-    valid_options = ["name", "username"]
-    inputs = brcd_util.generic_input(argv, usage, valid_options)
+    filters = ["name", "user_friendly_name"]
+    inputs = brcd_util.parse(argv, fibrechannel, filters, validate)
 
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
-              [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
-        sys.exit()
+    fcObject = inputs['utilobject']
 
-    brcd_util.exit_register(session)
+    session = brcd_util.getsession(inputs)
 
-    vfid = None
-    if 'vfid' in inputs:
-        vfid = inputs['vfid']
-
-    if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
-
-    if "name" not in inputs:
-        pyfos_auth.logout(session)
-        usage()
-        sys.exit()
-    name = inputs["name"]
-
-    if "username" not in inputs:
-        pyfos_auth.logout(session)
-        usage()
-        sys.exit()
-    username = inputs["username"]
-
-    port = pyfos_switchfcport.fibrechannel()
-    port.set_name(name)
-    port.set_user_friendly_name(username)
-    result = port.patch(session)
+    result = fcObject.patch(session)
     pyfos_util.response_print(result)
 
     pyfos_auth.logout(session)

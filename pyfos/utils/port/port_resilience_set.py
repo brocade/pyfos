@@ -49,8 +49,9 @@ import pyfos.utils.brcd_util as brcd_util
 
 
 def usage():
-    print("usage:")
-    print('portResilience.py -i <ipaddr> --name <name> --enable/--disable')
+    print("  Util scripts options:\n")
+    print("    --name=NAME			 port in slot/port")
+    print("    --enable/--disable		 To enable/Disable")
 
 #
 #    This function would enable or disable the CR and FEC state
@@ -83,7 +84,7 @@ def main(argv):
         print("login failed because",
               session.get(pyfos_auth.CREDENTIAL_KEY)
               [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
 
     brcd_util.exit_register(session)
@@ -97,26 +98,30 @@ def main(argv):
 
     if "name" not in inputs:
         pyfos_auth.logout(session)
-        usage()
+        brcd_util.full_usage(usage)
         sys.exit()
     name = inputs["name"]
 
-    validport = pyfos_switchfcport.fibrechannel.get(session, name)
-    if (pyfos_util.is_failed_resp(validport)):
-        pyfos_auth.logout(session)
-        usage()
-        sys.exit()
     config = 0
-
 
     if "enable" not in inputs and "disable" not in inputs:
         pyfos_auth.logout(session)
-        usage()
+        brcd_util.full_usage(usage)
+        sys.exit()
+    if "enable" in inputs and "disable" in inputs:
+        pyfos_auth.logout(session)
+        brcd_util.full_usage(usage)
         sys.exit()
     if "enable" in inputs:
         config = 1
     if "disable" in inputs:
         config = 2
+
+    validport = pyfos_switchfcport.fibrechannel.get(session, name)
+    if (pyfos_util.is_failed_resp(validport)):
+        pyfos_util.response_print(validport)
+        pyfos_auth.logout(session)
+        sys.exit()
 
     if ((config == 1) or (config == 2)):
         if (config == 1):

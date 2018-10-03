@@ -877,3 +877,105 @@ class n_port_map(pyfos_rest_util.rest_object):
             ["static-f-port-list"])
 
         self.load(dictvalues, 1)
+
+
+class device_list(pyfos_rest_util.rest_object):
+    """This class provides information about the devices logged in Access Gateway.
+
+    Important class members:
+
+        +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
+        | Attribute name                            | Description                      |Frequently used methods                                                   |
+        +===========================================+==================================+==========================================================================+
+        | wwn                                       |  port wwn of the device          |:func:`peek_wwn`                                                          |
+        |                                           |                                  |                                                                          |
+        +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
+        | fcid                                      | Fibrechannel ID of the device    |:func:`peek_fcid`                                                         |
+        |                                           |                                  |                                                                          |
+        +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
+        | f-port                                    | F-port  to which the device is   |:func:`peek_f_port`                                                       |
+        |                                           | connected                        |                                                                          |
+        +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
+        | n-port                                    | N-port to which the device       |:func:`peek_n_port`                                                       |
+        |                                           | f-port is mapped                 |                                                                          |
+        +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
+
+    *Object methods*
+
+        .. method:: get()
+
+            Return :class:`device_list`
+            object with values for all the attributes.
+            The object can be printed using :func:`pyfos_utils.response_print`
+
+            :param session: session handler returned by
+                :func:`pyfos_auth.login`
+            :rtype: dictionary of error or
+                :class:`device_list` object
+
+            Example usage of the method to get information of all wwns:
+
+            .. code-block:: python
+
+                wwn_obj = pyfos_brocade_access_gateway.device_list()
+                wwn_obj.get(session, None)
+
+            Example usage of the method to get information of a
+            specific , wwn say "30:08:09:27:f8:8b:74:62":
+
+            .. code-block:: python
+
+                device_obj = pyfos_brocade_access_gateway.device_list()
+                device_obj.get(session, "30:08:09:27:f8:8b:74:62")
+
+
+    *Attribute methods*
+
+
+        .. method:: peek_wwn()
+
+            Reads wwn in the object.
+
+            :rtype: None or wwn.
+
+
+        .. method:: peek_fcid()
+
+            Reads Fibrechannel ID of the device.
+
+            :rtype: None or fibrechannel ID.
+
+
+        .. method:: peek_nport()
+
+            Reads the current mapped n-port of the f-port.
+
+            :rtype: None or n-port.
+
+        .. method:: peek_fport()
+
+            Reads f-port in the object.
+
+            :rtype: None or fport.
+
+        """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.ag_device_list,
+                         "/rest/running/brocade-access-gateway/device-list",
+                         version.VER_RANGE_821_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "wwn", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute(
+            "fcid",  pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "f-port", pyfos_type.type_int,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "n-port", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.load(dictvalues, 1)

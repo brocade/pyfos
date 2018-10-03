@@ -22,12 +22,38 @@ class pyfos_type():
     type_ipv6_addr = 6
     type_zoning_name = 7
     type_domain_port = 8
+    type_float = 9
+    type_hex_str = 10
 
     def __init__(self, pyfos_type):
         self.pyfos_type = pyfos_type
 
     def get_type(self):
         return self.pyfos_type
+
+    def get_type_str(self):
+        if self.pyfos_type == pyfos_type.type_na:
+            return "na"
+        elif self.pyfos_type == pyfos_type.type_int:
+            return "int"
+        elif self.pyfos_type == pyfos_type.type_wwn:
+            return "wwn"
+        elif self.pyfos_type == pyfos_type.type_str:
+            return "str"
+        elif self.pyfos_type == pyfos_type.type_bool:
+            return "bool"
+        elif self.pyfos_type == pyfos_type.type_ip_addr:
+            return "ipv4"
+        elif self.pyfos_type == pyfos_type.type_ipv6_addr:
+            return "ipv6"
+        elif self.pyfos_type == pyfos_type.type_zoning_name:
+            return "zoning_name"
+        elif self.pyfos_type == pyfos_type.type_domain_port:
+            return "domain_port"
+        elif self.pyfos_type == pyfos_type.type_float:
+            return "float"
+        elif self.pyfos_type == pyfos_type.type_hex_str:
+            return "hex_str"
 
     def vaildate_set(self, value):
         return True
@@ -36,7 +62,11 @@ class pyfos_type():
         if value is None:
             return True, None
         elif cur_type == pyfos_type.type_int:
-            cur_value = int(value)
+            try:
+                cur_value = int(value)
+            except ValueError as err:
+                print(err)
+                return False, None
             if isinstance(cur_value, int):
                 return True, cur_value
         elif cur_type == pyfos_type.type_wwn:
@@ -52,7 +82,13 @@ class pyfos_type():
             if isinstance(cur_value, str):
                 return True, cur_value
         elif cur_type == pyfos_type.type_bool:
-            cur_value = bool(value)
+            if value in ("True", True, "true", "1"):
+                cur_value = True
+            elif value in ("False", False, "false", "0"):
+                cur_value = False
+            else:
+                print("Incorrect bool value used \'", value, "\'")
+                return False, None
             if isinstance(cur_value, bool):
                 return True, cur_value
         elif cur_type == pyfos_type.type_ip_addr:
@@ -73,6 +109,18 @@ class pyfos_type():
                 return True, cur_value
         elif cur_type == pyfos_type.type_na:
             return True, value
+        elif cur_type == pyfos_type.type_float:
+            try:
+                cur_value = float(value)
+            except ValueError as err:
+                print(err)
+                return False, None
+            if isinstance(cur_value, float):
+                return True, cur_value
+        elif cur_type == pyfos_type.type_hex_str:
+            cur_value = str(value)
+            if isinstance(cur_value, str):
+                return True, cur_value
         else:
             return False, None
 

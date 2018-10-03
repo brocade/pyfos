@@ -19,7 +19,8 @@
 
 :mod:`extension_ip_interface_modify` - PyFOS util to modify an IP Interface.
 ********************************************************************************
-The :mod:`extension_ip_interface_modify` Util is used to modify an IP Interface.
+The :mod:`extension_ip_interface_modify` Util is used to modify an IP\
+Interface.
 
 This module is a stand-alone script that can be used to modify an extension
 IP address.

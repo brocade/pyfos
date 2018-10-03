@@ -40,7 +40,7 @@ only one of the specified ports.
 """
 
 import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+from pyfos.pyfos_brocade_fibrechannel import fibrechannel
 import pyfos.pyfos_util as pyfos_util
 import sys
 import pyfos.utils.brcd_util as brcd_util
@@ -49,44 +49,27 @@ import pyfos.utils.brcd_util as brcd_util
 def usage():
     print("  Script specific options:")
     print("")
-    print("    --name=NAME                  name of port. [OPTIONAL]")
+    print("    --name=NAME                 name of port(slot/port).[OPTIONAL]")
     print("")
 
 
+def validate(fcObject):
+    return 0
+
+
 def main(argv):
-    valid_options = ["name"]
-    inputs = brcd_util.generic_input(argv, usage, valid_options)
+    filters = ["name"]
+    inputs = brcd_util.parse(argv, fibrechannel, filters, validate)
 
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
-              [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
-        sys.exit()
+    fcObject = inputs['utilobject']
 
-    brcd_util.exit_register(session)
-
-    vfid = None
-    if 'vfid' in inputs:
-        vfid = inputs['vfid']
-
-    if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
-
-    if "name" in inputs:
-        name = inputs["name"]
-    else:
-        name = None
-
-    if name is None:
-        ports = pyfos_switchfcport.fibrechannel.get(session)
+    session = brcd_util.getsession(inputs)
+    if fcObject.peek_name() is None:
+        ports = fibrechannel.get(session)
         for port in ports:
             pyfos_util.response_print(port)
     else:
-        port = pyfos_switchfcport.fibrechannel.get(session, name)
+        port = fibrechannel.get(session, fcObject.peek_name())
         pyfos_util.response_print(port)
 
     pyfos_auth.logout(session)

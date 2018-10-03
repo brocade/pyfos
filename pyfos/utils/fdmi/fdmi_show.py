@@ -20,7 +20,7 @@
 ***********************************************************************************
 The :mod:`fdmi_show` supports 'fdmishow' CLI use case.
 
-This module is a stand-alone script and API that can be used to display
+This module is a standalone script and API that can be used to display
 all FDMI HBA and port entries. If an HBA ID is specified, only the entries
 corresponding to that HBA will be displayed.
 
@@ -32,7 +32,7 @@ corresponding to that HBA will be displayed.
     * -i=<IP address>: IP address.
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
         a VFID of 128 is assumed.
-    * --hba-id=<HBAID>: HBA ID.
+    * --hbaid=<HBAID>: HBA ID.
 
 * Outputs:
     * Python dictionary of FDMI HBA entries and Python dictionary of
@@ -47,28 +47,49 @@ import sys
 import pyfos.utils.brcd_util as brcd_util
 
 
-def fdmishow(session, hba_id):
-    
+def usage():
+    print("  Script specific options:")
+    print("")
+    print("    --hbaid=HBAID                HBA ID. [OPTIONAL]")
+    print("")
+
+
+def fdmishow(session, inputs):
+    # Get HBA ID, if provided
+    if "hbaid" not in inputs:
+        hba = None
+    else:
+        hba = inputs["hbaid"]
+
     # Get HBA attributes
-    hba_attributes = pyfos_fdmi.hba.get(session, hba_id)
+    hba_attributes = pyfos_fdmi.hba.get(session, hba)
     pyfos_util.response_print(hba_attributes)
 
     # Sort port attributes if HBA ID specified
-    if hba_id is not None:
-        hba_ports = []
+    if hba is not None:
+        # Only print ports if HBA is valid
+        if not pyfos_util.is_failed_resp(hba_attributes):
+            # Create list of ports associated with specified HBA
+            hba_ports = []
 
-        # Get port attributes
-        port_attributes = pyfos_fdmi.port.get(session, None)
+            # Get port attributes
+            port_attributes = pyfos_fdmi.port.get(session, None)
 
-        # Iterate through port entries
-        for port_entry in port_attributes:
-            # Check if same HBA ID
-            if hba_id == port_entry.peek_hba_id():
-                # Add port entry to list
-                hba_ports.append(port_entry)
+            # Check if multiple port entries
+            if isinstance(port_attributes, list):
+                # Iterate through port entries
+                for port_entry in port_attributes:
+                    # Check if same HBA ID
+                    if hba == port_entry.peek_hba_id():
+                        # Add port entry to list
+                        hba_ports.append(port_entry)
+            else:
+                if hba == port_attributes.peek_hba_id():
+                    # Add port entry to list
+                    hba_ports.append(port_attributes)
 
-        # Print HBA port attributes
-        pyfos_util.response_print(hba_ports)
+            # Print HBA port attributes
+            pyfos_util.response_print(hba_ports)
     else:
         # Print all HBA port attributes
         port_attributes = pyfos_fdmi.port.get(session, None)
@@ -76,20 +97,33 @@ def fdmishow(session, hba_id):
 
 
 def main(argv):
-    # Parse input arguments
-    filters = ['hba_id']
-    inputs = brcd_util.parse(argv, pyfos_fdmi.hba, filters)
+    valid_options = ["hbaid"]
+    inputs = brcd_util.generic_input(argv, usage, valid_options)
 
-    # Get session
-    session = brcd_util.getsession(inputs)
+    # Login to switch
+    session = pyfos_auth.login(inputs["login"], inputs["password"],
+                               inputs["ipaddr"], inputs["secured"],
+                               verbose=inputs["verbose"])
+    if pyfos_auth.is_failed_login(session):
+        print("login failed because",
+              session.get(pyfos_auth.CREDENTIAL_KEY)
+              [pyfos_auth.LOGIN_ERROR_KEY])
+        brcd_util.full_usage(usage)
+        sys.exit()
 
-    # Get hba-id, if provided
-    hba_id = inputs['utilobject'].peek_hba_id()
+    brcd_util.exit_register(session)
 
-    # Print FDMI properties
-    fdmishow(session, hba_id)
+    # Set VF ID, if necessary
+    vfid = None
+    if 'vfid' in inputs:
+        vfid = inputs['vfid']
+    if vfid is not None:
+        pyfos_auth.vfid_set(session, vfid)
 
-    # Logout
+    # Call fdmishow
+    fdmishow(session, inputs)
+
+    # Log out
     pyfos_auth.logout(session)
 
 

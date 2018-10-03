@@ -18,7 +18,8 @@
 
 :mod:`extension_circuit_statistics_show` - PyFOS util to display circuit stats.
 ***********************************************************************************
-The :mod:`extension_circuit_statistics_show` Util is used to display circuit stats.
+The :mod:`extension_circuit_statistics_show` Util is used to display circuit\
+stats.
 
 This module is a stand-alone script that can be used to show extension
 circuit statistics.

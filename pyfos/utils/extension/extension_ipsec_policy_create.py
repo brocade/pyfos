@@ -35,7 +35,6 @@ extension_ipsec_policy_create: Usage
 
 * Script specific options:
     *    --profile-name: Set profile-name.
-    *    --restart-ike-sessions: Set restart-ike-sessions.
     *    --policy-name: Set policy-name.
     *    --authentication-data: Set authentication-data.
 

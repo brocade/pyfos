@@ -1,0 +1,979 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_fru - PyFOS module to provide rest support for the FRU. &#8212; PyFOS 1.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_logging - PyFOS module to provide rest support for configuring logging facilities in FC switch." href="pyfos_brocade_logging.html" />
+    <link rel="prev" title="pyfos_brocade_media - PyFOS module to provide rest support for port sfp-rdp media." href="pyfos_brocade_media.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_logging.html" title="pyfos_brocade_logging - PyFOS module to provide rest support for configuring logging facilities in FC switch."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_media.html" title="pyfos_brocade_media - PyFOS module to provide rest support for port sfp-rdp media."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_fru"></span><div class="section" id="pyfos-brocade-fru-pyfos-module-to-provide-rest-support-for-the-fru">
+<h1><a class="reference internal" href="#module-pyfos_brocade_fru" title="pyfos_brocade_fru: PyFOS module to provide REST support for Fru (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fru</span></code></a> - PyFOS module to provide rest support for the FRU.<a class="headerlink" href="#pyfos-brocade-fru-pyfos-module-to-provide-rest-support-for-the-fru" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_fru" title="pyfos_brocade_fru: PyFOS module to provide REST support for Fru (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fru</span></code></a> provides REST support for the FRU.</p>
+<dl class="class">
+<dt id="pyfos_brocade_fru.blade">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_fru.</code><code class="descname">blade</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information of the blade for the given slot number.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>slot-number</td>
+<td>Slot number</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_slot_number" title="pyfos_brocade_fru.blade.peek_slot_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_slot_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>manufacturer</td>
+<td>Organization responsible for
+producing the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_manufacturer" title="pyfos_brocade_fru.blade.peek_manufacturer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_manufacturer()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>blade-type</td>
+<td>Type of the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_blade_type" title="pyfos_brocade_fru.blade.peek_blade_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_blade_type()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>part-number</td>
+<td>Part number of the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_part_number" title="pyfos_brocade_fru.blade.peek_part_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_part_number()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>serial-number</td>
+<td>Serial number of the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_serial_number" title="pyfos_brocade_fru.blade.peek_serial_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_serial_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>blade-id</td>
+<td>ID of the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_blade_id" title="pyfos_brocade_fru.blade.peek_blade_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_blade_id()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>blade-state</td>
+<td>current state of the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_blade_state" title="pyfos_brocade_fru.blade.peek_blade_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_blade_state()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>model-name</td>
+<td>model of the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_model_name" title="pyfos_brocade_fru.blade.peek_model_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_model_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>firmware-version</td>
+<td>FOS version of switch</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_firmware_version" title="pyfos_brocade_fru.blade.peek_firmware_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_firmware_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fc-port-count</td>
+<td>total number of fc ports
+supported by the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_fc_port_count" title="pyfos_brocade_fru.blade.peek_fc_port_count"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fc_port_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ge-port-count</td>
+<td>total number of ge ports
+supported by the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_ge_port_count" title="pyfos_brocade_fru.blade.peek_ge_port_count"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_ge_port_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>ip-address-list/ip-address</td>
+<td>The IPv4/IPv6 address</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_ip_address_list_ip_address" title="pyfos_brocade_fru.blade.peek_ip_address_list_ip_address"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_ip_address_list_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>ip-gateway-list/ip-gateway</td>
+<td>The IP Address Gateway</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_ip_gateway_list_ip_gateway" title="pyfos_brocade_fru.blade.peek_ip_gateway_list_ip_gateway"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_ip_gateway_list_ip_gateway()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>subnet-mask</td>
+<td>Subnet mask of the network</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_subnet_mask" title="pyfos_brocade_fru.blade.peek_subnet_mask"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_subnet_mask()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>primary-firmware-version</td>
+<td>FOS version on the primary
+partition of the CP blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_primary_firmware_version" title="pyfos_brocade_fru.blade.peek_primary_firmware_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_primary_firmware_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>secondary-firmware-version</td>
+<td>FOS version on the secondary
+partition of the CP blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_secondary_firmware_version" title="pyfos_brocade_fru.blade.peek_secondary_firmware_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_secondary_firmware_version()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>extension-enabled</td>
+<td>Blade is extension capable</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_extension_enabled" title="pyfos_brocade_fru.blade.peek_extension_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_extension_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>extension-ve-mode</td>
+<td>Extension blade VE mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_extension_ve_mode" title="pyfos_brocade_fru.blade.peek_extension_ve_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_extension_ve_mode()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>extension-ve-mode</td>
+<td>Extension blade VE mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.set_extension_ve_mode" title="pyfos_brocade_fru.blade.set_extension_ve_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_extension_ve_mode()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>extension-app-mode</td>
+<td>Extension blade app mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_extension_app_mode" title="pyfos_brocade_fru.blade.peek_extension_app_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_extension_app_mode()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>extension-app-mode</td>
+<td>Extension blade app mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.set_extension_app_mode" title="pyfos_brocade_fru.blade.set_extension_app_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_extension_app_mode()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>extension-ge-mode</td>
+<td>Extension blade ge mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_extension_ge_mode" title="pyfos_brocade_fru.blade.peek_extension_ge_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_extension_ge_mode()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>extension-ge-mode</td>
+<td>Extension blade ge mode</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.set_extension_ge_mode" title="pyfos_brocade_fru.blade.set_extension_ge_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_extension_ge_mode()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_fru.blade.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#pyfos_brocade_fru.blade" title="pyfos_brocade_fru.blade"><code class="xref py py-class docutils literal notranslate"><span class="pre">blade</span></code></a>
+object or a list of objects filled with
+Blade attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_fru.blade" title="pyfos_brocade_fru.blade"><code class="xref py py-class docutils literal notranslate"><span class="pre">blade</span></code></a> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_slot_number">
+<code class="descname">peek_slot_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_slot_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads blade slot number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or blade slot number.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_manufacturer">
+<code class="descname">peek_manufacturer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_manufacturer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads manufacturer name of the organization from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or manufacturer name of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_blade_type">
+<code class="descname">peek_blade_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_blade_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads type of the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or type of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_blade_id">
+<code class="descname">peek_blade_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_blade_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ID of the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or ID of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_blade_state">
+<code class="descname">peek_blade_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_blade_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads current state of the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or current state of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_part_number">
+<code class="descname">peek_part_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_part_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads part number of the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or part number of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_serial_number">
+<code class="descname">peek_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads serial number of the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or serial number of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_model_name">
+<code class="descname">peek_model_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_model_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads model of the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or model of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_firmware_version">
+<code class="descname">peek_firmware_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_firmware_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FOS version of the switch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or firmware version of the switch.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_fc_port_count">
+<code class="descname">peek_fc_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_fc_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads total number of fc ports on the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or total number of fc ports on the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_ge_port_count">
+<code class="descname">peek_ge_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_ge_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads total number of ge ports on the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or total number of ge ports on the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_ip_address_list_ip_address">
+<code class="descname">peek_ip_address_list_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_ip_address_list_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP Address from an object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or IP Address.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_ip_gateway_list_ip_gateway">
+<code class="descname">peek_ip_gateway_list_ip_gateway</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_ip_gateway_list_ip_gateway" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP Gateway from an object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or IP Gateway.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_subnet_mask">
+<code class="descname">peek_subnet_mask</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_subnet_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Subnet mask from an object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or subnet mask.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_primary_firmware_version">
+<code class="descname">peek_primary_firmware_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_primary_firmware_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FOS version of the primary partition of the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or firmware version of the primary partition.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_secondary_firmware_version">
+<code class="descname">peek_secondary_firmware_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_secondary_firmware_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FOS version of the secondary partition of the blade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or firmware version of the secondary partition.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_extension_enabled">
+<code class="descname">peek_extension_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_extension_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads extension enabled/capable value for the blade or switch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">true or false.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_extension_app_mode">
+<code class="descname">peek_extension_app_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_extension_app_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads extension blade app mode from the blade object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or app mode string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.set_extension_app_mode">
+<code class="descname">set_extension_app_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.set_extension_app_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the extension capable blade app mode in the blade object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value
+with extension-app-mode as key.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_extension_ve_mode">
+<code class="descname">peek_extension_ve_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_extension_ve_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads extension blade VE mode from the blade object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VE mode string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.set_extension_ve_mode">
+<code class="descname">set_extension_ve_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.set_extension_ve_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the extension capable blade VE mode in the blade object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value
+with extension-ve-mode as key.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_extension_ge_mode">
+<code class="descname">peek_extension_ge_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_extension_ge_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads extension blade GE mode from the blade object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VE mode string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.set_extension_ge_mode">
+<code class="descname">set_extension_ge_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.set_extension_ge_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the extension capable blade GE mode in the blade object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response and value
+with extension-ge-mode as key.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_fru.fan">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_fru.</code><code class="descname">fan</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for the given FAN unit.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>unit-number</td>
+<td>Fan Unit number</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_unit_number" title="pyfos_brocade_fru.fan.peek_unit_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_unit_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>power-consumption</td>
+<td>Power consumption of the
+hardware component</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_power_consumption" title="pyfos_brocade_fru.fan.peek_power_consumption"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_power_consumption()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>operational-state</td>
+<td>Operational state of the Fan</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_operational_state" title="pyfos_brocade_fru.fan.peek_operational_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_operational_state()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>part-number</td>
+<td>Part number of the Fan</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_part_number" title="pyfos_brocade_fru.fan.peek_part_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_part_number()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>serial-number</td>
+<td>Serial number of the Fan</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_serial_number" title="pyfos_brocade_fru.fan.peek_serial_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_serial_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>airflow-direction</td>
+<td>Air flow direction of the Fan</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_airflow_direction" title="pyfos_brocade_fru.fan.peek_airflow_direction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_airflow_direction()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_fru.fan.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#pyfos_brocade_fru.fan" title="pyfos_brocade_fru.fan"><code class="xref py py-class docutils literal notranslate"><span class="pre">fan</span></code></a>
+object or a list of objects filled with
+Fan attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_fru.fan" title="pyfos_brocade_fru.fan"><code class="xref py py-class docutils literal notranslate"><span class="pre">fan</span></code></a> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_unit_number">
+<code class="descname">peek_unit_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_unit_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads fan unit number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or fan unit number.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_power_consumption">
+<code class="descname">peek_power_consumption</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_power_consumption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads power consumption of the hardware component from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or power consumption by the unit.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_operational_state">
+<code class="descname">peek_operational_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_operational_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads operational state of the fan.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or operational state of the fan</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_speed">
+<code class="descname">peek_speed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads speed of the fan.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or speed of the fan</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_airflow_direction">
+<code class="descname">peek_airflow_direction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_airflow_direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads airflow direction of the fan.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or airflow direction of the fan</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_part_number">
+<code class="descname">peek_part_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_part_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads part number of the fan.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or part number of the fan</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_serial_number">
+<code class="descname">peek_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads serial number of the fan.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or serial number of the fan</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_fru.power_supply">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_fru.</code><code class="descname">power_supply</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for the given powersupply unit.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>unit-number</td>
+<td>Powersupply Unit number</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_unit_number" title="pyfos_brocade_fru.power_supply.peek_unit_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_unit_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>power-production</td>
+<td>Power production of the
+hardware component</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_power_production" title="pyfos_brocade_fru.power_supply.peek_power_production"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_power_production()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>input-voltage</td>
+<td>Input voltage of the
+powersupply Unit</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_input_voltage" title="pyfos_brocade_fru.power_supply.peek_input_voltage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_input_voltage()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>part-number</td>
+<td>Part number of the Unit</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_part_number" title="pyfos_brocade_fru.power_supply.peek_part_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_part_number()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>serial-number</td>
+<td>Serial number of the Unit</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_serial_number" title="pyfos_brocade_fru.power_supply.peek_serial_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_serial_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>airflow-direction</td>
+<td>Air flow direction of the Unit</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_airflow_direction" title="pyfos_brocade_fru.power_supply.peek_airflow_direction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_airflow_direction()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>operational-state</td>
+<td>Operational state of the Unit</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_operational_state" title="pyfos_brocade_fru.power_supply.peek_operational_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_operational_state()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>power-source</td>
+<td>Power supply input
+voltage type</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_power_source" title="pyfos_brocade_fru.power_supply.peek_power_source"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_power_source()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>temperature</td>
+<td>Temperature of the power
+supply sensor</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_temperature" title="pyfos_brocade_fru.power_supply.peek_temperature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_temperature()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_fru.power_supply.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#pyfos_brocade_fru.power_supply" title="pyfos_brocade_fru.power_supply"><code class="xref py py-class docutils literal notranslate"><span class="pre">power_supply</span></code></a>
+object or a list of objects filled with
+Powersupply attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_fru.power_supply" title="pyfos_brocade_fru.power_supply"><code class="xref py py-class docutils literal notranslate"><span class="pre">power_supply</span></code></a> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_unit_number">
+<code class="descname">peek_unit_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_unit_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads powersupply unit number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or powersupply unit number.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_power_production">
+<code class="descname">peek_power_production</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_power_production" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads power production of the hardware component from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or power production by the unit.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_operational_state">
+<code class="descname">peek_operational_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_operational_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads operational state of the powersupply.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or operational state of the powersupply.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_input_voltage">
+<code class="descname">peek_input_voltage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_input_voltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads input voltage of the powersupply unit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or input voltage of the unit.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_airflow_direction">
+<code class="descname">peek_airflow_direction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_airflow_direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads airflow direction of the powersupply unit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or airflow direction of the powersupply.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_part_number">
+<code class="descname">peek_part_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_part_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads part number of the powersupply unit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or part number of the powersupply unit.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_serial_number">
+<code class="descname">peek_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads serial number of the powersupply unit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or serial number of the powersupply unit.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_power_source">
+<code class="descname">peek_power_source</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_power_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads power supply input voltage type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or power supply input voltage type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_temperature">
+<code class="descname">peek_temperature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads temperature of the powersupply sensor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Temperature of the powersupply sensor.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_media.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_media</span></code> - PyFOS module to provide         rest support for port sfp-rdp media.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_logging.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_logging</span></code> - PyFOS module to provide rest        support for configuring logging facilities in FC switch.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_fru.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_logging.html" title="pyfos_brocade_logging - PyFOS module to provide rest support for configuring logging facilities in FC switch."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_media.html" title="pyfos_brocade_media - PyFOS module to provide rest support for port sfp-rdp media."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

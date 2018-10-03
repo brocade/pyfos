@@ -1,0 +1,220 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>seccertmgmt_create - PyFOS util for generating certificates on a switch &#8212; PyFOS 1.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="seccertmgmt_action - PyFOS util to modify Certificates" href="seccertmgmt_action.html" />
+    <link rel="prev" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch" href="seccertmgmt_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify Certificates"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-seccertmgmt_create"></span><div class="section" id="seccertmgmt-create-pyfos-util-for-generating-certificates-on-a-switch">
+<h1><a class="reference internal" href="#module-seccertmgmt_create" title="seccertmgmt_create: PyFOS module to generate certificate. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_create</span></code></a> - PyFOS util for generating certificates on a switch<a class="headerlink" href="#seccertmgmt-create-pyfos-util-for-generating-certificates-on-a-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-seccertmgmt_create" title="seccertmgmt_create: PyFOS module to generate certificate. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_create</span></code></a> provides option to generate certificate</p>
+<p>This module can be used to create/generate certificate for a specified entity
+and type</p>
+<ul class="simple">
+<li>inputs:</li>
+</ul>
+<div class="line-block">
+<div class="line">Infrastructure options:</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch</div>
+<div class="line">-L,–login=LOGIN       login name.</div>
+<div class="line">-P,–password=PASSWORD password.</div>
+<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Util scripts options:</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">–certificate-entity=ENTITY-NAME    Certificate entity name.</div>
+<div class="line">–certificate-type=CERT-TYPE        Certificate type name.</div>
+<div class="line">–key-size=VALUE                    key size.</div>
+<div class="line">–country-name=VALUE                country name.</div>
+<div class="line">–state-name=VALUE                  state name.</div>
+<div class="line">–unit-name=VALUE                   unit name.</div>
+<div class="line">–hash-type=VALUE                   hash type.</div>
+<div class="line">–algorithm-type=VALUE              algorithm type.</div>
+<div class="line">–organization-name=VALUE           organization name.</div>
+<div class="line">–years=VALUE                       certificate validity.</div>
+<div class="line">–domain-name=VALUE                 domain name.</div>
+<div class="line">–locality-name=VALUE               locality name.</div>
+</div>
+</div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><ul class="first last simple">
+<li>Certificate created</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="seccertmgmt_create.seccertmgmt_create.create_security_certificate">
+<code class="descclassname">seccertmgmt_create.</code><code class="descname">create_security_certificate</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#seccertmgmt_create.seccertmgmt_create.create_security_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Generate a Certificate in the switch.</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<blockquote>
+<div><p>ret = seccertmgmt_create.create_security_certificate(session, cert_entity, cert_type)
+print (ret)</p>
+</div></blockquote>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">seccertmgmt_create</span><span class="o">.</span><span class="n">create_system_security_seccertmgmt</span><span class="p">(</span>
+  <span class="n">session</span><span class="p">,</span> <span class="s1">&#39;cert&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param cert_entity:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">associated certificate entity
+(ca-client/ca-server/cert/csr)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param cert_type:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">associated certificate type
+(commoncert/https/syslog/ldap/radius)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>use cases</em></p>
+<ol class="arabic simple">
+<li>Generate the specified Certificate.</li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_security.html#module-pyfos_brocade_security" title="pyfos_brocade_security: PyFOS module to manage FOS System Security (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_security</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="seccertmgmt_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code> - PyFOS util for displaying certificates in the switch</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="seccertmgmt_action.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_action</span></code> - PyFOS util to modify Certificates</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/seccertmgmt_create.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify Certificates"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

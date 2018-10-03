@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>switch_name_set - PyFOS util for specific switch op use case. &#8212; PyFOS 0.9.0 documentation</title>
+    <title>switch_name_set - PyFOS util for specific switch op use case. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="switch_show - PyFOS util for specific switch op use case." href="switch_show.html" />
-    <link rel="prev" title="port_stats_show - PyFOS util for specific port op use case." href="port_stats_show.html" /> 
+    <link rel="prev" title="switch_ag_mode_set - PyFOS util to enable or disable AG mode" href="switch_ag_mode_set.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="switch_show.html" title="switch_show - PyFOS util for specific switch op use case."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="port_stats_show.html" title="port_stats_show - PyFOS util for specific port op use case."
+          <a href="switch_ag_mode_set.html" title="switch_ag_mode_set - PyFOS util to enable or disable AG mode"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -46,25 +46,30 @@
 <h1><a class="reference internal" href="#module-switch_name_set" title="switch_name_set: PyFOS module to manage specific switch op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_name_set</span></code></a> - PyFOS util for specific switch op use case.<a class="headerlink" href="#switch-name-set-pyfos-util-for-specific-switch-op-use-case" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-switch_name_set" title="switch_name_set: PyFOS module to manage specific switch op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_name_set</span></code></a> provides for a specific switch op use case.</p>
 <p>This module is a stand-alone script that can be used to set a switch name.</p>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt>Inputs:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>-L=&lt;login&gt;: Login ID. If not provided, an interactive</dt>
-<dd>prompt will request one.</dd>
+<dd><p class="first last">prompt will request one.</p>
+</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>-P=&lt;password&gt;: Password. If not provided, an interactive</dt>
-<dd>prompt will request one.</dd>
+<dd><p class="first last">prompt will request one.</p>
+</dd>
 </dl>
 </li>
-<li>-i=&lt;IP address&gt;: IP address.</li>
-<li>–username=&lt;user name&gt;: string name to be assigned to a switch.</li>
+<li><p class="first">-i=&lt;IP address&gt;: IP address.</p>
+</li>
+<li><p class="first">–username=&lt;user name&gt;: string name to be assigned to a switch.</p>
+</li>
 <li><dl class="first docutils">
 <dt>-f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd>a  VFID of 128 is assumed.</dd>
+<dd><p class="first last">a  VFID of 128 is assumed.</p>
+</dd>
 </dl>
 </li>
 </ul>
@@ -73,7 +78,7 @@
 </li>
 <li><dl class="first docutils">
 <dt>Outputs:</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
@@ -93,8 +98,8 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="port_stats_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">port_stats_show</span></code> - PyFOS util for specific port op use case.</a></p>
+  <p class="topless"><a href="switch_ag_mode_set.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">switch_ag_mode_set</span></code> - PyFOS util to enable or disable AG mode</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="switch_show.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">switch_show</span></code> - PyFOS util for specific switch op use case.</a></p>
@@ -134,9 +139,9 @@
           <a href="switch_show.html" title="switch_show - PyFOS util for specific switch op use case."
              >next</a> |</li>
         <li class="right" >
-          <a href="port_stats_show.html" title="port_stats_show - PyFOS util for specific port op use case."
+          <a href="switch_ag_mode_set.html" title="switch_ag_mode_set - PyFOS util to enable or disable AG mode"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

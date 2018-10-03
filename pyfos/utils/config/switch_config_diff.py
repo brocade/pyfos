@@ -22,7 +22,15 @@ The :mod:`switch_config_diff` provides for a specific config op use case.
 
 This module is a stand-alone script that can be used to display
 drifted attributes between the current switch configuration and a previously
-saved config directory.
+saved configuration files.
+
+The configuration files are saved by :mod:`switch_config_dump` script.
+
+The configuration files can be in spreadsheet format or in JSON format.
+By default, spreadsheet format is used. Name of the spreadsheet is
+given without .<vfid>.xlsx file extension for --compare option. For
+JSON format configuration files, --json option added to --compare
+option and directory name is given instead.
 
 * Inputs:
     * -L=<login>: Login ID. If not provided, an interactive
@@ -32,8 +40,6 @@ saved config directory.
     * -i=<IP address>: IP address.
     * --compare=<compare directory>: Name of the directory that contains
        the  JSON encoded switch configuration files.
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-       a  VFID of 128 is assumed.
 
 * Outputs:
     * List of attributes that have drifted.
@@ -44,9 +50,12 @@ import pyfos.pyfos_auth as pyfos_auth
 import pyfos.pyfos_brocade_zone as pyfos_zone
 import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
 import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+import pyfos.pyfos_brocade_fibrechannel_logical_switch as fc_ls
+import pyfos.pyfos_util as pyfos_util
 import sys
 import pyfos.utils.brcd_util as brcd_util
 import switch_config_util
+import switch_config_obj
 
 
 def usage():
@@ -55,9 +64,30 @@ def usage():
     print("    --compare=PATH               directory name")
     print("")
 
+def process_diff(session, envelope_name, in_json, template, inputs, vf):
+    if vf is 128:
+        print("processing diff for default switch or non-vf")
+    else:
+        print("processing diff for VFID", vf)
+
+    pyfos_auth.vfid_set(session, vf)
+    if vf is 128:
+        vf_based_name = envelope_name
+    else:
+        vf_based_name = envelope_name + "." + str(vf)
+
+    for obj in switch_config_obj.objects_to_process:
+        if obj["obj_name"] == pyfos_switchfcport.fibrechannel and 'template' in inputs and 'reffcport' in inputs:
+            switch_config_util.process_object(
+                session, vf_based_name, obj, True, False, in_json, template,
+                [{"name": inputs['reffcport']}])
+        else:
+            switch_config_util.process_object(
+                session, vf_based_name, obj, True, False, in_json, template)
+
 
 def main(argv):
-    valid_options = ["compare", "template", "reffcport"]
+    valid_options = ["json", "compare", "template", "reffcport"]
     inputs = brcd_util.generic_input(argv, usage, valid_options)
 
     session = pyfos_auth.login(inputs["login"], inputs["password"],
@@ -83,30 +113,22 @@ def main(argv):
         usage()
         sys.exit()
 
-    dir_name = inputs['compare']
+    envelope_name = inputs['compare']
+
+    in_json = False
+    if 'json' in inputs:
+        in_json = inputs['json']
 
     template = None
     if 'template' in inputs:
         template = switch_config_util.get_template(inputs['template'])
 
-    switch_config_util.process_object(
-            session, dir_name, pyfos_switch.fibrechannel_switch,
-            True, template)
-    if 'template' in inputs and 'reffcport' in inputs:
-        switch_config_util.process_object(
-                session, dir_name, pyfos_switchfcport.fibrechannel,
-                True, template,
-                [{"name": inputs['reffcport']}])
+    result = fc_ls.fibrechannel_logical_switch.get(session)
+    if pyfos_util.is_failed_resp(result):
+        process_diff(session, envelope_name, in_json, template, inputs, 128)
     else:
-        switch_config_util.process_object(
-                session, dir_name, pyfos_switchfcport.fibrechannel,
-                True, template)
-    switch_config_util.process_object(
-            session, dir_name, pyfos_zone.defined_configuration,
-            True, template)
-    switch_config_util.process_object(
-            session, dir_name, pyfos_zone.effective_configuration,
-            True, template)
+        for switch in result:
+            process_diff(session, envelope_name, in_json, template, inputs, switch.peek_fabric_id())
 
     pyfos_auth.logout(session)
 
