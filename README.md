@@ -57,15 +57,11 @@ PyFOS - 1.1
     3) install dependencies
         pip3 install openpyxl colorconsole xlrd jsondiff requests xmltodict --prefix=~<login>/python_lib
 
-    4) pyfos can be installed directly from github.com or using pip
-
-        4.1) install pyfos directly from github.com into the library path
-            cd <pyfos directory>
-            python3 setup.py install --prefix=~<login>/python_lib
-
-        4.2) install pyfos using pip into the library path
-            cd <pyfos directory>
-            pip3 install pyfos --prefix=~<login>/python_lib
+    4) pyfos can be installed directly from github.com
+ 
+    4.1) install pyfos directly from github.com into the library path
+        cd <pyfos directory>
+        python3 setup.py install --prefix=~<login>/python_lib
 
 ### HTML based documentation ###
 
