@@ -14,35 +14,37 @@
 # limitations under the License.
 
 """
-:mod:`syslog_delete` - PyFOS util to delete syslog configuration on switch.
+:mod:`syslog_delete` - PyFOS util to delete the syslog configuration on\
+ a switch.
 *********************************************************************************
-The :mod:`syslog_delete` provides option to delete the config parameters\
-of syslog on switch.
+The :mod:`syslog_delete` util provides option to delete the configuration\
+ parameters of syslog on a switch.
 
-This module is a standalone script that can be used to delete the syslog
-configuration on switch.
+This module is a stand-alone script that can be used to delete the syslog
+configuration on a switch.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode[OPTIONAL].
 
-| Util scripts options:
+| Util Script Options:
 
   | --server=<server ip address>
 
-* outputs:
-    * Status of delete operation
+* Output:
+    * Status of the delete operation
 
 .. function:: del_syslog_server(session, server)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                ret = syslog_delete.del_syslog_server(session, server)
                print (ret)
@@ -59,23 +61,24 @@ configuration on switch.
                 result = _del_syslog_server(session, syslog_obj)
                 return result
 
-        * inputs:
-                :param session: session returned by login.
-                :server: server ip address
+        * Input:
+                :param session: The session returned by the login.
+                :server: The server IP address.
 
-        * outputs:
-                :rtype: dictionary of return status matching rest response
+        * Output:
+                :rtype: A dictionary of return status matching the\
+                 REST response.
 
-        *use cases*
+        *Use Cases*
 
                 Delete the configured syslog servers.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_logging import syslog_server
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _del_syslog_server(session, restobject):
@@ -93,8 +96,8 @@ def del_syslog_server(session, server):
 
 
 def validate(syslog_obj):
-    if (not syslog_obj.peek_server()):
-            return 1
+    if not syslog_obj.peek_server():
+        return 1
     return 0
 
 

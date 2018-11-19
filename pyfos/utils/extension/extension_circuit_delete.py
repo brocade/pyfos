@@ -19,34 +19,34 @@
 
 :mod:`extension_circuit_delete` - PyFOS util for deleting a circuit object.
 ********************************************************************************
-The :mod:`extension_circuit_delete` Util is used to delete a circuit.
+The :mod:`extension_circuit_delete` util is used to delete a circuit.
 
 This module is a stand-alone script that can be used to delete an extension
 circuit.
 
 extension_circuit_delete.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name or slot/port of the circuit.
-    * -c,--circuit-id=CIRCUIT-ID: Set circuit-id of the circuit.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name or slot/port of the circuit.
+    * -c,--circuit-id=CIRCUIT-ID: Sets the ID of the circuit.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_circuit_delete.delete_extension_circuit(session,\
 name, cid)
 
-    *Delete extension circuit*
+    *Delete Extension Circuit*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = extension_circuit_delete.delete_extension_circuit(
                 session, name, cid)
@@ -62,25 +62,25 @@ name, cid)
             result = extension_circuit_delete._delete_extension_circuit(
             session, circuit)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: VE port name expressed as slot/port.
-            :param cid: Circuit ID.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the VE_Port name expressed as slot/port.
+            :param cid: Sets the ID of the circuit.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
          Delete a circuit to an existing tunnel.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"
@@ -118,4 +118,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

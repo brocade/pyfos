@@ -16,39 +16,40 @@
 
 """
 
-:mod:`maps_policy_create` - PyFOS util to create MAPS policy
+:mod:`maps_policy_create` - PyFOS util to create a MAPS policy.
 *******************************************************************************
 
-This script is used to create MAPS policy
-Note: If rule-list is empty, then empty policy will be created.
-If rule-list is not empty then policy with specified rules will be created.
+This script is used to create a MAPS policy.
+Note: If the rule list is empty, then an empty policy is created.
+If the rule list is not empty, then a policy with specified rules is created.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --name                 specify MAPS Policy
-    --rule-list            Rule list inside MAPS policy
+* Util Script Options:
+   --name                 Specifies a MAPS policy.
+    --rule-list           Sets the rule list in the MAPS policy.
 
-* outputs:
-    * success response or dictionary in case of error.
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import maps_policy
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

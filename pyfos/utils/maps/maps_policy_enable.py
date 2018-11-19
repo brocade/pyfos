@@ -16,37 +16,38 @@
 
 """
 
-:mod:`maps_policy_enable` - PyFOS util to enable MAPS policy
+:mod:`maps_policy_enable` - PyFOS util to enable a MAPS policy.
 *******************************************************************************
 
-This script is used to enable a MAPS Policy.
+This script is used to enable a MAPS policy.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --name                 specify MAPS Policy
-    --is-active-policy     enables Policy when set to true
+* Util Script Options:
+    --name                 Specifies the MAPS policy.
+    --is-active-policy     Enables the MAPS policy when set to true.
 
-* outputs:
-    * success response or dictionary in case of error.
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import maps_policy
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

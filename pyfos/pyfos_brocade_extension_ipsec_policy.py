@@ -13,112 +13,110 @@
 
 """
 
-:mod:`pyfos_brocade_extension_ipsec_policy` - PyFOS module for IPSec Policy.
+:mod:`pyfos_brocade_extension_ipsec_policy` - PyFOS module for an IPsec policy.
 *******************************************************************************
-The :mod:`pyfos_brocade_extension_ipsec_policy` provides a REST
-support for Extension IPSec Policy.
+The :mod:`pyfos_brocade_extension_ipsec_policy` module provides REST
+support for an extension IPsec policy.
 """
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 
 
 class extension_ipsec_policy(pyfos_rest_util.rest_object):
     """Class of extension_ipsec_policy
 
-    Important class members:
+    Important Class Members:
 
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | Attribute name                | Description                   |Frequently used functions              |
-        +===============================+===============================+=======================================+
-        | policy-name                   | The name of the ipsec policy  |:func:`peek_policy_name`               |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | policy-name                   | The name of the ipsec policy  |:func:`set_policy_name`                |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | profile-name                  | The profile name of policy    |:func:`peek_profile_name`              |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | profile-name                  | The profile name of policy    |:func:`set_profile_name`               |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | authentication-data           | Autentication data of policy  |:func:`peek_authentication_data`       |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | authentication-data           | Autentication data of policy  |:func:`set_authentication_data`        |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | restart-ike-sessions          | restart the ike session       |:func:`peek_restart_ike_sessions`      |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | restart-ike-sessions          | restart the ike session       |:func:`set_restart_ike_sessions`       |
-        +-------------------------------+-------------------------------+---------------------------------------+
-        | num-ike-sessions              | Total IKE sessions            |:func:`peek_num_ike_sessions`          |
-        +-------------------------------+-------------------------------+---------------------------------------+
+        +--------------------+------------------+---------------------------------+
+        | Attribute Name     | Description      |Frequently Used Functions        |
+        +====================+==================+=================================+
+        |policy-name         |The name of the   |:func:`peek_policy_name`         |
+        |                    |IPsec policy.     |:func:`set_policy_name`          |
+        +--------------------+------------------+---------------------------------+
+        |profile-name        |The profile name  |:func:`peek_profile_name`        |
+        |                    |of the policy.    |:func:`set_profile_name`         |
+        +--------------------+------------------+---------------------------------+
+        |authentication-data |The autentication |:func:`peek_authentication_data` |
+        |                    |data of the       |:func:`set_authentication_data`  |
+        |                    |policy.           |                                 |
+        +--------------------+------------------+---------------------------------+
+        |restart-ike-sessions|Restarts the      |:func:`peek_restart_ike_sessions`|
+        |                    |IKE session.      |:func:`set_restart_ike_sessions` |
+        +--------------------+------------------+---------------------------------+
+        |num-ike-sessions    |The total number  |:func:`peek_num_ike_sessions`    |
+        |                    |of IKE sessions.  |                                 |
+        +--------------------+------------------+---------------------------------+
 
-    *Object functions*
+    *Object Functions*
 
         .. function:: get()
 
-            Fill the object with values for all the attributes. Once filled,
-            the object can be printed using :func:`pyfos_utils.response_print`
+            Fills the object with values for all the attributes. Once filled,
+            the object can be printed using :func:`pyfos_utils.response_print`.
 
-            :param session: session handler returned
-             by :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned
+             by :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or success response.
 
-    *Attribute functions*
+    *Attribute Functions*
 
         .. function:: peek_policy_name()
 
-            Reads the policy name from an ipsec object.
+            Reads the policy name from an IPsec object.
 
-            :rtype: None on error and value on success
+            :rtype: None on error and a value on success.
 
         .. function:: peek_profile_name()
 
-            Reads the profile name from an ipsec object.
+            Reads the profile name from an IPsec object.
 
-            :rtype: None on error and value on success
+            :rtype: None on error and a value on success.
 
         .. function:: peek_authentication_data()
 
-            Reads the authentication data from an ipsec Object
+            Reads the authentication data from an IPsec object
 
-            :rtype: None on error and value on success
+            :rtype: None on error and a value on success.
 
         .. function:: peek_restart_ike_sessions()
 
-            Reads the restart ike seesion value from an ipsec object.
+            Reads the restart IKE session value from an IPsec object.
 
-            :rtype: None on error and value on success
+            :rtype: None on error and a value on success.
 
         .. function:: peek_num_ike_sessions()
 
-            Reads num of IKE sessions for an ipsec object.
+            Reads the number of IKE sessions for an IPsec object.
 
-            :rtype: None on error and value on success
+            :rtype: None on error and a value on success.
 
         .. function:: set_policy_name(policyName)
 
-            Set the policy name in an ipsec object.
+            Sets the policy name in an IPsec object.
 
-            :rtype: dictionary of error or success response and value
-             with "policy-name" as key
+            :rtype: A dictionary of errors or success response and a value
+             with the policy name as the key.
 
         .. function:: set_profile_name(profileName)
 
-            Set the profile name in an ipsec object.
+            Sets the profile name in an IPsec object.
 
-            :rtype: dictionary of error or success response and value with
-             "profile-name" as key
+            :rtype: A dictionary of errors or success response and a value
+             with the profile name as the key.
 
         .. function:: set_authentication_data(authData)
 
-            Set the authentication Data in an Object
+            Sets the authentication Data in an Object
 
-            :rtype: dictionary of error or success response and value
-             with "authentication-data" as key
+            :rtype: A dictionary of errors or success response and a value
+             with the authentication data as the key.
 
         .. function:: set_restart_ike_sessions(restartIkeSession)
 
-            Set the restart ike session in an ipsec object.
+            Sets the restart IKE session in an IPsec object.
 
-            :rtype: dictionary of error or success response and value
-             with "restart-ike-sessions" as key
+            :rtype: A dictionary of errors or success response and a value
+             with the restart IKE sessions as the key.
 
     """
 

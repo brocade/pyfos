@@ -43,10 +43,10 @@ ipfilter policy configuration.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import ipfilter_policy
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -55,7 +55,7 @@ def main(argv):
 
     ipfilter_obj = inputs['utilobject']
     if (ipfilter_obj.peek_name() is None or
-       ipfilter_obj.peek_ip_version() is None):
+            ipfilter_obj.peek_ip_version() is None):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)

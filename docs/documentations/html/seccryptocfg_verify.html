@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seccryptocfg_verify_set - PyFOS util to verify applied template &#8212; PyFOS 1.1.0 documentation</title>
+    <title>seccryptocfg_verify_set - PyFOS util to verify an applied template. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="seccryptocfg_delete_set - PyFOS util to delete the user defined template" href="seccryptocfg_delete.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="seccryptocfg_apply_set.html" /> 
+    <link rel="next" title="seccryptocfg_delete_set - PyFOS util to delete a user-defined template." href="seccryptocfg_delete.html" />
+    <link rel="prev" title="seccryptocfg_apply_set - PyFOS util to apply the default/userdefined template" href="seccryptocfg_apply_set.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccryptocfg_delete.html" title="seccryptocfg_delete_set - PyFOS util to delete the user defined template"
+          <a href="seccryptocfg_delete.html" title="seccryptocfg_delete_set - PyFOS util to delete a user-defined template."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="seccryptocfg_apply_set.html" title="&lt;no title&gt;"
+          <a href="seccryptocfg_apply_set.html" title="seccryptocfg_apply_set - PyFOS util to apply the default/userdefined template"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,40 +42,39 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-seccryptocfg_verify"></span><div class="section" id="seccryptocfg-verify-set-pyfos-util-to-verify-applied-template">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccryptocfg_verify_set</span></code> - PyFOS util to verify applied template<a class="headerlink" href="#seccryptocfg-verify-set-pyfos-util-to-verify-applied-template" title="Permalink to this headline">¶</a></h1>
-<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">seccryptocfg</span></code> supports ‘seccryptocfg’ CLI use case.</p>
-<p>This module is a standalone script and API that can be used to verify the
-applied templates.</p>
+  <span class="target" id="module-seccryptocfg_verify"></span><div class="section" id="seccryptocfg-verify-set-pyfos-util-to-verify-an-applied-template">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccryptocfg_verify_set</span></code> - PyFOS util to verify an applied template.<a class="headerlink" href="#seccryptocfg-verify-set-pyfos-util-to-verify-an-applied-template" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">seccryptocfg</span></code> util supports verifying an applied template.</p>
+<p>This module is a stand-alone script and API that can be used to verify an applied template.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request                             is directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><table class="first last docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
 <tbody valign="top">
 <tr><td class="option-group">
 <kbd><span class="option">--action</span></kbd></td>
-<td><p class="first last">set cryptographic action to perform</p>
+<td><p class="first last">Sets the cryptographic action to perform.</p>
 </td></tr>
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--template-name</span></kbd></td>
 </tr>
-<tr><td>&#160;</td><td><p class="first last">set template name</p>
+<tr><td>&#160;</td><td><p class="first last">Sets the template name.</p>
 </td></tr>
 </tbody>
 </table>
@@ -83,9 +82,9 @@ applied templates.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>success response or dictionary in case of error</li>
+<li>A success response or a dictionary in case of error.</li>
 </ul>
 </dd>
 </dl>
@@ -111,10 +110,10 @@ Module <a class="reference internal" href="seccryptocfg_delete.html#module-seccr
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="seccryptocfg_apply_set.html"
-                        title="previous chapter">&lt;no title&gt;</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">seccryptocfg_apply_set</span></code> - PyFOS util to apply the default/userdefined template</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="seccryptocfg_delete.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccryptocfg_delete_set</span></code> - PyFOS util to delete the user defined template</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccryptocfg_delete_set</span></code> - PyFOS util to delete a user-defined template.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -148,17 +147,17 @@ Module <a class="reference internal" href="seccryptocfg_delete.html#module-seccr
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccryptocfg_delete.html" title="seccryptocfg_delete_set - PyFOS util to delete the user defined template"
+          <a href="seccryptocfg_delete.html" title="seccryptocfg_delete_set - PyFOS util to delete a user-defined template."
              >next</a> |</li>
         <li class="right" >
-          <a href="seccryptocfg_apply_set.html" title="&lt;no title&gt;"
+          <a href="seccryptocfg_apply_set.html" title="seccryptocfg_apply_set - PyFOS util to apply the default/userdefined template"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

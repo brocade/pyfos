@@ -17,28 +17,28 @@
 
 """
 
-:mod:`gigabitethernet_speed_set` - PyFOS util to set GE port speed.
+:mod:`gigabitethernet_speed_set` - PyFOS util to set GE_Port speed.
 *******************************************************************************
-The :mod:`gigabitethernet_speed_set` Util is used to set speed of GE port.
+The :mod:`gigabitethernet_speed_set` util is used to set GE_Port speed.
 
 This module is a stand-alone script that can be used to set the
-switch GE port speed on an extension platform.
+switch GE_Port speed on an extension platform.
 
 gigabitethernet_speed_set.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name.
-    *    --speed=VALUE: Set speed.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name.
+    *    --speed=VALUE: Sets the speed.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: gigabitethernet_speed_set.set_port_speed(session,\
@@ -46,7 +46,7 @@ name, speed)
 
     *Modify extension gigabitethernet speed*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = gigabitethernet_speed_set.set_port_speed(session,
             name, speed)
@@ -59,25 +59,25 @@ name, speed)
 
                 result = gigabitethernet.patch(session)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: Gigabitethernet port name expressed as slot/port.
-            :param speed: Speed for the GE port to be set.
+        * Input:
+            :param session: The session returned by the login.
+            :param name: The GE_Port name expressed as slot/port.
+            :param speed: The speed at which to set the GE_Port.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
-         Modify extension gigabitethernet port speed to 1G or 10G.
+         Modify the extension GE_Port speed to 1G or 10G.
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"
@@ -85,7 +85,7 @@ isHttps = "0"
 
 def _set_port_speed(session, rest_obj):
     result = rest_obj.patch(session)
-    return (result)
+    return result
 
 
 def set_port_speed(session, name, speed):
@@ -93,13 +93,13 @@ def set_port_speed(session, name, speed):
     geObject.set_name(name)
     geObject.set_speed(speed)
     result = _set_port_speed(session, geObject)
-    return (result)
+    return result
 
 
 def validate(geObject):
     if geObject.peek_name() is None or \
        geObject.peek_speed() is None:
-            return 1
+        return 1
     return 0
 
 

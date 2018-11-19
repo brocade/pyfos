@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fport_list_show - PyFOS util to show the f-port information. &#8212; PyFOS 1.1.0 documentation</title>
+    <title>fport_list_show - PyFOS util to show the F_Port information. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="nport_map_add - PyFOS util for adding F-port to N-port mappings" href="nport_map_add.html" />
-    <link rel="prev" title="license_show - PyFOS util to show installed licenses on a switch." href="license_show.html" /> 
+    <link rel="prev" title="zone_allow_pair_to_peer - PyFOS util for specific Zoning use case." href="zone_allow_pair_to_peer.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,7 +31,7 @@
           <a href="nport_map_add.html" title="nport_map_add - PyFOS util for adding F-port to N-port mappings"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="license_show.html" title="license_show - PyFOS util to show installed licenses on a switch."
+          <a href="zone_allow_pair_to_peer.html" title="zone_allow_pair_to_peer - PyFOS util for specific Zoning use case."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -43,35 +43,33 @@
           <div class="body" role="main">
             
   <span class="target" id="module-fport_list_show"></span><div class="section" id="fport-list-show-pyfos-util-to-show-the-f-port-information">
-<h1><a class="reference internal" href="#module-fport_list_show" title="fport_list_show: PyFOS module to display the F-port information in Access Gateway mode. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fport_list_show</span></code></a> - PyFOS util to show the f-port information.<a class="headerlink" href="#fport-list-show-pyfos-util-to-show-the-f-port-information" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-fport_list_show" title="fport_list_show: PyFOS module to display the F-port information in Access Gateway mode. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fport_list_show</span></code></a> provides option to display the
-f-port information.</p>
-<p>This module can be used to display the f-ports information
-including the online status, current n-port and more.</p>
+<h1><a class="reference internal" href="#module-fport_list_show" title="fport_list_show: PyFOS module to display the F-port information in Access Gateway mode. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fport_list_show</span></code></a> - PyFOS util to show the F_Port information.<a class="headerlink" href="#fport-list-show-pyfos-util-to-show-the-f-port-information" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-fport_list_show" title="fport_list_show: PyFOS module to display the F-port information in Access Gateway mode. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fport_list_show</span></code></a> util provides the option to display F_Port information.</p>
+<p>This module can be used to display F_Port information including the online status, the current N_Port, and more.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR:     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN:       The login name.</div>
+<div class="line">-P,–password=PASSWORD: The password.</div>
+<div class="line">-f,–vfid=VFID:         The VFID to which the request is                              directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE:      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose:           Verbose mode [OPTIONAL].</div>
 </div>
 <blockquote>
-<div>Util scripts options:</div></blockquote>
+<div>Util Script Options:</div></blockquote>
 <div class="line-block">
-<div class="line">–f-port=VALUE      set “f-port”</div>
+<div class="line">–f-port=VALUE      Sets the f-port.</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>F-port online-status and current n-port mapping details.</li>
+<li>F_Port online status and current N_Port mapping details.</li>
 </ul>
 </dd>
 </dl>
@@ -81,9 +79,9 @@ including the online status, current n-port and more.</p>
 <dt id="fport_list_show.fport_list_show.show_f_ports">
 <code class="descclassname">fport_list_show.</code><code class="descname">show_f_ports</code><span class="sig-paren">(</span><em>session</em>, <em>f-port</em><span class="sig-paren">)</span><a class="headerlink" href="#fport_list_show.fport_list_show.show_f_ports" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
-<li><p class="first">Display the F-ports configured on the AG and their details.</p>
+<li><p class="first">Display the F_Ports configured on the AG and their details.</p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <blockquote>
 <div><p>ret = fport_list_show.show_f_ports(session, f_port)
 print (ret)</p>
@@ -98,15 +96,15 @@ print (ret)</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by login.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param port_group_id:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Specific f-port name or None for all f-ports</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The specific F_Port name or None for               all F_Ports.</td>
 </tr>
 </tbody>
 </table>
@@ -114,12 +112,12 @@ print (ret)</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">Dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -127,9 +125,9 @@ print (ret)</p>
 </dl>
 </li>
 </ul>
-<p><em>use cases</em></p>
+<p><em>Use Cases</em></p>
 <ol class="arabic simple">
-<li>Retrieve the AG F-ports information.</li>
+<li>Retrieve the AG F_Ports information.</li>
 </ol>
 </div></blockquote>
 </li>
@@ -150,8 +148,8 @@ Module <a class="reference internal" href="pyfos_brocade_access_gateway.html#mod
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="license_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">license_show</span></code> - PyFOS util to show installed licenses  on a switch.</a></p>
+  <p class="topless"><a href="zone_allow_pair_to_peer.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">zone_allow_pair_to_peer</span></code> - PyFOS util for specific Zoning use case.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="nport_map_add.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">nport_map_add</span></code> - PyFOS util for adding F-port to N-port mappings</a></p>
@@ -191,14 +189,14 @@ Module <a class="reference internal" href="pyfos_brocade_access_gateway.html#mod
           <a href="nport_map_add.html" title="nport_map_add - PyFOS util for adding F-port to N-port mappings"
              >next</a> |</li>
         <li class="right" >
-          <a href="license_show.html" title="license_show - PyFOS util to show installed licenses on a switch."
+          <a href="zone_allow_pair_to_peer.html" title="zone_allow_pair_to_peer - PyFOS util for specific Zoning use case."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

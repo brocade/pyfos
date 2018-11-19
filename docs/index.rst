@@ -17,6 +17,14 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    pyfos_rest_util
    pyfos_util
 
+*PyFOS Manager Modules*
+
+.. toctree::
+   :maxdepth: 2
+
+   pyfos_config_manager
+   pyfos_class_manager
+   pyfos_rule_manager
 
 *PyFOS FC Support Modules*
 
@@ -39,7 +47,6 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    pyfos_brocade_media
    pyfos_brocade_fru
    pyfos_brocade_logging
-   pyfos_brocade_license
    pyfos_brocade_maps
    pyfos_brocade_time
 
@@ -185,7 +192,6 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    zoning_zone_remove
    zone_allow_pair
    zone_allow_pair_to_peer
-   license_show 
 
 
 *PyFOS Access Gateway Mode utils Modules*
@@ -312,6 +318,20 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    blade_show
    blade_extncfg_set
 
+*PyFOS Trunk utils Modules:*
+
+.. toctree::
+   :maxdepth: 2
+
+   port_trunk_area_create_add
+   port_trunk_area_delete
+   port_trunk_area_show_all
+   port_trunk_area_show
+   trunk_perf_show_all
+   trunk_perf_show
+   trunk_show_all
+   trunk_show
+
 *PyFOS MAPS utils modules:*
 
 .. toctree::
@@ -343,22 +363,8 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    maps_get_ssp_report
 
 
-*PyFOS Trunk utils Modules*
-
-.. toctree::
-   :maxdepth: 2
-
-   port_trunk_area_create_add
-   port_trunk_area_delete
-   port_trunk_area_show_all
-   port_trunk_area_show
-   trunk_perf_show_all
-   trunk_perf_show
-   trunk_show_all
-   trunk_show
-
  
-*PyFOS Operation utils Modules*
+*PyFOS Operation utils Modules:*
 
 .. toctree::
    :maxdepth: 2

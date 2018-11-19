@@ -15,35 +15,37 @@
 
 """
 
-:mod:`syslog_show` - PyFOS util to show syslog server configuration on switch.
-*******************************************************************************
-The :mod:`syslog_show` provides option to show the parameters of syslog on a
-switch.
+:mod:`syslog_show` - PyFOS util to show the syslog server configuration\
+ on a switch.
+**************************************************************************************
+The :mod:`syslog_show` util provides the option to show the parameters of\
+ syslog on a switch.
 
-This module is a standalone script that can be used to display the syslog
+This module is a stand-alone script that can be used to display the syslog
 server configuration on a switch.
 
-* inputs:
+* Input:
 
 | Infrastructure options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util script options:
+| Util Script Options:
 
-  | --server=server-ip   Ip address of the syslog server
+  | --server=server-ip:   The IP address of the syslog server.
 
-* outputs:
+* Output:
     * Syslog server information
 
 .. function:: show_syslog_server(session, server)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = syslog_show.show_syslog_server(session, server)
             print (ret)
@@ -52,25 +54,25 @@ server configuration on a switch.
 
             result = syslog_show.show_syslog_server(session, "10.10.10.10")
 
-       * inputs:
-            :param session: session returned by login.
-            :param server: server ip address.
+       * Input:
+            :param session: The session returned by the login.
+            :param server: The server IP address.
 
-       * outputs:
-            :rtype: Displays the list of configured syslog servers. If the
-                  server is specified, displays matching entry if present.
+       * Output:
+            :rtype: A list of configured syslog servers. If the
+                  server is specified, displays a matching entry, if present.
 
-        *use cases*
+        *Use Cases*
 
         1. Retrieve the syslog server information.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_logging import syslog_server
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def show_syslog_server(session, server):
@@ -94,4 +96,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-            main(sys.argv[1:])
+    main(sys.argv[1:])

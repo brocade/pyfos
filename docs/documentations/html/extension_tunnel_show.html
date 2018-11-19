@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>extension_tunnel_show - PyFOS util for Displaying tunnel object. &#8212; PyFOS 1.1.0 documentation</title>
+    <title>extension_tunnel_show - PyFOS util for displaying a tunnel object. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="extension_tunnel_statistics_show - PyFOS util to display tunnel stats." href="extension_tunnel_statistics_show.html" />
+    <link rel="next" title="extension_tunnel_statistics_show - PyFOS util to display tunnel statistics." href="extension_tunnel_statistics_show.html" />
     <link rel="prev" title="extension_tunnel_delete - PyFOS util for deleting a tunnel." href="extension_tunnel_delete.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,7 +28,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="extension_tunnel_statistics_show.html" title="extension_tunnel_statistics_show - PyFOS util to display tunnel stats."
+          <a href="extension_tunnel_statistics_show.html" title="extension_tunnel_statistics_show - PyFOS util to display tunnel statistics."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="extension_tunnel_delete.html" title="extension_tunnel_delete - PyFOS util for deleting a tunnel."
@@ -42,40 +42,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-extension_tunnel_show"></span><div class="section" id="extension-tunnel-show-pyfos-util-for-displaying-tunnel-object">
-<h1><a class="reference internal" href="#module-extension_tunnel_show" title="extension_tunnel_show: PyFOS module to display extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_tunnel_show</span></code></a> - PyFOS util for Displaying tunnel object.<a class="headerlink" href="#extension-tunnel-show-pyfos-util-for-displaying-tunnel-object" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-extension_tunnel_show" title="extension_tunnel_show: PyFOS module to display extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_tunnel_show</span></code></a> util provides tunnel Display functionality.</p>
+  <span class="target" id="module-extension_tunnel_show"></span><div class="section" id="extension-tunnel-show-pyfos-util-for-displaying-a-tunnel-object">
+<h1><a class="reference internal" href="#module-extension_tunnel_show" title="extension_tunnel_show: PyFOS module to display extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_tunnel_show</span></code></a> - PyFOS util for displaying a tunnel object.<a class="headerlink" href="#extension-tunnel-show-pyfos-util-for-displaying-a-tunnel-object" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-extension_tunnel_show" title="extension_tunnel_show: PyFOS module to display extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_tunnel_show</span></code></a> util provides tunnel display functionality.</p>
 <p>This module is a stand-alone script that can be used to show the extension
 tunnel.</p>
 <p>extension_tunnel_show.py: Usage</p>
 <ul>
 <li><dl class="first docutils">
-<dt>Infrastructure options:</dt>
+<dt>Infrastructure Options:</dt>
 <dd><ul class="first last simple">
-<li>-i,–ipaddr=IPADDR: IP address of FOS switch.</li>
-<li>-L,–login=LOGIN: Login name.</li>
-<li>-P,–password=PASSWORD: Password.</li>
-<li>-f,–vfid=VFID: VFID to which the request is directed.</li>
-<li>-s,–secured=MODE: HTTPS mode “self” or “CA”[Optional].</li>
-<li>-v,–verbose: Verbose mode[Optional].</li>
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><ul class="first last simple">
-<li>-n,–name=NAME: Set name.</li>
-<li>-a,–admin-enabled=VALUE: Set admin-enabled.</li>
-<li>–ipsec-enabled=VALUE: Set ipsec-policy.</li>
-<li>–ficon=VALUE: Set ficon.</li>
-<li>–ip-extension=VALUE: Set ip-extension.</li>
+<li>-n,–name=NAME: Sets the name.</li>
+<li>-a,–admin-enabled=VALUE: Sets the admin enabled.</li>
+<li>–ipsec-enabled=VALUE: Sets the IPsec policy.</li>
+<li>–ficon=VALUE: Sets the FICON enabled state.</li>
+<li>–ip-extension=VALUE: Sets the IP extension.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
@@ -86,9 +86,9 @@ tunnel.</p>
 <dl class="function">
 <dt id="extension_tunnel_show.extension_tunnel_show.show_extension_tunnel">
 <code class="descclassname">extension_tunnel_show.</code><code class="descname">show_extension_tunnel</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>ipsec</em>, <em>ipextn</em>, <em>ficon</em>, <em>admin</em><span class="sig-paren">)</span><a class="headerlink" href="#extension_tunnel_show.extension_tunnel_show.show_extension_tunnel" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>show extension tunnel</em></p>
+<dd><p><em>Show an Extension Tunnel</em></p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_tunnel_show</span><span class="o">.</span><span class="n">show_extension_tunnel</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
 <span class="n">name</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
@@ -108,22 +108,22 @@ tunnel.</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">Session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">VE port name expressed as slot/port.</td>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">Sets the VE port name expressed as slot/port.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param admin:</th><td class="field-body">Admin enabled state.</td>
+<tr class="field-odd field"><th class="field-name">param admin:</th><td class="field-body">Sets the admin enabled state.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param ipsec:</th><td class="field-body">Ipsec policy enabled state.</td>
+<tr class="field-even field"><th class="field-name">param ipsec:</th><td class="field-body">Sets the IPsec policy enabled state.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param ipextn:</th><td class="field-body">IP Extension enabled state.</td>
+<tr class="field-odd field"><th class="field-name">param ipextn:</th><td class="field-body">Sets the IP extension enabled state.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param ficon:</th><td class="field-body">Ficon enabled state.</td>
+<tr class="field-even field"><th class="field-name">param ficon:</th><td class="field-body">Sets the FICON enabled state.</td>
 </tr>
 </tbody>
 </table>
@@ -131,12 +131,12 @@ tunnel.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">List of tunnel instances matching the inputs.</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A list of tunnel instances that match the input.</td>
 </tr>
 </tbody>
 </table>
@@ -144,9 +144,9 @@ tunnel.</p>
 </dl>
 </li>
 </ul>
-<p><em>Use cases</em></p>
+<p><em>Use Cases</em></p>
 <blockquote>
-<div>Show tunnel details.</div></blockquote>
+<div>Show the tunnel details.</div></blockquote>
 </div></blockquote>
 </dd></dl>
 
@@ -168,7 +168,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extension_tunnel_delete</span></code> - PyFOS util for deleting a tunnel.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="extension_tunnel_statistics_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_tunnel_statistics_show</span></code> - PyFOS util to display tunnel stats.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_tunnel_statistics_show</span></code> - PyFOS util to display tunnel statistics.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -202,7 +202,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="extension_tunnel_statistics_show.html" title="extension_tunnel_statistics_show - PyFOS util to display tunnel stats."
+          <a href="extension_tunnel_statistics_show.html" title="extension_tunnel_statistics_show - PyFOS util to display tunnel statistics."
              >next</a> |</li>
         <li class="right" >
           <a href="extension_tunnel_delete.html" title="extension_tunnel_delete - PyFOS util for deleting a tunnel."
@@ -212,7 +212,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

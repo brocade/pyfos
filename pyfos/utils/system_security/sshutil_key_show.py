@@ -15,37 +15,40 @@
 
 """
 
-:mod:`sshutil_key_show` - PyFOS util for displaying SSH host key on a switch
+:mod:`sshutil_key_show` - PyFOS util for displaying the SSH host key \
+on a switch.
 ***********************************************************************************
-The :mod:`sshutil_key_show` provides option to display SSH host key information
+The :mod:`sshutil_key_show` util provides the option to display the \
+SSH host key information.
 
-This module can be used to display key information. If user name is not
-provided, then all SSH related information will be displayed.
+This module can be used to display the SSH host key information. If the user \
+name is not provided, then all SSH related information is displayed.
 
-* inputs:
+* Input:
 
-|  Infrastructure options:
+| Infrastructure Options:
 
-  |   -i,--ipaddr=IPADDR     IP address of FOS switch
-  |   -L,--login=LOGIN       login name.
-  |   -P,--password=PASSWORD password.
-  |   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  |   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-|  Util scripts options:
+* Util Script Options:
 
-  |    --algorithm-type=ALGO-TYPE      rsa/dsa/ecdsa
-  |    --key-type=KEY-TYPE             public-private-key or host-key
+  |    --algorithm-type=ALGO-TYPE      Sets the algorithm type (rsa/dsa/ecdsa).
+  |    --key-type=KEY-TYPE             Sets the key type \
+                                         (public-private-key or host-key).
 
 
-* outputs:
-    * SSH key related information
+* Output:
+    * The SSH key related information.
 
 .. function:: sshutil_show.show_system_security_sshutil_key(session)
 
     * Display the SSH host key information in the switch.
 
-        Example usage of the method:
+        Example Usage of the Method:
 
             ret = sshutil_show.show_system_security_sshutil_key(session, \
 algo_type, key_type)
@@ -56,15 +59,15 @@ algo_type, key_type)
             result = sshutil_show.show_system_security_sshutil(
               session, \'algo_type\', \'key_type\')
 
-        * inputs:
-            :param session: session returned by login.
-            :param algo_type: algorithm type of host key
-            :param key_type: key type
+        * Input:
+            :param session: The session returned by the login.
+            :param algo_type: The algorithm type of the host key.
+            :param key_type: The key type.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
         1. Retrieve the SSH host key.
 
@@ -72,21 +75,19 @@ algo_type, key_type)
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import sshutil_key
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
-def _get_sshutil_key(session, restobject):
-    return restobject.get(session)
+def _get_sshutil_key(session, restobject, userinput):
+    return restobject.get(session, userinput)
 
 
-def show_system_security_sshutil_key(session, key_type, algorithm_type):
+def show_system_security_sshutil_key(session, userinput):
     sshutil_obj = sshutil_key()
-    sshutil_obj.set_key_type(key_type)
-    sshutil_obj.set_algorithm_type(algorithm_type)
-    result = _get_sshutil_key(session, sshutil_obj)
+    result = _get_sshutil_key(session, sshutil_obj, userinput)
     return result
 
 
@@ -107,9 +108,11 @@ def main(argv):
         print(inputs['utilusage'])
         sys.exit()
 
+    userinput = {"algorithm-type": sshutil_obj.peek_algorithm_type(),
+                 "key-type": sshutil_obj.peek_key_type()}
+
     result = show_system_security_sshutil_key(
-            inputs['session'], sshutil_obj.peek_key_type(),
-            sshutil_obj.peek_algorithm_type())
+        inputs['session'], userinput)
     pyfos_util.response_print(result)
 
     pyfos_auth.logout(session)

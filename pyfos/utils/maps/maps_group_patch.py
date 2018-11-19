@@ -16,39 +16,41 @@
 
 """
 
-:mod:`maps_group_patch` - PyFOS util to update dynamic group
+:mod:`maps_group_patch` - PyFOS util to update a dynamic group.
 *******************************************************************************
 
 +This script can be used to update dynamic groups.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --name                 specify group name
-    --group-type           group type
-    --group-feature        dynamic group feature name
-    --feature-pattern      feature pattern value
+* Util Script Options:
+    --name                 Specifies the group name.
+    --group-type           Sets the group type.
+    --group-feature        Sets the dynamic group feature name.
+    --feature-pattern      Sets the feature pattern value.
 
-* outputs:
-    * success response or dictionary in case of error.
+* Output:
+
+    * A success response or a dictionary in case of error.
 
 """
 
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import group
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

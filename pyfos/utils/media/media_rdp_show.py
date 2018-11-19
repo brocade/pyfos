@@ -15,46 +15,47 @@
 
 """
 
-:mod:`media_show` - PyFOS util to display port media information
+:mod:`media_show` - PyFOS util to display port media information.
 ********************************************************************************
-The :mod:`media_show` displays local port and peer port media information.
-peer port media information is supported for F-Port alone.
+The :mod:`media_show` util displays local port and peer port media information.
+Peer port media information is supported only for F_Ports.
 
-This module is a standalone script that can be used to display port media
-information with specified interface/slot/port id ass input. If no
-is given, all ports media information will be displayed.
+This module is a stand-alone script that can be used to display port media
+information with a specified interface/slot/port ID. If no specified port
+is given, media information will be displayed for all ports.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request\
+                            is directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
-|  Util scripts options:
+|  Util Script Options:
 
-  |    --name=Interface/slot/port                           port name
+  |    --name=Interface/slot/port                  Sets the port name.
 
 
-* outputs:
-    * Media information of specified port. When port is not provided,
-      all existing ports media information will be displayed.
+* Uutput:
+    * Media information about specified port. When the port is not provided,
+      media information will be displayed for all existing ports.
 
 .. function:: media_rdp_show.show_media_rdp(session, name)
 
     * Display the port media information.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
-            # Example 1: Display all the ports media information
+            # Example 1: Display media information for all ports.
             ret = media_rdp_show.show_media_rdp(session, None)
             print (ret)
 
-            # Example 2: Display a specific port media information
+            # Example 2: Display media information for a specific port.
             ret = media_rdp_show.show_media_rdp(session, \'FC/0/2\')
             print (ret)
 
@@ -66,25 +67,25 @@ is given, all ports media information will be displayed.
             else:
                 result = media_object.get(session, name)
 
-        * inputs:
-            :param session: session returned by login.
-            :param name: Specific port in the format of interface/slot/port
-                         or None for all ports. Interface should be either
-                         FC or GE or TE
+        * Input:
+            :param session: The session returned by the login.
+            :param name: The specific port in the format of interface/slot/port
+                         or none for all ports. Interface should be either
+                         FC, GE, or TE.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
         1. Retrieve the port media information.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_media import media_rdp
 
 

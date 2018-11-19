@@ -37,12 +37,12 @@ is connected locally and where in the Zone DB it is mentioned.
     * Displays physical location and Zone DB mentions.
 
 """
-import pyfos.pyfos_auth as pyfos_auth
+import sys
+from pyfos import pyfos_auth
 import pyfos.pyfos_brocade_zone as pyfos_zone
 import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
 import pyfos.pyfos_brocade_name_server as pyfos_name_server
-import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def is_device_local(ns_entry, domain_id):
@@ -131,7 +131,7 @@ def find_in_zones(session, device_wwn, aliases):
     return zones
 
 
-def find_in_cfgs(session, device_wwn, zones):
+def find_in_cfgs(session, zones):
     current_defined = pyfos_zone.defined_configuration.get(session)
 
     cfgs = []
@@ -219,7 +219,7 @@ def main(argv):
         print(" ")
         print("the device is NOT in zone(s):")
 
-    cfgs = find_in_cfgs(session, device_wwn, zones)
+    cfgs = find_in_cfgs(session, zones)
 
     current_effective = pyfos_zone.effective_configuration.get(session)
 

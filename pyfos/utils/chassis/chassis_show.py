@@ -15,34 +15,35 @@
 
 """
 
-:mod:`chassis_show` - PyFOS util for specific chassis op use case.
+:mod:`chassis_show` - PyFOS util displays chassis attributes.
 ************************************************************************
-The :mod:`chassis_show` provides for specific chassis op use case.
+The :mod:`chassis_show` util displays chassis attributes.
 
-This module is a standalone script that can be used to display chassis
-attributes
+This module is a stan-dalone script that can be used to display chassis
+attributes.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_chassis import chassis
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def show_chassis_details(session):

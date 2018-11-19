@@ -15,37 +15,38 @@
 
 """
 
-:mod:`time_zone_name_set` - PyFOS util to set time zone information.
+:mod:`time_zone_name_set` - PyFOS util to set the time zone by name.
 *******************************************************************************
-The :mod:`time_zone_name_set` supports 'tstimezone' CLI use case.
+The :mod:`time_zone_name_set` util sets the time zone by name.
 
-This module is a standalone script and API that can be used to set time zone
-by time zone name.
+This module is a stand-alone script and API that can be used to set the \
+time zone by time zone name.
 
-* inputs:
+* Input:
 
 | Infrastructure options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --time_zone_name                                 timezone name country/city
+* Util Script Options:
+    --time_zone_name       Sets the time zone name by country and city.
 
-* outputs:
-    * display system time zone details.
+* Output:
+    * Displays the system time zone details.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_time import time_zone
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

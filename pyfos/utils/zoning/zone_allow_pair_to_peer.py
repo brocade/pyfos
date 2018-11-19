@@ -46,15 +46,15 @@ Zoning with the target name already exists, the new target is simply added.
 
 """
 
-
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.pyfos_util as pyfos_util
-import pyfos.utils.brcd_util as brcd_util
 import inspect
 import sys
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_zone as pyfos_zone
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
-session = None
+
+g_session = None
 ZONE_PREFIX = "az__pz__"
 CFG_NAME = "az__cfg"
 
@@ -353,30 +353,32 @@ def zone_allow_pair_to_peer(session, prefix, hostport,
 
 
 def main(argv):
+    # pylint: disable=W0603
+    global g_session
     valid_options = ["hostport", "targetname", "targetport"]
     inputs = brcd_util.generic_input(argv, usage, valid_options)
 
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
+    g_session = pyfos_auth.login(inputs["login"], inputs["password"],
+                                 inputs["ipaddr"], inputs["secured"],
+                                 verbose=inputs["verbose"])
+    if pyfos_auth.is_failed_login(g_session):
         print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
+              g_session.get(pyfos_auth.CREDENTIAL_KEY)
               [pyfos_auth.LOGIN_ERROR_KEY])
         brcd_util.full_usage(usage)
         sys.exit()
 
-    brcd_util.exit_register(session)
+    brcd_util.exit_register(g_session)
 
     vfid = None
     if 'vfid' in inputs:
         vfid = inputs['vfid']
 
     if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
+        pyfos_auth.vfid_set(g_session, vfid)
 
     ret_code, details = zone_allow_pair_to_peer(
-            session, ZONE_PREFIX, inputs["hostport"],
+            g_session, ZONE_PREFIX, inputs["hostport"],
             inputs["targetname"], inputs["targetport"], CFG_NAME, False)
 
     if ret_code > 0:
@@ -386,7 +388,7 @@ def main(argv):
 
     print(details)
 
-    pyfos_auth.logout(session)
+    pyfos_auth.logout(g_session)
 
 
 if __name__ == "__main__":

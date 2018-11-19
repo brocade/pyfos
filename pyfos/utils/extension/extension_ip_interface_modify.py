@@ -17,42 +17,42 @@
 
 """
 
-:mod:`extension_ip_interface_modify` - PyFOS util to modify an IP Interface.
+:mod:`extension_ip_interface_modify` - PyFOS util to modify an IP interface.
 ********************************************************************************
-The :mod:`extension_ip_interface_modify` Util is used to modify an IP\
-Interface.
+The :mod:`extension_ip_interface_modify` util is used to modify an IP\
+interface.
 
 This module is a stand-alone script that can be used to modify an extension
 IP address.
 
 extension_ip_interface_modify.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name.
-    * -m,--mtu-size=VALUE: Set mtu-size.
-    * -p,--ip-prefix-length=VALUE: Set ip-prefix-length.
-    * -d,--dp-id=VALUE: Set dp-id.
-    *    --ip-address=VALUE: Set ip-address.
-    *    --vlan-id=VALUE: Set vlan-id.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name.
+    * -m,--mtu-size=VALUE: Sets the MTU ize.
+    * -p,--ip-prefix-length=VALUE: Sets the IP prefix length.
+    * -d,--dp-id=VALUE: Sets the DP ID.
+    *    --ip-address=VALUE: SetSets the IP address.
+    *    --vlan-id=VALUE: Sets the VLAN ID.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 
 .. function:: extension_ip_interface_modify.modify_extension_ip(session,\
 name, dp, ip, prefix, vlan=None, mtu=None)
 
-    *Modify extension IP Interface*
+    *Modify Extension IP Interface*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
              ret = extension_ip_interface_modify.modify_extension_ip(session,
              name, dp, ip, prefix, vlan, mtu)
@@ -71,73 +71,71 @@ name, dp, ip, prefix, vlan=None, mtu=None)
             result = extension_ip_interface_modify._modify_extension_ip(
             session, IP)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: GE port name expressed as slot/port.
-            :param dp-id: DP Instance.
-            :param ip: Extension IP-Address.
-            :param prefix: Prefix length for the IP Address.
-            :param vlan: VLAN ID.
-            :param mtu: MTU size.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the GE_Port name expressed as slot/port.
+            :param dp-id: Sets the DP instance.
+            :param ip: Sets the extension IP address.
+            :param prefix: Sets the prefix length for the IP Address.
+            :param vlan: Sets the VLAN ID.
+            :param mtu: Sets the MTU size.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
-         Modify an extension IP Interface.
+         Modify an extension IP interface.
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"
 
 
 def _modify_extension_ip(session, ipobject):
-        result = ipobject.patch(session)
-        return result
+    result = ipobject.patch(session)
+    return result
 
 
 def modify_extension_ip(session, name, dp, ip, prefix, vlan=None, mtu=None):
-        value_dict = {'name': name, 'dp-id': dp, 'ip-prefix-length': prefix}
-        if vlan is not None:
-            value_dict.update({'vlan-id': vlan})
-        if mtu is not None:
-            value_dict.update({'mtu-size': mtu})
-        value_dict.update({'ip-address': ip})
-        ipobject = extension_ip_interface()
-        ipobject.load(value_dict, 1)
-        result = _modify_extension_ip(session, value_dict)
-        return result
+    value_dict = {'name': name, 'dp-id': dp, 'ip-prefix-length': prefix}
+    if vlan is not None:
+        value_dict.update({'vlan-id': vlan})
+    if mtu is not None:
+        value_dict.update({'mtu-size': mtu})
+    value_dict.update({'ip-address': ip})
+    ipobject = extension_ip_interface()
+    ipobject.load(value_dict, 1)
+    result = _modify_extension_ip(session, value_dict)
+    return result
 
 
 def validate(ipobject):
-        if ipobject.peek_name() is None or \
-           ipobject.peek_dp_id() is None or \
-           ipobject.peek_ip_address() is None:
-            return 1
-        return 0
+    if ipobject.peek_name() is None or ipobject.peek_dp_id() is None or ipobject.peek_ip_address() is None:
+        return 1
+    return 0
 
 
 def main(argv):
-        # myinput = str("-i 10.17.3.70 -n 4/17 -d 0 --ip-address 134.10.10.1" +
-        #               " -p 24 -v 100 -m 1320")
-        # argv = myinput.split()
-        filters = ["name", "mtu_size", "ip_prefix_length",
-                   "ip_address", "dp_id", "vlan_id"]
-        inputs = brcd_util.parse(argv, extension_ip_interface, filters,
-                                 validate)
-        ipobject = inputs['utilobject']
-        session = brcd_util.getsession(inputs)
-        result = _modify_extension_ip(session, ipobject)
-        pyfos_util.response_print(result)
-        pyfos_auth.logout(session)
+    # myinput = str("-i 10.17.3.70 -n 4/17 -d 0 --ip-address 134.10.10.1" +
+    #               " -p 24 -v 100 -m 1320")
+    # argv = myinput.split()
+    filters = ["name", "mtu_size", "ip_prefix_length",
+               "ip_address", "dp_id", "vlan_id"]
+    inputs = brcd_util.parse(argv, extension_ip_interface, filters,
+                             validate)
+    ipobject = inputs['utilobject']
+    session = brcd_util.getsession(inputs)
+    result = _modify_extension_ip(session, ipobject)
+    pyfos_util.response_print(result)
+    pyfos_auth.logout(session)
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

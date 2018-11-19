@@ -84,10 +84,10 @@ PORT_GROUP_MODE.LB_MODE, 1)
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_access_gateway import port_group
-import pyfos.utils.brcd_util as brcd_util
 
 
 class PORT_GROUP_MODE:
@@ -96,7 +96,7 @@ class PORT_GROUP_MODE:
 
 
 def _set_port_group_mode(session, restobject):
-        return restobject.patch(session)
+    return restobject.patch(session)
 
 
 def set_port_group_mode(session, pgid, pgmode, enabled):
@@ -123,7 +123,7 @@ def validate(portgroup_obj):
 
     if (portgroup_obj.peek_port_group_id() is None or
        (lb_mode is None and mfnm_mode is None)):
-            return 1
+        return 1
     return 0
 
 
@@ -145,4 +145,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

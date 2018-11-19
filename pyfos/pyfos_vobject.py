@@ -17,7 +17,7 @@
 *********************************************************************************************************
 The :mod:`pyfos_vobject` PyFOS module to test versioning functionality.
 """
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 
 VER_820 = "8.2.0"
@@ -39,7 +39,7 @@ class vobject(pyfos_rest_util.rest_object):
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.ipif,
                          "/rest/running/brocade-interface/vobject")
-        """ Leaf Attributes """
+        # Leaf Attributes
         self.add(pyfos_rest_util.rest_attribute("a", pyfos_type.type_str, None,
                  pyfos_rest_util.REST_ATTRIBUTE_KEY, VER_RANGE_820_to_820a))
         self.add(pyfos_rest_util.rest_attribute("b", pyfos_type.type_str, None,
@@ -57,7 +57,7 @@ class vobject(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute("g", pyfos_type.type_str, None,
                  pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
                  VER_RANGE_822_and_ABOVE))
-        """ Container Attribute """
+        # Container Attribute
         self.add(pyfos_rest_util.rest_attribute("container",
                  pyfos_type.type_str, dict(),
                  pyfos_rest_util.REST_ATTRIBUTE_CONTAINER_LIST,

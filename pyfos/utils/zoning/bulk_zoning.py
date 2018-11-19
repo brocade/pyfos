@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# pylint: disable=W1401
 """
 
 :mod:`bulk_zoning` - PyFOS util for bulk Zoning update use case.
@@ -91,16 +92,16 @@ will consider that to be the same Zone and process as such.
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
+import sys
+import re
+import xlrd
+from pyfos import pyfos_auth
 import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 import pyfos.utils.zoning.zoning_alias_create_add as aliascreate
 import pyfos.utils.zoning.zoning_zone_create_add as zonecreate
 import pyfos.utils.zoning.zoning_cfg_create_add as cfgcreate
 import pyfos.utils.zoning.zoning_cfg_enable as cfgenable
-import sys
-import re
-import xlrd
 
 WARN = '\x1b[1;30;41m'
 CHANGED = '\x1b[1;31;42m'
@@ -199,6 +200,7 @@ def process_txt(session, filename):
     file = open(filename, "r")
     for line in file:
         if len(line) > 0:
+            # pylint: disable=W1401
             command_line = re.split('\s|\,', line)
             if command_line[0] == "alicreate":
                 aliases = parse_alicreate(command_line)
@@ -247,7 +249,7 @@ EXIST_DIFF_NON_SUBSET = 3
 
 
 def find_in_db(defined, entry_type, name, members, usepeer):
-    if (pyfos_zone.ALIAS == entry_type):
+    if pyfos_zone.ALIAS == entry_type:
         for alias in defined.peek_alias():
             if alias["alias-name"] == name:
                 current_members = alias["member-entry"]["alias-entry-name"]
@@ -261,7 +263,7 @@ def find_in_db(defined, entry_type, name, members, usepeer):
                     else:
                         return EXIST_DIFF_NON_SUBSET
         return DOESNT_EXIST
-    elif (pyfos_zone.ZONE == entry_type):
+    elif pyfos_zone.ZONE == entry_type:
         for zone in defined.peek_zone():
             if zone["zone-name"] == name:
                 if usepeer:
@@ -295,7 +297,7 @@ def find_in_db(defined, entry_type, name, members, usepeer):
                         else:
                             return EXIST_DIFF_NON_SUBSET
         return DOESNT_EXIST
-    elif (pyfos_zone.CFG == entry_type):
+    elif pyfos_zone.CFG == entry_type:
         for cfg in defined.peek_cfg():
             if cfg["cfg-name"] == name:
                 current_members = cfg["member-zone"]["zone-name"]
@@ -782,10 +784,7 @@ def main(argv):
         usepeer_wwn = False
         if "usepeer" in inputs:
             usepeer = True
-            if inputs["usepeer"] == "WWN":
-                usepeer_wwn = True
-            else:
-                usepeer_wwn = False
+            usepeer_wwn = bool(inputs["usepeer"] == "WWN")
 
         if "xlscheck" in inputs:
             process_xlsx_direct_generic(

@@ -15,34 +15,36 @@
 
 """
 
-:mod:`tacacs_server_show` - PyFOS util to show tacacs+ sever configuraions.
+:mod:`tacacs_server_show` - PyFOS util to show a TACACS+ sever configuraion.
 *******************************************************************************
-The :mod:`tacacs_server_show` supports 'aaaconfig' CLI use case.
+The :mod:`tacacs_server_show` util supports showing a TACACS+ \
+sever configuraion.
 
-This module is a standalone script and API that can be used to display a
-server or list of tacacs+ servers.
+This module is a stand-alone script and API that can be used to display a \
+TACACS+ server or list of TACACS+ servers.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* outputs:
-    * display a tacacs+ server or list of tacacs+ server configurations.
+* Output:
+    * A TACACS+ server or a list of TACACS+ server configurations.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import tacacs_server
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

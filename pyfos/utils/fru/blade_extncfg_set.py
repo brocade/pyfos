@@ -17,64 +17,65 @@
 
 :mod:`blade_extncfg_set` - PyFOS util for setting extension blade modes.
 ********************************************************************************
-The :mod:`blade_extncfg_set` Set the extension blade modes.
+The :mod:`blade_extncfg_set` util sets the extension blade modes.
 
-This module is a standalone script that can be used to create an extension
+This module is a stand-alone script that can be used to create an extension
 tunnel.
 
 blade_extncfg_set.py: Usage
 
+* Input:
+
 * Infrastructure options:
-    * -i,--ipaddr=IPADDR:IP address of FOS switch.
-    * -L,--login=LOGIN:login name.
-    * -P,--password=PASSWORD:password.
-    * -f,--vfid=VFID:VFID to which the request is directed to.
-    * -s,--secured=MODE:HTTPS mode "self" or "CA"[OPTIONAL].
-    * -v,--verbose:verbose mode[OPTIONAL].
+    * -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+    * -L,--login=LOGIN       The login name.
+    * -P,--password=PASSWORD The password.
+    * -f,--vfid=VFID         The VFID to which the request is \
+                              directed [OPTIONAL].
+    * -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    * --slot=SLOT : set "slot-number"
-    * --app-mode=VALUE : set "extension-app-mode"
-    * --ve-mode=VALUE : set "extension-ve-mode"
-    * --ge-mode=VALUE : set "extension-ge-mode"
+* Util Script Options:
+    * --slot=SLOT: Sets the "slot-number".
+    * --app-mode=VALUE: Sets the "extension-app-mode".
+    * --ve-mode=VALUE: Sets the "extension-ve-mode".
+    * --ge-mode=VALUE: Sets the "extension-ge-mode".
 
-* Outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 .. function:: blade_extncfg_set.extncfg_set(session, slot,\
 appmode, vemode, gemode)
 
-    *Set extension blade modes*
+    *Set Extension Blade Modes*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = blade_extncfg_set.extncfg_set(session,
                 slot, appmode, vemode, gemode)
                 print (ret)
 
-        * inputs:
-            :param session: session returned by login
-            :param slot: blade slot number for pizzabox its 0.
-            :param appmode: blade app mode configuration
-            :param vemode: blade ve mode configuration
-            :param gemode: blade ge mode configuration
+        * Input:
+            :param session: The session returned by login.
+            :param slot: The blade slot number for pizzabox is 0.
+            :param appmode: The blade app mode configuration.
+            :param vemode: The blade ve mode configuration.
+            :param gemode: The blade ge mode configuration.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. set the extension mode for the blade or switch.
+        1. Set the extension mode for the blade or switch.
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_fru import blade
 import sys
-import pyfos.utils.brcd_util as brcd_util
-
-isHttps = "0"
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_fru import blade
+from pyfos.utils import brcd_util
 
 
 def _extncfg_set(session, bldobject):
@@ -83,21 +84,32 @@ def _extncfg_set(session, bldobject):
 
 
 def extncfg_set(session, slot, appmode=None, vemode=None, gemode=None):
-    if slot is None or (appmode is None and
-       vemode is None and
-       gemode is None):
-        return ({'Error': "Please provide valid inputs"
-                 "for atleast one modes"})
+    if slot is None or \
+        (appmode is None and
+         vemode is None and
+         gemode is None):
+        return ({'Error': "Please provide valid inputs" +
+                          "for atleast one modes"})
 
     value_dict = {
-                    'slot-number': slot,
-                    'extension-ve-mode': vemode,
-                    'extension-ge-mode': gemode,
-                    'extension-app-mode': appmode,
-                 }
+        'slot-number': slot,
+        'extension-ve-mode': vemode,
+        'extension-ge-mode': gemode,
+        'extension-app-mode': appmode
+        }
     bldobject = blade(value_dict)
     result = _extncfg_set(session, bldobject)
     return result
+
+
+def validate(bldobject):
+    if bldobject.peek_slot_number() is None or \
+       bldobject.peek_slot_number() \
+       is None and bldobject.peek_slot_number() is None and \
+       bldobject.peek_slot_number() is None:
+        print("Missing options in the commandline:")
+        return 1
+    return 0
 
 
 def main(argv):
@@ -105,14 +117,8 @@ def main(argv):
     # argv = myinput.split()
     filters = ['slot_number', 'extension_ve_mode', 'extension_app_mode',
                'extension_ge_mode']
-    inputs = brcd_util.parse(argv, blade, filters)
+    inputs = brcd_util.parse(argv, blade, filters, validate)
     bldobject = inputs['utilobject']
-    if bldobject.peek_slot_number() is None or (bldobject.peek_slot_number()
-       is None and bldobject.peek_slot_number() is None and
-       bldobject.peek_slot_number() is None):
-            print("Missing options in the commandline:")
-            print(inputs['utilusage'])
-            sys.exit(1)
     session = brcd_util.getsession(inputs)
     result = _extncfg_set(session, bldobject)
     pyfos_util.response_print(result)

@@ -15,28 +15,30 @@
 
 """
 
-:mod:`f_port_login_settings_get` - PyFOS util for getting configured login
-**************************************************************************
-The :mod:`f_port_login_settings_get` provides for getting configured login
+:mod:`f_port_login_settings_get` - PyFOS util for getting the configured \
+login
+*******************************************************************************
+The :mod:`f_port_login_settings_get` util provides for getting the \
+ configured login.
 
-This module is a standalone script that can be used to display login
-attributes
+This module is a stand-alone script that can be used to display login
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* outputs:
-    * login attributes in JSON format
+* Output:
+    * Login attributes in JSON format.
 
 .. function:: show_login_conf(session)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = f_port_login_settings_get.show_login_conf(session)
             print (ret)
@@ -47,24 +49,24 @@ attributes
             result = switch_conf_obj.get(session)
             return result
 
-        * inputs:
-            :param session: session returned by login.
+        * Input:
+            :param session: The session returned by login.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: Dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the f-port login parameters of switch.
+        1. Retrieve the F_Port login parameters of the switch.
 
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel_configuration as py_fc
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fibrechannel_configuration as py_fc
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 login = py_fc.f_port_login_settings
 

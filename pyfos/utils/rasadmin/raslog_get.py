@@ -15,32 +15,33 @@
 
 """
 
-:mod:`raslog_get` - PyFOS util for configuring raslog op use case.
+:mod:`raslog_get` - PyFOS util for retrieving the RASLog message.
 ***********************************************************************************
-The :mod:`raslog_get` provides for configuring raslog op use case.
+The :mod:`raslog_get` util provides for retrieving the RASLog message.
 
-This module is a standalone script that can be used to display raslog
-attributes
+This module is a stand-alone script that can be used to display RASLog message
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util scripts options:
-    * --message-id <message_id>, Optional message id for the raslog to retrieve
+* Util Script Options:
+    * --message-id <message_id>: Sets the message IS for the RASLog\
+                                  to retrieve.
 
-* outputs:
-    * raslog attributes in JSON format
+* Output:
+    * RASLog attributes in JSON format
 
 
 .. function:: show_raslog(session, msg_id)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = raslog_get.show_raslog(session, msg_id)
             print (ret)
@@ -50,24 +51,24 @@ attributes
             result = raslog_get.show_raslog(
               session, 'AUTH-1001')
 
-        * inputs:
-            :param session: session returned by login.
-            :param msg_id: Specific Raslog Message Id
+        * Input:
+            :param session: The session returned by the login.
+            :param msg_id: The specific RASLog message ID.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the raslog message.
+        1. Retrieves the RASLog message.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import raslog
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import raslog
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def show_raslog(session, msg_id):

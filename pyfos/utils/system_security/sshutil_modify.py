@@ -15,39 +15,42 @@
 
 """
 
-:mod:`sshutil_modify` - PyFOS util to modify allowed user, rekey interval
+:mod:`sshutil_modify` - PyFOS util to modify the allowed user and \
+rekey interval.
 **************************************************************************************
-The :mod:`sshutil_modify` used to modify allowed user, rekey interval.
+The :mod:`sshutil_modify` util is used to modify allowed user and \
+rekey interval.
 
-This module is a standalone script that can be used to modify public key,
-allowed user and rekey interval value.
+This module is a stand-alone script that can be used to modify the public key,
+allowed user, and rekey interval value.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
+* Util Script Options:
 
-  |    --user-name=USERNAME             User Name
-  |    --rekey-interval=INTERVAL        Rekey interval value
+  |    --user-name=USERNAME        Specifies the user name.
+  |    --rekey-interval=INTERVAL   Sets the rekey interval value.
 
-* outputs:
+* Output:
 
-    * Status of the sshutil  modify operation
+    * The status of the sshutil modify operation.
 
 .. function:: sshutil_modify.change_allowed_user(
                  session, user_name, rekey_interval)
 
-    * Change allowed user name in a switch
+    * Change the allowed user name in a switch.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = sshutil_modify.change_allowed_user(session, USERNAME)
             print (ret)
@@ -61,22 +64,22 @@ allowed user and rekey interval value.
             sshutil_obj.change_allowed_user(session, user_name)
             result = sshutil_obj.patch(session)
 
-        * inputs:
-            :param session: session returned by login.
-            :param user-name: user name.
+        * Input:
+            :param session: The session returned by the login.
+            :param user-name: The user name.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Changes the allowed user name for doing SSH operations
+        1. Changes the allowed user name for performing SSH operations.
 
 .. function:: sshutil_modify.change_rekey_interval(session, rekey_interval)
 
-    * Change the rekey interval duration
+    * Change the rekey interval duration.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = sshutil_modify.change_rekey_interval(session, REKEY)
             print (ret)
@@ -90,27 +93,28 @@ allowed user and rekey interval value.
             sshutil_obj.change_rekey_interval(session, rekey_interval)
             result = sshutil_obj.patch(session)
 
-        * inputs:
-            :param session: session returned by login.
-            :param rekey-interval: rekey interval duration
+        * Input:
+            :param session: The session returned by the login.
+            :param rekey-interval: The rekey interval duration.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Modifies rekey interval
+        1. Modifies the rekey interval.
+
     """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import sshutil
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _sshutil(session, restobject):
-        return restobject.patch(session)
+    return restobject.patch(session)
 
 
 def change_allowed_user(session, user_name):
@@ -145,11 +149,11 @@ def main(argv):
     # function names are lengthy and difficult to fit the
     # the line length less than 80 chars for flake8.
 
-    if (sshutil_obj.peek_rekey_interval() is None):
-        if (sshutil_obj.peek_allow_user_name() is None):
-                    print("Missing input(s)")
-                    print(inputs['utilusage'])
-                    sys.exit()
+    if sshutil_obj.peek_rekey_interval() is None:
+        if sshutil_obj.peek_allow_user_name() is None:
+            print("Missing input(s)")
+            print(inputs['utilusage'])
+            sys.exit()
 
     session = brcd_util.getsession(inputs)
 
@@ -160,4 +164,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

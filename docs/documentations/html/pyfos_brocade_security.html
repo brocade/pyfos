@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>&lt;no title&gt; &#8212; PyFOS 1.1.0 documentation</title>
+    <title>pyfos_brocade_security - PyFOS module to provide REST support forSystem Security. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -42,18 +42,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-pyfos_brocade_security"></span><dl class="docutils">
-<dt><a class="reference internal" href="#module-pyfos_brocade_security" title="pyfos_brocade_security: PyFOS module to manage FOS System Security (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_security</span></code></a> - PyFOS module to provide rest support for</dt>
-<dd>System Security.</dd>
-</dl>
+  <span class="target" id="module-pyfos_brocade_security"></span><div class="section" id="pyfos-brocade-security-pyfos-module-to-provide-rest-support-forsystem-security">
+<h1><a class="reference internal" href="#module-pyfos_brocade_security" title="pyfos_brocade_security: PyFOS module to manage FOS System Security (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_security</span></code></a> - PyFOS module to provide REST support forSystem Security.<a class="headerlink" href="#pyfos-brocade-security-pyfos-module-to-provide-rest-support-forsystem-security" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_security" title="pyfos_brocade_security: PyFOS module to manage FOS System Security (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_security</span></code></a> module provides REST support for System Security.</p>
 <dl class="class">
 <dt id="pyfos_brocade_security.auth_spec">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_security.</code><code class="descname">auth_spec</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.auth_spec" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>This class provides to configure the authentication mode and displaying</dt>
+<dt>This class configures the authentication mode and displays</dt>
 <dd>the authentication mode configuration.</dd>
 </dl>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -69,34 +68,34 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>authentication-mode</td>
-<td>Authentication mode for RADIUS,
-TACACS+ and LDAP</td>
+<td>The authentication mode for
+RADIUS, TACACS+, and LDAP.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.auth_spec.set_authentication_mode" title="pyfos_brocade_security.auth_spec.set_authentication_mode"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_authentication_mode()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.auth_spec.peek_authentication_mode" title="pyfos_brocade_security.auth_spec.peek_authentication_mode"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_authentication_mode()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>activate-no-log-out</td>
-<td>Change in the authentication
-mechanism</td>
+<td>A change in the authentication
+mechanism.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.auth_spec.set_activate_no_log_out" title="pyfos_brocade_security.auth_spec.set_activate_no_log_out"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_activate_no_log_out()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.auth_spec.peek_activate_no_log_out" title="pyfos_brocade_security.auth_spec.peek_activate_no_log_out"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_activate_no_log_out()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>primary-auth-log-messages</td>
-<td>Log messages for authentication
-failure</td>
+<td>The log messages for
+authentication failure.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.auth_spec.set_primary_auth_log_messages" title="pyfos_brocade_security.auth_spec.set_primary_auth_log_messages"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_primary_auth_log_messages()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.auth_spec.peek_primary_auth_log_messages" title="pyfos_brocade_security.auth_spec.peek_primary_auth_log_messages"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_primary_auth_log_messages()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_security.auth_spec.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.auth_spec.get" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return a <a class="reference internal" href="#pyfos_brocade_security.auth_spec" title="pyfos_brocade_security.auth_spec"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_spec</span></code></a> object filled with authentication</dt>
-<dd>config attributes.</dd>
+<dt>Returns a <a class="reference internal" href="#pyfos_brocade_security.auth_spec" title="pyfos_brocade_security.auth_spec"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_spec</span></code></a> object with authentication</dt>
+<dd>configuration attributes.</dd>
 </dl>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
 and individual attributes can be accessed through peek methods.</p>
@@ -104,10 +103,10 @@ and individual attributes can be accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_security.auth_spec" title="pyfos_brocade_security.auth_spec"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_spec</span></code></a> object or dictionary in case of error.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The <a class="reference internal" href="#pyfos_brocade_security.auth_spec" title="pyfos_brocade_security.auth_spec"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_spec</span></code></a> object or dictionary in case                      of error.</td>
 </tr>
 </tbody>
 </table>
@@ -116,11 +115,11 @@ and individual attributes can be accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.auth_spec.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.auth_spec.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace existing configuration authentication mode.
-Fields involved are set within the object using attribute’s
-set method. This method is used to modifying the existing
+<dd><p>Replaces an existing configuration authentication mode.
+The required fields are set within the object using the attribute’s
+set method. This method is used to modify the existing
 authentication mode configuration.</p>
-<p>Example usage of the method to configure response radiuslocal:</p>
+<p>Example Usage of the Method to Configure the Response radiuslocal:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">server_info</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">auth_spec</span><span class="p">()</span>
 <span class="c1"># set the mode of authentication</span>
@@ -134,29 +133,29 @@ authentication mode configuration.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_security.auth_spec.set_authentication_mode">
 <code class="descname">set_authentication_mode</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.auth_spec.set_authentication_mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets authentication mode  in the object.</p>
+<dd><p>Sets the authentication mode in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> – authentication mode  to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> – The authentication mode to be set within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -170,7 +169,7 @@ authentication mode configuration.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -179,14 +178,14 @@ authentication mode configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.auth_spec.set_activate_no_log_out">
 <code class="descname">set_activate_no_log_out</code><span class="sig-paren">(</span><em>bool</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.auth_spec.set_activate_no_log_out" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets authentication mechanism enable/disable in the object.</p>
+<dd><p>Sets the authentication mechanism to enable or disable in              the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bool</strong> – authentication mechanism to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bool</strong> – The authentication mechanism to be set within                          the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -200,7 +199,7 @@ authentication mode configuration.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -209,14 +208,14 @@ authentication mode configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.auth_spec.set_primary_auth_log_messages">
 <code class="descname">set_primary_auth_log_messages</code><span class="sig-paren">(</span><em>bool</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.auth_spec.set_primary_auth_log_messages" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets Log messages enable/disable value in the object.</p>
+<dd><p>Sets the log messages enable or disable value in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bool</strong> – Log message enable/disable to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bool</strong> – The log message enable or disable to be set within                           the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -230,7 +229,7 @@ authentication mode configuration.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -246,7 +245,7 @@ authentication mode configuration.</p>
 <dt>This class provides the ipfilter policy information and also can</dt>
 <dd>configure the ipfilter policies.</dd>
 </dl>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -255,58 +254,62 @@ authentication mode configuration.</p>
 <col width="43%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>name</td>
-<td>Policy name</td>
+<td>The policy name.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.set_name" title="pyfos_brocade_security.ipfilter_policy.set_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.peek_name" title="pyfos_brocade_security.ipfilter_policy.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>ip-version</td>
-<td>Policy IP version IPv4/IPv6</td>
+<td><dl class="first last docutils">
+<dt>The policy IP version</dt>
+<dd>(IPv4/IPv6).</dd>
+</dl>
+</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.set_ip_version" title="pyfos_brocade_security.ipfilter_policy.set_ip_version"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_ip_version()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.peek_ip_version" title="pyfos_brocade_security.ipfilter_policy.peek_ip_version"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ip_version()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>is-policy-active</td>
-<td>Indicates status of the policy
-Active/Defined</td>
+<td>Indicates the status of
+the policy (Active/Defined).</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.peek_is_policy_active" title="pyfos_brocade_security.ipfilter_policy.peek_is_policy_active"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_policy_active()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>is-default-policy</td>
-<td>Indicates default or user defined
-policy</td>
+<td>Indicates the default or user
+defined policy.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.peek_is_default_policy" title="pyfos_brocade_security.ipfilter_policy.peek_is_default_policy"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_default_policy()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>action</td>
-<td>Ipfilter actions such as commit,
-save, activate, and clone.</td>
+<td>The IPfilter action (commit,
+save, activate, and clone).</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.set_action" title="pyfos_brocade_security.ipfilter_policy.set_action"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_action()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>clone-destination-policy-name</td>
-<td>Destination policy name when
-clone action</td>
+<td>The destination policy name when
+using the clone action.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.set_clone_destination_policy_name" title="pyfos_brocade_security.ipfilter_policy.set_clone_destination_policy_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_clone_destination_policy_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy.peek_clone_destination_policy_name" title="pyfos_brocade_security.ipfilter_policy.peek_clone_destination_policy_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_clone_destination_policy_name()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_security.ipfilter_policy.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ipfilter_policy.get" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return a <a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy" title="pyfos_brocade_security.ipfilter_policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipfilter_policy</span></code></a> object filled with Ipfilter</dt>
+<dt>Returns a <a class="reference internal" href="#pyfos_brocade_security.ipfilter_policy" title="pyfos_brocade_security.ipfilter_policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipfilter_policy</span></code></a> object with the IPfilter</dt>
 <dd>policy attributes.</dd>
 </dl>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
-and individual attributes accessed through peek methods.</p>
-<p>Example usage of the method to get ipfilter policies:</p>
+and individual attributes are accessed through peek methods.</p>
+<p>Example Usage of the method to get ipfilter policies:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">ipfilter_obj</span><span class="o">=</span><span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">ipfilter_policy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
@@ -1262,10 +1265,10 @@ set method. This command is used to delete LDAP role mapping.</p>
 <dt id="pyfos_brocade_security.ldap_server">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_security.</code><code class="descname">ldap_server</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>This class is used to add, change, read and delete AAA</dt>
-<dd>ldap server configuration.</dd>
+<dt>This class is used to add, change, read, and delete AAA</dt>
+<dd>LDAP server configuration.</dd>
 </dl>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -1274,47 +1277,48 @@ set method. This command is used to delete LDAP role mapping.</p>
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>server</td>
-<td>Ldap server ip/FQDN</td>
+<td>The LDAP server IP/FQDN.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ldap_server.set_server" title="pyfos_brocade_security.ldap_server.set_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_server()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.ldap_server.peek_server" title="pyfos_brocade_security.ldap_server.peek_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_server()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>port</td>
-<td>Ldap server port</td>
+<td>The LDAP server port.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ldap_server.set_port" title="pyfos_brocade_security.ldap_server.set_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.ldap_server.peek_port" title="pyfos_brocade_security.ldap_server.peek_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>timeout</td>
-<td>Ldap server response timeout</td>
+<td>The LDAP server response
+timeout.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ldap_server.set_timeout" title="pyfos_brocade_security.ldap_server.set_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_timeout()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.ldap_server.peek_timeout" title="pyfos_brocade_security.ldap_server.peek_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_timeout()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>domain</td>
-<td>Ldap server domain name</td>
+<td>The LDAP server domain name.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ldap_server.set_domain" title="pyfos_brocade_security.ldap_server.set_domain"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_domain()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.ldap_server.peek_domain" title="pyfos_brocade_security.ldap_server.peek_domain"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_domain()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>position</td>
-<td>Ldap server position</td>
+<td>The LDAP server position.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.ldap_server.set_position" title="pyfos_brocade_security.ldap_server.set_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_position()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.ldap_server.peek_position" title="pyfos_brocade_security.ldap_server.peek_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_position()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_security.ldap_server.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.get" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return a <a class="reference internal" href="#pyfos_brocade_security.ldap_server" title="pyfos_brocade_security.ldap_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">ldap_server</span></code></a> object filled with Ldap Server</dt>
+<dt>Return a <a class="reference internal" href="#pyfos_brocade_security.ldap_server" title="pyfos_brocade_security.ldap_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">ldap_server</span></code></a> object with LDAP Server</dt>
 <dd>attributes.</dd>
 </dl>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
@@ -1323,11 +1327,10 @@ and individual attributes can be accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_security.ldap_server" title="pyfos_brocade_security.ldap_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">ldap_server</span></code></a> object if name is given or list of
-objects if there are more than one. Dictionary in case of error</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The <a class="reference internal" href="#pyfos_brocade_security.ldap_server" title="pyfos_brocade_security.ldap_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">ldap_server</span></code></a> object, if name is provided,                 or a list of objects if there is more than one.                 A dictionary in case of error.</td>
 </tr>
 </tbody>
 </table>
@@ -1336,11 +1339,11 @@ objects if there are more than one. Dictionary in case of error</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.post">
 <code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.post" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an ldap server entry. Fields involved are set
-within the object using attribute’s set method.
-This method is used to create a new ldap server configuration for
-AAA authentication to switch</p>
-<p>Example usage of the method to configure a new AAA ldap server:</p>
+<dd><p>Create an LDAP server entry. The required fields are set
+within the object using the attribute’s set method.
+This method is used to create a new LDAP server configuration for
+AAA authentication to the switch.</p>
+<p>Example Usage of the Method to Configure a New AAA LDAP Server:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">ldap_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">ldap_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -1354,10 +1357,10 @@ AAA authentication to switch</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1366,10 +1369,10 @@ AAA authentication to switch</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Edit existing configuration. Fields involved are set within
-the object using attribute’s set method. This method is used to
-modifying the existing ldap server configuration.</p>
-<p>Example usage of the method to configure response timeout:</p>
+<dd><p>Edit an existing configuration. The required fields are set within
+the object using the attribute’s set method. This method is used to
+modify the existing LDAP server configuration.</p>
+<p>Example Usage of the Method to Configure the Response Timeout:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">ldap_info</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">ldap_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -1381,7 +1384,7 @@ modifying the existing ldap server configuration.</p>
 <span class="n">ldap_info</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Below is an example of combining object initialization                     and attribute sets:</em></p>
+<p><em>Below is an Example of Combining Object Initialization                     and Attribute Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># set the payload</span>
 <span class="n">ldap_info</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">ldap_server</span><span class="p">(</span>
     <span class="p">{</span><span class="s2">&quot;server&quot;</span> <span class="p">:</span> <span class="mf">10.70</span><span class="o">.</span><span class="mf">12.115</span><span class="p">,</span>
@@ -1394,10 +1397,10 @@ modifying the existing ldap server configuration.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1406,11 +1409,11 @@ modifying the existing ldap server configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.delete">
 <code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a ldap server entry. Fields involved are
-set within the object using attribute’s
-set method. This method is used to delete a ldap server
+<dd><p>Delete an LDAP server entry. The required fields are
+set within the object using the attribute’s
+set method. This method is used to delete an LDAP server
 configuration.</p>
-<p>Example usage of the method to delete an ldap configuration:</p>
+<p>Example Usage of the Method to Delete an LDAP Configuration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">ldap_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">ldap_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -1423,19 +1426,19 @@ configuration.</p>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.set_server">
 <code class="descname">set_server</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.set_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets ldap name in the object.</p>
+<dd><p>Sets the LDAP name in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – ldap FQDN/ip to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – the LDAP FQDN/IP to be set within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1444,12 +1447,12 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.peek_server">
 <code class="descname">peek_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.peek_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the ldap server from the object.</p>
+<dd><p>Reads the LDAP server from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1458,14 +1461,14 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.set_port">
 <code class="descname">set_port</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.set_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets ldap server port number in the object.</p>
+<dd><p>Sets the LDAP server port number in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> – ldap server port number to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> – The LDAP server port number to be set within                             the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1474,12 +1477,12 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.peek_port">
 <code class="descname">peek_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.peek_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the ldap server port number from the object.</p>
+<dd><p>Reads the LDAP server port number from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1488,14 +1491,14 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.set_timeout">
 <code class="descname">set_timeout</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.set_timeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets ldap server response timeout value in the object.</p>
+<dd><p>Sets the LDAP server response timeout value in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – ldap server timeout value to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The LDAP server timeout value to be set within                           the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1504,12 +1507,12 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.peek_timeout">
 <code class="descname">peek_timeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.peek_timeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the ldap server timeout from the object.</p>
+<dd><p>Reads the LDAP server timeout from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1518,14 +1521,14 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.set_domain">
 <code class="descname">set_domain</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.set_domain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets ldap server domain name in the object.</p>
+<dd><p>Sets the LDAP server domain name in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>domain</strong> – ldap server domain name to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>domain</strong> – The LDAP server domain name to be set within                            the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1534,12 +1537,12 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.peek_domain">
 <code class="descname">peek_domain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.peek_domain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the ldap server domain name from the object.</p>
+<dd><p>Reads the LDAP server domain name from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1548,14 +1551,14 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.set_position">
 <code class="descname">set_position</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.set_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets ldap server position in the object.</p>
+<dd><p>Sets the LDAP server position in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> – ldap server position to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> – The LDAP server position to be set within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1564,12 +1567,12 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.ldap_server.peek_position">
 <code class="descname">peek_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.ldap_server.peek_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the ldap server position from the object.</p>
+<dd><p>Reads the LDAP server position from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2622,10 +2625,10 @@ from the object.</p>
 <dt id="pyfos_brocade_security.radius_server">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_security.</code><code class="descname">radius_server</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>This class is used to add, change, read and delete AAA</dt>
-<dd>radius server configuration.</dd>
+<dt>This class is used to add, change, read, and delete an AAA</dt>
+<dd>RADIUS server configuration.</dd>
 </dl>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -2634,57 +2637,59 @@ from the object.</p>
 <col width="37%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>server</td>
-<td>Radius server ip/FQDN</td>
+<td>The RADIUS server IP/FQDN.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.radius_server.set_server" title="pyfos_brocade_security.radius_server.set_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_server()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.radius_server.peek_server" title="pyfos_brocade_security.radius_server.peek_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_server()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>port</td>
-<td>Radius server port</td>
+<td>The RADIUS server port.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.radius_server.set_port" title="pyfos_brocade_security.radius_server.set_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.radius_server.peek_port" title="pyfos_brocade_security.radius_server.peek_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>secret</td>
-<td>Secret between switch and server</td>
+<td>The secret between the switch
+and the server.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.radius_server.set_secret" title="pyfos_brocade_security.radius_server.set_secret"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_secret()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.radius_server.peek_secret" title="pyfos_brocade_security.radius_server.peek_secret"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_secret()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>timeout</td>
-<td>Radius server response timeout</td>
+<td>The RADIUS server response
+timeout.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.radius_server.set_timeout" title="pyfos_brocade_security.radius_server.set_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_timeout()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.radius_server.peek_timeout" title="pyfos_brocade_security.radius_server.peek_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_timeout()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>authentication</td>
-<td>Authentication protocol</td>
+<td>The authentication protocol.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.radius_server.set_authentication" title="pyfos_brocade_security.radius_server.set_authentication"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_authentication()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.radius_server.peek_authentication" title="pyfos_brocade_security.radius_server.peek_authentication"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_authentication()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>encryption-type</td>
-<td>Encryption type</td>
+<td>The encryption type.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.radius_server.set_encryption_type" title="pyfos_brocade_security.radius_server.set_encryption_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_encryption_type()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.radius_server.peek_encryption_type" title="pyfos_brocade_security.radius_server.peek_encryption_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_encryption_type()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>position</td>
-<td>Radius server position</td>
+<td>The RADIUS server position.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.radius_server.set_position" title="pyfos_brocade_security.radius_server.set_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_position()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.radius_server.peek_position" title="pyfos_brocade_security.radius_server.peek_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_position()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_security.radius_server.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.get" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return a <a class="reference internal" href="#pyfos_brocade_security.radius_server" title="pyfos_brocade_security.radius_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">radius_server</span></code></a> object filled with Radius Server</dt>
+<dt>Return a <a class="reference internal" href="#pyfos_brocade_security.radius_server" title="pyfos_brocade_security.radius_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">radius_server</span></code></a> object with RADIUS server</dt>
 <dd>attributes.</dd>
 </dl>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
@@ -2693,11 +2698,9 @@ and individual attributes can be accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by the                 <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_security.radius_server" title="pyfos_brocade_security.radius_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">radius_server</span></code></a> object if name is given or list of
-objects if there are more than one. Dictionary in case of error</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The <a class="reference internal" href="#pyfos_brocade_security.radius_server" title="pyfos_brocade_security.radius_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">radius_server</span></code></a> object, if name is provided,                      or list of objects if there is more than one.                      A dictionary in case of error.</td>
 </tr>
 </tbody>
 </table>
@@ -2706,11 +2709,11 @@ objects if there are more than one. Dictionary in case of error</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.post">
 <code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.post" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an radius server entry. Fields involved are set
-within the object using attribute’s set method.
-This method is used to create a new radius server configuration for
-AAA authentication to switch</p>
-<p>Example usage of the method to configure a new AAA radius server:</p>
+<dd><p>Create a RADIUS server entry. The required fields are set
+within the object using the attribute’s set method.
+This method is used to create a new RADIUS server configuration for
+AAA authentication to a switch.</p>
+<p>Example Usage of the Method to Configure a New AAA RADIUS server:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">radius_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">radius_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -2724,10 +2727,9 @@ AAA authentication to switch</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by the                 <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2736,10 +2738,10 @@ AAA authentication to switch</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Edit existing configuration. Fields involved are set within
-the object using attribute’s set method. This method is used to
-modifying the existing Radius server configuration.</p>
-<p>Example usage of the method to configure response timeout:</p>
+<dd><p>Edit an existing configuration. The required fields are set within
+the object using the attribute’s set method. This method is used to
+modify the existing RADIUS server configuration.</p>
+<p>Example Usage of the Method to Configure Response Timeout:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">radius_info</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">radius_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -2751,7 +2753,7 @@ modifying the existing Radius server configuration.</p>
 <span class="n">radius_info</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Below is an example of combining object initialization                     and attribute sets:</em></p>
+<p><em>Below is an Example of Combining Object Initialization                     and Attribute Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># set the payload</span>
 <span class="n">radius_info</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">radius_server</span><span class="p">(</span>
     <span class="p">{</span><span class="s2">&quot;server&quot;</span> <span class="p">:</span> <span class="mf">10.70</span><span class="o">.</span><span class="mf">12.115</span><span class="p">,</span>
@@ -2764,10 +2766,9 @@ modifying the existing Radius server configuration.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by the                 <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2776,11 +2777,11 @@ modifying the existing Radius server configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.delete">
 <code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a radius server entry. Fields involved are
+<dd><p>Delete a RADIUS server entry. Fields involved are
 set within the object using attribute’s
-set method. This method is used to delete a radius server
+set method. This method is used to delete a RADIUS server
 configuration.</p>
-<p>Example usage of the method to delete an radius configuration:</p>
+<p>Example usage of the method to delete an RADIUS configuration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">radius_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">radius_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -2793,19 +2794,19 @@ configuration.</p>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_security.radius_server.set_server">
 <code class="descname">set_server</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.set_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets radius name in the object.</p>
+<dd><p>Sets the RADIUS name in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – radius server FQDN/ip to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – The RADIUS server FQDN/IP to be set within the object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2814,12 +2815,12 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.peek_server">
 <code class="descname">peek_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.peek_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the radius server from the object.</p>
+<dd><p>Reads the RADIUS server from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2828,15 +2829,15 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.set_port">
 <code class="descname">set_port</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.set_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets radius server port number in the object.</p>
+<dd><p>Sets the RADIUS server port number in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> – radius server port number to be set within the
-object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> – The RADIUS server port number to be set within the
+object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2845,12 +2846,12 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.peek_port">
 <code class="descname">peek_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.peek_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the radius server port number from the object.</p>
+<dd><p>Reads the RADIUS server port number from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2859,14 +2860,14 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.set_secret">
 <code class="descname">set_secret</code><span class="sig-paren">(</span><em>secret</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.set_secret" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets radius server secret in the object.</p>
+<dd><p>Sets the RADIUS server secret in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>secret</strong> – radius server secret to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>secret</strong> – The RADIUS server secret to be set within the object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2875,12 +2876,12 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.peek_secret">
 <code class="descname">peek_secret</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.peek_secret" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the radius server secret from the object.</p>
+<dd><p>Reads the RADIUS server secret from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2889,15 +2890,15 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.set_timeout">
 <code class="descname">set_timeout</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.set_timeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets radius server response timeout value in the object.</p>
+<dd><p>Sets the RADIUS server response timeout value in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – radius server timeout value to be set within the
-object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The RADIUS server timeout value to be set within the
+object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2906,12 +2907,12 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.peek_timeout">
 <code class="descname">peek_timeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.peek_timeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the radius server timeout from the object.</p>
+<dd><p>Reads the RADIUS server timeout from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2920,15 +2921,14 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.set_authentication">
 <code class="descname">set_authentication</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.set_authentication" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets radius server authentication protocol type in the object.</p>
+<dd><p>Sets the RADIUS server authentication protocol type in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>protocol</strong> – radius server authentication protocol type to be
-set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>protocol</strong> – the RADIUS server authentication protocol type                           to be set within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2937,13 +2937,13 @@ set within the object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.peek_authentication">
 <code class="descname">peek_authentication</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.peek_authentication" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the radius server authentication protocol type from the
-object</p>
+<dd><p>Reads the RADIUS server authentication protocol type from the
+object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2952,15 +2952,15 @@ object</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.set_encryption_type">
 <code class="descname">set_encryption_type</code><span class="sig-paren">(</span><em>encrypt</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.set_encryption_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets radius server encryption type in the object.</p>
+<dd><p>Sets the RADIUS server encryption type in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>encrypt</strong> – radius server encryption type to be set within
-the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>encrypt</strong> – The RADIUS server encryption type to be set within
+the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2969,12 +2969,12 @@ the object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.peek_encryption_type">
 <code class="descname">peek_encryption_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.peek_encryption_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the radius server encryption type from the object.</p>
+<dd><p>Reads the RADIUS server encryption type from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -2983,15 +2983,15 @@ the object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.set_position">
 <code class="descname">set_position</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.set_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets radius server position in the object.</p>
+<dd><p>Sets the RADIUS server position in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> – radius server position to be set within
-the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> – The RADIUS server position to be set within
+the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -3000,12 +3000,12 @@ the object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.radius_server.peek_position">
 <code class="descname">peek_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.radius_server.peek_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the radius server position from the object.</p>
+<dd><p>Reads the RADIUS server position from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -4140,47 +4140,42 @@ https/radius/ldap/syslog)</td>
 <td>hash type</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.set_hash_type" title="pyfos_brocade_security.security_certificate_generate.set_hash_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_hash_type()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>certificate-name</td>
-<td>certificate name</td>
-<td><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_certificate_name()</span></code>
-<code class="xref py py-func docutils literal notranslate"><span class="pre">set_certificate_name()</span></code></td>
-</tr>
-<tr class="row-even"><td>years</td>
+<tr class="row-odd"><td>years</td>
 <td>certificate validity</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.peek_years" title="pyfos_brocade_security.security_certificate_generate.peek_years"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_years()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.set_years" title="pyfos_brocade_security.security_certificate_generate.set_years"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_years()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>country-name</td>
+<tr class="row-even"><td>country-name</td>
 <td>Country name
 Needed only for generating CSR</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.set_country_name" title="pyfos_brocade_security.security_certificate_generate.set_country_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_country_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.peek_country_name" title="pyfos_brocade_security.security_certificate_generate.peek_country_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_country_name()</span></code></a></td>
 </tr>
-<tr class="row-even"><td>state-name</td>
+<tr class="row-odd"><td>state-name</td>
 <td>State name
 Needed only for generating CSR</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.set_state_name" title="pyfos_brocade_security.security_certificate_generate.set_state_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_state_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.peek_state_name" title="pyfos_brocade_security.security_certificate_generate.peek_state_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_state_name()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>locality-name</td>
+<tr class="row-even"><td>locality-name</td>
 <td>Locality name
 Needed only for generating CSR</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.set_locality_name" title="pyfos_brocade_security.security_certificate_generate.set_locality_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_locality_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.peek_locality_name" title="pyfos_brocade_security.security_certificate_generate.peek_locality_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_locality_name()</span></code></a></td>
 </tr>
-<tr class="row-even"><td>organization-name</td>
+<tr class="row-odd"><td>organization-name</td>
 <td>Organization name
 Needed only for generating CSR</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.set_organization_name" title="pyfos_brocade_security.security_certificate_generate.set_organization_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_organization_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.peek_organization_name" title="pyfos_brocade_security.security_certificate_generate.peek_organization_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_organization_name()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>unit-name</td>
+<tr class="row-even"><td>unit-name</td>
 <td>Unit name
 Needed only for generating CSR</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.set_unit_name" title="pyfos_brocade_security.security_certificate_generate.set_unit_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_unit_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.peek_unit_name" title="pyfos_brocade_security.security_certificate_generate.peek_unit_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unit_name()</span></code></a></td>
 </tr>
-<tr class="row-even"><td>domain-name</td>
+<tr class="row-odd"><td>domain-name</td>
 <td>domain name
 Needed only for generating CSR</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.security_certificate_generate.set_domain_name" title="pyfos_brocade_security.security_certificate_generate.set_domain_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_domain_name()</span></code></a>
@@ -5379,10 +5374,10 @@ Export public key from switch to a remote host.</p>
 <dt id="pyfos_brocade_security.tacacs_server">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_security.</code><code class="descname">tacacs_server</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>This class is used to add, change, read and delete AAA</dt>
-<dd>tacacs+ server configuration.</dd>
+<dt>This class is used to add, change, read, and delete an AAA</dt>
+<dd>TACACS+ server configuration.</dd>
 </dl>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -5391,56 +5386,58 @@ Export public key from switch to a remote host.</p>
 <col width="37%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>server</td>
-<td>Tacacs+ server ip/FQDN</td>
+<td>The TACACS+ server IP/FQDN.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.tacacs_server.set_server" title="pyfos_brocade_security.tacacs_server.set_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_server()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.tacacs_server.peek_server" title="pyfos_brocade_security.tacacs_server.peek_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_server()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>port</td>
-<td>Tacacs+ server port</td>
+<td>The TACACS+ server port.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.tacacs_server.set_port" title="pyfos_brocade_security.tacacs_server.set_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.tacacs_server.peek_port" title="pyfos_brocade_security.tacacs_server.peek_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>secret</td>
-<td>Secret between switch and server</td>
+<td>The secret between the switch
+and the server.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.tacacs_server.set_secret" title="pyfos_brocade_security.tacacs_server.set_secret"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_secret()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.tacacs_server.peek_secret" title="pyfos_brocade_security.tacacs_server.peek_secret"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_secret()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>timeout</td>
-<td>Tacacs+ server response timeout</td>
+<td>The TACACS+ server response
+timeout.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.tacacs_server.set_timeout" title="pyfos_brocade_security.tacacs_server.set_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_timeout()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.tacacs_server.peek_timeout" title="pyfos_brocade_security.tacacs_server.peek_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_timeout()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>authentication</td>
-<td>Authentication protocol</td>
+<td>The authentication protocol.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.tacacs_server.set_authentication" title="pyfos_brocade_security.tacacs_server.set_authentication"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_authentication()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.tacacs_server.peek_authentication" title="pyfos_brocade_security.tacacs_server.peek_authentication"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_authentication()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>encryption-type</td>
-<td>Encryption type</td>
+<td>The encryption type.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.tacacs_server.set_encryption_type" title="pyfos_brocade_security.tacacs_server.set_encryption_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_encryption_type()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.tacacs_server.peek_encryption_type" title="pyfos_brocade_security.tacacs_server.peek_encryption_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_encryption_type()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>position</td>
-<td>Tacacs+ server position</td>
+<td>The TACACS+ server position.</td>
 <td><a class="reference internal" href="#pyfos_brocade_security.tacacs_server.set_position" title="pyfos_brocade_security.tacacs_server.set_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_position()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_security.tacacs_server.peek_position" title="pyfos_brocade_security.tacacs_server.peek_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_position()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_security.tacacs_server.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_security.tacacs_server" title="pyfos_brocade_security.tacacs_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">tacacs_server</span></code></a> object filled with Tacacs+ Server
+<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_security.tacacs_server" title="pyfos_brocade_security.tacacs_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">tacacs_server</span></code></a> object with TACACS+ Server
 attributes.</p>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
 and individual attributes can be accessed through peek methods.</p>
@@ -5448,11 +5445,10 @@ and individual attributes can be accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#pyfos_brocade_security.tacacs_server" title="pyfos_brocade_security.tacacs_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">tacacs_server</span></code></a> object if name is given or list of
-objects if there are more than one. Dictionary in case of error</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">The <a class="reference internal" href="#pyfos_brocade_security.tacacs_server" title="pyfos_brocade_security.tacacs_server"><code class="xref py py-class docutils literal notranslate"><span class="pre">tacacs_server</span></code></a> object, if name is provided,                 or a list of objects if there is more than one.                 A dictionary in case of error.</td>
 </tr>
 </tbody>
 </table>
@@ -5461,11 +5457,11 @@ objects if there are more than one. Dictionary in case of error</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.post">
 <code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.post" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an tacacs+ server entry. Fields involved are set
-within the object using attribute’s set method.
-This method is used to create a new tacacs+ server configuration
-for AAA authentication to switch</p>
-<p>Example usage of the method to configure a new AAA tacacs+ server:</p>
+<dd><p>Create a TACACS+ server entry. The required fields are set
+within the object using the attribute’s set method.
+This method is used to create a new TACACS+ server configuration
+for AAA authentication to the switch.</p>
+<p>Example Usage of the Method to Configure a New AAA TACACS+ Server:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">tacacs_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">tacacs_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -5479,10 +5475,10 @@ for AAA authentication to switch</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5491,10 +5487,9 @@ for AAA authentication to switch</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Edit existing configuration. Fields involved are set within
-the object using attribute’s set method. This method is used to
-modifying the existing Tacacs+ server configuration.</p>
-<p>Example usage of the method to configure response timeout:</p>
+<dd><p>Edit an existing configuration. The required fields are set within
+the object using the attribute’s set method. This method is used             to modify the existing TACACS+ server configuration.</p>
+<p>Example Usage of the Method to Configure a Response Timeout:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">tacacs_info</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">tacacs_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -5506,7 +5501,7 @@ modifying the existing Tacacs+ server configuration.</p>
 <span class="n">tacacs_info</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Below is an example of combining object initialization                     and attribute sets:</em></p>
+<p><em>Below is an Example of Combining Object Initialization                     and Attribute Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># set the payload</span>
 <span class="n">tacacs_info</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">tacacs_server</span><span class="p">(</span>
     <span class="p">{</span><span class="s2">&quot;server&quot;</span> <span class="p">:</span> <span class="mf">10.70</span><span class="o">.</span><span class="mf">12.115</span><span class="p">,</span>
@@ -5519,10 +5514,10 @@ modifying the existing Tacacs+ server configuration.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5531,11 +5526,9 @@ modifying the existing Tacacs+ server configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.delete">
 <code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a tacacs+ server entry. Fields involved are
-set within the object using attribute’s
-set method. This method is used to delete a tacacs+ server
-configuration.</p>
-<p>Example usage of the method to delete an tacacs+ configuration:</p>
+<dd><p>Delete a TACACS+ server entry. The required fields are
+set within the object using the attribute’s set method.             This method is used to delete a TACACS+ server configuration.</p>
+<p>Example Usage of the Method to Delete an TACACS+ Configuration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the switch object</span>
 <span class="n">tacacs_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_security</span><span class="o">.</span><span class="n">tacacs_server</span><span class="p">()</span>
 <span class="c1"># set the server FQDN/ip</span>
@@ -5548,19 +5541,19 @@ configuration.</p>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.set_server">
 <code class="descname">set_server</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.set_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets tacacs+ name in the object.</p>
+<dd><p>Sets the TACACS+ name in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – tacacs+ FQDN/ip to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – The TACACS+ FQDN/IP to be set within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5569,12 +5562,12 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.peek_server">
 <code class="descname">peek_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.peek_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the tacacs+ server from the object.</p>
+<dd><p>Reads the TACACS+ server from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5583,15 +5576,15 @@ configuration.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.set_port">
 <code class="descname">set_port</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.set_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets tacacs+ server port number in the object.</p>
+<dd><p>Sets The TACACS+ server port number in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> – tacacs+ server port number to be set within the
-object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> – The TACACS+ server port number to be set within the
+object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5600,12 +5593,12 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.peek_port">
 <code class="descname">peek_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.peek_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the tacacs+ server port number from the object.</p>
+<dd><p>Reads the TACACS+ server port number from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5614,14 +5607,14 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.set_secret">
 <code class="descname">set_secret</code><span class="sig-paren">(</span><em>secret</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.set_secret" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets tacacs+ server secret in the object.</p>
+<dd><p>Sets the TACACS+ server secret in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>secret</strong> – tacacs+ server secret to be set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>secret</strong> – The TACACS+ server secret to be set within                            the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5630,12 +5623,12 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.peek_secret">
 <code class="descname">peek_secret</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.peek_secret" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the tacacs+ server secret from the object.</p>
+<dd><p>Reads the TACACS+ server secret from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5644,15 +5637,15 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.set_timeout">
 <code class="descname">set_timeout</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.set_timeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets tacacs+ server response timeout value in the object.</p>
+<dd><p>Sets the TACACS+ server response timeout value in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – tacacs+ server timeout value to be set within the
-object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The TACACS+ server timeout value to be set within the
+object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5661,12 +5654,12 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.peek_timeout">
 <code class="descname">peek_timeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.peek_timeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the tacacs+ server timeout from the object.</p>
+<dd><p>Reads the TACACS+ server timeout from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5675,15 +5668,14 @@ object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.set_authentication">
 <code class="descname">set_authentication</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.set_authentication" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets tacacs+ server authentication protocol type in the object.</p>
+<dd><p>Sets the TACACS+ server authentication protocol type in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>protocol</strong> – tacacs+ server authentication protocol type to be
-set within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>protocol</strong> – The TACACS+ server authentication protocol type                           to be set within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5692,13 +5684,13 @@ set within the object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.peek_authentication">
 <code class="descname">peek_authentication</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.peek_authentication" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the tacacs+ server authentication protocol type from the
+<dd><p>Reads the TACACS+ server authentication protocol type from the
 object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5707,15 +5699,15 @@ object.</p>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.set_encryption_type">
 <code class="descname">set_encryption_type</code><span class="sig-paren">(</span><em>encrypt</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.set_encryption_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets tacacs+ server encryption type in the object.</p>
+<dd><p>Sets the TACACS+ server encryption type in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>encrypt</strong> – tacacs+ server encryption type to be set within
-the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>encrypt</strong> – The TACACS+ server encryption type to be set within
+the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5724,12 +5716,12 @@ the object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.peek_encryption_type">
 <code class="descname">peek_encryption_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.peek_encryption_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the tacacs+ server encryption type from the object.</p>
+<dd><p>Reads the TACACS+ server encryption type from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5738,15 +5730,15 @@ the object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.set_position">
 <code class="descname">set_position</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.set_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets tacacs+ server position in the object.</p>
+<dd><p>Sets the TACACS+ server position in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> – tacacs+ server position to be set within
-the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> – The TACACS+ server position to be set within
+the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -5755,12 +5747,12 @@ the object</td>
 <dl class="method">
 <dt id="pyfos_brocade_security.tacacs_server.peek_position">
 <code class="descname">peek_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_security.tacacs_server.peek_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the tacacs+ server position from the object.</p>
+<dd><p>Reads the TACACS+ server position from the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -6704,6 +6696,7 @@ from the object.</p>
 </div></blockquote>
 </dd></dl>
 
+</div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
@@ -6764,7 +6757,7 @@ from the object.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

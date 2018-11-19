@@ -15,34 +15,34 @@
 
 """
 
-:mod:`ha_status_show` - PyFOS util to display HA status of switch.
+:mod:`ha_status_show` - PyFOS util to display the HA status of the switch.
 ***********************************************************************************
-The :mod:`ha_status_show` provides HA status information of switch.
+The :mod:`ha_status_show` displays the HA status of the switch.
 
-This module is a standalone script that can be used to get the HA status of
-the switch
+This module is a stand-alone script that can be used to display the HA status \
+of the switch.
 
 
-| Infrastructure options:
-    * -L=<login>: Login ID. If not provided, interactive
+| Infrastructure Options:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -n=<port name>: <slot>/<port> name of the port
-    * -u=<user name>: string name to be assigned to switch
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -n=<port name>: The <slot>/<port> name of the port.
+    * -u=<user name>: The string name to be assigned to switch
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 """
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_chassis import ha_status
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_chassis import ha_status
+from pyfos.utils import brcd_util
 
 
 def show_ha_status(session):
@@ -64,4 +64,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-            main(sys.argv[1:])
+    main(sys.argv[1:])

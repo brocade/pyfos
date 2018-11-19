@@ -61,10 +61,10 @@ This module can be used to display the policy information.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_access_gateway import policy
-import pyfos.utils.brcd_util as brcd_util
 
 
 def show_policy(session):

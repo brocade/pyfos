@@ -19,36 +19,36 @@
 
 :mod:`extension_ip_route_create` - PyFOS util for creating an IP route.
 ********************************************************************************
-The :mod:`extension_ip_route_create` Util is used to create an IP route.
+The :mod:`extension_ip_route_create` util is used to create an IP route.
 
 This module is a stand-alone script that can be used to create an IP route.
 
 extension_ip_route_create.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name.
-    * -g,--ip-gateway=VALUE: Set ip-gateway.
-    * -p,--ip-prefix-length=VALUE: Set ip-prefix-length.
-    * -d,--dp-id=VALUE: Set dp-id.
-    *    --ip-address=VALUE: Set ip-address.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name.
+    * -g,--ip-gateway=VALUE: Sets the IP gateway.
+    * -p,--ip-prefix-length=VALUE: Sets the IP prefix length.
+    * -d,--dp-id=VALUE: Sets the DP ID.
+    *    --ip-address=VALUE: Sets the ID address.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_ip_route_create.create_extension_ip_route(session,\
 name, dp, ip, prefix, gateway)
 
-    *Create extension IP route*
+    *Create an Extension IP Route*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = extension_ip_route_create.create_extension_ip_route(
                 session, name,dp, ip, prefix, gateway)
@@ -66,73 +66,69 @@ name, dp, ip, prefix, gateway)
             result = extension_ip_route_create._create_extension_ip_route(
             session, IProute)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: GE port name expressed as slot/port.
-            :param dp-id: DP Instance.
-            :param ip: Extension IP-Address.
-            :param prefix: Prefix length for the IP Address.
-            :param gateway: IP address gateway.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the GE_Port name expressed as slot/port.
+            :param dp-id: Sets the DP instance.
+            :param ip: Sets the extension IP address.
+            :param prefix: Sets the prefix length for the IP address.
+            :param gateway: Sets the IP address of the gateway.
 
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
-         Create an new extension IP route.
+         Create a new extension IP route.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_ip_route import extension_ip_route
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_ip_route import extension_ip_route
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"
 
 
 def _create_extension_ip_route(session, iprouteobject):
-        result = iprouteobject.post(session)
-        return result
+    result = iprouteobject.post(session)
+    return result
 
 
 def create_extension_ip_route(session, name, dp, ip, prefix, gateway):
-        value_dict = value_dict = {'name': name, 'dp-id': dp, 'ip-address': ip,
-                                   'ip-prefix-length': prefix,
-                                   'ip-gateway': gateway}
-        iprouteobject = extension_ip_route(value_dict)
-        result = _create_extension_ip_route(session, iprouteobject)
-        return result
+    value_dict = value_dict = {'name': name, 'dp-id': dp, 'ip-address': ip,
+                               'ip-prefix-length': prefix,
+                               'ip-gateway': gateway}
+    iprouteobject = extension_ip_route(value_dict)
+    result = _create_extension_ip_route(session, iprouteobject)
+    return result
 
 
 def validate(iprouteobject):
-        if iprouteobject.peek_name() is None or \
-           iprouteobject.peek_dp_id() is None or \
-           iprouteobject.peek_ip_prefix_length() is None or \
-           iprouteobject.peek_ip_address() is None or \
-           iprouteobject.peek_ip_gateway() is None:
-            return 1
-        return 0
+    if iprouteobject.peek_name() is None or iprouteobject.peek_dp_id() is None or iprouteobject.peek_ip_prefix_length() is None or iprouteobject.peek_ip_address() is None or iprouteobject.peek_ip_gateway() is None:
+        return 1
+    return 0
 
 
 def main(argv):
-        # myinput = str("-h -i 10.17.3.70  -n 4/17 -d 0 " +
-        #               "--ip-address 154.10.10.0 " +
-        #               "-g 134.10.10.25 -p 24 ")
-        # argv = myinput.split()
-        filters = ["name", "ip_prefix_length", "ip_address", "dp_id",
-                   "ip_gateway"]
-        inputs = brcd_util.parse(argv, extension_ip_route, filters, validate)
-        iprouteobject = inputs['utilobject']
-        session = brcd_util.getsession(inputs)
-        result = _create_extension_ip_route(session, iprouteobject)
-        pyfos_util.response_print(result)
-        pyfos_auth.logout(session)
+    # myinput = str("-h -i 10.17.3.70  -n 4/17 -d 0 " +
+    #               "--ip-address 154.10.10.0 " +
+    #               "-g 134.10.10.25 -p 24 ")
+    # argv = myinput.split()
+    filters = ["name", "ip_prefix_length", "ip_address", "dp_id",
+               "ip_gateway"]
+    inputs = brcd_util.parse(argv, extension_ip_route, filters, validate)
+    iprouteobject = inputs['utilobject']
+    session = brcd_util.getsession(inputs)
+    result = _create_extension_ip_route(session, iprouteobject)
+    pyfos_util.response_print(result)
+    pyfos_auth.logout(session)
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

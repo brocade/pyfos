@@ -25,8 +25,8 @@ class pyfos_type():
     type_float = 9
     type_hex_str = 10
 
-    def __init__(self, pyfos_type):
-        self.pyfos_type = pyfos_type
+    def __init__(self, my_pyfos_type):
+        self.pyfos_type = my_pyfos_type
 
     def get_type(self):
         return self.pyfos_type
@@ -54,8 +54,12 @@ class pyfos_type():
             return "float"
         elif self.pyfos_type == pyfos_type.type_hex_str:
             return "hex_str"
+        else:
+            return "unknown"
 
-    def vaildate_set(self, value):
+    # def validate_set(self, value):
+    def validate_set(self):
+        # add check if the value being set is valid
         return True
 
     def __validate_peek_help(self, cur_type, value):
@@ -123,6 +127,8 @@ class pyfos_type():
                 return True, cur_value
         else:
             return False, None
+
+        return False, None
 
     def validate_peek(self, value):
         if isinstance(self.pyfos_type, list):

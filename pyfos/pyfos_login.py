@@ -14,7 +14,7 @@
 import http.client as httplib
 import base64
 import ssl
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_util
 
 LOGIN_RESTCONF = "/rest/login"
 LOGOUT_RESTCONF = "/rest/logout"

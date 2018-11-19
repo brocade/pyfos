@@ -15,29 +15,31 @@
 
 """
 
-:mod:`log_setting_keep_alive_period_get` - PyFOS util for setting alive period
-******************************************************************************
-The :mod:`log_setting_keep_alive_period_get` provides for configuring period
+:mod:`log_setting_keep_alive_period_get` - PyFOS util for setting the\
+ alive period.
+***********************************************************************************
+The :mod:`log_setting_keep_alive_period_get` util provides for configuring\
+ the alive period.
 
-This module is a standalone script that can be used to display log_setting
-attributes
+This module is a stand-alone script that can be used to display log setting
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* outputs:
-    * log_setting attributes in JSON format
+* Output:
+    * Log setting attributes in JSON format.
 
 
 .. function:: show_alive_period(session)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = log_setting_keep_alive_period_get.show_alive_period(session)
             print (ret)
@@ -47,23 +49,23 @@ attributes
             result = log_setting_keep_alive_period_get.show_alive_period(
                     session)
 
-        * inputs:
-            :param session: session returned by login.
+        * Input:
+            :param session: The session returned by the login.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the keep alive period of the raslog
+        1. Retrieve the keep alive period of the RASLog.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import log_setting
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import log_setting
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def show_alive_period(session):

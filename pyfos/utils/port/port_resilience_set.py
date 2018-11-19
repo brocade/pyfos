@@ -40,12 +40,12 @@ resilience state of a port.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
-import pyfos.pyfos_util as pyfos_util
 import sys
 import time
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def usage():
@@ -69,7 +69,7 @@ def changeResilienceStateOfPort(session, name, enabled):
     #   Wait for few secs to allow the new value to be negotiated
     time.sleep(3)
     newport = pyfos_switchfcport.fibrechannel.get(session, name)
-    return (newport)
+    return newport
 
 
 def main(argv):
@@ -118,21 +118,21 @@ def main(argv):
         config = 2
 
     validport = pyfos_switchfcport.fibrechannel.get(session, name)
-    if (pyfos_util.is_failed_resp(validport)):
+    if pyfos_util.is_failed_resp(validport):
         pyfos_util.response_print(validport)
         pyfos_auth.logout(session)
         sys.exit()
 
-    if ((config == 1) or (config == 2)):
-        if (config == 1):
+    if config in (1, 2):
+        if config == 1:
             print("Trying to enable resilience on port ", name)
             newport = changeResilienceStateOfPort(session, name, 1)
-        elif (config == 2):
+        elif config == 2:
             print("Trying to disable the resilience on port ", name)
             newport = changeResilienceStateOfPort(session, name, 0)
     else:
         newport = pyfos_switchfcport.fibrechannel.get(session, name)
-        if (pyfos_util.is_failed_resp(newport)):
+        if pyfos_util.is_failed_resp(newport):
             pyfos_util.test_explicit_result_failed(newport)
             sys.exit()
 
@@ -143,7 +143,7 @@ def main(argv):
         print("Credit Recovery is enabled and active on port ", name)
     elif ((cr_active == 0) and (cr_enabled == 1)):
         print("Credit Recovery is enabled, but not active on port ", name)
-    elif (cr_enabled == 0):
+    elif cr_enabled == 0:
         print("Credit Recovery is disabled on port ", name)
 
     fec_enabled = newport.peek_fec_enabled()
@@ -154,7 +154,7 @@ def main(argv):
     elif ((fec_active == 0) and (fec_enabled == 1)):
         print("Forward Error Correction is enabled but \
                                     not active on port ", name)
-    elif (fec_enabled == 0):
+    elif fec_enabled == 0:
         print("Forward Error Correction is disabled on port ", name)
 
     pyfos_auth.logout(session)

@@ -15,37 +15,38 @@
 
 """
 
-:mod:`fport_list_show` - PyFOS util to show the f-port information.
+:mod:`fport_list_show` - PyFOS util to show the F_Port information.
 *******************************************************************************
-The :mod:`fport_list_show` provides option to display the
-f-port information.
+The :mod:`fport_list_show` util provides the option to display \
+F_Port information.
 
-This module can be used to display the f-ports information
-including the online status, current n-port and more.
+This module can be used to display F_Port information including the online \
+status, the current N_Port, and more.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR:     The IP address of the FOS switch.
+|   -L,--login=LOGIN:       The login name.
+|   -P,--password=PASSWORD: The password.
+|   -f,--vfid=VFID:         The VFID to which the request is \
+                             directed [OPTIONAL].
+|   -s,--secured=MODE:      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose:           Verbose mode [OPTIONAL].
 
-  Util scripts options:
+  Util Script Options:
 
-|      --f-port=VALUE      set "f-port"
+|      --f-port=VALUE      Sets the f-port.
 
-* outputs:
-    * F-port online-status and current n-port mapping details.
+* Output:
+    * F_Port online status and current N_Port mapping details.
 
 .. function:: fport_list_show.show_f_ports(session, f-port)
 
-    * Display the F-ports configured on the AG and their details.
+    * Display the F_Ports configured on the AG and their details.
 
-        Example usage of the method:
+        Example Usage of the Method:
 
             ret = fport_list_show.show_f_ports(session, f_port)
             print (ret)
@@ -58,23 +59,24 @@ including the online status, current n-port and more.
            else:
                result = fportlist_obj.get(session, f_port)
 
-        * inputs:
-            :param session: session returned by login.
-            :param port_group_id: Specific f-port name or None for all f-ports
+        * Input:
+            :param session: The session returned by login.
+            :param port_group_id: The specific F_Port name or None for \
+              all F_Ports.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: Dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the AG F-ports information.
+        1. Retrieve the AG F_Ports information.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_access_gateway import f_port_list
-import pyfos.utils.brcd_util as brcd_util
 
 
 def show_f_ports(session, f_port):

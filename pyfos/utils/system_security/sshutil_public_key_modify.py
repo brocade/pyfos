@@ -15,45 +15,47 @@
 
 """
 
-:mod:`sshutil_public_key_modify` - PyFOS util to modify public key
+:mod:`sshutil_public_key_modify` - PyFOS util to modify a public key.
 **************************************************************************************
-The :mod:`sshutil_public_key_modify` used to modify public key.
+The :mod:`sshutil_public_key_modify` util used to modify a public key.
 
-This module is a standalone script that can be used to modify public key,
+This module is a stand-alone script that can be used to modify a public key.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
+* Util Script Options:
 
-  |    --user-name=USERNAME             User Name
-  |    --remote-host-ip=IP              Remote host ip address
-  |    --remote-host-directory=DIR      Remote host directory
-  |    --public-key-name=KEYNAME        Public key name(.pub)
-  |    --remote-login-user=LOGINUSER    Remote Login User
-  |    --remote-login-password=PASSWORD Remote Login Password
-  |    --algorithm-type=ALGOTYPE        Algorithm type
-  |    --action=OPERATION               SSHUtil operation
+  |    --user-name=USERNAME             Specifies the user name.
+  |    --remote-host-ip=IP              Sets the remote host IP address.
+  |    --remote-host-directory=DIR      Sets the remote host directory.
+  |    --public-key-name=KEYNAME        Sets the public key name (.pub).
+  |    --remote-login-user=LOGINUSER    Sets the remote login user.
+  |    --remote-login-password=PASSWORD Sets the remote login password.
+  |    --algorithm-type=ALGOTYPE        Sets the algorithm type.
+  |    --action=OPERATION               Sets the SSHUtil operation.
 
-* outputs:
+* Output:
 
-    * Status of the sshutil  modify operation
+    * The status of the sshutil modify operation.
 
 .. function:: sshutil_modify.import_export_public_key(session, user_name, \
                              remote_ip, remote_dir, pub_key_name, login_name, \
                              login_password, action, algorithm_type)
 
-    * Import/Export a specified public key from/to remote server to/from switch
+    * Import or Export a specified public key from/to a remote server \
+        to/from a switch.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = sshutil_modify.import_export_public_key(
                       session, USERNAME, IP, DIR, KEYNAME,
@@ -76,35 +78,36 @@ This module is a standalone script that can be used to modify public key,
                     session, user_name, remote_ip, remote_dir, pub_key_name,
                     login_name, login_password, action, algo_type)
 
-        * inputs:
-            :param session: session returned by login.
-            :param user-name: user name.
-            :param remote-host-ip: remote host ip address.
-            :param remote-host-directoy: location in remote host for public key
-            :param public-key-name: name of the public key(.pub)
-            :param remote-login-user: user name of the remote host
-            :param remote-login-password: password of the remote host
-            :param action: Import or export
-            :param algorithm_type: algorithm type
+        * Input:
+            :param session: The session returned by the login.
+            :param user-name: The user name.
+            :param remote-host-ip: The remote host IP address.
+            :param remote-host-directoy: The location in the remote host for \
+                                           the public key.
+            :param public-key-name: The name of the public key (.pub).
+            :param remote-login-user: The user name of the remote host.
+            :param remote-login-password: The password of the remote host.
+            :param action: The action (import or export).
+            :param algorithm_type: The algorithm type.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
         1. Imports a specified public key from a remote server to the switch.
-        2. Exports public key from switch to a remote server.
+        2. Exports a public key from the switch to a remote server.
     """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import sshutil_public_key_action
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _import_export_key(session, restobject):
-        return restobject.patch(session)
+    return restobject.patch(session)
 
 
 def import_export_public_key(session, user_name, remote_ip, remote_dir,
@@ -141,13 +144,13 @@ def main(argv):
     # the line length less than 80 chars for flake8.
 
     if (sshutil_obj.peek_remote_host_ip() is None and
-        sshutil_obj.peek_remote_directory() is None and
-        sshutil_obj.peek_remote_user_name() is None and
-        sshutil_obj.peek_remote_user_password() is None and
-       sshutil_obj.peek_action() is None):
-                    print("Missing input(s)")
-                    print(inputs['utilusage'])
-                    sys.exit()
+            sshutil_obj.peek_remote_directory() is None and
+            sshutil_obj.peek_remote_user_name() is None and
+            sshutil_obj.peek_remote_user_password() is None and
+            sshutil_obj.peek_action() is None):
+        print("Missing input(s)")
+        print(inputs['utilusage'])
+        sys.exit()
 
     session = brcd_util.getsession(inputs)
 
@@ -158,4 +161,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

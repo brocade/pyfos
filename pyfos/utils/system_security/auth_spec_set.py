@@ -45,10 +45,10 @@ ldap server.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import auth_spec
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -60,7 +60,7 @@ def main(argv):
     server_obj = inputs['utilobject']
 
     if (server_obj.peek_authentication_mode() is None and
-        server_obj.peek_primary_auth_log_messages() is None and
+            server_obj.peek_primary_auth_log_messages() is None and
             server_obj.peek_activate_no_log_out() is None):
         print("Missing command line options")
         print(inputs['utilusage'])

@@ -90,10 +90,10 @@ existing port-group.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_access_gateway import port_group
-import pyfos.utils.brcd_util as brcd_util
 
 # The two scripts:port_group_create and port_group_add are merged to one.
 # As port_group_add uses POST operation, it will end up creating
@@ -120,7 +120,7 @@ def create_add_port_group(session, pgid, pgname, nports):
 def validate(portgroup_obj):
     if (portgroup_obj.peek_port_group_id() is None or
             not portgroup_obj.peek_port_group_n_ports_n_port()):
-            return 1
+        return 1
     return 0
 
 
@@ -142,4 +142,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

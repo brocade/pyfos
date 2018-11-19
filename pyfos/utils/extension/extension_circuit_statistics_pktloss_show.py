@@ -15,69 +15,71 @@
 
 """
 
-:mod:`extension_circuit_statistics_pktloss_show` - PyFOS util to show  pktloss
-********************************************************************************
-The :mod:`extension_circuit_statistics_pktloss_show` Util for circuit pktloss
+:mod:`extension_circuit_statistics_pktloss_show` - PyFOS util to show \
+packet loss.
+****************************************************************************************
+The :mod:`extension_circuit_statistics_pktloss_show` util shows circuit \
+packet loss.
 
-This module is a standalone script that can be used to show extension \
-circuit statistics for packet loss and percentage packetloss.
+This module is a stand-alone script that can be used to show extension \
+circuit statistics for packet loss and the percentage packet loss.
 
 extension_circuit_statistics_pktloss_show.py : Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR:IP address of FOS switch.
-    * -L,--login=LOGIN:login name.
-    * -P,--password=PASSWORD:password.
-    * -f,--vfid=VFID:VFID to which the request is directed to.
-    * -s,--secured=MODE:HTTPS mode "self" or "CA"[OPTIONAL].
-    * -v,--verbose:verbose mode[OPTIONAL].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose: Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    * -n,--name=NAME : set "name" or slot/port of the circuit
-    * -c,--circuit-id=CIRCUIT-ID : set "circuit-id" of the circuit
+* Util Script Options:
+    * -n,--name=NAME: Sets the name or slot/port of the circuit.
+    * -c,--circuit-id=CIRCUIT-ID: Sets the "circuit-id" of the circuit.
 
-* outputs:
-    * Json format details for circuit level percentage packet loss with \
-    corresponding GE statistics
+* Output:
+    * JSON format details for circuit-level percentage packet loss with \
+    the corresponding GE statistics.
 
 .. function:: extension_circuit_statistics_show.\
 show_pktloss(session,name, cid, local, remote)
 
-    *show extension circuit statistics for pktloss*
+    *Show Extension Circuit Statistics for Packet Loss*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = extension_circuit_statistics_show.
                 show_pktloss(session,
                 name, cid)
                 print (ret)
 
-        * inputs:
-            :param session: session returned by login
-            :param name: VE port name expressed as slot/port.
-            :param cid: circuit ID.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the VE_Port name expressed as slot/port.
+            :param cid: Sets the circuit ID.
 
-        * outputs:
-            :rtype: list of circuit stats with pecentage packet loss
+        * Output:
+            :rtype: A list of the circuit statistics with the pecentage of
+             packet loss.
 
-        *use cases*
+        *Use Cases*
 
-        1. show percentage packet loss per circuit
+        1. Show the percentage packet loss per circuit.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+import json
+import sys
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit_statistics
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
 from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
 from pyfos.pyfos_brocade_gigabitethernet import \
      gigabitethernet_statistics
-
-import sys
-import pyfos.utils.brcd_util as brcd_util
-import json
 
 
 def getgedetails(gelist, name):

@@ -15,35 +15,36 @@
 
 """
 
-:mod:`sshutil_public_key_show` - PyFOS util for displaying keys on a switch
+:mod:`sshutil_public_key_show` - PyFOS util for displaying keys on a switch.
 ***********************************************************************************
-The :mod:`sshutil_public_key_show` provides option to display key information
+The :mod:`sshutil_public_key_show` util provides the option to display \
+key information.
 
 This module can be used to display key information.
 
-* inputs:
+* Input:
 
-|  Infrastructure options:
+| Infrastructure Options:
 
-  |   -i,--ipaddr=IPADDR     IP address of FOS switch
-  |   -L,--login=LOGIN       login name.
-  |   -P,--password=PASSWORD password.
-  |   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  |   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-|  Util scripts options:
+* Util Script Options:
 
-  |    --user-name=USER-NAME                             User Name
+  |    --user-name=USER-NAME    Specifies the user name.
 
 
-* outputs:
-    * SSH key related information
+* Output:
+    * The SSH key related information.
 
 .. function:: sshutil_show.show_system_security_sshutil(session)
 
     * Display the SSH key information in the switch.
 
-        Example usage of the method:
+        Example Usage of the Method:
 
             ret = sshutil_show.show_system_security_sshutil(session, user_name)
             print (ret)
@@ -53,14 +54,15 @@ This module can be used to display key information.
             result = sshutil_show.show_system_security_sshutil(
               session, \'user\'')
 
-        * inputs:
-            :param session: session returned by login.
-            :param user_name: user name for which public keys are associated
+        * Input:
+            :param session: The session returned by the login.
+            :param user_name: The user name for which the public keys \
+                                are associated.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
         1. Retrieve the public key related information.
 
@@ -68,10 +70,10 @@ This module can be used to display key information.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import sshutil_public_key
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _get_sshutil_public_key(session, restobject):
@@ -97,13 +99,13 @@ def main(argv):
 
     session = brcd_util.getsession(inputs)
 
-    if (sshutil_obj.peek_user_name() is None):
+    if sshutil_obj.peek_user_name() is None:
         print("no input")
         print(inputs['utilusage'])
         sys.exit()
 
     result = show_system_security_sshutil(
-            inputs['session'], sshutil_obj.peek_user_name())
+        inputs['session'], sshutil_obj.peek_user_name())
 
     pyfos_util.response_print(result)
 

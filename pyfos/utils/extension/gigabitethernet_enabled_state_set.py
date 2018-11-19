@@ -17,28 +17,28 @@
 
 """
 
-:mod:`gigabitethernet_enabled_state_set` - PyFOS util to set GE state
+:mod:`gigabitethernet_enabled_state_set` - PyFOS util to set the GE_Port state.
 ***********************************************************************************
-The :mod:`gigabitethernet_enabled_state_set` sets the enabled state of GE.
+The :mod:`gigabitethernet_enabled_state_set` util sets the GE_Port state.
 
 This module is a stand-alone script that can be used to set the\
- GE port enabled state on an extension platform.
+ GE_Port enabled state on an extension platform.
 
 gigabitethernet_enabled_state_set.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name.
-    * -e,--enabled-state=VALUE: Set enabled-state.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name.
+    * -e,--enabled-state=VALUE: Sets the enabled state.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: gigabitethernet_enabled_state_set.port_state_set(\
@@ -46,7 +46,7 @@ session, name, enabled)
 
     *Modify extension gigabitethernet state*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = gigabitethernet_enabled_state_set.port_state_set(
             session, name, enabled)
@@ -61,24 +61,24 @@ session, name, enabled)
             gigabitethernet = gigabitethernet(gestate)
             result = gigabitethernet.patch(session)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: GigabitEthernet port name expressed as slot/port.
-            :param speed: Speed for the GE port to be set.
+        * Input:
+            :param session: The session returned by the login.
+            :param name: The GE_Port name expressed as slot/port.
+            :param speed: The speed for the GE _Port to be set.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
-         Modify extension gigabitethernet port state to enabled or disabled.
+         Modify the extension GE_Port state to enabled or disabled.
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
+from pyfos.utils import brcd_util
 
 isHttps = "0"
 
@@ -97,7 +97,7 @@ def port_state_set(session, name, enabled):
 def validate(geObject):
     if geObject.peek_name() is None or \
        geObject.peek_enabled_state() is None:
-            return 1
+        return 1
     return 0
 
 

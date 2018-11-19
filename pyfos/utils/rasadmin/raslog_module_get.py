@@ -63,11 +63,11 @@ attributes
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import raslog_module
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import raslog_module
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def show_raslog_module(session, mod_id):

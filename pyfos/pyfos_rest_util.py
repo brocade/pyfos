@@ -20,7 +20,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
 **Steps to Add REST Support for a New FOS Object**:
 
     1. Add a new enum for your FOS object in the rest_obj_type class.
-    
+
        Module Example::
 
         class rest_obj_type():
@@ -33,7 +33,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
 
         elif objtype == rest_obj_type.ipif:
             return "Extension IP ADDRESS"
-                
+
     3. Inherit from the rest_object class, and initialize the base class.
 
     4.  Add attributes as per the YANG definitions as per `Steps to Add a Rest Attribute`.
@@ -68,7 +68,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
                              pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
                     self.load(dictvalues, 1)
 
-              
+
 **Steps to Add REST attributes in a FOS object**:
     5. Leaf attribute with no parent.
 
@@ -77,15 +77,15 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
            self.add(pyfos_rest_util.rest_attribute("name",
                       pyfos_type.type_str, None,
                       pyfos_rest_util.REST_ATTRIBUTE_KEY)
-        
+
     6. Container or list attribute.
-    
+
        Module Example::
 
             self.add(pyfos_rest_util.rest_attribute("l2-cos",
                      pyfos_type.type_na, dict(),
                      pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
-            
+
     7. Leaf attribute with another container or list as its parent.
 
         Module Example::
@@ -128,7 +128,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
      4. All '-' are replaced with '_' and are in lowercase for installing the function.
 
     8. Leaf attribute with no parent.:
-    
+
         Module Example::
 
             self.add(pyfos_rest_util.rest_attribute("vlan-id",
@@ -139,7 +139,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
         * Default getter: **peek_vlan_id**
 
         :Note:
-        
+
          In test code, following can be invoked by the user.
 
         Script Example::
@@ -147,9 +147,9 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
          myipobject = pyfos_extension_ipaddress.extension_ipaddress(session)
          myipobject.set_vlan_id(800)
          myipobject.peek_vlan_id()
-            
+
     9. Container or List attribute.
-    
+
         Module Example::
 
             self.add(pyfos_rest_util.rest_attribute("l2-cos",
@@ -161,15 +161,15 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
 
         :Note:
          The value for the setter will be a list of dictionary values from its child attributes.
-        
+
         Script Example::
 
          mytunnelobject = pyfos_extn_tunnel.extension_tunnel(session)
-         mytunnelobject.set_l2_cos([{ 'priority-control": 0, 'fc-priority-high" : 1 ........}])
+         mytunnelobject.set_l2_cos([{ 'priority-control": 0, 'fc-priority-high' : 1 ........}])
          mytunnelobject.peek_l2_cos()
 
     10. Leaf attribute with another container or list as its parent.
-    
+
         Module Example::
 
             self.add(pyfos_rest_util.rest_attribute("fc-priority-low",
@@ -180,7 +180,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
         * Default getter: **peek_l2cos_fc_priority_low**
 
         :Note:
-            
+
          The value for the setter will be a list of dictionary values from its child attributes.
 
         Script Example::
@@ -190,7 +190,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
 
 **Versioning Support**:
 
-    Any FOS object module can have custom versioning details defined for itself 
+    Any FOS object module can have custom versioning details defined for itself
     along with their attributes. The Attributes visibility is dependent on the
     FOS version the tests are being run against. If versioning information
     for the FOS object is not given its assumed to be supported from version
@@ -201,7 +201,7 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
 
 
     * Versioning details:
-    
+
      The version details comprise the start and end of the FOS version, and they can
      be expressed as a dictionary.
 
@@ -235,31 +235,25 @@ The :mod:`pyfos_rest_util` provides a framework to add new FOS objects for REST 
      for payload generation from the object.
 
 
-**Module Details**:             
-        
+**Module Details**:
+
 """
 
 
-
-
-import http.client as httplib
 import urllib
-import string
-import base64
-import json
-import xml.etree.ElementTree as ET
-import pyfos.pyfos_util as pyfos_util
 import urllib.parse
+import json
 import re
 import inspect
 import time
-from pyfos.pyfos_type import *
-from pyfos.pyfos_version import *
 import getpass
 import getopt
 import ast
 import sys
 import os
+from pyfos import pyfos_util
+from pyfos.pyfos_type import pyfos_type, rest_yang_type, rest_yang_config
+from pyfos.pyfos_version import fosversion, fosversion_range, VER_RANGE_820_ABOVE
 
 
 class rest_obj_type():
@@ -267,115 +261,112 @@ class rest_obj_type():
     This class identifies the different rest objects supported by FOS
     All derived class from rest_object should define their enum here accordingly
     """
-    unknown         = 0
-    reservedcount   = 1
+    unknown = 0
+    reservedcount = 1
     # do no use enums from 1-9
     extension_start = 10
-    ipif            = 11
-    iproute         = 12
-    tunnel          = 13
-    tunnel_stats    = 14
-    circuit         = 15
-    circuit_stats   = 16
-    ipsec           = 17
-    gige            = 18
-    gige_stats      = 19
-    extension_end   = 100
-    fos_start       = 101
-    zone            = 102
-    zone_defined    = 103
-    zone_effective  = 104
-    fabric          = 105
-    switch          = 106
-    port_config     = 107
-    port_stats      = 108
-    port_diag       = 109
-    fdmi_hba        = 110
-    fdmi_port       = 111
-    logical_switch  = 112
-    name_server     = 113
+    ipif = 11
+    iproute = 12
+    tunnel = 13
+    tunnel_stats = 14
+    circuit = 15
+    circuit_stats = 16
+    ipsec = 17
+    gige = 18
+    gige_stats = 19
+    extension_end = 100
+    fos_start = 101
+    zone = 102
+    zone_defined = 103
+    zone_effective = 104
+    fabric = 105
+    switch = 106
+    port_config = 107
+    port_stats = 108
+    port_diag = 109
+    fdmi_hba = 110
+    fdmi_port = 111
+    logical_switch = 112
+    name_server = 113
     fibrechannel_configuration_port = 121
     fibrechannel_configuration_zone = 122
-    #configuration
-    switch_configuration    = 130
-    f_port_login_settings   = 131
-    chassis_ha      = 150
+    # configuration
+    switch_configuration = 130
+    f_port_login_settings = 131
+    chassis_ha = 150
     port_trunk_area = 151
     port_trunk_show = 152
     port_trunk_perf_show = 153
-    media_rdp       = 154
-    fan_unit        = 155
-    ps_unit         = 156
-    blade_slot      = 157
-    chassis_show    = 158
-    #logging
-    audit           = 170
-    syslog          = 171
-    log_setting     = 172
-    raslog          = 173
-    raslog_module   = 174
-    log_quiet_control       = 175
-    #AG objects
-    ag_start        = 200
-    ag_portgroup    = 201
-    ag_nportmap     = 202
-    ag_fportlist    = 203
-    ag_policy       = 204
+    media_rdp = 154
+    fan_unit = 155
+    ps_unit = 156
+    blade_slot = 157
+    chassis_show = 158
+    # logging
+    audit = 170
+    syslog = 171
+    log_setting = 172
+    raslog = 173
+    raslog_module = 174
+    log_quiet_control = 175
+    # AG objects
+    ag_start = 200
+    ag_portgroup = 201
+    ag_nportmap = 202
+    ag_fportlist = 203
+    ag_policy = 204
     ag_nportsettings = 205
-    ag_device_list   = 206
-    ag_end          = 299
-    #system security objects 400 - 500
-    time_zone       = 400
-    clock_server    = 401
+    ag_device_list = 206
+    ag_end = 299
+    # system security objects 400 - 500
+    time_zone = 400
+    clock_server = 401
     ipfilter_policy = 402
-    ipfilter_rule   = 403
-    radius_server   = 404
-    tacacs_server   = 405
-    ldap_server     = 406
-    sec_crypto_cfg  = 407
+    ipfilter_rule = 403
+    radius_server = 404
+    tacacs_server = 405
+    ldap_server = 406
+    sec_crypto_cfg = 407
     sec_crypto_cfg_template = 408
-    ldap_role_map   = 409
-    auth_spec       = 410
-    password_cfg    = 411
-    user_config     = 412
-    sshutil         = 413
-    password        = 414
-    security_certificate    = 415
-    fan_unit        = 416
-    ps_unit         = 417
+    ldap_role_map = 409
+    auth_spec = 410
+    password_cfg = 411
+    user_config = 412
+    sshutil = 413
+    password = 414
+    security_certificate = 415
+    fan_unit = 416
+    ps_unit = 417
     user_specific_password_cfg = 418
     sec_crypto_cfg_template_action = 419
-    security_certificate_generate     = 420
-    security_certificate_action  = 421
-    sshutil_key     = 422
-    sshutil_public_key  = 423
-    sshutil_public_key_action  = 424
-    fos_end         = 425
-    #use enums from 100 onwards
+    security_certificate_generate = 420
+    security_certificate_action = 421
+    sshutil_key = 422
+    sshutil_public_key = 423
+    sshutil_public_key_action = 424
+    fos_end = 425
+    # use enums from 100 onwards
 
-    license_start   = 500
-    license         = 501
-    license_end     = 599
-
-    #MAPS
-    maps_policy    = 700
-    group          = 701
-    rule           = 702
+    # MAPS
+    maps_policy = 700
+    group = 701
+    rule = 702
     switch_status_policy_report = 703
-    monitoring_system_matrix    = 704
-    maps_config    = 705
-    paused_cfg     = 706
+    monitoring_system_matrix = 704
+    maps_config = 705
+    paused_cfg = 706
     system_resources = 707
     dashboard_misc = 708
     dashboard_rule = 709
 
-    rpc_start       = 5000
+    rpc_start = 5000
     rpc_show_status = 5001
     rpc_supportsave = 5002
 
-    rpc_end         = 6000
+    rpc_end = 6000
 
-def getrestobjectname(objtype, fmt = 0):
+
+def getrestobjectname(objtype, fmt=0):
     """
     This function provides the name for all instances of rest_object that are supported by FOS.
     All derived classes from rest_object should define their object name.
@@ -525,11 +516,9 @@ def getrestobjectname(objtype, fmt = 0):
             return "configure switch details"
         elif objtype == rest_obj_type.f_port_login_settings:
             return "configure f-port login details"
-        elif objtype == rest_obj_type.license:
-            return "license"
         else:
             return "NOT_EXT_OBJECT"
-    else :
+    else:
         if objtype == rest_obj_type.unknown:
             return "Unknown"
         elif objtype == rest_obj_type.ipif:
@@ -678,11 +667,8 @@ def getrestobjectname(objtype, fmt = 0):
             return "switch_configuration"
         elif objtype == rest_obj_type.f_port_login_settings:
             return "f_port_login_settings"
-        elif objtype == rest_obj_type.license:
-            return "license"
         else:
             return "Unknown"
-
 
 
 class rest_get_method():
@@ -695,19 +681,19 @@ class rest_get_method():
     GET_ALL_CONFIG = 2
     GET_MODIFIED_CONFIG = 3
     GET_KEY_AND_MODIFIED_CONFIG = 4
-    GET_KEY_AND_MODIFIED_CONFIG_DELETE=5
+    GET_KEY_AND_MODIFIED_CONFIG_DELETE = 5
     GET_ALL_FILTERS = 6
     GET_ALL_FILTERS_KEY = 7
 
 
-global  REST_ATTRIBUTE_KEY
-global  REST_ATTRIBUTE_CONFIG
-global  REST_ATTRIBUTE_CONFIG_MANDATORY
-global  REST_ATTRIBUTE_NOT_CONFIG
-global  REST_ATTRIBUTE_CONTAINER
-global  REST_ATTRIBUTE_LEAF_LIST
-global  REST_ATTRIBUTE_CONTAINER_LIST
-
+# pylint: disable=W0604
+global REST_ATTRIBUTE_KEY
+global REST_ATTRIBUTE_CONFIG
+global REST_ATTRIBUTE_CONFIG_MANDATORY
+global REST_ATTRIBUTE_NOT_CONFIG
+global REST_ATTRIBUTE_CONTAINER
+global REST_ATTRIBUTE_LEAF_LIST
+global REST_ATTRIBUTE_CONTAINER_LIST
 
 
 REST_ATTRIBUTE_KEY = (rest_yang_type.yang_leaf | rest_yang_config.yang_key)
@@ -717,20 +703,22 @@ REST_ATTRIBUTE_NOT_CONFIG = (rest_yang_type.yang_leaf)
 REST_ATTRIBUTE_CONTAINER = (rest_yang_type.yang_container | rest_yang_config.yang_config)
 REST_ATTRIBUTE_CONTAINER_NOT_CONFIG = (rest_yang_type.yang_container)
 REST_ATTRIBUTE_LEAF_LIST = (rest_yang_type.yang_leaf_list | rest_yang_config.yang_config)
+REST_ATTRIBUTE_LEAF_LIST_NOT_CONFIG = (rest_yang_type.yang_leaf_list)
 REST_ATTRIBUTE_CONTAINER_LIST = (rest_yang_type.yang_container | rest_yang_type.yang_list | rest_yang_config.yang_config)
 REST_ATTRIBUTE_CONTAINER_LIST_NOT_CONFIG = (rest_yang_type.yang_container | rest_yang_type.yang_list)
 
 
-IGN=0
-DBG=1
-INF=2
-WRN=3
-ERR=4
+IGN = 0
+DBG = 1
+INF = 2
+WRN = 3
+ERR = 4
+
 
 class rest_debug():
     def __init__(self, enable=False, level=ERR, session=None):
         """Instantiate a rest_debugger"""
-        self.dbg_level=level
+        self.dbg_level = level
         self.dbg_session = session
         self.dbg_mode = enable
 
@@ -746,7 +734,7 @@ class rest_debug():
     def setdbg_log(self, level, *args):
         if self.isdebugverbose(level):
             mystring = str(self.getdbg_level_string(level)) +\
-                       str(" :<") + "".join(map(str,args)) + ">\nSTACK :\n" +\
+                       str(" :<") + "".join(map(str, args)) + ">\nSTACK :\n" +\
                        str(inspect.stack()[2][3]) + ", " +\
                        str(inspect.stack()[3][3]) + ", " +\
                        str(inspect.stack()[3][3]) + "\n" +\
@@ -759,10 +747,8 @@ class rest_debug():
             if level == ERR:
                 pyfos_util.print_test_red(mystring)
 
-
     def setdbg_session(self, session):
         self.dbg_session = session
-
 
     def setdbg_level(self, level):
         self.dbg_level = level
@@ -779,6 +765,10 @@ class rest_debug():
             return "WARNING"
         if level == ERR:
             return "ERROR"
+        if level == INF:
+            return "INFO"
+
+        return "UNKNOWN"
 
 
 class rest_attribute_encoder(json.JSONEncoder):
@@ -787,6 +777,7 @@ class rest_attribute_encoder(json.JSONEncoder):
             return obj.reprJSON()
         else:
             return json.JSONEncoder.default(self, obj)
+
 
 class rest_useropt():
     FILTER_LGETOPT = 0
@@ -801,7 +792,7 @@ class rest_useropt():
 class rest_attribute():
     """
     This class encompasses a REST attribute and may be a leaf or be a container attribute as per YANG.
-    
+
     Attributes:
         name: The `name` of the attribute as per the YANG definition.
         is_config:  The `is_config` indicates if it is a config attribute as per YANG.
@@ -817,24 +808,24 @@ class rest_attribute():
         4. The Container List Attribute **value** is a list of dictionary values of a child.
     """
 
-    def __init__(self, name, a_type, value=dict(), rest_type=0, ver=None, parent=None, list_count = 0):
+    def __init__(self, name, a_type, value=dict(), rest_type=0, ver=None, parent=None, list_count=0):
         """Instantiate a rest_attribute """
         # TODO Compact the attribute class based on new defines
         self.name = name
         self.a_type = pyfos_type(a_type)
         self.is_key = (rest_type & rest_yang_config.yang_key)
-        self.is_config =(rest_type & rest_yang_config.yang_config)
+        self.is_config = (rest_type & rest_yang_config.yang_config)
         self.is_mandatory = (rest_type & rest_yang_config.yang_mandatory)
         self.is_attribute_map = (rest_type & rest_yang_type.yang_container)
         self.is_list = (rest_type & (rest_yang_type.yang_list | rest_yang_type.yang_leaf_list))
-        self.is_leaf = (rest_type & (rest_yang_type.yang_leaf|rest_yang_type.yang_leaf_list))
+        self.is_leaf = (rest_type & (rest_yang_type.yang_leaf | rest_yang_type.yang_leaf_list))
         self.properties = rest_type
         self.parent = parent
         self.list_count = list_count
         if self.is_attribute_map and not self.is_list:
             self.value = dict()
             for k1, v1 in value.items():
-                myattrib = rest_attribute(k1, v1, is_key, is_config)
+                myattrib = rest_attribute(k1, v1, self.is_key, self.is_config)
                 self.value.update(myattrib.todict)
         elif self.is_list:
             if self.is_leaf:
@@ -845,15 +836,18 @@ class rest_attribute():
             self.value = value
         self.parent_is_list = 0
         self.value_changed = 0
+        self.configchanged = 0
+        self.driftvalue = None
+        self.configlist = dict()
         self.attrib = dict()
-        if ver != None:
+        if ver is not None:
             self.version_supported = fosversion_range(ver)
             self.version_active = fosversion(self.version_supported.start.to_string())
         else:
             self.version_supported = None
             self.version_active = None
         self.uname = None
-        self.clone_dict = dict({ 'name':name, 'value': value, 'version': ver, 'type': a_type, 'prop': rest_type})
+        self.clone_dict = dict({'name': name, 'value': value, 'version': ver, 'type': a_type, 'prop': rest_type})
         self.hierarchy = []
         self.restobject = None
         self.filter = 0
@@ -863,7 +857,7 @@ class rest_attribute():
         self.help = None
         self.optional = 0
         self.cmdline = None
-
+        self.row = 0
 
     def checkusagefilter(self, filters):
         if filters is not None and self.uname in filters or filters is None:
@@ -872,21 +866,21 @@ class rest_attribute():
 
     def Iclonename(self):
         name = str(self.uname)
-        if (self.list_count > 0):
+        if self.list_count > 0:
             name = str(self.uname) + "_" + str(self.list_count)
         return name
-        
+
     def setusage(self):
         """ Sets the usage of the attribute parsing. """
         if self.checkusagefilter(None) == 0:
             return
-        retdict=self.restobject.overwriteparser(self.uname)
+        retdict = self.restobject.overwriteparser(self.uname)
         self.soption = None
         self.loption = str(self.getallparentstring() + self.getname())
         self.help = "set \"" + self.name + "\""
         self.optional = 0
         optional = ""
-        cmdline=""
+        cmdline = ""
         if retdict is not None:
             if 'help' in retdict.keys():
                 self.help = retdict['help']
@@ -896,7 +890,7 @@ class rest_attribute():
                 self.soption = retdict['soption']
             if 'optional' in retdict.keys():
                 if retdict['optional'] == 1:
-                    optional="[OPTIONAL]"
+                    optional = "[OPTIONAL]"
             loption = self.loption + "=" + self.loption.upper()
         else:
             loption = self.loption + "=VALUE"
@@ -906,7 +900,7 @@ class rest_attribute():
         else:
             cmdline = "--" + self.loption + "="
 
-        cmdline += self.loption.upper() 
+        cmdline += self.loption.upper()
         if self.optional:
             self.cmdline = " [" + cmdline + "]"
         else:
@@ -919,24 +913,21 @@ class rest_attribute():
         self.usage = usage_str
         self.dbg_print(DBG, self.usage)
 
-
     def displaycustomcli(self):
         if self.checkusagefilter(None) == 0:
-            return
+            return {self.uname: None}
         retdict = dict()
-        retdict.update({"soption" : self.soption})
-        retdict.update({"loption" : self.loption})
-        retdict.update({"help" : self.help})
-        retdict.update({"optional" : self.optional})
-        retdict.update({"value" : self.optional})
-        return {self.uname : retdict}
-
+        retdict.update({"soption": self.soption})
+        retdict.update({"loption": self.loption})
+        retdict.update({"help": self.help})
+        retdict.update({"optional": self.optional})
+        retdict.update({"value": self.optional})
+        return {self.uname: retdict}
 
     def getusage(self, filters=None):
         if self.checkusagefilter(filters):
-            return (self.usage)
+            return self.usage
         return ""
-
 
     def getmyopts(self, useropt=rest_useropt.FILTER_LGETOPT, filters=None):
         if self.checkusagefilter(filters):
@@ -960,9 +951,9 @@ class rest_attribute():
                 sopt = self.getmyopts(rest_useropt.FILTER_SHRTOPT, filters)
                 lopt = self.getmyopts(rest_useropt.FILTER_LONGOPT, filters)
                 if len(sopt) > 0:
-                    return (sopt, lopt)
+                    return sopt, lopt
                 else:
-                    return (lopt)
+                    return lopt
             elif useropt == rest_useropt.FILTER_CMDLINE_MANDATORY:
                 if self.optional == 0:
                     return self.cmdline
@@ -971,9 +962,8 @@ class rest_attribute():
                     return self.cmdline
             else:
                 self.dbg_print(ERR, "Unknown user option to getmyopts :",
-                                 useropt, " for ", self.name)
+                               useropt, " for ", self.name)
         return ""
-
 
     def setclonename(self):
         """ This is the cloning name and should be called after linking it with the parent is complete. """
@@ -981,26 +971,21 @@ class rest_attribute():
         self.uname = clonename.lower()
         self.dbg_print(DBG, clonename)
 
-
     def setversion(self, ver):
         """ Sets the version of the attribute."""
         self.version_supported = fosversion_range(ver)
         self.version_active = fosversion(self.version_supported.start.to_string())
         self.clone_dict['version'] = ver
 
-
     def addfilter(self, filterme):
         self.dbg_print(DBG, "Add filter ", self.name, " Value:", self.filter)
         self.filter = filterme
 
-
     def setfilter(self):
         self.addfilter(1)
 
-
     def resetfilter(self):
         self.addfilter(0)
-
 
     def getfilter(self, setfilters):
         if self.filter == 1:
@@ -1011,51 +996,209 @@ class rest_attribute():
         if self.is_attribute_map and not self.is_list:
             if self.value is None:
                 return True
-            elif len(self.value) == 0:
-                return True
             else:
                 retdict = dict()
+                empty = bool(self.restobject.configchanged != 0)
                 if self.value is not None:
                     for k1, v1 in self.value.items():
-                        if v1.is_empty() == False:
+                        if v1.is_empty() is False:
+                            if empty is True and not v1.is_key:
+                                empty = False
                             retdict[k1] = v1
-                if len(retdict) == 0:
-                    return True
-                else:
-                    return False
+                return bool(not any(retdict) or empty is True)
         if self.is_list:
-            if self.value is None:
-                return True
-            elif len(self.value) == 0:
-                return True
-            else:
-                if self.is_leaf:
-                    if len(self.value) == 0:
-                        return True
-                    else:
-                        return False
-
-                retarray = []
-                for v1 in self.value:
-                    retdict = dict()
-                    for k2, v2 in v1.items():
-                        if v2.is_empty() == False:
-                            retdict[k2] = v2
-                    if len(retdict) is not 0:
-                        retarray.append(v1)
-                if len(retarray) == 0:
+            if self.is_leaf:
+                if self.restobject.configchanged is not 0 \
+                   and self.configchanged is 0:
                     return True
-                else:
+                elif self.configchanged == 2:
                     return False
+                return bool(len(self.value) == 0 or self.value is None)
+
+            retarray = []
+            for v1 in self.value:
+                retdict = dict()
+                empty = bool(self.restobject.configchanged != 0)
+                for k2, v2 in v1.items():
+                    if v2.is_empty() is False:
+                        if empty is True and not v2.is_key:
+                            empty = False
+                        retdict[k2] = v2
+                if len(retdict) is not 0 and not empty:
+                    retarray.append(retdict)
+            return bool(len(retarray) == 0)
         else:
-            if self.value == None:
-                return True
+            if self.restobject.configchanged is not 0:
+                if (self.configchanged is not 0 or self.is_key) and self.value is not None:
+                    return False
+                else:
+                    return True
+            return bool(self.value is None)
+
+    def getmyselfrow(self, listcount):
+        if self.is_attribute_map and not self.is_list:
+            rows = 1
+            for k1, v1 in self.value.items():
+                self.dbg_print(DBG, k1, v1)
+                tmprow = v1.getmyselfrow(-1)
+                if tmprow > rows:
+                    rows = tmprow
+            return rows
+        elif self.is_list:
+            if self.is_leaf and not self.is_attribute_map:
+                if self.value is None:
+                    return 1
+                elif len(self.value) == 0:
+                    return 1
+                else:
+                    return len(self.value)
             else:
-                return False
+                rows = 0
+                for i in range(len(self.value)):
+                    if listcount == -1 or i <= listcount:
+                        v1 = self.value[i]
+                        tmprow = 1
+                        tmprowd = 1
+                        for k, v in v1.items():
+                            self.dbg_print(DBG, i, k, v)
+                            tmprowd = v.getmyselfrow(-1)
+                            if tmprow < tmprowd:
+                                tmprow = tmprowd
+                        rows += tmprow
+                        self.dbg_print(DBG, "LS", i, listcount,
+                                       rows, tmprow)
+                    else:
+                        self.dbg_print(DBG, "LS", listcount, i)
+                return rows
+        else:
+            if self.is_leaf:
+                if self.value is None:
+                    return 1
+        self.dbg_print(ERR, "Default return ", self.name)
+        return 1
 
+    def getmyrow(self, listcount):
+        if not self.getisconfig():
+            return 0
+        self.dbg_print(DBG, self.name)
+        rows = self.getmyselfrow(listcount)
+        self.dbg_print(DBG, self.name, rows)
+        return rows
 
-    def reprJSON(self, ver = None):
-        """Gets the JSON representation of the rest_attribute."""          
+    def writemycolumn(self, ws, sr, er, filters):
+        if self.getiskey() or self.getisconfig():
+            self.dbg_print(DBG, sr, er)
+            if self.is_attribute_map and not self.is_list:
+                for k, v in self.value.items():
+                    self.dbg_print(DBG, k, v)
+                    v.writemycolumn(ws, sr, er, filters)
+            elif self.is_list:
+                if self.is_leaf and isinstance(self.value, list):
+                    if filters is None or \
+                       (filters is not None and self.uname in filters):
+                        col = self.restobject.getmywritecolumn(self.uname)
+                        llen = len(self.value)
+                        wr = sr
+                        for i in range(llen):
+                            wr = sr + i
+                            cell = ws.cell(row=(wr),
+                                           column=col)
+                            cell.value = self.value[i]
+                            self.dbg_print(DBG, self.name, col, ":", wr,
+                                           sr, er, self.value)
+                else:
+                    wsr = sr
+                    wer = er
+                    for i in range(len(self.value)):
+                        tmprow = self.getmyrow(i)
+                        val = self.value[i]
+                        if i+1 == len(self.value):
+                            wer = er
+                        else:
+                            wer = sr + tmprow
+                        for k, v in val.items():
+                            v.writemycolumn(ws, wsr, wer, filters)
+                        wsr = wer
+            else:
+                if self.value is not None:
+                    if filters is None or \
+                       (filters is not None and self.uname in filters):
+                        col = self.restobject.getmywritecolumn(self.uname)
+                        cell = ws.cell(row=sr, column=col)
+                        cell.value = self.value
+                        self.dbg_print(DBG, self.name, col, ":",
+                                       sr, er, self.value)
+
+    def wsload(self, ws, sr, er, filters):
+        """Loads the attribute value from ws."""
+        self.dbg_print(DBG, "starting load", self.name, sr, er)
+        if self.getisattributemap() and not self.getisattributelist():
+            self.dbg_print(DBG, "Container", self.name)
+            for k1, v1 in self.value.items():
+                self.dbg_print(DBG, "Load", k1, v1)
+                v1.wsload(ws, sr, er, filters)
+        elif self.getisattributelist():
+            if self.is_leaf:
+                if filters is None or \
+                   (filters is not None and self.uname in filters):
+                    if not (self.getisconfig() or self.getiskey()):
+                        return
+                    col = self.restobject.getmyreadcolumn(self.uname)
+                    listvalue = self.restobject.getlistcount(ws, sr, er, col)
+                    value = list(map(lambda x: x[0], listvalue))
+                    tmplist = []
+                    for i in range(len(value)):
+                        if value[i] is not None:
+                            tmplist.append(value[i])
+                    self.setInfravalue(tmplist)
+            else:
+                maxlistcount = 1
+                listvalue = [(None, sr, er)]
+                for i in range(len(self.value)):
+                    for k1, v1 in self.value[i].items():
+                        if (v1.getisconfig() and v1.is_leaf or v1.is_key) and\
+                           not v1.is_list:
+                            if filters is None or \
+                               (filters is not None and v1.uname in filters):
+                                col = self.restobject.getmyreadcolumn(v1.uname)
+                                lvalue = self.restobject.getlistcount(ws, sr, er, col)
+                                llen = len(lvalue)
+                                if maxlistcount <= llen:
+                                    maxlistcount = llen
+                                    listvalue = lvalue
+                self.dbg_print(DBG, maxlistcount, listvalue)
+                for i in range(1, len(listvalue)):
+                    self.clone(i)
+
+                for i in range(maxlistcount):
+                    for k1, v1 in self.value[i].items():
+                        v1.wsload(ws, listvalue[i][1], listvalue[i][2], filters)
+        else:
+            if self.is_key or self.getisconfig():
+                if filters is None or \
+                   (filters is not None and self.uname in filters):
+                    col = self.restobject.getmyreadcolumn(self.uname)
+                    lvalue = self.restobject.getlistcount(ws, sr, er, col)
+                    llen = len(lvalue)
+                    if llen == 0:
+                        return
+                    elif llen == 1:
+                        self.setInfravalue(lvalue[0][0])
+                        self.dbg_print(DBG, lvalue[0][0], self.uname, self.value)
+                    elif self.is_list:
+                        listvalue = list(map(lambda x: x[0], lvalue))
+                        tmplist = []
+                        for i in range(len(listvalue)):
+                            if listvalue[i] is not None:
+                                tmplist.append(listvalue[i])
+                        self.setInfravalue(tmplist)
+                    else:
+                        self.dbg_print(ERR, self.name, "->Incorrect len:",
+                                       sr, er, col, llen, lvalue)
+        return
+
+    def reprJSON(self, ver=None):
+        """Gets the JSON representation of the rest_attribute."""
         if self.is_attribute_map and not self.is_list:
             if self.value is None:
                 return None
@@ -1064,81 +1207,162 @@ class rest_attribute():
             else:
                 retdict = dict()
                 if self.value is not None:
+                    skip = bool(self.restobject.configchanged is not 0)
                     for k1, v1 in self.value.items():
-                        if v1.is_empty() == False:
-                            if ver == None or self.version_supported.visible(ver):
+                        if v1.is_empty() is False:
+                            if skip is True and not v1.is_key:
+                                skip = False
+                            if ver is None or self.version_supported.visible(ver):
                                 retdict[k1] = v1
-                if len(retdict) == 0:
+                if len(retdict) == 0 or skip:
                     return None
                 else:
                     return retdict
         if self.is_list:
-            if self.value is None:
-                return None
-            elif len(self.value) == 0:
-                return None
-            else:
-                if self.is_leaf:
-                    if len(self.value) == 0:
-                        return None
-                    elif  ver == None or self.version_supported.visible(ver):
-                        return self.value
-                    else:
-                        return None
 
-                retarray = []
-                if self.value is not None:
-                    for v1 in self.value:
-                        if ver == None or self.version_supported.visible(ver):
-                            retdict = dict()
-                            for k2, v2 in v1.items():
-                                if v2.is_empty() == False:
-                                    if ver == None or v2.version_supported.visible(ver):
-                                        retdict[k2] = v2
-                            if len(retdict) is not 0:
-                                retarray.append(v1)
-                if len(retarray) == 0:
+            if self.is_leaf:
+                if len(self.value) == 0 and self.driftvalue is None:
                     return None
+                elif ver is None or self.version_supported.visible(ver):
+                    if self.driftvalue is not None:
+                        return dict({"Original" : str(self.value), "Drifted": str(self.driftvalue)})
+                    else:
+                        return self.value
                 else:
-                    return retarray
-        else:
-            if self.value == None:
+                    return None
+
+            retarray = []
+            if self.value is not None:
+                for v1 in self.value:
+                    if ver is None or self.version_supported.visible(ver):
+                        retdict = dict()
+                        skip = bool(self.restobject.configchanged is not 0)
+                        for k2, v2 in v1.items():
+                            if v2.is_empty() is False:
+                                if skip is True and not v2.is_key:
+                                    skip = False
+                                if ver is None or v2.version_supported.visible(ver):
+                                    retdict[k2] = v2
+                        if len(retdict) is not 0 and skip is False:
+                            retarray.append(retdict)
+            if len(retarray) == 0:
                 return None
-            elif ver == None or self.version_supported.visible(ver):
-                return self.value
+            else:
+                return retarray
+        else:
+            if self.value is None and self.driftvalue is None:
+                return None
+            elif ver is None or self.version_supported.visible(ver):
+                if self.configchanged == 2:
+                    change = ""
+                elif self.configchanged == 4:
+                    change = "[+]"
+                elif self.configchanged == 8:
+                    change = "[-]"
+                else:
+                    change = ""
+                if self.driftvalue is not None:
+                    return dict({"Original" : str(self.value), "Drifted": str(self.driftvalue)})
+                else:
+                    if self.restobject.configchanged == 0:
+                        return str(self.value)
+                    else:
+                        if self.configchanged != 0 or self.is_key:
+                            return change + str(self.value)
+                        else:
+                            return None
             else:
                 return None
-
 
     def getclonename(self):
         """Gets the clone name of the rest_attribute."""
-        return (self.uname)
+        return self.uname
 
     def getname(self):
         """Gets the name of the rest_attribute. """
         return self.name
 
-    def setparent(self, parent, list_count = 0):
+    def setmyconfigop(self, config):
+        if not (self.getisconfig() or self.getiskey()):
+            return
+        self.configchanged = config
+        if (self.restobject.configchanged & config) != config or self.restobject.configchanged != 0:
+            self.restobject.configchanged |= config
+        if self.parent is not None and config != 0:
+            self.dbg_print(DBG, "Parent Config OP set :", self.parent.name)
+            self.parent.setconfigoplist(self.list_count, config)
+        self.dbg_print(DBG, "Set the config op", self.name,
+                       config, self.restobject.configchanged)
+        return
+
+    def setconfigforallchildren(self, config):
+        self.dbg_print(DBG, "Config OP set for child:", self.name,
+                       "Config change", config)
+        if self.is_leaf:
+            self.configchanged = config
+        elif self.getisattributelist():
+            for i in range(len(self.value)):
+                dictvalue = self.value[i]
+                for k1, v1 in dictvalue.items():
+                    self.dbg_print(DBG, "setconfigchildren", k1, v1)
+                    v1.setconfigforallchildren(config)
+        elif self.getisattributemap():
+            for k1, v1 in self.value.items():
+                v1.setconfigforallchildren(config)
+
+    def setconfigoplist(self, list_count, config):
+        if self.getisattributelist():
+            self.dbg_print(DBG, self.name, list_count, config)
+            if list_count not in self.configlist:
+                self.configlist.update(dict({list_count: 0}))
+            if config != 0:
+                storedconfig = self.configlist[list_count]
+                if config not in (storedconfig, 2):
+                    self.configlist[list_count] = config
+                    # special case for POST and delete handling
+                    childrendict = self.value[list_count]
+                    for k1, v1 in childrendict.items():
+                        self.dbg_print(DBG, "setconfigoplist", k1, v1)
+                        v1.setconfigforallchildren(config)
+
+                elif storedconfig == 2 and config == 4:
+                    self.configlist[list_count] = config
+                    # special case for POST handling
+                    childrendict = self.value[list_count]
+                    for k1, v1 in childrendict.items():
+                        v1.setconfigforallchildren(config)
+        else:
+            if self.parent is not None:
+                self.parent.setconfigoplist(self.list_count, config)
+
+    # pylint: disable=W0613
+    def setparent(self, parent, list_count=0):
         """Sets the parent of the rest_attribute. """
-        if  parent.getisattributelist() or parent.parent_is_list:
+        if parent.getisattributelist() or parent.parent_is_list:
             self.parent = parent
             self.parent_is_list = 1
         else:
             self.parent = parent
-        return
 
-    def compare(self, retdict, reset_modified = 0):
+    def noparentislist(self):
+        if self.parent is None:
+            return True
+        elif self.parent.getisattributelist():
+            return False
+        return self.parent.noparentislist()
+
+    def compare(self, retdict, reset_modified=0):
         """Compares the object to the passed dictionary values. """
         if self.getisattributemap() and not self.getisattributelist():
-            for k1,v1 in self.value.items():
+            for k1, v1 in self.value.items():
                 if isinstance(retdict, list):
                     myvalue = retdict[0]
                 elif isinstance(retdict, dict):
-                    myvalue = retdict;
+                    myvalue = retdict
                 else:
-                    #TODO remove the newline check after xmltodict merge
-                    if len (retdict) and retdict != '\n':
-                        print ("Illegal param passed for Key", self.uname, "Dict:", retdict, "\n")
+                    # TODO remove the newline check after xmltodict merge
+                    if len(retdict) and retdict != '\n':
+                        print("Illegal param passed for Key", self.uname, "Dict:", retdict, "\n")
                         return 1
                     else:
                         return 0
@@ -1148,10 +1372,10 @@ class rest_attribute():
             return 0
         elif self.getisattributelist():
             if isinstance(retdict, list):
-                if len(retdict) >= len (self.value):
-                    #Leaf list handling
+                if len(retdict) >= len(self.value):
+                    # Leaf list handling
                     if self.is_leaf:
-                        for i in range (len(self.value)):
+                        for i in range(len(self.value)):
                             found = 0
                             for j in range(len(retdict)):
                                 if self.value[i] == retdict[j]:
@@ -1161,12 +1385,12 @@ class rest_attribute():
                                 return 1
                         return 0
                     else:
-                        #Not a Leaf list
-                        for i in range(len (self.value)):
+                        # Not a Leaf list
+                        for i in range(len(self.value)):
                             value = self.value[i]
                             compare = len(value)
 
-                            for k1,v1 in value.items():
+                            for k1, v1 in value.items():
                                 for j in range(len(retdict)):
                                     compare = len(value)
                                     myvalue = retdict[j]
@@ -1179,7 +1403,7 @@ class rest_attribute():
                                                 break
 
                                 if compare == 0:
-                                    break;
+                                    break
                             if compare != 0:
                                 return compare
                     return 0
@@ -1188,15 +1412,15 @@ class rest_attribute():
 
             else:
                 if self.is_leaf:
-                    for i in range (len(self.value)):
-                        if self.value[i] != value :
+                    for i in range(len(self.value)):
+                        if self.value[i] != value:
                             return 1
                 else:
-                    for i in range (len(self.value)):
+                    for i in range(len(self.value)):
                         value = self.value[i]
                         compare = len(value)
 
-                        for k1,v1 in value.items():
+                        for k1, v1 in value.items():
                             compare = len(value)
                             myvalue = retdict
                             if k1 in myvalue.keys():
@@ -1205,14 +1429,14 @@ class rest_attribute():
             return 0
         else:
             if self.getiskey() and self.getisconfig():
-                if value == None or value == retdict:
+                if value is None or value == retdict:
                     if reset_modified:
-                            self.setvaluechanged(0)
+                        self.setvaluechanged(0)
                     return 1
                 else:
                     self.dbg_print(ERR, "Mismatch values for Attribute ",
-                                     self.getname(), "Value (",
-                                     retdict, "/",  self.getvalue())
+                                   self.getname(), "Value (",
+                                   retdict, "/", self.getvalue())
                     return 0
 
         if reset_modified:
@@ -1222,21 +1446,22 @@ class rest_attribute():
     def modified(self):
         """Checks if any of the values in the object are modified. """
         if self.getisattributemap() and not self.getisattributelist():
-            for k1,v1 in self.value.items():
+            # pylint: disable=W0612
+            for k1, v1 in self.value.items():
                 if v1.modified() == 1:
                     return 1
         elif self.getisattributelist():
-            #Leaf list handling
+            # Leaf list handling
             if self.is_leaf:
                 if self.getisvaluechanged():
                     return 1
                 else:
                     return 0
 
-            #Not leaf list
+            # Not leaf list
             for i in range(len(self.value.items())):
                 value = self.value[i]
-                for k1,v1 in  value.items():
+                for k1, v1 in value.items():
                     if v1.modified() == 1:
                         return 1
         else:
@@ -1245,39 +1470,171 @@ class rest_attribute():
                     return 1
         return 0
 
+    def __eq__(self, rhs):
+        return self.issameas(rhs)
+
+    def issameas(self, other):
+        if isinstance(other, self.__class__):
+            if self.is_key:
+                if self.getuservalue() != other.getuservalue():
+                    return False
+            elif self.getisattributemap() and not self.getisattributelist():
+                for k1, v1 in self.value.items():
+                    if k1 in other.value.keys():
+                        v2 = other.value[k1]
+                        if not v1.issameas(v2):
+                            return False
+            elif self.getisattributelist() or self.is_leaf:
+                return True
+        return True
+
+    def diff(self, other, filters=None, changed=0):
+        if self.is_leaf:
+            if filters is not None and self.uname in filters:
+                return
+        else:
+            if not (self.getisconfig() or self.getiskey()):
+                return
+        if self.getisattributemap() and not self.getisattributelist():
+            for k1, v1 in self.value.items():
+                if other is None:
+                    v1.setmyconfigop(changed)
+                elif k1 in other.value.keys():
+                    v2 = other.value[k1]
+                    v1.diff(v2, filters)
+        elif self.getisattributelist():
+            # Leaf list handling
+            if self.is_leaf:
+                if other is None:
+                    self.setmyconfigop(changed)
+                elif self.value != other.value:
+                    self.driftvalue = other.value
+                    if len(self.value) > 0:
+                        self.setmyconfigop(2)
+                    else:
+                        other.setmyconfigop(8)
+                return
+            # Not leaf list
+            for i in range(len(self.value)):
+                found = 1
+                haskey = 0
+                dictvalue1 = self.value[i]
+                skip_not_found = 0
+                if other is None:
+                    for k1, v1 in dictvalue1.items():
+                        v1.setmyconfigop(changed)
+                        v1.diff(other, filters, changed)
+
+                else:
+                    for j in range(len(other.value)):
+                        found = 1
+                        haskey = 0
+                        dictvalue2 = other.value[j]
+                        self.dbg_print(DBG, "Old DICT:", dictvalue1,
+                                       "New DICT:", dictvalue2)
+                        for k1, v1 in dictvalue1.items():
+                            if k1 in dictvalue2.keys():
+                                v2 = dictvalue2[k1]
+                                self.dbg_print(DBG, "Compare old2new", v1.value, v2.value)
+                                if v1.is_key:
+                                    haskey = 1
+                                    if v1.value is None:
+                                        skip_not_found = 1
+
+                                if not v1 == v2:
+                                    found = 0
+                                    self.dbg_print(DBG, "Not FOUND:", v1.value, v2.value)
+                                    break
+
+                        if found == 1:
+                            for k1, v1 in dictvalue1.items():
+                                if k1 in dictvalue2.keys():
+                                    v2 = dictvalue2[k1]
+                                    v1.diff(v2, filters)
+                            break
+                    if found == 0 and skip_not_found == 0:
+                        for k1, v1 in dictvalue1.items():
+                            self.dbg_print(DBG, "Setting Creation/modification key:", haskey)
+                            if haskey == 1:
+                                v1.setmyconfigop(4)
+                            else:
+                                v1.setmyconfigop(2)
+
+            if other is not None:
+                for i in range(len(other.value)):
+                    found = 0
+                    skip_not_found = 0
+                    dictvalue1 = other.value[i]
+                    for j in range(len(self.value)):
+                        found = 1
+                        dictvalue2 = self.value[j]
+                        for k1, v1 in dictvalue1.items():
+                            if k1 in dictvalue2.keys():
+                                v2 = dictvalue2[k1]
+                                self.dbg_print(DBG, "Compare new2old:", v1.value, v2.value)
+                                if v1.is_key:
+                                    if v1.value is None:
+                                        skip_not_found = 1
+                                if not v1 == v2:
+                                    found = 0
+                                    self.dbg_print(DBG, "Not FOUND", v1.value, v2.value)
+                                    break
+                        if found == 1:
+                            self.dbg_print(DBG, "new2old Compare FOUND")
+                            break
+                    if found == 0 and skip_not_found == 0:
+                        for k1, v1 in dictvalue1.items():
+                            v1.setmyconfigop(8)
+                            self.dbg_print(DBG, "Adding new obj for Delete", k1, v1.value)
+                            break
+
+        elif self.getiskey() or self.getisconfig():
+            if other is not None:
+                if self.getuservalue() != other.getuservalue():
+                    self.driftvalue = other.value
+                    # print("DIFF", self.name," : ", self.value, self.driftvalue)
+                    if self.getiskey():
+                        self.setmyconfigop(4)
+                    else:
+                        self.setmyconfigop(2)
+            else:
+                self.driftvalue = None
+        return
+
     def clean(self, filters):
         """Checks if anything must be cleaned. """
         if filters is not None and (self.uname in filters or self.getiskey()):
-            return
+            return 0
 
         if self.getisattributemap() and not self.getisattributelist():
-            for k1,v1 in self.value.items():
+            # pylint: disable=W0612
+            for k1, v1 in self.value.items():
                 v1.clean(filters)
         elif self.getisattributelist():
-            #Leaf list handling
+            # Leaf list handling
             if self.is_leaf:
                 self.value.clear()
                 self.value = []
                 return 0
-            #Not leaf list
+            # Not leaf list
             list_count = len(self.value) - 1
             if list_count > 0:
-                if (list_count == 1):
+                if list_count == 1:
                     del self.value[1]
                 else:
                     del self.value[1: list_count]
             for i in range(1):
                 value = self.value[i]
-                for k1,v1 in  value.items():
+                for k1, v1 in value.items():
                     v1.clean(filters)
         elif self.is_leaf:
             self.value = None
         return 0
 
-    def getchildattrib(self, name, list_count = 0):
-        """Gets the child attribute for this attribute. """     
+    def getchildattrib(self, name, list_count=0):
+        """Gets the child attribute for this attribute. """
         if self.getisattributemap() and not self.getisattributelist() and name in self.value.keys():
-            return (self.value[name])
+            return self.value[name]
         elif self.getisattributelist():
             if list_count < len(self.value):
                 value = self.value[list_count]
@@ -1285,16 +1642,18 @@ class rest_attribute():
                     return value[name]
         return 0
 
-    def addchild(self, attribute, list_count = 0):
+    def addchild(self, attribute, list_count=0):
         """Adds a child attribute to another attribute, which is a map. """
-        if self.getisattributemap()  and not self.getisattributelist():
+
+        # print("ADD Child", self.name, attribute.name)
+        if self.getisattributemap() and not self.getisattributelist():
             self.value.update(attribute.todict())
             attribute.setparent(self)
         elif self.getisattributelist():
             if self.is_leaf:
                 self.dbg_print(ERR, "Cannot add child to leaf list")
                 self.dbg_print(ERR, "Cannot add attribute ",
-                                 attribute.name, "for parent", self.name)
+                               attribute.name, "for parent", self.name)
             else:
                 if len(self.value) <= list_count:
                     value = dict()
@@ -1309,9 +1668,9 @@ class rest_attribute():
 
         else:
             self.dbg_print(ERR, "Parent not an attribute map or list ",
-                             self.name)
+                           self.name)
             self.dbg_print(ERR, "Cannot add attribute ",
-                             attribute.name, "for parent", self.name)
+                           attribute.name, "for parent", self.name)
             return 0
 
         if self.restobject.initialized == 0:
@@ -1329,7 +1688,9 @@ class rest_attribute():
     def gethierarchy(self, attribute):
         """Returns the clone hierarchy of the attribute."""
         if self.getisattributelist() or self.getisattributemap():
-            self.hierarchy
+            return self.hierarchy
+
+        return None
 
     def getuservalue(self):
         """Gets the value of the attribute. This is the external function. """
@@ -1337,27 +1698,27 @@ class rest_attribute():
         if correct_type:
             return value
         else:
-            self.dbg_print(ERR, "type of" + str(self.a_type.get_type()),\
-                             "missmatched to " + str(self.getvalue()))
+            self.dbg_print(ERR, "type of" + str(self.a_type.get_type()),
+                           "missmatched to " + str(self.getvalue()))
             return "type of" + str(self.a_type.get_type()) + "missmatched to " + str(self.getvalue())
 
     def getvalue(self):
         """Gets the value of the attribute. This is the internal function for the object. """
-        if self.getisattributemap() and not self.getisattributelist() :
+        if self.getisattributemap() and not self.getisattributelist():
             mydict = dict()
             for k1, v1 in self.value.items():
-                mydict.update({k1 : v1.getvalue()})
-            return (mydict)
-        if self.getisattributelist() :
+                mydict.update({k1: v1.getvalue()})
+            return mydict
+        if self.getisattributelist():
             if self.is_leaf:
-                return (self.value)
+                return self.value
 
             mylist = []
             for i in range(len(self.value)):
                 value = self.value[i]
                 mydict = dict()
                 for k1, v1 in value.items():
-                    mydict.update({k1 : v1.getvalue()})
+                    mydict.update({k1: v1.getvalue()})
                 mylist.append(mydict)
             return mylist
         else:
@@ -1365,10 +1726,7 @@ class rest_attribute():
 
     def is_top_level(self):
         """Checks if the attribute is top level, that is, a direct child attribute of the REST object."""
-        if self.getallparentstring() == "":
-            return True
-        else:
-            return False
+        return bool(self.getallparentstring() == "")
 
     def getallparentstring(self):
         """Gets all parent strings for generic setters and getters implementation. """
@@ -1395,7 +1753,7 @@ class rest_attribute():
 
     def todict(self):
         """Converts the attribute into a dictionary."""
-        self.attrib={self.name: self}
+        self.attrib = {self.name: self}
         return self.attrib
 
     def fromdict(self, attribdict):
@@ -1404,30 +1762,29 @@ class rest_attribute():
 
     def getisvaluechanged(self):
         """Gets if the value is changed for the object."""
-        return (self.value_changed)
+        return self.value_changed
 
     def setvaluechanged(self, changed):
         """Sets if the value is changed for the object."""
         self.value_changed = changed
-        return
 
     def copy(self):
         """Copies the constructor for an attribute."""
         return rest_attribute(self.name, self.value, self.is_key, self.is_config)
 
-    def clone(self, list_count = 0):
+    def clone(self, list_count=0):
         """Clones an attribute."""
         if self.getisattributelist() or self.getisattributemap():
             hierarchy = self.restobject.gethierarchy(self.uname)
-            self.dbg_print(DBG,"Hierarchy ", hierarchy, self.uname, "\n")
+            self.dbg_print(DBG, "Hierarchy ", hierarchy, self.uname, "\n")
             self.clone_hierarchy(hierarchy, self, list_count)
 
-    def clone_hierarchy(self, hierarchy,  parent, list_count):
+    def clone_hierarchy(self, hierarchy, parent, list_count):
         """Clones the attribute hierarchy of the attribute."""
         if isinstance(hierarchy, list):
             for i in range(len(hierarchy)):
                 clone_dict = hierarchy[i]
-                attribute = rest_attribute(clone_dict['name'], clone_dict['type'], clone_dict['value'], clone_dict['prop'], clone_dict['version'], parent,  list_count)
+                attribute = rest_attribute(clone_dict['name'], clone_dict['type'], clone_dict['value'], clone_dict['prop'], clone_dict['version'], parent, list_count)
                 if attribute.version_active < self.version_active:
                     attribute.version_active.from_string(attribute.version_active.to_string())
                 attribute.restobject = self.restobject
@@ -1438,41 +1795,41 @@ class rest_attribute():
                 # The list_count always starts from 0 becuase we are inside a container or list
                 attribute.clone(0)
 
-    def setuservalue(self, value, changed = 1, to_add = False):
+    def setuservalue(self, value, changed=1, to_add=False):
         """Sets the value of the attribute external function."""
         if self.supportedop(rest_get_method.GET_ALL_KEY_CONFIG, self.version_active):
-            return (self.setInfravalue(value, changed, to_add))
+            return self.setInfravalue(value, changed, to_add)
         else:
             myfunc = self.getclonename()
-            self.dbg_print(ERR, "Unsupported: ", "set_" + myfunc,\
-                    " function is not allowed for the attribute \"",\
-                                         self.getname(),"\".\n")
-            return {"info-code": -1, "info-message": "Incorrect call",\
+            self.dbg_print(ERR, "Unsupported: ", "set_" + myfunc,
+                           " function is not allowed for the attribute \"",
+                           self.getname(), "\".\n")
+            return {"info-code": -1, "info-message": "Incorrect call",
                     "info-type": "Unsupported set operation on attribute"}
         return dict({self.name: self.getvalue()})
 
-
-    def setInfravalue(self, value, changed = 1, to_add = False):
+    def setInfravalue(self, value, changed=1, to_add=False):
         # Validate type
+        # pylint: disable=W0612
         correct_type, rvalue = self.a_type.validate_peek(value)
         if not correct_type:
-            self.dbg_print(ERR, "type of" + str(self.a_type.get_type()),\
-                             "missmatched to ", type(value))
-            return {"info-code": -1, "info-message": "Setting of the value failed",\
+            self.dbg_print(ERR, "type of" + str(self.a_type.get_type()),
+                           "missmatched to ", type(value))
+            return {"info-code": -1, "info-message": "Setting of the value failed",
                     "info-type": "Incorrect type/format of value passed expected \'" +
                     self.a_type.get_type_str() + "\'"}
 
-        #validate Format
+        # validate Format
         result = self.setvalue(value, changed, to_add)
 
         if result:
-            return {"info-code": -1, "info-message": "Setting of the value failed",\
+            return {"info-code": -1, "info-message": "Setting of the value failed",
                     "info-type": "Incorrect type/format of value passed"}
-      
+
         # bubble up the version default till object
         myver = self.version_active
         myparent = self.parent
-        while (myparent != None) and (myver > myparent.version_active):
+        while (myparent is not None) and (myver > myparent.version_active):
             myparent.version_active.from_string(myver.to_string())
             myparent = myparent.parent
         if myver > self.restobject.version_active:
@@ -1480,8 +1837,7 @@ class rest_attribute():
             self.dbg_print(DBG, "Active Version changed:", myver.to_string())
         return dict({self.name: self.getvalue()})
 
-
-    def parseInfraset(self, value, changed = 1, to_add = False):
+    def parseInfraset(self, value, changed=1, to_add=False):
         valuedict = self.setInfravalue(value, changed, to_add)
         if isinstance(valuedict, dict):
             if "info-code" in valuedict.keys():
@@ -1489,14 +1845,13 @@ class rest_attribute():
                       valuedict['info-type'])
                 return 1
         return 0
-    
 
-    def setvalue(self, value, changed=1, to_add = False):
+    def setvalue(self, value, changed=1, to_add=False):
         """Sets the value of the attribute internal function."""
-        ver =  self.version_active     
+        ver = self.version_active
         if self.getisattributemap() and not self.getisattributelist():
-            self.dbg_print(DBG, "Container" , self.name , value)
-            if value == None:
+            self.dbg_print(DBG, "Container", self.name, value)
+            if value is None:
                 self.value.clear()
             else:
                 for k1, v1 in self.value.items():
@@ -1508,19 +1863,19 @@ class rest_attribute():
                     if not isinstance(myvalue, dict):
                         self.dbg_print(ERR, "Incorrect non dictionary value "
                                        "passed for set \"",
-                                       self.name, "\" Value:",  myvalue)
+                                       self.name, "\" Value:", myvalue)
                         return 1
                     if k1 in myvalue.keys():
                         if v1.version_active > ver:
                             ver.from_string(v1.version_active.to_string())
-                            self.dbg_print(DBG, self.name,\
-                                v1.version_active.to_string(), ver.to_string())
+                            self.dbg_print(DBG, self.name,
+                                           v1.version_active.to_string(), ver.to_string())
 
                         v1.setvalue(myvalue[k1], changed)
                         self.dbg_print(DBG, "calling setvalue", v1.name)
 
         elif self.getisattributelist():
-            if isinstance(value, list) :
+            if isinstance(value, list):
                 if self.is_leaf:
                     self.dbg_print(DBG, "Leaf List ", self.name, value)
                     if not to_add:
@@ -1528,15 +1883,15 @@ class rest_attribute():
                     for v1 in value:
                         self.value.append(v1)
                     self.dbg_print(DBG, "Leaf List ", self.name,
-                                     self.value, value)
-                else :
+                                   self.value, value)
+                else:
                     for i in range(len(value)):
-                        if len(self.value) <= i :
+                        if len(self.value) <= i:
                             self.clone(i)
 
                     for i in range(len(value)):
-                        self.dbg_print(DBG, "container List " , self.name ,
-                                         "::", value, "::", i, self.value[i])
+                        self.dbg_print(DBG, "container List ", self.name,
+                                       "::", value, "::", i, self.value[i])
                         myvalue = value[i]
                         if not isinstance(myvalue, dict):
                             self.dbg_print(ERR, "Incorrect non dictionary"
@@ -1553,7 +1908,7 @@ class rest_attribute():
                         self.value.clear()
 
                     self.dbg_print(DBG, "Leaf List with one entry only ",
-                                     self.name , value)
+                                   self.name, value)
                     self.value.append(value)
                 else:
                     if not isinstance(value, dict):
@@ -1567,7 +1922,7 @@ class rest_attribute():
                         for k1, v1 in objvalue.items():
                             if k1 in value.keys():
                                 v1.setvalue(value[k1], changed)
-        else :
+        else:
             if self.a_type.get_type() == pyfos_type.type_bool:
                 correct_type, rvalue = self.a_type.validate_peek(value)
                 if correct_type is True:
@@ -1577,8 +1932,7 @@ class rest_attribute():
                         self.value = 'false'
                 else:
                     self.dbg_print(ERR, self.name,
-                                   ":Incorrect bool value found:",
-                                    value)
+                                   ":Incorrect bool value found:", value)
             else:
                 self.value = value
 
@@ -1586,7 +1940,6 @@ class rest_attribute():
             self.version_active.from_string(ver.to_string())
         self.value_changed = changed
         return 0
-
 
     def objdisplay(self, ver=None):
         """Displays an attribute."""
@@ -1602,17 +1955,15 @@ class rest_attribute():
                     mydisplay.append(list1)
             else:
                 for k1, v1 in self.value.items():
-                    if ver == None or v1.version_supported.visible(ver):
+                    if ver is None or v1.version_supported.visible(ver):
                         mydisplay.append(self.value[k1].objdisplay(ver))
 
-
-            mydict={"name": self.name, "pointer" :self,"value" :mydisplay,  "iskey": self.is_key, "isconfig" : self.is_config}
-        else :
-            mydict={"name": self.name, "pointer" :self,"value" :self.value,  "iskey": self.is_key, "isconfig" : self.is_config}
+            mydict = {"name": self.name, "pointer": self, "value": mydisplay, "iskey": self.is_key, "isconfig": self.is_config}
+        else:
+            mydict = {"name": self.name, "pointer": self, "value": self.value, "iskey": self.is_key, "isconfig": self.is_config}
 
         self.dbg_print(DBG, mydict)
         return mydict
-
 
     def display(self, ver):
         """Displays an attribute."""
@@ -1620,116 +1971,149 @@ class rest_attribute():
         mydict = dict()
         if self.getisattributemap() or (self.getisattributelist() and self.is_leaf == 0):
             self.dbg_print(DBG, self.name, "::", self.value)
-            if self.getisattributelist() :
+            if self.getisattributelist():
                 for i in range(len(self.value)):
                     tmpdict = self.value[i]
                     list1 = []
+                    # pylint: disable=W0612
                     for k1, v1 in tmpdict.items():
                         if v1.version_supported.visible(ver):
-                            #list1.append(tmpdict[k1].display(ver))
+                            # list1.append(tmpdict[k1].display(ver))
                             list1.append(v1.display(ver))
-                    if  len(list1)>0:
+                    if len(list1) > 0:
                         mydisplay.append(list1)
             else:
                 for k1, v1 in self.value.items():
                     if v1.version_supported.visible(ver):
-                        #mydisplay.append(self.value[k1].display(ver))
+                        # mydisplay.append(self.value[k1].display(ver))
                         mydisplay.append(v1.display(ver))
 
-            #mydict={"name": self.name,"value" :mydisplay}
+            # mydict={"name": self.name,"value" :mydisplay}
             if self.version_supported.visible(ver):
-                mydict={self.name: mydisplay}
+                mydict = {self.name: mydisplay}
                 self.dbg_print(DBG, self.name, "::", mydict)
 
-        else :
-            #mydict={"name": self.name, "value" :self.value}
+        else:
+            # mydict={"name": self.name, "value" : self.value}
             if self.version_supported.visible(ver):
                 correct_type, value = self.a_type.validate_peek(self.getvalue())
                 if correct_type:
-                    mydict={self.name:value}
+                    mydict = {self.name: value}
                 else:
                     print("processing error", self.name, self.value)
 
         self.dbg_print(DBG, mydict)
         return mydict
 
-
     def __repr__(self):
-        return (json.dumps(self, cls=rest_object_encoder, sort_keys=True, indent=4))
+        return json.dumps(self, cls=rest_object_encoder, sort_keys=True, indent=4)
 
-
-    def supportedop (self, op, ver):
+    def supportedop(self, op, ver):
         """Checks if the attribute is supported for the GET methods requested."""
-        if 0 == self.version_supported.visible(ver):
-            self.dbg_print(DBG, "Ignored class[", \
-                self.display(self.version_active), "] Active Version:",\
-                self.version_active.to_string()," Requested version ",\
-                ver.to_string())
+        if self.version_supported.visible(ver) == 0:
+            self.dbg_print(DBG, "Ignored class[",
+                           self.display(self.version_active), "] Active Version:",
+                           self.version_active.to_string(), " Requested version ",
+                           ver.to_string())
             return 0
-        if self.filter == 1 and (op == rest_get_method.GET_ALL_FILTERS or
-                                 op == rest_get_method.GET_ALL_FILTERS_KEY):
+        if self.filter == 1 and op in (rest_get_method.GET_ALL_FILTERS, rest_get_method.GET_ALL_FILTERS_KEY):
             return 1
+        # print(" Name :" , self.name,  "config: ", self.configchanged," OP:", op, "VAL", self.value)
         if self.is_leaf:
             if op == rest_get_method.GET_ALL_KEY_CONFIG:
-                if self.getisconfig() or self.getiskey() or self.is_mandatory:
-                    return 1
-            if op == rest_get_method.GET_ALL_KEY or op == rest_get_method.GET_ALL_FILTERS_KEY:
-                if self.getiskey():
-                    return 1
-            if op == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG or \
-               op == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE:
-                if self.getisconfig() and self.getisvaluechanged() or self.getiskey():
-                    self.dbg_print(DBG, self.name, " :", self.value, "Changes:", self.getisvaluechanged())
-                    return 1
+                # if self.getisconfig() or self.getiskey() or self.is_mandatory:
+                #    return 1
+
+                if self.restobject.configchanged == 0:
+                    if self.getisconfig() or self.getiskey() or self.is_mandatory:
+                        return 1
+                elif (self.restobject.configchanged & 4) == 4 and self.configchanged == 4:
+                    if self.getisconfig() or self.getiskey() or self.is_mandatory:
+                        return 1
+            if op in (rest_get_method.GET_ALL_KEY, rest_get_method.GET_ALL_FILTERS_KEY):
+                # if self.getiskey():
+                #    return 1
+                if self.restobject.configchanged == 0:
+                    if self.getiskey():
+                        return 1
+            if op in (rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE):
+                # if self.getisconfig() and self.getisvaluechanged() or self.getiskey():
+                #    self.dbg_print(DBG, self.name, " :", self.value, "Changes:", self.getisvaluechanged())
+                if self.restobject.configchanged == 0:
+                    if self.getisconfig() and self.getisvaluechanged() or self.getiskey():
+                        self.dbg_print(DBG, self.name, " :", self.value, "Changes:", self.getisvaluechanged())
+                        return 1
+                elif self.configchanged != 0 and (self.restobject.configchanged & self.configchanged) == self.configchanged:
+                    if (self.configchanged == 8 or self.configchanged == 2):
+                        return 1
+                elif (self.restobject.configchanged & 2) == 2:
+                    if self.getiskey():
+                        return 1
+                elif (self.restobject.configchanged & 8) == 8:
+                    if self.getiskey() and self.noparentislist():
+                        return 1
             if op == rest_get_method.GET_ALL_CONFIG:
+                # if self.getisconfig() and not self.getiskey():
+                #    return 1
+                if self.restobject.configchanged == 0:
                     if self.getisconfig() and not self.getiskey():
                         return 1
+                elif (self.restobject.configchanged & self.configchanged) == self.configchanged:
+                    if self.getisconfig() and not self.getiskey():
+                        if self.configchanged == 2:
+                            return 1
             if op == rest_get_method.GET_MODIFIED_CONFIG:
+                # if self.getisconfig() and self.getisvaluechanged():
+                #    return 1
+                if self.restobject.configchanged == 0:
                     if self.getisconfig() and self.getisvaluechanged():
                         return 1
+                elif (self.restobject.configchanged & self.configchanged) == self.configchanged:
+                    if self.getisconfig() and self.getisvaluechanged():
+                        if self.configchanged == 2:
+                            return 1
         elif self.getisattributelist():
             for i in range(len(self.value)):
-                for k1,v1 in self.value[i].items():
-                    if (op == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG):
+                # pylint: disable=W0612
+                for k1, v1 in self.value[i].items():
+                    if op == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG:
                         if v1.supportedop(op, ver) == 1 and not v1.is_key:
                             return 1
                     else:
                         if v1.supportedop(op, ver) == 1:
                             return 1
         elif self.getisattributemap():
-            for k1,v1 in self.value.items():
+            for k1, v1 in self.value.items():
                 if v1.supportedop(op, ver) == 1:
                     return 1
 
         return 0
 
-
     def create_html_content(self, optype, version):
         """Creates the post string data equivalent for an attribute."""
         poststring = ""
         usefilter = 0
-        if optype == rest_get_method.GET_ALL_FILTERS or \
-            optype == rest_get_method.GET_ALL_FILTERS_KEY:
+        if optype in (rest_get_method.GET_ALL_FILTERS, rest_get_method.GET_ALL_FILTERS_KEY):
             usefilter = 1
-        self.dbg_print(DBG, self.name , " : ", self.value, "OP :",  self.supportedop(optype, version))
-        if self.getisattributemap() and not self.getisattributelist() and \
-               self.supportedop(optype, version):
+        self.dbg_print(DBG, self.name, " : ", self.value, "OP :", self.supportedop(optype, version))
+        if self.getisattributemap() and not self.getisattributelist() and self.supportedop(optype, version):
             poststringchild = ""
+            # pylint: disable=W0612
             if self.filter == 1 and usefilter == 1:
                 return "\n<" + self.name + "></" + self.name + ">"
             else:
                 for k1, v1 in self.value.items():
                     poststringchild += v1.create_html_content(optype, version)
-                if (len(poststringchild)):
+                if len(poststringchild):
                     poststringchild = re.sub("\n", "\n\t", poststringchild)
                     poststring = "\n<" + self.name + ">" + poststringchild + "\n</" + self.name + ">"
                 else:
-                    return (poststringchild)
+                    return poststringchild
             return poststring
         elif self.getisattributelist() and self.supportedop(optype, version):
             if self.filter == 1 and usefilter == 1:
                 return "\n<" + self.name + "></" + self.name + ">"
-            elif None != self.value:
+            elif self.value is not None:
                 poststringchild = ""
                 listvalue = self.value
                 if isinstance(listvalue, list):
@@ -1743,15 +2127,15 @@ class rest_attribute():
                         else:
                             # Not a Leaf List Handling
                             skip_only_keys = False
-                            if (optype == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG):
-                                skip_only_keys =  True
+                            if optype == rest_get_method.GET_KEY_AND_MODIFIED_CONFIG:
+                                skip_only_keys = True
 
                             for k1, v1 in value.items():
                                 if skip_only_keys is True and v1.supportedop(optype, version) == 1 and not v1.is_key:
                                     skip_only_keys = False
                                 poststringchild += v1.create_html_content(optype, version)
 
-                            if (len(poststringchild)) and not skip_only_keys:
+                            if len(poststringchild) and not skip_only_keys:
                                 poststringchild = re.sub("\n", "\n\t", poststringchild)
                                 poststring += "\n<" + self.name + ">" + poststringchild + "\n</" + self.name + ">"
 
@@ -1759,8 +2143,8 @@ class rest_attribute():
         else:
             if self.filter == 1 and usefilter == 1:
                 return "\n<" + self.name + "></" + self.name + ">"
-            elif self.value != None and self.supportedop(optype, version):
-                return ("\n<" + self.name + ">" + str(self.value) + "</" + self.name + ">");
+            elif self.value is not None and self.supportedop(optype, version):
+                return "\n<" + self.name + ">" + str(self.value) + "</" + self.name + ">"
         return ""
 
     def uri_string(self, optype, ver):
@@ -1769,6 +2153,7 @@ class rest_attribute():
             uristring = "/" + self.name
             if optype == rest_get_method.GET_ALL_FILTERS:
                 return "\n</" + self.name + ">"
+            # pylint: disable=W0612
             for k1, v1 in self.value.items():
                 if v1.supportedop(optype, ver):
                     uristring += v1.uri_string()
@@ -1776,8 +2161,8 @@ class rest_attribute():
         else:
             if optype == rest_get_method.GET_ALL_FILTERS:
                 return "\n</" + self.name + ">"
-            elif None != self.getvalue() :
-                return ("/" + self.name + "/" + urllib.parse.quote(str(self.getvalue()), safe=''));
+            elif self.getvalue() is not None:
+                return "/" + self.name + "/" + urllib.parse.quote(str(self.getvalue()), safe='')
         return ""
 
     def dbg_print(self, level, *args):
@@ -1786,7 +2171,7 @@ class rest_attribute():
 
 class rest_handler(rest_debug):
     """ This class encompasses all the REST operations supported from the FOS objects as per YANG.
-    
+
     Attributes:
         session: The login `session` to a FOS switch.
         uri_base:  The `uri_base` is the base URI string to access the corresponding object.
@@ -1794,40 +2179,40 @@ class rest_handler(rest_debug):
         test: The `test` dictionary captures all the different test executions.
 
     """
+    # pylint: disable=W0602
     global test
     test = dict()
-    test.update({1 : {"total_tc": 0,"show_all": 0, "get" : 0, "get_uri": 0, "post": 0, "patch": 0, "create_uri":0, "delete" :0, "delete_uri":0, "modify_put" :0, "modify_put_uri" :0, "modify_patch": 0, "modify_patch_uri" :0}})
-
+    test.update({1: {"total_tc": 0, "show_all": 0, "get": 0, "get_uri": 0, "post": 0, "patch": 0, "create_uri": 0, "delete": 0, "delete_uri": 0, "modify_put": 0, "modify_put_uri": 0, "modify_patch": 0, "modify_patch_uri": 0}})
 
     def __init__(self, uri_base):
         rest_debug.__init__(self)
         self.uri_base = uri_base
         self.obj = self
 
-        if not self.obj.obj_type in test.keys():
-            test.update({self.obj.obj_type : {"show_all": 0, "get" : 0, "get_uri": 0, "post": 0, "patch": 0, "create_uri":0, "delete" :0, "delete_uri":0, "modify_put" :0, "modify_put_uri" :0, "modify_patch": 0, "modify_patch_uri" :0}})
+        if self.obj.obj_type not in test.keys():
+            test.update({self.obj.obj_type: {"show_all": 0, "get": 0, "get_uri": 0, "post": 0, "patch": 0, "create_uri": 0, "delete": 0, "delete_uri": 0, "modify_put": 0, "modify_put_uri": 0, "modify_patch": 0, "modify_patch_uri": 0}})
 
-    def createtest(self, request, negative = 0):
+    def createtest(self, request, negative=0):
         dictglobal = test[1]
         dictobj = test[self.obj.obj_type]
         counttotal = dictglobal['total_tc']
-        counttotal +=1
+        counttotal += 1
         countg = dictglobal[request]
-        countg +=1
+        countg += 1
         counto = dictobj[request]
-        counto +=1
+        counto += 1
 
         dictglobal[request] = countg
         dictobj[request] = counto
         dictglobal['total_tc'] = counttotal
-        mytestcase="Testing " + request + " for " + getrestobjectname(self.obj.obj_type) + str(self.__class__)
-        testcaseID = "Rest" + str(counttotal) + "." + request + "." + str(countg) + getrestobjectname(self.obj.obj_type, 1)+ "." + str(counto) +""
+        mytestcase = "Testing " + request + " for " + getrestobjectname(self.obj.obj_type) + str(self.__class__)
+        testcaseID = "Rest" + str(counttotal) + "." + request + "." + str(countg) + getrestobjectname(self.obj.obj_type, 1) + "." + str(counto) + ""
         pyfos_util.test_title_set(testcaseID.upper(), mytestcase.upper())
         pyfos_util.test_negative_test_set(negative)
         time.sleep(3)
 
     def isvalidsession(self, session):
-        #print self.session
+        # print self.session
         if isinstance(session, dict) and "credential" in session.keys():
             if "Authorization" in session['credential'].keys():
                 return 1
@@ -1842,122 +2227,115 @@ class rest_handler(rest_debug):
             else:
                 return True
 
+        return False
+
     def validate(self, negative, retdict):
         if self.checkstatus(retdict):
-                if not negative:
-                    getdict = self.show(0,0)
-                    if self.checkstatus(getdict):
-                        #showstr = json.dumps(getdict, sort_keys=True)
-                        #objstr self.obj.display()
-                        #objstr = json.dumps(self.obj.display(), sort_keys=True)
-                        #if re.search(objstr, showstr):
-                            #print "found"
-                        #print "Show:\n", showstr
-                        #print "\nOBJ:\n", objstr
-                        if self.obj.container in getdict.keys() and self.obj.compare(getdict) == 1:
-                            #pyfos_util.test_explicit_result_failed("Objects do not match")
-                            print ("Return Dict:\n",getdict,"\nObj Display:\n")
-                            self.obj.display()
-                            #print "\n"
-
+            if not negative:
+                getdict = self.show(0, 0)
+                if self.checkstatus(getdict):
+                    # showstr = json.dumps(getdict, sort_keys=True)
+                    # objstr self.obj.display()
+                    # objstr = json.dumps(self.obj.display(), sort_keys=True)
+                    # if re.search(objstr, showstr):
+                        # print "found"
+                    # print "Show:\n", showstr
+                    # print "\nOBJ:\n", objstr
+                    if self.obj.container in getdict.keys() and self.obj.compare(getdict) == 1:
+                        # pyfos_util.test_explicit_result_failed("Objects do not match")
+                        print("Return Dict:\n", getdict, "\nObj Display:\n")
+                        self.obj.display()
+                        # print "\n"
 
         return retdict
 
-
-    def show_all(self, session, negative = 0, is_tc=0):
+    def show_all(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
-            return ret;
-        if is_tc :
+        if ret["info-code"] != 0:
+            return ret
+        if is_tc:
             self.createtest("show_all", negative)
         return pyfos_util.get_request(session, self.uri_base, "")
 
-
-    def get(self, session, negative = 0, is_tc=0):
+    def get(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
-            return ret;
+        if ret["info-code"] != 0:
+            return ret
         if is_tc:
-            self.createtest( "get", negative)
+            self.createtest("get", negative)
         if self.isfilterset() > 0:
-            ret =  pyfos_util.get_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_ALL_FILTERS_KEY, session))
+            ret = pyfos_util.get_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_ALL_FILTERS_KEY, session))
         else:
-            ret =  pyfos_util.get_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_ALL_KEY, session))
-        return (ret)
+            ret = pyfos_util.get_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_ALL_KEY, session))
+        return ret
 
-
-    def get_uri(self, session, negative = 0, is_tc = 0):
+    def get_uri(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
-            return ret;
+        if ret["info-code"] != 0:
+            return ret
         if is_tc:
             self.createtest("get_uri", negative)
         ret = pyfos_util.get_request(session, self.uri_base + self.obj.uri_string(rest_get_method.GET_ALL_KEY, session), "")
-        self.dbg_print(DBG,"GET URI:\n", self.uri_base + self.obj.uri_string(rest_get_method.GET_ALL_KEY, session), ret)
+        self.dbg_print(DBG, "GET URI:\n", self.uri_base + self.obj.uri_string(rest_get_method.GET_ALL_KEY, session), ret)
         return ret
 
-
-    def options(self, session, negative = 0, is_tc = 0):
+    def options(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
-            return ret;
+        if ret["info-code"] != 0:
+            return ret
         if is_tc:
             self.createtest("options", negative)
         ret = pyfos_util.options_request(session, self.uri_base, self.obj.create_html_content(0, session))
-        self.dbg_print(DBG,"Options:\n", self.uri_base, self.obj.create_html_content(0, session), ret)
+        self.dbg_print(DBG, "Options:\n", self.uri_base, self.obj.create_html_content(0, session), ret)
         return ret
 
-
-    def post(self, session, negative = 0, is_tc = 0):
+    def post(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
-            return ret;
+        if ret["info-code"] != 0:
+            return ret
         if is_tc:
             self.createtest("post", negative)
         if self.rpc == 1:
-          ret = pyfos_util.rpc_request(session, self.uri_base, self.obj.create_html_content(0, session))
+            ret = pyfos_util.rpc_request(session, self.uri_base, self.obj.create_html_content(0, session))
         else:
-          ret = pyfos_util.post_request(session, self.uri_base, self.obj.create_html_content(0, session))
-        self.dbg_print(DBG,"Create:\n", self.uri_base, self.obj.create_html_content(0, session), ret)
+            ret = pyfos_util.post_request(session, self.uri_base, self.obj.create_html_content(0, session))
+        self.dbg_print(DBG, "Create:\n", self.uri_base, self.obj.create_html_content(0, session), ret)
         return ret
 
-
-    def delete(self, session, negative = 0, is_tc = 0):
+    def delete(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
+        if ret["info-code"] != 0:
             return ret
-        if is_tc :
+        if is_tc:
             self.createtest("delete", negative)
         ret = pyfos_util.delete_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session))
-        self.dbg_print(DBG,"Delete:\n", self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session), ret)
+        self.dbg_print(DBG, "Delete:\n", self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session), ret)
         return ret
 
-
-    def delete_uri(self, session, negative =0, is_tc =0):
+    def delete_uri(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
+        if ret["info-code"] != 0:
             return ret
         if is_tc:
             self.createtest("delete_uri", negative)
         ret = pyfos_util.delete_request(session, self.uri_base + self.obj.uri_string(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session), "")
-        self.dbg_print(DBG,"Delete:\n", self.uri_base + self.obj.uri_string(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session), ret)
+        self.dbg_print(DBG, "Delete:\n", self.uri_base + self.obj.uri_string(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG_DELETE, session), ret)
         return ret
 
-
-    def patch(self, session, negative = 0, is_tc = 0, modified_dict = {}):
+    def patch(self, session, negative=0, is_tc=0, modified_dict={}):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
+        if ret["info-code"] != 0:
             return ret
         self.load(modified_dict, 1)
         if is_tc:
             self.createtest("patch", negative)
         ret = pyfos_util.patch_request(session, self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, session))
-        self.dbg_print(DBG,"Delete:\n", self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, session), ret)
+        self.dbg_print(DBG, "Delete:\n", self.uri_base, self.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, session), ret)
         return ret
 
-
+    # pylint: disable=W0613
     @staticmethod
-    def patch_all(session, negative = 0, is_tc = 0, modified_dict = {},
+    def patch_all(session, negative=0, is_tc=0, modified_dict={},
                   objsList=[]):
         "The patch_all handler handles more than one object to perform a patch operation; for example, a list of ports."
         buf = ""
@@ -1965,29 +2343,27 @@ class rest_handler(rest_debug):
             return {"info-code": -1, "info-message": "Invalid session", "info-type": "Incorrect auth details in session"}
 
         for obj in objsList:
-            '''
-            print ("Type\n", type(obj), type(obj.obj))
-            ret = obj.obj.is_valid(session)
-
-            if ( ret["info-code"] != 0 ) :
-                return ret
-            obj.load(modified_dict, 1)
-            if is_tc:
-                obj.createtest("patch", negative)
-            '''
+            # '''
+            # print("Type\n", type(obj), type(obj.obj))
+            # ret = obj.obj.is_valid(session)
+            #
+            # if ( ret["info-code"] != 0 ):
+            #   return ret
+            # obj.load(modified_dict, 1)
+            # if is_tc:
+            #   obj.createtest("patch", negative)
+            # '''
             uri_base = obj.uri_base
 
             buf += obj.obj.create_html_content(rest_get_method.GET_KEY_AND_MODIFIED_CONFIG, session)
 
-
         ret = pyfos_util.patch_request(session, uri_base, buf)
-        self.dbg_print(DBG,"Delete:\n", uri_base, buf, ret)
+        # self.dbg_print(DBG, "Delete:\n", uri_base, buf, ret)
         return ret
 
-
     @staticmethod
-    def post_all(session, negative = 0, is_tc = 0, modified_dict = {},
-                  objsList=[]):
+    def post_all(session, negative=0, is_tc=0, modified_dict={},
+                 objsList=[]):
         "The post_all handler handles more than one object to perform post operation; for example, a list of ports."
 
         buf = ""
@@ -1996,27 +2372,26 @@ class rest_handler(rest_debug):
             return {"info-code": -1, "info-message": "Invalid session", "info-type": "Incorrect auth details in session"}
 
         for obj in objsList:
-            '''
-            ret = obj.obj.is_valid(session)
-            if ( ret["info-code"] != 0 ) :
-                return ret
-            obj.load(modified_dict, 1)
-
-            if is_tc:
-                obj.createtest("patch", negative)
-            '''
+            # '''
+            # ret = obj.obj.is_valid(session)
+            # if ( ret["info-code"] != 0 ):
+            #     return ret
+            # obj.load(modified_dict, 1)
+            #
+            # if is_tc:
+            #    obj.createtest("patch", negative)
+            # '''
 
             uri_base = obj.uri_base
             buf += obj.obj.create_html_content(0, session)
 
         ret = pyfos_util.post_request(session, uri_base, buf)
-        self.dbg_print(DBG,"Delete:\n", uri_base, buf, ret)
+        # self.dbg_print(DBG, "Delete:\n", uri_base, buf, ret)
         return ret
 
-
-    def patch_uri(self, session,  negative =0, is_tc = 0, modified_dict = {}):
+    def patch_uri(self, session, negative=0, is_tc=0, modified_dict={}):
         ret = self.obj.is_valid(session)
-        if ( ret["info-code"] != 0 ) :
+        if ret["info-code"] != 0:
             return ret
         self.load(modified_dict, 1)
         if is_tc:
@@ -2035,7 +2410,7 @@ class rest_object_encoder(json.JSONEncoder):
 
 class rest_object(rest_handler):
     """ This class encompasses a REST-supported FOS object as per YANG.
-    
+
     .. Attributes:
         obj_type: The `obj_type` corresponding to a FOS object.
         uri_base:  The `uri_base` is the base URI string to access the corresponding object.
@@ -2062,9 +2437,9 @@ class rest_object(rest_handler):
     :Example:
 
      *The following are some examples on how to use the class method.*
-       
+
       Get using a key in a dictionary::
-    
+
        # Importing the module
 
        from pyfos.pyfos_brocade_gigabitethernet import extension_gigabitethernet
@@ -2073,11 +2448,11 @@ class rest_object(rest_handler):
        myobj = extension_gigabitethernet.get(session, {'name': '4/16'})
 
        # Display the object
-       # print (myobj.display())
+       # print(myobj.display())
        pyfos_util.response_print(myobj)
 
       Get using a key as a value::
-    
+
        # Importing the module
 
        from pyfos.pyfos_brocade_gigabitethernet import extension_gigabitethernet
@@ -2086,7 +2461,7 @@ class rest_object(rest_handler):
        myobj = extension_gigabitethernet.get(session, '4/15')
 
        # Display the object
-       # print (myobj.display())
+       # print(myobj.display())
        pyfos_util.response_print(myobj)
 
       Get all::
@@ -2099,19 +2474,19 @@ class rest_object(rest_handler):
        objlist = extension_gigabitethernet.get(session)
 
        # Display the object
-       # For i in range(len (objlist)):
+       # For i in range(len(objlist)):
        #    print(objlist[i].display())
        pyfos_util.response_print(objlist)
 
     """
-    def __init__(self, obj_type, uri, visible_version = VER_RANGE_820_ABOVE,
-        rpc=0, container=None):
+    def __init__(self, obj_type, uri, visible_version=VER_RANGE_820_ABOVE, rpc=0, container=None):
         """ This is the constructor of the class."""
         self.obj_type = obj_type
         self.attributes_dict = dict()
         self.attributes = []
         self.clone_instance = dict()
         uriarray = uri.split("/")
+        self.configchanged = 0
         i = len(uriarray)
         if container is None:
             self.container = uriarray[i-1]
@@ -2125,44 +2500,45 @@ class rest_object(rest_handler):
         self.use_custom_cli = 1
         self.use_custom_dict = None
         self.rpc = rpc
+        self.columnmap = dict()
+        self.loadcolumnmap = dict()
+        self.adjustcolumn = None
 
-    def load(self, dictvalues, changed = 0, ver = None):
+    def load(self, dictvalues, changed=0, ver=None):
         """The function loads or deserialzes from a dictionary of values into the object itself."""
-        if ver == None:
+        if ver is None:
             ver = fosversion(self.version_active.to_string())
         self.initialized = 1
-        if dictvalues != None and len(dictvalues):
+        if dictvalues is not None and len(dictvalues):
             if self.container in dictvalues.keys():
                 retdict = dictvalues[self.container]
             else:
                 retdict = dictvalues
             for k1, v1 in retdict.items():
                 if k1 in self.attributes_dict.keys():
-                    attribute = self.attributes_dict[k1];
+                    attribute = self.attributes_dict[k1]
                     attribute.setvalue(v1, changed)
-                    if (ver < attribute.version_active):
+                    if ver < attribute.version_active:
                         ver.from_string(attribute.version_active.to_string())
                 else:
                     self.dbg_print(ERR, "Unknown Attribute \"" + k1 +
-                                     "\" found in Object load",
-                                     getrestobjectname(self.obj_type))
-
+                                   "\" found in Object load",
+                                   getrestobjectname(self.obj_type))
         if ver != self.version_active:
-            self.version_active.from_string(ver.to_string());
-
+            self.version_active.from_string(ver.to_string())
 
     def clean(self, filters=None):
         """The function cleans an object."""
-        for k1,v1 in self.attributes_dict.items():
+        # pylint: disable=W0612
+        for k1, v1 in self.attributes_dict.items():
             v1.clean(filters)
-
 
     def getInstances(self, session, filters=None):
         get_by_key = 0
         obj = self.__class__()
         if filters is not None and len(self.keyslist) == 0:
             get_by_key = 1
-        for i in range(len (self.keyslist)):
+        for i in range(len(self.keyslist)):
             if self.keyslist[i].value is not None:
                 get_by_key = 1
                 break
@@ -2183,16 +2559,15 @@ class rest_object(rest_handler):
             self.dbg_print(ERR, obj_list)
             return obj_list
         # Additional check for reponse data
-        elif not isinstance(obj_list, dict) or \
-             obj.getcontainer() not in obj_list.keys():
+        elif not isinstance(obj_list, dict) or obj.getcontainer() not in obj_list.keys():
             self.dbg_print(ERR, "Incorrect response format/data received",
                            obj_list)
-            return (obj_list)
+            return obj_list
         elif obj_list[obj.getcontainer()] is None:
             return self
         elif isinstance(obj_list[obj.getcontainer()], dict):
             if obj_list[obj.getcontainer()] is not None:
-                #self.dbg_print(DBG, pyfos_util.response_print(obj_list[obj.getcontainer()]))
+                # self.dbg_print(DBG, pyfos_util.response_print(obj_list[obj.getcontainer()]))
                 self.load(obj_list[obj.getcontainer()])
                 if filters is not None and get_by_key == 0:
                     self.clean(filters)
@@ -2210,7 +2585,6 @@ class rest_object(rest_handler):
                 retobj_list.append(retobj)
             return retobj_list
 
-
     @classmethod
     def get(cls, session, args=None, filters=None):
         obj = cls()
@@ -2218,144 +2592,141 @@ class rest_object(rest_handler):
             if isinstance(args, dict):
                 obj.load(args)
             elif isinstance(args, list):
-                if len(obj.keyslist) == len (args):
+                if len(obj.keyslist) == len(args):
                     for i in range(len(obj.keyslist)):
                         obj.keyslist[i].setvalue(args[i])
                 else:
-                    self.dbg_print(ERR, "Incorrect key details passed[",
-                                     cls, "] needs ", len(self.keylist),
-                                     "keys, but given ", len(args))
+                    obj.dbg_print(ERR, "Incorrect key details passed[",
+                                  cls, "] needs ", len(obj.keylist),
+                                  "keys, but given ", len(args))
             else:
                 if len(obj.keyslist) == 1:
                     obj.keyslist[0].setvalue(args)
 
         return obj.getInstances(session, filters)
 
-
-    def display(self, ver= None):
+    def display(self, ver=None):
         """The function serializes the object to a dictionary."""
-        if ver == None:
+        if ver is None:
             ver = self.version_active
 
-        mydict =  dict()
+        mydict = dict()
         for i in range(len(self.attributes)):
             mydict.update(self.attributes[i].display(ver))
-        retdict = { self.container : mydict}
+        retdict = {self.container: mydict}
         return retdict
-
 
     def objdisplay(self, ver=None):
         """The function serializes the object to a dictionary with object pointer details."""
-        #if ver == None:
-           #ver = self.version_active
+        mydict = dict()
 
-        mydict =  dict()
         for i in range(len(self.attributes)):
             mydict.update(self.attributes[i].objdisplay(ver))
-        retdict = { self.container : mydict}
         return mydict
 
     def getIndexedClonename(self, attribute):
-            if attribute.parent is None:
-                return (attribute.Iclonename())
-            else:
-                return (attribute.parent.Iclonename() + attribute.Iclonename())
+        if attribute.parent is None:
+            return attribute.Iclonename()
+        else:
+            return attribute.parent.Iclonename() + attribute.Iclonename()
 
     def setIndexedClonename(self, attribute):
-        #Indexedclone
+        # Indexedclone
         myfunc = self.getIndexedClonename(attribute)
         setattr(self, "set_" + myfunc.lower(), attribute.setuservalue)
         setattr(self, "peek_" + myfunc.lower(), attribute.getuservalue)
 
-
     def add(self, attribute, parents=[]):
         """The function adds the attribute to the REST object."""
-        if attribute.version_active == None:
+        if attribute.version_active is None:
             attribute.setversion(self.version_supported.to_string())
         else:
-            if 0 == self.version_supported.visible(attribute.version_active):
+            if self.version_supported.visible(attribute.version_active) == 0:
                 self.dbg_print(ERR, "Version of attribute not supported by parent:",
-                                 attribute.name)
+                               attribute.name)
                 self.dbg_print(ERR, "Parent version::", self.version_supported.to_string())
                 self.dbg_print(ERR, "Attribute version::", attribute.version_active.to_string())
                 return 0
 
-        attribute.restobject = self;
-        #This is only required that direct level attributes are added to the attributes_dict
+        attribute.restobject = self
+        # This is only required that direct level attributes are added to the attributes_dict
         if len(parents) == 0:
             self.attributes_dict.update(attribute.todict())
-            self.attributes.append(attribute);
+            self.attributes.append(attribute)
         else:
             parent = self.getparent(parents, attribute.version_active)
-            if parent != None:
+            if parent is not None:
                 parent.addchild(attribute)
             else:
                 self.dbg_print(ERR, "No parent found matching hierarchy??", parents)
-                self.dbg_print(INF,"Attribute:", attribute.getname(),\
-                    " version::", attribute.version_active.to_string())
+                self.dbg_print(INF, "Attribute:", attribute.getname(), "\n",
+                               " version::", attribute.version_active.to_string())
                 return 0
 
         # Set the clonename of the attribute
         attribute.setclonename()
         attribute.setusage()
         myfunc = attribute.getclonename()
+        if attribute.is_leaf and (attribute.getiskey() or attribute.getisconfig()):
+            tmplen = len(self.columnmap) + 1
+            if myfunc in self.columnmap.keys():
+                self.dbg_print(ERR, "Attribute with same name added twice",
+                               attribute.name, self.__class__)
+            else:
+                self.columnmap.update(dict({myfunc: tmplen}))
         # Install the generic Setters and getters of the function
         setattr(self, "set_" + myfunc.lower(), attribute.setuservalue)
         setattr(self, "peek_" + myfunc.lower(), attribute.getuservalue)
-        self.setIndexedClonename(attribute)       
+        self.setIndexedClonename(attribute)
         self.addclone(attribute.uname, attribute)
-
         if attribute.is_key:
             self.keyslist.append(attribute)
-
+        return 0
 
     def addclone(self, name, attribute):
         """Adds the clone instance Update."""
         self.clone_instance.update({name: attribute})
         self.dbg_print(INF, "clone instance ", name, self.clone_instance)
 
-
+    # pylint: disable=W1401
     def default_set(self, value, changed=1):
         parentcaller = str(inspect.stack()[1][4])
-        myfunc = re.sub('set_','',re.sub('^.*\w\.','',re.sub('\\(.*','',parentcaller)), 1)
+        myfunc = re.sub('set_', '', re.sub('^.*\w\.', '', re.sub('\\(.*', '', parentcaller)), 1)
         if myfunc in self.name_dict.keys():
             attribute = self.name_dict[myfunc]
             if attribute.supportedop(rest_get_method.GET_ALL_KEY_CONFIG):
                 self.name_dict[myfunc].setvalue(value, changed)
-            else :
-                print  ("Unsupported: ", "set_" + myfunc, " function is not allowed for the attribute \"", attribute.getname(),"\".\n")
-        else :
-            print ("CALL: ", parentcaller, "FUNC: ", myfunc, self.name_dict.keys())
+            else:
+                print("Unsupported: ", "set_" + myfunc, " function is not allowed for the attribute \"", attribute.getname(), "\".\n")
+            return None
+        else:
+            print("CALL: ", parentcaller, "FUNC: ", myfunc, self.name_dict.keys())
             return {"info-code": -1, "info-message": "Incorrect call", "info-type": "Unable to locate the attrib in the calls"}
-
 
     def default_get(self):
         parentcaller = str(inspect.stack()[1][4])
-        myfunc = re.sub('get_','',re.sub('^.*\w\.','',re.sub('\\(.*','',parentcaller)))
+        myfunc = re.sub('get_', '', re.sub('^.*\w\.', '', re.sub('\\(.*', '', parentcaller)))
         if myfunc in self.name_dict.keys():
             return self.name_dict[myfunc].getvalue()
-        else :
-            print ("CALL: ", parentcaller, "FUNC: ", myfunc, self.name_dict.keys())
+        else:
+            print("CALL: ", parentcaller, "FUNC: ", myfunc, self.name_dict.keys())
             return {"info-code": -1, "info-message": "Incorrect call", "info-type": "Unable to locate the attrib in the calls"}
 
-
-    def reprJSON(self, ver = None):
+    def reprJSON(self, ver=None):
         """Represents the REST object in JSON format."""
-        if ver == None:
+        if ver is None:
             ver = self.version_active
         retdict = dict()
         retdict[self.container] = dict()
         for k1, v1 in self.attributes_dict.items():
-            if v1.is_empty() == False:
+            if v1.is_empty() is False:
                 if v1.version_supported.visible(ver):
                     retdict[self.container][k1] = v1
         return retdict
 
-
     def getcontainer(self):
         """Gets the REST container object name."""
         return self.container
-
 
     def gethierarchy(self, clonename):
         """Gets the clone hierarchy given a clone name."""
@@ -2364,6 +2735,7 @@ class rest_object(rest_handler):
             if attribute.getisattributelist() or attribute.getisattributemap():
                 return attribute.hierarchy
 
+        return None
 
     def addfilter(self, filters):
         """Adds the filter for an attribute. """
@@ -2374,7 +2746,6 @@ class rest_object(rest_handler):
             else:
                 self.dbg_print(ERR, "Unknown filter name ", filters[i])
 
-
     def removefilter(self, filters):
         """Removes the filter for an attribute."""
         for i in range(len(filters)):
@@ -2382,22 +2753,21 @@ class rest_object(rest_handler):
                 attribute = self.clone_instance[filters[i]]
                 attribute.resetfilter()
 
-
     def overwriteparser(self, clonename):
         if self.use_custom_cli and self.use_custom_dict is not None:
             if clonename in self.use_custom_dict.keys():
-                return (self.use_custom_dict[clonename])
+                return self.use_custom_dict[clonename]
         return None
-
 
     def showusage(self, filters=None):
         cmd_mandatory = " <-i IPADDR> <-L LOGIN> <-P PASSWORD>"
         cmd_optional = " [-f VFID] [-s MODE] [-v]"
-        objusagestr=""
-        objkeystr=""
-        objmandatory=""
-        objoptional=""
-        for k1,v1 in self.clone_instance.items():
+        objusagestr = ""
+        objkeystr = ""
+        objmandatory = ""
+        objoptional = ""
+        # pylint: disable=W0612
+        for k1, v1 in self.clone_instance.items():
             cmd_mandatory += v1.getmyopts(rest_useropt.FILTER_CMDLINE_MANDATORY, filters)
             cmd_optional += v1.getmyopts(rest_useropt.FILTER_CMDLINE_OPTIONAL, filters)
             if v1.is_key:
@@ -2408,7 +2778,7 @@ class rest_object(rest_handler):
                 objoptional += v1.getusage(filters)
 
         objusagestr = objkeystr + objmandatory + objoptional
-        usagestr = "\n" + os.path. basename(sys.argv[0]) + cmd_mandatory + cmd_optional +"\n"
+        usagestr = "\n" + os.path.basename(sys.argv[0]) + cmd_mandatory + cmd_optional + "\n"
         usagestr += 'Usage:\n'
         usagestr += "\n  Infrastructure options:\n\n"
         usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-i,", "ipaddr=IPADDR", "IP address of FOS switch.")
@@ -2420,77 +2790,74 @@ class rest_object(rest_handler):
         usagestr += "\n  Utils script specific options:\n\n"
         usagestr += objusagestr
 
-        return (usagestr)
-
+        return usagestr
 
     @classmethod
     def cliusage(cls, filters=None):
         myobj = cls()
-        return (myobj.showusage(filters))
-
+        return myobj.showusage(filters)
 
     def getmyopts(self, useropt, filters=None):
         if useropt == rest_useropt.FILTER_LGETOPT:
-            myopts=[]
-            for k1,v1 in self.clone_instance.items():
-                    myopts += v1.getmyopts(useropt, filters)
+            myopts = []
+            # pylint: disable=W0612
+            for k1, v1 in self.clone_instance.items():
+                myopts += v1.getmyopts(useropt, filters)
             return myopts
         else:
-            myopts=""
-            for k1,v1 in self.clone_instance.items():
-                    myopts += v1.getmyopts(useropt, filters)
+            myopts = ""
+            for k1, v1 in self.clone_instance.items():
+                myopts += v1.getmyopts(useropt, filters)
             return myopts
         return ""
 
-
     def parse_attrib(self, opt, arg, filters=None):
-        for k1,v1 in self.clone_instance.items():
+        # pylint: disable=W0612
+        for k1, v1 in self.clone_instance.items():
             self.dbg_print(DBG, opt, arg,
-                             v1.getmyopts(rest_useropt.FILTER_ALLOPT, filters))
+                           v1.getmyopts(rest_useropt.FILTER_ALLOPT, filters))
             if opt in v1.getmyopts(rest_useropt.FILTER_ALLOPT, filters):
                 if v1.is_leaf and v1.is_list:
-                    return (v1.parseInfraset(arg.split(';')))
+                    return v1.parseInfraset(arg.split(';'))
                 elif v1.is_leaf:
-                    return (v1.parseInfraset(arg))
+                    return v1.parseInfraset(arg)
                 else:
-                    modifiedarg=re.sub(";", " ", arg)
+                    modifiedarg = re.sub(";", " ", arg)
                     mydict = ast.literal_eval(modifiedarg)
                     another = json.loads(mydict)
-                    if len(mydict)>0:
-                        return (v1.parseInfraset(another))
+                    if len(mydict) > 0:
+                        return v1.parseInfraset(another)
                     else:
                         return 1
                 return 0
         return 1
 
-
     def setmycustomcli(self, mydict):
         if mydict is not None:
             self.use_custom_dict = mydict
             self.use_custom_cli = 1
-            for k1,v1 in self.clone_instance.items():
+            # pylint: disable=W0612
+            for k1, v1 in self.clone_instance.items():
                 v1.setusage()
         else:
             self.use_custom_dict = None
             self.use_custom_cli = 0
 
-
     def resetmycustomcli(self):
         self.use_custom_dict = None
         self.use_custom_cli = 0
-        for k1,v1 in self.clone_instance.items():
+        # pylint: disable=W0612
+        for k1, v1 in self.clone_instance.items():
             v1.setusage()
 
-
     def displaycustomcli(self):
-        retdict=dict()
-        for k1,v1 in self.clone_instance.items():
+        retdict = dict()
+        # pylint: disable=W0612
+        for k1, v1 in self.clone_instance.items():
             attribdict = v1.displaycustomcli()
             if attribdict is not None:
                 retdict.update(attribdict)
-        return {self.container : retdict}
-
-
+        return {self.container: retdict}
 
     @classmethod
     def parse(cls, argv, inputs, filters, custom_cli, validate=None):
@@ -2500,6 +2867,7 @@ class rest_object(rest_handler):
         myopts = ["help", "ipaddr=", "vfid=", "login=", "password=", "secured=", "verbose"] + myobj.getmyopts(rest_useropt.FILTER_LGETOPT, filters)
         myobj.dbg_print(DBG, "Short:", myobj.getmyopts(rest_useropt.FILTER_SGETOPT, filters))
         myobj.dbg_print(DBG, "LONG:", myobj.getmyopts(rest_useropt.FILTER_LGETOPT, filters))
+        # pylint: disable=W0612
         try:
             opts, args = getopt.getopt(argv, "hi:f:L:P:s:v" + myobj.getmyopts(rest_useropt.FILTER_SGETOPT, filters), myopts)
         except getopt.GetoptError as err:
@@ -2511,7 +2879,7 @@ class rest_object(rest_handler):
         for opt, arg in opts:
             myobj.dbg_print(DBG, "OPTIONS->", opt, " : ", arg)
             if opt in ("-h", "--help"):
-                print (myobj.showusage(filters))
+                print(myobj.showusage(filters))
                 return None
             if opt in ("-i", "--ipaddr"):
                 inputs.update({'ipaddr': arg})
@@ -2526,7 +2894,7 @@ class rest_object(rest_handler):
             elif opt in ("-P", "--password"):
                 inputs.update({'password': arg})
             elif opt in ("-s", "--secured"):
-                if arg != "self" and arg != "CA":
+                if arg not in ('self', 'CA'):
                     print("defaults to CA")
                     arg = "CA"
                 inputs.update({'secured': arg})
@@ -2546,11 +2914,11 @@ class rest_object(rest_handler):
 
         ipaddr = inputs['ipaddr']
         if not pyfos_util.isIPAddr(ipaddr):
-             print("*** Invalid ipaddr:", ipaddr)
-             print(myobj.showusage(filters))
-             return None
+            print("*** Invalid ipaddr:", ipaddr)
+            print(myobj.showusage(filters))
+            return None
 
-        if validate is not None  and validate(myobj) != 0:
+        if validate is not None and validate(myobj) != 0:
             print("Please provide the missing util script option.")
             print(myobj.showusage(filters))
             return None
@@ -2568,13 +2936,12 @@ class rest_object(rest_handler):
 
         return myobj
 
-
     def showfilter(self):
         filters = []
-        for k1,v1 in self.clone_instance.items():
+        # pylint: disable=W0612
+        for k1, v1 in self.clone_instance.items():
             v1.getfilter(filters)
         return filters
-
 
     def isfilterset(self):
         filters = self.showfilter()
@@ -2582,109 +2949,94 @@ class rest_object(rest_handler):
             return 1
         return 0
 
-
     def getattribute(self, name):
         attrib = self.attributes_dict[name]
-        return (attrib)
+        return attrib
 
-
+    # pylint: disable=W0613
     def getparent(self, parents, ver, list_count=0):
         parentobj = None
         for i in range(len(parents)):
-            if i == 0 :
+            if i == 0:
                 if parents[i] in self.attributes_dict.keys():
                     parentobj = self.attributes_dict[parents[i]]
-                    if  0 == parentobj.version_supported.visible(ver):
+                    if parentobj.version_supported.visible(ver) == 0:
                         self.dbg_print(ERR, parentobj.getname(),
-                            ":Parent version not supported Version::",
-                              parentobj.version_supported.to_string(),
-                              ver.to_string())
+                                       ":Parent version not supported Version::",
+                                       parentobj.version_supported.to_string(),
+                                       ver.to_string())
                         return None
                 else:
                     self.dbg_print(ERR, "Unknown Parent hierarchy", parents)
-            elif parentobj != 0:
+            elif parentobj is not None:
                 child = parentobj.getchildattrib(parents[i])
                 if child.version_supported.visible(ver):
                     parentobj = child
                 else:
                     self.dbg_print(ERR, parentobj.getname(), ":Parent version not supported version:",
-                        parentobj.version_supported.to_string(), ver.to_string())
+                                   parentobj.version_supported.to_string(), ver.to_string())
                     return None
             else:
                 self.dbg_print(ERR, "No parent found in the hierarchy", parents)
         return parentobj
 
-
     def remove(self, attribute):
         attrib = self.attributes_dict[attribute.getname()]
         self.attributes.remove(attrib)
         del self.attributes_dict[attribute.getname()]
-        return
-
 
     def update(self, attribute):
         myattrib = self.attributes_dict[attribute.getname()]
         myattrib.setvalue(attribute.getvalue)
-        return
-
 
     def is_empty(self):
         count = len(self.attributes_dict)
-        if count > 0 :
+        if count > 0:
             return 0
         return 1
 
-
     def namekeys(self):
-        return (self.attributes_dict.keys())
-
+        return self.attributes_dict.keys()
 
     def is_key_attrib(self, name):
         attrib = self.attributes_dict[name]
         return attrib.getiskey()
 
-
     def is_config_attrib(self, name):
         return self.attributes_dict[name].getisconfig()
-
 
     def is_value_changed(self, name):
         return self.attributes_dict[name].getisvaluechanged()
 
-
-    def set_value_changed(self, name, changed = 0):
+    def set_value_changed(self, name, changed=0):
         return self.attributes_dict[name].setvaluechanged(changed)
-
 
     def getvalue(self, name):
         return self.attributes_dict[name].getvalue()
 
-
-    def compare(self, retdict, reset_changed = 0):
+    def compare(self, retdict, reset_changed=0):
         if len(retdict):
             if self.container in retdict.keys():
                 retdict = retdict[self.container]
 
-        for k1,v1 in self.attributes_dict.items():
+        for k1, v1 in self.attributes_dict.items():
             if k1 in retdict:
                 if v1.compare(retdict[k1], reset_changed) == 0:
                     return 0
-            else :
+            else:
                 return 0
 
         return 1
-
 
     def __repr__(self):
-        return (json.dumps(self, cls=rest_attribute_encoder, sort_keys=True, indent=4))
-
+        return json.dumps(self, cls=rest_attribute_encoder, sort_keys=True, indent=4)
 
     def modified(self):
-        for k1,v1 in self.attributes_dict.items():
-            if v1.modified(retdict[k1]) == 0:
-                return 0
-        return 1
-
+        for k1, v1 in self.attributes_dict.items():
+            if v1.modified() == 1:
+                self.dbg_print(DBG, "modified(", k1, ":", v1, ")")
+                return 1
+        return 0
 
     def is_valid(self, session):
         self.setdbg_session(session)
@@ -2698,7 +3050,7 @@ class rest_object(rest_handler):
                 self.dbg_print(ERR, "Session [",
                                session['version'].to_string(),
                                "] Supported version[",
-                               self.version_supported.to_string(),"]")
+                               self.version_supported.to_string(), "]")
                 ret_error = {"info-code": -1,
                              "info-message": "Switch version is lower than the object",
                              "info-type": "Informational"}
@@ -2708,15 +3060,14 @@ class rest_object(rest_handler):
                      "info-type": "Informational"}
         return ret_error
 
-
-    def create_html_content(self, optype = 0, session = None, add_container = 1):
+    def create_html_content(self, optype=0, session=None, add_container=1):
         version = None
         if session is not None:
             version = session['version']
             self.setdbg_session(session)
-        if version == None:
+        if version is None:
             version = self.version_active
-        string_post=""
+        string_post = ""
         for name in self.namekeys():
             attrib = self.attributes_dict[name]
             if attrib.is_key:
@@ -2724,31 +3075,287 @@ class rest_object(rest_handler):
                     string_post += self.attributes_dict[name].create_html_content(optype, version)
         for name in self.namekeys():
             attrib = self.attributes_dict[name]
+            # print(attrib.name, attrib.value)
             if not attrib.is_key:
                 if self.attributes_dict[name].supportedop(optype, version):
                     string_post += self.attributes_dict[name].create_html_content(optype, version)
         if add_container:
             string_post = re.sub("\n", "\n\t", string_post)
             string_post = "\n<" + self.container + ">" + string_post + "\n</" + self.container + ">"
-        self.dbg_print(INF,"HTML CONTENT DATA:\n", string_post)
-        return (string_post)
+        self.dbg_print(INF, "HTML CONTENT DATA:\n", string_post)
+        return string_post
 
-
-    def uri_string(self, optype = 0, session=None):
+    def uri_string(self, optype=0, session=None):
         version = None
         if session is not None:
             version = session['version']
             self.setdbg_session(session)
-        if version == None:
+        if version is None:
             version = self.version_active
-        string_uri="";
+        string_uri = ""
         for name in self.namekeys():
             if self.attributes_dict[name].supportedop(optype, version):
                 string_uri += self.attributes_dict[name].uri_string(optype, version)
         self.dbg_print(INF, string_uri)
         return string_uri
 
-
     def dbg_print(self, level, *args):
         self.setdbg_log(level, args)
 
+    def configops(self, op):
+        if op == 'POST' and self.configchanged & 4:
+            return True
+        if op == 'PATCH' and self.configchanged & 2:
+            return True
+        if op == 'PUT' and self.configchanged & 2:
+            return True
+        if op == 'DELETE' and self.configchanged & 8:
+            return True
+        return True
+
+    def diff(self, other, filters=None):
+        if isinstance(other, self.__class__):
+            for name in self.namekeys():
+                attrib1 = self.attributes_dict[name]
+                attrib2 = other.attributes_dict[name]
+                attrib1.diff(attrib2, filters, 0)
+
+    def getmyrow(self, listcount=-1):
+        sr = 0
+        er = 0
+        rowcount = 1
+        for name in self.namekeys():
+            attrib = self.attributes_dict[name]
+            count = attrib.getmyrow(listcount)
+            if rowcount < count:
+                rowcount = count
+            self.dbg_print(DBG, attrib.name, rowcount)
+            if er < rowcount:
+                er = sr + rowcount - 1
+        return sr+1, er+1, rowcount
+
+    def getmywritecolumn(self, uname):
+        if uname in self.columnmap.keys():
+            return self.columnmap[uname] - self.adjustcolumn + 1
+        self.dbg_print(DBG, uname)
+        return 0
+
+    def getmyreadcolumn(self, uname):
+        if uname in self.loadcolumnmap.keys():
+            return self.loadcolumnmap[uname]
+        self.dbg_print(DBG, uname)
+        return 0
+
+    def dumpheaders(self, ws, baserow, filters=None):
+        self.getmincolumnwrite(filters)
+        r = baserow
+        self.dbg_print(DBG, self.columnmap)
+        for k, v in self.columnmap.items():
+            self.dbg_print(DBG, k, v)
+            if filters is None or \
+               (filters is not None and k in filters):
+                col = self.getmywritecolumn(k)
+                cell = ws.cell(row=r, column=col)
+                cell.value = k
+
+    def getmincolumnwrite(self, filters):
+        minvalue = None
+        for k, v in self.columnmap.items():
+            if filters is None or \
+               (filters is not None and k in filters):
+                if minvalue is None:
+                    minvalue = v
+                elif v < minvalue:
+                    minvalue = v
+        self.adjustcolumn = minvalue
+
+    def dumpdata(self, ws, baserow, filters=None):
+        self.getmincolumnwrite(filters)
+        sr, er, rowcount = self.getmyrow(-1)
+        sr += baserow
+        er += baserow
+        for name in self.namekeys():
+            attrib = self.attributes_dict[name]
+            attrib.writemycolumn(ws, sr, er, filters)
+        return rowcount
+
+    def loadheaders(self, ws, baserow, filters):
+        self.loadcolumnmap = dict()
+        self.getmincolumnwrite(filters)
+        r = baserow
+        col = 1
+        cell = ws.cell(row=r, column=col)
+        uname = cell.value
+        while uname is not None or col < 100:
+            if uname is not None:
+                self.loadcolumnmap.update(dict({uname: col}))
+            col += 1
+            cell = ws.cell(row=r, column=col)
+            uname = cell.value
+        self.dbg_print(INF, self.loadcolumnmap)
+        for k, v in self.columnmap.items():
+            if filters is not None and k not in filters:
+                continue
+            if k not in self.loadcolumnmap.keys():
+                print("Key is missing", k, v, self.__class__)
+            # flake8: noqa
+            # noqa : ignore=E127
+            elif v != self.loadcolumnmap[k] and \
+                 (v - self.adjustcolumn + 1) != self.loadcolumnmap[k]:
+                print("Columns not matching in dump and load", self.__class__,
+                      "Key", k, "Dump:", self.loadcolumnmap[k],
+                      "Load:", v, "->", v - self.adjustcolumn + 1)
+        # print(self.loadcolumnmap)
+
+    def getcolumnwidth(self, ws, col, baserow, count=0):
+        psr = baserow + 1
+        nsr = baserow + 1
+        rcount = count + 1
+        tcount = 0
+        while not self.emptyrow(ws, nsr) and tcount < rcount:
+            cell = ws.cell(row=nsr, column=col)
+            val = cell.value
+            if val is not None:
+                psr = nsr
+                tcount += 1
+            nsr += 1
+        while not self.emptyrow(ws, nsr):
+            cell = ws.cell(row=nsr, column=col)
+            val = cell.value
+            if val is not None:
+                break
+            nsr += 1
+        diff = rcount - tcount
+        if diff != 0:
+            self.dbg_print(DBG, nsr + diff, nsr + diff, count, rcount)
+            return (nsr+diff, nsr+diff, (nsr - psr))
+        return (psr, nsr-1, (nsr - psr))
+
+    # pylint: disable=E0633
+    def getlistcount(self, ws, sr, er, col):
+        tsr = sr
+        ter = er
+        listvalue = []
+        tmpvalue = None
+        if col is None:
+            return listvalue
+        while tsr <= ter:
+            width = 1
+            cell = ws.cell(row=tsr, column=col)
+            value = cell.value
+            self.dbg_print(DBG, "val", tsr, col, value)
+            if value is not None:
+                if tmpvalue is not None:
+                    (val, lsr, ler, wd) = tmpvalue
+                    self.dbg_print(DBG, val, lsr, ler, wd)
+                    tmpvalue = (val, lsr, tsr-1, wd)
+                    listvalue.append(tmpvalue)
+                tmpvalue = (value, tsr, tsr + width - 1, width)
+            tsr += width
+        if tmpvalue is not None:
+            (val, lsr, ler, wd) = tmpvalue
+            tmpvalue = (val, lsr, tsr-1, wd)
+            listvalue.append(tmpvalue)
+        self.dbg_print(DBG, sr, er, col, listvalue)
+        return listvalue
+
+    def getmykeywidth(self, ws, baserow, count=0, filters=None):
+        sr = baserow + 1
+        er = sr
+        ret1 = None
+        alllist = 0
+        for name in self.namekeys():
+            self.dbg_print(DBG, "start for ", name)
+            attrib = self.attributes_dict[name]
+            if filters is None or \
+               (filters is not None and self.uname in filters):
+                if attrib.getiskey():
+                    col = self.getmyreadcolumn(attrib.uname)
+                    self.dbg_print(DBG, attrib.uname, col)
+                    if col is None:
+                        continue
+                    ret1 = self.getcolumnwidth(ws, col, baserow, count)
+                    return ret1
+        if alllist == 0:
+            if count == 0:
+                j = 0
+                while not self.emptyrow(ws, sr+j):
+                    j += 1
+                return (sr, sr+j-1, j)
+            else:
+                (psr, per, pw) = self.getmykeywidth(ws, baserow, count-1)
+                return (psr+pw, per+1, 1)
+        return (sr, er, 1)
+
+    def emptyrow(self, ws, sr):
+        for k, v in self.loadcolumnmap.items():
+            self.dbg_print(DBG, k, v)
+            if ws.cell(row=sr, column=v).value is not None:
+                return False
+        return True
+
+    def wsrowisvalid(self, ws, baserow, count):
+        (sr, er, width) = self.getmykeywidth(ws, baserow, count)
+        self.dbg_print(DBG, sr, er, width)
+        for k, v in self.loadcolumnmap.items():
+            self.dbg_print(DBG, k, v)
+            if ws.cell(row=sr, column=v).value is not None:
+                return True
+        return False
+
+    def loadmyobj(self, ws, baserow, count=0, filters=None):
+        if not any(self.loadcolumnmap):
+            self.loadheaders(ws, baserow - 1, filters)
+        (sr, er, width) = self.getmykeywidth(ws, baserow, count)
+        self.dbg_print(DBG, sr, er, width)
+        for name in self.namekeys():
+            attrib = self.attributes_dict[name]
+            attrib.wsload(ws, sr, er, filters)
+
+    # pylint: disable=W0612
+    def loadmyobjfromrow(self, ws, baserow, osr, filters=None):
+        self.loadheaders(ws, baserow - 1, filters)
+        i = 0
+        while self.wsrowisvalid(ws, baserow, i) is True:
+            (sr, er, width) = self.getmykeywidth(ws, baserow, i, filters)
+            if sr < osr:
+                i += 1
+            else:
+                break
+        if sr != osr:
+            print("Unable to load the object for ", self.container,
+                  "at Start Row:", sr)
+            return False
+        return self.loadmyobj(ws, baserow, i, filters)
+
+    def getmywslist(self, ws, baserow, filters=None):
+        objlist = []
+        obj = self
+        i = 0
+        self.loadheaders(ws, baserow - 1, filters)
+        tmpdict = dict(self.loadcolumnmap)
+        adcolumn = self.adjustcolumn
+        while self.wsrowisvalid(ws, baserow, i) is True:
+            obj.loadmyobj(ws, baserow, i, filters)
+            objlist.append(obj)
+            obj = self.__class__()
+            obj.loadcolumnmap = dict(tmpdict)
+            obj.adjustcolumn = adcolumn
+            i += 1
+        return objlist
+
+    def __eq__(self, rhs):
+        return self.issameas(rhs)
+
+    def issameas(self, other):
+        if isinstance(other, self.__class__):
+            for name in self.namekeys():
+                attrib1 = self.attributes_dict[name]
+                attrib2 = other.attributes_dict[name]
+                if not attrib1.issameas(attrib2):
+                    self.dbg_print(DBG, "false :", attrib1, attrib2)
+                    return False
+        return True
+
+    def setconfigchanged(self, change=0):
+        self.configchanged |= change

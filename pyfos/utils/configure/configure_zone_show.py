@@ -15,27 +15,28 @@
 
 """
 
-:mod:`configure_zone_show` - PyFos util to get and display zone configuration.
+:mod:`configure_zone_show` - PyFOS util to get and display the zone\
+ configuration.
 ***********************************************************************************
-The :mod:`configure_zone_show` displays zone configuration.
+The :mod:`configure_zone_show` util displays the zone configuration.
 
-This module is a standalone script that can be used to display zone
-attributes
+This module is a stand-alone script that can be used to display zone
+attributes.
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: login name.
-    * -P,--password=PASSWORD: password.
-    * -f,--vfid=VFID: VFID to which the request is directed to.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[OPTIONAL].
-    * -v,--verbose: verbose mode[OPTIONAL].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose: Verbose mode [OPTIONAL].
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 ..function:: get_zone_configuration(session)
 
-    Example usage of the method::
+    Example Usage of the Method::
 
         ret = configure_zone_show.get_zone_configuration(session)
         print (ret)
@@ -44,22 +45,22 @@ attributes
 
         result = configure_zone_show.get_zone_configuration(session)
 
-    * inputs:
-        :param session: session returned by login
+    * Input:
+        :param session: The session returned by login.
 
-    * outputs:
-        :rtype: dictionary of return status matching rest response
+    * Output:
+        :rtype: A dictionary of return status matching the REST response.
 
-    *use cases*
+    *Use Cases*
 
-    1. Retrieve the zone configuration parameters of the switch
+    1. Retrieve the zone configuration parameters of the switch.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_fibrechannel_configuration import zone_configuration
 
 

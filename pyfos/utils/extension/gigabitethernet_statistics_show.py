@@ -17,27 +17,28 @@
 
 """
 
-:mod:`gigabitethernet_statistics_show` - PyFOS util for GE Stats.
+:mod:`gigabitethernet_statistics_show` - PyFOS util for GE_Port statistics.
 *******************************************************************************
-The :mod:`gigabitethernet_statistics_show` Util is used to display GE Stats.
+The :mod:`gigabitethernet_statistics_show` util is used to display\
+ GE_Port statistics.
 
 This module is a stand-alone script that can be used to show the
-switch GE port stats on an extension platform.
+switch GE_Port stats on an extension platform.
 
 gigabitethernet_statistics_show.py: Usage
 
 * Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optioanl].
-    * -v,--verbose: Verbose mode[Optional].
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optioanl].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME : Show name
+* Util Script Options:
+    * -n,--name=NAME : Sets the name.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: gigabitethernet_statistics_show.show(\
@@ -45,31 +46,31 @@ session, name, speed)
 
     *Show extension gigabitethernet statistics*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = gigabitethernet_statistics_show.show(
             session, name)
             print (ret)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: GigabitEthernet port name expressed as slot/port.
+        * Input:
+            :param session: The session returned by the login.
+            :param name: The GE_Port name expressed as slot/port.
 
-        * Outputs:
-            :rtype: List of GE ports.
+        * Output:
+            :rtype: A list of GE_Ports.
 
-        *Use cases*
+        *Use Cases*
 
-         Show GigabitEthernet port statistics.
+         Show the GE_Port statistics.
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+import sys
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_gigabitethernet import \
      gigabitethernet_statistics
-import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _show(session, geObject):
@@ -92,7 +93,7 @@ def show(session, name):
     geObject = gigabitethernet_statistics()
     geObject.set_name(name)
     result = _show(session, geObject)
-    return (result)
+    return result
 
 
 def main(argv):

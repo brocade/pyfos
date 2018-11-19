@@ -16,42 +16,43 @@
 
 """
 
-:mod:`maps_policy_patch` - PyFOS util to update MAPS policy
+:mod:`maps_policy_patch` - PyFOS util to update a MAPS policy.
 *******************************************************************************
 
-This script is used to update the rule list in a MAPS Policy.
+This script is used to update the rule list in a MAPS policy.
 
-Note: if we use patch operation all the rules in a policy will be
-replaced by what is provided in the input.
-If we wish to add rules to the existing policy please use POST operation.
-If we wish to delete rules from existing policy please use DELETE operation.
+Note: The patch operation replaces all rules in a policy by what is provided \
+in the input.
+To add rules to the existing policy, use the POST operation.
+To delete rules from existing policy, use the DELETE operation.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --name                 specify MAPS Policy
-    --rule-list            Rule list inside MAPS policy
+* Util Script Options:
+   --name                 Specifies a MAPS policy.
+    --rule-list           Sets the rule list in the MAPS policy.
 
-* outputs:
-    * success response or dictionary in case of error.
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import maps_policy
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

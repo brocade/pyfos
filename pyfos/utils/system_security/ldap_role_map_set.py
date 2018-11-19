@@ -43,10 +43,10 @@ LDAP role attributes.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import ldap_role_map
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -62,8 +62,8 @@ def main(argv):
         exit(1)
 
     if (ldapcfg_obj.peek_home_virtual_fabric() is None and
-       ldapcfg_obj.peek_chassis_access_role() is None and
-       ldapcfg_obj.peek_switch_role() is None):
+            ldapcfg_obj.peek_chassis_access_role() is None and
+            ldapcfg_obj.peek_switch_role() is None):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)

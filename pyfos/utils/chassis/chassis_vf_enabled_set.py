@@ -17,38 +17,41 @@
 
 """
 
-:mod:`chassis_vf_enabled_set` - PyFOS util to set VF enabled state to chassis.
-***********************************************************************************
-The :mod:`chassis_vf_enabled_set` sets the VF enabled state to chassis.
+:mod:`chassis_vf_enabled_set` - PyFOS util to set the VF-enabled state \
+on a chassis.
+*************************************************************************************
+The :mod:`chassis_vf_enabled_set` util sets the VF-enabled state \
+on a chassis.
 
 This module is a stand-alone script that can be used to set the\
- VF enabled state.
+ VF-enabled state.
 
 chassis_vf_enabled_set.py: Usage
 
-* Inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       Login name.
-|   -P,--password=PASSWORD Password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           Verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
-|   --vf-enabled=VALUE     Set VF enabled-state (enable=true, disable=false).
+| Util Script Options:
+|   --vf-enabled=VALUE     Sets the VF-enabled state (enable=true, \
+                            disable=false).
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
-
 
 .. function:: chassis_vf_enabled_set.set_vf_enabled(session, enabled)
 
-    * Set the VF enabled state to chassis.
+    * Sets the VF-enabled state on a chassis.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = chassis_vf_enabled_set.set_vf_enabled(session,
                       enabled)
@@ -62,25 +65,25 @@ chassis_vf_enabled_set.py: Usage
             chassis_obj = chassis(vfstate)
             return chassis_obj.patch(session)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param enabled: VF enabled state to be set in chassis.
+        * Input:
+            :param session: The session returned by the login.
+            :param enabled: The VF-enabled state to be set in the chassis.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
         *Use cases*
 
-         Modify chassis VF enabled state to enabled or disabled.
+         Enable or disable the chassis VF-enabled state.
 
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_chassis import chassis
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _set_vf_enabled_state(session, restobject):
@@ -96,7 +99,7 @@ def set_vf_enabled(session, enabled):
 
 def validate(chassis_obj):
     if chassis_obj.peek_vf_enabled() is None:
-            return 1
+        return 1
     return 0
 
 

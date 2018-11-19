@@ -71,11 +71,11 @@ attributes
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import raslog
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import raslog
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def set_message_severity(session, msg_id, severity):

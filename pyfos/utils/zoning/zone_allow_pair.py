@@ -47,14 +47,14 @@ creates a new CFG to add to the newly created Zone, and enables the CFG.
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.pyfos_util as pyfos_util
-import pyfos.utils.brcd_util as brcd_util
 import inspect
 import sys
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_zone as pyfos_zone
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
-session = None
+g_session = None
 ZONE_PREFIX = "az_tupl_"
 CFG_NAME = "az__cfg"
 
@@ -80,9 +80,10 @@ def usage():
 
 
 def zonename_get(prefix, hostname, targetname):
-    return (prefix + hostname + "_" + targetname)
+    return prefix + hostname + "_" + targetname
 
 
+# pylint: disable=R1710
 def zone_allow_pair(session, prefix, hostname, hostport,
                     targetname, targetport, if_no_cfg, checkmode):
     """Create/add a pair of hosts and targets to a tuple Zone.
@@ -114,7 +115,7 @@ def zone_allow_pair(session, prefix, hostname, hostport,
         2. Pass in host/target pair to create tuple zone.
 
     """
-
+    # pylint: disable=R1710
     cfgname = if_no_cfg
     zonename = zonename_get(prefix, hostname, targetname)
     cfgmem = [zonename]
@@ -122,7 +123,8 @@ def zone_allow_pair(session, prefix, hostname, hostport,
 
     prezonedb = pyfos_zone.effective_configuration.get(session)
     if pyfos_util.is_failed_resp(prezonedb):
-        return (RET_ERR, {"line": inspect.currentframe().f_lineno,
+        return (RET_ERR, {"return_str": None,
+                          "line": inspect.currentframe().f_lineno,
                           "error": prezonedb})
 
     # check to see if we have an enabled cfg
@@ -138,7 +140,8 @@ def zone_allow_pair(session, prefix, hostname, hostport,
             new_defined.set_zone(zones)
             result = new_defined.post(session)
             if pyfos_util.is_failed_resp(result):
-                return (RET_ERR, {"line": inspect.currentframe().f_lineno,
+                return (RET_ERR, {"return_str": None,
+                                  "line": inspect.currentframe().f_lineno,
                                   "error": result})
 
             cfgs = [
@@ -151,7 +154,8 @@ def zone_allow_pair(session, prefix, hostname, hostport,
             new_defined.set_cfg(cfgs)
             result = new_defined.post(session)
             if pyfos_util.is_failed_resp(result):
-                return (RET_ERR, {"line": inspect.currentframe().f_lineno,
+                return (RET_ERR, {"return_str": None,
+                                  "line": inspect.currentframe().f_lineno,
                                   "error": result})
 
             new_effective = pyfos_zone.effective_configuration()
@@ -160,12 +164,15 @@ def zone_allow_pair(session, prefix, hostname, hostport,
             new_effective.set_checksum(checksum)
             result = new_effective.patch(session)
             if pyfos_util.is_failed_resp(result):
-                return (RET_ERR, {"line": inspect.currentframe().f_lineno,
+                return (RET_ERR, {"return_str": None,
+                                  "line": inspect.currentframe().f_lineno,
                                   "error": result})
 
             return (RET_ZONE_CREATED_ADDED_TO_NEW_CFG,
                     {"return_str": zonename +
-                     " created and added to new cfg of " + cfgname})
+                     " created and added to new cfg of " + cfgname,
+                     "line": None,
+                     "error": None})
     else:
         # we have something that is already enabled
         found_in_effective_zone = False
@@ -189,7 +196,9 @@ def zone_allow_pair(session, prefix, hostname, hostport,
             return (RET_ZONE_EXIST_IN_CFG,
                     {"return_str": "already zoned in " +
                      found_in_zone["zone-name"] +
-                     " and effective in " + found_in_cfg})
+                     " and effective in " + found_in_cfg,
+                     "line": None,
+                     "error": None})
         else:
             if checkmode is False:
                 zones = [
@@ -215,7 +224,8 @@ def zone_allow_pair(session, prefix, hostname, hostport,
                 new_defined.set_cfg(cfgs)
                 result = new_defined.post(session)
                 if pyfos_util.is_failed_resp(result):
-                    return (RET_ERR, {"line": inspect.currentframe().f_lineno,
+                    return (RET_ERR, {"return_str": None,
+                                      "line": inspect.currentframe().f_lineno,
                                       "error": result})
 
                 new_effective = pyfos_zone.effective_configuration()
@@ -224,37 +234,43 @@ def zone_allow_pair(session, prefix, hostname, hostport,
                 new_effective.set_checksum(checksum)
                 result = new_effective.patch(session)
                 if pyfos_util.is_failed_resp(result):
-                    return (RET_ERR, {"line": inspect.currentframe().f_lineno,
+                    return (RET_ERR, {"return_str": None,
+                                      "line": inspect.currentframe().f_lineno,
                                       "error": result})
 
                 return (RET_ZONE_CREATED_ADDED_TO_CFG,
                         {"return_str": zonename +
                          " created and added to existing cfg of " +
-                         prezonedb.peek_cfg_name()})
+                         prezonedb.peek_cfg_name(),
+                         "line": None,
+                         "error": None})
 
 
 def main(argv):
+    # pylint: disable=W0603
+    global g_session
+
     valid_options = ["hostname", "hostport", "targetname", "targetport"]
     inputs = brcd_util.generic_input(argv, usage, valid_options)
 
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
+    g_session = pyfos_auth.login(inputs["login"], inputs["password"],
+                                 inputs["ipaddr"], inputs["secured"],
+                                 verbose=inputs["verbose"])
+    if pyfos_auth.is_failed_login(g_session):
         print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
+              g_session.get(pyfos_auth.CREDENTIAL_KEY)
               [pyfos_auth.LOGIN_ERROR_KEY])
         brcd_util.full_usage(usage)
         sys.exit()
 
-    brcd_util.exit_register(session)
+    brcd_util.exit_register(g_session)
 
     vfid = None
     if 'vfid' in inputs:
         vfid = inputs['vfid']
 
     if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
+        pyfos_auth.vfid_set(g_session, vfid)
 
     if "hostname" not in inputs:
         print("--hostname is mandatory")
@@ -277,7 +293,7 @@ def main(argv):
         sys.exit()
 
     ret_code, details = zone_allow_pair(
-            session, ZONE_PREFIX, inputs["hostname"], inputs["hostport"],
+            g_session, ZONE_PREFIX, inputs["hostname"], inputs["hostport"],
             inputs["targetname"], inputs["targetport"], CFG_NAME, False)
 
     if ret_code > 0:
@@ -287,7 +303,7 @@ def main(argv):
 
     print(details)
 
-    pyfos_auth.logout(session)
+    pyfos_auth.logout(g_session)
 
 
 if __name__ == "__main__":

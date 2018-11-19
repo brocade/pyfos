@@ -14,34 +14,35 @@
 # limitations under the License.
 
 """
-:mod:`maps_system_resources_show` - PyFOS util to display MAPS system resources
-*******************************************************************************
+:mod:`maps_system_resources_show` - PyFOS util to display the MAPS \
+system resources.
+*************************************************************************************
 
-* input:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
+* Util Script Options:
 
-* output:
-
-    Displays usage of system resources.
-    System resources displayed are CPU usage, Memory usage,
-    Flash usage and Total memory
+* Output:
+    The usage of system resources.
+    The system resources displayed include CPU usage, memory usage,
+    flash usage, and total memory.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import system_resources
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

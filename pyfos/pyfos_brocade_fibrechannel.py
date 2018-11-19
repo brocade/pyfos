@@ -21,7 +21,7 @@ The :mod:`pyfos_brocade_fibrechannel` provides a REST support \
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as version
 
@@ -862,9 +862,9 @@ class fibrechannel(pyfos_rest_util.rest_object):
 
         .. method:: peek_max_speed()
 
-            Gets the max speed of the Port is capable of. 
+            Gets the max speed of the Port is capable of.
 
-            :rtype: Returns Max Speed of The Port 
+            :rtype: Returns Max Speed of The Port
 
         .. method:: peek_default_index()
 
@@ -1055,26 +1055,26 @@ class fibrechannel(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
             version.VER_RANGE_821_and_ABOVE))
 
-        """
-        self.add(pyfos_rest_util.rest_attribute(
-            "debug", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
-        self.add(pyfos_rest_util.rest_attribute(
-            "ishttps", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
-        self.add(pyfos_rest_util.rest_attribute(
-            "ip_addr", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
-        self.add(pyfos_rest_util.rest_attribute(
-            "version", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
-        self.add(pyfos_rest_util.rest_attribute(
-            "vfid", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
-        self.add(pyfos_rest_util.rest_attribute(
-            "credential", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
-        """
+        # """
+        # self.add(pyfos_rest_util.rest_attribute(
+        #    "debug", pyfos_type.type_int,
+        #    None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        # self.add(pyfos_rest_util.rest_attribute(
+        #    "ishttps", pyfos_type.type_int,
+        #    None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        # self.add(pyfos_rest_util.rest_attribute(
+        #    "ip_addr", pyfos_type.type_int,
+        #    None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        # self.add(pyfos_rest_util.rest_attribute(
+        #    "version", pyfos_type.type_int,
+        #    None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        # self.add(pyfos_rest_util.rest_attribute(
+        #    "vfid", pyfos_type.type_int,
+        #    None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        # self.add(pyfos_rest_util.rest_attribute(
+        #    "credential", pyfos_type.type_int,
+        #    None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        # """
         self.load(dictvalues, 1)
 
 

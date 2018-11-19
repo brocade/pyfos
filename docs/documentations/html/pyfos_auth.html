@@ -66,7 +66,7 @@ direct the subsequent requests to a given VFID.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ul class="last">
-<li><p class="first">If using HTTP, None should passed to pyfos_auth.login()             for the isHttps parameter. Typically, there is no need             to pass the “–secured” option for utility scripts             provided by Brocade.</p>
+<li><p class="first">If using HTTP, None should passed to pyfos_auth.login()             for the is_https parameter. Typically, there is no need             to pass the “–secured” option for utility scripts             provided by Brocade.</p>
 </li>
 <li><p class="first">If using HTTPS with a self-signed certificate generated             in FOS using &lt;b&gt;seccertmgmt generate -cert https&lt;/b&gt;,             “self” is passed to pyfos_auth.login(). For utility             scripts provided by Brocade, “–secured=self” needs             to be provided.</p>
 </li>
@@ -140,7 +140,7 @@ direct the subsequent requests to a given VFID.</p>
 </div></blockquote>
 <dl class="function">
 <dt id="pyfos_auth.login">
-<code class="descclassname">pyfos_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>ip_addr</em>, <em>isHttps</em>, <em>throttle_delay=1.1</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.login" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pyfos_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>ip_addr</em>, <em>is_https</em>, <em>throttle_delay=1.1</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.login" title="Permalink to this definition">¶</a></dt>
 <dd><p>Establish a session to the FOS switch based on a valid login credential.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -150,7 +150,7 @@ direct the subsequent requests to a given VFID.</p>
 <li><strong>username</strong> – User name to establish a session.</li>
 <li><strong>password</strong> – Password to establish a session.</li>
 <li><strong>ip_addr</strong> – IP address of the FOS switch with which to             establish a session.</li>
-<li><strong>isHttps</strong> – None to indicate HTTP, “self” to indicate             HTTPS with a self-signed certificate, and “CA” to indicate             HTTPS with a CA-signed certificate.</li>
+<li><strong>is_https</strong> – None to indicate HTTP, “self” to indicate             HTTPS with a self-signed certificate, and “CA” to indicate             HTTPS with a CA-signed certificate.</li>
 <li><strong>throttle_delay</strong> – Delay in seconds, to account for the maximum             number of requests allowed on FOS RESTCONF. The maximum number             of request per period is configurable on FOS.</li>
 <li><strong>verbose</strong> – 1 for verbose session.</li>
 </ul>
@@ -281,7 +281,7 @@ RESTCONF throttling limit.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

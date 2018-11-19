@@ -39,11 +39,11 @@ Otherwise, of the specified port:.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def usage():

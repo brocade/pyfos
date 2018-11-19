@@ -15,34 +15,35 @@
 
 """
 
-:mod:`time_zone_show` - PyFOS util to set and show time zone information.
+:mod:`time_zone_show` - PyFOS util to set and show the time zone information.
 *******************************************************************************
-The :mod:`time_zone_show` supports 'tstimezone' CLI use case.
+The :mod:`time_zone_show` util sets and shows the time zone information.
 
-This module is a standalone script and API that can be used to display
-and set time zone by both time zone name and off-set value.
+This module is a stand-alone script and API that can be used to set
+and display time zone by the time zone name or the off-set value.
 
-* inputs:
+* Input:
 
 | Infrastructure options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* outputs:
-    * display system time zone details.
+* Output:
+    * Displays the system time zone details.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_time import time_zone
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

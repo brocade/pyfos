@@ -13,72 +13,74 @@
 
 """
 
-:mod:`pyfos_brocade_security` - PyFOS module to provide rest support for
-                                System Security.
+:mod:`pyfos_brocade_security` - PyFOS module to provide REST support for\
+System Security.
 ************************************************************************************************
-The :mod:`pyfos_brocade_security` provides a REST support for System Security.
+The :mod:`pyfos_brocade_security` module provides REST support for \
+System Security.
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as version
 
 
 class radius_server(pyfos_rest_util.rest_object):
-    """This class is used to add, change, read and delete AAA
-       radius server configuration.
+    """This class is used to add, change, read, and delete an AAA
+       RADIUS server configuration.
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | Attribute name                            | Description                      |Frequently used methods                       |
+        | Attribute Name                            | Description                      |Frequently Used Methods                       |
         +===========================================+==================================+==============================================+
-        | server                                    | Radius server ip/FQDN            |:func:`set_server`                            |
+        | server                                    | The RADIUS server IP/FQDN.       |:func:`set_server`                            |
         |                                           |                                  |:func:`peek_server`                           |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | port                                      | Radius server port               |:func:`set_port`                              |
+        | port                                      | The RADIUS server port.          |:func:`set_port`                              |
         |                                           |                                  |:func:`peek_port`                             |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | secret                                    | Secret between switch and server |:func:`set_secret`                            |
-        |                                           |                                  |:func:`peek_secret`                           |
+        | secret                                    | The secret between the switch    |:func:`set_secret`                            |
+        |                                           | and the server.                  |:func:`peek_secret`                           |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | timeout                                   | Radius server response timeout   |:func:`set_timeout`                           |
-        |                                           |                                  |:func:`peek_timeout`                          |
+        | timeout                                   | The RADIUS server response       |:func:`set_timeout`                           |
+        |                                           | timeout.                         |:func:`peek_timeout`                          |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | authentication                            | Authentication protocol          |:func:`set_authentication`                    |
+        | authentication                            | The authentication protocol.     |:func:`set_authentication`                    |
         |                                           |                                  |:func:`peek_authentication`                   |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | encryption-type                           | Encryption type                  |:func:`set_encryption_type`                   |
+        | encryption-type                           | The encryption type.             |:func:`set_encryption_type`                   |
         |                                           |                                  |:func:`peek_encryption_type`                  |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | position                                  | Radius server position           |:func:`set_position`                          |
+        | position                                  | The RADIUS server position.      |:func:`set_position`                          |
         |                                           |                                  |:func:`peek_position`                         |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`radius_server` object filled with Radius Server
+            Return a :class:`radius_server` object with RADIUS server
                                             attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
             and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`radius_server` object if name is given or list of
-                objects if there are more than one. Dictionary in case of error
+            :param session: The session handler returned by the \
+                :func:`pyfos_auth.login`.
+            :rtype: The :class:`radius_server` object, if name is provided, \
+                     or list of objects if there is more than one. \
+                     A dictionary in case of error.
 
         .. method:: post(session)
 
-            Create an radius server entry. Fields involved are set
-            within the object using attribute's set method.
-            This method is used to create a new radius server configuration for
-            AAA authentication to switch
+            Create a RADIUS server entry. The required fields are set
+            within the object using the attribute's set method.
+            This method is used to create a new RADIUS server configuration for
+            AAA authentication to a switch.
 
-            Example usage of the method to configure a new AAA radius server:
+            Example Usage of the Method to Configure a New AAA RADIUS server:
 
             .. code-block:: python
 
@@ -90,17 +92,17 @@ class radius_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 radius_obj.post(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by the \
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a success response.
 
         .. method:: patch(session)
 
-            Edit existing configuration. Fields involved are set within
-            the object using attribute's set method. This method is used to
-            modifying the existing Radius server configuration.
+            Edit an existing configuration. The required fields are set within
+            the object using the attribute's set method. This method is used to
+            modify the existing RADIUS server configuration.
 
-            Example usage of the method to configure response timeout:
+            Example Usage of the Method to Configure Response Timeout:
 
             .. code-block:: python
 
@@ -114,8 +116,8 @@ class radius_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 radius_info.patch(session)
 
-            *Below is an example of combining object initialization \
-                    and attribute sets:*
+            *Below is an Example of Combining Object Initialization \
+                    and Attribute Sets:*
 
             .. code-block:: python
 
@@ -126,18 +128,18 @@ class radius_server(pyfos_rest_util.rest_object):
                 result = radius_info.patch(session)
                 pyfos_util.response_print(result)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary in case of error or success response
+            :param session: The session handler returned by the \
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete a radius server entry. Fields involved are
+            Delete a RADIUS server entry. Fields involved are
             set within the object using attribute's
-            set method. This method is used to delete a radius server
+            set method. This method is used to delete a RADIUS server
             configuration.
 
-            Example usage of the method to delete an radius configuration:
+            Example usage of the method to delete an RADIUS configuration:
 
             .. code-block:: python
 
@@ -149,104 +151,104 @@ class radius_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 radius_obj.delete(session)
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_server(name)
 
-            Sets radius name in the object.
+            Sets the RADIUS name in the object.
 
-            :param name: radius server FQDN/ip to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param name: The RADIUS server FQDN/IP to be set within the object
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_server()
 
-            Reads the radius server from the object.
+            Reads the RADIUS server from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_port(number)
 
-            Sets radius server port number in the object.
+            Sets the RADIUS server port number in the object.
 
-            :param number: radius server port number to be set within the
-                           object
-            :rtype: dictionary in case of error or success response
+            :param number: The RADIUS server port number to be set within the
+                           object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_port()
 
-            Reads the radius server port number from the object.
+            Reads the RADIUS server port number from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_secret(secret)
 
-            Sets radius server secret in the object.
+            Sets the RADIUS server secret in the object.
 
-            :param secret: radius server secret to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param secret: The RADIUS server secret to be set within the object
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_secret()
 
-            Reads the radius server secret from the object.
+            Reads the RADIUS server secret from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_timeout(value)
 
-            Sets radius server response timeout value in the object.
+            Sets the RADIUS server response timeout value in the object.
 
-            :param value: radius server timeout value to be set within the
-                          object
-            :rtype: dictionary in case of error or success response
+            :param value: The RADIUS server timeout value to be set within the
+                          object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_timeout()
 
-            Reads the radius server timeout from the object.
+            Reads the RADIUS server timeout from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_authentication(protocol)
 
-            Sets radius server authentication protocol type in the object.
+            Sets the RADIUS server authentication protocol type in the object.
 
-            :param protocol: radius server authentication protocol type to be
-                          set within the object
-            :rtype: dictionary in case of error or success response
+            :param protocol: the RADIUS server authentication protocol type \
+                          to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_authentication()
 
-            Reads the radius server authentication protocol type from the
-            object
+            Reads the RADIUS server authentication protocol type from the
+            object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_encryption_type(encrypt)
 
-            Sets radius server encryption type in the object.
+            Sets the RADIUS server encryption type in the object.
 
-            :param encrypt: radius server encryption type to be set within
-                            the object
-            :rtype: dictionary in case of error or success response
+            :param encrypt: The RADIUS server encryption type to be set within
+                            the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_encryption_type()
 
-            Reads the radius server encryption type from the object.
+            Reads the RADIUS server encryption type from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_position(pos)
 
-            Sets radius server position in the object.
+            Sets the RADIUS server position in the object.
 
-            :param pos: radius server position to be set within
-                            the object
-            :rtype: dictionary in case of error or success response
+            :param pos: The RADIUS server position to be set within
+                            the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_position()
 
-            Reads the radius server position from the object.
+            Reads the RADIUS server position from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         """
     def __init__(self, dictvalues={}):
@@ -280,59 +282,60 @@ class radius_server(pyfos_rest_util.rest_object):
 
 
 class tacacs_server(pyfos_rest_util.rest_object):
-    """This class is used to add, change, read and delete AAA
-       tacacs+ server configuration.
+    """This class is used to add, change, read, and delete an AAA
+       TACACS+ server configuration.
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | Attribute name                            | Description                      |Frequently used methods                       |
+        | Attribute Name                            | Description                      |Frequently Used Methods                       |
         +===========================================+==================================+==============================================+
-        | server                                    | Tacacs+ server ip/FQDN           |:func:`set_server`                            |
+        | server                                    | The TACACS+ server IP/FQDN.      |:func:`set_server`                            |
         |                                           |                                  |:func:`peek_server`                           |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | port                                      | Tacacs+ server port              |:func:`set_port`                              |
+        | port                                      | The TACACS+ server port.         |:func:`set_port`                              |
         |                                           |                                  |:func:`peek_port`                             |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | secret                                    | Secret between switch and server |:func:`set_secret`                            |
-        |                                           |                                  |:func:`peek_secret`                           |
+        | secret                                    | The secret between the switch    |:func:`set_secret`                            |
+        |                                           | and the server.                  |:func:`peek_secret`                           |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | timeout                                   | Tacacs+ server response timeout  |:func:`set_timeout`                           |
-        |                                           |                                  |:func:`peek_timeout`                          |
+        | timeout                                   | The TACACS+ server response      |:func:`set_timeout`                           |
+        |                                           | timeout.                         |:func:`peek_timeout`                          |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | authentication                            | Authentication protocol          |:func:`set_authentication`                    |
+        | authentication                            | The authentication protocol.     |:func:`set_authentication`                    |
         |                                           |                                  |:func:`peek_authentication`                   |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | encryption-type                           | Encryption type                  |:func:`set_encryption_type`                   |
+        | encryption-type                           | The encryption type.             |:func:`set_encryption_type`                   |
         |                                           |                                  |:func:`peek_encryption_type`                  |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | position                                  | Tacacs+ server position          |:func:`set_position`                          |
+        | position                                  | The TACACS+ server position.     |:func:`set_position`                          |
         |                                           |                                  |:func:`peek_position`                         |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`tacacs_server` object filled with Tacacs+ Server
+            Return a :class:`tacacs_server` object with TACACS+ Server
             attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
             and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`tacacs_server` object if name is given or list of
-                objects if there are more than one. Dictionary in case of error
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: The :class:`tacacs_server` object, if name is provided, \
+                or a list of objects if there is more than one. \
+                A dictionary in case of error.
 
         .. method:: post(session)
 
-            Create an tacacs+ server entry. Fields involved are set
-            within the object using attribute's set method.
-            This method is used to create a new tacacs+ server configuration
-            for AAA authentication to switch
+            Create a TACACS+ server entry. The required fields are set
+            within the object using the attribute's set method.
+            This method is used to create a new TACACS+ server configuration
+            for AAA authentication to the switch.
 
-            Example usage of the method to configure a new AAA tacacs+ server:
+            Example Usage of the Method to Configure a New AAA TACACS+ Server:
 
             .. code-block:: python
 
@@ -344,17 +347,17 @@ class tacacs_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 tacacs_obj.post(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a success response.
 
         .. method:: patch(session)
 
-            Edit existing configuration. Fields involved are set within
-            the object using attribute's set method. This method is used to
-            modifying the existing Tacacs+ server configuration.
+            Edit an existing configuration. The required fields are set within
+            the object using the attribute's set method. This method is used \
+            to modify the existing TACACS+ server configuration.
 
-            Example usage of the method to configure response timeout:
+            Example Usage of the Method to Configure a Response Timeout:
 
             .. code-block:: python
 
@@ -368,8 +371,8 @@ class tacacs_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 tacacs_info.patch(session)
 
-            *Below is an example of combining object initialization \
-                    and attribute sets:*
+            *Below is an Example of Combining Object Initialization \
+                    and Attribute Sets:*
 
             .. code-block:: python
 
@@ -380,18 +383,17 @@ class tacacs_server(pyfos_rest_util.rest_object):
                 result = tacacs_info.patch(session)
                 pyfos_util.response_print(result)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary in case of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete a tacacs+ server entry. Fields involved are
-            set within the object using attribute's
-            set method. This method is used to delete a tacacs+ server
-            configuration.
+            Delete a TACACS+ server entry. The required fields are
+            set within the object using the attribute's set method. \
+            This method is used to delete a TACACS+ server configuration.
 
-            Example usage of the method to delete an tacacs+ configuration:
+            Example Usage of the Method to Delete an TACACS+ Configuration:
 
             .. code-block:: python
 
@@ -403,104 +405,105 @@ class tacacs_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 tacacs_obj.delete(session)
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_server(name)
 
-            Sets tacacs+ name in the object.
+            Sets the TACACS+ name in the object.
 
-            :param name: tacacs+ FQDN/ip to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param name: The TACACS+ FQDN/IP to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_server()
 
-            Reads the tacacs+ server from the object.
+            Reads the TACACS+ server from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_port(number)
 
-            Sets tacacs+ server port number in the object.
+            Sets The TACACS+ server port number in the object.
 
-            :param number: tacacs+ server port number to be set within the
-                           object
-            :rtype: dictionary in case of error or success response
+            :param number: The TACACS+ server port number to be set within the
+                           object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_port()
 
-            Reads the tacacs+ server port number from the object.
+            Reads the TACACS+ server port number from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_secret(secret)
 
-            Sets tacacs+ server secret in the object.
+            Sets the TACACS+ server secret in the object.
 
-            :param secret: tacacs+ server secret to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param secret: The TACACS+ server secret to be set within \
+                           the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_secret()
 
-            Reads the tacacs+ server secret from the object.
+            Reads the TACACS+ server secret from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_timeout(value)
 
-            Sets tacacs+ server response timeout value in the object.
+            Sets the TACACS+ server response timeout value in the object.
 
-            :param value: tacacs+ server timeout value to be set within the
-                          object
-            :rtype: dictionary in case of error or success response
+            :param value: The TACACS+ server timeout value to be set within the
+                          object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_timeout()
 
-            Reads the tacacs+ server timeout from the object.
+            Reads the TACACS+ server timeout from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_authentication(protocol)
 
-            Sets tacacs+ server authentication protocol type in the object.
+            Sets the TACACS+ server authentication protocol type in the object.
 
-            :param protocol: tacacs+ server authentication protocol type to be
-                          set within the object
-            :rtype: dictionary in case of error or success response
+            :param protocol: The TACACS+ server authentication protocol type \
+                          to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_authentication()
 
-            Reads the tacacs+ server authentication protocol type from the
+            Reads the TACACS+ server authentication protocol type from the
             object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_encryption_type(encrypt)
 
-            Sets tacacs+ server encryption type in the object.
+            Sets the TACACS+ server encryption type in the object.
 
-            :param encrypt: tacacs+ server encryption type to be set within
-                            the object
-            :rtype: dictionary in case of error or success response
+            :param encrypt: The TACACS+ server encryption type to be set within
+                            the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_encryption_type()
 
-            Reads the tacacs+ server encryption type from the object.
+            Reads the TACACS+ server encryption type from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_position(pos)
 
-            Sets tacacs+ server position in the object.
+            Sets the TACACS+ server position in the object.
 
-            :param pos: tacacs+ server position to be set within
-                            the object
-            :rtype: dictionary in case of error or success response
+            :param pos: The TACACS+ server position to be set within
+                            the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_position()
 
-            Reads the tacacs+ server position from the object.
+            Reads the TACACS+ server position from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         """
     def __init__(self, dictvalues={}):
@@ -534,53 +537,54 @@ class tacacs_server(pyfos_rest_util.rest_object):
 
 
 class ldap_server(pyfos_rest_util.rest_object):
-    """This class is used to add, change, read and delete AAA
-       ldap server configuration.
+    """This class is used to add, change, read, and delete AAA
+       LDAP server configuration.
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------------------+----------------------------------+-------------------------------------------+
-        | Attribute name                            | Description                      |Frequently used methods                    |
+        | Attribute Name                            | Description                      |Frequently Used Methods                    |
         +===========================================+==================================+===========================================+
-        | server                                    | Ldap server ip/FQDN              |:func:`set_server`                         |
+        | server                                    | The LDAP server IP/FQDN.         |:func:`set_server`                         |
         |                                           |                                  |:func:`peek_server`                        |
         +-------------------------------------------+----------------------------------+-------------------------------------------+
-        | port                                      | Ldap server port                 |:func:`set_port`                           |
+        | port                                      | The LDAP server port.            |:func:`set_port`                           |
         |                                           |                                  |:func:`peek_port`                          |
         +-------------------------------------------+----------------------------------+-------------------------------------------+
-        | timeout                                   | Ldap server response timeout     |:func:`set_timeout`                        |
-        |                                           |                                  |:func:`peek_timeout`                       |
+        | timeout                                   | The LDAP server response         |:func:`set_timeout`                        |
+        |                                           | timeout.                         |:func:`peek_timeout`                       |
         +-------------------------------------------+----------------------------------+-------------------------------------------+
-        | domain                                    | Ldap server domain name          |:func:`set_domain`                         |
+        | domain                                    | The LDAP server domain name.     |:func:`set_domain`                         |
         |                                           |                                  |:func:`peek_domain`                        |
         +-------------------------------------------+----------------------------------+-------------------------------------------+
-        | position                                  | Ldap server position             |:func:`set_position`                       |
+        | position                                  | The LDAP server position.        |:func:`set_position`                       |
         |                                           |                                  |:func:`peek_position`                      |
         +-------------------------------------------+----------------------------------+-------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`ldap_server` object filled with Ldap Server
+            Return a :class:`ldap_server` object with LDAP Server
                              attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
             and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`ldap_server` object if name is given or list of
-                objects if there are more than one. Dictionary in case of error
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: The :class:`ldap_server` object, if name is provided, \
+                or a list of objects if there is more than one. \
+                A dictionary in case of error.
 
         .. method:: post(session)
 
-            Create an ldap server entry. Fields involved are set
-            within the object using attribute's set method.
-            This method is used to create a new ldap server configuration for
-            AAA authentication to switch
+            Create an LDAP server entry. The required fields are set
+            within the object using the attribute's set method.
+            This method is used to create a new LDAP server configuration for
+            AAA authentication to the switch.
 
-            Example usage of the method to configure a new AAA ldap server:
+            Example Usage of the Method to Configure a New AAA LDAP Server:
 
             .. code-block:: python
 
@@ -592,17 +596,17 @@ class ldap_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 ldap_obj.post(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a success response.
 
         .. method:: patch(session)
 
-            Edit existing configuration. Fields involved are set within
-            the object using attribute's set method. This method is used to
-            modifying the existing ldap server configuration.
+            Edit an existing configuration. The required fields are set within
+            the object using the attribute's set method. This method is used to
+            modify the existing LDAP server configuration.
 
-            Example usage of the method to configure response timeout:
+            Example Usage of the Method to Configure the Response Timeout:
 
             .. code-block:: python
 
@@ -616,8 +620,8 @@ class ldap_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 ldap_info.patch(session)
 
-            *Below is an example of combining object initialization \
-                    and attribute sets:*
+            *Below is an Example of Combining Object Initialization \
+                    and Attribute Sets:*
 
             .. code-block:: python
 
@@ -628,18 +632,18 @@ class ldap_server(pyfos_rest_util.rest_object):
                 result = ldap_info.patch(session)
                 pyfos_util.response_print(result)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary in case of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete a ldap server entry. Fields involved are
-            set within the object using attribute's
-            set method. This method is used to delete a ldap server
+            Delete an LDAP server entry. The required fields are
+            set within the object using the attribute's
+            set method. This method is used to delete an LDAP server
             configuration.
 
-            Example usage of the method to delete an ldap configuration:
+            Example Usage of the Method to Delete an LDAP Configuration:
 
             .. code-block:: python
 
@@ -651,72 +655,75 @@ class ldap_server(pyfos_rest_util.rest_object):
                 # switch connected through session
                 ldap_obj.delete(session)
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_server(name)
 
-            Sets ldap name in the object.
+            Sets the LDAP name in the object.
 
-            :param name: ldap FQDN/ip to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param name: the LDAP FQDN/IP to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_server()
 
-            Reads the ldap server from the object.
+            Reads the LDAP server from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_port(number)
 
-            Sets ldap server port number in the object.
+            Sets the LDAP server port number in the object.
 
-            :param number: ldap server port number to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param number: The LDAP server port number to be set within \
+                            the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_port()
 
-            Reads the ldap server port number from the object.
+            Reads the LDAP server port number from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_timeout(value)
 
-            Sets ldap server response timeout value in the object.
+            Sets the LDAP server response timeout value in the object.
 
-            :param value: ldap server timeout value to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param value: The LDAP server timeout value to be set within \
+                          the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_timeout()
 
-            Reads the ldap server timeout from the object.
+            Reads the LDAP server timeout from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_domain(domain)
 
-            Sets ldap server domain name in the object.
+            Sets the LDAP server domain name in the object.
 
-            :param domain: ldap server domain name to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param domain: The LDAP server domain name to be set within \
+                           the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_domain()
 
-            Reads the ldap server domain name from the object.
+            Reads the LDAP server domain name from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_position(pos)
 
-            Sets ldap server position in the object.
+            Sets the LDAP server position in the object.
 
-            :param pos: ldap server position to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param pos: The LDAP server position to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_position()
 
-            Reads the ldap server position from the object.
+            Reads the LDAP server position from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         """
     def __init__(self, dictvalues={}):
@@ -744,46 +751,47 @@ class ldap_server(pyfos_rest_util.rest_object):
 
 
 class auth_spec(pyfos_rest_util.rest_object):
-    """This class provides to configure the authentication mode and displaying
+    """This class configures the authentication mode and displays
        the authentication mode configuration.
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------------------+----------------------------------+------------------------------------------------------+
         | Attribute name                            | Description                      |Frequently used methods                               |
         +===========================================+==================================+======================================================+
-        | authentication-mode                       | Authentication mode for RADIUS,  |:func:`set_authentication_mode`                       |
-        |                                           | TACACS+ and LDAP                 |:func:`peek_authentication_mode`                      |
+        | authentication-mode                       | The authentication mode for      |:func:`set_authentication_mode`                       |
+        |                                           | RADIUS, TACACS+, and LDAP.       |:func:`peek_authentication_mode`                      |
         +-------------------------------------------+----------------------------------+------------------------------------------------------+
-        | activate-no-log-out                       | Change in the authentication     |:func:`set_activate_no_log_out`                       |
-        |                                           | mechanism                        |:func:`peek_activate_no_log_out`                      |
+        | activate-no-log-out                       | A change in the authentication   |:func:`set_activate_no_log_out`                       |
+        |                                           | mechanism.                       |:func:`peek_activate_no_log_out`                      |
         +-------------------------------------------+----------------------------------+------------------------------------------------------+
-        | primary-auth-log-messages                 | Log messages for authentication  |:func:`set_primary_auth_log_messages`                 |
-        |                                           | failure                          |:func:`peek_primary_auth_log_messages`                |
+        | primary-auth-log-messages                 | The log messages for             |:func:`set_primary_auth_log_messages`                 |
+        |                                           | authentication failure.          |:func:`peek_primary_auth_log_messages`                |
         +-------------------------------------------+----------------------------------+------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`auth_spec` object filled with authentication
-                             config attributes.
+            Returns a :class:`auth_spec` object with authentication
+                             configuration attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
             and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`auth_spec` object or dictionary in case of error.
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: The :class:`auth_spec` object or dictionary in case \
+                     of error.
 
         .. method:: patch(session)
 
-            Replace existing configuration authentication mode.
-            Fields involved are set within the object using attribute's
-            set method. This method is used to modifying the existing
+            Replaces an existing configuration authentication mode.
+            The required fields are set within the object using the attribute's
+            set method. This method is used to modify the existing
             authentication mode configuration.
 
-            Example usage of the method to configure response radiuslocal:
+            Example Usage of the Method to Configure the Response radiuslocal:
 
             .. code-block:: python
 
@@ -795,50 +803,53 @@ class auth_spec(pyfos_rest_util.rest_object):
                 # switch connected through session
                 server_info.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary in case of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_authentication_mode(mode)
 
-            Sets authentication mode  in the object.
+            Sets the authentication mode in the object.
 
-            :param mode: authentication mode  to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param mode: The authentication mode to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_authentication_mode()
 
             Reads the authentication mode from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_activate_no_log_out(bool)
 
-            Sets authentication mechanism enable/disable in the object.
+            Sets the authentication mechanism to enable or disable in \
+             the object.
 
-            :param bool: authentication mechanism to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param bool: The authentication mechanism to be set within \
+                         the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_activate_no_log_out()
 
             Reads the authentication mechanism from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_primary_auth_log_messages(bool)
 
-            Sets Log messages enable/disable value in the object.
+            Sets the log messages enable or disable value in the object.
 
-            :param bool: Log message enable/disable to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param bool: The log message enable or disable to be set within \
+                          the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_primary_auth_log_messages()
 
             Reads the log message status from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -864,41 +875,41 @@ class ipfilter_policy(pyfos_rest_util.rest_object):
     """This class provides the ipfilter policy information and also can
        configure the ipfilter policies.
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------------------+----------------------------------+----------------------------------------------------------+
-        | Attribute name                            | Description                      |Frequently used methods                                   |
+        | Attribute Name                            | Description                      |Frequently Used Methods                                   |
         +===========================================+==================================+==========================================================+
-        | name                                      | Policy name                      |:func:`set_name`                                          |
+        | name                                      | The policy name.                 |:func:`set_name`                                          |
         |                                           |                                  |:func:`peek_name`                                         |
         +-------------------------------------------+----------------------------------+----------------------------------------------------------+
-        | ip-version                                | Policy IP version IPv4/IPv6      |:func:`set_ip_version`                                    |
-        |                                           |                                  |:func:`peek_ip_version`                                   |
+        | ip-version                                | The policy IP version            |:func:`set_ip_version`                                    |
+        |                                           |  (IPv4/IPv6).                    |:func:`peek_ip_version`                                   |
         +-------------------------------------------+----------------------------------+----------------------------------------------------------+
-        | is-policy-active                          | Indicates status of the policy   |:func:`peek_is_policy_active`                             |
-        |                                           | Active/Defined                   |                                                          |
+        | is-policy-active                          | Indicates the status of          |:func:`peek_is_policy_active`                             |
+        |                                           | the policy (Active/Defined).     |                                                          |
         +-------------------------------------------+----------------------------------+----------------------------------------------------------+
-        | is-default-policy                         | Indicates default or user defined|:func:`peek_is_default_policy`                            |
-        |                                           | policy                           |                                                          |
+        | is-default-policy                         | Indicates the default or user    |:func:`peek_is_default_policy`                            |
+        |                                           | defined policy.                  |                                                          |
         +-------------------------------------------+----------------------------------+----------------------------------------------------------+
-        | action                                    | Ipfilter actions such as commit, |:func:`set_action`                                        |
-        |                                           | save, activate, and clone.       |                                                          |
+        | action                                    | The IPfilter action (commit,     |:func:`set_action`                                        |
+        |                                           | save, activate, and clone).      |                                                          |
         +-------------------------------------------+----------------------------------+----------------------------------------------------------+
-        | clone-destination-policy-name             | Destination policy name when     |:func:`set_clone_destination_policy_name`                 |
-        |                                           | clone action                     |:func:`peek_clone_destination_policy_name`                |
+        | clone-destination-policy-name             | The destination policy name when |:func:`set_clone_destination_policy_name`                 |
+        |                                           | using the clone action.          |:func:`peek_clone_destination_policy_name`                |
         +-------------------------------------------+----------------------------------+----------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. staticmethod:: get(session)
 
-            Return a :class:`ipfilter_policy` object filled with Ipfilter
+            Returns a :class:`ipfilter_policy` object with the IPfilter
                              policy attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            and individual attributes are accessed through peek methods.
 
-            Example usage of the method to get ipfilter policies:
+            Example Usage of the method to get ipfilter policies:
 
             .. code-block:: python
 
@@ -2925,7 +2936,7 @@ class user_config(pyfos_rest_util.rest_object):
             "virtual-fabric-role-id-list", pyfos_type.type_na,
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
         self.add(pyfos_rest_util.rest_attribute(
-            "role-id",  pyfos_type.type_str,
+            "role-id", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
             ["virtual-fabric-role-id-list"])
 
@@ -3031,7 +3042,7 @@ class sshutil(pyfos_rest_util.rest_object):
             "allow-user-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "rekey-interval",  pyfos_type.type_int,
+            "rekey-interval", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)
@@ -3192,6 +3203,12 @@ class sshutil_key(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "passphrase", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "size", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "fingerprint", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
 
         self.load(dictvalues, 1)
 
@@ -3331,16 +3348,16 @@ class sshutil_public_key_action(pyfos_rest_util.rest_object):
             "user-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
         self.add(pyfos_rest_util.rest_attribute(
-            "public-key-name",  pyfos_type.type_str,
+            "public-key-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "remote-host-ip", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "remote-user-name",  pyfos_type.type_str,
+            "remote-user-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "remote-user-password",  pyfos_type.type_str,
+            "remote-user-password", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "remote-directory", pyfos_type.type_str,
@@ -3349,7 +3366,7 @@ class sshutil_public_key_action(pyfos_rest_util.rest_object):
             "algorithm-type", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "action",  pyfos_type.type_str,
+            "action", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)
@@ -3433,7 +3450,7 @@ class sshutil_public_key(pyfos_rest_util.rest_object):
             "user-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
         self.add(pyfos_rest_util.rest_attribute(
-            "public-key",  pyfos_type.type_str,
+            "public-key", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)
@@ -3498,10 +3515,10 @@ class password(pyfos_rest_util.rest_object):
             "user-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
         self.add(pyfos_rest_util.rest_attribute(
-            "old-password",  pyfos_type.type_str,
+            "old-password", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "new-password",  pyfos_type.type_str,
+            "new-password", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)
@@ -4104,7 +4121,7 @@ class security_certificate_action(pyfos_rest_util.rest_object):
             "remote-user-password", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "remote-directory",  pyfos_type.type_str,
+            "remote-directory", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)

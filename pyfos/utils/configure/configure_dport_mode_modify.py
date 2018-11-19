@@ -15,35 +15,35 @@
 
 """
 
-:mod:`configure_dport_mode_modify` - PyFos util to set dport mode of the \
+:mod:`configure_dport_mode_modify` - PyFOS util to set the D_Port mode of the \
 switch.
-***********************************************************************************
-The :mod:`configure_dport_mode_modify` sets the dport mode of the switch.
+**************************************************************************************
+The :mod:`configure_dport_mode_modify` util sets the D_Port mode of the switch.
 
-This module is a standalone script that can be used to set the dport mode
+This module is a stand-alone script that can be used to set the D_Port mode
 of the switch.
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: login name.
-    * -P,--password=PASSWORD: password.
-    * -f,--vfid=VFID: VFID to which the request is directed to.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[OPTIONAL].
-    * -v,--verbose: verbose mode[OPTIONAL].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose: Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    * --dynamic-d-port-enabled=DYNAMIC-D-PORT-ENABLED: set given dynamic dport\
-            mode
-    * --on-demand-d-port-enabled=ON-DEMAND-D-PORT-ENABLED: set on demand dport\
-            mode
+* Util Script Options:
+    * --dynamic-d-port-enabled=DYNAMIC-D-PORT-ENABLED: Sets the given dynamic\
+ D_Port mode.
+    * --on-demand-d-port-enabled=ON-DEMAND-D-PORT-ENABLED: Sets the on-demand\
+            D_Port mode.
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 ..function:: set_dport_mode(session, dynamic_dport_mode,
                                 ondemand_dport_mode)
 
-    Example usage of the method::
+    Example Usage of the Method::
 
         ret = configure_dport_mode_modify.set_dport_mode(session,
                 dynamic_dport_mode, ondemand_dport_mode)
@@ -54,24 +54,24 @@ of the switch.
         result = configure_dport_mode_modify.set_dport_mode(session,
                 dynamic_dport_mode, ondemand_dport_mode)
 
-    * inputs:
-        :param session: session returned by login
-        :param dynamic_dport_mode: Set dynamic D-port mode
-        :param ondemand_dport_mode: Set on demand D-port mode
+    * Input:
+        :param session: The session returned by login.
+        :param dynamic_dport_mode: Sets the dynamic D_Port mode.
+        :param ondemand_dport_mode: Sets the on-demand D_Port mode.
 
-    * outputs:
-        :rtype: dictionary of return status matching rest response
+    * Output:
+        :rtype: A dictionary of return status matching the REST response.
 
-    *use cases*
+    *Use Cases*
 
-    1. Patch the Dport configuration of the switch
+    1. Patch the D_Port configuration of the switch.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_fibrechannel_configuration import port_configuration
 
 

@@ -14,14 +14,15 @@
 """
 
 :mod:`pyfos_brocade_fibrechannel_diagnostics` - PyFOS module to \
-        provide rest support for FC port diagnostics.
-*************************************************************************************************************************************
-The :mod:`pyfos_brocade_fibrechannel_diagnostics` provides a REST \
+        provide REST support for FC port diagnostics.
+*******************************************************************\
+*******************************************************
+The :mod:`pyfos_brocade_fibrechannel_diagnostics` module provides REST \
         support for FC port diagnostics.
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 
 
@@ -34,116 +35,116 @@ DIAG_NO = "no"
 
 
 class fibrechannel_diagnostics(pyfos_rest_util.rest_object):
-    """Class of FC port diagnostics
+    """Class of FC Port Diagnostics
 
-    Important class members:
+    Important Class Members:
 
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | Attribute name                        | Description                   |Frequstly used methods                             |
-        +=======================================+===============================+===================================================+
-        | name                                  | name of port                  |:func:`set_name`                                   |
-        |                                       |                               |:func:`peek_name`                                  |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | diagnostic-control                    | set mode to stop, start,      |:func:`set_diagnostic_control`                     |
-        |                                       | or restart                    |:func:`peek_diagnostic_control`                    |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | mode                                  | display manual or auto mode   |:func:`peek_mode`                                  |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | state                                 | test status                   |:func:`peek_state`                                 |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | distance                              | estimated ISL distance        |:func:`peek_distance`                              |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | electrical-loopback-test/result       | test status result            |:func:`peek_electrical_loopback_test_result`       |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | electrical-loopback-test/comments     | test status detail comments   |:func:`peek_electrical_loopback_test_comments`     |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | optical-loopback-test/result          | test status result            |:func:`peek_optical_loopback_test_result`          |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | optical-loopback-test/comments        | test status detail comments   |:func:`peek_optical_loopback_test_comments`        |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | link-traffic-test/result              | test status result            |:func:`peek_link_traffic_test_result`              |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | link-traffic-test/comments            | test status detail comments   |:func:`peek_link_traffic_test_comments`            |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | start-time                            | start time of the test        |:func:`peek_start_time`                            |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | frame-count                           | number of frames for link test|:func:`set_frame_count`                            |
-        |                                       |                               |:func:`peek_frame_count`                           |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | frame-size                            | size of frames for link test  |:func:`set_frame_size`                             |
-        |                                       |                               |:func:`peek_frame_size`                            |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | time                                  | duration of test              |:func:`set_time`                                   |
-        |                                       |                               |:func:`peek_time`                                  |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | payload-pattern/pattern               | industry defined pattern names|:func:`set_payload_pattern_pattern`                |
-        |                                       |                               |:func:`peek_payload_pattern_pattern`               |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | payload-pattern/payload               | user defined pattern          |:func:`set_payload_pattern_payload`                |
-        |                                       |                               |:func:`peek_payload_pattern_payload`               |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | fec/enable                            | set FEC mode                  |:func:`set_fec_enable`                             |
-        |                                       |                               |:func:`peek_fec_enable`                            |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | fec/active                            | show FEC mode                 |:func:`peek_fec_active`                            |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | fec/option                            | show FEC option               |:func:`peek_fec_option`                            |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | cr/enable                             | set CR mode                   |:func:`set_cr_enable`                              |
-        |                                       |                               |:func:`peek_cr_enable`                             |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | cr/active                             | show CR mode                  |:func:`peek_cr_active`                             |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | cr/option                             | show CR option                |:func:`peek_cr_option`                             |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | rt-latency                            | round trip latency            |:func:`peek_rt_latency`                            |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | buffers-required                      | buffer required for link      |:func:`peek_buffers_required`                      |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | failure-report/errors-detected-local  | failure detected locally      |:func:`peek_failure_report_errors_detected_local`  |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | failure-report/errors-detected-remote | failure detected remotely     |:func:`peek_failure_report_errors_detected_remote` |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | end-time                              | diag end time stamp           |:func:`peek_end_time`                              |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | egress-power-loss/tx                  | local power transmitted       |:func:`peek_egress_power_loss_tx`                  |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | egress-power-loss/rx                  | local power received          |:func:`peek_egress_power_loss_rx`                  |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | egress-power-loss/loss                | local power loss              |:func:`peek_egress_power_loss_loss`                |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | egress-power-loss/comments            | local power loss details      |:func:`peek_egress_power_loss_comments`            |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | ingress-power-loss/tx                 | remote power transmitted      |:func:`peek_ingress_power_loss_tx`                 |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | ingress-power-loss/rx                 | remote power received         |:func:`peek_ingress_power_loss_rx`                 |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | ingress-power-loss/loss               | remote power loss             |:func:`peek_ingress_power_loss_loss`               |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
-        | ingress-power-loss/comments           | remote power loss details     |:func:`peek_ingress_power_loss_comments`           |
-        +---------------------------------------+-------------------------------+---------------------------------------------------+
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | Attribute Name                        | Description                                  |Frequently Used Methods                            |
+        +=======================================+==============================================+===================================================+
+        | name                                  | Name of the port.                            |:func:`set_name`                                   |
+        |                                       |                                              |:func:`peek_name`                                  |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | diagnostic-control                    | Sets the mode to stop, start, or restart.    |:func:`set_diagnostic_control`                     |
+        |                                       |                                              |:func:`peek_diagnostic_control`                    |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | mode                                  | Displays manual or auto mode.                |:func:`peek_mode`                                  |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | state                                 | Displays the test status.                    |:func:`peek_state`                                 |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | distance                              | Displays the estimated ISL         distance. |:func:`peek_distance`                              |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | electrical-loopback-test/result       | Displays the test status             result. |:func:`peek_electrical_loopback_test_result`       |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | electrical-loopback-test/comments     | Displays the test status detailed comments.  |:func:`peek_electrical_loopback_test_comments`     |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | optical-loopback-test/result          | Displays the test status p                   |:func:`peek_optical_loopback_test_result`          |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | optical-loopback-test/comments        | Displays the test status detailed   comments.|:func:`peek_optical_loopback_test_comments`        |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | link-traffic-test/result              | Displays the test status result.             |:func:`peek_link_traffic_test_result`              |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | link-traffic-test/comments            | Displays the test status detailed   comments.|:func:`peek_link_traffic_test_comments`            |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | start-time                            | Displays the start time of the          test.|:func:`peek_start_time`                            |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | frame-count                           | Sets the number of frames for the link test. |:func:`set_frame_count`                            |
+        |                                       |                                              |:func:`peek_frame_count`                           |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | frame-size                            | Sets the size of frames for the link   test. |:func:`set_frame_size`                             |
+        |                                       |                                              |:func:`peek_frame_size`                            |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | time                                  | Sets the duration of the test.               |:func:`set_time`                                   |
+        |                                       |                                              |:func:`peek_time`                                  |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | payload-pattern/pattern               | Sets the industry-defined pattern. names     |:func:`set_payload_pattern_pattern`                |
+        |                                       |                                              |:func:`peek_payload_pattern_pattern`               |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | payload-pattern/payload               | Sets the user-defined pattern.               |:func:`set_payload_pattern_payload`                |
+        |                                       |                                              |:func:`peek_payload_pattern_payload`               |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | fec/enable                            | Sets the FEC mode.                           |:func:`set_fec_enable`                             |
+        |                                       |                                              |:func:`peek_fec_enable`                            |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | fec/active                            | Displays the FEC mode.                       |:func:`peek_fec_active`                            |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | fec/option                            | Displays the FEC option.                     |:func:`peek_fec_option`                            |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | cr/enable                             | Sets the CR mode.                            |:func:`set_cr_enable`                              |
+        |                                       |                                              |:func:`peek_cr_enable`                             |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | cr/active                             | Displays the  CR mode.                       |:func:`peek_cr_active`                             |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | cr/option                             | Displays the  CR option.                     |:func:`peek_cr_option`                             |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | rt-latency                            | Displays the round-trip latency.             |:func:`peek_rt_latency`                            |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | buffers-required                      | Displays the buffers required for the link.  |:func:`peek_buffers_required`                      |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | failure-report/errors-detected-local  | Displays the failures detected locally.      |:func:`peek_failure_report_errors_detected_local`  |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | failure-report/errors-detected-remote | Displays the failures detected remotely.     |:func:`peek_failure_report_errors_detected_remote` |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | end-time                              | Displays the diag end timestamp.             |:func:`peek_end_time`                              |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | egress-power-loss/tx                  | Displays the local power transmitted.        |:func:`peek_egress_power_loss_tx`                  |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | egress-power-loss/rx                  | Displays the local power received.           |:func:`peek_egress_power_loss_rx`                  |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | egress-power-loss/loss                | Displays the local power loss.               |:func:`peek_egress_power_loss_loss`                |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | egress-power-loss/comments            | Displays the local power loss details.       |:func:`peek_egress_power_loss_comments`            |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | ingress-power-loss/tx                 | Displays the remote power transmitted.       |:func:`peek_ingress_power_loss_tx`                 |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | ingress-power-loss/rx                 | Displays the remote power received.          |:func:`peek_ingress_power_loss_rx`                 |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | ingress-power-loss/loss               | Displays the remote power loss.              |:func:`peek_ingress_power_loss_loss`               |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
+        | ingress-power-loss/comments           | Displays the remote power loss details.      |:func:`peek_ingress_power_loss_comments`           |
+        +---------------------------------------+----------------------------------------------+---------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session, name=None)
 
             Returns a :class:`fibrechannel_diagnostics` object or a
             list of objects filled with attributes gathered
-            from switch. If optional name is given, either an
+            from the switch. If an optional name is given, either an
             object matching the name of the port is returned
             or an empty object is returned if no match is found.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
 
             :param session: session handler returned by
                 :func:`pyfos_auth.login`
-            :rtype: a :class:`fibrechannel` object if name is given
+            :rtype: a :class:`fibrechannel` object if a name is given
                 or a list of objects if there are more than one
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object
+            Applies configurable attribute(s) within the object
             to a port of the switch.
 
             *Below is an example using individual sets:*
@@ -191,278 +192,278 @@ class fibrechannel_diagnostics(pyfos_rest_util.rest_object):
                 :func:`pyfos_auth.login`
             :rtype: a dictionary of error or success information
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_name(name)
 
-            Sets port name in the object.
+            Sets the port name in the object.
 
             :param name: port name to be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_name()
 
-            Reads port name in the object.
+            Reads the port name in the object.
 
-            :rtype: None or port name
+            :rtype: None or the port name
 
         .. method:: set_diagnostic_control(newmode)
 
-            Sets diag control mode in the object.
+            Sets the diag control mode in the object.
 
             :param newmode: new mode :data:`DIAG_STOP`, :data:`DIAG_START`,
                 or :data:`DIAG_RESTART` to be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_diagnostic_control()
 
-            Reads diag control mode in the object.
+            Reads the diag control mode in the object.
 
-            :rtype: None or diag control mode
+            :rtype: None or the diag control mode
 
         .. method:: peek_mode()
 
-            Reads either manual or automatic mode in the object.
+            Reads the manual or automatic mode in the object.
 
-            :rtype: None or current mode
+            :rtype: None or the current mode
 
         .. method:: peek_state()
 
-            Reads current diag state in the object.
+            Reads the current diag state in the object.
 
-            :rtype: None or current diag state
+            :rtype: None or the current diag state
 
         .. method:: peek_distance()
 
-            Reads estimated ISL distsance in the object.
+            Reads the estimated ISL distsance in the object.
 
-            :rtype: None or estimated ISL distsance
+            :rtype: None or the estimated ISL distsance
 
         .. method:: peek_electrical_loopback_test_result()
 
-            Reads test result in the object.
+            Reads the test result in the object.
 
-            :rtype: None or test result
+            :rtype: None or the test result
 
         .. method:: peek_electrical_loopback_test_comments()
 
-            Reads test details in the object.
+            Reads the test details in the object.
 
-            :rtype: None or test details
+            :rtype: None or the test details
 
         .. method:: peek_optical_loopback_test_result()
 
-            Reads test result in the object.
+            Reads the test result in the object.
 
-            :rtype: None or test result
+            :rtype: None or the test result
 
         .. method:: peek_optical_loopback_test_comments()
 
-            Reads test details in the object.
+            Reads the test details in the object.
 
-            :rtype: None or port name
+            :rtype: None or the port name
 
         .. method:: peek_link_traffic_test_result()
 
-            Reads test result in the object.
+            Reads the test result in the object.
 
-            :rtype: None or test result
+            :rtype: None or the test result
 
         .. method:: peek_link_traffic_test_comments()
 
-            Reads test details in the object.
+            Reads the test details in the object.
 
-            :rtype: None or test details
+            :rtype: None or the test details
 
         .. method:: peek_start_time()
 
-            Reads diag start timestamp in the object.
+            Reads the diag start timestamp in the object.
 
-            :rtype: None or diag start timestamp
+            :rtype: None or the diag start timestamp
 
         .. method:: set_frame_count(newcount)
 
-            Sets frame count to be used in diag in the object.
+            Sets the frame count to be used in the diag in the object.
 
             :param newcount: new count to be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_frame_count()
 
-            Reads frame count in the object.
+            Reads the frame count in the object.
 
-            :rtype: None or frame count
+            :rtype: None or the frame count
 
         .. method:: set_frame_size(newsize)
 
-            Sets frame size to be used in diag in the object.
+            Sets the frame size to be used in the diag in the object.
 
             :param newsize: new size to be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_frame_size()
 
-            Reads frame size in the object.
+            Reads the frame size in the object.
 
-            :rtype: None or frame size
+            :rtype: None or the frame size
 
         .. method:: set_time(newtime)
 
-            Sets test duration to be used in diag in the object.
+            Sets the test duration to be used in the diag in the object.
 
             :param newtime: new test duration to be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_time()
 
-            Reads duration of the test in the object.
+            Reads the duration of the test in the object.
 
-            :rtype: None or duration of the test
+            :rtype: None or the duration of the test
 
         .. method:: set_payload_pattern_pattern(newpattern)
 
-            Sets test pattern name to be used in diag in the object.
+            Sets the test pattern name to be used in the diag in the object.
 
             :param newpattern: new test pattern name to
                 be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_payload_pattern_pattern()
 
-            Reads test pattern name in the object.
+            Reads the test pattern name in the object.
 
-            :rtype: None or test pattern name
+            :rtype: None or the test pattern name
 
         .. method:: set_payload_pattern_payload(newpayload)
 
-            Sets test payload in hex to be used in diag in the object.
+            Sets the test payload in hex to be used in the diag in the object.
 
             :param newpayload: new test pattern to be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_payload_pattern_payload()
 
-            Reads test pattern in the object.
+            Reads the test pattern in the object.
 
-            :rtype: None or known test pattern
+            :rtype: None or the known test pattern
 
         .. method:: set_fec_enable(newmode)
 
-            Sets fec mode to be used in diag in the object.
+            Sets the FEC mode to be used in the diag in the object.
 
             :param newmode: new mode of "yes" to
                 be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_fec_enable()
 
-            Reads fec mode in the object.
+            Reads the FEC mode in the object.
 
-            :rtype: None or fec mode
+            :rtype: None or the FEC mode
 
         .. method:: peek_fec_active()
 
-            Reads active state of fec in the object.
+            Reads the active FEC state in the object.
 
-            :rtype: None or active state of fec
+            :rtype: None or the active FEC state
 
         .. method:: set_cr_enable(newmode)
 
-            Sets cr mode to be used in diag in the object.
+            Sets the CR mode to be used in the diag in the object.
 
             :param newmode: new mode of "yes" to
                 be set within the object
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information
 
         .. method:: peek_cr_enable()
 
-            Reads cr mode in the object.
+            Reads the CR mode in the object.
 
-            :rtype: None or cr mode
+            :rtype: None or the CR mode
 
         .. method:: peek_cr_active()
 
-            Reads active state of cr in the object.
+            Reads the active CR state in the object.
 
-            :rtype: None or active state of cr
+            :rtype: None or the active CR state
 
         .. method:: peek_rt_latency()
 
-            Reads round trip latency in the object.
+            Reads the round-trip latency in the object.
 
-            :rtype: None or round trip latency
+            :rtype: None or the round-trip latency
 
         .. method:: peek_buffers_required()
 
-            Reads number of buffers required in the object.
+            Reads the number of buffers required in the object.
 
-            :rtype: None or number of buffers required
+            :rtype: None or the number of buffers required
 
         .. method:: peek_failure_report_errors_detected_local()
 
-            Reads local failure report in the object.
+            Reads the local failure report in the object.
 
-            :rtype: None or local failure report
+            :rtype: None or the local failure report
 
         .. method:: peek_failure_report_errors_detected_remote()
 
-            Reads remove failure report in the object.
+            Reads the remove failure report in the object.
 
-            :rtype: None or remote failure report
+            :rtype: None or the remote failure report
 
         .. method:: peek_end_time()
 
-            Reads test end timestamp in the object.
+            Reads the test end timestamp in the object.
 
-            :rtype: None or test end timestamp
+            :rtype: None or the test end timestamp
 
         .. method:: peek_egress_power_loss_tx()
 
-            Reads local transmit power loss in the object.
+            Reads the local transmit power loss in the object.
 
-            :rtype: None or local transmit power loss
+            :rtype: None or the local transmit power loss
 
         .. method:: peek_egress_power_loss_rx()
 
-            Reads local receive power loss in the object.
+            Reads the local receive power loss in the object.
 
-            :rtype: None or local receive power loss
+            :rtype: None or the local receive power loss
 
         .. method:: peek_egress_power_loss_loss()
 
-            Reads local power loss in the object.
+            Reads the local power loss in the object.
 
-            :rtype: None or local power loss
+            :rtype: None or the local power loss
 
         .. method:: peek_egress_power_loss_comments()
 
-            Reads local power loss details in the object.
+            Reads the local power loss details in the object.
 
-            :rtype: None or port name
+            :rtype: None or the port name
 
         .. method:: peek_ingress_power_loss_tx()
 
-            Reads remote transmit power loss in the object.
+            Reads the remote transmit power loss in the object.
 
-            :rtype: None or remote transmit power loss
+            :rtype: None or the remote transmit power loss
 
         .. method:: peek_ingress_power_loss_rx()
 
-            Reads remote receive power loss in the object.
+            Reads the remote receive power loss in the object.
 
-            :rtype: None or remote receive power loss
+            :rtype: None or the remote receive power loss
 
         .. method:: peek_ingress_power_loss_loss()
 
-            Reads remote power loss in the object.
+            Reads the remote power loss in the object.
 
-            :rtype: None or remote power loss
+            :rtype: None or the remote power loss
 
         .. method:: peek_ingress_power_loss_comments()
 
-            Reads remote power loss details in the object.
+            Reads the remote power loss details in the object.
 
-            :rtype: None or remote power loss details
+            :rtype: None or the remote power loss details
 
         """
 

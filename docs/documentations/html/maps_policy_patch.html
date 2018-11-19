@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>maps_policy_patch - PyFOS util to update MAPS policy &#8212; PyFOS 1.1.0 documentation</title>
+    <title>maps_policy_patch - PyFOS util to update a MAPS policy. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="maps_policy_delete - PyFOS util to delete MAPS policy" href="maps_policy_delete.html" />
-    <link rel="prev" title="maps_policy_create - PyFOS util to create MAPS policy" href="maps_policy_create.html" /> 
+    <link rel="next" title="maps_policy_delete - PyFOS util to delete a MAPS policy." href="maps_policy_delete.html" />
+    <link rel="prev" title="maps_policy_create - PyFOS util to create a MAPS policy." href="maps_policy_create.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="maps_policy_delete.html" title="maps_policy_delete - PyFOS util to delete MAPS policy"
+          <a href="maps_policy_delete.html" title="maps_policy_delete - PyFOS util to delete a MAPS policy."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="maps_policy_create.html" title="maps_policy_create - PyFOS util to create MAPS policy"
+          <a href="maps_policy_create.html" title="maps_policy_create - PyFOS util to create a MAPS policy."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,41 +42,37 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-maps_policy_patch"></span><div class="section" id="maps-policy-patch-pyfos-util-to-update-maps-policy">
-<h1><a class="reference internal" href="#module-maps_policy_patch" title="maps_policy_patch: PyFOS module to update the rules list in a policy (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_policy_patch</span></code></a> - PyFOS util to update MAPS policy<a class="headerlink" href="#maps-policy-patch-pyfos-util-to-update-maps-policy" title="Permalink to this headline">¶</a></h1>
-<p>This script is used to update the rule list in a MAPS Policy.</p>
-<p>Note: if we use patch operation all the rules in a policy will be
-replaced by what is provided in the input.
-If we wish to add rules to the existing policy please use POST operation.
-If we wish to delete rules from existing policy please use DELETE operation.</p>
+  <span class="target" id="module-maps_policy_patch"></span><div class="section" id="maps-policy-patch-pyfos-util-to-update-a-maps-policy">
+<h1><a class="reference internal" href="#module-maps_policy_patch" title="maps_policy_patch: PyFOS module to update the rules list in a policy (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_policy_patch</span></code></a> - PyFOS util to update a MAPS policy.<a class="headerlink" href="#maps-policy-patch-pyfos-util-to-update-a-maps-policy" title="Permalink to this headline">¶</a></h1>
+<p>This script is used to update the rule list in a MAPS policy.</p>
+<p>Note: The patch operation replaces all rules in a policy by what is provided in the input.
+To add rules to the existing policy, use the POST operation.
+To delete rules from existing policy, use the DELETE operation.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request                             is directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><table class="first last docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
 <tbody valign="top">
 <tr><td class="option-group">
 <kbd><span class="option">--name</span></kbd></td>
-<td><p class="first last">specify MAPS Policy</p>
-</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--rule-list</span></kbd></td>
-<td><p class="first last">Rule list inside MAPS policy</p>
+<td><p class="first last">Specifies a MAPS policy.
+–rule-list           Sets the rule list in the MAPS policy.</p>
 </td></tr>
 </tbody>
 </table>
@@ -84,9 +80,9 @@ If we wish to delete rules from existing policy please use DELETE operation.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>success response or dictionary in case of error.</li>
+<li>A success response or a dictionary in case of error.</li>
 </ul>
 </dd>
 </dl>
@@ -108,10 +104,10 @@ Module <a class="reference internal" href="maps_policy_show.html#module-maps_pol
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="maps_policy_create.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_policy_create</span></code> - PyFOS util to create MAPS policy</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_policy_create</span></code> - PyFOS util to create a MAPS policy.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="maps_policy_delete.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">maps_policy_delete</span></code> - PyFOS util to delete MAPS policy</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">maps_policy_delete</span></code> - PyFOS util to delete a MAPS policy.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -145,17 +141,17 @@ Module <a class="reference internal" href="maps_policy_show.html#module-maps_pol
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="maps_policy_delete.html" title="maps_policy_delete - PyFOS util to delete MAPS policy"
+          <a href="maps_policy_delete.html" title="maps_policy_delete - PyFOS util to delete a MAPS policy."
              >next</a> |</li>
         <li class="right" >
-          <a href="maps_policy_create.html" title="maps_policy_create - PyFOS util to create MAPS policy"
+          <a href="maps_policy_create.html" title="maps_policy_create - PyFOS util to create a MAPS policy."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

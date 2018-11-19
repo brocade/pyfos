@@ -14,38 +14,39 @@
 # limitations under the License.
 
 """
-:mod:`audit_modify` - PyFOS util to modify audit configuration on switch.
+:mod:`audit_modify` - PyFOS util to modify the audit configuration on a switch.
 *******************************************************************************
-The :mod:`audit_modify` provides option to modify the config parameters\
-of audit on switch.
+The :mod:`audit_modify` util provides option to modify the configuration\
+parameters of audit on a switch.
 
-This module is a standalone script that can be used to modify the audit
-configuration on switch.
+This module is a stand-alone script that can be used to modify the audit
+configuration on a switch.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Option:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
-|  Util scripts options:
+|  Util Script Options:
 
   | --enable, <true/false>
   | --severity <critical | error | warning | info>
   | --filters <zone | security | configuration | firmware | fabric \
               | ls | cli | maps>
 
-* outputs:
-    * Status of modify operation
+* Output:
+    * Status of the modify operation
 
 .. function:: modify_audit(session, audit_enabled, severity, filter)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = audit_modify.modify_audit(session, audit_enabled,
                                                 severity, filter)
@@ -62,25 +63,25 @@ configuration on switch.
                 result = _modify_audit(session, audit_obj)
                 return result
 
-        * inputs:
-                :param session: session returned by login.
-                :param audit_enabled: true to enable, false to disable
-                :param severity_level: can be any of critical | error |
-                                       warning | info
+        * Input:
+                :param session: The session returned by the login.
+                :param audit_enabled: True to enable; false to disable.
+                :param severity_level: Critical, error, warning, or info.
 
-        * outputs:
-                :rtype: dictionary of return status matching rest response
+        * Output:
+                :rtype: A dictionary of return status matching the\
+                 REST response.
 
-        *use cases*
-           Modify audit log configuration
+        *Use Cases*
+           Modify the audit log configuration.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_logging import audit
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _modify_audit(session, restobject):
@@ -88,14 +89,15 @@ def _modify_audit(session, restobject):
 
 
 def modify_audit(session, audit_enabled, severity, filter_class):
-    audit_obj = audit()
-    if audit_enabled is not None:
-        audit_obj.set_audit_enabled(audit_enabled)
-    if severity is not None:
-        audit_obj.set_severity_level(severity)
-    if filter_class is not None:
-        audit_obj.set_filter_class_list_filter_class(filter_class)
-
+    val = {
+           "audit_enabled": audit_enabled,
+           "severity": severity,
+           "filter_class_list_filter_class": filter_class
+          }
+    audit_obj = audit(val)
+    rc = validate(audit_obj)
+    if rc == 1:
+        return None
     result = _modify_audit(session, audit_obj)
     return result
 
@@ -104,7 +106,7 @@ def validate(audit_obj):
     if ((audit_obj.peek_audit_enabled() is None) and
        (not audit_obj.peek_severity_level()) and
        (not audit_obj.peek_filter_class_list_filter_class())):
-            return 1
+        return 1
     else:
         return 0
 

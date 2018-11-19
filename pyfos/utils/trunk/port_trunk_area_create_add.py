@@ -15,29 +15,28 @@
 
 """
 
-:mod:`port_trunk_area_create_add` - PyFOS util for adding port members to \
-        of a portareatrunk-group/ Creating new portareatrunkgroup.
-***********************************************************************************
+:mod:`port_trunk_area_create_add` - PyFOS util for Port Trunk Add/Create.
+*******************************************************************************
 The :mod:`port_trunk_area_create_add` - PyFOS util for adding port members to \
-        of a portareatrunk-group/ Creating new portareatrunkgroup.
+        a portareatrunk-group/ Creating new portareatrunk-group.
 
-This module is a standalone script for for adding port members to \
-        of a portareatrunk-group/ Creating new portareatrunkgroup.
-* Infrastructure options:
-    * -L=<login>: Login ID. If not provided, interactive
-        prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
-        prompt will request one.
-    * -i=<IP address>: IP address
-    * -n=<port name>: <slot>/<port> name of the port
-    * -u=<user name>: string name to be assigned to switch
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+This module is a standalone script for adding port members to \
+        a portareatrunk-group/ Creating new portareatrunk-group.
+
+* inputs:
+
+| Infrastructure options:
+
+|   -i,--ipaddr=IPADDR     IP address of FOS switch.
+|   -L,--login=LOGIN       login name.
+|   -P,--password=PASSWORD password.
+|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
+|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           verbose mode[OPTIONAL].
 
 * Util scripts options:
-    -n,--name=NAME                      Port in slot/port.
     --trunk-index=VALUE                 Trunk-index of the porttrunkarea-group
-    --trunk-members=PORTS               Ports in slot/port format to be added
+    --trunk-members=PORTS               Ports in slot/port format to be added \
                                         to the group. Eg. "0/1;0/2"
 
 * outputs:
@@ -45,29 +44,30 @@ This module is a standalone script for for adding port members to \
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel_trunk import trunk_area
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_fibrechannel_trunk import trunk_area
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
-def _create_add_port_trunk_area(session, trunkObject):
-    return trunkObject.post(session)
+def _create_add_port_trunk_area(session, trunk_object):
+    return trunk_object.post(session)
 
 
 def main(argv):
+    """ filters = ["trunk_index", "trunk_members_trunk_member"] """
     filters = ["trunk_index", "trunk_members_trunk_member"]
     inputs = brcd_util.parse(argv, trunk_area, filters)
 
-    fcObject = inputs['utilobject']
-    if fcObject.peek_trunk_index() is None:
+    fc_object = inputs['utilobject']
+    if fc_object.peek_trunk_index() is None:
         print("Missing options in the commandline:")
         print(inputs['utilusage'])
         sys.exit(1)
     session = brcd_util.getsession(inputs)
-    print(fcObject.peek_trunk_members_trunk_member())
-    result = _create_add_port_trunk_area(session, fcObject)
+    print(fc_object.peek_trunk_members_trunk_member())
+    result = _create_add_port_trunk_area(session, fc_object)
     pyfos_util.response_print(result)
     pyfos_auth.logout(session)
 

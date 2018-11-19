@@ -20,30 +20,30 @@ switch.
 ***********************************************************************************
 The :mod:`configure_port_name_set` sets the port name mode of the switch.
 
-This module is a standalone script that can be used to set the port name mode
-of the switch. If the mode is "dynamic", the dynamic-portname-format can be
+This module is a stand-alone script that can be used to set the port name mode
+of the switch. If the mode is "dynamic", the dynamic portname format can be
 set as well.
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: login name.
-    * -P,--password=PASSWORD: password.
-    * -f,--vfid=VFID: VFID to which the request is directed to.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[OPTIONAL].
-    * -v,--verbose: verbose mode[OPTIONAL].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA"[OPTIONAL].
+    * -v,--verbose: Verbose mode[OPTIONAL].
 
-* Util scripts options:
-    * --portname-mode=PORTNAME-MODE: set given port name mode
-    * --dynamic-portname-format=DYNAMIC-PORTNAME-FORMAT: set dynamic port name\
-            format [OPTIONAL]
+* Util Script Options:
+    * --portname-mode=PORTNAME-MODE: Sets the given port name mode.
+    * --dynamic-portname-format=DYNAMIC-PORTNAME-FORMAT: Sets the dynamic \
+port name format [OPTIONAL].
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 ..function:: set_port_name_mode(session, portname_mode,
                                 dynamic_portname_format=None)
 
-    Example usage of the method::
+    Example Usage of the Method::
 
         ret = configure_port_name_set.set_port_name_mode(session,
                 portname_mode, dynamic_portname_format)
@@ -54,25 +54,25 @@ set as well.
         result = configure_port_name_set.set_port_name_mode(session, mode,
                 dynamic_format)
 
-    * inputs:
-        :param session: session returned by login
-        :param portname_mode: Set portname mode
-        :param dynamic_portname_format: Set dynamic portname format, if dynamic
-                mode specified
+    * Input:
+        :param session: The session returned by login.
+        :param portname_mode: Sets the port name mode.
+        :param dynamic_portname_format: Sets the dynamic port name format,
+                 if dynamic mode specified.
 
-    * outputs:
-        :rtype: dictionary of return status matching rest response
+    * Output:
+        :rtype: A dictionary of return status matching the REST response.
 
-    *use cases*
+    *Use Cases*
 
-    1. Patch the port name configuration of the switch
+    1. Patch the port name configuration of the switch.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_fibrechannel_configuration import port_configuration
 
 

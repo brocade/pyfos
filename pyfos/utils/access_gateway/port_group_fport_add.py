@@ -79,10 +79,10 @@ to the port-group.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_access_gateway import port_group
-import pyfos.utils.brcd_util as brcd_util
 
 
 def _add_fports(session, restobject):
@@ -101,7 +101,7 @@ def add_fports(session, pgid, fports):
 def validate(portgroup_obj):
     if (portgroup_obj.peek_port_group_id() is None or
             not portgroup_obj.peek_port_group_f_ports_f_port()):
-            return 1
+        return 1
     return 0
 
 

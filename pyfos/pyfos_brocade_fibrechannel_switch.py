@@ -13,15 +13,15 @@
 
 """
 
-:mod:`pyfos_brocade_fibrechannel_switch` - PyFOS module to provide rest \
-        support for FC switch.
+:mod:`pyfos_brocade_fibrechannel_switch` - PyFOS module to provide REST \
+        support for a FC switch.
 *********************************************************************************************************
 The :mod:`pyfos_brocade_fibrechannel_switch` provides a REST support for \
-        FC switch.
+        a FC switch.
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as version
 
@@ -34,85 +34,84 @@ TESTING = 7
 class fibrechannel_switch(pyfos_rest_util.rest_object):
     """Class of FC switch
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | Attribute name                | Description                   |Frequently used methods                               |
+        | Attribute Name                | Description                   |Frequently Used Methods                               |
         +===============================+===============================+======================================================+
-        | name                          | WWN name of switch            |:meth:`set_name`                                      |
+        | name                          | The WWN name of switch.       |:meth:`set_name`                                      |
         |                               |                               |:meth:`peek_name`                                     |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | domain-id                     | domain id of switch           |:meth:`peek_domain_id`                                |
+        | domain-id                     | The domain ID of the switch.  |:meth:`peek_domain_id`                                |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | user-friendly-name            | user friendly name of switch  |:meth:`set_user_friendly_name`                        |
-        |                               |                               |:meth:`peek_user_friendly_name`                       |
+        | user-friendly-name            | The user friendly name of     |:meth:`set_user_friendly_name`                        |
+        |                               | the switch.                   |:meth:`peek_user_friendly_name`                       |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | fcid                          | FCID of switch                |:meth:`peek_fcid`                                     |
+        | fcid                          | The FCID of the switch.       |:meth:`peek_fcid`                                     |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | vf-id                         | VFID of switch                |:meth:`peek_vf_id`                                    |
+        | vf-id                         | The VFID of the switch.       |:meth:`peek_vf_id`                                    |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | principal                     | indicate if principal or not  |:meth:`peek_principal`                                |
+        | principal                     | Whether principal or not.     |:meth:`peek_principal`                                |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | enabled-state                 | Enabled or disabled state     |:meth:`set_enabled_state`                             |
+        | enabled-state                 | Enabled or disabled state.    |:meth:`set_enabled_state`                             |
         |                               |                               |:meth:`peek_enabled_state`                            |
         +-------------------------------+-------------------------------+------------------------------------------------------+
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | up-time                       | Uptime of the switch          |:meth:`peek_up_time`                                  |
+        | up-time                       | The uptime of the switch.     |:meth:`peek_up_time`                                  |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | model                         | Model of the switch           |:meth:`peek_model`                                    |
+        | model                         | The model of the switch.      |:meth:`peek_model`                                    |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | firmware-version              | FOS version of switch         |:meth:`peek_firmware_version`                         |
+        | firmware-version              |The FOS version of the switch. |:meth:`peek_firmware_version`                         |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | ip-address/ip-address         | List of IPv4/IPv6 address     |:meth:`set_ip_address_ip_address`                     |
+        | ip-address/ip-address         | A list of IPv4/IPv6 addresses |:meth:`set_ip_address_ip_address`                     |
         |                               | note the same name of         |:meth:`peek_ip_address_ip_address`                    |
-        |                               | leaf list elements            |                                                      |
+        |                               | leaf list elements.           |                                                      |
         +-------------------------------+-------------------------------+------------------------------------------------------+
         | ip-static-gateway-list/       | IPv4 and IPv6 static gateway  |:meth:`set_ip_static_gateway_list_ip_static_gateway`  |
-        | ip-static-gateway             | addresses for the switch IP   |:meth:`peek_ip_static_gateway_list_ip_static_gateway` |
+        | ip-static-gateway             | addresses for the switch IP.  |:meth:`peek_ip_static_gateway_list_ip_static_gateway` |
         +-------------------------------+-------------------------------+------------------------------------------------------+
         | subnet-mask                   | IPv4 subnet mask of the       |:meth:`set_subnet_mask`                               |
-        |                               | switch IP network             |:meth:`peek_subnet_mask`                              |
+        |                               | switch IP network.            |:meth:`peek_subnet_mask`                              |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | domain-name                   | DNS domain name of switch     |:meth:`set_domain_name`                               |
+        | domain-name                   |The DNS domain name of switch. |:meth:`set_domain_name`                               |
         |                               |                               |:meth:`peek_domain_name`                              |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | dns-servers/dns-server        | List of addresses of DNS      |:meth:`set_dns_servers_dns_server`                    |
+        | dns-servers/dns-server        | A list of addresses of DNS    |:meth:`set_dns_servers_dns_server`                    |
         |                               | servers containing the map    |:meth:`peek_dns_servers_dns_server`                   |
-        |                               | of switch domain name to      |                                                      |
-        |                               | ipv4/ipv6 addresses.          |                                                      |
+        |                               | of switch domain names to     |                                                      |
+        |                               | IPv4/IPv6 addresses.          |                                                      |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | fabric-user-friendly-name     | user friendly name of fabric  |:meth:`set_fabric_user_friendly_name`                 |
-        |                               |                               |:meth:`peek_fabric_user_friendly_name`                |
+        | fabric-user-friendly-name     | The user friendly name of     |:meth:`set_fabric_user_friendly_name`                 |
+        |                               | the fabric.                   |:meth:`peek_fabric_user_friendly_name`                |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | ag-mode                       | Enable or disable ag mode     |:meth:`set_ag_mode`                                   |
+        | ag-mode                       | Enable or disable AG mode.    |:meth:`set_ag_mode`                                   |
         |                               |                               |:meth:`peek_ag_mode`                                  |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | banner                        | Banner message while login    |:meth:`set_banner`                                    |
+        | banner                        | The login banner message.     |:meth:`set_banner`                                    |
         |                               |                               |:meth:`peek_banner`                                   |
         +-------------------------------+-------------------------------+------------------------------------------------------+
 
         .. method:: get(session, name=None)
 
             Returns a :class:`fibrechannel_switch` object or a list of
-            objects filled with attributes gathered
-            from switch. If optional name is given, either an object
-            matching the WWN of the switch is returned
-            or an empty object is returned.
+            objects with attributes gathered from switch. \
+            If an optional name is given, returns either an object
+            matching the WWN of the switch or an empty object.
 
             Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a :class:`fibrechannel_switch` object if there
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`fibrechannel_switch` object if there
                 is only one switch within fabric or a list of
-                objects if there are more than one
+                objects if there is more than one switch.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to switch.
+            Apply configurable attribute(s) within the object to the switch.
 
-            *Below is an example using individual sets:*
+            *Below is an Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -124,8 +123,8 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
                 # switch connected through session
                 switch.patch(session)
 
-            *Below is an example of combining object \
-                    initialization and attribute sets:*
+            *Below is an Example of Combining Object \
+                    Initialization and Attribute Sets:*
 
             .. code-block:: python
 
@@ -137,196 +136,197 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
                 # switch connected through session
                 switch.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a dictionary of error or success information
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or success information.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_name(name)
 
-            Sets name in the object.
+            Sets the name in the object.
 
-            :param name: WWN of the switch to be set within the object
-            :rtype: None or dictionary of error information
+            :param name: The WWN of the switch to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_name()
 
-            Reads name in the object.
+            Reads the name in the object.
 
-            :rtype: None or WWN of the switch
+            :rtype: None or the WWN of the switch.
 
         .. method:: set_domain_id(did)
 
-            Sets Domain ID in the object.
+            Sets the domain ID in the object.
 
-            :param name: DID of the switch to be set within the object
-            :rtype: None or dictionary of error information
+            :param name: The DID of the switch to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_domain_id()
 
-            Reads Domain ID in the object.
+            Reads the domain ID in the object.
 
-            :rtype: None or Domain ID of the switch
+            :rtype: None or the domain ID of the switch.
 
         .. method:: set_user_friendly_name(name)
 
-            Sets user friendly name in the object.
+            Sets the user friendly name in the object.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_user_friendly_name()
 
-            Reads user friendly name in the object.
+            Reads the user friendly name in the object.
 
-            :rtype: None or user friendly name of the switch
+            :rtype: None or the user friendly name of the switch.
 
         .. method:: peek_fcid()
 
-            Reads FCID in the object.
+            Reads the FCID in the object.
 
-            :rtype: None or FCID of the switch
+            :rtype: None or the FCID of the switch.
 
         .. method:: peek_vf_id()
 
-            Reads VFID in the object.
+            Reads the VFID in the object.
 
-            :rtype: None or VFID of the switch
+            :rtype: None or the VFID of the switch.
 
         .. method:: peek_principal()
 
-            Reads boolean value as to if the switch is
-            Principal switch or not in the object.
+            Reads the boolean value to determine if the switch is
+            the principal switch or not in the object.
 
-            :rtype: None, True, or False
+            :rtype: None, True, or False.
 
         .. method:: set_enabled_state(newstate)
 
-            Sets enabled state to :data:`ENABLE` or
+            Sets the enabled state to :data:`ENABLE` or
                 :data:`DISABLE` in the object.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_enabled_state()
 
-            Reads enabled state of the switch in the object.
+            Reads the enabled state of the switch in the object.
 
             :rtype: None or enabled state of :data:`ENABLE`,
-                :data:`DISABLE`, :data:`UNDEFINED`, or :data:`TESTING`
+                :data:`DISABLE`, :data:`UNDEFINED`, or :data:`TESTING`.
 
         .. method:: peek_up_time()
 
-            Reads uptime of the switch in the object.
+            Reads the uptime of the switch in the object.
 
-            :rtype: None or uptime of the switch
+            :rtype: None or the uptime of the switch.
 
         .. method:: peek_model()
 
-            Reads model of the switch in the object.
+            Reads the model of the switch in the object.
 
-            :rtype: None or model of the switch
+            :rtype: None or the model of the switch.
 
         .. method:: peek_firmware_version()
 
-            Reads FOS firmware version of the switch in the object.
+            Reads the FOS firmware version of the switch in the object.
 
-            :rtype: None or FOS firmware version of the switch
+            :rtype: None or the FOS firmware version of the switch.
 
         .. method:: set_ip_address_ip_address(ipaddress)
 
-            Sets using a new list of IP addresses
+            Sets using a new list of IP addresses.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_ip_address_ip_address()
 
             Reads a list of IP addresses of the switch in the object.
 
-            :rtype: None or a list of IP addresses
+            :rtype: None or a list of IP addresses.
 
         .. method:: set_ip_static_gateway_list_ip_static_gateway \
 (ip-static-gateway-list)
 
-            Sets new IPv4, IPv6 static gateway addresses for the switch.
+            Sets the new IPv4/IPv6 static gateway addresses for the switch.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_ip_static_gateway_list_ip_static_gateway()
 
             Reads the static gateway IP addresses set for the switch.
 
-            :rtype: None or list of IPv4 and IPv6 static gateway addresses
+            :rtype: None or a list of IPv4 and IPv6 static gateway addresses.
 
         .. method:: set_subnet_mask(subnet_mask)
 
-            Sets new subnet mask of the switch
+            Sets the new subnet mask of the switch.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_subnet_mask()
 
-            Reads subnet mask of the swich.
+            Reads the subnet mask of the switch.
 
-            :rtype: None or subnet mask
+            :rtype: None or the subnet mask.
 
         .. method:: set_domain_name(domain_name)
 
-            Sets new domain name of the switch in DNS
+            Sets the new domain name of the switch in DNS.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_domain_name()
 
-            Reads domain name in DNS of the switch in the object.
+            Reads the domain name in DNS of the switch in the object.
 
-            :rtype: None or domain name
+            :rtype: None or the domain name.
 
         .. method:: set_dns_servers_dns_server(dns-servers)
 
-            Sets new DNS Servers for the switch with their IPv4/IPv6 addresses.
+            Sets the new DNS Servers for the switch with their \
+            IPv4/IPv6 addresses.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_dns_servers_dns_server()
 
             Reads the IP address of DNS servers set for the switch.
 
-            :rtype: None or list of IP addresses
+            :rtype: None or a list of IP addresses.
 
         .. method:: set_fabric_user_friendly_name(name)
 
-            Sets fabric user friendly name in the object.
+            Sets the fabric user friendly name in the object.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_fabric_user_friendly_name()
 
-            Reads fabric user friendly name in the object.
+            Reads the fabric user friendly name in the object.
 
-            :rtype: None or fabric user friendly name of the switch
+            :rtype: None or the fabric user friendly name of the switch.
 
         .. method:: set_ag_mode(value)
 
-            Sets the ag-mode enabled state of the switch.
+            Sets the AG mode enabled state of the switch.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_ag_mode()
 
-            Reads Access Gateway mode in the object.
-            :rtype: None or AG mode of the switch
+            Reads the Access Gateway mode in the object.
+            :rtype: None or the AG mode of the switch.
 
         .. method:: set_banner(value)
 
-           Sets the Banner message while login
+           Sets the banner message while logging in.
 
-           :rtype: None or dictionary of error information
+           :rtype: None or a dictionary of error information.
 
         .. method:: peek_banner()
 
-           Reads the Banner message while login
+           Reads the banner message while logging in.
 
-           :rtype: None or Banner message while login
+           :rtype: None or the banner message while logging in.
          """
 
     def __init__(self, dictvalues={}):

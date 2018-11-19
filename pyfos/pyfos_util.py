@@ -19,14 +19,13 @@
 The :mod:`pyfos_util` provides utility functions.
 
 """
-from colorconsole import terminal
-
 import http.client as httplib
 import json
 import ssl
-import xmltodict
 import time
 from requests.utils import quote
+from colorconsole import terminal
+import xmltodict
 
 VF_ID = "?vf-id="
 HTTP = "http://"
@@ -145,6 +144,7 @@ def get_response_parse(response, is_options=False):
 
     return ret_error
 
+
 def rpc_response_parse(response):
 
     page = response.read()
@@ -178,7 +178,16 @@ def rpc_response_parse(response):
 
     return ret_error
 
+
+def initscreen():
+    # pylint: disable=W0603
+    global screen
+    if screen is None:
+        screen = terminal.get_terminal(conEmu=False)
+
+
 def test_title_set(title, description):
+    # pylint: disable=W0603
     global current_test
     global screen
     if screen is None:
@@ -194,6 +203,7 @@ def test_title_set(title, description):
 
 
 def print_test_red(arg):
+    # pylint: disable=W0603
     global screen
     if screen is not None:
         screen.cprint(terminal.colors["RED"], None, arg + "\n")
@@ -203,6 +213,7 @@ def print_test_red(arg):
 
 
 def print_test_green(arg):
+    # pylint: disable=W0603
     global screen
     if screen is not None:
         screen.cprint(terminal.colors["GREEN"], None, arg + "\n")
@@ -212,6 +223,7 @@ def print_test_green(arg):
 
 
 def print_test_yellow(arg):
+    # pylint: disable=W0603
     global screen
     if screen is not None:
         screen.cprint(terminal.colors["YELLOW"], None, arg + "\n")
@@ -221,6 +233,7 @@ def print_test_yellow(arg):
 
 
 def print_test_blue(arg):
+    # pylint: disable=W0603
     global screen
     if screen is not None:
         screen.cprint(terminal.colors["BLUE"], None, arg + "\n")
@@ -230,6 +243,7 @@ def print_test_blue(arg):
 
 
 def print_test_lblue(arg):
+    # pylint: disable=W0603
     global screen
     if screen is not None:
         screen.cprint(terminal.colors["LBLUE"], None, arg + "\n")
@@ -239,6 +253,7 @@ def print_test_lblue(arg):
 
 
 def print_test_lgreen(arg):
+    # pylint: disable=W0603
     global screen
     if screen is not None:
         screen.cprint(terminal.colors["LGREEN"], None, arg + "\n")
@@ -248,6 +263,7 @@ def print_test_lgreen(arg):
 
 
 def print_test_lred(arg):
+    # pylint: disable=W0603
     global screen
     if screen is not None:
         screen.cprint(terminal.colors["LRED"], None, arg + "\n")
@@ -257,6 +273,7 @@ def print_test_lred(arg):
 
 
 def test_explicit_result_passed(description):
+    # pylint: disable=W0603
     global current_test
     if current_test is None:
         print("current_test is set to None")
@@ -266,6 +283,7 @@ def test_explicit_result_passed(description):
 
 
 def test_explicit_result_failed(description):
+    # pylint: disable=W0603
     global current_test
     if current_test is None:
         print("current_test is set to None")
@@ -275,6 +293,7 @@ def test_explicit_result_failed(description):
 
 
 def test_add_to_failed_requests(request, resp):
+    # pylint: disable=W0603
     global current_test
 
     # if any is failing, mark the overall to be false
@@ -284,6 +303,7 @@ def test_add_to_failed_requests(request, resp):
 
 
 def test_add_to_succeeded_requests(request, resp):
+    # pylint: disable=W0603
     global current_test
 
     # leave the overall mark as is
@@ -292,11 +312,13 @@ def test_add_to_succeeded_requests(request, resp):
 
 
 def test_negative_test_set(isErrReq):
+    # pylint: disable=W0603
     global isErrorRequest
     isErrorRequest = isErrReq
 
 
 def print_current_test():
+    # pylint: disable=W0603
     global current_test
     if current_test:
         if current_test.overall_passed is True:
@@ -309,6 +331,7 @@ def print_current_test():
 
 
 def test_add_logs(isVerbose, log, myobject=None):
+    # pylint: disable=W0603
     global current_test
     if current_test:
         current_test.logs = log
@@ -319,6 +342,7 @@ def test_add_logs(isVerbose, log, myobject=None):
 
 
 def test_print_verbose_logs():
+    # pylint: disable=W0603
     global current_test
     if current_test:
         if current_test.logs is not None:
@@ -356,7 +380,16 @@ def response_print(response):
     print(json.dumps(response, cls=json_encoder, sort_keys=True, indent=4))
 
 
+def strjson(response):
+    """returns dictionary into JSON format.
+
+    :param response: Dictionary of information to be converted to JSON.
+    """
+    return str(json.dumps(response, cls=json_encoder, sort_keys=True, indent=4))
+
+
 def test_results_print():
+    # pylint: disable=W0603
     global current_test
     global executed_tests
 
@@ -370,12 +403,12 @@ def test_results_print():
     failed_requests = 0
     passed = 0
     passed_requests = 0
-    for test in executed_tests:
-        if test.overall_passed is False:
+    for executed_test in executed_tests:
+        if executed_test.overall_passed is False:
             failed += 1
         else:
             passed += 1
-        for request in test.requests:
+        for request in executed_test.requests:
             if request.passed is True:
                 passed_requests += 1
             else:
@@ -399,16 +432,16 @@ def test_results_print():
         print("=========================\n")
 
         count = 0
-        for test in executed_tests:
-            if test.overall_passed is False:
-                print_test_yellow("Error #" + str(count) + ":" + test.title)
-                print_test_lred("Test description:" + test.description + "\n")
-                if test.overall_result_description is not None:
+        for executed_test in executed_tests:
+            if executed_test.overall_passed is False:
+                print_test_yellow("Error #" + str(count) + ":" + executed_test.title)
+                print_test_lred("Test description:" + executed_test.description + "\n")
+                if executed_test.overall_result_description is not None:
                     print_test_red("Test result description:" +
-                                   str(test.overall_result_description))
-                if len(test.requests) > 0:
+                                   str(executed_test.overall_result_description))
+                if len(executed_test.requests) > 0:
                     print("=================")
-                    for request in test.requests:
+                    for request in executed_test.requests:
                         print_test_lblue(request.request)
                         print_test_lred(request.response)
                         print(" ")
@@ -439,7 +472,7 @@ def vfidstr_get(session):
 
 
 def debug(session, http_cmd, cmd, content):
-    debug = session.get("debug")
+    debug_attrib = session.get("debug")
     isHttps = session.get("ishttps")
 
     if isHttps == "self":
@@ -451,15 +484,16 @@ def debug(session, http_cmd, cmd, content):
 
     if content == "":
         request = http_cmd + session.get("ip_addr") + cmd
-        if debug:
+        if debug_attrib:
             print(request)
     else:
         request = (http_cmd + session.get("ip_addr") +
                    cmd + " - CONTENT -> " + content)
-        if debug:
+        if debug_attrib:
             print(request)
 
     # Track the responses
+    # pylint: disable=W0603
     global current_request
     current_request = request
 
@@ -575,6 +609,7 @@ def delete_request(session, cmd, content):
     resp = conn.getresponse()
     return set_response_parse(resp)
 
+
 def rpc_request(session, cmd, content):
     credential = session.get("credential")
     vfidstr = vfidstr_get(session)
@@ -591,6 +626,7 @@ def rpc_request(session, cmd, content):
 
     resp = conn.getresponse()
     return rpc_response_parse(resp)
+
 
 def encode_slotport(name):
     return quote(name, safe='')
@@ -617,11 +653,7 @@ def get_from_dict(resp, key):
 
 
 def is_success_resp(resp):
-    if (isinstance(resp, dict) and 'success-type' in resp and
-            resp['success-type'] == 'Success'):
-        return True
-    else:
-        return False
+    return bool(isinstance(resp, dict) and 'success-type' in resp and resp['success-type'] == 'Success')
 
 
 def is_failed_resp(resp):
@@ -690,6 +722,7 @@ def isSlotPort(inputstring):
             return False
 
     return True
+
 
 def isDCommaI(inputstring):
     if inputstring.count(",") != 1:

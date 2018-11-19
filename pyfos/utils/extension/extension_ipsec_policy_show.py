@@ -16,34 +16,36 @@
 
 """
 
-:mod:`extension_ipsec_policy_show` - PyFOS util for Displaying IPsec policy.
+:mod:`extension_ipsec_policy_show` - PyFOS util for displaying an IPsec policy.
 ***********************************************************************************
-The :mod:`extension_ipsec_policy_show` Util is used to display IPsec policy.
+The :mod:`extension_ipsec_policy_show` util is used to display an IPsec policy.
 
 This module is a stand-alone script that can be used to show an extension
-ipsec policy.
+IPsec policy.
+
 extension_ipsec_policy_show: Usage
 
-* Infrastructure options :
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA".
+* Infrastructure Options :
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA".
     * -v,--verbose: Verbose mode.
-* Script specific options:
-    *    --policy-name: Set policy-name.
+
+* Script Specific Options:
+    *    --policy-name: Sets the policy name.
 
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extensionipsecpolicyshow.show_extension_ipsec_policy(session\
 , name, profile, auth)
 
-    *show extension ipsec policy*
+    *Show an Extension IPsec Policy*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
           ret =
           extensionipsecpolicyshow.show_extension_ipsec_policy(session,
@@ -61,27 +63,27 @@ extension_ipsec_policy_show: Usage
           extensionipsecpolicyshow._show_extension_ipsec_policy(session,
           restobject)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: Ipsec policy name.
-            :param profile: Ipsec profile name.
-            :param auth: Authentication data.
+        * Input:
+            :param session: The session returned by the login.
+            :param name: Sets the IPsec policy name.
+            :param profile: Sets the IPsec profile name.
+            :param auth: Sets the authentication data.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
-         Show ipsec policy.
+         Show the IPsec policy.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_ipsec_policy import extension_ipsec_policy
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_ipsec_policy import extension_ipsec_policy
+from pyfos.utils import brcd_util
 
 isHttps = "0"
 

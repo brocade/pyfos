@@ -21,7 +21,7 @@ The :mod:`pyfos_brocade_zone` provides a REST support for \
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 
 CFG_ACTION_SAVE = 1
@@ -622,7 +622,7 @@ class effective_configuration(pyfos_rest_util.rest_object):
             "cfg-action", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "default-zone-access",  pyfos_type.type_int,
+            "default-zone-access", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "db-avail", pyfos_type.type_int,
@@ -650,19 +650,19 @@ class effective_configuration(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY), ["enabled-zone"])
         self.add(pyfos_rest_util.rest_attribute(
             "zone-type", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG), ["enabled-zone"])
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG), ["enabled-zone"])
         self.add(pyfos_rest_util.rest_attribute(
             "member-entry", pyfos_type.type_na,
-            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER),
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER_NOT_CONFIG),
             ["enabled-zone"])
         self.add(pyfos_rest_util.rest_attribute(
             "entry-name", [pyfos_type.type_wwn, pyfos_type.type_domain_port],
-            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST_NOT_CONFIG),
             ["enabled-zone", "member-entry"])
         self.add(pyfos_rest_util.rest_attribute(
             "principal-entry-name",
             [pyfos_type.type_wwn, pyfos_type.type_domain_port],
-            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST_NOT_CONFIG),
             ["enabled-zone", "member-entry"])
 
         self.load(dictvalues, 1)

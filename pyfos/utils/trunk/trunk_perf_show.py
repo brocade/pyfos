@@ -15,39 +15,39 @@
 
 """
 
-:mod:`port_trunk_area_show` - PyFOS util for getting info \
-        of a portareatrunk-group.
-***********************************************************************************
-The :mod:`port_trunk_area_show` - PyFOS util for getting info \
-        of a portareatrunk-group.
+:mod:`trunk_perf_show` - PyFOS util for getting info \
+        of performance of a E-port trunk
+*********************************************************************************************************************************
+The :mod:`trunk_perf_show` - PyFOS util for getting info \
+        of performance of a E-port trunk
 
-This module is a standalone script that can be used to get the info of \
-        porttrunkarea-group using group
-* Infrastructure options:
-    * -L=<login>: Login ID. If not provided, interactive
-        prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
-        prompt will request one.
-    * -i=<IP address>: IP address
-    * -n=<port name>: <slot>/<port> name of the port
-    * -u=<user name>: string name to be assigned to switch
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+This module is a standalone script that can be used to get the info \
+        of performance of a E-port trunk
+
+* inputs:
+
+| Infrastructure options:
+
+|   -i,--ipaddr=IPADDR     IP address of FOS switch.
+|   -L,--login=LOGIN       login name.
+|   -P,--password=PASSWORD password.
+|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
+|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           verbose mode[OPTIONAL].
 
 * Util scripts options:
-    -n,--name=NAME                     Port in slot/port.
-    --group=VALUE                group of the porttrunkarea-group
+    --group=VALUE                group of the E-Port Trunk
 
 * outputs:
     * Python dictionary content with RESTCONF response data
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel_trunk import performance
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_fibrechannel_trunk import performance
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

@@ -16,39 +16,39 @@
 
 """
 
-:mod:`port_trunk_state_set` - PyFOS util for specific port op use case.
-***********************************************************************************
-The :mod:`port_trunk_state_set` provides for a  specific port op use case.
+:mod:`port_trunk_state_set` - PyFOS util for setting a port as a trunk port.
+*******************************************************************************
+The :mod:`port_trunk_state_set` util for setting a port as a trunk port.
 
-This module is a stand-alone script that can be used to set/reset a port as a
-trunkport.
+This module is a stand-alone script that can be used to set or reset a port\
+ as a trunk port.
 
-* Infrastructure options:
-    * -L=<login>: Login ID. If not provided, an interactive
+* Infrastructure Options:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, an interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address.
-    * -n=<port name>: <slot>/<port> name of the port.
-    * -u=<user name>: string name to be assigned to a switch.
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -n=<port name>: The <slot>/<port> name of the port.
+    * -u=<user name>: The string name to be assigned to a switch.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util script options:
-    -n,--name=NAME                           Port in slot/port.
-    --trunk_enabled=TRUNK_ENABLED            Set "trunk-port-enabled" <0|1>
+* Util Script Options:
+    -n,--name=NAME                     The port in slot/port format.
+    --trunk_enabled=TRUNK_ENABLED      Sets the trunk port enabled flag <0|1>.
 
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel import fibrechannel
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_fibrechannel import fibrechannel
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def validate(fcObject):

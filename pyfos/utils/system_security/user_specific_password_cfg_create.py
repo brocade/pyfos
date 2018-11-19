@@ -15,9 +15,8 @@
 
 """
 
-:mod:`user_specific_password_cfg_create` - PyFOS util to create user specific
-                                           password config parameters
-******************************************************************************
+:mod:`user_specific_password_cfg_create` - PyFOS util to create user specific password config parameters
+********************************************************************************************************
 This module is a standalone script and API that can be used to create
 user specific password config paramters.
 
@@ -48,10 +47,10 @@ user specific password config paramters.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import user_specific_password_cfg
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -69,9 +68,9 @@ def main(argv):
         exit(1)
 
     if (user_specific_password_cfg_obj.peek_minimum_password_age() is None and
-        user_specific_password_cfg_obj.peek_maximum_password_age() is None and
-        user_specific_password_cfg_obj.peek_warn_on_expire() is None and
-        user_specific_password_cfg_obj.peek_hash_type() is None and
+            user_specific_password_cfg_obj.peek_maximum_password_age() is None and
+            user_specific_password_cfg_obj.peek_warn_on_expire() is None and
+            user_specific_password_cfg_obj.peek_hash_type() is None and
             user_specific_password_cfg_obj.peek_enforce_expire() is None):
         print("Missing command line options")
         print(inputs['utilusage'])

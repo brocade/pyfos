@@ -40,11 +40,11 @@ corresponding to that HBA will be displayed.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fdmi as pyfos_fdmi
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fdmi as pyfos_fdmi
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def usage():

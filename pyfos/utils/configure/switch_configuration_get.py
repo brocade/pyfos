@@ -15,28 +15,29 @@
 
 """
 
-:mod:`switch_configuration_get` - PyFOS util for configuring switch op use case
-*******************************************************************************
-The :mod:`switch_configuration_get` provides for configuring switch op use case
+:mod:`switch_configuration_get` - PyFOS util for configuring switch operation
+********************************************************************************
+The :mod:`switch_configuration_get` util provides for configuring switch \
+operation.
 
-This module is a standalone script that can be used to display switch
-attributes
+This module is a stand-alone script that can be used to display switch
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* outputs:
-    * switch attributes in JSON format
+* Output:
+    * The switch attributes in JSON format.
 
 .. function:: show_switch_conf(session)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = switch_configuration_get.show_switch_conf(session)
             print (ret)
@@ -47,23 +48,23 @@ attributes
             result = switch_conf_obj.get(session)
             return result
 
-        * inputs:
-            :param session: session returned by login.
+        * Input:
+            :param session: The session returned by login.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the configuration parameters of switch.
+        1. Retrieve the configuration parameters of the switch.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel_configuration as py_fc
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fibrechannel_configuration as py_fc
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 switch = py_fc.switch_configuration
 

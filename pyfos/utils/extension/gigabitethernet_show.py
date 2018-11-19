@@ -17,27 +17,27 @@
 
 """
 
-:mod:`gigabitethernet_show` - PyFOS util to display GE port.
+:mod:`gigabitethernet_show` - PyFOS util to display the GE_Port data.
 *******************************************************************************
-The :mod:`gigabitethernet_show` Util is used to display GE port.
+The :mod:`gigabitethernet_show` util is used to display the GE_Port data.
 
 This module is a stand-alone script that can be used to show the
-switch GE port speed on an extension platform.
+switch GE_Port speed on an extension platform.
 
 gigabitethernet_show.py: Usage
 
 * Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA"[Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Show name.
+* Util Script Options:
+    * -n,--name=NAME: Sets the GE_Port name.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: gigabitethernet_show.show(session,\
@@ -45,30 +45,30 @@ name, speed)
 
     *Show extension gigabitethernet*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = gigabitethernet_show.show(session,
             name, speed)
             print (ret)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: Gigabitethernet port name expressed as slot/port.
+        * Input:
+            :param session: The session returned by the login.
+            :param name: The GE_Port name expressed as slot/port.
 
-        * Outputs:
-            :rtype: List of GE ports.
+        * Output:
+            :rtype: A list of GE_Ports.
 
-        *Use cases*
+        *Use Cases*
 
-         Show gigabitethernet port.
+         Show the GE_Port.
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
+from pyfos.utils import brcd_util
 
 
 def _show(session, geObject):
@@ -87,10 +87,11 @@ def _show(session, geObject):
     return gelist
 
 
+# pylint: disable=W0613
 def show(session, name):
     geObject = gigabitethernet()
     result = _show(session, geObject)
-    return (result)
+    return result
 
 
 def main(argv):

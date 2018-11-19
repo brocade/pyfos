@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="extension_tunnel_modify - PyFOS util for creating a tunnel." href="extension_tunnel_modify.html" />
-    <link rel="prev" title="extensionShell - PyFOS util for emulating extension Shell." href="extensionShell.html" /> 
+    <link rel="next" title="extension_tunnel_modify - PyFOS util for modifying a tunnel." href="extension_tunnel_modify.html" />
+    <link rel="prev" title="extensionShell - PyFOS util for emulating an extension shell." href="extensionShell.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="extension_tunnel_modify.html" title="extension_tunnel_modify - PyFOS util for creating a tunnel."
+          <a href="extension_tunnel_modify.html" title="extension_tunnel_modify - PyFOS util for modifying a tunnel."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="extensionShell.html" title="extensionShell - PyFOS util for emulating extension Shell."
+          <a href="extensionShell.html" title="extensionShell - PyFOS util for emulating an extension shell."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -44,43 +44,43 @@
             
   <span class="target" id="module-extension_tunnel_create"></span><div class="section" id="extension-tunnel-create-pyfos-util-for-creating-a-tunnel">
 <h1><a class="reference internal" href="#module-extension_tunnel_create" title="extension_tunnel_create: PyFOS module to create an extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_tunnel_create</span></code></a> - PyFOS util for creating a tunnel.<a class="headerlink" href="#extension-tunnel-create-pyfos-util-for-creating-a-tunnel" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-extension_tunnel_create" title="extension_tunnel_create: PyFOS module to create an extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_tunnel_create</span></code></a> provides tunnel creation functionality.</p>
+<p>The <a class="reference internal" href="#module-extension_tunnel_create" title="extension_tunnel_create: PyFOS module to create an extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_tunnel_create</span></code></a> util provides tunnel creation functionality.</p>
 <p>This module is a stand-alone script that can be used to create an extension
 tunnel.</p>
 <p>extension_tunnel_create.py: Usage</p>
 <ul>
 <li><dl class="first docutils">
-<dt>Infrastructure options:</dt>
+<dt>Infrastructure Options:</dt>
 <dd><ul class="first last simple">
-<li>-i,–ipaddr=IPADDR: IP address of FOS switch.</li>
-<li>-L,–login=LOGIN: Login name.</li>
-<li>-P,–password=PASSWORD: Password.</li>
-<li>-f,–vfid=VFID: VFID to which the request is directed.</li>
-<li>-s,–secured=MODE: HTTPS mode “self” or “CA”[Optional].</li>
-<li>-v,–verbose: Verbose mode[Optional].</li>
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><ul class="first last simple">
-<li>-n,–name=NAME: Set name.</li>
-<li>-l,–load-level=VALUE: Set load-level.</li>
-<li>-f,–fast-write-enabled=VALUE: Set fast-write-enabled.</li>
-<li>-c,–compression-tunnel=VALUE: Set compression-tunnel.</li>
-<li>-a,–admin-enabled=VALUE: Set admin-enabled.</li>
-<li>–ipsec-policy=VALUE: Set ipsec-policy.</li>
-<li>–user-friendly-name=VALUE: Set user-friendly-name.</li>
-<li>–fc-compression=VALUE: Set fc-compression.</li>
-<li>–ip-compression=VALUE: Set ip-compression.</li>
-<li>–ip-extension=VALUE: Set ip-extension.</li>
+<li>-n,–name=NAME: Sets the name.</li>
+<li>-l,–load-level=VALUE: Sets the load level.</li>
+<li>-f,–fast-write-enabled=VALUE: Sets the fast write enabled.</li>
+<li>-c,–compression-tunnel=VALUE: Sets the compression tunnel.</li>
+<li>-a,–admin-enabled=VALUE: Sets the admin enabled.</li>
+<li>–ipsec-policy=VALUE: Sets the IPsec policy.</li>
+<li>–user-friendly-name=VALUE: Sets the user friendly name.</li>
+<li>–fc-compression=VALUE: Sets the FC compression.</li>
+<li>–ip-compression=VALUE: Sets the IP compression.</li>
+<li>–ip-extension=VALUE: Sets the IP extension.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
@@ -91,9 +91,9 @@ tunnel.</p>
 <dl class="function">
 <dt id="extension_tunnel_create.extension_tunnel_create.create_extension_tunnel">
 <code class="descclassname">extension_tunnel_create.</code><code class="descname">create_extension_tunnel</code><span class="sig-paren">(</span><em>session</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#extension_tunnel_create.extension_tunnel_create.create_extension_tunnel" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Create extension tunnel</em></p>
+<dd><p><em>Create an Extension Tunnel</em></p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_tunnel_create</span><span class="o">.</span><span class="n">create_extension_tunnel</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
 <span class="n">name</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
@@ -109,14 +109,14 @@ tunnel.</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">Session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">VE port name expressed as slot/port.</td>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">Sets the VE_Port name expressed as slot/port.</td>
 </tr>
 </tbody>
 </table>
@@ -124,12 +124,12 @@ tunnel.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response.</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -137,7 +137,7 @@ tunnel.</p>
 </dl>
 </li>
 </ul>
-<p><em>Use cases</em></p>
+<p><em>Use Cases</em></p>
 <blockquote>
 <div>Create a new extension tunnel.</div></blockquote>
 </div></blockquote>
@@ -158,10 +158,10 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="extensionShell.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extensionShell</span></code> - PyFOS util for emulating extension Shell.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extensionShell</span></code> - PyFOS util for emulating an extension shell.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="extension_tunnel_modify.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_tunnel_modify</span></code> - PyFOS util for creating a tunnel.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_tunnel_modify</span></code> - PyFOS util for modifying a tunnel.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -195,17 +195,17 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="extension_tunnel_modify.html" title="extension_tunnel_modify - PyFOS util for creating a tunnel."
+          <a href="extension_tunnel_modify.html" title="extension_tunnel_modify - PyFOS util for modifying a tunnel."
              >next</a> |</li>
         <li class="right" >
-          <a href="extensionShell.html" title="extensionShell - PyFOS util for emulating extension Shell."
+          <a href="extensionShell.html" title="extensionShell - PyFOS util for emulating an extension shell."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

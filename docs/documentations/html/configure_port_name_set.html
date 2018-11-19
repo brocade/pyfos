@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="configure_dport_mode_modify - PyFos util to set dport mode of the switch." href="configure_dport_mode_modify.html" />
-    <link rel="prev" title="configure_port_show - PyFos util to get and display port configuration." href="configure_port_show.html" /> 
+    <link rel="next" title="configure_dport_mode_modify - PyFOS util to set the D_Port mode of the switch." href="configure_dport_mode_modify.html" />
+    <link rel="prev" title="configure_port_show - PyFOS util to get and display the port configuration." href="configure_port_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="configure_dport_mode_modify.html" title="configure_dport_mode_modify - PyFos util to set dport mode of the switch."
+          <a href="configure_dport_mode_modify.html" title="configure_dport_mode_modify - PyFOS util to set the D_Port mode of the switch."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="configure_port_show.html" title="configure_port_show - PyFos util to get and display port configuration."
+          <a href="configure_port_show.html" title="configure_port_show - PyFOS util to get and display the port configuration."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -45,36 +45,36 @@
   <span class="target" id="module-configure_port_name_set"></span><div class="section" id="configure-port-name-set-pyfos-util-to-set-port-name-mode-of-the-switch">
 <h1><a class="reference internal" href="#module-configure_port_name_set" title="configure_port_name_set: PyFOS util to set portname mode (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configure_port_name_set</span></code></a> - PyFos util to set port name mode of the switch.<a class="headerlink" href="#configure-port-name-set-pyfos-util-to-set-port-name-mode-of-the-switch" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-configure_port_name_set" title="configure_port_name_set: PyFOS util to set portname mode (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configure_port_name_set</span></code></a> sets the port name mode of the switch.</p>
-<p>This module is a standalone script that can be used to set the port name mode
-of the switch. If the mode is “dynamic”, the dynamic-portname-format can be
+<p>This module is a stand-alone script that can be used to set the port name mode
+of the switch. If the mode is “dynamic”, the dynamic portname format can be
 set as well.</p>
 <ul>
 <li><dl class="first docutils">
-<dt>Infrastructure options:</dt>
+<dt>Infrastructure Options:</dt>
 <dd><ul class="first last simple">
-<li>-i,–ipaddr=IPADDR: IP address of FOS switch.</li>
-<li>-L,–login=LOGIN: login name.</li>
-<li>-P,–password=PASSWORD: password.</li>
-<li>-f,–vfid=VFID: VFID to which the request is directed to.</li>
-<li>-s,–secured=MODE: HTTPS mode “self” or “CA”[OPTIONAL].</li>
-<li>-v,–verbose: verbose mode[OPTIONAL].</li>
+<li>-i,–ipaddr=IPADDR: The IP address of FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA”[OPTIONAL].</li>
+<li>-v,–verbose: Verbose mode[OPTIONAL].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><ul class="first last simple">
-<li>–portname-mode=PORTNAME-MODE: set given port name mode</li>
-<li>–dynamic-portname-format=DYNAMIC-PORTNAME-FORMAT: set dynamic port name            format [OPTIONAL]</li>
+<li>–portname-mode=PORTNAME-MODE: Sets the given port name mode.</li>
+<li>–dynamic-portname-format=DYNAMIC-PORTNAME-FORMAT: Sets the dynamic port name format [OPTIONAL].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>Python dictionary content with RESTCONF response data</li>
+<li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
 </dl>
@@ -84,7 +84,7 @@ set as well.</p>
 <dt>..function:: set_port_name_mode(session, portname_mode,</dt>
 <dd><blockquote class="first">
 <div>dynamic_portname_format=None)</div></blockquote>
-<p>Example usage of the method:</p>
+<p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">configure_port_name_set</span><span class="o">.</span><span class="n">set_port_name_mode</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
         <span class="n">portname_mode</span><span class="p">,</span> <span class="n">dynamic_portname_format</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
@@ -97,19 +97,19 @@ set as well.</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by login.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param portname_mode:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Set portname mode</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Sets the port name mode.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">param dynamic_portname_format:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Set dynamic portname format, if dynamic
-mode specified</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Sets the dynamic port name format,
+if dynamic mode specified.</td>
 </tr>
 </tbody>
 </table>
@@ -117,12 +117,12 @@ mode specified</td>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -130,9 +130,9 @@ mode specified</td>
 </dl>
 </li>
 </ul>
-<p><em>use cases</em></p>
+<p><em>Use Cases</em></p>
 <ol class="last arabic simple">
-<li>Patch the port name configuration of the switch</li>
+<li>Patch the port name configuration of the switch.</li>
 </ol>
 </dd>
 </dl>
@@ -150,10 +150,10 @@ mode specified</td>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="configure_port_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">configure_port_show</span></code> - PyFos util to get and display port configuration.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">configure_port_show</span></code> - PyFOS util to get and display the port configuration.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="configure_dport_mode_modify.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">configure_dport_mode_modify</span></code> - PyFos util to set dport mode of the switch.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">configure_dport_mode_modify</span></code> - PyFOS util to set the D_Port mode of the switch.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -187,17 +187,17 @@ mode specified</td>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="configure_dport_mode_modify.html" title="configure_dport_mode_modify - PyFos util to set dport mode of the switch."
+          <a href="configure_dport_mode_modify.html" title="configure_dport_mode_modify - PyFOS util to set the D_Port mode of the switch."
              >next</a> |</li>
         <li class="right" >
-          <a href="configure_port_show.html" title="configure_port_show - PyFos util to get and display port configuration."
+          <a href="configure_port_show.html" title="configure_port_show - PyFOS util to get and display the port configuration."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

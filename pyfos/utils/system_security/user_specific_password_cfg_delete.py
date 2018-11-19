@@ -15,9 +15,8 @@
 
 """
 
-:mod:`user_specific_password_cfg_delete` - PyFOS util to delete user specific
-                                           password config parameters
-******************************************************************************
+:mod:`user_specific_password_cfg_delete` - PyFOS util to delete user specific password config parameters
+********************************************************************************************************
 This module is a standalone script and API that can be used to delete
 user specific password config paramters.
 
@@ -41,10 +40,10 @@ user specific password config paramters.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import user_specific_password_cfg
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

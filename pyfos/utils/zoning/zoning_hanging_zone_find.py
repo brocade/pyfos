@@ -47,12 +47,14 @@ contain any online devices due to above reasons.
         other inputs to skip.
 
 """
-import pyfos.pyfos_auth as pyfos_auth
+
+
+import sys
+from pyfos import pyfos_auth
 import pyfos.pyfos_brocade_zone as pyfos_zone
 import pyfos.pyfos_brocade_name_server as pyfos_name_server
-import pyfos.pyfos_util as pyfos_util
-import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def online_in_name_server_by_wwn(ns_attributes, device_wwn):

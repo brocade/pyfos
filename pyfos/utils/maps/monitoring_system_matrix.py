@@ -15,35 +15,37 @@
 
 """
 
-:mod:`monitoring_system_matrix` - PyFOS util to list all MS in MAPS
-************************************************************************
+:mod:`monitoring_system_matrix` - PyFOS util to list all monitoring systems \
+in MAPS.
+*************************************************************************************
 
-This script is used to display MAPS monitoring systems and its supported
+This script is used to display all MAPS monitoring systems and their supported
 values.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
+* Util Script Options:
 
-* outputs:
-    * displays all monitoring systems present in MAPS
+* Output:
+    * A list of monitoring systems present in MAPS.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import monitoring_system_matrix
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

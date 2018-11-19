@@ -15,38 +15,40 @@
 
 """
 
-:mod:`sshutil_public_key_delete`-PyFOS util to delete public key
+:mod:`sshutil_public_key_delete`-PyFOS util to delete a public key.
 *******************************************************************************
-The :mod:`sshutil_public_key_delete` provides option to delete public key
+The :mod:`sshutil_public_key_delete` util provides the option to delete \
+a public key.
 
-This module can be used to delete public key
+This module can be used to delete a public key.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
+* Util Script Options:
 
-  |    --user-name=USER    	User Name
+  |    --user-name=USER    Specifies the user name.
 
 
-* outputs:
-    * Status of the delete operation
+* Output:
+    * The status of the delete operation.
 
 .. function:: sshutil_delete.del_members(session, user_name)
 
-    * Delete public key.
+    * Delete a public key.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
-            # Example 1: delete public key
+            # Example 1: Delete a public key.
             ret = sshutil_delete.del_public_keys(session, "user")
             print (ret)
 
@@ -58,24 +60,24 @@ This module can be used to delete public key
 
          result = sshutil_obj.delete(session)
 
-        * inputs:
-            :param session: session returned by login.
-            :param user-name: User Name.
+        * Input:
+            :param session: The session returned by the login.
+            :param user-name: The user name.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Delete public key
+        1. Delete a public key.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import sshutil_public_key
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _sshutil_del(session, restobject):
@@ -100,10 +102,10 @@ def main(argv):
 
     sshutil_obj = inputs['utilobject']
 
-    if (sshutil_obj.peek_user_name() is None):
-            print("Missing input(s)")
-            print(inputs['utilusage'])
-            sys.exit()
+    if sshutil_obj.peek_user_name() is None:
+        print("Missing input(s)")
+        print(inputs['utilusage'])
+        sys.exit()
 
     session = brcd_util.getsession(inputs)
 

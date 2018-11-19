@@ -15,46 +15,49 @@
 
 """
 
-:mod:`sshutil_delete`-PyFOS util to delete public/private/host key, known host
-*******************************************************************************
-The :mod:`sshutil_delete` provides option to delete public/private/host key or
-          known hosts.
+:mod:`sshutil_delete`-PyFOS util to delete a public/private key pair, \
+a host key, or known hosts in a switch.
+**********************************************************************\
+*****************************************
+The :mod:`sshutil_delete` util provides the option to delete\
+a public/private key pair, a host key, or known hosts in a switch.
 
-This module can be used to delete public/private/host key or to delete known
-          hosts in a switch.
+This module can be used to delete a public/private key pair, a host key, \
+or known hosts in a switch.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
+* Util Script Options:
 
-  |    --algorithm-type=ALGO    Algorithm type
-  |    --key-type=TYPE          Key Type
+  |    --algorithm-type=ALGO    Sets the algorithm type.
+  |    --key-type=TYPE          Sets the key type.
 
 
-* outputs:
-    * Status of the delete operation
+* Output:
+    * The status of the delete operation.
 
 .. function:: sshutil_delete.del_members(session, key_type, algo_type)
 
-    * Delete public/private/host key or known hosts.
+    * Delete a public/private key pair, a host key, or known hosts in a switch.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
-            # Example 1: delete public key
+            # Example 1: Delete the public key.
             ret = sshutil_delete.del_public_keys(
                       session, "public-private-key", "rsa")
             print (ret)
 
-            # Example 2: delete host key
+            # Example 2: Delete the host key.
             ret = sshutil_delete.del_host_key(session, "host-key", "rsa")
             print (ret)
 
@@ -67,26 +70,26 @@ This module can be used to delete public/private/host key or to delete known
 
          result = sshutil_obj.delete(session)
 
-        * inputs:
-            :param session: session returned by login.
-            :param algorithm-type: Algorithm type
-            :param key-type: key type
+        * Input:
+            :param session: The session returned by the login.
+            :param algorithm-type: The algorithm type.
+            :param key-type: The key type.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Delete private key
-        2. delete host key
+        1. Delete a private key.
+        2. Delete a host key.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import sshutil_key
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _sshutil_del(session, restobject):
@@ -113,10 +116,10 @@ def main(argv):
     sshutil_obj = inputs['utilobject']
 
     if (sshutil_obj.peek_key_type() is None or
-       sshutil_obj.peek_algorithm_type() is None):
-            print("Missing input(s)")
-            print(inputs['utilusage'])
-            sys.exit()
+            sshutil_obj.peek_algorithm_type() is None):
+        print("Missing input(s)")
+        print(inputs['utilusage'])
+        sys.exit()
 
     session = brcd_util.getsession(inputs)
 

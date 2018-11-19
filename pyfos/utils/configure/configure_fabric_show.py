@@ -15,29 +15,29 @@
 
 """
 
-:mod:`fabric_configuration_show` - PyFOS util for fetching fabric \
+:mod:`fabric_configuration_show` - PyFOS util for fetching the fabric \
 configuration.
-***********************************************************************************
-The :mod:`fabric_configuration_show` Displays fabric configuration.
+*************************************************************************************
+The :mod:`fabric_configuration_show` util displays the fabric configuration.
 
-This module is a standalone script that can be used to display fabric
-attributes
+This module is a stand-alone script that can be used to display fabric
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: Login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 .. function:: show_fabric_configuration(session)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = fabric_configure_get.show_fabric_configuration(session)
             print (ret)
@@ -48,23 +48,23 @@ attributes
             result = fabric_conf_obj.get(session)
             return result
 
-        * inputs:
-            :param session: session returned by login.
+        * Input:
+            :param session: The session returned by login.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the configuration parameters of fabric.
+        1. Retrieve the configuration parameters of the fabric.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel_configuration import fabric
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_fibrechannel_configuration import fabric
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def show_fabric_configuration(session):

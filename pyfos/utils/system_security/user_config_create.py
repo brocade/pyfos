@@ -57,10 +57,10 @@ user account
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import user_config
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -73,8 +73,8 @@ def main(argv):
 
     user_obj = inputs['utilobject']
     if (user_obj.peek_name() is None or
-        user_obj.peek_password() is None or
-        user_obj.peek_role() is None or
+            user_obj.peek_password() is None or
+            user_obj.peek_role() is None or
             user_obj.peek_virtual_fabric_role_id_list_role_id() == "[]"):
         print("Missing command line options")
         print(inputs['utilusage'])

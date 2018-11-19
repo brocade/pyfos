@@ -15,41 +15,47 @@
 
 """
 
-:mod:`f_port_login_settings_modify` - PyFOS util for configuring login
-**********************************************************************
-The :mod:`f_port_login_settings_modify` provides for configuring login
+:mod:`f_port_login_settings_modify` - PyFOS util for configuring the login
+*****************************************************************************
+The :mod:`f_port_login_settings_modify` util provides for configuring the\
+ login.
 
-This module is a standalone script that can be used to display login
-attributes
+This module is a stand-alone script that can be used to display login
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util scripts options:
+* Util Script Options:
 
-    * --free-fdisc=FREE-FDISC                         Configures fdisc logins.
-    * --max-logins-port=MAX-LOGINS-PORT               Sets Max Logins port.
-    * --enforce-login=ENFORCE-LOGIN                   Sets Login precedence.
-    * --max-logins-switch=MAX-LOGINS-SWITCH           Sets Max Logins switch.
-    * --max-logins=MAX-LOGINS                         Sets Max logins system.
-    * --stage-interval=STAGE-INTERVAL                 Sets stage interval time.
+    * --free-fdisc=FREE-FDISC                         Configures FDISC logins.
+    * --max-logins-port=MAX-LOGINS-PORT               Sets the maximim number\
+ of port logins.
+    * --enforce-login=ENFORCE-LOGIN                   Sets the login\
+ precedence.
+    * --max-logins-switch=MAX-LOGINS-SWITCH           Sets the maximim number\
+ of switch logins.
+    * --max-logins=MAX-LOGINS                         Sets the maximim number\
+ of system logins.
+    * --stage-interval=STAGE-INTERVAL                 Sets the stage interval\
+ time.
 
 
-* outputs:
-    * HTTP Status in JSON format
+* Output:
+    * HTTP status in JSON format.
 
 .. function:: patch_login_conf (session, maxl, mflps, si, ff, el, mflpp)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = f_port_login_settings_modify.patch_login_conf (session, maxl,
-                                mflps, si, ff, el, mflpp)
+                   mflps, si, ff, el, mflpp)
             print (ret)
 
         Details::
@@ -66,30 +72,32 @@ attributes
             result = _patch_login_conf(session, obj)
             return result
 
-        * inputs:
-            :param session: session returned by login.
-            :param maxl: Configures system wide Max logins.
-            :param mflps: Configures Max Logins per second in a switch.
-            :param si: Configures stage interval time in milliseconds.
-            :param ff: Configures freely allowed fdisc logins before staging.
-            :param el: Configures the login type precedence during collision.
-            :param mflpp: Configures Max Logins per second in a port.
+        * Input:
+            :param session: The session returned by login.
+            :param maxl: Sets the system wide maximum number of logins.
+            :param mflps: Sets the maximum number of logins per second\
+ in a switch.
+            :param si: Sets the stage interval time in milliseconds.
+            :param ff: Sets freely allowed FDISC logins before staging.
+            :param el: Sets the login type precedence during collision.
+            :param mflpp: Sets the maximum number of logins per second\
+ in a port.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: Dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Patch the f-port login parameters of switch.
+        1. Patch the F_Port login parameters of the switch.
 
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel_configuration as py_fc
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fibrechannel_configuration as py_fc
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 login = py_fc.f_port_login_settings
 

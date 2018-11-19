@@ -13,14 +13,13 @@
 
 """
 
-:mod:`pyfos_brocade_time` - PyFOS module to provide rest support for
-                            time server.
-************************************************************************************************
+:mod:`pyfos_brocade_time` - PyFOS module to provide rest support for time server.
+*********************************************************************************
 The :mod:`pyfos_brocade_time` provides a REST support for Time Server.
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as version
 
@@ -129,7 +128,7 @@ class time_zone(pyfos_rest_util.rest_object):
             "name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "gmt-offset-hours",  pyfos_type.type_int,
+            "gmt-offset-hours", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "gmt-offset-minutes", pyfos_type.type_int,
@@ -216,11 +215,11 @@ class clock_server(pyfos_rest_util.rest_object):
             "ntp-server-address", pyfos_type.type_na,
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
         self.add(pyfos_rest_util.rest_attribute(
-            "server-address",  pyfos_type.type_ip_addr,
+            "server-address", pyfos_type.type_ip_addr,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
             ["ntp-server-address"])
         self.add(pyfos_rest_util.rest_attribute(
-            "active-server",  pyfos_type.type_ip_addr,
+            "active-server", pyfos_type.type_ip_addr,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
 
         self.load(dictvalues, 1)

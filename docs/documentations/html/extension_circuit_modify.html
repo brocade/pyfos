@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="extension_circuit_show - PyFOS util for displaying circuit object." href="extension_circuit_show.html" />
+    <link rel="next" title="extension_circuit_show - PyFOS util for displaying a circuit object." href="extension_circuit_show.html" />
     <link rel="prev" title="extension_circuit_delete - PyFOS util for deleting a circuit object." href="extension_circuit_delete.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,7 +28,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="extension_circuit_show.html" title="extension_circuit_show - PyFOS util for displaying circuit object."
+          <a href="extension_circuit_show.html" title="extension_circuit_show - PyFOS util for displaying a circuit object."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="extension_circuit_delete.html" title="extension_circuit_delete - PyFOS util for deleting a circuit object."
@@ -44,39 +44,39 @@
             
   <span class="target" id="module-extension_circuit_modify"></span><div class="section" id="extension-circuit-modify-pyfos-util-for-modifying-a-circuit-object">
 <h1><a class="reference internal" href="#module-extension_circuit_modify" title="extension_circuit_modify: PyFOS module to modify an extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_circuit_modify</span></code></a> - PyFOS util for modifying a circuit object.<a class="headerlink" href="#extension-circuit-modify-pyfos-util-for-modifying-a-circuit-object" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-extension_circuit_modify" title="extension_circuit_modify: PyFOS module to modify an extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_circuit_modify</span></code></a> Util to modify a circuit.</p>
+<p>The <a class="reference internal" href="#module-extension_circuit_modify" title="extension_circuit_modify: PyFOS module to modify an extension tunnel use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_circuit_modify</span></code></a> util modifies a circuit.</p>
 <p>This module is a stand-alone script that can be used to modify an extension
 circuit.</p>
 <p>extension_circuit_modify.py: Usage</p>
 <ul>
 <li><dl class="first docutils">
-<dt>Infrastructure options:</dt>
+<dt>Infrastructure Options:</dt>
 <dd><ul class="first last simple">
-<li>-i,–ipaddr=IPADDR: IP address of FOS switch.</li>
+<li>-i,–ipaddr=IPADDR: IP address of the FOS switch.</li>
 <li>-L,–login=LOGIN: Login name.</li>
 <li>-P,–password=PASSWORD: Password.</li>
 <li>-f,–vfid=VFID: VFID to which the request is directed.</li>
-<li>-s,–secured=MODE: HTTPS mode “self” or “CA”[Optional].</li>
-<li>-v,–verbose: Verbose mode[Optional].</li>
+<li>-s,–secured=MODE: HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><ul class="first last simple">
-<li>-n,–name=NAME: Set name or slot/port of the circuit.</li>
-<li>-c,–circuit-id=CIRCUIT-ID: Set circuit-id of the circuit.</li>
-<li>-S,–local-ip=LOCAL-IP: Set local-ip-address of the circuit.</li>
-<li>-D,–remote-ip=REMOTE-IP: Set remote-ip-address of the circuit.</li>
-<li>-b,–min-comm-rate=VALUE: Set minimum-communication-rate in Kb/s.</li>
-<li>-B,–max-comm-rate=Value: Set maximum-communication-rate in Kb/s.</li>
+<li>-n,–name=NAME: Sets the name or slot/port of the circuit.</li>
+<li>-c,–circuit-id=CIRCUIT-ID: Sets the ID of the circuit.</li>
+<li>-S,–local-ip=LOCAL-IP: Sets the local IP address of the circuit.</li>
+<li>-D,–remote-ip=REMOTE-IP: Sets the remote IP address of the circuit.</li>
+<li>-b,–min-comm-rate=VALUE: Sets the minimum communication rate in Kb/s.</li>
+<li>-B,–max-comm-rate=Value: Sets the maximum communication rate in Kb/s.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
@@ -87,9 +87,9 @@ circuit.</p>
 <dl class="function">
 <dt id="extension_circuit_modify.extension_circuit_modify.modify_extension_circuit">
 <code class="descclassname">extension_circuit_modify.</code><code class="descname">modify_extension_circuit</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>cid</em>, <em>local</em>, <em>remote</em>, <em>minB</em>, <em>maxB</em><span class="sig-paren">)</span><a class="headerlink" href="#extension_circuit_modify.extension_circuit_modify.modify_extension_circuit" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Create extension circuit</em></p>
+<dd><p><em>Create Extension Circuit</em></p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_circuit_modify</span><span class="o">.</span><span class="n">modify_extension_circuit</span><span class="p">(</span>
 <span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">local</span><span class="p">,</span> <span class="n">remote</span><span class="p">,</span> <span class="n">minB</span><span class="p">,</span> <span class="n">maxB</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
@@ -110,24 +110,24 @@ circuit.</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">Session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">VE port name expressed as slot/port.</td>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">Sets the VE_Port name expressed as slot/port.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param cid:</th><td class="field-body">Circuit ID.</td>
+<tr class="field-odd field"><th class="field-name">param cid:</th><td class="field-body">Sets the ID of the circuit.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param local:</th><td class="field-body">Circuit local IP address.</td>
+<tr class="field-even field"><th class="field-name">param local:</th><td class="field-body">Sets the local IP address for the circuit.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param remote:</th><td class="field-body">Circuit Remote IP Address.</td>
+<tr class="field-odd field"><th class="field-name">param remote:</th><td class="field-body">Sets the remote IP address for the circuit.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param minB:</th><td class="field-body">Min. comm rate for the circuit.</td>
+<tr class="field-even field"><th class="field-name">param minB:</th><td class="field-body">Sets the minimum communication rate for the circuit.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param maxB:</th><td class="field-body">Max. comm rate for the circuit.</td>
+<tr class="field-odd field"><th class="field-name">param maxB:</th><td class="field-body">Sets the maximum communication rate for the circuit.</td>
 </tr>
 </tbody>
 </table>
@@ -135,12 +135,12 @@ circuit.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">Dictionary of return status matching rest response.</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -148,7 +148,7 @@ circuit.</p>
 </dl>
 </li>
 </ul>
-<p><em>Use cases</em></p>
+<p><em>Use Cases</em></p>
 <blockquote>
 <div>Modify a circuit to an existing tunnel.</div></blockquote>
 </div></blockquote>
@@ -172,7 +172,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extension_circuit_delete</span></code> - PyFOS util for deleting a circuit object.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="extension_circuit_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_circuit_show</span></code> - PyFOS util for displaying circuit object.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_circuit_show</span></code> - PyFOS util for displaying a circuit object.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -206,7 +206,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="extension_circuit_show.html" title="extension_circuit_show - PyFOS util for displaying circuit object."
+          <a href="extension_circuit_show.html" title="extension_circuit_show - PyFOS util for displaying a circuit object."
              >next</a> |</li>
         <li class="right" >
           <a href="extension_circuit_delete.html" title="extension_circuit_delete - PyFOS util for deleting a circuit object."
@@ -216,7 +216,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

@@ -18,28 +18,28 @@
 
 :mod:`extension_circuit_create` - PyFOS util for creating a circuit object.
 ***********************************************************************************
-The :mod:`extension_circuit_create` Util creates a circuit.
+The :mod:`extension_circuit_create` util creates a circuit.
 
 This module is a stand-alone script that can be used to create an extension
 circuit.
 
 extension_circuit_create.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name or slot/port of the circuit.
-    * -c,--circuit-id=CIRCUIT-ID: set circuit-id of the circuit.
-    * -S,--local-ip=LOCAL-IP: Set local-ip-address of the circuit.
-    * -D,--remote-ip=REMOTE-IP: Set remote-ip-address of the circuit.
-    * -b,--min-comm-rate=VALUE: Set minimum-communication-rate in Kb/s.
-    * -B,--max-comm-rate=Value: Set maximum-communication-rate in Kb/s.
+* Util Scripts Option:
+    * -n,--name=NAME: Sets the name or slot/port of the circuit.
+    * -c,--circuit-id=CIRCUIT-ID: Sets the ID of the circuit.
+    * -S,--local-ip=LOCAL-IP: Sets the local IP address of the circuit.
+    * -D,--remote-ip=REMOTE-IP: Sets the remote IP address of the circuit.
+    * -b,--min-comm-rate=VALUE: Sets the minimum communication rate in Kb/s.
+    * -B,--max-comm-rate=Value: Sets the maximum communication rate in Kb/s.
 
 * Outputs:
     * Python dictionary content with RESTCONF response data.
@@ -47,9 +47,9 @@ extension_circuit_create.py: Usage
 .. function:: extension_circuit_create.create_extension_circuit(session,\
 name, cid, local, remote, minB, maxB)
 
-    *Create extension circuit*
+    *Create Extension Circuit*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = extension_circuit_create.create_extension_circuit(
                 session, name, cid, local, remote, minB = 500000,
@@ -69,30 +69,30 @@ name, cid, local, remote, minB, maxB)
             result = extension_circuit_create._create_extension_circuit(
             session, circuit)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: VE port name expressed as slot/port.
-            :param cid: Circuit ID.
-            :param local: Circuit local IP address.
-            :param remote: Circuit Remote IP Address.
-            :param minB: Min. comm rate for the circuit.
-            :param maxB: Max. comm rate for the circuit.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the VE port name, expressed as slot/port.
+            :param cid: Sets the ID of the circuit.
+            :param local: Sets the local IP address of the circuit.
+            :param remote: Sets the remote IP address of the circuit.
+            :param minB: Sets the minimum communication rate for the circuit.
+            :param maxB: Sets the maximum communication rate for the circuit.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
          Create a new circuit to an existing tunnel.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"

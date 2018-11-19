@@ -1,0 +1,500 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_class_manager - PyFOS module to Manage all pyfos classes. &#8212; PyFOS 1.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_rule_manager - PyFOS module to provide rule based handling Support." href="pyfos_rule_manager.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="pyfos_config_manager.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_rule_manager.html" title="pyfos_rule_manager - PyFOS module to provide rule based handling Support."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_config_manager.html" title="&lt;no title&gt;"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_class_manager"></span><div class="section" id="pyfos-class-manager-pyfos-module-to-manage-all-pyfos-classes">
+<h1><a class="reference internal" href="#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a> - PyFOS module to Manage all pyfos classes.<a class="headerlink" href="#pyfos-class-manager-pyfos-module-to-manage-all-pyfos-classes" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a>  Provides the management functionality
+for all REST supported classes.</p>
+<dl class="class">
+<dt id="pyfos_class_manager.clsmanager">
+<em class="property">class </em><code class="descclassname">pyfos_class_manager.</code><code class="descname">clsmanager</code><a class="headerlink" href="#pyfos_class_manager.clsmanager" title="Permalink to this definition">¶</a></dt>
+<dd><p>class for management of all the rest supported classes.</p>
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.addsession">
+<em class="property">classmethod </em><code class="descname">addsession</code><span class="sig-paren">(</span><em>session</em>, <em>username</em>, <em>passwd</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.addsession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the session for session management for Callback handling
+support.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.cbhandler">
+<em class="property">classmethod </em><code class="descname">cbhandler</code><span class="sig-paren">(</span><em>session</em>, <em>cb_input</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.cbhandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback Handler function to execute all callbacks</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.clsglobalinit">
+<em class="property">classmethod </em><code class="descname">clsglobalinit</code><span class="sig-paren">(</span><em>logenable=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.clsglobalinit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the globals for class Manager</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.clsorderinginit">
+<em class="property">classmethod </em><code class="descname">clsorderinginit</code><span class="sig-paren">(</span><em>slots</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.clsorderinginit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the class ordering for class Manager</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.diffignoreattrib">
+<em class="property">classmethod </em><code class="descname">diffignoreattrib</code><span class="sig-paren">(</span><em>instcls</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.diffignoreattrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of ignored attrib in diff Calculation.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getAllCls">
+<em class="property">classmethod </em><code class="descname">getAllCls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getAllCls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the class list</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getAllOperation">
+<em class="property">classmethod </em><code class="descname">getAllOperation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getAllOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the HTTP operation per config stages for a class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getClsStageCB">
+<em class="property">classmethod </em><code class="descname">getClsStageCB</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getClsStageCB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ordering config stage CallBack handler per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getClsStagePri">
+<em class="property">classmethod </em><code class="descname">getClsStagePri</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getClsStagePri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ordering config stage priority per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getClsStageSupported">
+<em class="property">classmethod </em><code class="descname">getClsStageSupported</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getClsStageSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ordering config stage Stage supported per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getConfigOperation">
+<em class="property">classmethod </em><code class="descname">getConfigOperation</code><span class="sig-paren">(</span><em>stage</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getConfigOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the HTTP operation for a given config stage.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getConfigStages">
+<em class="property">classmethod </em><code class="descname">getConfigStages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getConfigStages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the config stages for all classes.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getContainerfromCls">
+<em class="property">classmethod </em><code class="descname">getContainerfromCls</code><span class="sig-paren">(</span><em>clsname</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getContainerfromCls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the container from class name for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getInstacefromContainer">
+<em class="property">classmethod </em><code class="descname">getInstacefromContainer</code><span class="sig-paren">(</span><em>container</em>, <em>valuedict=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getInstacefromContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Instance of class based on container name
+for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getInstacefromcls">
+<em class="property">classmethod </em><code class="descname">getInstacefromcls</code><span class="sig-paren">(</span><em>clsname</em>, <em>valuedict=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getInstacefromcls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Instance of class based on clsname for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getSlotAttrib">
+<em class="property">classmethod </em><code class="descname">getSlotAttrib</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getSlotAttrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the slot attribute for a pyfos class object.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getSlotforObject">
+<em class="property">classmethod </em><code class="descname">getSlotforObject</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getSlotforObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the slot from the class object.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getbladeslots">
+<em class="property">classmethod </em><code class="descname">getbladeslots</code><span class="sig-paren">(</span><em>ret</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getbladeslots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the blade slots as per blade response</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getcallback">
+<em class="property">classmethod </em><code class="descname">getcallback</code><span class="sig-paren">(</span><em>cmd</em>, <em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getcallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Callback Handler list per config stage/class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getclasspatchstage">
+<em class="property">classmethod </em><code class="descname">getclasspatchstage</code><span class="sig-paren">(</span><em>instcls</em>, <em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getclasspatchstage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is to get the patch stage for the class object based on diff
+default stage is PRE_PATCH.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getclsfromcontainer">
+<em class="property">classmethod </em><code class="descname">getclsfromcontainer</code><span class="sig-paren">(</span><em>container</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getclsfromcontainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the class from container name for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getclskey">
+<em class="property">classmethod </em><code class="descname">getclskey</code><span class="sig-paren">(</span><em>tmpcls</em>, <em>op</em>, <em>slot</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getclskey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the class key for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getclsoptions">
+<em class="property">classmethod </em><code class="descname">getclsoptions</code><span class="sig-paren">(</span><em>tmpcls</em>, <em>session=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getclsoptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the OPTIONS for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getmultiplesheetdict">
+<em class="property">classmethod </em><code class="descname">getmultiplesheetdict</code><span class="sig-paren">(</span><em>container</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getmultiplesheetdict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the sheet dictionary per class for dump and load configuration.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getordering">
+<em class="property">classmethod </em><code class="descname">getordering</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ordering config stage per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getpriPridict">
+<em class="property">classmethod </em><code class="descname">getpriPridict</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getpriPridict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the pridict per stage per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getreinitsessioncallback">
+<em class="property">classmethod </em><code class="descname">getreinitsessioncallback</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getreinitsessioncallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Dup/Reinit session Callback.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getsessionpasswd">
+<em class="property">classmethod </em><code class="descname">getsessionpasswd</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getsessionpasswd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the session password from session</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getsessionuser">
+<em class="property">classmethod </em><code class="descname">getsessionuser</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getsessionuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the session user from session</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getsleepcallback">
+<em class="property">classmethod </em><code class="descname">getsleepcallback</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getsleepcallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the sleep Callback Handler as per delay args in seconds.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.getsortedlist">
+<em class="property">classmethod </em><code class="descname">getsortedlist</code><span class="sig-paren">(</span><em>op</em>, <em>slot</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.getsortedlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a sorted list based on the priority per config stage
+per slot for all class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.initConfigstages">
+<em class="property">classmethod </em><code class="descname">initConfigstages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.initConfigstages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the class config stages for class Manager</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.initSlotObjectDict">
+<em class="property">classmethod </em><code class="descname">initSlotObjectDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.initSlotObjectDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the slot object dict for mapping slot attribute per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.initlogger">
+<em class="property">classmethod </em><code class="descname">initlogger</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.initlogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the logger infra for class Manager</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.initoptionsdict">
+<em class="property">classmethod </em><code class="descname">initoptionsdict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.initoptionsdict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the optionsdict per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.initordering">
+<em class="property">classmethod </em><code class="descname">initordering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.initordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the ordering per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.initorderingclsslot">
+<em class="property">classmethod </em><code class="descname">initorderingclsslot</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.initorderingclsslot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the ordering per slot per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.initpridict">
+<em class="property">classmethod </em><code class="descname">initpridict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.initpridict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init the pridict per config stage per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.isConfigClass">
+<em class="property">classmethod </em><code class="descname">isConfigClass</code><span class="sig-paren">(</span><em>tmpcls</em>, <em>session=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.isConfigClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a class is supported for config operation.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.isSingletonClass">
+<em class="property">classmethod </em><code class="descname">isSingletonClass</code><span class="sig-paren">(</span><em>tmpcls</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.isSingletonClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the class is a singleton class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.isSlotBasedObject">
+<em class="property">classmethod </em><code class="descname">isSlotBasedObject</code><span class="sig-paren">(</span><em>instcls</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.isSlotBasedObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check is the class is object are slot based.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.isValidrequest">
+<em class="property">classmethod </em><code class="descname">isValidrequest</code><span class="sig-paren">(</span><em>mgr</em>, <em>fid</em>, <em>op</em>, <em>tmpcls</em>, <em>slot</em>, <em>session=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.isValidrequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if an config operation for a class is valid.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.ispostSupportedClass">
+<em class="property">classmethod </em><code class="descname">ispostSupportedClass</code><span class="sig-paren">(</span><em>tmpcls</em>, <em>session=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.ispostSupportedClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a class is supported for config operation.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.log">
+<em class="property">classmethod </em><code class="descname">log</code><span class="sig-paren">(</span><em>lvl</em>, <em>*msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>add the log messages</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.logbase">
+<em class="property">classmethod </em><code class="descname">logbase</code><span class="sig-paren">(</span><em>loggerObj</em>, <em>lvl</em>, <em>messages</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.logbase" title="Permalink to this definition">¶</a></dt>
+<dd><p>add the log messages</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.mapClsfunction">
+<em class="property">classmethod </em><code class="descname">mapClsfunction</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.mapClsfunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map the classmethod function for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.mapInstacefunction">
+<em class="property">classmethod </em><code class="descname">mapInstacefunction</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.mapInstacefunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map the Object function for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.printordering">
+<em class="property">classmethod </em><code class="descname">printordering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.printordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the ordering for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.pristage">
+<em class="property">classmethod </em><code class="descname">pristage</code><span class="sig-paren">(</span><em>instcls</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.pristage" title="Permalink to this definition">¶</a></dt>
+<dd><p>The stage priority ordering per config stage for all class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.reinitsession">
+<em class="property">classmethod </em><code class="descname">reinitsession</code><span class="sig-paren">(</span><em>arg</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.reinitsession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback Handler to reinit the session.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.resetClsStageSupported">
+<em class="property">classmethod </em><code class="descname">resetClsStageSupported</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em>, <em>supported=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.resetClsStageSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the ordering config stage supported per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.sanitize">
+<em class="property">classmethod </em><code class="descname">sanitize</code><span class="sig-paren">(</span><em>instcls</em>, <em>old</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.sanitize" title="Permalink to this definition">¶</a></dt>
+<dd><p>These are all conditional based set operation and defaults
+ignore settings as per yang being handled for class objects.
+They can be further handled separately per HTTP operation as
+well based on the diff operations identified individually for
+the objects as well.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.sessionkey">
+<em class="property">classmethod </em><code class="descname">sessionkey</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.sessionkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the session key authorization.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.setClsStageCB">
+<em class="property">classmethod </em><code class="descname">setClsStageCB</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em>, <em>CB</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.setClsStageCB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ordering config stage CallBack handler per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.setClsStagePri">
+<em class="property">classmethod </em><code class="descname">setClsStagePri</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em>, <em>pri</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.setClsStagePri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ordering config stage priority per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.setClsStageSupported">
+<em class="property">classmethod </em><code class="descname">setClsStageSupported</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em>, <em>supported=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.setClsStageSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ordering config stage supported per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.setclsoptions">
+<em class="property">classmethod </em><code class="descname">setclsoptions</code><span class="sig-paren">(</span><em>tmpcls</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.setclsoptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the OPTIONS for a pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.setoptions">
+<em class="property">classmethod </em><code class="descname">setoptions</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.setoptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the OPTIONS for all pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.setpriPridict">
+<em class="property">classmethod </em><code class="descname">setpriPridict</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>pri</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.setpriPridict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the pridict per stage per pyfos class.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.sleep">
+<em class="property">classmethod </em><code class="descname">sleep</code><span class="sig-paren">(</span><em>delay</em>, <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback Handler to sleep the session.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.stageordering">
+<em class="property">classmethod </em><code class="descname">stageordering</code><span class="sig-paren">(</span><em>instcls</em>, <em>old</em>, <em>new</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.stageordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>The stage ordering check and handling support for Callack handling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyfos_class_manager.clsmanager.updateordering">
+<em class="property">classmethod </em><code class="descname">updateordering</code><span class="sig-paren">(</span><em>instcls</em>, <em>stage</em>, <em>slot</em>, <em>supported</em>, <em>pri</em>, <em>CB=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_class_manager.clsmanager.updateordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set/update the ordering/config stage per pyfos class.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_config_manager</span></code>
+Module <a class="reference internal" href="pyfos_rule_manager.html#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_config_manager.html"
+                        title="previous chapter">&lt;no title&gt;</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_rule_manager.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code> - PyFOS module to provide rule based handling        Support.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_class_manager.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_rule_manager.html" title="pyfos_rule_manager - PyFOS module to provide rule based handling Support."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_config_manager.html" title="&lt;no title&gt;"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

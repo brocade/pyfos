@@ -16,16 +16,16 @@
 
 """
 
-:mod:`pyfos_brocade_operation_supportsave` - PyFOS module for supportsave\
- operation
+:mod:`pyfos_brocade_operation_supportsave` - PyFOS module for supportsave \
+ operation.
 ***************************************************************************\
 ************
-The :mod:`pyfos_brocade_operation_supportsave` provides REST support for
+The :mod:`pyfos_brocade_operation_supportsave` module provides REST support for
  supportsave operation.
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as ver
 
@@ -33,32 +33,32 @@ import pyfos.pyfos_version as ver
 class supportsave(pyfos_rest_util.rest_object):
     """Class of supportsave operation
 
-    Important class members:
+    Important Class Members:
 
-        +---------------------------+------------------------------+---------------------------------------+
-        | Attribute name            | Description                  |Frequstly used methods                 |
-        +===========================+==============================+=======================================+
-        | host                      | ipaddress of the remote host |:func:`set_host`                       |
-        +---------------------------+------------------------------+---------------------------------------+
-        | user-name                 | user-name of the remote host |:func:`set_user_name`                  |
-        +---------------------------+------------------------------+---------------------------------------+
-        | password                  | password for the remote user |:func:`set_password`                   |
-        +---------------------------+------------------------------+---------------------------------------+
-        | remote-directory          | path for the remote host     |:func:`set_remote_directory`           |
-        +---------------------------+------------------------------+---------------------------------------+
-        | protocol                  | protocol to access the host  |:func:`set_protocol`                   |
-        +---------------------------+------------------------------+---------------------------------------+
+        +---------------------------+-------------------------------+---------------------------------------+
+        | Attribute Name            | Description                   |Frequently Used Methods                |
+        +===========================+===============================+=======================================+
+        | host                      |IP address of the remote host. |:func:`set_host`                       |
+        +---------------------------+-------------------------------+---------------------------------------+
+        | user-name                 | User name of the remote host. |:func:`set_user_name`                  |
+        +---------------------------+-------------------------------+---------------------------------------+
+        | password                  | Password for the remote user. |:func:`set_password`                   |
+        +---------------------------+-------------------------------+---------------------------------------+
+        | remote-directory          | Path for the remote host.     |:func:`set_remote_directory`           |
+        +---------------------------+-------------------------------+---------------------------------------+
+        | protocol                  | Protocol to access the host.  |:func:`set_protocol`                   |
+        +---------------------------+-------------------------------+---------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: post()
 
-            Create an object and do post. Fields involved are set
-            within the object using attribute's set method.
-            This method is used to trigger supportsave operation in the 
+            Create an object and post. The required fields are set
+            within the object using the attribute's set method.
+            This method is used to trigger the supportsave operation in the \
             switch.
 
-            Example usage of the method to post supportsave operation:
+            Example Usage of the Method to Post Supportsave Operation:
 
             .. code-block:: python
 
@@ -71,53 +71,54 @@ class supportsave(pyfos_rest_util.rest_object):
                 ss_obj.set_protcolo("scp")
                 ss_obj.post(session)
 
-            The above example will trigger supportsave operation.
+            The above example triggers the supportsave operation.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_host()
 
-            Sets host in the object.
+            Sets the host in the object.
 
-            :param host: host name of the remote server 
-            :rtype: dictionary of error or success response
+            :param host: The host name of the remote server.
+            :rtype: A dictionary of errors or a success response.
 
         .. method:: set_user_name()
 
-            Sets user name of the remote host.
+            Sets the user name of the remote host.
 
-            :param username: username of the remote server 
-            :rtype: dictionary of error or success response
+            :param username: The user name of the remote server.
+            :rtype: A dictionary of errors or a success response.
 
         .. method:: set_password()
 
-            Setss remote username's password.
+            Sets the remote username's password.
 
-            :param password: password of the remote user 
-            :rtype: dictionary of error or success response
+            :param password: The password of the remote user.
+            :rtype: A dictionary of errors or a success response.
 
         .. method:: set_remote_directory()
 
-            Reads remote server path.
+            Reads the remote server path.
 
-            :param path: path to store the supportsave logs 
-            :rtype: dictionary of error or success response
+            :param path: The path to store the supportsave logs.
+            :rtype: A dictionary of errors or a success response.
 
         .. method:: set_protocol()
 
-            Reads protocol of the remote server access.
+            Reads the protocol of the remote server access.
 
-            :param protocol: protocol to communicate with server  
-            :rtype: dictionary of error or success response
+            :param protocol: The protocol to communicate with the server.
+            :rtype: A dictionary of errors or a success response.
 
         """
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.rpc_supportsave,
-                         "/rest/operations/supportsave", ver.VER_RANGE_821_and_ABOVE, 1, "connection")
+                         "/rest/operations/supportsave",
+                         ver.VER_RANGE_821_and_ABOVE, 1, "connection")
         self.add(pyfos_rest_util.rest_attribute("host",
                  pyfos_type.type_ip_addr, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))

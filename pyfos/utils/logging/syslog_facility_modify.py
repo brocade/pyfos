@@ -14,37 +14,38 @@
 # limitations under the License.
 
 """
-:mod:`syslog_facility_modify` - PyFOS util to modify syslog facility\
- configuration on switch.
+:mod:`syslog_facility_modify` - PyFOS util to modify the syslog facility\
+ configuration on a switch.
 ***********************************************************************************\
 *************************
-The :mod:`syslog_facility_modify` provides option to modify the config\
- parameter of syslog facility level on switch.
+The :mod:`syslog_facility_modify` util provides option to modify the\
+ configuration parameter of the syslog facility level on a switch.
 
-This module is a standalone script that can be used to modify the syslog\
- facility configuration on switch.
+This module is a stand-alone script that can be used to modify the syslog\
+ facility configuration on a switch.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
+| Util Script Options:
 
   | --syslog_facility_level=facility-level
 
-* outputs:
-    * Status of modify operation
+* Output:
+    * Status of the modify operation
 
 .. function:: modify_syslog_facility(session, facility):
 
-        Example usage of the method::
+        Example Usage of the Method::
 
            ret = syslog_facility_modify.modify_syslog_server(session, facility)
            print (ret)
@@ -61,23 +62,24 @@ This module is a standalone script that can be used to modify the syslog\
             return result
 
 
-        * inputs:
-                :param session: session returned by login.
-                :param syslog_facility_level: facility-level
+        * Input:
+                :param session: The session returned by the login.
+                :param syslog_facility_level: The facility level.
 
-        * outputs:
-                :rtype: dictionary of return status matching rest response
+        * Output:
+                :rtype: A dictionary of return status matching the\
+                 REST response.
 
-        *use cases*
+        *Use Cases*
 
          Modify the syslog facility level configuration.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_logging import log_setting
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _modify_syslog_facility(session, restobject):
@@ -87,15 +89,15 @@ def _modify_syslog_facility(session, restobject):
 def modify_syslog_facility(session, facility):
     facility_obj = log_setting()
     if facility is None:
-        return
+        return None
     facility_obj.set_syslog_facility_level(facility)
     result = _modify_syslog_facility(session, facility_obj)
     return result
 
 
 def validate(syslog_obj):
-    if (not syslog_obj.peek_syslog_facility_level()):
-            return 1
+    if not syslog_obj.peek_syslog_facility_level():
+        return 1
     return 0
 
 

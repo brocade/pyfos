@@ -16,49 +16,51 @@
 
 """
 
-:mod:`maps_rule_update` - PyFOS util to update rule
+:mod:`maps_rule_update` - PyFOS util to update an existing MAPS rule.
 *******************************************************************************
 
-This script can be used to update existing MAPS rule.
+This script can be used to update an existing MAPS rule.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR         IP address of FOS switch.
-|   -L,--login=LOGIN           login name.
-|   -P,--password=PASSWORD     password.
-|   -f,--vfid=VFID             VFID to which the request is directed to.
-|   -s,--secured=MODE          HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose               verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --name                     MAPS rule name
-    --group-name               MAPS group on which rule is applied
-    --monitoring-system        monitoring stat which we are going to monitor
-    --time-base                interval of monitoring
-    --logical-operator         condition of monitoring
-    --threshold-value          threshold value
-    --action                   action to be taken if rule violation happens
+* Util Script Options:
+    --name                   Specifies the MAPS rule name.
+    --group-name             Sets the MAPS group to which rule is applied.
+    --monitoring-system      Sets the monitoring statistic to be monitored.
+    --time-base              Sets the interval of monitoring.
+    --logical-operator       Sets the condition of monitoring.
+    --threshold-value        Sets the threshold value.
+    --action                 Sets the action to take if a rule \
+                              violation occurs.
 
-    --toggle-time              toggle time [OPTIONAL]
-    --quiet-time               quiet time [OPTIONAL]
-    --quiet-time-clear         clear quiet time [OPTIONAL]
-    --un-quarantine-timeout    un-quarantine timeout [OPTIONAL]
-    --un-quarantine-clear      clear un-quarantine [OPTIONAL]
-    --event-severity           severity of the event [OPTIONAL]
+    --toggle-time            Sets the toggle time [OPTIONAL].
+    --quiet-time             Sets the quiet time [OPTIONAL].
+    --quiet-time-clear       Sets the clear quiet time [OPTIONAL].
+    --un-quarantine-timeout  Sets the un-quarantine timeout [OPTIONAL].
+    --un-quarantine-clear    Sets the clear un-quarantine [OPTIONAL].
+    --event-severity         Sets the severity of the event [OPTIONAL].
 
-* outputs:
-    * success response or dictionary in case of error.
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import rule
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

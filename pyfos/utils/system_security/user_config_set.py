@@ -57,10 +57,10 @@ existing user account
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import user_config
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -78,14 +78,14 @@ def main(argv):
         exit(1)
 
     if (user_obj.peek_account_description() is None and
-        user_obj.peek_role() is None and
-        user_obj.peek_virtual_fabric_role_id_list_role_id() == "[]" and
-        user_obj.peek_chassis_access_role() is None and
-        user_obj.peek_account_enabled() is None and
-        user_obj.peek_password_change_enforced() is None and
-        user_obj.peek_home_virtual_fabric() is None and
-        user_obj.peek_access_start_time() is None and
-        user_obj.peek_access_end_time() is None and
+            user_obj.peek_role() is None and
+            user_obj.peek_virtual_fabric_role_id_list_role_id() == "[]" and
+            user_obj.peek_chassis_access_role() is None and
+            user_obj.peek_account_enabled() is None and
+            user_obj.peek_password_change_enforced() is None and
+            user_obj.peek_home_virtual_fabric() is None and
+            user_obj.peek_access_start_time() is None and
+            user_obj.peek_access_end_time() is None and
             user_obj.peek_account_locked() is None):
         print("Missing command line options")
         print(inputs['utilusage'])

@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="extension_ip_route_modify - PyFOS util to modify an IP route." href="extension_ip_route_modify.html" />
-    <link rel="prev" title="extension_ip_interface_show - PyFOS util for displaying the IP Interface" href="extension_ip_interface_show.html" /> 
+    <link rel="prev" title="extension_ip_interface_show - PyFOS util for displaying an IP interface." href="extension_ip_interface_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,7 +31,7 @@
           <a href="extension_ip_route_modify.html" title="extension_ip_route_modify - PyFOS util to modify an IP route."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="extension_ip_interface_show.html" title="extension_ip_interface_show - PyFOS util for displaying the IP Interface"
+          <a href="extension_ip_interface_show.html" title="extension_ip_interface_show - PyFOS util for displaying an IP interface."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -44,37 +44,37 @@
             
   <span class="target" id="module-extension_ip_route_create"></span><div class="section" id="extension-ip-route-create-pyfos-util-for-creating-an-ip-route">
 <h1><a class="reference internal" href="#module-extension_ip_route_create" title="extension_ip_route_create: PyFOS module to create an IP route on an Extension GE port use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_ip_route_create</span></code></a> - PyFOS util for creating an IP route.<a class="headerlink" href="#extension-ip-route-create-pyfos-util-for-creating-an-ip-route" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-extension_ip_route_create" title="extension_ip_route_create: PyFOS module to create an IP route on an Extension GE port use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_ip_route_create</span></code></a> Util is used to create an IP route.</p>
+<p>The <a class="reference internal" href="#module-extension_ip_route_create" title="extension_ip_route_create: PyFOS module to create an IP route on an Extension GE port use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_ip_route_create</span></code></a> util is used to create an IP route.</p>
 <p>This module is a stand-alone script that can be used to create an IP route.</p>
 <p>extension_ip_route_create.py: Usage</p>
 <ul>
 <li><dl class="first docutils">
-<dt>Infrastructure options:</dt>
+<dt>Infrastructure Options:</dt>
 <dd><ul class="first last simple">
-<li>-i,–ipaddr=IPADDR: IP address of FOS switch.</li>
-<li>-L,–login=LOGIN: Login name.</li>
-<li>-P,–password=PASSWORD: Password.</li>
-<li>-f,–vfid=VFID: VFID to which the request is directed.</li>
-<li>-s,–secured=MODE: HTTPS mode “self” or “CA”[Optional].</li>
-<li>-v,–verbose: Verbose mode[Optional].</li>
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><ul class="first last simple">
-<li>-n,–name=NAME: Set name.</li>
-<li>-g,–ip-gateway=VALUE: Set ip-gateway.</li>
-<li>-p,–ip-prefix-length=VALUE: Set ip-prefix-length.</li>
-<li>-d,–dp-id=VALUE: Set dp-id.</li>
-<li>–ip-address=VALUE: Set ip-address.</li>
+<li>-n,–name=NAME: Sets the name.</li>
+<li>-g,–ip-gateway=VALUE: Sets the IP gateway.</li>
+<li>-p,–ip-prefix-length=VALUE: Sets the IP prefix length.</li>
+<li>-d,–dp-id=VALUE: Sets the DP ID.</li>
+<li>–ip-address=VALUE: Sets the ID address.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
@@ -85,9 +85,9 @@
 <dl class="function">
 <dt id="extension_ip_route_create.extension_ip_route_create.create_extension_ip_route">
 <code class="descclassname">extension_ip_route_create.</code><code class="descname">create_extension_ip_route</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>dp</em>, <em>ip</em>, <em>prefix</em>, <em>gateway</em><span class="sig-paren">)</span><a class="headerlink" href="#extension_ip_route_create.extension_ip_route_create.create_extension_ip_route" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Create extension IP route</em></p>
+<dd><p><em>Create an Extension IP Route</em></p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_ip_route_create</span><span class="o">.</span><span class="n">create_extension_ip_route</span><span class="p">(</span>
 <span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span><span class="n">dp</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">gateway</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
@@ -107,22 +107,22 @@
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">Session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">GE port name expressed as slot/port.</td>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">Sets the GE_Port name expressed as slot/port.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param dp-id:</th><td class="field-body">DP Instance.</td>
+<tr class="field-odd field"><th class="field-name">param dp-id:</th><td class="field-body">Sets the DP instance.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param ip:</th><td class="field-body">Extension IP-Address.</td>
+<tr class="field-even field"><th class="field-name">param ip:</th><td class="field-body">Sets the extension IP address.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param prefix:</th><td class="field-body">Prefix length for the IP Address.</td>
+<tr class="field-odd field"><th class="field-name">param prefix:</th><td class="field-body">Sets the prefix length for the IP address.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param gateway:</th><td class="field-body">IP address gateway.</td>
+<tr class="field-even field"><th class="field-name">param gateway:</th><td class="field-body">Sets the IP address of the gateway.</td>
 </tr>
 </tbody>
 </table>
@@ -130,12 +130,12 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">Dictionary of return status matching rest response.</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -143,9 +143,9 @@
 </dl>
 </li>
 </ul>
-<p><em>Use cases</em></p>
+<p><em>Use Cases</em></p>
 <blockquote>
-<div>Create an new extension IP route.</div></blockquote>
+<div>Create a new extension IP route.</div></blockquote>
 </div></blockquote>
 </dd></dl>
 
@@ -164,7 +164,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_ip_route.html
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="extension_ip_interface_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extension_ip_interface_show</span></code> - PyFOS util for displaying the IP Interface</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extension_ip_interface_show</span></code> - PyFOS util for displaying an IP interface.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="extension_ip_route_modify.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_ip_route_modify</span></code> - PyFOS util to modify an IP route.</a></p>
@@ -204,14 +204,14 @@ Module <a class="reference internal" href="pyfos_brocade_extension_ip_route.html
           <a href="extension_ip_route_modify.html" title="extension_ip_route_modify - PyFOS util to modify an IP route."
              >next</a> |</li>
         <li class="right" >
-          <a href="extension_ip_interface_show.html" title="extension_ip_interface_show - PyFOS util for displaying the IP Interface"
+          <a href="extension_ip_interface_show.html" title="extension_ip_interface_show - PyFOS util for displaying an IP interface."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

@@ -14,34 +14,35 @@
 
 
 """
-:mod:`maps_dashboard_misc_patch` - PyFOS util to clear Dashboard Info
-*********************************************************************
+:mod:`maps_dashboard_misc_patch` - PyFOS util to clear dashboard data.
+***********************************************************************
 
 This script is used to clear the dashboard information.
 
-* input:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --clear-data           clears dashboard information if value is set
+* Util Script Options:
+    --clear-data           Clears the dashboard data if the value is set.
 
-* output:
-    Displays maps start time and misc information
+* Output:
+    The MAPS start time and micellaneous information
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import dashboard_misc
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

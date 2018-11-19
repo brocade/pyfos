@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>dns_config_get - PyFOS util for getting the DNS config parameters &#8212; PyFOS 1.1.0 documentation</title>
+    <title>dns_config_get - PyFOS util for getting the DNS configuration parameters. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="dns_config_modify - PyFOS util to modify DNS config." href="dns_config_modify.html" />
-    <link rel="prev" title="f_port_login_settings_modify - PyFOS util for configuring login" href="f_port_login_settings_modify.html" /> 
+    <link rel="next" title="dns_config_modify - PyFOS util to modify the DNS configuration." href="dns_config_modify.html" />
+    <link rel="prev" title="f_port_login_settings_modify - PyFOS util for configuring the login" href="f_port_login_settings_modify.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="dns_config_modify.html" title="dns_config_modify - PyFOS util to modify DNS config."
+          <a href="dns_config_modify.html" title="dns_config_modify - PyFOS util to modify the DNS configuration."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="f_port_login_settings_modify.html" title="f_port_login_settings_modify - PyFOS util for configuring login"
+          <a href="f_port_login_settings_modify.html" title="f_port_login_settings_modify - PyFOS util for configuring the login"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,32 +42,31 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-dns_config_get"></span><div class="section" id="dns-config-get-pyfos-util-for-getting-the-dns-config-parameters">
-<h1><a class="reference internal" href="#module-dns_config_get" title="dns_config_get: PyFOS module to get DNS config. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dns_config_get</span></code></a> - PyFOS util for getting the DNS config parameters<a class="headerlink" href="#dns-config-get-pyfos-util-for-getting-the-dns-config-parameters" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="module-dns_config_get"></span><div class="section" id="dns-config-get-pyfos-util-for-getting-the-dns-configuration-parameters">
+<h1><a class="reference internal" href="#module-dns_config_get" title="dns_config_get: PyFOS module to get DNS config. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dns_config_get</span></code></a> - PyFOS util for getting the DNS configuration   parameters.<a class="headerlink" href="#dns-config-get-pyfos-util-for-getting-the-dns-configuration-parameters" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-dns_config_get" title="dns_config_get: PyFOS module to get DNS config. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dns_config_get</span></code></a> util for getting the switch DNS configuration.</p>
-<p>This module is a standalone script that can be used to display IP address
-of DNS servers and the domain name</p>
+<p>This module is a stand-alone script that can be used to display the  IP addresses of DNS servers and the domain name.</p>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt>-L=&lt;login&gt;: Login ID. If not provided, interactive</dt>
+<dt>-L=&lt;login&gt;: The login ID. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>-P=&lt;password&gt;: Password. If not provided, interactive</dt>
+<dt>-P=&lt;password&gt;: The password. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: IP address</p>
+<li><p class="first">-i=&lt;IP address&gt;: The IP address.</p>
 </li>
 <li><dl class="first docutils">
-<dt>-f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd><p class="first last">VFID of 128 is assumed.</p>
+<dt>-f=&lt;VFID&gt;: The VFID or -1 if VF is disabled. If unspecified,</dt>
+<dd><p class="first last">a VFID of 128 is assumed.</p>
 </dd>
 </dl>
 </li>
@@ -76,7 +75,7 @@ of DNS servers and the domain name</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
@@ -87,7 +86,7 @@ of DNS servers and the domain name</p>
 <dl class="function">
 <dt id="dns_config_get.show_dns_config">
 <code class="descclassname">dns_config_get.</code><code class="descname">show_dns_config</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#dns_config_get.show_dns_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Example usage of the method:</p>
+<dd><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">dns_config_get</span><span class="o">.</span><span class="n">show_dns_config</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
@@ -100,12 +99,12 @@ of DNS servers and the domain name</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
 </tr>
 </tbody>
 </table>
@@ -113,12 +112,12 @@ of DNS servers and the domain name</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -126,10 +125,10 @@ of DNS servers and the domain name</p>
 </dl>
 </li>
 </ul>
-<p><em>use cases</em></p>
+<p><em>Use Cases</em></p>
 <ol class="arabic simple">
-<li>Retrieve the DNS Servers configured in switch</li>
-<li>Retrieve domain name of the switch.</li>
+<li>Retrieve the DNS Servers configured in a switch.</li>
+<li>Retrieve the domain name of the switch.</li>
 </ol>
 </dd></dl>
 
@@ -149,10 +148,10 @@ Module <code class="xref py py-mod docutils literal notranslate"><span class="pr
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="f_port_login_settings_modify.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">f_port_login_settings_modify</span></code> - PyFOS util for configuring login</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">f_port_login_settings_modify</span></code> - PyFOS util for configuring the login</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="dns_config_modify.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">dns_config_modify</span></code> - PyFOS util to modify DNS config.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">dns_config_modify</span></code> - PyFOS util to modify the DNS configuration.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -186,17 +185,17 @@ Module <code class="xref py py-mod docutils literal notranslate"><span class="pr
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="dns_config_modify.html" title="dns_config_modify - PyFOS util to modify DNS config."
+          <a href="dns_config_modify.html" title="dns_config_modify - PyFOS util to modify the DNS configuration."
              >next</a> |</li>
         <li class="right" >
-          <a href="f_port_login_settings_modify.html" title="f_port_login_settings_modify - PyFOS util for configuring login"
+          <a href="f_port_login_settings_modify.html" title="f_port_login_settings_modify - PyFOS util for configuring the login"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

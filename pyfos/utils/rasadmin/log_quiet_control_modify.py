@@ -15,36 +15,38 @@
 
 """
 
-:mod:`log_quiet_control_modify` - PyFOS util for configuring log_quiet_control
-******************************************************************************
-The :mod:`log_quiet_control_modify` provides for configuring log_quiet_control
+:mod:`log_quiet_control_modify` - PyFOS util for configuring log quiet control.
+********************************************************************************
+The :mod:`log_quiet_control_modify` util provides for configuring log\
+ quiet control.
 
-This module is a standalone script that can be used to display raslog
-attributes
+This module is a stand-alone script that can be used to display the raslog
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: the VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util scripts options:
+* Util Script Options:
 
-    * --log-type=LOG-TYPE       Set log type. LOG-TYPE = <audit|raslog>
-    * --quiet=QUIET-FLAG        Set quiet status flag QUIET-FLAG = <true|false>
-    * --etime=END-TIME          Set quiet end time. END-TIME = Time in <hh:mm>
-    * --stime=START-TIME        Set quiet start time. START-TIME = Time <hh:mm>
-    * --dow=WEEK-DAYS           Set days for quiet. DAYS = "mon;tue"
+    * --log-type=LOG-TYPE       Sets the log type <audit|raslog>.
+    * --quiet=QUIET-FLAG        Sets the quiet status flag <true|false>.
+    * --etime=END-TIME          Sets the quiet end time <hh:mm>.
+    * --stime=START-TIME        Sets the quiet start time <hh:mm>.
+    * --dow=WEEK-DAYS           Sets the days for quiet\
+                                 (for example, "mon;tue").
 
-* outputs:
-    * raslog attributes in JSON format
+* Output:
+    * RASLog attributes in JSON format.
 
 .. function:: set_quiet (session, log_type, flag, stime, etime, dow)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = log_quiet_control_modify.set_quiet(session, log_type, flag,
                     stime, etime, dow)
@@ -63,29 +65,29 @@ attributes
             result = _set_quiet(session, lobj)
             return result
 
-        * inputs:
-            :param session: session returned by login.
-            :param log_type: desired log type
-            :param flag: desired quiet flag for log type
-            :param stime: desired start-time
-            :param etime: desired end-time
-            :param dow: desired days of the week
+        * Input:
+            :param session: The session returned by the login.
+            :param log_type: The log type.
+            :param flag: The quiet flag for log type.
+            :param stime: The start-time.
+            :param etime: The end-time.
+            :param dow: The days of the week.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Enables/Disables the quiet for logtypes.
+        1. Enables or disables the quiet for log types.
 
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import log_quiet_control
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import log_quiet_control
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def set_quiet(session, log_type, flag, stime, etime, dow):

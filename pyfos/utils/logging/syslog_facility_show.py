@@ -14,34 +14,35 @@
 # limitations under the License.
 
 """
-:mod:`syslog_facility_show` - PyFOS util to display syslog facility\
-configuration on switch.
+:mod:`syslog_facility_show` - PyFOS util to display the syslog facility\
+configuration on a switch.
 ***********************************************************************************\
 *************************
-:mod:`syslog_facility_show` provides option to display the config parameter\
-of syslog facility level on switch.
+The :mod:`syslog_facility_show` util provides the option to display the\
+ configuration parameter of the syslog facility level on switch.
 
-This module is a standalone script that can be used to display the syslog
-facility configuration on switch.
+This module is a stand-alone script that can be used to display the syslog
+facility configuration on a switch.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
 
-* outputs:
-    * Status of show operation
+* Output:
+    * Status of the show operation
 
 .. function:: show_syslog_facility(session)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = syslog_facility_show.show_syslog_facility(session)
             print (ret)
@@ -50,23 +51,23 @@ facility configuration on switch.
 
             result = syslog_facility_show.show_syslog_facility(session)
 
-        * inputs:
-            :param session: session returned by login.
+        * Input:
+            :param session: The session returned by the login.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-           Retrieve syslog facility-level information.
+           Retrieve the syslog facility level information.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_logging import log_setting
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def show_syslog_facility(session):

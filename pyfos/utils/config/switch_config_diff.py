@@ -46,16 +46,13 @@ option and directory name is given instead.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
-import pyfos.pyfos_brocade_fibrechannel_logical_switch as fc_ls
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
 import switch_config_util
 import switch_config_obj
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+from pyfos.utils import brcd_util
+from pyfos.manager.pyfos_config_manager import config_manager
 
 
 def usage():
@@ -64,14 +61,15 @@ def usage():
     print("    --compare=PATH               directory name")
     print("")
 
+
 def process_diff(session, envelope_name, in_json, template, inputs, vf):
-    if vf is 128:
+    if vf == 128:
         print("processing diff for default switch or non-vf")
     else:
         print("processing diff for VFID", vf)
 
     pyfos_auth.vfid_set(session, vf)
-    if vf is 128:
+    if vf == 128:
         vf_based_name = envelope_name
     else:
         vf_based_name = envelope_name + "." + str(vf)
@@ -119,17 +117,20 @@ def main(argv):
     if 'json' in inputs:
         in_json = inputs['json']
 
-    template = None
-    if 'template' in inputs:
-        template = switch_config_util.get_template(inputs['template'])
+    # template = None
+    # if 'template' in inputs:
+    #    template = switch_config_util.get_template(inputs['template'])
 
-    result = fc_ls.fibrechannel_logical_switch.get(session)
-    if pyfos_util.is_failed_resp(result):
-        process_diff(session, envelope_name, in_json, template, inputs, 128)
+    if in_json:
+        fmtfile = 'JSON'
+        fmtobj = 'json'
+        # ext = '.json'
     else:
-        for switch in result:
-            process_diff(session, envelope_name, in_json, template, inputs, switch.peek_fabric_id())
-
+        fmtfile = 'XLSX'
+        fmtobj = 'attributes'
+        # ext = '.xlsx'
+    mgr = config_manager(fmtfile, fmtobj)
+    mgr.handlediff(envelope_name, session)
     pyfos_auth.logout(session)
 
 

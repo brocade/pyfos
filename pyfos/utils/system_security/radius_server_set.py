@@ -15,43 +15,45 @@
 
 """
 
-:mod:`radius_server_set` - PyFOS util to modify radius server configuration
+:mod:`radius_server_set` - PyFOS util to modify a RADIUS server configuration.
 *******************************************************************************
-The :mod:`radius_server_create` supports 'aaaconfig' CLI use case.
+The :mod:`radius_server_create` util supports modifying a RADIUS \
+server configuration.
 
-This module is a standalone script and API that can be used to modify a
-radius server.
+This module is a stand-alone script and API that can be used to modify a
+RADIUS server configuration.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --server                             set radius server name/ip
-    --port                               set radius server port number
-    --timeout                            set radius server timeout value
-    --authentication                     set radius server authentication type
-    --secret                             set radius server secret type
-    --encryption-type                    set radius server encryption type
-    --position                           set radius server position
+* Util Script Options:
+    --server               Sets the RADIUS server name or IP address.
+    --port                 Sets the RADIUS server port number.
+    --timeout              Sets the RADIUS server timeout value.
+    --authentication       Sets the RADIUS server authentication type.
+    --secret               Sets the RADIUS server secret type.
+    --encryption-type      Sets the RADIUS server encryption type.
+    --position             Sets the RADIUS server position.
 
-* outputs:
-    * success response or dictionary in case of error
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import radius_server
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -67,9 +69,9 @@ def main(argv):
         exit(1)
 
     if not (radius_obj.peek_port() or
-       radius_obj.peek_timeout() or radius_obj.peek_authentication() or
-       radius_obj.peek_secret() or radius_obj.peek_encryption_type() or
-       radius_obj.peek_position()):
+            radius_obj.peek_timeout() or radius_obj.peek_authentication() or
+            radius_obj.peek_secret() or radius_obj.peek_encryption_type() or
+            radius_obj.peek_position()):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>maps_paused_cfg_delete - PyFOS util to continue members for monitoring &#8212; PyFOS 1.1.0 documentation</title>
+    <title>maps_paused_cfg_delete - PyFOS util to continue MAPS monitoring for members. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="maps_paused_cfg_show - PyFOS util to display MAPS paused config info" href="maps_paused_cfg_show.html" />
-    <link rel="prev" title="maps_paused_cfg_post - PyFOS util to pause members from monitoring" href="maps_paused_cfg_post.html" /> 
+    <link rel="next" title="maps_paused_cfg_show - PyFOS util to display the MAPS paused configuration data." href="maps_paused_cfg_show.html" />
+    <link rel="prev" title="maps_paused_cfg_post - PyFOS util to pause MAPS monitoring for members." href="maps_paused_cfg_post.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="maps_paused_cfg_show.html" title="maps_paused_cfg_show - PyFOS util to display MAPS paused config info"
+          <a href="maps_paused_cfg_show.html" title="maps_paused_cfg_show - PyFOS util to display the MAPS paused configuration data."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="maps_paused_cfg_post.html" title="maps_paused_cfg_post - PyFOS util to pause members from monitoring"
+          <a href="maps_paused_cfg_post.html" title="maps_paused_cfg_post - PyFOS util to pause MAPS monitoring for members."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,38 +42,39 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-maps_paused_cfg_delete"></span><div class="section" id="maps-paused-cfg-delete-pyfos-util-to-continue-members-for-monitoring">
-<h1><a class="reference internal" href="#module-maps_paused_cfg_delete" title="maps_paused_cfg_delete: PyFOS module to continue members with monitoring. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_paused_cfg_delete</span></code></a> - PyFOS util to continue members for monitoring<a class="headerlink" href="#maps-paused-cfg-delete-pyfos-util-to-continue-members-for-monitoring" title="Permalink to this headline">¶</a></h1>
-<p>This script is used to continue members with MAPS monitoring.
-Supported members are ports, sfp and circuits.</p>
+  <span class="target" id="module-maps_paused_cfg_delete"></span><div class="section" id="maps-paused-cfg-delete-pyfos-util-to-continue-maps-monitoring-for-members">
+<h1><a class="reference internal" href="#module-maps_paused_cfg_delete" title="maps_paused_cfg_delete: PyFOS module to continue members with monitoring. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_paused_cfg_delete</span></code></a> - PyFOS util to continue MAPS monitoring for members.<a class="headerlink" href="#maps-paused-cfg-delete-pyfos-util-to-continue-maps-monitoring-for-members" title="Permalink to this headline">¶</a></h1>
+<p>This script is used to continue MAPS monitoring for members.
+Supported members are ports, SFPs, and circuits.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request                             is directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><table class="first last docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
 <tbody valign="top">
 <tr><td class="option-group">
 <kbd><span class="option">--group-type</span></kbd></td>
-<td><p class="first last">specify MAPS Policy</p>
+<td><p class="first last">Specifies the MAPS policy.</p>
 </td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--member</span></kbd></td>
-<td><p class="first last">members for pause/continue (separated by “;”)</p>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--members-member</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td><p class="first last">Sets the members (separated by “;”) on which to                              pause or continue MAPS monitoring.</p>
 </td></tr>
 </tbody>
 </table>
@@ -81,9 +82,9 @@ Supported members are ports, sfp and circuits.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>success response or dictionary in case of error.</li>
+<li>A success response or a dictionary in case of error.</li>
 </ul>
 </dd>
 </dl>
@@ -104,10 +105,10 @@ Module <a class="reference internal" href="maps_paused_cfg_post.html#module-maps
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="maps_paused_cfg_post.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_paused_cfg_post</span></code> - PyFOS util to pause members from monitoring</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_paused_cfg_post</span></code> - PyFOS util to pause MAPS monitoring for members.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="maps_paused_cfg_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">maps_paused_cfg_show</span></code> - PyFOS util to display MAPS paused config info</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">maps_paused_cfg_show</span></code> - PyFOS util to display the MAPS paused configuration data.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -141,17 +142,17 @@ Module <a class="reference internal" href="maps_paused_cfg_post.html#module-maps
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="maps_paused_cfg_show.html" title="maps_paused_cfg_show - PyFOS util to display MAPS paused config info"
+          <a href="maps_paused_cfg_show.html" title="maps_paused_cfg_show - PyFOS util to display the MAPS paused configuration data."
              >next</a> |</li>
         <li class="right" >
-          <a href="maps_paused_cfg_post.html" title="maps_paused_cfg_post - PyFOS util to pause members from monitoring"
+          <a href="maps_paused_cfg_post.html" title="maps_paused_cfg_post - PyFOS util to pause MAPS monitoring for members."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

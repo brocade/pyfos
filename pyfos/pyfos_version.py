@@ -26,7 +26,7 @@ supported classes.
 def compareRelease(lhs, rhs):
     if lhs == '*' or rhs == '*':
         return 0
-    return (relvalue(lhs) - relvalue(rhs))
+    return relvalue(lhs) - relvalue(rhs)
 
 
 def relvalue(rel):
@@ -63,7 +63,6 @@ class fosversion():
             mylist.append(fwversion[0].replace("v", ""))
             mylist.append(fwversion[1])
             ver_patch = fwversion[2]
-            length = len(ver_patch)
             release = "*"
             patch = ver_patch[0]
             mylist.append(patch)
@@ -81,22 +80,14 @@ class fosversion():
         self.major = ver_major
         self.minor = ver_minor
         self.patch = ver_patch
-        if ver_release == "x" or \
-           ver_release == "a" or \
-           ver_release == "b" or \
-           ver_release == "c" or \
-           ver_release == "d" or \
-           ver_release == "e" or \
-           ver_release == "f" or \
-           ver_release == "*" or \
-           ver_release == "g":
+        if ver_release in ('a', 'b', 'c', 'd', 'e', 'f', '*', 'g'):
             self.release = ver_release
         else:
             self.release = "x"
 
     def to_string(self):
         mylist = [str(self.major), str(self.minor), str(self.patch)]
-        return(".".join(mylist) + self.release)
+        return ".".join(mylist) + self.release
 
     def from_string(self, version_string):
         fwversion = version_string.split(".")
@@ -231,6 +222,8 @@ class fosversion_range():
         self.end.from_string(retdict['END'])
 
     def visible(self, version):
+        if version is None:
+            return True
         if self.start <= version and self.end >= version:
             return True
         return False
@@ -247,4 +240,3 @@ VER_RANGE_820_ABOVE = {'START': "8.2.0", 'END': "9999.9999.9"}
 VER_RANGE_820_PATCH_A = {'START': "8.2.0", 'END': "8.2.0a"}
 VER_RANGE_820a_and_ABOVE = {'START': "8.2.0a", 'END': "9999.9999.9"}
 VER_RANGE_821_and_ABOVE = {'START': "8.2.1", 'END': "9999.9999.9"}
-

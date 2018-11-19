@@ -15,39 +15,40 @@
 
 """
 
-:mod:`syslog_create` PyFOS util to create syslog server configuration on\
- switch.
+:mod:`syslog_create` PyFOS util to create the syslog server configuration on\
+ a switch.
 ***************************************************************************\
-**********
-The :mod:`syslog_create` provides option to create the config parameters of\
-syslog server on a switch.
+*******************
+The :mod:`syslog_create` util provides option to create the configuration\
+ parameters of the syslog server on a switch.
 
-This module is a standalone script that can be used to display the syslog
+This module is a stand-alone script that can be used to display the syslog
 server configuration on a switch.
 
-* inputs:
+* Input:
 
 | Infrastructure options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
+| Util Script Options:
 
   | --server=server ip address
   | --port=port number
   | --secure_mode=true | false
 
-* outputs:
-    * Status of create/add syslog server operation
+* Output:
+    * Status of the create or add syslog server operation
 
 .. function:: create_syslog_server(session, server, port, secure_mode)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
               ret = syslog_create.create_syslog_server(session, server,\
                                                           port, secure_mode)
@@ -65,55 +66,54 @@ server configuration on a switch.
                 result = _create_syslog_server(session, syslog_obj)
                 return result
 
-        * inputs:
-                :param session: session returned by login.
-                :param server: server ip.
-                :param port: port number.
-                :param secure-mode: true/false.
+        * Input:
+                :param session: The session returned by the login.
+                :param server: The server IP.
+                :param port: The port number.
+                :param secure-mode: True or false.
 
-        * outputs:
-                :rtype: dictionary of return status matching rest response
+        * OSutput:
+                :rtype: A dictionary of return status matching the\
+                 REST response.
 
-        *use cases*
-           Add syslog server
+        *Use Cases*
+           Add a syslog server.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_logging import syslog_server
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _create_syslog_server(session, restobject):
     return restobject.post(session)
 
 
-def create_syslog_server(session, server, port, secure_mode):
-
-    syslog_obj = syslog_server()
-
-    if (not syslog_obj.peek_server()):
-        return
-
-    if (syslog_obj.peek_secure_mode() is not None):
-        syslog_obj.set_secure_mode(secure_mode)
-    if (syslog_obj.peek_port() is not None):
-        syslog_obj.set_port(port)
-
-    result = _create_syslog_server(session, syslog_obj)
-    return result
-
-
 def validate(syslog_obj):
-    if (not syslog_obj.peek_server()):
+    if not syslog_obj.peek_server():
         return 1
     elif (syslog_obj.peek_port() is not None and
           not syslog_obj.peek_secure_mode()):
-            return 1
+        return 1
     else:
         return 0
+
+
+def create_syslog_server(session, server, port, secure_mode):
+    val = {
+           "server": server,
+           "port": port,
+           "secure_mode": secure_mode
+          }
+    syslog_obj = syslog_server(val)
+    rc = validate(syslog_obj)
+    if rc == 1:
+        return None
+    result = _create_syslog_server(session, syslog_obj)
+    return result
 
 
 def main(argv):

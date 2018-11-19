@@ -17,34 +17,35 @@
 
 :mod:`fan_show` - PyFOS util to show the fan unit information.
 ***************************************************************************
-The :mod:`fan_show` provides option to display the fan unit information.
+The :mod:`fan_show` util displays the fan unit information.
 
 This module can be used to display the FAN unit information.
 
-* inputs:
+* Input:
 
 | Infrastructure options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-|  Util scripts options:
+|  Util Script Options:
 
-   |   --unit-number=unit-number        unit-number
+   |   --unit-number=unit-number    Sets the unit number.
 
-* outputs:
-    * Fan unit information. When unit-number is not provided,
+* Output:
+    * Fan unit information. When the unit number is not provided,
       all the units will be displayed.
 
 .. function:: fan_unit_show.show_fan_unit(session, unit)
 
     * Display the fan unit details.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             # Example 1: Display all the fan_units
             ret = fan_unit_show.show_fan_unit(session, None)
@@ -62,23 +63,23 @@ This module can be used to display the FAN unit information.
             else:
                 result = fan_obj.get(session, unit)
 
-        * inputs:
-            :param session: session returned by login.
-            :param unit: Specific unit-number or None for all fan-units.
+        * Input:
+            :param session: The session returned by the login.
+            :param unit: The specific unit number or none for all fan-units.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the FAN unit information.
+        1. Retrieve the fan unit information.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_fru import fan
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def show_fan_unit(session, unit):

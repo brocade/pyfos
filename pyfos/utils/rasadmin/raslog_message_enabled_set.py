@@ -15,33 +15,35 @@
 
 """
 
-:mod:`raslog_message_enabled_set` - PyFOS util for configuring raslog
-*********************************************************************
-The :mod:`raslog_message_enabled_set` provides for configuring raslog
+:mod:`raslog_message_enabled_set` - PyFOS util for configuring the\
+ RASLog message.
+***********************************************************************************
+The :mod:`raslog_message_enabled_set` util provides for configuring the
+ RASLog message.
 
-This module is a standalone script that can be used to display raslog
-attributes
+This module is a stand-alone script that can be used to display the\
+ RASLog message attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util scripts options:
-    * --msg=MSG-IDENTIFIER      Set Message Id.
-    * --enable=ENABLE-FLAG      Set Message Status flag <True|False>.
+* Util Script Options:
+    * --msg=MSG-IDENTIFIER      Sets the message ID.
+    * --enable=ENABLE-FLAG      Sets the message status flag <true|false>.
 
-* outputs:
-    * raslog attributes in JSON format
+* Output:
+    * RASLog message attributes in JSON format.
 
 
 .. function:: set_message(session, msg_id, msg_flag)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret=raslog_message_enabled_set.set_message(session,msg_id,msg_flag)
             print (ret)
@@ -55,24 +57,24 @@ attributes
             raslog_obj = raslog(obj)
             result = _set_message(session, raslog_obj)
 
-        * inputs:
-            :param session: session returned by login.
-            :param msg_id: desired raslog message-id
-            :param msg_flag: desired message flag for raslog message-id
+        * Input:
+            :param session: The session returned by the login.
+            :param msg_id: The RASLog message ID.
+            :param msg_flag: The message flag for the RASLog message ID.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Enables/Disables the raslog message.
+        1. Enables or disables the RASLog message.
 
 """
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import raslog
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import raslog
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def set_message(session, msg_id, enabled_flag):

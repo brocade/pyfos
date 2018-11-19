@@ -16,28 +16,28 @@
 """
 
 :mod:`port_trunk_area_delete` - PyFOS util for removing port members from \
-        of a portareatrunk-group.
-***********************************************************************************
+        a portareatrunk-group.
+**************************************************************************************************************
 The :mod:`port_trunk_area_delete` - PyFOS util for removing port members from \
-        of a portareatrunk-group.
+        a porttrunkarea-group.
 
 This module is a standalone script for removing port members from \
-        of a portareatrunk-group.
-* Infrastructure options:
-    * -L=<login>: Login ID. If not provided, interactive
-        prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
-        prompt will request one.
-    * -i=<IP address>: IP address
-    * -n=<port name>: <slot>/<port> name of the port
-    * -u=<user name>: string name to be assigned to switch
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+        a porttrunkarea-group.
+
+* inputs:
+
+| Infrastructure options:
+
+|   -i,--ipaddr=IPADDR     IP address of FOS switch.
+|   -L,--login=LOGIN       login name.
+|   -P,--password=PASSWORD password.
+|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
+|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           verbose mode[OPTIONAL].
 
 * Util scripts options:
-    -n,--name=NAME                      Port in slot/port.
     --trunk-index=VALUE                 Trunk-index of the porttrunkarea-group
-    --trunk-members=PORTS               Ports in slot/port format to be removed
+    --trunk-members=PORTS               Ports in slot/port format to be removed \
                                         to the group. Eg. "0/1;0/2"
 
 * outputs:
@@ -45,11 +45,11 @@ This module is a standalone script for removing port members from \
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel_trunk import trunk_area
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_fibrechannel_trunk import trunk_area
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def usage():

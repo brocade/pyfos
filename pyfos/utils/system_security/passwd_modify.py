@@ -14,40 +14,41 @@
 
 """
 
-:mod:`passwd_modify` - PyFOS util to change password
+:mod:`passwd_modify` - PyFOS util to change a password.
 ***************************************************************************************
-The :mod:`passwd_modify` provides options to change passord for a
+The :mod:`passwd_modify` util provides options to change a passord for a
                          specified user.
 
-This module is a standalone script that can be used to change password.
+This module is a stan-dalone script that can be used to a change password.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
+* Util Script Options:
 
-  |    --user-name=USERNAME             User Name
-  |    --old-password=PASSWD            Current password
-  |    --new-password=PASSWD            New password
+  |    --user-name=USERNAME             Specifies the user name.
+  |    --old-password=PASSWD            Enters the current password.
+  |    --new-password=PASSWD            Sets the new password.
 
-* outputs:
+* Output:
 
-    * Status of the passwd change operation
+    * The status of the password change operation.
 
 .. function:: passwd_modify.change_password(
                   session, user_name, old_password, new_password)
 
-    * Change password for a given user
+    * Change the password for a specified user
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = passwd_modify.change_password(session, USERNAME, PASSWORD, \
 PASSWORD)
@@ -65,29 +66,29 @@ PASSWORD)
 new_password)
             result = sshutil_obj.patch(session)
 
-        * inputs:
-            :param session: session returned by login.
-            :param user-name: user name.
-            :param old-password: existing password of the user
-            :param new-password: New password
+        * Input:
+            :param session: The session returned by the login.
+            :param user-name: The user name.
+            :param old-password: The existing password of the user.
+            :param new-password: The new password.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        Change password for a specified user.
+        Change a password for a specified user.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import password
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _change_password(session, restobject):
-        return restobject.patch(session)
+    return restobject.patch(session)
 
 
 def change_password(session, user_name, old_password, new_password):
@@ -111,9 +112,9 @@ def main(argv):
 
     if (passwd_obj.peek_user_name() is None and
             passwd_obj.peek_new_password() is None):
-            print("Missing input(s)")
-            print(inputs['utilusage'])
-            sys.exit()
+        print("Missing input(s)")
+        print(inputs['utilusage'])
+        sys.exit()
     session = brcd_util.getsession(inputs)
 
     # pyfos_util.response_print(inputs['utilobject'].displaycustomcli())
@@ -123,4 +124,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

@@ -15,37 +15,38 @@
 
 """
 
-:mod:`seccryptocfg_delete_set` - PyFOS util to delete the user defined template
+:mod:`seccryptocfg_delete_set` - PyFOS util to delete a user-defined template.
 *******************************************************************************
-The :mod:`seccryptocfg` supports 'seccryptocfg' CLI use case.
+The :mod:`seccryptocfg` util supports deleting a user-defined template.
 
-This module is a standalone script and API that can be used to delete the user
-defined template
+This module is a stand-alone script and API that can be used to delete a \
+user-defined template.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --template-name             set user defined template name
+* Util Script Options:
+    --template-name        Sets the user-defined template name.
 
-* outputs:
-    * success response or dictionary in case of error
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import sec_crypto_cfg_template_action
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

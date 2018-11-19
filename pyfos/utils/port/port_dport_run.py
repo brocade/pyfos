@@ -16,35 +16,35 @@
 
 """
 
-:mod:`port_dport_run` - PyFOS util for specific port op use case.
+:mod:`port_dport_run` - PyFOS util for a specific port op use case.
 ***********************************************************************************
-The :mod:`port_dport_run` provides for specific port op use case.
+The :mod:`port_dport_run` util provides for a specific port op use case.
 
-This module is a stand-alone script that can be used to run D-Port
+This module is a stand-alone script that can be used to run a D_Port
 on a given port.
 
-* Inputs:
-    * -L=<login>: Login ID. If not provided, an interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, an interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address.
-    * -n=<port name>: <slot>/<port> name of the port.
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -n=<port name>: The <slot>/<port> name of the port.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
-import pyfos.pyfos_brocade_fibrechannel_diagnostics as pyfos_diag
-import pyfos.pyfos_util as pyfos_util
 import sys
 import time
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+import pyfos.pyfos_brocade_fibrechannel_diagnostics as pyfos_diag
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def usage():

@@ -15,31 +15,32 @@
 
 """
 
-:mod:`configure_fabric_modify` - PyFos util for configuring fabric parameters.
-***********************************************************************************
-The :mod:`configure_fabric_modify` It provides update for fabric configuration.
+:mod:`configure_fabric_modify` - PyFOS util for configuring fabric parameters.
+*******************************************************************************
+The :mod:`configure_fabric_modify` util provides updates for the\
+ fabric configuration.
 
-This module is a standalone script that can be used to update the fabric \
+This module is a stand-alone script that can be used to update the fabric \
 attributes of the switch.
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: login name.
-    * -P,--password=PASSWORD: password.
-    * -f,--vfid=VFID: VFID to which the request is directed to.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[OPTIONAL].
-    * -v,--verbose: verbose mode[OPTIONAL].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose: Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    * --insistent-domain-id-enabled=INSISTENT-DOMAIN-ID-ENABLED: set the\
+* Util Script Options:
+    * --insistent-domain-id-enabled=INSISTENT-DOMAIN-ID-ENABLED: Sets the\
            fabric to insistent domain mode.
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 ..function:: set_fabric_configure(session, idid_mode)
 
-    Example usage of the method::
+    Example Usage of the Method::
 
         ret = configure_fabric_modify.set_fabric_configuration(session,
                 idid_mode)
@@ -50,23 +51,23 @@ attributes of the switch.
         result = configure_fabric_modify.set_fabric_configuration(session,
                  idid_mode)
 
-    * inputs:
-        :param session: session returned by login
-        :param idid_mode: Configure insistent domain mode.
+    * Input:
+        :param session: The session returned by login.
+        :param idid_mode: Configure the insistent domain mode.
 
-    * outputs:
-        :rtype: dictionary of return status matching rest response
+    * Output:
+        :rtype: A dictionary of return status matching the REST response
 
-    *use cases*
+    *Use Cases*
 
-        1. Patch the fabric configuration parameters of switch.
+        1. Patch the fabric configuration parameters of a switch.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_fibrechannel_configuration import fabric
 
 

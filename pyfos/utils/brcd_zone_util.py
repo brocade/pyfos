@@ -15,13 +15,13 @@
  limitations under the License.
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-import pyfos.pyfos_brocade_zone as pyfos_zone
 import sys
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+import pyfos.pyfos_brocade_zone as pyfos_zone
 import pyfos.utils.zoning.zoning_cfg_save as cfgsave
 import pyfos.utils.zoning.zoning_cfg_abort as cfgabort
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def zone_name_members_pmembers_func(session, inputs, usage, func):

@@ -14,7 +14,6 @@
 # limitations under the License.
 
 """
-
 :mod:`password_cfg_set` - PyFOS util to change password config parameters.
 ******************************************************************************
 This module is a standalone script and API that can be used to change
@@ -40,33 +39,20 @@ password config paramters.
     --min-upper-case-char		minimum uppercase alphabetic characters
     --min-numeric-char			minimum numeric digits
     --min-special-char			minimum special characters
-    --past-password-history		number of past password values that
-                                                             are disallowed
-    --min-password-age			Set the minimum number of days
-                                             before which the password
-                                                    cannot be modified
-    --max-password-age			Set the maximum number of days
-                                              after which the password
-                                                    should be modified
-    --warn-on-expire			number of days to display warning
-                                         message till password expiration
-    --lock-out-threshold		max number of login attempts before
-                                                        locking the account
-    --lock-out-duration			duration, in minutes to wait and
-                                               unlock the locked account
+    --past-password-history		number of past password values that are disallowed
+    --min-password-age			Set the minimum number of days before which the password cannot be modified
+    --max-password-age			Set the maximum number of days after which the password should be modified
+    --warn-on-expire			number of days to display warning message till password expiration
+    --lock-out-threshold		max number of login attempts before locking the account
+    --lock-out-duration			duration, in minutes to wait and unlock the locked account
     --admin-lock-out-enabled		enable/disable admin lockout
-    --repeat-char-limit			max length of repeated character
-                                            sequences that is disallowed
-    --sequence-character-limit		length of sequential character
-                                          sequences that is disallowed
-    --reverse-user-name-allowed		allow/disallow reverse string of the
-                                                        username as password
+    --repeat-char-limit			max length of repeated character sequences that is disallowed
+    --sequence-character-limit		length of sequential character sequences that is disallowed
+    --reverse-user-name-allowed		allow/disallow reverse string of the username as password
     --hash-type				Sets the hash type.
-    --manual-hash-enabled		password change due to hash change
-                                                      is manually enforced
+    --manual-hash-enabled		password change due to hash change is manually enforced
     --enforce-expire			enforce password to expire
-    --min-diff				minimum difference between old and
-                                                              new password
+    --min-diff				minimum difference between old and new password
 
 * outputs:
     * success response or dictionary in case of error.
@@ -74,10 +60,10 @@ password config paramters.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import password_cfg
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -106,36 +92,36 @@ def main(argv):
     password_cfg_obj = inputs['utilobject']
 
     if (password_cfg_obj.peek_password_action() is None and
-        password_cfg_obj.peek_minimum_length() is None and
-        password_cfg_obj.peek_character_set() is None and
-        password_cfg_obj.peek_user_name_allowed() is None and
-        password_cfg_obj.peek_minimum_lower_case_character() is None and
-        password_cfg_obj.peek_minimum_upper_case_character() is None and
-        password_cfg_obj.peek_minimum_numeric_character() is None and
-        password_cfg_obj.peek_minimum_special_character() is None and
-        password_cfg_obj.peek_past_password_history() is None and
-        password_cfg_obj.peek_lock_out_threshold() is None and
-        password_cfg_obj.peek_lock_out_duration() is None and
-        password_cfg_obj.peek_admin_lock_out_enabled() is None and
-        password_cfg_obj.peek_repeat_character_limit() is None and
-        password_cfg_obj.peek_sequence_character_limit() is None and
-        password_cfg_obj.peek_reverse_user_name_allowed() is None and
-        password_cfg_obj.peek_minimum_password_age() is None and
-        password_cfg_obj.peek_maximum_password_age() is None and
-        password_cfg_obj.peek_warn_on_expire() is None and
-        password_cfg_obj.peek_minimum_difference() is None and
+            password_cfg_obj.peek_minimum_length() is None and
+            password_cfg_obj.peek_character_set() is None and
+            password_cfg_obj.peek_user_name_allowed() is None and
+            password_cfg_obj.peek_minimum_lower_case_character() is None and
+            password_cfg_obj.peek_minimum_upper_case_character() is None and
+            password_cfg_obj.peek_minimum_numeric_character() is None and
+            password_cfg_obj.peek_minimum_special_character() is None and
+            password_cfg_obj.peek_past_password_history() is None and
+            password_cfg_obj.peek_lock_out_threshold() is None and
+            password_cfg_obj.peek_lock_out_duration() is None and
+            password_cfg_obj.peek_admin_lock_out_enabled() is None and
+            password_cfg_obj.peek_repeat_character_limit() is None and
+            password_cfg_obj.peek_sequence_character_limit() is None and
+            password_cfg_obj.peek_reverse_user_name_allowed() is None and
+            password_cfg_obj.peek_minimum_password_age() is None and
+            password_cfg_obj.peek_maximum_password_age() is None and
+            password_cfg_obj.peek_warn_on_expire() is None and
+            password_cfg_obj.peek_minimum_difference() is None and
             password_cfg_obj.peek_enforce_expire() is None):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)
     elif (password_cfg_obj.peek_password_action() == "hash-config" and
           password_cfg_obj.peek_hash_type() is None and
-            password_cfg_obj.peek_manual_hash_enabled() is None):
+          password_cfg_obj.peek_manual_hash_enabled() is None):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)
     elif (password_cfg_obj.peek_password_action() == "default" or
-            password_cfg_obj.peek_password_action() == "delete-all"):
+          password_cfg_obj.peek_password_action() == "delete-all"):
         pass
 
     session = brcd_util.getsession(inputs)

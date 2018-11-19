@@ -436,12 +436,7 @@ brcd_utils_dict.update({
 })
 
 brcd_utils_dict.update({
-   "maps_policy": {
-        "maps-policy":
-            ["name",
-             "rule_list",
-             "is_active_policy"]
-    }
+   "maps_policy": {"maps-policy": ["name", "rule_list", "is_active_policy"]}
 })
 
 brcd_utils_dict.update({
@@ -538,15 +533,16 @@ Utils Dictionary END
 
 
 def getcustomcli(name):
+    # pylint: disable=W0603
     global brcd_utils_cli_dict
     if name in brcd_utils_cli_dict.keys():
-        return (brcd_utils_cli_dict[name])
+        return brcd_utils_cli_dict[name]
     return None
 
 
-"""
-CLI Dictionary
-"""
+# """
+# CLI Dictionary
+# """
 brcd_utils_cli_dict.update({
     "effective-configuration": {
         "cfg_name": {
@@ -946,7 +942,7 @@ brcd_utils_cli_dict.update({
             "soption": "m"
         },
         "enabled_state": {
-            "help": "\"enable | disable\" <0|1>",
+            "help": "\"enable | disable\" <1|0>",
             "loption": "enabled_state",
             "optional": 0,
             "soption": "e"
@@ -2237,31 +2233,33 @@ brcd_utils_cli_dict.update({
 brcd_utils_cli_dict.update({
     "connection": {
         "host": {
-            "help": "Set the remote host",
+            "help": "Set the remote  server ipaddress/domain-name",
             "loption": "host",
             "optional": 1,
             "soption": None
         },
         "protocol": {
-            "help": "Set protocol",
+            "help": "Set the protocol(ftp|scp|sftp) used for the remote " +
+            "server connection",
             "loption": "protocol",
             "optional": 1,
             "soption": None
         },
         "remote_directory": {
-            "help": "Set remote directory",
+            "help": "Set the remote directory path to copy the supportsave " +
+            "files",
             "loption": "path",
             "optional": 1,
             "soption": None
         },
         "user_name": {
-            "help": "Set user name in remote server",
+            "help": "Set the user name of the remote server",
             "loption": "user",
             "optional": 1,
             "soption": None
         },
         "password": {
-            "help": "Set password",
+            "help": "Set the remote user password in base64 format",
             "loption": "passwd",
             "optional": 1,
             "soption": None
@@ -2458,19 +2456,19 @@ brcd_utils_cli_dict.update({
 brcd_utils_cli_dict.update({
     "audit": {
         "audit_enabled": {
-            "help": "\tEnable or disable audit log configuration",
+            "help": "\tEnable or disable audit log configuration (true,false)",
             "loption": "enable",
             "optional": 1,
             "soption": None
         },
         "severity_level": {
-            "help": "\tConfigure severity level for audit",
+            "help": "\tConfigure severity level for audit (info,warning,error,critical)",
             "loption": "severity",
             "optional": 1,
             "soption": None
         },
         "filter_class_list_filter_class": {
-            "help": "\tConfigure filter class for audit",
+            "help": "\tConfigure filter class for audit (zone,security,configuration,firmware,fabric,ls,cli,maps)",
             "loption": "filter",
             "optional": 1,
             "soption": None

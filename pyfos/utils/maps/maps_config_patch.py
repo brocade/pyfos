@@ -16,44 +16,45 @@
 
 """
 
-:mod:`maps_config_patch` - PyFOS util for maps config
+:mod:`maps_config_patch` - PyFOS util for MAPS configuration.
 *******************************************************************
 
-This script is used to configure MAPS config like email addresses,
-relay config etc...
-Note: For updating maps-config class any one attribute is mandatory
+This script is used to configure MAPS configuration like email addresses,
+relay config, and so on.
+Note: For updating maps-config class any one attribute is mandatory.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --action               global actions list (separated by ";")
-    --decommission-cfg     decommision behaviour
-    --recipient-address    list of to email addresses
-    --sender-address       sender email address
-    --domain-name          domain name
-    --relay-ip-address     relay configuration
-    --test-email-subject   test email subject
-    --test-email-body      test email body
+* Util Script Options:
+    --action               Sets one or more global actions (separated by ";").
+    --decommission-cfg     Sets the decommision behaviour
+    --recipient-address    Sets one or more email addresses in the to list.
+    --sender-address       Sets the sender email address.
+    --domain-name          Sets the domain name.
+    --relay-ip-address     Sets the relay configuration.
+    --test-email-subject   Sets the test email subject.
+    --test-email-body      Sets the test email body.
 
-* outputs:
-    * success response or dictionary in case of error.
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import maps_config
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

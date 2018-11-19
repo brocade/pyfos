@@ -102,9 +102,9 @@ base, ficon, lislenable, ports, geports)
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_fibrechannel_logical_switch \
     import fibrechannel_logical_switch
 
@@ -129,7 +129,7 @@ def create_logical_switch(session, fid, base, ficon, lislenable,
 
 def validate(ls_obj):
     vfid = ls_obj.peek_fabric_id()
-    if (vfid is None):
+    if vfid is None:
         print("Missing fabric-id option in commandline:")
         return 1
     lisl = ls_obj.peek_logical_isl_enabled()

@@ -16,38 +16,39 @@
 
 """
 
-:mod:`extension_circuit_statistics_show` - PyFOS util to display circuit stats.
-***********************************************************************************
-The :mod:`extension_circuit_statistics_show` Util is used to display circuit\
-stats.
+:mod:`extension_circuit_statistics_show` - PyFOS util to display circuit \
+statistics.
+****************************************************************************************
+The :mod:`extension_circuit_statistics_show` util is used to display circuit \
+statistics.
 
 This module is a stand-alone script that can be used to show extension
 circuit statistics.
 
 extension_circuit_statistics_show.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name or slot/port of the circuit.
-    * -c,--circuit-id=CIRCUIT-ID: Set circuit-id of the circuit.
-    * --operational-status: Set operational-status of the circuit.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name or slot/port of the circuit.
+    * -c,--circuit-id=CIRCUIT-ID: Sets the ID of the circuit.
+    * --operational-status: Sets the operational status of the circuit.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_circuit_statistics_show.\
 show_extension_circuit_statistics(session,name, cid, local, remote)
 
-    *show extension circuit*
+    *Show Extension Circuit*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = extension_circuit_statistics_show.
                 show_extension_circuit_statistics(session,
@@ -65,27 +66,27 @@ show_extension_circuit_statistics(session,name, cid, local, remote)
             _show_extension_circuit_statistics(session,
             circuit)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: VE port name expressed as slot/port.
-            :param cid: Circuit ID.
-            :param opstatus: Circuit operational-status.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the VE_Port name expressed as slot/port.
+            :param cid: Sets the circuit ID.
+            :param opstatus: Sets the operational status of the circuit.
 
-        * Outputs:
-            :rtype: List of circuits.
+        * Output:
+            :rtype: A list of circuits.
 
-        *Use cases*
+        *Use Cases*
 
          Show circuit details.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_tunnel import extension_circuit_statistics
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_tunnel import extension_circuit_statistics
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"

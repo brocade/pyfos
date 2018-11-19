@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ha_status_show - PyFOS util to display HA status of switch. &#8212; PyFOS 1.1.0 documentation</title>
+    <title>ha_status_show - PyFOS util to display the HA status of the switch. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="chassis_show - PyFOS util for specific chassis op use case." href="chassis_show.html" />
+    <link rel="next" title="chassis_show - PyFOS util displays chassis attributes." href="chassis_show.html" />
     <link rel="prev" title="user_config_delete - PyFOS util to delete an user account" href="user_config_delete.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,7 +28,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="chassis_show.html" title="chassis_show - PyFOS util for specific chassis op use case."
+          <a href="chassis_show.html" title="chassis_show - PyFOS util displays chassis attributes."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="user_config_delete.html" title="user_config_delete - PyFOS util to delete an user account"
@@ -42,28 +42,27 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-ha_status_show"></span><div class="section" id="ha-status-show-pyfos-util-to-display-ha-status-of-switch">
-<h1><a class="reference internal" href="#module-ha_status_show" title="ha_status_show: PyFOS module to display HA status information of the Switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ha_status_show</span></code></a> - PyFOS util to display HA status of switch.<a class="headerlink" href="#ha-status-show-pyfos-util-to-display-ha-status-of-switch" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-ha_status_show" title="ha_status_show: PyFOS module to display HA status information of the Switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ha_status_show</span></code></a> provides HA status information of switch.</p>
-<p>This module is a standalone script that can be used to get the HA status of
-the switch</p>
+  <span class="target" id="module-ha_status_show"></span><div class="section" id="ha-status-show-pyfos-util-to-display-the-ha-status-of-the-switch">
+<h1><a class="reference internal" href="#module-ha_status_show" title="ha_status_show: PyFOS module to display HA status information of the Switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ha_status_show</span></code></a> - PyFOS util to display the HA status of the switch.<a class="headerlink" href="#ha-status-show-pyfos-util-to-display-the-ha-status-of-the-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-ha_status_show" title="ha_status_show: PyFOS module to display HA status information of the Switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ha_status_show</span></code></a> displays the HA status of the switch.</p>
+<p>This module is a stand-alone script that can be used to display the HA status of the switch.</p>
 <div class="line-block">
-<div class="line">Infrastructure options:
-* -L=&lt;login&gt;: Login ID. If not provided, interactive
+<div class="line">Infrastructure Options:
+* -L=&lt;login&gt;: The login ID. If not provided, an interactive
     prompt will request one.
-* -P=&lt;password&gt;: Password. If not provided, interactive
+* -P=&lt;password&gt;: The password. If not provided, an interactive
     prompt will request one.
-* -i=&lt;IP address&gt;: IP address
-* -n=&lt;port name&gt;: &lt;slot&gt;/&lt;port&gt; name of the port
-* -u=&lt;user name&gt;: string name to be assigned to switch
-* -f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,
-    VFID of 128 is assumed.</div>
+* -i=&lt;IP address&gt;: The IP address.
+* -n=&lt;port name&gt;: The &lt;slot&gt;/&lt;port&gt; name of the port.
+* -u=&lt;user name&gt;: The string name to be assigned to switch
+* -f=&lt;VFID&gt;: The VFID or -1 if VF is disabled. If unspecified,
+    a VFID of 128 is assumed.</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>Python dictionary content with RESTCONF response data</li>
+<li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
 </dl>
@@ -87,7 +86,7 @@ Module <a class="reference internal" href="pyfos_brocade_chassis.html#module-pyf
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">user_config_delete</span></code> - PyFOS util to delete an user account</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="chassis_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">chassis_show</span></code> - PyFOS util for specific chassis op use case.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">chassis_show</span></code> - PyFOS util displays chassis attributes.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -121,7 +120,7 @@ Module <a class="reference internal" href="pyfos_brocade_chassis.html#module-pyf
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="chassis_show.html" title="chassis_show - PyFOS util for specific chassis op use case."
+          <a href="chassis_show.html" title="chassis_show - PyFOS util displays chassis attributes."
              >next</a> |</li>
         <li class="right" >
           <a href="user_config_delete.html" title="user_config_delete - PyFOS util to delete an user account"
@@ -131,7 +130,7 @@ Module <a class="reference internal" href="pyfos_brocade_chassis.html#module-pyf
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

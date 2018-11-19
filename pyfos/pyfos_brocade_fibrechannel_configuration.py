@@ -12,55 +12,61 @@
 # limitations under the License.
 
 """
-:mod:`pyfos_brocade_fibrechannel_configuration` - PyFOS module for configure.
-*******************************************************************************
-The :mod:`pyfos_brocade_fibrechannel_configuration` provides REST support for \
-        FC switch configure CLI.
+:mod:`pyfos_brocade_fibrechannel_configuration` - PyFOS module to configure \
+FC switches.
+****************************************************************************\
+*************
+The :mod:`pyfos_brocade_fibrechannel_configuration` module provides REST \
+support for the FC switch configure CLI.
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as version
 
 
 class switch_configuration(pyfos_rest_util.rest_object):
-    """Class of configurable parameters of FC switch
+    """Class of Configurable Parameters of a FC Switch
 
-    Important class members:
+    Important Class Members:
 
         +----------------+--------------+-----------------------------+
-        | Attribute name | Description  |Frequently used methods      |
+        | Attribute Name | Description  |Frequently Used Methods      |
         +================+==============+=============================+
-        |wwn-port-id-mode| WWN flag for |:meth:`set_wwn_port_id_mode` |
-        |                | PID in switch|:meth:`peek_wwn_port_id_mode`|
+        |wwn-port-id-mode| Sets the WWN |:meth:`set_wwn_port_id_mode` |
+        |                | flag for the |:meth:`peek_wwn_port_id_mode`|
+        |                | PID in the   |                             |
+        |                | switch.      |                             |
         +----------------+--------------+-----------------------------+
-        |edge-hold-time  | Time duration|:meth:`set_edge_hold_time`   |
-        |                | for frames   |:meth:`peek_edge_hold_time`  |
+        |edge-hold-time  | Sets the time|:meth:`set_edge_hold_time`   |
+        |                | duration for |:meth:`peek_edge_hold_time`  |
+        |                | frames.      |                             |
         +----------------+--------------+-----------------------------+
-        |area-mode       | The address  |:meth:`set_area_mode`        |
-        |                | bits for area|:meth:`peek_area_mode`       |
+        |area-mode       | Sets the     |:meth:`set_area_mode`        |
+        |                | Address bits |:meth:`peek_area_mode`       |
+        |                | for the area.|                             |
         +----------------+--------------+-----------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session)
 
             Returns a :class:`switch_configuration` object with attributes
-            from switch.
+            from the switch.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or a
-                :class:`switch` object
+            :param session: The session handler returned by the
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a
+                :class:`switch` object.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to switch.
+            Applies configurable attribute(s) within the object to the switch.
 
-            *Below is an example using individual sets:*
+            *Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -74,8 +80,8 @@ class switch_configuration(pyfos_rest_util.rest_object):
                 # switch connected through session
                 switch_obj.patch(session)
 
-            *Below is an example of combining object \
-                    initialization and attribute sets:*
+            *Example of Combining Object Initialization \
+                     and Attribute Sets:*
 
             .. code-block:: python
 
@@ -88,54 +94,55 @@ class switch_configuration(pyfos_rest_util.rest_object):
                 # switch connected through session
                 switch_obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a dictionary of error or success information
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or success information.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_wwn_port_id_mode(mode)
 
-            Sets wwn based pid in the object.
+            Sets the WWN-based PID in the object.
 
-            :param mode: Mode value configures wwn based pid within the object
+            :param mode: The mode configures the WWN-based PID in the object.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_wwn_port_id_mode()
 
-            Reads the enabled stated of wwn based pid in the object.
+            Reads the enabled state of the WWN-based PID in the object.
 
-            :rtype: True or False
+            :rtype: True or False.
 
         .. method:: set_edge_hold_time(time)
 
-            Sets edge hold time in the object.
+            Sets the edge hold time in the object.
 
-            :param time: Edge hold time in the switch to be set within the
-                         object
+            :param time: The edge hold time in the switch to be set within
+                         the object.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_edge_hold_time()
 
-            Reads edge hold time in the object.
+            Reads the edge hold time in the object.
 
-            :rtype: Edge hold time of the switch
+            :rtype: The edge hold time of the switch.
 
         .. method:: set_area_mode(mode)
 
-            Sets the port address bit based on area in the object.
+            Sets the port address bit based on the area in the object.
 
-            :param mode: Mode value for area limit for pid within the object
+            :param mode: The mode value for the PID area limit within
+                         the object.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_area_mode()
 
-            Reads the mode of port address bits in the object.
+            Reads the mode of the port address bits in the object.
 
-            :rtype: None or mode of port address of the switch
+            :rtype: None or the mode of the port address of the switch.
 
         """
 
@@ -159,52 +166,59 @@ class switch_configuration(pyfos_rest_util.rest_object):
 
 
 class f_port_login_settings(pyfos_rest_util.rest_object):
-    """Class of configurable parameters of FC switch corresponding to
-    f-port login
+    """Class of configurable parameters of the FC switch corresponding to
+    F_Port login
 
-    Class members:
+    Class Members:
 
 +-------------------------+-----------+---------------------------------------+
-|Attribute name           |Description|Frequently used methods                |
+|Attribute Name           |Description|Frequently Used Methods                |
 +=========================+===========+=======================================+
-|max-logins               |Maximum    |:meth:`set_max_logins`                 |
-|                         |logins     |:meth:`peek_max_logins`                |
+|max-logins               |Sets the   |:meth:`set_max_logins`                 |
+|                         |maximum    |:meth:`peek_max_logins`                |
+|                         |logins.    |                                       |
 +-------------------------+-----------+---------------------------------------+
-|max-flogi-rate-per-switch|FLOGIs rate|:meth:`set_max_flogi_rate_per_switch`  |
-|                         |in switch  |:meth:`peek_max_flogi_rate_per_switch` |
+|max-flogi-rate-per-switch|Sets the   |:meth:`set_max_flogi_rate_per_switch`  |
+|                         |FLOGI rate |:meth:`peek_max_flogi_rate_per_switch` |
+|                         |in the     |                                       |
+|                         |switch.    |                                       |
 +-------------------------+-----------+---------------------------------------+
-|stage-interval           |Stage      |:meth:`set_stage_interval`             |
-|                         |Interval   |:meth:`peek_stage_interval`            |
+|stage-interval           |Sets the   |:meth:`set_stage_interval`             |
+|                         |stage      |:meth:`peek_stage_interval`            |
+|                         |interval.  |                                       |
 +-------------------------+-----------+---------------------------------------+
-|free-fdisc               |Allowed    |:meth:`set_free_fdisc`                 |
-|                         |FDISC      |:meth:`peek_free_fdisc`                |
+|free-fdisc               |Sets the   |:meth:`set_free_fdisc`                 |
+|                         |allowed    |:meth:`peek_free_fdisc`                |
+|                         |FDISC.     |                                       |
 +-------------------------+-----------+---------------------------------------+
-|enforce-login            |Login type |:meth:`set_enforce_login`              |
-|                         |precedence |:meth:`peek_enforce_login`             |
+|enforce-login            |Sets the   |:meth:`set_enforce_login`              |
+|                         |login type |:meth:`peek_enforce_login`             |
+|                         |precedence.|                                       |
 +-------------------------+-----------+---------------------------------------+
-|max-flogi-rate-per-port  |FLOGIs rate|:meth:`set_max_flogi_rate_per_port`    |
-|                         |in port    |:meth:`peek_max_flogi_rate_per_port`   |
+|max-flogi-rate-per-port  |Sets the   |:meth:`set_max_flogi_rate_per_port`    |
+|                         |FLOGI rate |:meth:`peek_max_flogi_rate_per_port`   |
+|                         |in port.   |                                       |
 +-------------------------+-----------+---------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session)
 
-            Returns a :class:`switch` object with attributes from switch.
+            Returns a :class:`switch` object with attributes from the switch.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
+            :param session: The session handler returned by the
                 :func:`pyfos_auth.login`
-            :rtype: dictionary of error or a
+            :rtype: A dictionary of errors or a
                 :class:`switch` object
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to switch.
+            Apply configurable attribute(s) within the object to the switch.
 
-            *Below is an example using individual sets:*
+            *Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -218,8 +232,8 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
                 # switch connected through session
                 obj.patch(session)
 
-            *Below is an example of combining object \
-                    initialization and attribute sets:*
+            *Example of Combining Object Initialization \
+                     and Attribute Sets:*
 
             .. code-block:: python
 
@@ -232,45 +246,45 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
                 # switch connected through session
                 obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a dictionary of error or success information
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or success information.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_max_logins(value)
 
-            Sets switch-wide maximum logins in the object.
+            Sets the switch-wide maximum logins in the object.
 
-            :param value: Max no. of logins within the object
-            :rtype: None or dictionary of error information
+            :param value: The maximum number of logins within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_max_logins()
 
             Reads the switch-wide maximum logins in the object.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of errors information.
 
         .. method:: set_max_flogi_rate_per_switch(value)
 
-            Sets max flogi rate per switch in the object.
+            Sets the maximum FLOGI rate per switch in the object.
 
-            :param value: Max flogi rate in the switch to be set within the
-                          object
-            :rtype: None or dictionary of error information
+            :param value: The maximum FLOGI rate in the switch to be set
+                          within the object.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_max_flogi_rate_per_switch()
 
-            Reads max flogi rate per switch in the object.
+            Reads the maximum FLOGI rate per switch in the object.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of errors information.
 
         .. method:: set_stage_interval(value)
 
             Sets the staging interval in the object.
 
-            :param value: Stage Interval to be set within the object
-            :rtype: None or dictionary of error information
+            :param value: The stage interval to be set within the object.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_stage_interval()
 
@@ -280,45 +294,46 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 
         .. method:: set_free_fdisc(value)
 
-            Sets the No. of flogis allowed before staging in the object.
+            Sets the number of FLOGIs allowed before staging in the object.
 
-            :param value: No. of flogis allowed before staging to be set
-                            within the object
-            :rtype: None or dictionary of error information
+            :param value: The number of FLOGIs allowed before staging to be
+                          set within the object.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_free_fdisc()
 
-            Reads the No. of flogis allowed before staging in the object.
+            Reads the number of FLOGIs allowed before staging in the object.
 
-            :rtype: None or the No. of flogis allowed before staging in
-                    the switch
+            :rtype: None or the number of FLOGIs allowed before staging in
+                    the switch.
 
         .. method:: set_enforce_login(value)
 
             Sets the enforcement for login precedence in the object.
 
             :param value: The enforcement for login precedence to be set
-                          within the object
-            :rtype: None or dictionary of error information
+                          within the object.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_enforce_login()
 
             Reads the enforcement for login precedence in the object.
 
-            :rtype: None or the login type precedence in the switch
+            :rtype: None or the login type precedence in the switch.
 
         .. method:: set_max_flogi_rate_per_port(value)
 
-            Sets the max flogi rate per port in the object.
+            Sets the maximum FLOGI rate per port in the object.
 
-            :param value: Max flogi rate per port to be set within the object
-            :rtype: None or dictionary of error information
+            :param value: The maximum FLOGI rate per port to be set within
+                          the object.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_max_flogi_rate_per_port()
 
-            Reads the max flogi rate per port in the object.
+            Reads the maximum FLOGI rate per port in the object.
 
-            :rtype: None or the max flogi rate per port in the switch
+            :rtype: None or the maximum FLOGI rate per port in the switch.
 
         """
 
@@ -351,51 +366,53 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 
 
 class port_configuration(pyfos_rest_util.rest_object):
-    """Class of configurable parameters of FC switch corresponding to ports
+    """Class of configurable parameters of the FC switch corresponding
+       to ports.
 
-    Class members:
+    Class Members:
 
 +------------------------+-------------+--------------------------------------+
-| Attribute name         | Description |Frequently used methods               |
+| Attribute Name         | Description |Frequently Used Methods               |
 +========================+=============+======================================+
-|portname-mode           | Current     |:meth:`set_portname_mode`             |
-|                        | portname    |:meth:`peek_portname_mode`            |
-|                        | mode        |                                      |
+|portname-mode           |Sets the     |:meth:`set_portname_mode`             |
+|                        |current port |:meth:`peek_portname_mode`            |
+|                        |name mode.   |                                      |
 +------------------------+-------------+--------------------------------------+
-|dynamic-portname-format | Format of   |:meth:`set_dynamic_portname_format`   |
-|                        | dynamic     |:meth:`peek_dynamic_portname_format`  |
-|                        | portname    |                                      |
+|dynamic-portname-format |Sets the     |:meth:`set_dynamic_portname_format`   |
+|                        |format of    |:meth:`peek_dynamic_portname_format`  |
+|                        |the dynamic  |                                      |
+|                        |port name.   |                                      |
 +------------------------+-------------+--------------------------------------+
-|dynamic-d-port-enabled  | If dynamic  |:meth:`set_dynamic_d_port_enabled`    |
-|                        | D-port is   |:meth:`peek_dynamic_d_port_enabled`   |
-|                        | enabled     |                                      |
+|dynamic-d-port-enabled  |If dynamic   |:meth:`set_dynamic_d_port_enabled`    |
+|                        |D_Port is    |:meth:`peek_dynamic_d_port_enabled`   |
+|                        |enabled.     |                                      |
 +------------------------+-------------+--------------------------------------+
-|on-demand-d-port-enabled| If on-demand|:meth:`set_on_demand_d_port_enabled`  |
-|                        | D-port is   |:meth:`peek_on_demand_d_port_enabled` |
-|                        | enabled     |                                      |
+|on-demand-d-port-enabled|If on-demand |:meth:`set_on_demand_d_port_enabled`  |
+|                        |D_Port is    |:meth:`peek_on_demand_d_port_enabled` |
+|                        |enabled.     |                                      |
 +------------------------+-------------+--------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session)
 
             Returns a :class:`port_configuration` object with attributes from
-            port configuration
+            the port configuration.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or a
-                :class:`port_configuration` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a
+                :class:`port_configuration` object.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to port
-            configuraiton.
+            Apply configurable attribute(s) within the object to the port
+            configuration.
 
-            *Below is an example using individual sets:*
+            *Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -408,8 +425,8 @@ class port_configuration(pyfos_rest_util.rest_object):
                 # switch connected through session
                 obj.patch(session)
 
-            *Below is an example of combining object \
-                    initialization and attribute sets:*
+            *Example of Combining Object Initialization \
+                     and Attribute Sets:*
 
             .. code-block:: python
 
@@ -422,63 +439,63 @@ class port_configuration(pyfos_rest_util.rest_object):
                 # switch connected through session
                 obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a dictionary of error or success information
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or success information.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_portname_mode(mode)
 
-            Sets portname-mode attribute in the object.
+            Sets the portname-mode attribute in the object.
 
-            :param mode: portname mode
-            :rtype: None or dictionary of error information
+            :param mode: The port name mode.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_portname_mode()
 
-            Reads portname-mode attribute in the object.
+            Reads the portname-mode attribute in the object.
 
-            :rtype: None or portname mode
+            :rtype: None or a port name mode.
 
         .. method:: set_dynamic_portname_format(portname_format)
 
-            Sets dynamic-portname-format attribute in the object.
+            Sets the dynamic-port name-format attribute in the object.
 
-            :param portname_format: dynamic portname format
-            :rtype: None or dictionary of error information
+            :param portname_format: the dynamic port name format.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_dynamic_portname_format()
 
-            Reads dynamic-portname-format attribute in the object.
+            Reads the dynamic-portname-format attribute in the object.
 
-            :rtype: None or dynamic portname format
+            :rtype: None or a dynamic port name format.
 
         .. method:: set_dynamic_d_port_enabled(value)
 
-            Sets dynamic-d-port-enabled attribute in the object.
+            Sets the dynamic-d-port-enabled attribute in the object.
 
-            :param value: boolean value
-            :rtype: None or dictionary of error information
+            :param value: A boolean value.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_dynamic_d_port_enabled()
 
-            Reads dynamic-d-port-enabled attribute in the object.
+            Reads the dynamic-d-port-enabled attribute in the object.
 
-            :rtype: None or dynamic D-port enabled value.
+            :rtype: None or a dynamic D_Port-enabled value.
 
         .. method:: set_on_demand_d_port_enabled(value)
 
-            Sets on-demand-d-port-enabled attribute in the object.
+            Sets the on-demand-d-port-enabled attribute in the object.
 
-            :param value: boolean value
-            :rtype: None or dictionary of error information
+            :param value: A boolean value.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_on_demand_d_port_enabled()
 
-            Reads on-demand-d-port-enabled attribute in the object.
+            Reads the on-demand-d-port-enabled attribute in the object.
 
-            :rtype: None or on-demand D-port enabled value
+            :rtype: None or the on-demand D_Port-enabled value.
 
     """
 
@@ -506,40 +523,41 @@ class port_configuration(pyfos_rest_util.rest_object):
 
 
 class zone_configuration(pyfos_rest_util.rest_object):
-    """Class of configurable parameters of FC switch corresponding to zoning
+    """Class of configurable parameters of the FC switch corresponding
+       to zoning
 
-    Class members:
+    Class Members:
 
-+--------------------------+------------+-------------------------------------+
-| Attribute name           | Description|Frequently used methods              |
-+==========================+============+=====================================+
-| node-name-zoning-enabled | If node    |:meth:`set_node_name_zoning_enabled` |
-|                          | name check |:meth:`peek_node_name_zoning_enabled`|
-|                          | is enabled |                                     |
-|                          | for zoning |                                     |
-+--------------------------+------------+-------------------------------------+
++-------------------------+------------+-------------------------------------+
+|Attribute Name           |Description |Frequently Used Methods              |
++=========================+============+=====================================+
+|node-name-zoning-enabled |If the node |:meth:`set_node_name_zoning_enabled` |
+|                         |name check  |:meth:`peek_node_name_zoning_enabled`|
+|                         |is enabled  |                                     |
+|                         |for zoning. |                                     |
++-------------------------+------------+-------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session)
 
             Returns a :class:`zone_configuration` object with attributes from
-            zone configuration
+            the zone configuration.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or a
-                :class:`zone_configuration` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a
+                :class:`zone_configuration` object.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to zone
-            configuraiton.
+            Applies configurable attribute(s) within the object to the zone
+            configuration.
 
-            *Below is an example using individual sets:*
+            *Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -552,8 +570,8 @@ class zone_configuration(pyfos_rest_util.rest_object):
                 # switch connected through session
                 obj.patch(session)
 
-            *Below is an example of combining object \
-                    initialization and attribute sets:*
+            *Example of Combining Object Initialization \
+                     and Attribute Sets:*
 
             .. code-block:: python
 
@@ -566,24 +584,24 @@ class zone_configuration(pyfos_rest_util.rest_object):
                 # switch connected through session
                 obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a dictionary of error or success information
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or success information.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_node_name_zoning_enabled(value)
 
-            Sets node-name-zoning-enabled attribute in the object.
+            Sets the node-name-zoning-enabled attribute in the object.
 
-            :param value: boolean value
-            :rtype: None or dictionary of error information
+            :param value: A boolean value.
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_node_name_zoning_enabled()
 
-            Reads node-name-zoning-enabled attribute in the object.
+            Reads the node-name-zoning-enabled attribute in the object.
 
-            :rtype: None or node name zoning enabled value.
+            :rtype: None or the node-name-zoning-enabled value.
 
         """
 
@@ -602,38 +620,38 @@ class zone_configuration(pyfos_rest_util.rest_object):
 
 
 class fabric(pyfos_rest_util.rest_object):
-    """Class of configurable parameters of FC switch
+    """Class of configurable parameters of the FC switch
 
     Important class members:
 
 +-----------------------------+------------+---------------------------------------+
-| Attribute name              |Description |Frequently used methods                |
+| Attribute Name              |Description |Frequently Used Methods                |
 +=============================+============+=======================================+
-| insistent-domain-id-enabled |set         |meth:`set_insistent_domain_id_enabled` |
+| insistent-domain-id-enabled |Sets the    |meth:`set_insistent_domain_id_enabled` |
 |                             |consistent  |meth:`peek_insistent_domain_id_enabled`|
-|                             |domain id   |                                       |
+|                             |domain ID   |                                       |
 |                             |mode.       |                                       |
 +-----------------------------+------------+---------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session)
 
-            Returns a :class:`fabric` object with attributes from switch.
+            Returns a :class:`fabric` object with attributes from the switch.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or a
-                :class:`fabric` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a
+                :class:`fabric` object.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to fabric.
+            Apply configurable attribute(s) within the object to the fabric.
 
-            *Below is an example using individual sets:*
+            *Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -646,8 +664,8 @@ class fabric(pyfos_rest_util.rest_object):
                 # switch connected through session
                 fabric_obj.patch(session)
 
-            *Below is an example of combining object \
-                    initialization and attribute sets:*
+            *Example of Combining Object Initialization \
+                     and Attribute Sets:*
 
             .. code-block:: python
 
@@ -663,19 +681,19 @@ class fabric(pyfos_rest_util.rest_object):
                 :func:`pyfos_auth.login`
             :rtype: a dictionary of error or success information
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_insistent_domain_id_enabled(mode)
 
             Sets the Insistent Domain ID feature.
 
-            :param mode: Mode value configures idid feature.
+            :param mode: The mode value configures the IDID feature.
 
-            :rtype: None or dictionary of error information
+            :rtype: None or a dictionary of errors information.
 
         .. method:: peek_insistent_domain_id_enabled()
 
-            Reads the status of the Insistent domain id feature.
+            Reads the status of the Insistent Domain ID feature.
 
             :rtype: True or False
 

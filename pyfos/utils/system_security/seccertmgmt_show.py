@@ -15,37 +15,37 @@
 
 """
 
-:mod:`seccertmgmt_show` - PyFOS util for displaying certificates in the switch
+:mod:`seccertmgmt_show` - PyFOS util for displaying certificates in the switch.
 ***********************************************************************************
-The :mod:`seccertmgmt_show` provides option to display certificate
+The :mod:`seccertmgmt_show` provides option to display a certificate.
 
-This module can be used to display certificate. If certificate entity and type
-are not provided, all certificate list information will be displayed.
+This module can be used to display certificate. If the certificate entity and \
+type are not provided, all certificates information is displayed.
 
-* inputs:
+* Input:
 
-|  Infrastructure options:
+| Infrastructure Options:
 
-  |   -i,--ipaddr=IPADDR     IP address of FOS switch
-  |   -L,--login=LOGIN       login name.
-  |   -P,--password=PASSWORD password.
-  |   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  |   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-|  Util scripts options:
+* Util Script Options:
 
-  |    --certificate-entity=ENTITY-NAME    Certificate entity name
-  |    --certificate-type=CERT-TYPE        Certificate type name
-  |    --is-hexdump-show                   Display raw hex data
+  |    --certificate-entity=ENTITY-NAME    Sets the certificate entity name.
+  |    --certificate-type=CERT-TYPE        Sets the certificate type name.
+  |    --is-hexdump-show                   Displays the raw hex data.
 
-* outputs:
-    * Certificate information
+* Output:
+    * The certificate information.
 
 .. function:: seccertmgmt_show.show_system_security_seccertmgmt(session)
 
-    * Display the Certificate and its information in the switch.
+    * Display the certificate and its information in the switch.
 
-        Example usage of the method:
+        Example Usage of the Method:
 
             ret = seccertmgmt_show.show_system_security_seccertmgmt(session, \
 cert_entity, cert_type)
@@ -56,24 +56,24 @@ cert_entity, cert_type)
             result = seccertmgmt_show.show_system_security_seccertmgmt(
               session, \'cert\', \'https\')
 
-        * inputs:
-            :param session: session returned by login.
-            :param cert_entity: associated certificate entity
-            :param cert_type: associated certificate type
+        * Input:
+            :param session: The session returned by the login.
+            :param cert_entity: The associated certificate entity.
+            :param cert_type: The associated certificate type.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        * Use Cases*
 
-        1. Retrieve the Certificate related information.
+        1. Retrieve the certificate related information.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import security_certificate
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _show_cert(session, restobject):

@@ -37,11 +37,11 @@ pending changes to a Zone DB.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_zone as pyfos_zone
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def cfgabort(session):
@@ -71,6 +71,7 @@ def usage():
 
 
 def exit_handler():
+    # pylint: disable=W0602
     global session
     if session is not None:
         pyfos_auth.logout(session)

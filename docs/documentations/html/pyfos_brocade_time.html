@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>&lt;no title&gt; &#8212; PyFOS 1.1.0 documentation</title>
+    <title>pyfos_brocade_time - PyFOS module to provide rest support for time server. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation" href="pyfos_brocade_operation_supportsave.html" />
-    <link rel="prev" title="pyfos_brocade_maps - PyFOS module to provide rest support for MAPS." href="pyfos_brocade_maps.html" /> 
+    <link rel="next" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation." href="pyfos_brocade_operation_supportsave.html" />
+    <link rel="prev" title="pyfos_brocade_maps - PyFOS module to provide REST support for MAPS." href="pyfos_brocade_maps.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_operation_supportsave.html" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation"
+          <a href="pyfos_brocade_operation_supportsave.html" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_maps.html" title="pyfos_brocade_maps - PyFOS module to provide rest support for MAPS."
+          <a href="pyfos_brocade_maps.html" title="pyfos_brocade_maps - PyFOS module to provide REST support for MAPS."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,10 +42,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-pyfos_brocade_time"></span><dl class="docutils">
-<dt><a class="reference internal" href="#module-pyfos_brocade_time" title="pyfos_brocade_time: PyFOS module to manage FOS Time Server (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_time</span></code></a> - PyFOS module to provide rest support for</dt>
-<dd>time server.</dd>
-</dl>
+  <span class="target" id="module-pyfos_brocade_time"></span><div class="section" id="pyfos-brocade-time-pyfos-module-to-provide-rest-support-for-time-server">
+<h1><a class="reference internal" href="#module-pyfos_brocade_time" title="pyfos_brocade_time: PyFOS module to manage FOS Time Server (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_time</span></code></a> - PyFOS module to provide rest support for time server.<a class="headerlink" href="#pyfos-brocade-time-pyfos-module-to-provide-rest-support-for-time-server" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_time" title="pyfos_brocade_time: PyFOS module to manage FOS Time Server (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_time</span></code></a> provides a REST support for Time Server.</p>
 <dl class="class">
 <dt id="pyfos_brocade_time.clock_server">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_time.</code><code class="descname">clock_server</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.clock_server" title="Permalink to this definition">¶</a></dt>
@@ -72,6 +71,10 @@
 <td>NTP server address list or LOCL</td>
 <td><a class="reference internal" href="#pyfos_brocade_time.clock_server.set_ntp_server_address_server_address" title="pyfos_brocade_time.clock_server.set_ntp_server_address_server_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_ntp_server_address_server_address()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_time.clock_server.peek_ntp_server_address_server_address" title="pyfos_brocade_time.clock_server.peek_ntp_server_address_server_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ntp_server_address_server_address()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>active-server</td>
+<td>Active server address or LOCL</td>
+<td><a class="reference internal" href="#pyfos_brocade_time.clock_server.peek_active_server" title="pyfos_brocade_time.clock_server.peek_active_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_active_server()</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -153,6 +156,20 @@ tz_obj.patch(session)</div></blockquote>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – list of server ip’s</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_time.clock_server.peek_active_server">
+<code class="descname">peek_active_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_time.clock_server.peek_active_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads active ntp clock server from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary in case of error or success response</td>
 </tr>
 </tbody>
 </table>
@@ -346,6 +363,7 @@ replace the existing time zone configuration.</p>
 </div></blockquote>
 </dd></dl>
 
+</div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
@@ -359,10 +377,10 @@ replace the existing time zone configuration.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="pyfos_brocade_maps.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_maps</span></code> - PyFOS module to provide rest support for MAPS.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_maps</span></code> - PyFOS module to provide REST support for MAPS.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="pyfos_brocade_operation_supportsave.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_supportsave</span></code> - PyFOS module for supportsave operation</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_supportsave</span></code> - PyFOS module for supportsave  operation.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -396,17 +414,17 @@ replace the existing time zone configuration.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_operation_supportsave.html" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation"
+          <a href="pyfos_brocade_operation_supportsave.html" title="pyfos_brocade_operation_supportsave - PyFOS module for supportsave operation."
              >next</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_maps.html" title="pyfos_brocade_maps - PyFOS module to provide rest support for MAPS."
+          <a href="pyfos_brocade_maps.html" title="pyfos_brocade_maps - PyFOS module to provide REST support for MAPS."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

@@ -15,31 +15,33 @@
 
 """
 
-:mod:`log_quiet_control_get` - PyFOS util for configuring log_quiet_control
-***************************************************************************
-The :mod:`log_quiet_control_get` provides for configuring log_quiet_control
+:mod:`log_quiet_control_get` - PyFOS util for configuring the log\
+ quiet control.
+*********************************************************************************
+The :mod:`log_quiet_control_get` util provides for configuring the log\
+ quiet control.
 
-This module is a standalone script that can be used to display
-log_quiet_control attributes
+This module is a stand-alone script that can be used to display the log\
+ quiet control attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util scripts options:
-    * --log-type <log_type>, Optional logtype to retrieve
+* Util Script Options:
+    * --log-type <log_type>: Sets the log type (optional) to retrieve.
 
-* outputs:
-    * log_quiet_control attributes in JSON format
+* Output:
+    * Log quiet control attributes in JSON format
 
 .. function:: show_log_quiet_control(session)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = log_quiet_control_get.show_log_quiet_control(session,
                     log_type)
@@ -50,25 +52,25 @@ log_quiet_control attributes
             result = log_quiet_control_get.show_log_quiet_control(
               session, 'raslog')
 
-        * inputs:
-            :param session: session returned by login.
-            :param log_type: Optional Specific Log type
+        * Input:
+            :param session: The session returned by the login.
+            :param log_type: The specific log type (optional).
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the list/row of Quiet information.
+        1. Retrieve the list or row of quiet information.
 
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import log_quiet_control
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import log_quiet_control
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def show_log_quiet_control(session, log_id):

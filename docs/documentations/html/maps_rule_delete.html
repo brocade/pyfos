@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>maps_rule_delete - PyFOS util to delete MAPS rule &#8212; PyFOS 1.1.0 documentation</title>
+    <title>maps_rule_delete - PyFOS util to delete a MAPS rule. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="maps_rule_update - PyFOS util to update rule" href="maps_rule_update.html" />
-    <link rel="prev" title="maps_rule_create - PyFOS util to create MAPS rule" href="maps_rule_create.html" /> 
+    <link rel="next" title="maps_rule_update - PyFOS util to update an existing MAPS rule." href="maps_rule_update.html" />
+    <link rel="prev" title="maps_rule_create - PyFOS util to create a MAPS rule." href="maps_rule_create.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="maps_rule_update.html" title="maps_rule_update - PyFOS util to update rule"
+          <a href="maps_rule_update.html" title="maps_rule_update - PyFOS util to update an existing MAPS rule."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="maps_rule_create.html" title="maps_rule_create - PyFOS util to create MAPS rule"
+          <a href="maps_rule_create.html" title="maps_rule_create - PyFOS util to create a MAPS rule."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,33 +42,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-maps_rule_delete"></span><div class="section" id="maps-rule-delete-pyfos-util-to-delete-maps-rule">
-<h1><a class="reference internal" href="#module-maps_rule_delete" title="maps_rule_delete: PyFOS module to delete MAPS rule (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_rule_delete</span></code></a> - PyFOS util to delete MAPS rule<a class="headerlink" href="#maps-rule-delete-pyfos-util-to-delete-maps-rule" title="Permalink to this headline">¶</a></h1>
-<p>This script is used to delete MAPS rule.</p>
+  <span class="target" id="module-maps_rule_delete"></span><div class="section" id="maps-rule-delete-pyfos-util-to-delete-a-maps-rule">
+<h1><a class="reference internal" href="#module-maps_rule_delete" title="maps_rule_delete: PyFOS module to delete MAPS rule (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_rule_delete</span></code></a> - PyFOS util to delete a MAPS rule.<a class="headerlink" href="#maps-rule-delete-pyfos-util-to-delete-a-maps-rule" title="Permalink to this headline">¶</a></h1>
+<p>This script is used to delete a MAPS rule.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request                             is directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><table class="first last docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
 <tbody valign="top">
 <tr><td class="option-group">
 <kbd><span class="option">--name</span></kbd></td>
-<td><p class="first last">rule name</p>
+<td><p class="first last">Specifies the rule name.</p>
 </td></tr>
 </tbody>
 </table>
@@ -76,9 +76,9 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>success response or dictionary in case of error.</li>
+<li>A success response or a dictionary in case of error.</li>
 </ul>
 </dd>
 </dl>
@@ -102,10 +102,10 @@ Module <a class="reference internal" href="maps_rule_show.html#module-maps_rule_
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="maps_rule_create.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_rule_create</span></code> - PyFOS util to create MAPS rule</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_rule_create</span></code> - PyFOS util to create a MAPS rule.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="maps_rule_update.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">maps_rule_update</span></code> - PyFOS util to update rule</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">maps_rule_update</span></code> - PyFOS util to update an existing MAPS rule.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -139,17 +139,17 @@ Module <a class="reference internal" href="maps_rule_show.html#module-maps_rule_
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="maps_rule_update.html" title="maps_rule_update - PyFOS util to update rule"
+          <a href="maps_rule_update.html" title="maps_rule_update - PyFOS util to update an existing MAPS rule."
              >next</a> |</li>
         <li class="right" >
-          <a href="maps_rule_create.html" title="maps_rule_create - PyFOS util to create MAPS rule"
+          <a href="maps_rule_create.html" title="maps_rule_create - PyFOS util to create a MAPS rule."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

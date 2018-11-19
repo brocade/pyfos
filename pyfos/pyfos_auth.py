@@ -37,7 +37,7 @@ Providing invalid session information will result in error.
 .. note::
 
     * If using HTTP, None should passed to pyfos_auth.login() \
-            for the isHttps parameter. Typically, there is no need \
+            for the is_https parameter. Typically, there is no need \
             to pass the "--secured" option for utility scripts \
             provided by Brocade.
     * If using HTTPS with a self-signed certificate generated \
@@ -99,10 +99,10 @@ Generic error structure:
 
 """
 
-import pyfos.pyfos_login as pyfos_login
 import errno
 import time
 from socket import error as socket_error
+from pyfos import pyfos_login
 import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
 from pyfos.pyfos_version import fosversion
 
@@ -111,7 +111,7 @@ CREDENTIAL_KEY = 'credential'
 DEFAULT_THROTTLE_DELAY = 1.1
 
 
-def login(username, password, ip_addr, isHttps,
+def login(username, password, ip_addr, is_https,
           throttle_delay=DEFAULT_THROTTLE_DELAY, verbose=0):
     """Establish a session to the FOS switch based on a valid login credential.
 
@@ -119,7 +119,7 @@ def login(username, password, ip_addr, isHttps,
     :param password: Password to establish a session.
     :param ip_addr: IP address of the FOS switch with which to \
             establish a session.
-    :param isHttps: None to indicate HTTP, "self" to indicate \
+    :param is_https: None to indicate HTTP, "self" to indicate \
             HTTPS with a self-signed certificate, and "CA" to indicate \
             HTTPS with a CA-signed certificate.
     :param throttle_delay: Delay in seconds, to account for the maximum \
@@ -134,7 +134,7 @@ def login(username, password, ip_addr, isHttps,
 
     try:
         credential = pyfos_login.login(username, password, ip_addr,
-                                       isHttps)
+                                       is_https)
     except socket_error as serr:
         if serr.errno == errno.ECONNREFUSED:
             if throttle_delay > 0:
@@ -143,7 +143,7 @@ def login(username, password, ip_addr, isHttps,
             return {CREDENTIAL_KEY:
                     {LOGIN_ERROR_KEY: ip_addr + " refused connection"},
                     "ip_addr": ip_addr,
-                    "vfid": -1, "ishttps": isHttps, "debug": 0,
+                    "vfid": -1, "ishttps": is_https, "debug": 0,
                     "version": None,
                     "throttle_delay": throttle_delay}
         elif serr.errno == errno.EHOSTUNREACH:
@@ -153,7 +153,7 @@ def login(username, password, ip_addr, isHttps,
             return {CREDENTIAL_KEY:
                     {LOGIN_ERROR_KEY: ip_addr + " not reachable"},
                     "ip_addr": ip_addr,
-                    "vfid": -1, "ishttps": isHttps, "debug": 0,
+                    "vfid": -1, "ishttps": is_https, "debug": 0,
                     "version": None,
                     "throttle_delay": throttle_delay}
         else:
@@ -161,10 +161,9 @@ def login(username, password, ip_addr, isHttps,
                 time.sleep(throttle_delay)
 
             return {CREDENTIAL_KEY:
-                    {LOGIN_ERROR_KEY: ip_addr + " unknown error: " +
-                        str(serr.errno)},
+                    {LOGIN_ERROR_KEY: ip_addr + " unknown error: " + str(serr.errno)},
                     "ip_addr": ip_addr,
-                    "vfid": -1, "ishttps": isHttps, "debug": 0,
+                    "vfid": -1, "ishttps": is_https, "debug": 0,
                     "version": None,
                     "throttle_delay": throttle_delay}
 
@@ -175,7 +174,7 @@ def login(username, password, ip_addr, isHttps,
         return {CREDENTIAL_KEY:
                 {LOGIN_ERROR_KEY: ip_addr + " " + credential[LOGIN_ERROR_KEY]},
                 "ip_addr": ip_addr,
-                "vfid": -1, "ishttps": isHttps, "debug": 0,
+                "vfid": -1, "ishttps": is_https, "debug": 0,
                 "version": None,
                 "throttle_delay": throttle_delay}
 
@@ -186,7 +185,7 @@ def login(username, password, ip_addr, isHttps,
         return credential
     else:
         session = {CREDENTIAL_KEY: credential, "ip_addr": ip_addr,
-                   "vfid": -1, "ishttps": isHttps,
+                   "vfid": -1, "ishttps": is_https,
                    "debug": 0, "version": None,
                    "throttle_delay": throttle_delay}
         switchobj = pyfos_switch.fibrechannel_switch.get(session)
@@ -199,11 +198,9 @@ def login(username, password, ip_addr, isHttps,
                                     switchobj.peek_firmware_version(), error)
                 logout(session)
                 return {CREDENTIAL_KEY:
-                        {LOGIN_ERROR_KEY: ip_addr +
-                         " Incorrect FOS version string :" +
-                         switchobj.peek_firmware_version()},
+                        {LOGIN_ERROR_KEY: ip_addr + " Incorrect FOS version string :" + switchobj.peek_firmware_version()},
                         "ip_addr": ip_addr,
-                        "vfid": -1, "ishttps": isHttps, "debug": 0,
+                        "vfid": -1, "ishttps": is_https, "debug": 0,
                         "version": switchobj.peek_firmware_version(),
                         "throttle_delay": throttle_delay}
             session["version"] = fwversion
@@ -264,8 +261,8 @@ def vfid_set(session, vfid):
 def is_failed_login(session):
     if LOGIN_ERROR_KEY in session.get(CREDENTIAL_KEY).keys():
         return True
-    else:
-        False
+
+    return False
 
 
 def debug_set(session, debug):

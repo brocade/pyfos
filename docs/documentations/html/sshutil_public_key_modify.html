@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>sshutil_public_key_modify - PyFOS util to modify public key &#8212; PyFOS 1.1.0 documentation</title>
+    <title>sshutil_public_key_modify - PyFOS util to modify a public key. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch" href="seccertmgmt_show.html" />
-    <link rel="prev" title="sshutil_public_key_delete-PyFOS util to delete public key" href="sshutil_public_key_delete.html" /> 
+    <link rel="next" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch." href="seccertmgmt_show.html" />
+    <link rel="prev" title="sshutil_public_key_delete-PyFOS util to delete a public key." href="sshutil_public_key_delete.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch"
+          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="sshutil_public_key_delete.html" title="sshutil_public_key_delete-PyFOS util to delete public key"
+          <a href="sshutil_public_key_delete.html" title="sshutil_public_key_delete-PyFOS util to delete a public key."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,46 +42,41 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-sshutil_public_key_modify"></span><div class="section" id="sshutil-public-key-modify-pyfos-util-to-modify-public-key">
-<h1><a class="reference internal" href="#module-sshutil_public_key_modify" title="sshutil_public_key_modify: PyFOS module provides option to modify key pair. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sshutil_public_key_modify</span></code></a> - PyFOS util to modify public key<a class="headerlink" href="#sshutil-public-key-modify-pyfos-util-to-modify-public-key" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-sshutil_public_key_modify" title="sshutil_public_key_modify: PyFOS module provides option to modify key pair. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sshutil_public_key_modify</span></code></a> used to modify public key.</p>
-<p>This module is a standalone script that can be used to modify public key,</p>
+  <span class="target" id="module-sshutil_public_key_modify"></span><div class="section" id="sshutil-public-key-modify-pyfos-util-to-modify-a-public-key">
+<h1><a class="reference internal" href="#module-sshutil_public_key_modify" title="sshutil_public_key_modify: PyFOS module provides option to modify key pair. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sshutil_public_key_modify</span></code></a> - PyFOS util to modify a public key.<a class="headerlink" href="#sshutil-public-key-modify-pyfos-util-to-modify-a-public-key" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-sshutil_public_key_modify" title="sshutil_public_key_modify: PyFOS module provides option to modify key pair. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sshutil_public_key_modify</span></code></a> util used to modify a public key.</p>
+<p>This module is a stand-alone script that can be used to modify a public key.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
-</div>
-</div></blockquote>
 <div class="line-block">
-<div class="line">Util scripts options:</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request                             is directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">–user-name=USERNAME             User Name</div>
-<div class="line">–remote-host-ip=IP              Remote host ip address</div>
-<div class="line">–remote-host-directory=DIR      Remote host directory</div>
-<div class="line">–public-key-name=KEYNAME        Public key name(.pub)</div>
-<div class="line">–remote-login-user=LOGINUSER    Remote Login User</div>
-<div class="line">–remote-login-password=PASSWORD Remote Login Password</div>
-<div class="line">–algorithm-type=ALGOTYPE        Algorithm type</div>
-<div class="line">–action=OPERATION               SSHUtil operation</div>
-</div>
-</div></blockquote>
 <ul>
-<li><p class="first">outputs:</p>
+<li><p class="first">Util Script Options:</p>
+<div class="line-block">
+<div class="line">–user-name=USERNAME             Specifies the user name.</div>
+<div class="line">–remote-host-ip=IP              Sets the remote host IP address.</div>
+<div class="line">–remote-host-directory=DIR      Sets the remote host directory.</div>
+<div class="line">–public-key-name=KEYNAME        Sets the public key name (.pub).</div>
+<div class="line">–remote-login-user=LOGINUSER    Sets the remote login user.</div>
+<div class="line">–remote-login-password=PASSWORD Sets the remote login password.</div>
+<div class="line">–algorithm-type=ALGOTYPE        Sets the algorithm type.</div>
+<div class="line">–action=OPERATION               Sets the SSHUtil operation.</div>
+</div>
+</li>
+<li><p class="first">Output:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Status of the sshutil  modify operation</li>
+<li>The status of the sshutil modify operation.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -90,9 +85,9 @@
 <dt id="sshutil_public_key_modify.sshutil_modify.import_export_public_key">
 <code class="descclassname">sshutil_modify.</code><code class="descname">import_export_public_key</code><span class="sig-paren">(</span><em>session</em>, <em>user_name</em>, <em>remote_ip</em>, <em>remote_dir</em>, <em>pub_key_name</em>, <em>login_name</em>, <em>login_password</em>, <em>action</em>, <em>algorithm_type</em><span class="sig-paren">)</span><a class="headerlink" href="#sshutil_public_key_modify.sshutil_modify.import_export_public_key" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
-<li><p class="first">Import/Export a specified public key from/to remote server to/from switch</p>
+<li><p class="first">Import or Export a specified public key from/to a remote server         to/from a switch.</p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">sshutil_modify</span><span class="o">.</span><span class="n">import_export_public_key</span><span class="p">(</span>
           <span class="n">session</span><span class="p">,</span> <span class="n">USERNAME</span><span class="p">,</span> <span class="n">IP</span><span class="p">,</span> <span class="n">DIR</span><span class="p">,</span> <span class="n">KEYNAME</span><span class="p">,</span>
           <span class="n">LOGINUSER</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">,</span> <span class="n">ACTION</span><span class="p">,</span> <span class="n">ALGORITHM</span><span class="p">)</span>
@@ -117,35 +112,35 @@
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param user-name:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">user name.</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The user name.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">param remote-host-ip:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">remote host ip address.</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The remote host IP address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param remote-host-directoy:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">location in remote host for public key</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The location in the remote host for                                            the public key.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">param public-key-name:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">name of the public key(.pub)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The name of the public key (.pub).</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param remote-login-user:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">user name of the remote host</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The user name of the remote host.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">param remote-login-password:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">password of the remote host</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The password of the remote host.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param action:</th><td class="field-body">Import or export</td>
+<tr class="field-even field"><th class="field-name">param action:</th><td class="field-body">The action (import or export).</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">param algorithm_type:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">algorithm type</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The algorithm type.</td>
 </tr>
 </tbody>
 </table>
@@ -153,12 +148,12 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -166,10 +161,10 @@
 </dl>
 </li>
 </ul>
-<p><em>use cases</em></p>
+<p><em>Use Cases</em></p>
 <ol class="arabic simple">
 <li>Imports a specified public key from a remote server to the switch.</li>
-<li>Exports public key from switch to a remote server.</li>
+<li>Exports a public key from the switch to a remote server.</li>
 </ol>
 </div></blockquote>
 </li>
@@ -191,10 +186,10 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="sshutil_public_key_delete.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">sshutil_public_key_delete</span></code>-PyFOS util to delete public key</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">sshutil_public_key_delete</span></code>-PyFOS util to delete a public key.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="seccertmgmt_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code> - PyFOS util for displaying certificates in the switch</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code> - PyFOS util for displaying certificates in the switch.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -228,17 +223,17 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch"
+          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch."
              >next</a> |</li>
         <li class="right" >
-          <a href="sshutil_public_key_delete.html" title="sshutil_public_key_delete-PyFOS util to delete public key"
+          <a href="sshutil_public_key_delete.html" title="sshutil_public_key_delete-PyFOS util to delete a public key."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

@@ -37,11 +37,11 @@ switches in a fabric.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fabric as pyfos_fabric
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fabric as pyfos_fabric
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def usage():

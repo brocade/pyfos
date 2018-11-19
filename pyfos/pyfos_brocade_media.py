@@ -14,14 +14,14 @@
 """
 
 :mod:`pyfos_brocade_media` - PyFOS module to provide \
-        rest support for port sfp-rdp media.
+        REST support for port sfp-rdp media.
 ****************************************************************************************************
-The :mod:`pyfos_brocade_media` provides a REST support \
-        for port sfp-rdp media.
-
+The :mod:`pyfos_brocade_media` module provides REST support \
+for port sfp-rdp media.
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as version
 
@@ -29,474 +29,480 @@ import pyfos.pyfos_version as version
 class media_rdp(pyfos_rest_util.rest_object):
     """ Class of media rdp
 
-    Important class members:
+    Important Class Members:
 
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | Attribute name                 | Description                      |Frequstly used methods                                  |
+        | Attribute Name                 | Description                      |Frequently Used Methods                                 |
         +================================+==================================+========================================================+
-        | name                           | name of port                     |:func:`peek_name`                                       |
+        | name                           | The name of the port.            |:func:`peek_name`                                       |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | identifier                     | Media identifier                 |:func:`peek_identifier`                                 |
+        | identifier                     | The media identifier.            |:func:`peek_identifier`                                 |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | connector                      | Connector type of media          |:func:`peek_connector`                                  |
+        | connector                      | The connector type of media.     |:func:`peek_connector`                                  |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | media-speed-capability/speed   | Speed capability list supported  |:func:`peek_media_speed_capability_speed`               |
-        |                                | by media                         |                                                        |
+        | media-speed-capability/speed   | The speed capability list        |:func:`peek_media_speed_capability_speed`               |
+        |                                | supported by media.              |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | media-distance/distance        | Distance list supported by       |:func:`peek_media_distance_distance`                    |
-        |                                | media                            |                                                        |
+        | media-distance/distance        | The distance list supported by   |:func:`peek_media_distance_distance`                    |
+        |                                | media.                           |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | encoding                       | Encoding type of media           |:func:`peek_encoding`                                   |
+        | encoding                       | The encoding type of media.      |:func:`peek_encoding`                                   |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | vendor-oui                     | Vendor-OUI for the media         |:func:`peek_vendor_oui`                                 |
+        | vendor-oui                     | The vendor OUI for the media.    |:func:`peek_vendor_oui`                                 |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | part-number                    | Part number of the media         |:func:`peek_part_number`                                |
+        | part-number                    | The part number of the media.    |:func:`peek_part_number`                                |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | serial-number                  | Serial number of the media       |:func:`peek_serial_number`                              |
+        | serial-number                  | The serial number of the media.  |:func:`peek_serial_number`                              |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | vendor-name                    | Vendor name of the media         |:func:`peek_vendor_name`                                |
+        | vendor-name                    | The vendor name of the media.    |:func:`peek_vendor_name`                                |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | vendor-revision                | Vendor revision of the media     |:func:`peek_vendor_revision`                            |
+        | vendor-revision                | Vendor revision of the media.    |:func:`peek_vendor_revision`                            |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | date-code                      | Manufacturing date of the media  |:func:`peek_date_code`                                  |
+        | date-code                      | Manufacturing date of the media. |:func:`peek_date_code`                                  |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | temperature                    | Temperature of the media         |:func:`peek_temperature`                                |
+        | temperature                    |The temperature of the media.     |:func:`peek_temperature`                                |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | rx-power                       | Rx-power of the media            |:func:`peek_rx_power`                                   |
+        | rx-power                       | The rx power of the media.       |:func:`peek_rx_power`                                   |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | tx-power                       | Tx-power of the media            |:func:`peek_tx_power`                                   |
+        | tx-power                       | The tx power of the media.       |:func:`peek_tx_power`                                   |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | current                        | Media current                    |:func:`peek_current`                                    |
+        | current                        | The media current.               |:func:`peek_current`                                    |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | voltage                        | Media voltage                    |:func:`peek_voltage`                                    |
+        | voltage                        | The media voltage.               |:func:`peek_voltage`                                    |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | wavelength                     | Media wavelength                 |:func:`peek_wavelength`                                 |
+        | wavelength                     | The media wavelength.            |:func:`peek_wavelength`                                 |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | power-on-time                  | Media power-on-time              |:func:`peek_power_on_time`                              |
+        | power-on-time                  | The media power-on-time.         |:func:`peek_power_on_time`                              |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-identifier              | Remote media identifier          |:func:`peek_remote_identifier`                          |
+        | remote-identifier              | The remote media identifier.     |:func:`peek_remote_identifier`                          |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-laser-type              | Remote media laser type          |:func:`peek_remote_laser_type`                          |
+        | remote-laser-type              | The remote media laser type.     |:func:`peek_remote_laser_type`                          |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-speed-capability/ | Speed capability list supported  |:func:`peek_remote_media_speed_capability_speed`        |
-        | speed                          | by remote media                  |                                                        |
+        | remote-media-speed-capability/ | The speed capability list        |:func:`peek_remote_media_speed_capability_speed`        |
+        | speed                          | supported by the remote media.   |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-temperature       | Remote media temperature         |:func:`peek_remote_media_temperature`                   |
+        | remote-media-temperature       | The remote media temperature.    |:func:`peek_remote_media_temperature`                   |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-rx-power          | Remote media rx power            |:func:`peek_remote_media_rx_power`                      |
+        | remote-media-rx-power          | The remote media rx power.       |:func:`peek_remote_media_rx_power`                      |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-power          | Remote media tx power            |:func:`peek_remote_media_tx_power`                      |
+        | remote-media-tx-power          | The remote media tx power.       |:func:`peek_remote_media_tx_power`                      |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-current           | Remote media current             |:func:`peek_remote_media_current`                       |
+        | remote-media-current           | The remote media current.        |:func:`peek_remote_media_current`                       |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-voltage           | Remote media voltage             |:func:`peek_remote_media_voltage`                       |
+        | remote-media-voltage           | The remote media voltage.        |:func:`peek_remote_media_voltage`                       |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-optical-product-data/   | Media part number in remote      |:func:`peek_remote_optical_product_data_part_number`    |
-        | part-number                    | optical product data group       |                                                        |
+        | remote-optical-product-data/   | Media part number in the remote  |:func:`peek_remote_optical_product_data_part_number`    |
+        | part-number                    | optical product data group.      |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-optical-product-data/   | Media serial number in remote    |:func:`peek_remote_optical_product_data_serial_number`  |
-        |   serial-number                | optical product data group       |                                                        |
+        | remote-optical-product-data/   |Media serial number in the remote |:func:`peek_remote_optical_product_data_serial_number`  |
+        |   serial-number                | optical product data group.      |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-optical-product-data/   | Media vendor name in remote      |:func:`peek_remote_optical_product_data_vendor_name`    |
-        |   vendor-name                  | optical product data group       |                                                        |
+        | remote-optical-product-data/   | Media vendor name in the remote  |:func:`peek_remote_optical_product_data_vendor_name`    |
+        |   vendor-name                  | optical product data group.      |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | remote-optical-product-data/   | Media vendor revision in remote  |:func:`peek_remote_optical_product_data_vendor_revision`|
-        |   vendor-revision              | optical product data group       |                                                        |
+        |   vendor-revision              | optical product data group.      |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-optical-product-data/   | Manufacturing date in remote     |:func:`peek_remote_optical_product_data_date_code`      |
-        |   date-code                    | optical product data group       |                                                        |
+        | remote-optical-product-data/   | Manufacturing date in the remote |:func:`peek_remote_optical_product_data_date_code`      |
+        |   date-code                    | optical product data group.      |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-voltage-alert/    | High alarm in remote media       |:func:`peek_remote_media_voltage_alert_high_alarm`      |
-        |   high-alarm                   | voltage alert group              |                                                        |
+        | remote-media-voltage-alert/    | High alarm in the remote media   |:func:`peek_remote_media_voltage_alert_high_alarm`      |
+        |   high-alarm                   | voltage alert group.             |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-voltage-alert/    | Low alarm in remote media        |:func:`peek_remote_media_voltage_alert_low_alarm`       |
-        |   low-alarm                    | voltage alert group              |                                                        |
+        | remote-media-voltage-alert/    | Low alarm in the remote media    |:func:`peek_remote_media_voltage_alert_low_alarm`       |
+        |   low-alarm                    | voltage alert group.             |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-voltage-alert/    | High warning in remote media     |:func:`peek_remote_media_voltage_alert_high_warning`    |
-        |  high-warning                  | voltage alert group              |                                                        |
+        | remote-media-voltage-alert/    | High warning in the remote media |:func:`peek_remote_media_voltage_alert_high_warning`    |
+        |  high-warning                  | voltage alert group.             |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-voltage-alert/    | Low warning in remote media      |:func:`peek_remote_media_voltage_alert_low_warning`     |
-        |   low-warning                  | voltage alert group              |                                                        |
+        | remote-media-voltage-alert/    | Low warning in the remote media  |:func:`peek_remote_media_voltage_alert_low_warning`     |
+        |   low-warning                  | voltage alert group.             |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-temperature-alert/| High alarm in remote media       |:func:`peek_remote_media_temperature_alert_high_alarm`  |
-        |   high-alarm                   | temperature alert group          |                                                        |
+        | remote-media-temperature-alert/| High alarm in the remote media   |:func:`peek_remote_media_temperature_alert_high_alarm`  |
+        |   high-alarm                   | temperature alert group.         |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-temperature-alert/| Low alarm in remote media        |:func:`peek_remote_media_temperature_alert_low_alarm`   |
-        |   low-alarm                    | temperature alert group          |                                                        |
+        | remote-media-temperature-alert/| Low alarm in the remote media    |:func:`peek_remote_media_temperature_alert_low_alarm`   |
+        |   low-alarm                    | temperature alert group.         |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-temperature-alert/| High warning in remote media     |:func:`peek_remote_media_temperature_alert_high_warning`|
-        |  high-warning                  | temperature alert group          |                                                        |
+        | remote-media-temperature-alert/| High warning in the remote media |:func:`peek_remote_media_temperature_alert_high_warning`|
+        |  high-warning                  | temperature alert group.         |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-temperature-alert/| Low warning in remote media      |:func:`peek_remote_media_temperature_alert_low_warning` |
-        |   low-warning                  | temperature alert group          |                                                        |
+        | remote-media-temperature-alert/| Low warning in the remote media  |:func:`peek_remote_media_temperature_alert_low_warning` |
+        |   low-warning                  | temperature alert group.         |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-bias-alert/    | High alarm in remote media       |:func:`peek_remote_media_tx_bias_alert_high_alarm`      |
-        |   high-alarm                   | tx-bias alert group              |                                                        |
+        | remote-media-tx-bias-alert/    | High alarm in the remote media   |:func:`peek_remote_media_tx_bias_alert_high_alarm`      |
+        |   high-alarm                   | tx bias alert group.             |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-bias-alert/    | Low alarm in remote media        |:func:`peek_remote_media_tx_bias_alert_low_alarm`       |
-        |   low-alarm                    | tx-bias alert group              |                                                        |
+        | remote-media-tx-bias-alert/    | Low alarm in the remote media    |:func:`peek_remote_media_tx_bias_alert_low_alarm`       |
+        |   low-alarm                    | tx bias alert group.             |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-bias-alert/    | High warning in remote media     |:func:`peek_remote_media_tx_bias_alert_high_warning`    |
-        |  high-warning                  | tx-bias alert group              |                                                        |
+        | remote-media-tx-bias-alert/    | High warning in the remote media |:func:`peek_remote_media_tx_bias_alert_high_warning`    |
+        |  high-warning                  | tx bias alert group.             |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-bias-alert/    | Low warning in remote media      |:func:`peek_remote_media_tx_bias_alert_low_warning`     |
-        |   low-warning                  | tx-bias alert group              |                                                        |
+        | remote-media-tx-bias-alert/    | Low warning in the remote media  |:func:`peek_remote_media_tx_bias_alert_low_warning`     |
+        |   low-warning                  | tx bias alert group.             |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-power-alert/   | High alarm in remote media       |:func:`peek_remote_media_tx_power_alert_high_alarm`     |
-        |   high-alarm                   | tx-power alert group             |                                                        |
+        | remote-media-tx-power-alert/   | High alarm in the remote media   |:func:`peek_remote_media_tx_power_alert_high_alarm`     |
+        |   high-alarm                   | tx power alert group.            |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-power-alert/   | Low alarm in remote media        |:func:`peek_remote_media_tx_power_alert_low_alarm`      |
-        |   low-alarm                    | tx-power alert group             |                                                        |
+        | remote-media-tx-power-alert/   | Low alarm in the remote media    |:func:`peek_remote_media_tx_power_alert_low_alarm`      |
+        |   low-alarm                    | tx power alert group.            |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-power-alert/   | High warning in remote media     |:func:`peek_remote_media_tx_power_alert_high_warning`   |
-        |  high-warning                  | tx-power alert group             |                                                        |
+        | remote-media-tx-power-alert/   | High warning in the remote media |:func:`peek_remote_media_tx_power_alert_high_warning`   |
+        |  high-warning                  | tx power alert group.            |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-tx-power-alert/   | Low warning in remote media      |:func:`peek_remote_media_tx_power_alert_low_warning`    |
-        |   low-warning                  | tx-power alert group             |                                                        |
+        | remote-media-tx-power-alert/   | Low warning in the remote media  |:func:`peek_remote_media_tx_power_alert_low_warning`    |
+        |   low-warning                  | tx power alert group.            |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-rx-power-alert/   | High alarm in remote media       |:func:`peek_remote_media_rx_power_alert_high_alarm`     |
-        |   high-alarm                   | rx-power alert group             |                                                        |
+        | remote-media-rx-power-alert/   | High alarm in the remote media   |:func:`peek_remote_media_rx_power_alert_high_alarm`     |
+        |   high-alarm                   | rx power alert group.            |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-rx-power-alert/   | Low alarm in remote media        |:func:`peek_remote_media_rx_power_alert_low_alarm`      |
-        |   low-alarm                    | rx-power alert group             |                                                        |
+        | remote-media-rx-power-alert/   | Low alarm in the remote media    |:func:`peek_remote_media_rx_power_alert_low_alarm`      |
+        |   low-alarm                    | rx power alert group.            |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-rx-power-alert/   | High warning in remote media     |:func:`peek_remote_media_rx_power_alert_high_warning`   |
-        |  high-warning                  | rx-power alert group             |                                                        |
+        | remote-media-rx-power-alert/   | High warning in the remote media |:func:`peek_remote_media_rx_power_alert_high_warning`   |
+        |  high-warning                  | rx power alert group.            |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-media-rx-power-alert/   | Low warning in remote media      |:func:`peek_remote_media_rx_power_alert_low_warning`    |
-        |   low-warning                  | rx-power alert group             |                                                        |
+        | remote-media-rx-power-alert/   | Low warning in the remote media  |:func:`peek_remote_media_rx_power_alert_low_warning`    |
+        |   low-warning                  | rx power alert group.            |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session, name=None)
 
             Returns a :class:`media_rdp` object or a list of
-            objects filled with attributes gathered
-            from port media. If optional name is given, either an
-            object matching the name of the port is returned
-            or an empty object is returned with the corresponding
+            objects with the attributes gathered
+            from port media. If an optional name is given, returns either an
+            object matching the name of the port
+            or an empty object with the corresponding
             error if no match is found.
 
             Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed
+            and individual attributes can be accessed
             through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :param name: Interface slot port details in the form of
-                         interface/slot/port
-            :rtype: a :class:`media_rdp` object if name is
-                given or a list of objects if there are more than one
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :param name: The interface slot port details in the format of
+                         interface/slot/port.
+            :rtype: A :class:`media_rdp` object if the name is
+                provided or a list of objects if there is more than one.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: peek_name()
 
-            Reads port name in the object.
+            Reads the port name in the object.
 
-            :rtype: None or port name
+            :rtype: None or the port name.
 
         .. method:: peek_identifier()
 
-            Reads media identifier.
+            Reads the media identifier.
 
-            :rtype: None or identifier
+            :rtype: None or the identifier.
 
         .. method:: peek_connector()
 
-            Reads connector type of the media.
+            Reads the connector type of the media.
 
-            :rtype: None or connector type
+            :rtype: None or the connector type.
+
         .. method:: peek_media_speed_capability_speed()
 
-            Reads list of speeds media capable
+            Reads a list of speeds media capable.
 
-            :rtype: None or list of speeds
+            :rtype: None or a list of speeds.
+
         .. method:: peek_media_distance_distance()
 
-            Reads list of distance media supports
+            Reads a list of distance media support.
 
-            :rtype: None or list of distance
+            :rtype: None or a list of distance media.
+
         .. method:: peek_encoding()
 
-            Reads encoding supports type of media.
+            Reads the encoding supports type of media.
 
-            :rtype: None or encoding type
+            :rtype: None or the encoding type.
 
         .. method:: peek_vendor_oui()
 
-            Reads vendor oui of the media.
+            Reads the vendor OUI of the media.
 
-            :rtype: None or vendor oui
+            :rtype: None or the vendor OUI.
 
         .. method:: peek_part_number()
 
-            Reads part number of the media.
+            Reads the part number of the media.
 
-            :rtype: None or part number
+            :rtype: None or the part number.
 
         .. method:: peek_serial_number()
 
-            Reads serial number of the media.
+            Reads the serial number of the media.
 
-            :rtype: None or serial number
+            :rtype: None or the serial number.
 
         .. method:: peek_vendor_name()
 
-            Reads vendor name of the media.
+            Reads the vendor name of the media.
 
-            :rtype: None or vendor name
+            :rtype: None or the vendor name.
 
         .. method:: peek_vendor_revision()
 
-            Reads vendor revision of the media.
+            Reads the vendor revision of the media.
 
-            :rtype: None or vendor revision
+            :rtype: None or the vendor revision.
 
         .. method:: peek_date_code()
 
-            Reads Manufacturing date of the media.
+            Reads the manufacturing date of the media.
 
-            :rtype: None or manufacturing date code
+            :rtype: None or the manufacturing date code.
 
         .. method:: peek_temperature()
 
-            Reads temperature of the media.
+            Reads the temperature of the media.
 
-            :rtype: None or temperature
+            :rtype: None or the temperature.
 
         .. method:: peek_tx_power()
 
-            Reads tx power of the media.
+            Reads the tx power of the media.
 
-            :rtype: None or tx power
+            :rtype: None or the tx power.
 
         .. method:: peek_rx_power()
 
-            Reads rx power of the media.
+            Reads the rx power of the media.
 
-            :rtype: None or rx power
+            :rtype: None or the rx power.
 
         .. method:: peek_current()
 
-            Reads media current.
+            Reads the media current.
 
-            :rtype: None or current
+            :rtype: None or the current.
 
         .. method:: peek_voltage()
 
-            Reads media voltage.
+            Reads the media voltage.
 
-            :rtype: None or voltage
+            :rtype: None or the voltage.
 
         .. method:: peek_wavelength()
 
-            Reads media wavelength.
+            Reads the media wavelength.
 
-            :rtype: None or wavelength
+            :rtype: None or the wavelength.
 
         .. method:: peek_power_on_time()
 
-            Reads media power on time.
+            Reads the media power on time.
 
-            :rtype: None or power on time
+            :rtype: None or the power on time.
 
         .. method:: peek_remote_identifier()
 
-            Reads remote media identifier.
+            Reads the remote media identifier.
 
-            :rtype: None or remote identifier
+            :rtype: None or the remote identifier.
+
         .. method:: peek_remote_laser_type()
 
-            Reads remote media laser type.
+            Reads the remote media laser type.
 
-            :rtype: None or laser type
+            :rtype: None or the laser type.
+
         .. method:: peek_remote_media_speed_capability_speed()
 
-            Reads list of speeds remote media capable
+            Reads a list of remote media capable speeds.
 
-            :rtype: None or laser type
+            :rtype: None or the laser type.
+
         .. method:: peek_remote_media_temperature()
 
-            Reads remote media temperature.
+            Reads the remote media temperature.
 
-            :rtype: None or temperature
+            :rtype: None or the temperature.
+
         .. method:: peek_remote_media_tx_power()
 
-            Reads tx power of the remote media.
+            Reads the tx power of the remote media.
 
-            :rtype: None or tx power
+            :rtype: None or the tx power.
 
         .. method:: peek_remote_media_rx_power()
 
-            Reads rx power of the remote media.
+            Reads the rx power of the remote media.
 
-            :rtype: None or rx power
+            :rtype: None or the rx power.
 
         .. method:: peek_remote_media_current()
 
-            Reads remote media current.
+            Reads the remote media current.
 
-            :rtype: None or current
+            :rtype: None or the current.
 
         .. method:: peek_remote_media_voltage()
 
-            Reads remote media voltage.
+            Reads the remote media voltage.
 
-            :rtype: None or voltage
+            :rtype: None or the voltage.
 
         .. method:: peek_remote_optical_product_data_part_number()
 
-            Reads remote media part number.
+            Reads the remote media part number.
 
-            :rtype: None or part number
+            :rtype: None or the part number.
 
         .. method:: peek_remote_optical_product_data_serial_number()
 
-            Reads remote media serial number.
+            Reads the remote media serial number.
 
-            :rtype: None or serial number
+            :rtype: None or the serial number.
 
         .. method:: peek_remote_optical_product_data_vendor_name()
 
-            Reads remote media vendor name.
+            Reads the remote media vendor name.
 
-            :rtype: None or vendor name
+            :rtype: None or the vendor name.
 
         .. method:: peek_remote_optical_product_data_vendor_revision()
 
-            Reads remote media vendor revision.
+            Reads the remote media vendor revision.
 
-            :rtype: None or vendor revision
+            :rtype: None or the vendor revision.
 
         .. method:: peek_remote_optical_product_data_date_code()
 
-            Reads remote media manufacturing date.
+            Reads the remote media manufacturing date.
 
-            :rtype: None or date code
+            :rtype: None or the date code.
 
         .. method:: peek_remote_media_voltage_alert_high_alarm()
 
-            Reads high alarm in the voltage alert object
+            Reads the high alarm in the voltage alert object.
 
-            :rtype: None or high alarm
+            :rtype: None or the high alarm.
 
         .. method:: peek_remote_media_voltage_alert_low_alarm()
 
-            Reads low alarm in the voltage alert object
+            Reads the low alarm in the voltage alert object.
 
-            :rtype: None or low alarm
+            :rtype: None or the low alarm.
 
         .. method:: peek_remote_media_voltage_alert_high_warning()
 
-            Reads high warning in the voltage alert object
+            Reads the high warning in the voltage alert object.
 
-            :rtype: None or high warning
+            :rtype: None or the high warning.
 
         .. method:: peek_remote_media_voltage_alert_low_warning()
 
-            Reads low warning in the voltage alert object
+            Reads the low warning in the voltage alert object.
 
-            :rtype: None or low warning
+            :rtype: None or the low warning.
 
         .. method:: peek_remote_media_temperature_alert_high_alarm()
 
-            Reads high alarm in the temperature alert object
+            Reads the high alarm in the temperature alert object.
 
-            :rtype: None or high alarm
+            :rtype: None or the high alarm.
 
         .. method:: peek_remote_media_temperature_alert_low_alarm()
 
-            Reads low alarm in the temperature alert object
+            Reads the low alarm in the temperature alert object.
 
-            :rtype: None or low alarm
+            :rtype: None or the low alarm.
 
         .. method:: peek_remote_media_temperature_alert_high_warning()
 
-            Reads high warning in the temperature alert object
+            Reads the high warning in the temperature alert object.
 
-            :rtype: None or high warning
+            :rtype: None or the high warning.
 
         .. method:: peek_remote_media_temperature_alert_low_warning()
 
-            Reads low warning in the temperature alert object
+            Reads the low warning in the temperature alert object.
 
-            :rtype: None or low warning
+            :rtype: None or the low warning.
 
         .. method:: peek_remote_media_tx_bias_alert_high_alarm()
 
-            Reads high alarm in the tx bias alert object
+            Reads the high alarm in the tx bias alert object.
 
-            :rtype: None or high alarm
+            :rtype: None or the high alarm
 
         .. method:: peek_remote_media_tx_bias_alert_low_alarm()
 
-            Reads low alarm in the tx bias alert object
+            Reads the low alarm in the tx bias alert object.
 
-            :rtype: None or low alarm
+            :rtype: None or the low alarm.
 
         .. method:: peek_remote_media_tx_bias_alert_high_warning()
 
-            Reads high warning in the tx bias alert object
+            Reads the high warning in the tx bias alert object.
 
-            :rtype: None or high warning
+            :rtype: None or the high warning.
 
         .. method:: peek_remote_media_tx_bias_alert_low_warning()
 
-            Reads low warning in the tx bias alert object
+            Reads the low warning in the tx bias alert object.
 
-            :rtype: None or low warning
+            :rtype: None or the low warning.
 
         .. method:: peek_remote_media_tx_power_alert_high_alarm()
 
-            Reads high alarm in the tx power alert object
+            Reads the high alarm in the tx power alert object.
 
-            :rtype: None or high alarm
+            :rtype: None or the high alarm.
 
         .. method:: peek_remote_media_tx_power_alert_low_alarm()
 
-            Reads low alarm in the tx power alert object
+            Reads the low alarm in the tx power alert object.
 
-            :rtype: None or low alarm
+            :rtype: None or the low alarm.
 
         .. method:: peek_remote_media_tx_power_alert_high_warning()
 
-            Reads high warning in the tx power alert object
+            Reads the high warning in the tx power alert object.
 
-            :rtype: None or high warning
+            :rtype: None or the high warning.
 
         .. method:: peek_remote_media_tx_power_alert_low_warning()
 
-            Reads low warning in the tx power alert object
+            Reads the low warning in the tx power alert object.
 
-            :rtype: None or low warning
+            :rtype: None or the low warning.
 
         .. method:: peek_remote_media_rx_power_alert_high_alarm()
 
-            Reads high alarm in the rx power alert object
+            Reads the high alarm in the rx power alert object.
 
-            :rtype: None or high alarm
+            :rtype: None or the high alarm.
 
         .. method:: peek_remote_media_rx_power_alert_low_alarm()
 
-            Reads low alarm in the rx power alert object
+            Reads the low alarm in the rx power alert object.
 
-            :rtype: None or low alarm
+            :rtype: None or the low alarm.
 
         .. method:: peek_remote_media_rx_power_alert_high_warning()
 
-            Reads high warning in the rx power alert object
+            Reads the high warning in the rx power alert object.
 
-            :rtype: None or high warning
+            :rtype: None or the high warning.
 
         .. method:: peek_remote_media_rx_power_alert_low_warning()
 
-            Reads low warning in the rx power alert object
+            Reads the low warning in the rx power alert object.
 
-            :rtype: None or low warning
-
-        """
+            :rtype: None or the low warning.
+    """
 
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.media_rdp,

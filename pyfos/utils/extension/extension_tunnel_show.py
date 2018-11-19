@@ -16,39 +16,39 @@
 
 """
 
-:mod:`extension_tunnel_show` - PyFOS util for Displaying tunnel object.
+:mod:`extension_tunnel_show` - PyFOS util for displaying a tunnel object.
 ***********************************************************************************
-The :mod:`extension_tunnel_show` util provides tunnel Display functionality.
+The :mod:`extension_tunnel_show` util provides tunnel display functionality.
 
 This module is a stand-alone script that can be used to show the extension
 tunnel.
 
 extension_tunnel_show.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name.
-    * -a,--admin-enabled=VALUE: Set admin-enabled.
-    *    --ipsec-enabled=VALUE: Set ipsec-policy.
-    *    --ficon=VALUE: Set ficon.
-    *    --ip-extension=VALUE: Set ip-extension.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name.
+    * -a,--admin-enabled=VALUE: Sets the admin enabled.
+    *    --ipsec-enabled=VALUE: Sets the IPsec policy.
+    *    --ficon=VALUE: Sets the FICON enabled state.
+    *    --ip-extension=VALUE: Sets the IP extension.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_tunnel_show.show_extension_tunnel(session,\
 name, ipsec, ipextn, ficon, admin)
 
-    *show extension tunnel*
+    *Show an Extension Tunnel*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = extension_tunnel_show.show_extension_tunnel(session,
                 name)
@@ -66,29 +66,29 @@ name, ipsec, ipextn, ficon, admin)
             result = extension_tunnel_show._show_extension_tunnel(session,
             tunnel)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: VE port name expressed as slot/port.
-            :param admin: Admin enabled state.
-            :param ipsec: Ipsec policy enabled state.
-            :param ipextn: IP Extension enabled state.
-            :param ficon: Ficon enabled state.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the VE port name expressed as slot/port.
+            :param admin: Sets the admin enabled state.
+            :param ipsec: Sets the IPsec policy enabled state.
+            :param ipextn: Sets the IP extension enabled state.
+            :param ficon: Sets the FICON enabled state.
 
-        * Outputs:
-            :rtype: List of tunnel instances matching the inputs.
+        * Output:
+            :rtype: A list of tunnel instances that match the input.
 
-        *Use cases*
+        *Use Cases*
 
-         Show tunnel details.
+         Show the tunnel details.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_tunnel import extension_tunnel
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_tunnel import extension_tunnel
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"
@@ -129,6 +129,7 @@ def _show_extension_tunnel(session, tnlobject):
     return tnllist
 
 
+# pylint: disable=W0613
 def show_extension_tunnel(session, name=None, ipsec=None, ipextn=None,
                           ficon=None, admin=None):
     tnlobject = extension_tunnel()

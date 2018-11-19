@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>maps_policy_show - PyFOS util to display MAPS Policy &#8212; PyFOS 1.1.0 documentation</title>
+    <title>maps_policy_show - PyFOS util to display a MAPS policy. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="maps_policy_enable - PyFOS util to enable MAPS policy" href="maps_policy_enable.html" />
-    <link rel="prev" title="maps_policy_delete - PyFOS util to delete MAPS policy" href="maps_policy_delete.html" /> 
+    <link rel="next" title="maps_policy_enable - PyFOS util to enable a MAPS policy." href="maps_policy_enable.html" />
+    <link rel="prev" title="maps_policy_delete - PyFOS util to delete a MAPS policy." href="maps_policy_delete.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="maps_policy_enable.html" title="maps_policy_enable - PyFOS util to enable MAPS policy"
+          <a href="maps_policy_enable.html" title="maps_policy_enable - PyFOS util to enable a MAPS policy."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="maps_policy_delete.html" title="maps_policy_delete - PyFOS util to delete MAPS policy"
+          <a href="maps_policy_delete.html" title="maps_policy_delete - PyFOS util to delete a MAPS policy."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,49 +42,50 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-maps_policy_show"></span><div class="section" id="maps-policy-show-pyfos-util-to-display-maps-policy">
-<h1><a class="reference internal" href="#module-maps_policy_show" title="maps_policy_show: PyFOS module to show contents of a policy if policy name is specified. Else contents of all MAPS policies will be displayed. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_policy_show</span></code></a> - PyFOS util to display MAPS Policy<a class="headerlink" href="#maps-policy-show-pyfos-util-to-display-maps-policy" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="module-maps_policy_show"></span><div class="section" id="maps-policy-show-pyfos-util-to-display-a-maps-policy">
+<h1><a class="reference internal" href="#module-maps_policy_show" title="maps_policy_show: PyFOS module to show contents of a policy if policy name is specified. Else contents of all MAPS policies will be displayed. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">maps_policy_show</span></code></a> - PyFOS util to display a MAPS policy.<a class="headerlink" href="#maps-policy-show-pyfos-util-to-display-a-maps-policy" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li>input:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request                             is directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><table class="first last docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
 <tbody valign="top">
 <tr><td class="option-group">
 <kbd><span class="option">--name</span></kbd></td>
-<td><p class="first last">specify MAPS Policy</p>
+<td><p class="first last">Specifies a MAPS policy.</p>
 </td></tr>
 </tbody>
 </table>
 </dd>
 </dl>
 </li>
-<li><p class="first">output:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>If Policy name is entered, then all the rules within the policy</dt>
-<dd><p class="first last">will be displayed.</p>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><dl class="first last docutils">
+<dt>If a policy name is entered, then all rules within the policy</dt>
+<dd><p class="first last">are displayed.</p>
 </dd>
-<dt>Else all the policies present in the switch and its rules</dt>
-<dd><p class="first last">will be displayed.</p>
+<dt>Otherwise, all policies present in the switch and its rules</dt>
+<dd><p class="first last">are displayed.</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd>
+</dl>
 </li>
 </ul>
 </div>
@@ -104,10 +105,10 @@ Module <a class="reference internal" href="maps_policy_enable.html#module-maps_p
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="maps_policy_delete.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_policy_delete</span></code> - PyFOS util to delete MAPS policy</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_policy_delete</span></code> - PyFOS util to delete a MAPS policy.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="maps_policy_enable.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">maps_policy_enable</span></code> - PyFOS util to enable MAPS policy</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">maps_policy_enable</span></code> - PyFOS util to enable a MAPS policy.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -141,17 +142,17 @@ Module <a class="reference internal" href="maps_policy_enable.html#module-maps_p
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="maps_policy_enable.html" title="maps_policy_enable - PyFOS util to enable MAPS policy"
+          <a href="maps_policy_enable.html" title="maps_policy_enable - PyFOS util to enable a MAPS policy."
              >next</a> |</li>
         <li class="right" >
-          <a href="maps_policy_delete.html" title="maps_policy_delete - PyFOS util to delete MAPS policy"
+          <a href="maps_policy_delete.html" title="maps_policy_delete - PyFOS util to delete a MAPS policy."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

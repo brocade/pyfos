@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>log_setting_keep_alive_period_set - PyFOS util for log_setting use case. &#8212; PyFOS 1.1.0 documentation</title>
+    <title>log_setting_keep_alive_period_set - PyFOS util for setting the keep alive period. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="raslog_get - PyFOS util for configuring raslog op use case." href="raslog_get.html" />
-    <link rel="prev" title="log_setting_keep_alive_period_get - PyFOS util for setting alive period" href="log_setting_keep_alive_period_get.html" /> 
+    <link rel="next" title="raslog_get - PyFOS util for retrieving the RASLog message." href="raslog_get.html" />
+    <link rel="prev" title="log_setting_keep_alive_period_get - PyFOS util for setting the alive period." href="log_setting_keep_alive_period_get.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="raslog_get.html" title="raslog_get - PyFOS util for configuring raslog op use case."
+          <a href="raslog_get.html" title="raslog_get - PyFOS util for retrieving the RASLog message."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="log_setting_keep_alive_period_get.html" title="log_setting_keep_alive_period_get - PyFOS util for setting alive period"
+          <a href="log_setting_keep_alive_period_get.html" title="log_setting_keep_alive_period_get - PyFOS util for setting the alive period."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,32 +42,31 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-log_setting_keep_alive_period_set"></span><div class="section" id="log-setting-keep-alive-period-set-pyfos-util-for-log-setting-use-case">
-<h1><a class="reference internal" href="#module-log_setting_keep_alive_period_set" title="log_setting_keep_alive_period_set: PyFOS util for configuring log_setting op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_set</span></code></a> - PyFOS util for log_setting use case.<a class="headerlink" href="#log-setting-keep-alive-period-set-pyfos-util-for-log-setting-use-case" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-log_setting_keep_alive_period_set" title="log_setting_keep_alive_period_set: PyFOS util for configuring log_setting op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_set</span></code></a> provides for log_setting use case.</p>
-<p>This module is a standalone script that can be used to display log_setting
-attributes</p>
+  <span class="target" id="module-log_setting_keep_alive_period_set"></span><div class="section" id="log-setting-keep-alive-period-set-pyfos-util-for-setting-the-keep-alive-period">
+<h1><a class="reference internal" href="#module-log_setting_keep_alive_period_set" title="log_setting_keep_alive_period_set: PyFOS util for configuring log_setting op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_set</span></code></a> - PyFOS util for setting the keep alive period.<a class="headerlink" href="#log-setting-keep-alive-period-set-pyfos-util-for-setting-the-keep-alive-period" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-log_setting_keep_alive_period_set" title="log_setting_keep_alive_period_set: PyFOS util for configuring log_setting op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_set</span></code></a> util provides for setting the keep alive period.</p>
+<p>This module is a stand-alone script that can be used to set the keep alive period.</p>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt>-L=&lt;login&gt;: Login ID. If not provided, interactive</dt>
+<dt>-L=&lt;login&gt;: The login ID. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>-P=&lt;password&gt;: Password. If not provided, interactive</dt>
+<dt>-P=&lt;password&gt;: The password. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: IP address</p>
+<li><p class="first">-i=&lt;IP address&gt;: The IP address.</p>
 </li>
 <li><dl class="first docutils">
-<dt>-f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd><p class="first last">VFID of 128 is assumed.</p>
+<dt>-f=&lt;VFID&gt;: The VFID or -1 if VF is disabled. If unspecified,</dt>
+<dd><p class="first last">a VFID of 128 is assumed.</p>
 </dd>
 </dl>
 </li>
@@ -76,7 +75,7 @@ attributes</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><ul class="first last">
 <li><table class="first docutils option-list" frame="void" rules="none">
 <col class="option" />
@@ -85,7 +84,7 @@ attributes</p>
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--alive=<var>ALIVE-PERIOD</var></span></kbd></td>
 </tr>
-<tr><td>&#160;</td><td><p class="first last">Set alive period for log in hours.</p>
+<tr><td>&#160;</td><td><p class="first last">Sets the alive period for the log in hours.</p>
 </td></tr>
 </tbody>
 </table>
@@ -95,9 +94,9 @@ attributes</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>log_setting attributes in JSON format</li>
+<li>Log setting attributes in JSON format.</li>
 </ul>
 </dd>
 </dl>
@@ -106,7 +105,7 @@ attributes</p>
 <dl class="function">
 <dt id="log_setting_keep_alive_period_set.set_alive_period">
 <code class="descclassname">log_setting_keep_alive_period_set.</code><code class="descname">set_alive_period</code><span class="sig-paren">(</span><em>session</em>, <em>period</em><span class="sig-paren">)</span><a class="headerlink" href="#log_setting_keep_alive_period_set.set_alive_period" title="Permalink to this definition">¶</a></dt>
-<dd><p>Example usage of the method:</p>
+<dd><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">log_setting_keep_alive_period_set</span><span class="o">.</span><span class="n">set_alive_period</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
         <span class="n">period</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
@@ -123,14 +122,14 @@ attributes</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param period:</th><td class="field-body">desired keep alive period in hr.</td>
+<tr class="field-even field"><th class="field-name">param period:</th><td class="field-body">The keep alive period in hours.</td>
 </tr>
 </tbody>
 </table>
@@ -138,12 +137,12 @@ attributes</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -151,9 +150,9 @@ attributes</p>
 </dl>
 </li>
 </ul>
-<p><em>use cases</em></p>
+<p><em>Use Cases</em></p>
 <ol class="arabic simple">
-<li>configures the keep alive period of the raslog</li>
+<li>Configures the keep alive period of the RASLog.</li>
 </ol>
 </dd></dl>
 
@@ -171,10 +170,10 @@ attributes</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="log_setting_keep_alive_period_get.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_get</span></code> - PyFOS util for setting alive period</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_get</span></code> - PyFOS util for setting the alive period.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="raslog_get.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">raslog_get</span></code> - PyFOS util for configuring raslog op use case.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">raslog_get</span></code> - PyFOS util for retrieving the RASLog message.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -208,17 +207,17 @@ attributes</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="raslog_get.html" title="raslog_get - PyFOS util for configuring raslog op use case."
+          <a href="raslog_get.html" title="raslog_get - PyFOS util for retrieving the RASLog message."
              >next</a> |</li>
         <li class="right" >
-          <a href="log_setting_keep_alive_period_get.html" title="log_setting_keep_alive_period_get - PyFOS util for setting alive period"
+          <a href="log_setting_keep_alive_period_get.html" title="log_setting_keep_alive_period_get - PyFOS util for setting the alive period."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

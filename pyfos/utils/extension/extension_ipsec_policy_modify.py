@@ -16,28 +16,30 @@
 
 """
 
-:mod:`extension_ipsec_policy_modify` - PyFOS util for modifying IPsec policy.
+:mod:`extension_ipsec_policy_modify` - PyFOS util for modifying an \
+IPsec policy.
 ***********************************************************************************
-The :mod:`extension_ipsec_policy_modify` Util is used to modify IPsec Policy.
+The :mod:`extension_ipsec_policy_modify` util is used to modify an \
+IPsec policy.
 
 This module is a stand-alone script that can be used to modify an extension
 IPsec policy.
 
 extension_ipsec_policy_modify: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of the FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA".
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA".
     * -v,--verbose: Verbose mode.
 
-* Script specific options:
-    *    --profile-name: Set profile-name.
-    *    --restart-ike-sessions: Set restart-ike-sessions.
-    *    --policy-name: Set policy-name.
-    *    --authentication-data: Set authentication-data.
+* Script Specific Options:
+    *    --profile-name: Sets the profile name.
+    *    --restart-ike-sessions: Sets the restart IKE sessions.
+    *    --policy-name: Sets the policy name.
+    *    --authentication-data: Sets the authentication data.
 
 * Outputs:
     * Python dictionary content with RESTCONF response data.
@@ -45,9 +47,9 @@ extension_ipsec_policy_modify: Usage
 .. function:: extension_ipsec_policy_modify.modify_extension_ipsec_policy(\
 session, name, profile, auth)
 
-    *Create extension ipsec policy*
+    *Create an Extension IPsec Policy*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
           ret =
           extension_ipsec_policy_modify.modify_extension_ipsec_policy(session,
@@ -66,28 +68,28 @@ session, name, profile, auth)
           extension_ipsec_policy_modify._modify_extension_ipsec_policy(session,
           restobject)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: IPsec policy name.
-            :param profile: IPsec profile name.
-            :param auth: Authentication data.
-            :param restart_ike: Need to restart the ike sessions.
+        * Input:
+            :param session: The session returned by the login.
+            :param name: Sets the IPsec policy name.
+            :param profile: Sets the IPsec profile name.
+            :param auth: Sets the authentication data.
+            :param restart_ike: Sets the restart IKE sessions.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
-         Create a new ipsec policy.
+         Create a new IPsec policy.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_ipsec_policy import extension_ipsec_policy
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_ipsec_policy import extension_ipsec_policy
+from pyfos.utils import brcd_util
 
 isHttps = "0"
 
@@ -110,7 +112,7 @@ def modify_extension_ipsec_policy(session, name, profile, auth,
 def validate(ipsecobject):
     if ipsecobject.peek_policy_name() is None or \
        ipsecobject.peek_authentication_data() is None:
-            return 1
+        return 1
     return 0
 
 

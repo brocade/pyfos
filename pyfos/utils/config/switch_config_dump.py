@@ -43,21 +43,14 @@ added to --compare option and directory name is given instead.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
-import pyfos.pyfos_brocade_fabric as pyfos_fabric
-import pyfos.pyfos_rest_util as pyfos_rest_util
-import pyfos.pyfos_util as pyfos_util
-import pyfos.pyfos_brocade_fibrechannel_logical_switch as fc_ls
 import sys
-import pyfos.utils.brcd_util as brcd_util
-import json
 import os
+import openpyxl
 import switch_config_util
 import switch_config_obj
-import openpyxl
+from pyfos import pyfos_auth
+from pyfos.manager.pyfos_config_manager import config_manager
+from pyfos.utils import brcd_util
 
 
 def usage():
@@ -65,7 +58,7 @@ def usage():
 
 
 def dump_by_vf(session, envelope_name, in_json, vf):
-    if vf is 128:
+    if vf == 128:
         print("dumping for default switch or non-vf")
     else:
         print("dumping for VFID", vf)
@@ -74,7 +67,7 @@ def dump_by_vf(session, envelope_name, in_json, vf):
 
     dir_name = None
     if in_json:
-        if vf is 128:
+        if vf == 128:
             dir_name = envelope_name
         else:
             dir_name = envelope_name + "." + str(vf)
@@ -132,15 +125,18 @@ def main(argv):
     if 'json' in inputs:
         in_json = inputs['json']
 
-    envelope_name = switch_config_util.get_envelope_name(inputs['ipaddr'])
-
-    result = fc_ls.fibrechannel_logical_switch.get(session)
-    if pyfos_util.is_failed_resp(result):
-        dump_by_vf(session, envelope_name, in_json, 128)
+    if in_json:
+        fmtfile = 'JSON'
+        fmtobj = 'json'
+        ext = '.json'
     else:
-        for switch in result:
-            dump_by_vf(session, envelope_name, in_json, switch.peek_fabric_id())
-
+        fmtfile = 'XLSX'
+        fmtobj = 'attributes'
+        ext = '.xlsx'
+    envelope_name = switch_config_util.get_envelope_name(inputs['ipaddr'])
+    envelope_name += ext
+    mgr = config_manager(fmtfile, fmtobj)
+    mgr.dumptofile(session, envelope_name)
     print("done")
 
     pyfos_auth.logout(session)

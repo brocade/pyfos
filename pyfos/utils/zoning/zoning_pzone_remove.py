@@ -41,11 +41,11 @@ member from existing Peer Zone(s).
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_zone as pyfos_zone
 import sys
-import pyfos.utils.brcd_zone_util as brcd_zone_util
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_zone as pyfos_zone
+from pyfos.utils import brcd_zone_util
+from pyfos.utils import brcd_util
 
 
 def usage():

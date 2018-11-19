@@ -47,11 +47,11 @@ This module is a stand-alone script and API that can be used to clear a Zone DB.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_zone as pyfos_zone
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 import pyfos.utils.zoning.zoning_cfg_save as cfgsave
 import pyfos.utils.zoning.zoning_cfg_abort as cfgabort
 

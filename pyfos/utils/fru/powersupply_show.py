@@ -15,37 +15,37 @@
 
 """
 
-:mod:`powersupply_show` - PyFOS util to show the powersupply unit information.
-******************************************************************************
-The :mod:`powersupply_show` provides option to display the powersupply
-unit information.
+:mod:`powersupply_show` - PyFOS util to show the power supply unit information.
+**********************************************************************************
+The :mod:`powersupply_show` util shows the power supply unit information.
 
-This module can be used to display the powersupply unit information.
+This module can be used to display the power supply unit information.
 
-* inputs:
+* Input:
 
 | Infrastructure options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-|  Util scripts options:
+|  Util Script Options:
 
-   |   --unit-number=unit-number        unit-number
+   |   --unit-number=unit-number     Sets the unit number.
 
-* outputs:
-    * Powersupply unit information. When unit-number is not provided,
-      all the units will be displayed.
+* Output:
+    * Power supply unit information. When unit number is not provided,
+      all power supply units will be displayed.
 
 .. function:: ps_unit_show.show_ps_unit(session, unit)
 
-    * Display the powersupply unit details.
+    * Display the power supply unit details.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             # Example 1: Display all the ps_units
             ret = ps_unit_show.show_ps_unit(session, None)
@@ -63,23 +63,24 @@ This module can be used to display the powersupply unit information.
             else:
                 result = ps_obj.get(session, unit)
 
-        * inputs:
-            :param session: session returned by login.
-            :param unit: Specific unit-number or None for all ps-units.
+        * Input:
+            :param session: The session returned by the login.
+            :param unit: The specific unit number or none for all \
+                          power supply units.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the powersupply unit information.
+        1. Retrieve the power supply unit information.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_fru import power_supply
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def show_ps_unit(session, unit):

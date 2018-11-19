@@ -14,37 +14,37 @@
 # limitations under the License.
 
 """
-:mod:`maps_policy_show` - PyFOS util to display MAPS Policy
+:mod:`maps_policy_show` - PyFOS util to display a MAPS policy.
 ***************************************************************\
 *********************************
 
-* input:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --name                 specify MAPS Policy
+* Util Script Options:
+   --name                 Specifies a MAPS policy.
 
-* output:
-
-    If Policy name is entered, then all the rules within the policy
-        will be displayed.
-    Else all the policies present in the switch and its rules
-        will be displayed.
+* Output:
+    If a policy name is entered, then all rules within the policy
+        are displayed.
+    Otherwise, all policies present in the switch and its rules
+        are displayed.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import maps_policy
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def show_maps_policy(session, maps_policy_object):

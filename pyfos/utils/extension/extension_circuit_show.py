@@ -16,39 +16,39 @@
 
 """
 
-:mod:`extension_circuit_show` - PyFOS util for displaying circuit object.
+:mod:`extension_circuit_show` - PyFOS util for displaying a circuit object.
 ***********************************************************************************
-The :mod:`extension_circuit_show` Util displays a circuit.
+The :mod:`extension_circuit_show` util displays a circuit.
 
 This module is a stand-alone script that can be used to the show extension
 circuit.
 
 extension_circuit_show.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name or slot/port of the circuit.
-    * -c,--circuit-id=CIRCUIT-ID: Set circuit-id of the circuit.
-    * -S,--local-ip=LOCAL-IP: Set local-ip-address of the circuit.
-    * -D,--remote-ip=REMOTE-IP: Set remote-ip-address of the circuit.
-    * -a,--admin-enabled=VALUE: Set admin-enabled.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name or slot/port of the circuit.
+    * -c,--circuit-id=CIRCUIT-ID: Sets the ID of the circuit.
+    * -S,--local-ip=LOCAL-IP: Sets the local IP address of the circuit.
+    * -D,--remote-ip=REMOTE-IP: Sets the remote IP address of the circuit.
+    * -a,--admin-enabled=VALUE: Sets admin-enabled.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_circuit_show.show_extension_circuit(session,\
 name, cid, local, remote)
 
-    *show extension circuit*
+    *Show Extension Circuit*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = extension_circuit_show.show_extension_circuit(session,
                 name, cid, local, remote)
@@ -65,28 +65,28 @@ name, cid, local, remote)
             result = extension_circuit_show._show_extension_circuit(session,
             circuit)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: VE port name expressed as slot/port.
-            :param cid: Circuit ID.
-            :param local: Circuit local IP address.
-            :param remote: Circuit Remote IP Address.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the VE_Port name expressed as slot/port.
+            :param cid: Sets the circuit ID.
+            :param local: Sets the local IP address of the circuit.
+            :param remote: Sets the remote IP address of the circuit.
 
-        * Outputs:
-            :rtype: List of circuits.
+        * Output:
+            :rtype: A list of circuits.
 
-        *Use cases*
+        *Use Cases*
 
-         Show a circuit details.
+         Show the circuit details.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"

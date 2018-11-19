@@ -16,42 +16,43 @@
 
 """
 
-:mod:`maps_policy_delete` - PyFOS util to delete MAPS policy
+:mod:`maps_policy_delete` - PyFOS util to delete a MAPS policy.
 *******************************************************************************
 
 
-This script is used to either delete rules in a Policy or delete MAPS Policy.
+This script is used to delete rules in a MAPS policy or delete a MAPS policy.
+If a rule list is provided in the input, then those rules are deleted from
+the specified policy.
+If the rule list is empty, then the MAPS policy is deleted.
 
-If rule list is provided in the input then those rules will be deleted from
-the given Policy.
-If rule list is empty then MAPS Policy will be deleted.
+* Input:
 
-* inputs:
+| Infrastructure Options:
 
-| Infrastructure options:
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+* Util Script Options:
+   --name                 Specifies a MAPS policy.
+    --rule-list           Sets the rule list in the MAPS policy.
 
-* Util scripts options:
-    --name                 specify MAPS Policy
-    --rule-list            Rule list inside MAPS policy
+* Output:
+    * A success response or a dictionary in case of error.
 
-* outputs:
-    * success response or dictionary in case of error.
 
 """
 
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import maps_policy
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

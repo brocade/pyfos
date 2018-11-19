@@ -15,32 +15,33 @@
 
 """
 
-:mod:`raslog_module_set` - PyFOS util for configuring raslog_module op use case
+:mod:`raslog_module_set` - PyFOS util for configuring the RASLog module.
 *******************************************************************************
-The :mod:`raslog_module_set` provides for configuring raslog_module op use case
+The :mod:`raslog_module_set` util provides for configuring RASLog module.
 
-This module is a standalone script that can be used to display raslog_module
-attributes
+This module is a stand-alone script that can be used to display RASLog module
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util scripts options:
-    * --module-id=MODULE-ID     Set FOS Module Id.
-    * --enable=ENABLE-FLAG      Set Status flag of the FOS Module. <true|false>
+* Util Script Options:
+    * --module-id=MODULE-ID     Sets the FOS module ID.
+    * --enable=ENABLE-FLAG      Sets the status flag of the\
+                                 FOS module <true|false>.
 
-* outputs:
-    * raslog_module attributes in JSON format
+* Output:
+    * RASLog attributes in JSON format.
 
 .. function:: set_raslog_module(session, mod_id, mod_flag)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = raslog_module_set.set_raslog_module(session,mod_id,mod_flag)
             print (ret)
@@ -55,24 +56,25 @@ attributes
             result = _set_raslog_module (session, rmobj)
             return result
 
-        * inputs:
-            :param session: session returned by login.
-            :param mod_id: FOS Module ID.
-            :param mod_flag: Message Flag for all messages in the FOS Module.
+        * Input:
+            :param session: The session returned by the login.
+            :param mod_id: The FOS module ID.
+            :param mod_flag: The message flag for all messages in the\
+                              FOS module.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
-        1. Enables/Disables the raslog messages belonging to a FOS Module.
+        *Use Cases*
+        1. Enables or disables the RASLog messages belonging to a FOS module.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import raslog_module
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import raslog_module
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def set_raslog_module(session, mod_id, mod_flag):

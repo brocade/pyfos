@@ -15,43 +15,45 @@
 
 """
 
-:mod:`tacacs_server_set` - PyFOS util to modify tacacs server configuration
+:mod:`tacacs_server_set` - PyFOS util to modify a TACACS+ server configuration.
 *******************************************************************************
-The :mod:`tacacs_server_create` supports 'aaaconfig' CLI use case.
+The :mod:`tacacs_server_create` util supports modifying a TACACS+ \
+server configuration.
 
-This module is a standalone script and API that can be used to modify a
-tacacs server.
+This module is a stand-alone script and API that can be used to modify a
+TACACS+ server.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --server                        set tacacs server name/ip
-    --port                          set tacacs server port number
-    --timeout                       set tacacs server timeout value
-    --authentication                set tacacs server authentication type
-    --secret                        set tacacs server secret type
-    --encryption                    set tacacs server encryption type
-    --position                      set tacacs server position
+* Util Script Options:
+    --server              Sets the TACACS+ server name and IP address.
+    --port                Sets the TACACS+ server port number.
+    --timeout             Sets the TACACS+ server timeout value.
+    --authentication      Sets the TACACS+ server authentication type.
+    --secret              Sets the TACACS+ server secret type.
+    --encryption          Sets the TACACS+ server encryption type.
+    --position            Sets the TACACS+ server position.
 
-* outputs:
-    * success response or dictionary in case of error
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import tacacs_server
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -67,9 +69,9 @@ def main(argv):
         exit(1)
 
     if not (tacacs_obj.peek_port() or
-       tacacs_obj.peek_timeout() or tacacs_obj.peek_authentication() or
-       tacacs_obj.peek_secret() or tacacs_obj.peek_encryption_type() or
-       tacacs_obj.peek_position()):
+            tacacs_obj.peek_timeout() or tacacs_obj.peek_authentication() or
+            tacacs_obj.peek_secret() or tacacs_obj.peek_encryption_type() or
+            tacacs_obj.peek_position()):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)

@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="powersupply_show - PyFOS util to show the powersupply unit information." href="powersupply_show.html" />
-    <link rel="prev" title="media_show - PyFOS util to display port media information" href="media_rdp_show.html" /> 
+    <link rel="next" title="powersupply_show - PyFOS util to show the power supply unit information." href="powersupply_show.html" />
+    <link rel="prev" title="media_show - PyFOS util to display port media information." href="media_rdp_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="powersupply_show.html" title="powersupply_show - PyFOS util to show the powersupply unit information."
+          <a href="powersupply_show.html" title="powersupply_show - PyFOS util to show the power supply unit information."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="media_rdp_show.html" title="media_show - PyFOS util to display port media information"
+          <a href="media_rdp_show.html" title="media_show - PyFOS util to display port media information."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -44,37 +44,35 @@
             
   <span class="target" id="module-fan_show"></span><div class="section" id="fan-show-pyfos-util-to-show-the-fan-unit-information">
 <h1><a class="reference internal" href="#module-fan_show" title="fan_show: PyFOS module to display the Fan unit information. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fan_show</span></code></a> - PyFOS util to show the fan unit information.<a class="headerlink" href="#fan-show-pyfos-util-to-show-the-fan-unit-information" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-fan_show" title="fan_show: PyFOS module to display the Fan unit information. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fan_show</span></code></a> provides option to display the fan unit information.</p>
+<p>The <a class="reference internal" href="#module-fan_show" title="fan_show: PyFOS module to display the Fan unit information. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fan_show</span></code></a> util displays the fan unit information.</p>
 <p>This module can be used to display the FAN unit information.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
 <div class="line">Infrastructure options:</div>
 </div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
-</div>
-</div></blockquote>
 <div class="line-block">
-<div class="line">Util scripts options:</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request is                             directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
+</div>
+<div class="line-block">
+<div class="line">Util Script Options:</div>
 </div>
 <blockquote>
 <div><div class="line-block">
-<div class="line">–unit-number=unit-number        unit-number</div>
+<div class="line">–unit-number=unit-number    Sets the unit number.</div>
 </div>
 </div></blockquote>
 <ul>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>Fan unit information. When unit-number is not provided,
+<li>Fan unit information. When the unit number is not provided,
 all the units will be displayed.</li>
 </ul>
 </dd>
@@ -87,7 +85,7 @@ all the units will be displayed.</li>
 <dd><ul>
 <li><p class="first">Display the fan unit details.</p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="c1"># Example 1: Display all the fan_units</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">fan_unit_show</span><span class="o">.</span><span class="n">show_fan_unit</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
@@ -107,14 +105,14 @@ all the units will be displayed.</li>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param unit:</th><td class="field-body">Specific unit-number or None for all fan-units.</td>
+<tr class="field-even field"><th class="field-name">param unit:</th><td class="field-body">The specific unit number or none for all fan-units.</td>
 </tr>
 </tbody>
 </table>
@@ -122,12 +120,12 @@ all the units will be displayed.</li>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -135,9 +133,9 @@ all the units will be displayed.</li>
 </dl>
 </li>
 </ul>
-<p><em>use cases</em></p>
+<p><em>Use Cases</em></p>
 <ol class="arabic simple">
-<li>Retrieve the FAN unit information.</li>
+<li>Retrieve the fan unit information.</li>
 </ol>
 </div></blockquote>
 </li>
@@ -159,10 +157,10 @@ Module <a class="reference internal" href="pyfos_brocade_fru.html#module-pyfos_b
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="media_rdp_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">media_show</span></code> - PyFOS util to display port media information</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">media_show</span></code> - PyFOS util to display port media information.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="powersupply_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">powersupply_show</span></code> - PyFOS util to show the powersupply unit information.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">powersupply_show</span></code> - PyFOS util to show the power supply unit information.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -196,17 +194,17 @@ Module <a class="reference internal" href="pyfos_brocade_fru.html#module-pyfos_b
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="powersupply_show.html" title="powersupply_show - PyFOS util to show the powersupply unit information."
+          <a href="powersupply_show.html" title="powersupply_show - PyFOS util to show the power supply unit information."
              >next</a> |</li>
         <li class="right" >
-          <a href="media_rdp_show.html" title="media_show - PyFOS util to display port media information"
+          <a href="media_rdp_show.html" title="media_show - PyFOS util to display port media information."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

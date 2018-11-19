@@ -33,15 +33,18 @@ sys.path.insert(0, os.path.abspath('../pyfos/utils/misc'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/access_gateway'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/logical_switch'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/system_security'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/time'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/chassis'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/media'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/fru'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/logging'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/license'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/maps'))
+sys.path.insert(0, os.path.abspath('../pyfos/manager'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/supportsave'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/dns_config'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/switch_ip_config'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/trunk'))
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.

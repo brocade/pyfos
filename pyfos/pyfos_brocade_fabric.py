@@ -19,7 +19,7 @@ The :mod:`pyfos_brocade_fabric` provides a REST support for Fabric.
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 
 

@@ -15,9 +15,8 @@
 
 """
 
-:mod:`user_specific_password_cfg_show` - PyFOS util to display user specific
-                                         password configurations
-******************************************************************************
+:mod:`user_specific_password_cfg_show` - PyFOS util to display user specific password configurations
+****************************************************************************************************
 This module is a standalone script and API that can be used to display
 user specific password config paramters.
 
@@ -26,13 +25,21 @@ user specific password config paramters.
 | Infrastructure options:
 
 |   -i,--ipaddr=IPADDR     IP address of FOS switch.
+
 |   -L,--login=LOGIN       login name.
+
 |   -P,--password=PASSWORD password.
+
 |   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
+
 |   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
+
 |   -v,--verbose           verbose mode[OPTIONAL].
 
+
 * Util scripts options:
+
+
 
 * outputs:
     * success response or dictionary in case of error.
@@ -40,10 +47,10 @@ user specific password config paramters.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import user_specific_password_cfg
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):

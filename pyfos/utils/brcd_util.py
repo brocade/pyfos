@@ -15,15 +15,16 @@
  limitations under the License.
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
 import getpass
 import getopt
 import sys
 import atexit
 import inspect
-import pyfos.utils.brcd_cli as brcd_cli
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_cli
 
+# pylint: disable=W0603
 session = None
 
 
@@ -120,25 +121,25 @@ def base_generic_input(argv, usage, valid_options):
         if opt in ("-h", "--help"):
             full_usage(usage)
             sys.exit()
-        elif opt in ("--allaccess"):
+        elif opt in "--allaccess":
             if not pyfos_util.isInt(arg):
                 print("*** Invalid allacess:", arg)
                 full_usage(usage)
                 sys.exit(5)
 
             ret_dict["allaccess"] = int(arg)
-        elif opt in ("--compare"):
+        elif opt in "--compare":
             ret_dict["compare"] = arg
-        elif opt in ("--disable"):
+        elif opt in "--disable":
             ret_dict["disable"] = True
-        elif opt in ("--device"):
+        elif opt in "--device":
             if not pyfos_util.isWWN(arg):
                 print("*** Invalid device:", arg)
                 full_usage(usage)
                 sys.exit(5)
 
             ret_dict["device"] = arg
-        elif opt in ("--enable"):
+        elif opt in "--enable":
             ret_dict["enable"] = True
         elif opt in ("-f", "--vfid"):
             if not pyfos_util.isInt(arg):
@@ -147,15 +148,15 @@ def base_generic_input(argv, usage, valid_options):
                 sys.exit(5)
 
             ret_dict["vfid"] = int(arg)
-        elif opt in ("--filename"):
+        elif opt in "--filename":
             ret_dict["filename"] = arg
-        elif opt in ("--hbaid"):
+        elif opt in "--hbaid":
             ret_dict["hbaid"] = arg
-        elif opt in ("--hostname"):
+        elif opt in "--hostname":
             ret_dict["hostname"] = arg
-        elif opt in ("--banner"):
+        elif opt in "--banner":
             ret_dict["banner"] = arg
-        elif opt in ("--hostport"):
+        elif opt in "--hostport":
             if not pyfos_util.isWWN(arg):
                 print("*** Invalid hostport:", arg)
                 full_usage(usage)
@@ -169,21 +170,21 @@ def base_generic_input(argv, usage, valid_options):
                 sys.exit(5)
 
             ret_dict["ipaddr"] = arg
-        elif opt in ("--json"):
+        elif opt in "--json":
             ret_dict["json"] = True
         elif opt in ("-L", "--login"):
             ret_dict["login"] = arg
-        elif opt in ("--members"):
+        elif opt in "--members":
             ret_dict["members"] = arg.split(";")
-        elif opt in ("--name"):
+        elif opt in "--name":
             ret_dict["name"] = arg
-        elif opt in ("--pmembers"):
+        elif opt in "--pmembers":
             ret_dict["pmembers"] = arg.split(";")
         elif opt in ("-P", "--password"):
             ret_dict["password"] = arg
-        elif opt in ("--portid"):
+        elif opt in "--portid":
             ret_dict["portid"] = arg
-        elif opt in ("--reffcport"):
+        elif opt in "--reffcport":
             if not pyfos_util.isSlotPort(arg):
                 print("*** Invalid reffcport:", arg)
                 full_usage(usage)
@@ -198,30 +199,30 @@ def base_generic_input(argv, usage, valid_options):
             else:
                 print("defaults to CA")
                 ret_dict["secured"] = "CA"
-        elif opt in ("--show"):
+        elif opt in "--show":
             ret_dict["show"] = 1
-        elif opt in ("--speed"):
+        elif opt in "--speed":
             if not pyfos_util.isInt(arg):
                 print("*** Invalid speed:", arg)
                 full_usage(usage)
                 sys.exit(5)
 
             ret_dict["speed"] = int(arg)
-        elif opt in ("--template"):
+        elif opt in "--template":
             ret_dict["template"] = arg
-        elif opt in ("--targetname"):
+        elif opt in "--targetname":
             ret_dict["targetname"] = arg
-        elif opt in ("--targetport"):
+        elif opt in "--targetport":
             if not pyfos_util.isWWN(arg):
                 print("*** Invalid targetport:", arg)
                 full_usage(usage)
                 sys.exit(5)
 
             ret_dict["targetport"] = arg
-        elif opt in ("--username"):
+        elif opt in "--username":
             ret_dict["username"] = arg
-        elif opt in ("--usepeer"):
-            if arg != "WWN" and arg != "":
+        elif opt in "--usepeer":
+            if arg not in ('WWN', ''):
                 print("*** Invalid userpeer:", arg)
                 full_usage(usage)
                 sys.exit(5)
@@ -229,9 +230,9 @@ def base_generic_input(argv, usage, valid_options):
             ret_dict["usepeer"] = arg
         elif opt in ("-v", "--verbose"):
             ret_dict["verbose"] = 1
-        elif opt in ("--xlscheck"):
+        elif opt in "--xlscheck":
             ret_dict["xlscheck"] = arg
-        elif opt in ("--xlsapply"):
+        elif opt in "--xlsapply":
             ret_dict["xlsapply"] = arg
         else:
             print("unknown", opt)
@@ -247,10 +248,9 @@ def base_generic_input(argv, usage, valid_options):
         ret_dict["password"] = password
 
     if valid_options is not None:
+        # pylint: disable=W0612
         for k, v in ret_dict.items():
-            if (k != "login" and k != "password" and
-                    k != "ipaddr" and k != "secured" and
-                    k != "vfid" and k != "verbose"):
+            if k not in ('login', 'password', 'ipaddr', 'secured', 'vfid', 'verbose'):
                 found = False
                 for valid_option in valid_options:
                     if valid_option == k:
@@ -275,7 +275,7 @@ def generic_input(argv, cls_usage, filters=None, validate=None):
         custom_cli = brcd_cli.getcustomcli(cls_usage().container)
         restobject = cls_usage.parse(argv, inputs, filters, custom_cli, validate)
         if restobject is None:
-                sys.exit(4)
+            sys.exit(4)
         else:
             inputs.update({'utilobject': restobject})
             inputs.update({'utilclass': cls_usage})
@@ -289,10 +289,12 @@ def generic_input(argv, cls_usage, filters=None, validate=None):
 
 
 def parse(argv, cls_usage, filters=None, validate=None):
-    return (generic_input(argv, cls_usage, filters, validate))
+    return generic_input(argv, cls_usage, filters, validate)
 
 
 def getsession(inputs):
+    global session
+
     ishttps = None
     if 'secured' in inputs.keys():
         ishttps = inputs['secured']

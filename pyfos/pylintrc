@@ -1,0 +1,34 @@
+[MASTER]
+
+[MESSAGES CONTROL]
+
+disable=C0103, #Class name doesn't conform to PascalCase naming style (invalid-name)
+        C0111, #Missing function docstring
+        C0200, #Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+        C0301, # too many chars in a line
+        C0302, #Too many lines in module
+        C0330, #Wrong continued indentation
+        C1801, #Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+        E0202, #An attribute defined in json.encoder line 158 hides this method (method-hidden)
+        E0602, #Undefined variable 'is_key' (undefined-variable)
+        E1101, #Instance of 'rest_object' has no 'name_dict' member
+        E1120, #No value for argument 'uri' in constructor call (no-value-for-parameter)
+        E1121, #Too many function arguments
+        R0201, #Method could be a function (no-self-use)
+        R0801, #Similar lines in 2 files
+        R0902, #Too many instance attributes (28/7) (too-many-instance-attributes)
+        R0903, #Too few public methods
+        R0904, #Too many public methods (49/20) (too-many-public-methods)
+        R0911, #Too many return statements
+        R0913, #Too many arguments
+        R0914, #Too many local variables (17/15) (too-many-locals)
+        R0915, #Too many statements
+        R0916, #Too many boolean expressions in if statement (9/5) (too-many-boolean-expressions)
+        R1702, #Too many nested blocks (8/5) (too-many-nested-blocks)
+        R1705, #R1705: Unnecessary "else" after "return"
+        R1716, #Simplify chained comparison between the operands (chained-comparison)
+        W0102, #Dangerous default value {} as argument (dangerous-default-value)
+        W0212, #Access to a protected member _create_unverified_context of a client class (protected-access)
+        W0221, #Parameters differ from overridden 'default' method (arguments-differ)
+        W0511, #TODO Compact the attribute class based on new defines (fixme)
+        W0123, #Use of eval (eval-used) 

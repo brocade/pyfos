@@ -26,17 +26,19 @@ This module is utility functions for switch config scripts.
 import json
 import time
 import os
-import pyfos.pyfos_util as pyfos_util
-import pyfos.pyfos_rest_util as pyfos_rest_util
-from pyfos.pyfos_type import *
 import openpyxl
+from pyfos import pyfos_util
+from pyfos import pyfos_rest_util
 import pyfos.pyfos_brocade_zone as pyfos_zone
-import pyfos.utils.zoning.zoning_cfg_save as zoning_cfg_save
-import pyfos.utils.zoning.zoning_cfg_enable as zoning_cfg_enable
+from pyfos.utils.zoning import zoning_cfg_save
+
+
+# pylint: disable=W0603
+gr = 0
 
 
 def get_envelope_name(ipaddr):
-    return ("FOS_" + ipaddr + "_" + time.strftime("%Y_%m_%d_%H:%M:%S"))
+    return "FOS_" + ipaddr + "_" + time.strftime("%Y_%m_%d_%H_%M_%S")
 
 
 def in_template(template, obj_name, attribute_field):
@@ -50,10 +52,7 @@ def in_template(template, obj_name, attribute_field):
                 if "all" in v1:
                     return True
                 else:
-                    if attribute_field in v1:
-                        return True
-                    else:
-                        return False
+                    return bool(attribute_field in v1)
     return False
 
 
@@ -66,20 +65,21 @@ def get_template(filename):
 
 
 def find_matching_attrib_entry(old_attrib, keys):
-    for entry in old_attrib.value:
+    for entry1 in old_attrib.value:
         found = 0
-        for entry in old_attrib.value:
-            for k_e, v_e in entry.items():
+        for entry2 in old_attrib.value:
+            for k_e, v_e in entry2.items():
                 for key in keys:
                     for k, v in key.items():
                         if v_e.is_key:
                             if (k_e == k) and (v_e.getuservalue() == v):
                                 found += 1
             if found == len(keys):
-                return entry
+                return entry1
     return None
 
 
+# pylint: disable=W0613
 def process_patch_attribute_map(
         old_attrib, current_attrib, template, diff_set):
     patch_needed = 0
@@ -109,12 +109,6 @@ def process_patch_attribute_map(
                                     keys,
                                     matching_old_attrib_entry[k].getuservalue(),
                                     v.getuservalue()])
-                                #print(
-                                #        "\t", current_attrib.name, keys,
-                                #        "drifted from",
-                                #        matching_old_attrib_entry[k].
-                                #        getuservalue(),
-                                #        "to", v.getuservalue())
                                 patch_needed += 1
                                 v.setuservalue(
                                     matching_old_attrib_entry[k].
@@ -126,28 +120,23 @@ def process_patch_attribute_map(
                     diff_set[CHANGED_D].append([
                         False,
                         current_attrib.name,
-                        old_v, 
+                        old_v,
                         current_v])
-                    #print(
-                    #        "\t", current_attrib.name, "drifted from",
-                    #        old_v, "to", current_v)
                     patch_needed += 1
                     current_attrib.setuservalue(old_v)
                 else:
                     diff_set[CHANGED_D].append([
                         True,
                         current_attrib.name,
-                        old_v, 
+                        old_v,
                         current_v])
-                    #print(
-                    #        "\t(RO)", current_attrib.name, "drifted from",
-                    #        old_v, "to", current_v)
     else:
         print("unknown", current_v)
 
     return patch_needed
 
 
+# pylint: disable=W0613
 def process_post_attribute_map(
         old_attrib, current_attrib, template, diff_set):
 
@@ -175,9 +164,6 @@ def process_post_attribute_map(
                         current_attrib.name,
                         keys,
                         old_v[index]])
-                    #print(
-                    #    "\t", current_attrib.name, keys,
-                    #    "removed. Old value", old_v[index])
                     post_needed += 1
                     current_attrib.value.append(entry)
                 else:
@@ -186,9 +172,6 @@ def process_post_attribute_map(
                         current_attrib.name,
                         keys,
                         old_v[index]])
-                    #print(
-                    #    "\t(RO)", current_attrib.name, keys,
-                    #    "removed. Old value", old_v[index])
             else:
                 current_attrib.value.remove(matching_current_attrib_entry)
             index += 1
@@ -201,9 +184,6 @@ def process_post_attribute_map(
                     current_attrib.name,
                     None,
                     old_v])
-                #print(
-                #        "\t", current_attrib.name, "removed. Old value",
-                #        old_v)
                 post_needed += 1
                 current_attrib.setuservalue(old_v)
             else:
@@ -212,15 +192,13 @@ def process_post_attribute_map(
                     current_attrib.name,
                     None,
                     old_v])
-                #print(
-                #        "\t(RO)", current_attrib.name, "removed. Old value",
-                #        old_v)
     else:
         print("unknown")
 
     return post_needed
 
 
+# pylint: disable=W0613
 def process_delete_attribute_map(
         old_attrib, current_attrib, template,
         diff_set):
@@ -256,9 +234,6 @@ def process_delete_attribute_map(
                         current_attrib.name,
                         keys,
                         current_v[index]])
-                    #print(
-                    #    "\t", current_attrib.name, keys,
-                    #    "Added. New value", current_v[index])
                     delete_needed += 1
                     for key in keys:
                         ret_keys.append(key)
@@ -268,9 +243,6 @@ def process_delete_attribute_map(
                         current_attrib.name,
                         keys,
                         current_v[index]])
-                    #print(
-                    #    "\t(RO)", current_attrib.name, keys,
-                    #    "Added. New value", current_v[index])
             index += 1
     elif isinstance(current_v, dict):
         if not current_attrib.is_empty() and old_attrib.is_empty():
@@ -280,9 +252,6 @@ def process_delete_attribute_map(
                     False,
                     old_attrib.name,
                     current_v])
-                #print(
-                #        "\t", old_attrib.name, "Added. New value",
-                #        current_v)
                 delete_needed += 1
                 current_attrib.setuservalue(old_v)
             else:
@@ -290,9 +259,6 @@ def process_delete_attribute_map(
                     True,
                     old_attrib.name,
                     current_v])
-                #print(
-                #        "\t(RO)", old_attrib.name, "Added. New value",
-                #        current_v)
     else:
         print("unknown")
 
@@ -339,10 +305,6 @@ def process_patch(old_object, current_object, template, diff_set):
                         old_object.getattribute(k).getuservalue(),
                         v.getuservalue()])
                     patch_needed += 1
-                    #print(
-                    #        "\t", k, "drifted from",
-                    #        old_object.getattribute(k).getuservalue(),
-                    #        "to", v.getuservalue())
                     v.setuservalue(
                         old_object.getattribute(k).getuservalue())
                 else:
@@ -351,13 +313,11 @@ def process_patch(old_object, current_object, template, diff_set):
                         k,
                         old_object.getattribute(k).getuservalue(),
                         v.getuservalue()])
-                    #print(
-                    #        "\t(RO)", k, "drifted from",
-                    #        old_object.getattribute(k).getuservalue(),
-                    #        "to", v.getuservalue())
 
     if patch_needed > 0:
         return True
+
+    return False
 
 
 def process_post(old_object, current_object, template, diff_set):
@@ -367,7 +327,7 @@ def process_post(old_object, current_object, template, diff_set):
             keys[k] = v.getuservalue()
 
     print("processing entries requiring creation",
-            current_object.getcontainer(), keys)
+          current_object.getcontainer(), keys)
 
     post_needed = 0
 
@@ -390,6 +350,8 @@ def process_post(old_object, current_object, template, diff_set):
 
     if post_needed > 0:
         return True
+
+    return False
 
 
 def process_delete(
@@ -428,6 +390,8 @@ def process_delete(
 
     if delete_needed > 0:
         return True
+
+    return False
 
 
 def find_matching_object(fos_object, old_object, refkeys):
@@ -484,6 +448,7 @@ def find_matching_object(fos_object, old_object, refkeys):
 
 def obj_to_short_str(fos_object):
     values = []
+    # pylint: disable=W0612
     for k, v in fos_object.attributes_dict.items():
         if v.is_key:
             values.append(v)
@@ -534,15 +499,17 @@ def process_object(
     if old_dict is None:
         print("cannot read from file", pyfos_class.__name__)
         return
-    
+
     compare_old_dict_and_new_object(
         session, pyfos_class, old_dict, fos_object, refkeys, template,
         do_print, do_db_change, obj_handler)
+
 
 KEY_W_D_D = "keys_with_diff_data"
 ADDED_D = "added_data"
 DELETED_D = "deleted_data"
 CHANGED_D = "changed_data"
+
 
 def diff_set_print(diff_set, print_type):
     if print_type is None or print_type is ADDED_D:
@@ -551,9 +518,9 @@ def diff_set_print(diff_set, print_type):
                 print("\t", end="")
             else:
                 print("\t(RO)", end=" ")
-            if len(diff) is 4:
-                print(diff[1], diff[2], "Added. New value",diff[3]) 
-            elif len(diff) is 3:
+            if len(diff) == 4:
+                print(diff[1], diff[2], "Added. New value", diff[3])
+            elif len(diff) == 3:
                 print(diff[1], "Added. New value", diff[2])
             else:
                 print("invalid length", len(diff))
@@ -564,9 +531,9 @@ def diff_set_print(diff_set, print_type):
                 print("\t", end="")
             else:
                 print("\t(RO)", end=" ")
-            if len(diff) is 4:
+            if len(diff) == 4:
                 print(diff[1], diff[2], "removed. Old value", diff[3])
-            elif len(diff) is 3:
+            elif len(diff) == 3:
                 print(diff[1], "removed. Old value", diff[2])
             else:
                 print("invalid length", len(diff))
@@ -577,19 +544,19 @@ def diff_set_print(diff_set, print_type):
                 print("\t", end="")
             else:
                 print("\t(RO)", end=" ")
-            if len(diff) is 5:
+            if len(diff) == 5:
                 print(diff[1], diff[2],
-                    "drifted from", diff[3],
-                    "to", diff[4])
-            elif len(diff) is 4:
+                      "drifted from", diff[3],
+                      "to", diff[4])
+            elif len(diff) == 4:
                 print(diff[1], "drifted from",
-                    diff[2], "to", diff[3])
+                      diff[2], "to", diff[3])
             else:
                 print("invalid length", len(diff))
 
 
 def compare_old_dict_and_new_object(session, pyfos_class, old_dict,
-    fos_object, refkeys, template, do_print, do_db_change, obj_handler):
+                                    fos_object, refkeys, template, do_print, do_db_change, obj_handler):
 
     changed = False
 
@@ -626,7 +593,7 @@ def compare_old_dict_and_new_object(session, pyfos_class, old_dict,
                     obj, old_object, refkeys)
             if old_matching_object is None:
                 print("didn't find a matching old object",
-                        obj_to_short_str(obj))
+                      obj_to_short_str(obj))
             else:
                 # print("compare")
                 # print(json.dumps(obj,
@@ -655,7 +622,7 @@ def compare_old_dict_and_new_object(session, pyfos_class, old_dict,
                 fos_object, old_object, refkeys)
         if old_matching_object is None:
             print("didn't find a matching old object",
-                    obj_to_short_str(fos_object))
+                  obj_to_short_str(fos_object))
         else:
 
             # print("compare")
@@ -723,6 +690,7 @@ def compare_old_dict_and_new_object(session, pyfos_class, old_dict,
 
     return diff_set
 
+
 def process_list(ws, fos_list, sc):
     global gr
 
@@ -732,10 +700,9 @@ def process_list(ws, fos_list, sc):
         elif isinstance(obj1, dict):
             process_dict(ws, obj1, sc)
         else:
-            ws.cell(column = sc, row = gr, value = objc1)
+            ws.cell(column=sc, row=gr, value=obj1)
             gr = gr + 1
 
-    return
 
 def process_dict(ws, fos_dict, sc):
     global gr
@@ -748,15 +715,15 @@ def process_dict(ws, fos_dict, sc):
                 elif isinstance(obj1, dict):
                     process_dict(ws, obj1, sc)
                 else:
-                    ws.cell(column = sc, row = gr, value = obj1)
+                    ws.cell(column=sc, row=gr, value=obj1)
                     gr = gr + 1
         elif isinstance(v, dict):
-            ws.cell(column = sc, row = gr, value = k)
+            ws.cell(column=sc, row=gr, value=k)
             gr = gr + 1
             process_dict(ws, v, sc + 1)
         else:
-            ws.cell(column = sc, row = gr, value = k)
-            ws.cell(column = sc + 1, row = gr, value = v)
+            ws.cell(column=sc, row=gr, value=k)
+            ws.cell(column=sc + 1, row=gr, value=v)
             gr = gr + 1
 
 
@@ -776,11 +743,9 @@ def dump_object_in_json(session, pyfos_class, dir_name):
 
 
 def process_simple_dict(ws, parent, fos_dict, title_dict, sr):
-#    print("daniel", fos_dict)
     rows_taken = 0
     rows_by_children = 0
     for k, v in fos_dict.items():
-#        print(k, v)
         if isinstance(v, list):
             child_rows = 0
             for obj1 in v:
@@ -794,7 +759,7 @@ def process_simple_dict(ws, parent, fos_dict, title_dict, sr):
                         sc = title_dict[parent + "." + k]
                     else:
                         sc = title_dict[k]
-                    ws.cell(column = sc, row = sr, value = obj1)
+                    ws.cell(column=sc, row=sr, value=obj1)
                     sr = sr + 1
                     child_rows = child_rows + 1
 
@@ -811,7 +776,7 @@ def process_simple_dict(ws, parent, fos_dict, title_dict, sr):
                 sc = title_dict[parent + "." + k]
             else:
                 sc = title_dict[k]
-            ws.cell(column = sc, row = sr, value = v)
+            ws.cell(column=sc, row=sr, value=v)
 
     if rows_by_children > 0:
         rows_taken = rows_taken + rows_by_children
@@ -828,49 +793,46 @@ def create_header_row(ws, pyfos_class, title_dict):
     fos_object = pyfos_class()
 
     sc = 1
-# title the keys first
     for attribute in fos_object.attributes:
-#        if attribute.version_supported.visible(fos_object.version_active):
-#            if attribute.is_key is rest_yang_config.yang_key:
-#                print("attribute name", attribute.name)
-                ws.cell(column = sc, row = 1, value = attribute.name)
-                title_dict[attribute.name] = sc
-                sc = sc + 1
-                if isinstance(attribute.getvalue(), list):
-                    print("attribute value list", attribute.getvalue())
-                    for elem in attribute.getvalue():
-                        if isinstance(elem, dict):
-                            for k, v in elem.items():
-                                if isinstance(v, dict):
-                                    for k1, v1 in elem.items():
-                                        heading_name = attribute.name + "." + k + "." + k1
-                                        ws.cell(column = sc, row = 1, value = heading_name)
-                                        title_dict[heading_name] = sc
-                                        print("adding ", heading_name)
-                                        sc = sc + 1
-                                else:
-                                    heading_name = attribute.name + "." + k
-                                    ws.cell(column = sc, row = 1, value = heading_name)
-                                    title_dict[heading_name] = sc
-                                    print("adding ", heading_name)
-                                    sc = sc + 1
+        ws.cell(column=sc, row=1, value=attribute.name)
+        title_dict[attribute.name] = sc
+        sc = sc + 1
+        if isinstance(attribute.getvalue(), list):
+            print("attribute value list", attribute.getvalue())
+            for elem in attribute.getvalue():
+                if isinstance(elem, dict):
+                    for k, v in elem.items():
+                        if isinstance(v, dict):
+                            # pylint: disable=W0612
+                            for k1, v1 in elem.items():
+                                heading_name = attribute.name + "." + k + "." + k1
+                                ws.cell(column=sc, row=1, value=heading_name)
+                                title_dict[heading_name] = sc
+                                print("adding ", heading_name)
+                                sc = sc + 1
                         else:
-                            print("don't know how to handle", elem)
-                elif isinstance(attribute.getvalue(), dict):
-                    for k, v in attribute.getvalue().items():
-                        heading_name = attribute.name + "." + k
-                        ws.cell(column = sc, row = 1, value = heading_name)
-                        title_dict[heading_name] = sc
-                        sc = sc + 1
+                            heading_name = attribute.name + "." + k
+                            ws.cell(column=sc, row=1, value=heading_name)
+                            title_dict[heading_name] = sc
+                            print("adding ", heading_name)
+                            sc = sc + 1
+                else:
+                    print("don't know how to handle", elem)
+        elif isinstance(attribute.getvalue(), dict):
+            for k, v in attribute.getvalue().items():
+                heading_name = attribute.name + "." + k
+                ws.cell(column=sc, row=1, value=heading_name)
+                title_dict[heading_name] = sc
+                sc = sc + 1
 # title the rest
 #    for attribute in fos_object.attributes:
 #        if attribute.version_supported.visible(fos_object.version_active):
 #            if attribute.is_key is not rest_yang_config.yang_key:
-#                ws.cell(column = sc, row = 1, value = attribute.name)
+#                ws.cell(column=sc, row=1, value=attribute.name)
 #                title_dict[attribute.name] = sc
 #                sc = sc + 1
-   
-    
+
+
 def write_simple_object(session, pyfos_class, wb):
     global gr
 
@@ -895,6 +857,7 @@ def write_simple_object(session, pyfos_class, wb):
 
         for data in fos_data:
             if isinstance(data, dict):
+                # pylint: disable=W0612
                 for k, v in data.items():
                     rows_taken = process_simple_dict(ws, None, v, title_dict, sr)
                     sr = sr + rows_taken
@@ -921,37 +884,37 @@ def write_defined_zone_object(session, pyfos_class, wb):
 
     ws = wb.create_sheet(pyfos_class.__name__, 0)
 
-    fos_data = json.loads(json.dumps(
+    json.loads(json.dumps(
         fos_object,
         cls=pyfos_rest_util.rest_object_encoder,
         sort_keys=True, indent=4))
 
-    ws.cell(column = 1, row = 1, value = "cfg")
-    ws.cell(column = 1, row = 2, value = "cfg-name")
-    ws.cell(column = 2, row = 2, value = "zone-name")
+    ws.cell(column=1, row=1, value="cfg")
+    ws.cell(column=1, row=2, value="cfg-name")
+    ws.cell(column=2, row=2, value="zone-name")
     cfgs = fos_object.peek_cfg()
     sr = 3
     for cfg in cfgs:
-        ws.cell(column = 1, row = sr, value = cfg['cfg-name'])
+        ws.cell(column=1, row=sr, value=cfg['cfg-name'])
         sc = 2
         for zone in cfg['member-zone']['zone-name']:
-            ws.cell(column = sc, row = sr, value = zone)
+            ws.cell(column=sc, row=sr, value=zone)
             sc = sc + 1
         sr = sr + 1
 
     aliases = fos_object.peek_alias()
     # skip a line
     sr = sr + 1
-    ws.cell(column = 1, row = sr, value = "alias")
+    ws.cell(column=1, row=sr, value="alias")
     sr = sr + 1
-    ws.cell(column = 1, row = sr, value = "alias-name")
-    ws.cell(column = 2, row = sr, value = "alias-entry-name")
+    ws.cell(column=1, row=sr, value="alias-name")
+    ws.cell(column=2, row=sr, value="alias-entry-name")
     sr = sr + 1
     for alias in aliases:
-        ws.cell(column = 1, row = sr, value = alias['alias-name'])
+        ws.cell(column=1, row=sr, value=alias['alias-name'])
         sc = 2
         for member in alias['member-entry']['alias-entry-name']:
-            ws.cell(column = sc, row = sr, value = member)
+            ws.cell(column=sc, row=sr, value=member)
             sc = sc + 1
         sr = sr + 1
 
@@ -959,25 +922,25 @@ def write_defined_zone_object(session, pyfos_class, wb):
 
     # skip a line
     sr = sr + 1
-    ws.cell(column = 1, row = sr, value = "zone")
+    ws.cell(column=1, row=sr, value="zone")
     sr = sr + 1
-    ws.cell(column = 1, row = sr, value = "zone-name")
-    ws.cell(column = 2, row = sr, value = "zone-type")
-    ws.cell(column = 3, row = sr, value = "entry-name")
+    ws.cell(column=1, row=sr, value="zone-name")
+    ws.cell(column=2, row=sr, value="zone-type")
+    ws.cell(column=3, row=sr, value="entry-name")
     sr = sr + 1
-    ws.cell(column = 3, row = sr, value = "principal-entry-name")
+    ws.cell(column=3, row=sr, value="principal-entry-name")
     sr = sr + 1
     for zone in zones:
-        ws.cell(column = 1, row = sr, value = zone['zone-name'])
-        ws.cell(column = 2, row = sr, value = zone['zone-type'])
+        ws.cell(column=1, row=sr, value=zone['zone-name'])
+        ws.cell(column=2, row=sr, value=zone['zone-type'])
         sc = 3
         psc = 3
         for member in zone['member-entry']['entry-name']:
-            ws.cell(column = sc, row = sr, value = member)
+            ws.cell(column=sc, row=sr, value=member)
             sc = sc + 1
         sr = sr + 1
         for member in zone['member-entry']['principal-entry-name']:
-            ws.cell(column = psc, row = sr, value = member)
+            ws.cell(column=psc, row=sr, value=member)
             psc = psc + 1
         sr = sr + 1
 
@@ -994,57 +957,57 @@ def write_effective_zone_object(session, pyfos_class, wb):
 
     ws = wb.create_sheet(pyfos_class.__name__, 0)
 
-    fos_data = json.loads(json.dumps(
+    json.loads(json.dumps(
         fos_object,
         cls=pyfos_rest_util.rest_object_encoder,
         sort_keys=True, indent=4))
 
-    ws.cell(column = 1, row = 1, value = "cfg-name")
-    ws.cell(column = 1, row = 2, value = fos_object.peek_cfg_name())
-    ws.cell(column = 2, row = 1, value = "checksum")
-    ws.cell(column = 2, row = 2, value = fos_object.peek_checksum())
-    ws.cell(column = 3, row = 1, value = "cfg-action")
-    ws.cell(column = 3, row = 2, value = fos_object.peek_cfg_action())
-    ws.cell(column = 4, row = 1, value = "default-zone-access")
-    ws.cell(column = 4, row = 2, value = fos_object.peek_default_zone_access())
-    ws.cell(column = 5, row = 1, value = "db-avail")
-    ws.cell(column = 5, row = 2, value = fos_object.peek_db_avail())
-    ws.cell(column = 6, row = 1, value = "db-max")
-    ws.cell(column = 6, row = 2, value = fos_object.peek_db_max())
-    ws.cell(column = 7, row = 1, value = "db-committed")
-    ws.cell(column = 7, row = 2, value = fos_object.peek_db_committed())
-    ws.cell(column = 8, row = 1, value = "db-transaction")
-    ws.cell(column = 8, row = 2, value = fos_object.peek_db_transaction())
-    ws.cell(column = 9, row = 1, value = "transaction-token")
-    ws.cell(column = 9, row = 2, value = fos_object.peek_transaction_token())
-    ws.cell(column = 9, row = 1, value = "db-chassis-wide-committed")
-    ws.cell(column = 9, row = 2, value = fos_object.peek_db_chassis_wide_committed())
+    ws.cell(column=1, row=1, value="cfg-name")
+    ws.cell(column=1, row=2, value=fos_object.peek_cfg_name())
+    ws.cell(column=2, row=1, value="checksum")
+    ws.cell(column=2, row=2, value=fos_object.peek_checksum())
+    ws.cell(column=3, row=1, value="cfg-action")
+    ws.cell(column=3, row=2, value=fos_object.peek_cfg_action())
+    ws.cell(column=4, row=1, value="default-zone-access")
+    ws.cell(column=4, row=2, value=fos_object.peek_default_zone_access())
+    ws.cell(column=5, row=1, value="db-avail")
+    ws.cell(column=5, row=2, value=fos_object.peek_db_avail())
+    ws.cell(column=6, row=1, value="db-max")
+    ws.cell(column=6, row=2, value=fos_object.peek_db_max())
+    ws.cell(column=7, row=1, value="db-committed")
+    ws.cell(column=7, row=2, value=fos_object.peek_db_committed())
+    ws.cell(column=8, row=1, value="db-transaction")
+    ws.cell(column=8, row=2, value=fos_object.peek_db_transaction())
+    ws.cell(column=9, row=1, value="transaction-token")
+    ws.cell(column=9, row=2, value=fos_object.peek_transaction_token())
+    ws.cell(column=9, row=1, value="db-chassis-wide-committed")
+    ws.cell(column=9, row=2, value=fos_object.peek_db_chassis_wide_committed())
 
-    ws.cell(column = 1, row = 4, value = "enabled-zone")
+    ws.cell(column=1, row=4, value="enabled-zone")
     sr = 5
     zones = fos_object.peek_enabled_zone()
 
     # skip a line
     sr = sr + 1
-    ws.cell(column = 1, row = sr, value = "zone")
+    ws.cell(column=1, row=sr, value="zone")
     sr = sr + 1
-    ws.cell(column = 1, row = sr, value = "zone-name")
-    ws.cell(column = 2, row = sr, value = "zone-type")
-    ws.cell(column = 3, row = sr, value = "entry-name")
+    ws.cell(column=1, row=sr, value="zone-name")
+    ws.cell(column=2, row=sr, value="zone-type")
+    ws.cell(column=3, row=sr, value="entry-name")
     sr = sr + 1
-    ws.cell(column = 3, row = sr, value = "principal-entry-name")
+    ws.cell(column=3, row=sr, value="principal-entry-name")
     sr = sr + 1
     for zone in zones:
-        ws.cell(column = 1, row = sr, value = zone['zone-name'])
-        ws.cell(column = 2, row = sr, value = zone['zone-type'])
+        ws.cell(column=1, row=sr, value=zone['zone-name'])
+        ws.cell(column=2, row=sr, value=zone['zone-type'])
         sc = 3
         psc = 3
         for member in zone['member-entry']['entry-name']:
-            ws.cell(column = sc, row = sr, value = member)
+            ws.cell(column=sc, row=sr, value=member)
             sc = sc + 1
         sr = sr + 1
         for member in zone['member-entry']['principal-entry-name']:
-            ws.cell(column = psc, row = sr, value = member)
+            ws.cell(column=psc, row=sr, value=member)
             psc = psc + 1
         sr = sr + 1
 
@@ -1062,7 +1025,7 @@ def read_simple_object(file_name, pyfos_class):
     ws = wb[sheet_name]
 
     num_of_entries = 0
-    for row in ws.iter_rows(min_row = 2):
+    for row in ws.iter_rows(min_row=2):
         if row[0].value is not None:
             num_of_entries = num_of_entries + 1
 
@@ -1076,14 +1039,14 @@ def read_simple_object(file_name, pyfos_class):
 
     fos_object = pyfos_class()
 
-    for row in ws.iter_rows(min_row = 2):
+    for row in ws.iter_rows(min_row=2):
         if row[0].value is None:
             continue
 
         each_row = {}
         each_row[fos_object.getcontainer()] = {}
         for cell in row:
-            header = ws.cell(column = cell.col_idx, row = 1).value
+            header = ws.cell(column=cell.col_idx, row=1).value
             if "." in header:
                 container, k = header.split(".")
                 if container in each_row[fos_object.getcontainer()]:
@@ -1094,7 +1057,7 @@ def read_simple_object(file_name, pyfos_class):
 
                 mylist = []
                 for rindex in range(cell.row, ws.max_row + 1):
-                    list_cell = ws.cell(column = cell.col_idx, row = rindex)
+                    list_cell = ws.cell(column=cell.col_idx, row=rindex)
                     if list_cell.value is None:
                         break
                     mylist.append(list_cell.value)
@@ -1117,6 +1080,7 @@ ZONE1 = 1
 ZONE2 = 2
 CFG = 3
 ALIAS = 4
+
 
 def read_defined_zone_object(file_name, pyfos_class):
     wb = openpyxl.load_workbook(file_name)
@@ -1223,16 +1187,16 @@ def read_effective_zone_object(file_name, pyfos_class):
     old_dict = {}
     old_dict[fos_object.getcontainer()] = {}
 
-    old_dict[fos_object.getcontainer()]["cfg-name"] = ws.cell(column = 1, row = 2).value
-    old_dict[fos_object.getcontainer()]["checksum"] = ws.cell(column = 2, row = 2).value
-    old_dict[fos_object.getcontainer()]["cfg-action"] = ws.cell(column = 3, row = 2).value
-    old_dict[fos_object.getcontainer()]["default-zone-access"] = ws.cell(column = 4, row = 2).value
-    old_dict[fos_object.getcontainer()]["db-avail"] = ws.cell(column = 5, row = 2).value
-    old_dict[fos_object.getcontainer()]["db-max"] = ws.cell(column = 6, row = 2).value
-    old_dict[fos_object.getcontainer()]["db-committed"] = ws.cell(column = 7, row = 2).value
-    old_dict[fos_object.getcontainer()]["db-transaction"] = ws.cell(column = 8, row = 2).value
-    old_dict[fos_object.getcontainer()]["transaction-token"] = ws.cell(column = 9, row = 2).value
-    old_dict[fos_object.getcontainer()]["db-chassis-wide-committed"] = ws.cell(column = 9, row = 2).value
+    old_dict[fos_object.getcontainer()]["cfg-name"] = ws.cell(column=1, row=2).value
+    old_dict[fos_object.getcontainer()]["checksum"] = ws.cell(column=2, row=2).value
+    old_dict[fos_object.getcontainer()]["cfg-action"] = ws.cell(column=3, row=2).value
+    old_dict[fos_object.getcontainer()]["default-zone-access"] = ws.cell(column=4, row=2).value
+    old_dict[fos_object.getcontainer()]["db-avail"] = ws.cell(column=5, row=2).value
+    old_dict[fos_object.getcontainer()]["db-max"] = ws.cell(column=6, row=2).value
+    old_dict[fos_object.getcontainer()]["db-committed"] = ws.cell(column=7, row=2).value
+    old_dict[fos_object.getcontainer()]["db-transaction"] = ws.cell(column=8, row=2).value
+    old_dict[fos_object.getcontainer()]["transaction-token"] = ws.cell(column=9, row=2).value
+    old_dict[fos_object.getcontainer()]["db-chassis-wide-committed"] = ws.cell(column=9, row=2).value
 
     zones = []
 
@@ -1273,11 +1237,11 @@ def read_effective_zone_object(file_name, pyfos_class):
     return old_dict
 
 
+# pylint: disable=W0613
 def save_change_defined_zone_object(session, diff_set):
     current_effective = pyfos_zone.effective_configuration.get(session)
     result = zoning_cfg_save.cfgsave(session, current_effective.peek_checksum())
-    if ('success-type' in result and
-        result['success-type'] == 'Success'):
+    if ('success-type' in result and result['success-type'] == 'Success'):
         print("\tsave_change_defined_zone_object success")
     else:
         print("\tsave_change_defined_zone_object failed", result)
@@ -1300,8 +1264,7 @@ def save_change_effective_zone_object(session, diff_set):
     if "default-zone-access" in diff_set[KEY_W_D_D]:
         current_effective = pyfos_zone.effective_configuration.get(session)
         result = zoning_cfg_save.cfgsave(session, current_effective.peek_checksum())
-        if ('success-type' in result and
-            result['success-type'] == 'Success'):
+        if ('success-type' in result and result['success-type'] == 'Success'):
             print("\tsave_change_effective_zone_object success")
         else:
             print("\tsave_change_effective_zone_object failed", result)

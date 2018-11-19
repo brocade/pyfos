@@ -15,39 +15,35 @@
 
 """
 
-:mod:`port_trunk_area_show` - PyFOS util for getting info \
-        of a portareatrunk-group.
-***********************************************************************************
-The :mod:`port_trunk_area_show` - PyFOS util for getting info \
-        of a portareatrunk-group.
+:mod:`trunk_show_all` - PyFOS util for getting info of all the E-port trunks present in the switch.
+********************************************************************************************************
+The :mod:`trunk_show_all` - PyFOS util for getting info of all the E-port trunks present in the switch.
 
 This module is a standalone script that can be used to get the info of \
-        porttrunkarea-group using trunk-index
-* Infrastructure options:
-    * -L=<login>: Login ID. If not provided, interactive
-        prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
-        prompt will request one.
-    * -i=<IP address>: IP address
-    * -n=<port name>: <slot>/<port> name of the port
-    * -u=<user name>: string name to be assigned to switch
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+all the E-port trunks present in the switch.
+* inputs:
+
+| Infrastructure options:
+
+|   -i,--ipaddr=IPADDR     IP address of FOS switch.
+|   -L,--login=LOGIN       login name.
+|   -P,--password=PASSWORD password.
+|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
+|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           verbose mode[OPTIONAL].
 
 * Util scripts options:
-    -n,--name=NAME                     Port in slot/port.
-    --trunk-index=VALUE                Trunk-index of the porttrunkarea-group
 
 * outputs:
     * Python dictionary content with RESTCONF response data
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel_trunk import trunk
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_fibrechannel_trunk import trunk
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def usage():
@@ -56,8 +52,8 @@ def usage():
 
 
 def main(argv):
-    filters = None
-    inputs = brcd_util.parse(argv, usage, filters)
+    filters = []
+    inputs = brcd_util.parse(argv, trunk, filters)
 
     session = brcd_util.getsession(inputs)
 

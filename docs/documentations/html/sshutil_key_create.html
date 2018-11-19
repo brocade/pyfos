@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>sshutil_create - PyFOS util for creating host or public/private key pair &#8212; PyFOS 1.1.0 documentation</title>
+    <title>sshutil_create - PyFOS util for creating a host key or public/private key pair. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="sshutil_modify - PyFOS util to modify allowed user, rekey interval" href="sshutil_modify.html" />
-    <link rel="prev" title="sshutil_key_show - PyFOS util for displaying SSH host key on a switch" href="sshutil_key_show.html" /> 
+    <link rel="next" title="sshutil_modify - PyFOS util to modify the allowed user and rekey interval." href="sshutil_modify.html" />
+    <link rel="prev" title="sshutil_key_show - PyFOS util for displaying the SSH host key on a switch." href="sshutil_key_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="sshutil_modify.html" title="sshutil_modify - PyFOS util to modify allowed user, rekey interval"
+          <a href="sshutil_modify.html" title="sshutil_modify - PyFOS util to modify the allowed user and rekey interval."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="sshutil_key_show.html" title="sshutil_key_show - PyFOS util for displaying SSH host key on a switch"
+          <a href="sshutil_key_show.html" title="sshutil_key_show - PyFOS util for displaying the SSH host key on a switch."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -42,53 +42,42 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-sshutil_key_create"></span><div class="section" id="sshutil-create-pyfos-util-for-creating-host-or-public-private-key-pair">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">sshutil_create</span></code> - PyFOS util for creating host or public/private key pair<a class="headerlink" href="#sshutil-create-pyfos-util-for-creating-host-or-public-private-key-pair" title="Permalink to this headline">¶</a></h1>
-<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">sshutil_create</span></code> provides option to generate host, public/private key</p>
-<p>This module can be used to enerate public/private key pair and to
-generate host key.</p>
+  <span class="target" id="module-sshutil_key_create"></span><div class="section" id="sshutil-create-pyfos-util-for-creating-a-host-key-or-public-private-key-pair">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">sshutil_create</span></code> - PyFOS util for creating a host key or public/private key pair.<a class="headerlink" href="#sshutil-create-pyfos-util-for-creating-a-host-key-or-public-private-key-pair" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">sshutil_create</span></code> util provides option to generate a host key or public/private key pair.</p>
+<p>This module can be used to generate a host key or public/private key pair.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
+</div>
+<div class="line-block">
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
+</div>
+<div class="line-block">
+<div class="line">Util Script Options:</div>
 </div>
 <blockquote>
 <div><div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch</div>
+<div class="line">–algorithm-type=ALGO    Sets the algorithm type.</div>
 </div>
 <div class="line-block">
-<div class="line">-L,–login=LOGIN         login name.</div>
+<div class="line">–key-type=TYPE          Sets the key type.</div>
 </div>
 <div class="line-block">
-<div class="line">-P,–password=PASSWORD password.</div>
-</div>
-<div class="line-block">
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-</div>
-<div class="line-block">
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
-</div>
-</div></blockquote>
-<div class="line-block">
-<div class="line">Util scripts options:</div>
-</div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">–algorithm-type=ALGO    Algorithm type</div>
-</div>
-<div class="line-block">
-<div class="line">–key-type=TYPE          Key type</div>
-</div>
-<div class="line-block">
-<div class="line">–passphrase=PASS        Passphrase</div>
+<div class="line">–passphrase=PASS        Sets the passphrase.</div>
 </div>
 </div></blockquote>
 <ul>
-<li><p class="first">outputs:</p>
+<li><p class="first">Output:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Status of the key generate operation</li>
+<li>The status of the generate key operation.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -99,9 +88,9 @@ generate host key.</p>
 <dt>
 <code class="descname">session, algorithm_type, key_type, passphrase)</code></dt>
 <dd><ul>
-<li><p class="first">Generate public/private key or host key</p>
+<li><p class="first">Generate a public/private key or a host key.</p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">sshutil_create</span><span class="o">.</span><span class="n">generate_keys</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s2">&quot;rsa&quot;</span><span class="p">,</span> <span class="s2">&quot;public-private-key&quot;</span><span class="p">,</span> <span class="s2">&quot;pray4green&quot;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 
@@ -119,16 +108,16 @@ generate host key.</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">param Algorithm-type:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Algorithm type</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The algorithm type.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param passphrase:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">passphrase.</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The passphrase.</td>
 </tr>
 </tbody>
 </table>
@@ -136,12 +125,12 @@ generate host key.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -149,10 +138,10 @@ generate host key.</p>
 </dl>
 </li>
 </ul>
-<p><em>use cases</em></p>
+<p><em>Use Cases</em></p>
 <ol class="arabic simple">
-<li>Generate public/private keys</li>
-<li>Generate host key</li>
+<li>Generate a public/private key pair.</li>
+<li>Generate a host key.</li>
 </ol>
 </div></blockquote>
 </li>
@@ -174,10 +163,10 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="sshutil_key_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">sshutil_key_show</span></code> - PyFOS util for displaying SSH host key on a switch</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">sshutil_key_show</span></code> - PyFOS util for displaying the SSH host key on a switch.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="sshutil_modify.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">sshutil_modify</span></code> - PyFOS util to modify allowed user, rekey interval</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">sshutil_modify</span></code> - PyFOS util to modify the allowed user and rekey interval.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -211,17 +200,17 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="sshutil_modify.html" title="sshutil_modify - PyFOS util to modify allowed user, rekey interval"
+          <a href="sshutil_modify.html" title="sshutil_modify - PyFOS util to modify the allowed user and rekey interval."
              >next</a> |</li>
         <li class="right" >
-          <a href="sshutil_key_show.html" title="sshutil_key_show - PyFOS util for displaying SSH host key on a switch"
+          <a href="sshutil_key_show.html" title="sshutil_key_show - PyFOS util for displaying the SSH host key on a switch."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

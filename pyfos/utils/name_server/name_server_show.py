@@ -39,11 +39,11 @@ be displayed.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_name_server as pyfos_name_server
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_name_server as pyfos_name_server
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 isHttps = "0"
 

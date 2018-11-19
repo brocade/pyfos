@@ -46,10 +46,10 @@ ldap server.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import ldap_server
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def main(argv):
@@ -65,8 +65,8 @@ def main(argv):
         exit(1)
 
     if not (ldap_obj.peek_port() or
-       ldap_obj.peek_timeout() or ldap_obj.peek_domain() or
-       ldap_obj.peek_position()):
+            ldap_obj.peek_timeout() or ldap_obj.peek_domain() or
+            ldap_obj.peek_position()):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)

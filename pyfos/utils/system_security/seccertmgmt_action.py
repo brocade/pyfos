@@ -14,48 +14,50 @@
 
 """
 
-:mod:`seccertmgmt_action` - PyFOS util to modify Certificates
+:mod:`seccertmgmt_action` - PyFOS util to modify certificates.
 ***************************************************************************************
-The :mod:`seccertmgmt_action` provides options to modify certificates.
+The :mod:`seccertmgmt_action` util provides options to modify certificates.
 
-This module is a standalone script that can be used to import or export csr,
-ca-client, ca-server) and supported certificates.
+This module is a stand-alone script that can be used to import or export CSR,
+CA-Client, CA-Server) and supported certificates.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-| Util scripts options:
+* Util Script Options:
 
-  |    --certificate-entity=ENTITY-NAME         Certificate entity name
-  |    --certificate-type=CERT-TYPE             Certificate type name
-  |    --certificate-name=CERTNAME              Certificate Name
-  |    --ca-certificate-name=CACERTNAME         CA certificate Name
-  |    --seccertmgmt-operation=OPERATION    	seccertmgmt operation
-  |    --protocol=PROTOCOL		Connection protocol
-  |    --remote-host-ip=IP              Remote host ip address
-  |    --remote-host-directory=DIR      Remote host directory
-  |    --remote-login-user=LOGINUSER    Remote Login User
-  |    --remote-login-password=PASSWORD Remote Login base64 encrypted password
+  |    --certificate-entity=ENTITY-NAME    Sets the certificate entity name.
+  |    --certificate-type=CERT-TYPE        Sets the certificate type name.
+  |    --certificate-name=CERTNAME         Sets the certificate name.
+  |    --ca-certificate-name=CACERTNAME    Sets the CA certificate name.
+  |    --seccertmgmt-operation=OPERATION   Sets the seccertmgmt operation.
+  |    --protocol=PROTOCOL		   Sets the connection protocol.
+  |    --remote-host-ip=IP                 Sets the remote host IP address.
+  |    --remote-host-directory=DIR         Sets the remote host directory.
+  |    --remote-login-user=LOGINUSER       Sets the remote login user.
+  |    --remote-login-password=PASSWORD    Sets the remote login base64 \
+                                             encrypted password
 
-* outputs:
+* Output:
 
-    * Status of the seccertmgmt modify operation
+    * The status of the seccertmgmt modify operation.
 
 .. function:: seccertmgmt_modify.export_import_cert(session, action, \
 certificate-entity, certificate-type, certificate-name, ca-certificate-name, \
 protocol, remote_ip, remote_dir, login_name, login_password)
 
-    * Import a specified certificate from remote server to switch
+    * Import a specified certificate from a remote server to a switch.
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = seccertmgmt_modify.export_import_cert(session, OPERATION,\
 ENTITY-NAME, CERT-TYPE, CERTNAME, CACERTNAME, PROTOCOL, IP, DIR, LOGINUSER,\
@@ -77,36 +79,36 @@ cert_type, cert_name, ca_cert_name, protocol, remote_ip, remote_dir,\
 login_name, login_password)
             result = seccertmgmt_obj.patch(session)
 
-        * inputs:
-            :param session: session returned by login.
-            :param cert-entity: certificate entity.
-            :param cert-type: certificate type.
-            :param cert-name: certificate name.
-            :param ca-cert-name: CA certificate name.
-            :param protocol: connection protocol.
-            :param remote-host-ip: remote host ip address.
-            :param remote-host-directoy: location in remote host.
-            :param remote-login-user: user name of the remote host
-            :param remote-login-password: password of the remote host
+        * Input:
+            :param session: The session returned by the login.
+            :param cert-entity: The certificate entity.
+            :param cert-type: The certificate type.
+            :param cert-name: The certificate name.
+            :param ca-cert-name: The CA certificate name.
+            :param protocol: The connection protocol.
+            :param remote-host-ip: The remote host IP address.
+            :param remote-host-directoy: The location in remote host.
+            :param remote-login-user: The user name of the remote host.
+            :param remote-login-password: The password of the remote host.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
         1. Imports a specified certificate from a remote server to the switch.
-        2. Exports certificate from switch to a remote server.
+        2. Exports certificate from a switch to a remote server.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import security_certificate_action
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _export_import_cert(session, restobject):
-        return restobject.patch(session)
+    return restobject.patch(session)
 
 
 def export_import_cert(session, action, cert_entity, cert_type, cert_name,
@@ -146,7 +148,7 @@ def main(argv):
     # the line length less than 80 chars for flake8.
 
     if (seccertmgmt_obj.peek_certificate_entity() is None or
-       seccertmgmt_obj.peek_certificate_type() is None):
+            seccertmgmt_obj.peek_certificate_type() is None):
         print("Missing input(s)")
         print(inputs['utilusage'])
         sys.exit()
@@ -159,4 +161,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

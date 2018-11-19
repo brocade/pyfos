@@ -15,29 +15,31 @@
 
 """
 
-:mod:`switch_ip_config_get` - PyFOS util for getting the IP config parameters
+:mod:`switch_ip_config_get` - PyFOS util to retrieve the IP config parameters.
 *******************************************************************************
-The :mod:`switch_ip_config_get` util for getting the switch IP configuration.
+The :mod:`switch_ip_config_get` util for retrieving the switch IP
+configuration.
 
-This module is a standalone script that can be used to display the IP addresses
-of switch, IP address of switch gateways and the subnet mask of switch
+This module is a stand-alone script that can be used to display the
+IP addresses of the switch, the IP address of switch gateways, and
+the subnet mask of the switch.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
 
-* outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: show_switch_ip_config(session)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = switch_ip_config_get.show_switch_ip_config(session)
             print (ret)
@@ -49,24 +51,24 @@ of switch, IP address of switch gateways and the subnet mask of switch
             result = fibrechannel_switch.get(session, None, filters)
             return result
 
-        * inputs:
-            :param session: session returned by login.
+        * Input:
+            :param session: The session returned by login.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Retrieve the gateways configured in switch
-        2. Retrieve subnet mask of the switch.
+        1. Retrieve the gateways configured in the switch.
+        2. Retrieve the subnet mask of the switch.
 
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_fibrechannel_switch import fibrechannel_switch
 import pyfos.pyfos_version as version
 
@@ -84,7 +86,7 @@ def main(argv):
     inputs = brcd_util.parse(argv, fibrechannel_switch, filters)
 
     session = brcd_util.getsession(inputs)
-    if (session['version'] < version.fosversion("8.2.1")):
+    if session['version'] < version.fosversion("8.2.1"):
         print("GET operation on ip-static-gateway-list/ip-static-gateway\
  and subnet_mask are supported from FOS v8.2.1")
     result = show_switch_ip_config(inputs['session'])

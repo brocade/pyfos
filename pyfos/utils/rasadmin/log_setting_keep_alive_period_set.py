@@ -15,32 +15,34 @@
 
 """
 
-:mod:`log_setting_keep_alive_period_set` - PyFOS util for log_setting use case.
-*******************************************************************************
-The :mod:`log_setting_keep_alive_period_set` provides for log_setting use case.
+:mod:`log_setting_keep_alive_period_set` - PyFOS util for setting the\
+ keep alive period.
+******************************************************************************************
+The :mod:`log_setting_keep_alive_period_set` util provides for setting the\
+ keep alive period.
 
-This module is a standalone script that can be used to display log_setting
-attributes
+This module is a stand-alone script that can be used to set the\
+ keep alive period.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util scripts options:
-    * --alive=ALIVE-PERIOD     Set alive period for log in hours.
+* Util Script Options:
+    * --alive=ALIVE-PERIOD     Sets the alive period for the log in hours.
 
-* outputs:
-    * log_setting attributes in JSON format
+* Output:
+    * Log setting attributes in JSON format.
 
 
 .. function:: set_alive_period(session, period)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = log_setting_keep_alive_period_set.set_alive_period(session,
                     period)
@@ -55,24 +57,24 @@ attributes
             result =_set_alive_period(session, log_setting_obj)
             return result
 
-        * inputs:
-            :param session: session returned by login.
-            :param period: desired keep alive period in hr.
+        * Input:
+            :param session: The session returned by the login.
+            :param period: The keep alive period in hours.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. configures the keep alive period of the raslog
+        1. Configures the keep alive period of the RASLog.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_logging import log_setting
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos.pyfos_brocade_logging import log_setting
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 
 def validate(log_setting_obj):

@@ -37,11 +37,11 @@ This module is a stand-alone script that can be used to set a switch name.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel_switch import fibrechannel_switch
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
+from pyfos.pyfos_brocade_fibrechannel_switch import fibrechannel_switch
 
 
 def usage():

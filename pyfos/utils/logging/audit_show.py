@@ -14,32 +14,33 @@
 # limitations under the License.
 
 """
-:mod:`audit_show` - PyFOS util to show audit configuration on switch.
+:mod:`audit_show` - PyFOS util to show the audit configuration on a switch.
 *******************************************************************************
-The :mod:`audit_show` provides option to show the parameters of audit on a
+The :mod:`audit_show` util provides option to show the parameters of audit on a
 switch.
 
-This module is a standalone script that can be used to display the audit
+This module is a stand-alone script that can be used to display the audit
 configuration on a switch.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch.
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+  | -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+  | -L,--login=LOGIN       The login name.
+  | -P,--password=PASSWORD The password.
+  | -f,--vfid=VFID         The VFID to which the request is \
+                            directed [OPTIONAL].
+  | -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+  | -v,--verbose           Verbose mode [OPTIONAL].
 
 
-* outputs:
-    * audit log configuration information
+* Output:
+    * Audit log configuration information
 
 .. function:: show_audit(session)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = audit_show.show_audit(session)
                 print (ret)
@@ -48,23 +49,24 @@ configuration on a switch.
 
                 result = audit_show.show_audit(session)
 
-        * inputs:
-                :param session: session returned by login.
+        * Input:
+                :param session: The session returned by the login.
 
-        * outputs:
-                :rtype: dictionary of return status matching rest response
+        * Output:
+                :rtype: A dictionary of return status matching the\
+                 REST response.
 
-        *Use cases*
+        *Use Cases*
 
-           Retrieve the Audit log configuration information.
+           Retrieve the audit log configuration information.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_logging import audit
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def show_audit(session):
@@ -85,4 +87,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-            main(sys.argv[1:])
+    main(sys.argv[1:])

@@ -16,38 +16,39 @@
 
 """
 
-:mod:`extension_ipsec_policy_delete` - PyFOS util for deleting IPsec policy.
+:mod:`extension_ipsec_policy_delete` - PyFOS util for deleting an IPsec policy.
 ***********************************************************************************
-The :mod:`extension_ipsec_policy_delete` Util is used to delete IPsec Policy.
+The :mod:`extension_ipsec_policy_delete` util is used to delete an \
+IPsec policy.
 
 This module is a stand-alone script that can be used to delete an extension
-ipsec policy.
+IPsec policy.
 
 extension_ipsec_policy_delete: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed to.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA".
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA".
     * -v,--verbose: Verbose mode.
 
-* Script specific options:
-    *    --profile-name: Set profile-name.
-    *    --restart-ike-sessions: Set restart-ike-sessions.
-    *    --policy-name: Set policy-name.
-    *    --authentication-data: Set authentication-data.
+* Script Specific Options:
+    *    --profile-name: Sets the profile name.
+    *    --restart-ike-sessions: Sets the restart IKE sessions.
+    *    --policy-name: Sets the policy name.
+    *    --authentication-data: Sets the authentication data.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extensionipsecpolicydelete.delete_extension_ipsec_policy(session\
 , name, profile, auth)
 
-    *Create extension ipsec policy*
+    *Create an Extension IPsec Policy*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
           ret =
           extensionipsecpolicydelete.delete_extension_ipsec_policy(session,
@@ -63,28 +64,28 @@ extension_ipsec_policy_delete: Usage
           extensionipsecpolicydelete._create_extension_ipsec_policy(session,
           restobject)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: Ipsec policy name.
-            :param profile: Ipsec profile name.
-            :param auth: Authentication data.
+        * Input:
+            :param session: The session returned by the login.
+            :param name: Sets the IPsec policy name.
+            :param profile: Sets the IPsec profile name.
+            :param auth: Sets the authentication data.
 
-        * Outputs:
-            :rtype: Dictionary of return status matching rest response.
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
-         Delete a new ipsec policy.
+         Delete a new IPsec policy.
 
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_ipsec_policy import extension_ipsec_policy
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_ipsec_policy import extension_ipsec_policy
+from pyfos.utils import brcd_util
 
 isHttps = "0"
 
@@ -103,7 +104,7 @@ def delete_extension_ipsec_policy(session, name):
 
 def validate(ipsecobject):
     if ipsecobject.peek_policy_name() is None:
-            return 1
+        return 1
     return 0
 
 
@@ -120,4 +121,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-        main(sys.argv[1:])
+    main(sys.argv[1:])

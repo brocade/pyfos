@@ -14,36 +14,37 @@
 # limitations under the License.
 
 """
-:mod:`maps_rule_show` - PyFOS util to display MAPS rule
+:mod:`maps_rule_show` - PyFOS util to display a MAPS rule.
 ***************************************************************\
 *********************************
 
-* input:
+Displays the Maps rules
 
-| Infrastructure options:
+* Input:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+| Infrastructure Options:
 
-* Util scripts options:
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request \
+                            is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* output:
+* Util Script Options:
 
-    If rule name is entered, then the content of the rule
-        will be displayed.
-    Else all the rules present in the switch and its contents
-        will be displayed.
+* Output:
+    If a rule name is entered, then the content of the rule is displayed. \
+    Otherwise, all rules present in the switch and the contents of the rule\
+        are displayed.
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_maps import rule
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def show_rule(session, rule_obj):

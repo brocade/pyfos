@@ -15,34 +15,35 @@
 
 """
 
-:mod:`switch_configuration_modify` - PyFOS util for configuring switch use case
+:mod:`switch_configuration_modify` - PyFOS util for configuring the switch
 *******************************************************************************
-The :mod:`switch_configuration_modify` provides for configuring switch use case
+The :mod:`switch_configuration_modify` util provides for configuring \
+the switch.
 
-This module is a standalone script that can be used to display switch
-attributes
+This module is a stand-alone script that can be used to display switch
+attributes.
 
-* inputs:
-    * -L=<login>: Login ID. If not provided, interactive
+* Input:
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address
-    * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
-        VFID of 128 is assumed.
+    * -i=<IP address>: The IP address.
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
+        a VFID of 128 is assumed.
 
-* Util scripts options:
+* Util Script Options:
 
-    * --wwn-mode=WWN-MODE                             Configures port id wwn.
-    * --area-mode=AREA-MODE                           Configures port id area.
-    * --edge-hold-time=EDGE-HOLD-TIME                 Configures Edge hold time
+    * --wwn-mode=WWN-MODE                             Sets the port ID WWN.
+    * --area-mode=AREA-MODE                           Sets the port ID area.
+    * --edge-hold-time=EDGE-HOLD-TIME                 Sets the Edge hold time.
 
-* outputs:
-    * HTTP Status in JSON format
+* Output:
+    * The HTTP status in JSON format.
 
 .. function:: patch_switch_conf (session, wwn, eht, am)
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = switch_configuration_modify.patch_switch_conf (session,
                     wwn, eht, am)
@@ -59,26 +60,26 @@ attributes
             result = _patch_switch_conf(session, obj)
             return result
 
-        * inputs:
-            :param session: session returned by login.
-            :param am: Configures port id based on area.
-            :param eht: Configures Edge hold time in seconds.
-            :param wwn: Configures port id based on wwn.
+        * Input:
+            :param session: The session returned by login.
+            :param am: Sets the port ID based on area.
+            :param eht: Sets the Edge hold time in seconds.
+            :param wwn: Sets the port ID based on WWN.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Patch the configuration parameters of switch.
+        1. Patch the configuration parameters of the switch.
 
 """
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel_configuration as py_fc
-import pyfos.pyfos_util as pyfos_util
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+import pyfos.pyfos_brocade_fibrechannel_configuration as py_fc
+from pyfos import pyfos_util
+from pyfos.utils import brcd_util
 
 switch = py_fc.switch_configuration
 

@@ -16,31 +16,32 @@
 
 """
 
-:mod:`extension_ip_interface_create` - PyFOS util for creating an IP Interface
+:mod:`extension_ip_interface_create` - PyFOS util for creating an \
+IP interface.
 *******************************************************************************
-The :mod:`extension_ip_interface_create` Util is used for IP Interface\
-creation.
+The :mod:`extension_ip_interface_create` util is used to create an \
+IP interface.
 
 This module is a stand-alone script that can be used to create an extension
 IP address.
 
 extension_ip_interface_create.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name.
-    * -m,--mtu-size=VALUE: Set mtu-size.
-    * -p,--ip-prefix-length=VALUE: Set ip-prefix-length.
-    * -d,--dp-id=VALUE: Set dp-id.
-    *    --ip-address=VALUE: Set ip-address.
-    *    --vlan-id=VALUE: Set vlan-id.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name.
+    * -m,--mtu-size=VALUE: Sets the MTU size.
+    * -p,--ip-prefix-length=VALUE: Sets the IP prefix length.
+    * -d,--dp-id=VALUE: Sets the DP ID.
+    *    --ip-address=VALUE: Sets the IP address.
+    *    --vlan-id=VALUE: Sets the VLAN ID.
 
 * Outputs:
     * Python dictionary content with RESTCONF response data.
@@ -48,9 +49,9 @@ extension_ip_interface_create.py: Usage
 .. function:: extension_ip_interface_create.create_extension_ip(session,\
 name, dp, ip, prefix, vlan=None, mtu=None)
 
-    *Create extension IP Address*
+    *Create Extension IP Address*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = extension_ip_interface_create.create_extension_ip(session,
             name, dp, ip, prefix, vlan=None, mtu=None)
@@ -69,29 +70,29 @@ name, dp, ip, prefix, vlan=None, mtu=None)
             result = extension_ip_interface_create._create_extension_ip(
             session, IP)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: GE port name expressed as slot/port.
-            :param dp-id: DP Instance.
-            :param ip: Extension IP-Address.
-            :param prefix: Prefix length for the IP Address.
-            :param vlan: VLAN ID.
-            :param mtu: MTU size.
+        * Input:
+            :param session: The session returned by login.
+            :param name: Sets the GE_Port name expressed as slot/port.
+            :param dp-id: Sets the DP instance.
+            :param ip: Sets the extension IP address.
+            :param prefix: Sets the prefix length for the IP address.
+            :param vlan: Sets the VLAN ID.
+            :param mtu: Sets the MTU size.
 
-        * Outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
-         Create a new extension IP Interface.
+         Create a new extension IP interface.
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"
@@ -106,9 +107,9 @@ def create_extension_ip(session, name, dp, ip, prefix, vlan=None, mtu=None):
     value_dict = {'name': name, 'dp-id': dp, 'ip-prefix-length': prefix}
     value_dict.update({'ip-address': ip})
     if vlan is not None:
-            value_dict.update({'vlan-id': vlan})
+        value_dict.update({'vlan-id': vlan})
     if mtu is not None:
-            value_dict.update({'mtu-size': mtu})
+        value_dict.update({'mtu-size': mtu})
     ipobject = extension_ip_interface(value_dict)
     result = _create_extension_ip(session, ipobject)
     return result
@@ -119,7 +120,7 @@ def validate(ipobject):
        ipobject.peek_dp_id() is None or \
        ipobject.peek_ip_prefix_length() is None or \
        ipobject.peek_ip_address() is None:
-            return 1
+        return 1
     return 0
 
 

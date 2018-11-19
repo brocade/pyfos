@@ -24,12 +24,8 @@ config scripts.
 
 """
 
-import json
-import time
-import os
-import pyfos.pyfos_util as pyfos_util
 import pyfos.pyfos_brocade_access_gateway as access_gateway
-import pyfos.pyfos_brocade_chassis  as chassis
+import pyfos.pyfos_brocade_chassis as chassis
 import pyfos.pyfos_brocade_extension_ip_interface as extension_ip_interface
 import pyfos.pyfos_brocade_extension_ip_route as extension_ip_route
 import pyfos.pyfos_brocade_extension_ipsec_policy as extension_ipsec_policy
@@ -46,7 +42,7 @@ import pyfos.pyfos_brocade_gigabitethernet as gigabitethernet
 import pyfos.pyfos_brocade_logging as logging
 import pyfos.pyfos_brocade_media as media
 import pyfos.pyfos_brocade_name_server as name_server
-import pyfos.pyfos_brocade_system_security as system_security
+import pyfos.pyfos_brocade_security as system_security
 import pyfos.pyfos_brocade_fibrechannel_trunk as trunk
 import pyfos.pyfos_brocade_zone as zone
 import switch_config_util
@@ -77,8 +73,8 @@ objects_to_process = [
     {
         "obj_name": chassis.ha_status,
     },
-    {	
-        "obj_name": extension_ip_interface.extension_ip_interface,	
+    {
+        "obj_name": extension_ip_interface.extension_ip_interface,
     },
     {
         "obj_name": extension_ip_route.extension_ip_route,
@@ -168,12 +164,6 @@ objects_to_process = [
         "obj_name": name_server.fibrechannel_name_server,
     },
     {
-        "obj_name": system_security.time_zone,
-    },
-    {
-        "obj_name": system_security.clock_server,
-    },
-    {
         "obj_name": system_security.radius_server,
     },
     {
@@ -237,13 +227,13 @@ objects_to_process = [
         "obj_name": system_security.security_certificate_action,
     },
     {
-        "obj_name": trunk.trunkshow_configuration,
+        "obj_name": trunk.trunk,
     },
     {
-        "obj_name": trunk.trunkperf_configuration,
+        "obj_name": trunk.performance,
     },
     {
-        "obj_name": trunk.porttrunkarea_configuration,
+        "obj_name": trunk.trunk_area,
     },
     {
         "obj_name": zone.defined_configuration,

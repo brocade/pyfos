@@ -16,36 +16,37 @@
 
 """
 
-:mod:`extension_tunnel_statistics_show` - PyFOS util to display tunnel stats.
+:mod:`extension_tunnel_statistics_show` - PyFOS util to display tunnel \
+statistics.
 ***********************************************************************************
-The :mod:`extension_tunnel_statistics_show` Util to display tunnel stats.
+The :mod:`extension_tunnel_statistics_show` util to display tunnel statistics.
 
 This module is a stand-alone script that can be used to show extension
 tunnel statistics.
 
 extension_tunnel_statistics_show.py: Usage
 
-* Infrastructure options:
-    * -i,--ipaddr=IPADDR: IP address of FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA"[Optional].
-    * -v,--verbose: Verbose mode[Optional].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-* Util scripts options:
-    * -n,--name=NAME: Set name or slot/port of the tunnel.
-    * --operational-status: Set operational-status of the ciruit.
+* Util Script Options:
+    * -n,--name=NAME: Sets the name or slot/port of the tunnel.
+    * --operational-status: Sets the operational status of the ciruit.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_tunnel_statistics_show.\
 show_extension_tunnel_statistics(session,name, cid, local, remote)
 
-    *show extension tunnel*
+    *Show an Extension Tunnel*
 
-        Example usage of the method::
+        Example Usage of the Method::
 
                 ret = extension_tunnel_statistics_show.
                 show_extension_tunnel_statistics(session,
@@ -62,26 +63,26 @@ show_extension_tunnel_statistics(session,name, cid, local, remote)
             _show_extension_tunnel_statistics(session,
             tunnel)
 
-        * Inputs:
-            :param session: Session returned by login.
-            :param name: VE port name expressed as slot/port.
-            :param opstatus: Tunnel operational-status.
+        * Input:
+            :param session: The session returned by the login.
+            :param name: Sets the VE_Port name expressed as slot/port.
+            :param opstatus: Sets the tunnel operational status.
 
-        * Outputs:
-            :rtype: List of tunnels
+        * Output:
+            :rtype: A list of tunnels.
 
-        *Use cases*
+        *Use Cases*
 
-         Show a tunnel details.
+         Show tunnel details.
 
 """
 
 
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
-from pyfos.pyfos_brocade_extension_tunnel import extension_tunnel_statistics
 import sys
-import pyfos.utils.brcd_util as brcd_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
+from pyfos.pyfos_brocade_extension_tunnel import extension_tunnel_statistics
+from pyfos.utils import brcd_util
 
 
 isHttps = "0"

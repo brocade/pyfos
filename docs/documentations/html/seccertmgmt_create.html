@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="seccertmgmt_action - PyFOS util to modify Certificates" href="seccertmgmt_action.html" />
-    <link rel="prev" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch" href="seccertmgmt_show.html" /> 
+    <link rel="next" title="seccertmgmt_action - PyFOS util to modify certificates." href="seccertmgmt_action.html" />
+    <link rel="prev" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch." href="seccertmgmt_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify Certificates"
+          <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify certificates."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch"
+          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -48,44 +48,41 @@
 <p>This module can be used to create/generate certificate for a specified entity
 and type</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
-</div>
-</div></blockquote>
 <div class="line-block">
-<div class="line">Util scripts options:</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
+<ul>
+<li><p class="first">Util Script Options:</p>
 <blockquote>
 <div><div class="line-block">
-<div class="line">–certificate-entity=ENTITY-NAME    Certificate entity name.</div>
-<div class="line">–certificate-type=CERT-TYPE        Certificate type name.</div>
-<div class="line">–key-size=VALUE                    key size.</div>
-<div class="line">–country-name=VALUE                country name.</div>
-<div class="line">–state-name=VALUE                  state name.</div>
-<div class="line">–unit-name=VALUE                   unit name.</div>
-<div class="line">–hash-type=VALUE                   hash type.</div>
-<div class="line">–algorithm-type=VALUE              algorithm type.</div>
-<div class="line">–organization-name=VALUE           organization name.</div>
-<div class="line">–years=VALUE                       certificate validity.</div>
-<div class="line">–domain-name=VALUE                 domain name.</div>
-<div class="line">–locality-name=VALUE               locality name.</div>
+<div class="line">–certificate-entity=ENTITY-NAME    Sets the certificate entity name.</div>
+<div class="line">–certificate-type=CERT-TYPE        Sets the certificate type name.</div>
+<div class="line">–key-size=VALUE                    Sets the key size.</div>
+<div class="line">–country-name=VALUE                Sets the country name.</div>
+<div class="line">–state-name=VALUE                  Sets the state name.</div>
+<div class="line">–unit-name=VALUE                   Sets the unit name.</div>
+<div class="line">–hash-type=VALUE                   Sets the hash type.</div>
+<div class="line">–algorithm-type=VALUE              Sets the algorithm type.</div>
+<div class="line">–organization-name=VALUE           Sets the organization name.</div>
+<div class="line">–years=VALUE                       Sets the certificate validity.</div>
+<div class="line">–domain-name=VALUE                 Sets the domain name.</div>
+<div class="line">–locality-name=VALUE               Sets the locality name.</div>
 </div>
 </div></blockquote>
-<ul>
+</li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>Certificate created</li>
+<li>The certificate created.</li>
 </ul>
 </dd>
 </dl>
@@ -95,9 +92,9 @@ and type</p>
 <dt id="seccertmgmt_create.seccertmgmt_create.create_security_certificate">
 <code class="descclassname">seccertmgmt_create.</code><code class="descname">create_security_certificate</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#seccertmgmt_create.seccertmgmt_create.create_security_certificate" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
-<li><p class="first">Generate a Certificate in the switch.</p>
+<li><p class="first">Generate a certificate in the switch.</p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <blockquote>
 <div><p>ret = seccertmgmt_create.create_security_certificate(session, cert_entity, cert_type)
 print (ret)</p>
@@ -109,20 +106,18 @@ print (ret)</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">THe session returned by the login.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param cert_entity:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">associated certificate entity
-(ca-client/ca-server/cert/csr)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The associated certificate entity                                 (ca-client/ca-server/cert/csr).</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">param cert_type:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">associated certificate type
-(commoncert/https/syslog/ldap/radius)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The associated certificate type                               (commoncert/https/syslog/ldap/radius).</td>
 </tr>
 </tbody>
 </table>
@@ -130,22 +125,23 @@ print (ret)</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
 </dd>
 </dl>
 </li>
+<li><p class="first">Use Cases*</p>
+</li>
 </ul>
-<p><em>use cases</em></p>
 <ol class="arabic simple">
-<li>Generate the specified Certificate.</li>
+<li>Generate the specified certificate.</li>
 </ol>
 </div></blockquote>
 </li>
@@ -167,10 +163,10 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="seccertmgmt_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code> - PyFOS util for displaying certificates in the switch</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code> - PyFOS util for displaying certificates in the switch.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="seccertmgmt_action.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_action</span></code> - PyFOS util to modify Certificates</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_action</span></code> - PyFOS util to modify certificates.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -204,17 +200,17 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify Certificates"
+          <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify certificates."
              >next</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch"
+          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch."
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

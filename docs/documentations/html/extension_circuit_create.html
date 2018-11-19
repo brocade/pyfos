@@ -44,33 +44,33 @@
             
   <span class="target" id="module-extension_circuit_create"></span><div class="section" id="extension-circuit-create-pyfos-util-for-creating-a-circuit-object">
 <h1><a class="reference internal" href="#module-extension_circuit_create" title="extension_circuit_create: PyFOS module to create a extension tunnel use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_circuit_create</span></code></a> - PyFOS util for creating a circuit object.<a class="headerlink" href="#extension-circuit-create-pyfos-util-for-creating-a-circuit-object" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-extension_circuit_create" title="extension_circuit_create: PyFOS module to create a extension tunnel use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_circuit_create</span></code></a> Util creates a circuit.</p>
+<p>The <a class="reference internal" href="#module-extension_circuit_create" title="extension_circuit_create: PyFOS module to create a extension tunnel use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_circuit_create</span></code></a> util creates a circuit.</p>
 <p>This module is a stand-alone script that can be used to create an extension
 circuit.</p>
 <p>extension_circuit_create.py: Usage</p>
 <ul>
 <li><dl class="first docutils">
-<dt>Infrastructure options:</dt>
+<dt>Infrastructure Options:</dt>
 <dd><ul class="first last simple">
-<li>-i,–ipaddr=IPADDR: IP address of FOS switch.</li>
-<li>-L,–login=LOGIN: Login name.</li>
-<li>-P,–password=PASSWORD: Password.</li>
-<li>-f,–vfid=VFID: VFID to which the request is directed.</li>
-<li>-s,–secured=MODE: HTTPS mode “self” or “CA”[Optional].</li>
-<li>-v,–verbose: Verbose mode[Optional].</li>
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Scripts Option:</dt>
 <dd><ul class="first last simple">
-<li>-n,–name=NAME: Set name or slot/port of the circuit.</li>
-<li>-c,–circuit-id=CIRCUIT-ID: set circuit-id of the circuit.</li>
-<li>-S,–local-ip=LOCAL-IP: Set local-ip-address of the circuit.</li>
-<li>-D,–remote-ip=REMOTE-IP: Set remote-ip-address of the circuit.</li>
-<li>-b,–min-comm-rate=VALUE: Set minimum-communication-rate in Kb/s.</li>
-<li>-B,–max-comm-rate=Value: Set maximum-communication-rate in Kb/s.</li>
+<li>-n,–name=NAME: Sets the name or slot/port of the circuit.</li>
+<li>-c,–circuit-id=CIRCUIT-ID: Sets the ID of the circuit.</li>
+<li>-S,–local-ip=LOCAL-IP: Sets the local IP address of the circuit.</li>
+<li>-D,–remote-ip=REMOTE-IP: Sets the remote IP address of the circuit.</li>
+<li>-b,–min-comm-rate=VALUE: Sets the minimum communication rate in Kb/s.</li>
+<li>-B,–max-comm-rate=Value: Sets the maximum communication rate in Kb/s.</li>
 </ul>
 </dd>
 </dl>
@@ -87,9 +87,9 @@ circuit.</p>
 <dl class="function">
 <dt id="extension_circuit_create.extension_circuit_create.create_extension_circuit">
 <code class="descclassname">extension_circuit_create.</code><code class="descname">create_extension_circuit</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>cid</em>, <em>local</em>, <em>remote</em>, <em>minB</em>, <em>maxB</em><span class="sig-paren">)</span><a class="headerlink" href="#extension_circuit_create.extension_circuit_create.create_extension_circuit" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Create extension circuit</em></p>
+<dd><p><em>Create Extension Circuit</em></p>
 <blockquote>
-<div><p>Example usage of the method:</p>
+<div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_circuit_create</span><span class="o">.</span><span class="n">create_extension_circuit</span><span class="p">(</span>
 <span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">local</span><span class="p">,</span> <span class="n">remote</span><span class="p">,</span> <span class="n">minB</span> <span class="o">=</span> <span class="mi">500000</span><span class="p">,</span>
 <span class="n">maxB</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
@@ -111,24 +111,24 @@ circuit.</p>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Inputs:</dt>
+<dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">Session returned by login.</td>
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">VE port name expressed as slot/port.</td>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">Sets the VE port name, expressed as slot/port.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param cid:</th><td class="field-body">Circuit ID.</td>
+<tr class="field-odd field"><th class="field-name">param cid:</th><td class="field-body">Sets the ID of the circuit.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param local:</th><td class="field-body">Circuit local IP address.</td>
+<tr class="field-even field"><th class="field-name">param local:</th><td class="field-body">Sets the local IP address of the circuit.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param remote:</th><td class="field-body">Circuit Remote IP Address.</td>
+<tr class="field-odd field"><th class="field-name">param remote:</th><td class="field-body">Sets the remote IP address of the circuit.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param minB:</th><td class="field-body">Min. comm rate for the circuit.</td>
+<tr class="field-even field"><th class="field-name">param minB:</th><td class="field-body">Sets the minimum communication rate for the circuit.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param maxB:</th><td class="field-body">Max. comm rate for the circuit.</td>
+<tr class="field-odd field"><th class="field-name">param maxB:</th><td class="field-body">Sets the maximum communication rate for the circuit.</td>
 </tr>
 </tbody>
 </table>
@@ -136,12 +136,12 @@ circuit.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">Dictionary of return status matching rest response.</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -149,7 +149,7 @@ circuit.</p>
 </dl>
 </li>
 </ul>
-<p><em>Use cases</em></p>
+<p><em>Use Cases</em></p>
 <blockquote>
 <div>Create a new circuit to an existing tunnel.</div></blockquote>
 </div></blockquote>
@@ -217,7 +217,7 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

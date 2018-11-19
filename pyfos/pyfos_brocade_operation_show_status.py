@@ -25,7 +25,7 @@ supportsave operation status.
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as ver
 
@@ -103,7 +103,7 @@ class show_status(pyfos_rest_util.rest_object):
         """
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.rpc_show_status,
-                         "/rest/operations/show-status",ver.VER_RANGE_821_and_ABOVE, 1)
+                         "/rest/operations/show-status", ver.VER_RANGE_821_and_ABOVE, 1)
         self.add(pyfos_rest_util.rest_attribute("message-id",
                  pyfos_type.type_int, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))

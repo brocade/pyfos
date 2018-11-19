@@ -15,51 +15,47 @@
 
 """
 
-:mod:`sshutil_create` - PyFOS util for creating host or public/private key pair
-*******************************************************************************
-The :mod:`sshutil_create` provides option to generate host, public/private key
+:mod:`sshutil_create` - PyFOS util for creating a host key or \
+public/private key pair.
+*******************************************************************************************
+The :mod:`sshutil_create` util provides option to generate a host key or \
+public/private key pair.
 
-This module can be used to enerate public/private key pair and to
-generate host key.
+This module can be used to generate a host key or public/private key pair.
 
-* inputs:
+* Input:
 
-|  Infrastructure options:
+| Infrastructure Options:
 
-  |   -i,--ipaddr=IPADDR     IP address of FOS switch
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-  |   -L,--login=LOGIN         login name.
+|  Util Script Options:
 
-  |   -P,--password=PASSWORD password.
+  |    --algorithm-type=ALGO	Sets the algorithm type.
 
-  |   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
+  |    --key-type=TYPE   	Sets the key type.
 
-  |   -v,--verbose           verbose mode[OPTIONAL].
-
-
-|  Util scripts options:
-
-  |    --algorithm-type=ALGO	Algorithm type
-
-  |    --key-type=TYPE   	Key type
-
-  |    --passphrase=PASS     	Passphrase
+  |    --passphrase=PASS     	Sets the passphrase.
 
 
 
-* outputs:
+* Output:
 
-    * Status of the key generate operation
+    * The status of the generate key operation.
 
 
 .. function:: sshutil_create.generate_key(
                   session, algorithm_type, key_type, passphrase)
 
 
-    * Generate public/private key or host key
+    * Generate a public/private key or a host key.
 
 
-        Example usage of the method::
+        Example Usage of the Method::
 
             ret = sshutil_create.generate_keys(session, "rsa", \
 "public-private-key", "pray4green")
@@ -77,25 +73,25 @@ generate host key.
 
             result = portgroup_obj.post(session)
 
-        * inputs:
-            :param Algorithm-type: Algorithm type
-            :param passphrase: 	passphrase.
+        * Input:
+            :param Algorithm-type: The algorithm type.
+            :param passphrase: 	The passphrase.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
+            :rtype: A dictionary of return status matching the REST response.
 
-        *use cases*
+        *Use Cases*
 
-        1. Generate public/private keys
-        2. Generate host key
+        1. Generate a public/private key pair.
+        2. Generate a host key.
 
 """
 
 import sys
-import pyfos.pyfos_auth as pyfos_auth
-import pyfos.pyfos_util as pyfos_util
+from pyfos import pyfos_auth
+from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import sshutil_key
-import pyfos.utils.brcd_util as brcd_util
+from pyfos.utils import brcd_util
 
 
 def _gen_key(session, restobject):
@@ -106,7 +102,7 @@ def gen_key(session, algorithm_type, passphrase, key_type):
     sshutil_obj = sshutil_key()
     sshutil_obj.set_algorithm_type(algorithm_type)
     sshutil_obj.set_key_type(key_type)
-    if (passphrase is not None):
+    if passphrase is not None:
         sshutil_obj.set_passphrase(passphrase)
 
     result = _gen_key(session, sshutil_obj)
@@ -124,10 +120,10 @@ def main(argv):
     sshutil_obj = inputs['utilobject']
 
     if (sshutil_obj.peek_algorithm_type() is None or
-       sshutil_obj.peek_key_type() is None):
-            print("Missing input(s)")
-            print(inputs['utilusage'])
-            sys.exit()
+            sshutil_obj.peek_key_type() is None):
+        print("Missing input(s)")
+        print(inputs['utilusage'])
+        sys.exit()
 
     session = brcd_util.getsession(inputs)
 

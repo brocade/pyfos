@@ -19,7 +19,7 @@ The :mod:`pyfos_brocade_name_server` provides REST support for Name Server.
 
 """
 
-import pyfos.pyfos_rest_util as pyfos_rest_util
+from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as version
 
@@ -309,10 +309,10 @@ class fibrechannel_name_server(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "port-index", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG)),
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "share-area", pyfos_type.type_str,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG)),
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
              "frame-redirection", pyfos_type.type_str,
              None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
@@ -321,7 +321,7 @@ class fibrechannel_name_server(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "lsan", pyfos_type.type_str,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG)),
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "link-speed", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))

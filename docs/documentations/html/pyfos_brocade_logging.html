@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_logging - PyFOS module to provide rest support for configuring logging facilities in FC switch. &#8212; PyFOS 1.1.0 documentation</title>
+    <title>pyfos_brocade_logging - PyFOS module to provide REST support for configuring the logging facilities in the FC switch. &#8212; PyFOS 1.1.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric." href="pyfos_brocade_license.html" />
+    <link rel="next" title="pyfos_brocade_maps - PyFOS module to provide REST support for MAPS." href="pyfos_brocade_maps.html" />
     <link rel="prev" title="pyfos_brocade_fru - PyFOS module to provide rest support for the FRU." href="pyfos_brocade_fru.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,7 +28,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_license.html" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric."
+          <a href="pyfos_brocade_maps.html" title="pyfos_brocade_maps - PyFOS module to provide REST support for MAPS."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="pyfos_brocade_fru.html" title="pyfos_brocade_fru - PyFOS module to provide rest support for the FRU."
@@ -42,17 +42,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-pyfos_brocade_logging"></span><div class="section" id="pyfos-brocade-logging-pyfos-module-to-provide-rest-support-for-configuring-logging-facilities-in-fc-switch">
-<h1><a class="reference internal" href="#module-pyfos_brocade_logging" title="pyfos_brocade_logging: PyFOS module to provide rest support for configuring logging facilities in FC switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_logging</span></code></a> - PyFOS module to provide rest        support for configuring logging facilities in FC switch.<a class="headerlink" href="#pyfos-brocade-logging-pyfos-module-to-provide-rest-support-for-configuring-logging-facilities-in-fc-switch" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-pyfos_brocade_logging" title="pyfos_brocade_logging: PyFOS module to provide rest support for configuring logging facilities in FC switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_logging</span></code></a> provides a REST support for        FC switch logging facilities.</p>
+  <span class="target" id="module-pyfos_brocade_logging"></span><div class="section" id="pyfos-brocade-logging-pyfos-module-to-provide-rest-support-for-configuring-the-logging-facilities-in-the-fc-switch">
+<h1><a class="reference internal" href="#module-pyfos_brocade_logging" title="pyfos_brocade_logging: PyFOS module to provide rest support for configuring logging facilities in FC switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_logging</span></code></a> - PyFOS module to provide REST support for configuring the logging facilities in the FC switch.<a class="headerlink" href="#pyfos-brocade-logging-pyfos-module-to-provide-rest-support-for-configuring-the-logging-facilities-in-the-fc-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_logging" title="pyfos_brocade_logging: PyFOS module to provide rest support for configuring logging facilities in FC switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_logging</span></code></a> module provides a REST support for the FC switch logging facilities.</p>
 <dl class="class">
 <dt id="pyfos_brocade_logging.audit">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_logging.</code><code class="descname">audit</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>This class provides methods/options to retrieve and configure</dt>
+<dt>This class provides methods or options to retrieve and configure</dt>
 <dd>audit logging.</dd>
 </dl>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -61,53 +61,51 @@
 <col width="64%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Desc.</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>audit-enabled</td>
 <td>Audit
-Flag</td>
+flag.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.audit.peek_audit_enabled" title="pyfos_brocade_logging.audit.peek_audit_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_audit_enabled()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.audit.set_audit_enabled" title="pyfos_brocade_logging.audit.set_audit_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_audit_enabled()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>severity-level</td>
 <td>Severe
-Level</td>
+level.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.audit.peek_severity_level" title="pyfos_brocade_logging.audit.peek_severity_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_severity_level()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.audit.set_severity_level" title="pyfos_brocade_logging.audit.set_severity_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_severity_level()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>filter-class-list
 /filter-class</td>
 <td>Class
-List</td>
+list.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.audit.peek_filter_class_list_filter_class" title="pyfos_brocade_logging.audit.peek_filter_class_list_filter_class"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_filter_class_list_filter_class()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.audit.set_filter_class_list_filter_class" title="pyfos_brocade_logging.audit.set_filter_class_list_filter_class"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_filter_class_list_filter_class()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.audit.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit.get" title="Permalink to this definition">¶</a></dt>
 <dt>
-<code class="descname">Returns a :class:`audit` object or a list of objects filled</code></dt>
-<dt>
-<code class="descname">with attributes gathered from auditcfg.</code></dt>
+<code class="descname">Returns a :class:`audit` object or a list of objects             with attributes gathered from auditcfg.</code></dt>
 <dd><p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
-and individual attributes accessed through peek methods.</p>
+and individual attributes can be accessed through peek methods.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyfos_brocade_logging.audit.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit.patch" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div><p>Apply configurable attribute(s) within the object to audit</p>
-<p><em>Below is an example using individual sets:</em></p>
+<div><p>Apply configurable attribute(s) within the object to audit.</p>
+<p><em>Below is an Example Using Individual Sets:</em></p>
 </div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the audit object</span>
 <span class="n">audit_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">audit</span><span class="p">()</span>
@@ -117,27 +115,28 @@ and individual attributes accessed through peek methods.</p>
 <span class="n">audit_obj</span><span class="o">.</span><span class="n">set_severity_level</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 <span class="n">audit_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 
-<span class="p">:</span><span class="n">param</span> <span class="n">session</span><span class="p">:</span> <span class="n">session</span> <span class="n">handler</span> <span class="n">returned</span> <span class="n">by</span> <span class="n">audit</span>
-    <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`pyfos_auth.login`</span>
-<span class="p">:</span><span class="n">rtype</span><span class="p">:</span> <span class="n">a</span> <span class="n">dictionary</span> <span class="n">of</span> <span class="n">error</span> <span class="ow">or</span> <span class="n">success</span> <span class="n">information</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">session</span><span class="p">:</span> <span class="n">The</span> <span class="n">session</span> <span class="n">handler</span> <span class="n">returned</span> <span class="n">by</span> <span class="n">the</span> <span class="n">audit</span>
+<span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`pyfos_auth.login`</span><span class="o">.</span>
+<span class="p">:</span><span class="n">rtype</span><span class="p">:</span> <span class="n">A</span> <span class="n">dictionary</span> <span class="n">of</span> <span class="n">errors</span> <span class="ow">or</span> <span class="n">success</span> <span class="n">information</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.audit.set_audit_enabled">
 <code class="descname">set_audit_enabled</code><span class="sig-paren">(</span><em>enable/disable</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit.set_audit_enabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets enabled=true or disabled=false in the object</p>
+<dd><p>Sets the audit log enabled flag to true or false (disabled)
+in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable/disable</strong> – true to enable and false to disable audit</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable/disable</strong> – True to enable and false to disable                                     audit logs.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success response.</td>
 </tr>
 </tbody>
 </table>
@@ -146,12 +145,12 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.audit.peek_audit_enabled">
 <code class="descname">peek_audit_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit.peek_audit_enabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads audit enabled state in the object.</p>
+<dd><p>Reads the audit log enabled state in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">true or false</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">True or false.</td>
 </tr>
 </tbody>
 </table>
@@ -160,20 +159,28 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.audit.set_severity_level">
 <code class="descname">set_severity_level</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit.set_severity_level" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets level of severity in the object</p>
-<p>:param : level: Valid severity level: info,warning,critical,error
-:rtype: dictionary of error or success response</p>
+<dd><p>Sets the level of severity in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>level</strong> – The valid severity level (info, warning,                            critical, error)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyfos_brocade_logging.audit.peek_severity_level">
 <code class="descname">peek_severity_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit.peek_severity_level" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads severtiy level in the object.</p>
+<dd><p>Reads the severity level in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">level of severity of audit</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The level of severity of the audit log.</td>
 </tr>
 </tbody>
 </table>
@@ -182,21 +189,28 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.audit.set_filter_class_list_filter_class">
 <code class="descname">set_filter_class_list_filter_class</code><span class="sig-paren">(</span><em>filter_class_list</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit.set_filter_class_list_filter_class" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets filter class list in the object</p>
-<p>:param : level: Valid filter class list - security,configuration,
-zone,firmware,fabric,ls,cli,maps
-:rtype: dictionary of error or success response</p>
+<dd><p>Sets the filter class list in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>level</strong> – The valid filter class list (security,             configuration, zone, firmware, fabric, ls, cli, maps).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyfos_brocade_logging.audit.peek_filter_class_list_filter_class">
 <code class="descname">peek_filter_class_list_filter_class</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.audit.peek_filter_class_list_filter_class" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads filter class list in the object.</p>
+<dd><p>Reads the filter class list in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">filter class list of audit</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The filter class list of audit logs.</td>
 </tr>
 </tbody>
 </table>
@@ -208,8 +222,8 @@ zone,firmware,fabric,ls,cli,maps
 <dl class="class">
 <dt id="pyfos_brocade_logging.log_quiet_control">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_logging.</code><code class="descname">log_quiet_control</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class of configurable parameters of log quiet control</p>
-<p>Important class members:</p>
+<dd><p>Class of configurable parameters of the log quiet control.</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -218,62 +232,64 @@ zone,firmware,fabric,ls,cli,maps
 <col width="44%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>log-type</td>
 <td>The identifier for
-log type</td>
+the log type.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.peek_log_type" title="pyfos_brocade_logging.log_quiet_control.peek_log_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_log_type()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>quiet-enabled</td>
 <td>The quiet status
-of the log type</td>
+of the log type.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.set_quiet_enabled" title="pyfos_brocade_logging.log_quiet_control.set_quiet_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_quiet_enabled()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.peek_quiet_enabled" title="pyfos_brocade_logging.log_quiet_control.peek_quiet_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_quiet_enabled()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>start-time</td>
 <td>The quiet start
-time of log type</td>
+time of the log
+type.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.set_start_time" title="pyfos_brocade_logging.log_quiet_control.set_start_time"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_start_time()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.peek_start_time" title="pyfos_brocade_logging.log_quiet_control.peek_start_time"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_start_time()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>end-time</td>
 <td>The quiet end
-time of log type</td>
+time of the log
+type.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.set_end_time" title="pyfos_brocade_logging.log_quiet_control.set_end_time"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_end_time()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.peek_end_time" title="pyfos_brocade_logging.log_quiet_control.peek_end_time"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_end_time()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>days-of-week</td>
 <td>The quiet days of
-the log type</td>
+the log type.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.set_days_of_week_day" title="pyfos_brocade_logging.log_quiet_control.set_days_of_week_day"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_days_of_week_day()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control.peek_days_of_week" title="pyfos_brocade_logging.log_quiet_control.peek_days_of_week"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_days_of_week()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.log_quiet_control.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control" title="pyfos_brocade_logging.log_quiet_control"><code class="xref py py-class docutils literal notranslate"><span class="pre">log_quiet_control</span></code></a> object with attributes
-from log_quiet_control.</p>
+from log quiet control.</p>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
-and individual attributes accessed through peek methods.</p>
+and individual attributes can be accessed through peek methods.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or a
-<a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control" title="pyfos_brocade_logging.log_quiet_control"><code class="xref py py-class docutils literal notranslate"><span class="pre">log_quiet_control</span></code></a> object</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a
+<a class="reference internal" href="#pyfos_brocade_logging.log_quiet_control" title="pyfos_brocade_logging.log_quiet_control"><code class="xref py py-class docutils literal notranslate"><span class="pre">log_quiet_control</span></code></a> object.</td>
 </tr>
 </tbody>
 </table>
@@ -283,8 +299,8 @@ and individual attributes accessed through peek methods.</p>
 <dt id="pyfos_brocade_logging.log_quiet_control.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control.patch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply configurable attribute(s) within the object to
-log_quiet_control.</p>
-<p><em>Below is an example using individual sets:</em></p>
+log quiet control.</p>
+<p><em>Below is an Example Using Individual Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the log_quiet_control object</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">log_quiet_control</span><span class="p">()</span>
 <span class="c1"># set the log-type attribute to enable the</span>
@@ -295,7 +311,7 @@ log_quiet_control.</p>
 <span class="n">obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Below is an example of combining object                     initialization and attribute sets:</em></p>
+<p><em>Below is an Example of Combining Object                     Initialization and Attribute Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the log_quiet_control object and</span>
 <span class="c1"># set the enable attribute</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">log_quiet_control</span><span class="p">(</span>
@@ -309,7 +325,7 @@ log_quiet_control.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
 <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a dictionary of error or success information</td>
@@ -319,17 +335,17 @@ log_quiet_control.</p>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.log_quiet_control.peek_log_type">
 <code class="descname">peek_log_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control.peek_log_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the message id of log_quiet_control in the object.</p>
+<dd><p>Reads the message ID of the log quiet control in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">message id</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The message ID.</td>
 </tr>
 </tbody>
 </table>
@@ -338,14 +354,14 @@ log_quiet_control.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.log_quiet_control.set_quiet_enabled">
 <code class="descname">set_quiet_enabled</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control.set_quiet_enabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the log_quiet_control object.</p>
+<dd><p>Sets the log quiet control object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – quiet flag of the log within the switch</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – The quiet flag of the log within the switch.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -359,7 +375,7 @@ log_quiet_control.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or status of the log_quiet_control</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the status of the log quiet control.</td>
 </tr>
 </tbody>
 </table>
@@ -368,15 +384,14 @@ log_quiet_control.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.log_quiet_control.set_start_time">
 <code class="descname">set_start_time</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control.set_start_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the start time of log_quiet_control object.</p>
+<dd><p>Sets the start time of log quiet control object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – start time period in hh:mm to quiet the logs within
-the switch</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The start time period in hh:mm to quiet the logs                           within the switch.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -385,12 +400,12 @@ the switch</td>
 <dl class="method">
 <dt id="pyfos_brocade_logging.log_quiet_control.peek_start_time">
 <code class="descname">peek_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control.peek_start_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the start-time in the object.</p>
+<dd><p>Reads the start time in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or start time of the log_quiet_control</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the start time of the log quiet control.</td>
 </tr>
 </tbody>
 </table>
@@ -399,15 +414,15 @@ the switch</td>
 <dl class="method">
 <dt id="pyfos_brocade_logging.log_quiet_control.set_end_time">
 <code class="descname">set_end_time</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control.set_end_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the end time of log_quiet_control object.</p>
+<dd><p>Sets the end time of log quiet control object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – end time period in hh:mm to quiet the logs within
-the switch</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The end time period in hh:mm to quiet the logs within
+the switch.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -421,7 +436,7 @@ the switch</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or end time of the log_quiet_control</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the end time of the log quiet control.</td>
 </tr>
 </tbody>
 </table>
@@ -430,14 +445,14 @@ the switch</td>
 <dl class="method">
 <dt id="pyfos_brocade_logging.log_quiet_control.set_days_of_week_day">
 <code class="descname">set_days_of_week_day</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_quiet_control.set_days_of_week_day" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the quiet days of log_quiet_control object.</p>
+<dd><p>Sets the quiet days of log quiet control object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – day to quiet the logs within the switch</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The day to quiet the logs within the switch.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -451,7 +466,7 @@ the switch</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or quiet days of the log_quiet_control</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the quiet days set for the log quiet control.</td>
 </tr>
 </tbody>
 </table>
@@ -463,8 +478,8 @@ the switch</td>
 <dl class="class">
 <dt id="pyfos_brocade_logging.log_setting">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_logging.</code><code class="descname">log_setting</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_setting" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class of configurable parameters of log control</p>
-<p>Important class members:</p>
+<dd><p>Class of configurable parameters of the log control.</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -473,46 +488,47 @@ the switch</td>
 <col width="52%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>keep-alive-period</td>
-<td>Log alive
-period</td>
+<td>The log
+keepalive
+period.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.log_setting.set_keep_alive_period" title="pyfos_brocade_logging.log_setting.set_keep_alive_period"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_keep_alive_period()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.log_setting.peek_keep_alive_period" title="pyfos_brocade_logging.log_setting.peek_keep_alive_period"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_keep_alive_period()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>syslog-facility-level</td>
-<td>Syslog
+<td>The syslog
 facility
-level</td>
+level.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.log_setting.peek_syslog_facility_level" title="pyfos_brocade_logging.log_setting.peek_syslog_facility_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_syslog_facility_level()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.log_setting.set_syslog_facility_level" title="pyfos_brocade_logging.log_setting.set_syslog_facility_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_syslog_facility_level()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.log_setting.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_setting.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_logging.log_setting" title="pyfos_brocade_logging.log_setting"><code class="xref py py-class docutils literal notranslate"><span class="pre">log_setting</span></code></a> object with attributes from
-log_setting.</p>
+the log setting.</p>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
-and individual attributes accessed through peek methods.</p>
+and individual attributes can be accessed through peek methods.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or a
-<a class="reference internal" href="#pyfos_brocade_logging.log_setting" title="pyfos_brocade_logging.log_setting"><code class="xref py py-class docutils literal notranslate"><span class="pre">log_setting</span></code></a> object</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a
+<a class="reference internal" href="#pyfos_brocade_logging.log_setting" title="pyfos_brocade_logging.log_setting"><code class="xref py py-class docutils literal notranslate"><span class="pre">log_setting</span></code></a> object.</td>
 </tr>
 </tbody>
 </table>
@@ -521,8 +537,8 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.log_setting.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_setting.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply configurable attribute(s) within the object to log_setting.</p>
-<p><em>Below is an example using individual sets:</em></p>
+<dd><p>Apply configurable attribute(s) within the object to the             log setting.</p>
+<p><em>Below is an Example Using Individual Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the log_setting object</span>
 <span class="n">log_setting_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">log_setting</span><span class="p">()</span>
 <span class="c1"># set the log-type attribute to enable the</span>
@@ -533,7 +549,7 @@ and individual attributes accessed through peek methods.</p>
 <span class="n">log_setting_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Below is an example of combining object                     initialization and attribute sets:</em></p>
+<p><em>Below is an Example of Combining Object                     Initialization and Attribute Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the log_setting object and</span>
 <span class="c1"># set the enable attribute</span>
 <span class="n">log_setting_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">log_setting</span><span class="p">(</span>
@@ -547,27 +563,27 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a dictionary of error or success information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success information.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.log_setting.peek_keep_alive_period">
 <code class="descname">peek_keep_alive_period</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_setting.peek_keep_alive_period" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the message id of log_setting in the object.</p>
+<dd><p>Reads the message ID of log setting in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">message id</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The message ID.</td>
 </tr>
 </tbody>
 </table>
@@ -576,14 +592,14 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.log_setting.set_keep_alive_period">
 <code class="descname">set_keep_alive_period</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_setting.set_keep_alive_period" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the log_setting object.</p>
+<dd><p>Sets the log setting object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – keep alive period</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The keepalive period.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -592,12 +608,12 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.log_setting.peek_syslog_facility_level">
 <code class="descname">peek_syslog_facility_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.log_setting.peek_syslog_facility_level" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the syslog facility level in the object</p>
+<dd><p>Reads the syslog facility level in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or syslog facility level</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the syslog facility level.</td>
 </tr>
 </tbody>
 </table>
@@ -611,9 +627,9 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">facility level</td>
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">The facility level.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -625,8 +641,8 @@ and individual attributes accessed through peek methods.</p>
 <dl class="class">
 <dt id="pyfos_brocade_logging.raslog">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_logging.</code><code class="descname">raslog</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class of configurable parameters of raslog</p>
-<p>Important class members:</p>
+<dd><p>Class of configurable parameters of RASLog</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -642,63 +658,63 @@ and individual attributes accessed through peek methods.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>message-id</td>
-<td>The message id
-of the raslog</td>
+<td>The message ID
+of the RASLog.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog.peek_message_id" title="pyfos_brocade_logging.raslog.peek_message_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_message_id()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>message-text</td>
 <td>The message text
-of the raslog</td>
+of the RASLog</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog.peek_message_text" title="pyfos_brocade_logging.raslog.peek_message_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_message_text()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>message-enabled</td>
 <td>The message status
-of the raslog</td>
+of the RASLog.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog.set_message_enabled" title="pyfos_brocade_logging.raslog.set_message_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_message_enabled()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.raslog.peek_message_enabled" title="pyfos_brocade_logging.raslog.peek_message_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_message_enabled()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>message-flooded</td>
 <td>The message status
-of the raslog</td>
+of the RASLog.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog.peek_message_flooded" title="pyfos_brocade_logging.raslog.peek_message_flooded"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_message_flooded()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>syslog-enabled</td>
 <td>The syslog status
-the raslog</td>
+the RASLog.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog.set_syslog_enabled" title="pyfos_brocade_logging.raslog.set_syslog_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_syslog_enabled()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.raslog.peek_syslog_enabled" title="pyfos_brocade_logging.raslog.peek_syslog_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_syslog_enabled()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>current-severity</td>
 <td>The severity level
-the raslog</td>
+the RASLog</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog.set_current_severity" title="pyfos_brocade_logging.raslog.set_current_severity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_current_severity()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.raslog.peek_current_severity" title="pyfos_brocade_logging.raslog.peek_current_severity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_current_severity()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>default-severity</td>
 <td>Default severity
-of the raslog</td>
+of the RASLog.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog.peek_default_severity" title="pyfos_brocade_logging.raslog.peek_default_severity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_default_severity()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.raslog.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_logging.raslog" title="pyfos_brocade_logging.raslog"><code class="xref py py-class docutils literal notranslate"><span class="pre">raslog</span></code></a> object with attributes from raslog.</p>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_logging.raslog" title="pyfos_brocade_logging.raslog"><code class="xref py py-class docutils literal notranslate"><span class="pre">raslog</span></code></a> object with attributes from RASLog.</p>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
-and individual attributes accessed through peek methods.</p>
+and individual attributes can be accessed through peek methods.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or a
-<a class="reference internal" href="#pyfos_brocade_logging.raslog" title="pyfos_brocade_logging.raslog"><code class="xref py py-class docutils literal notranslate"><span class="pre">raslog</span></code></a> object</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a
+<a class="reference internal" href="#pyfos_brocade_logging.raslog" title="pyfos_brocade_logging.raslog"><code class="xref py py-class docutils literal notranslate"><span class="pre">raslog</span></code></a> object.</td>
 </tr>
 </tbody>
 </table>
@@ -707,8 +723,8 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.raslog.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply configurable attribute(s) within the object to raslog.</p>
-<p><em>Below is an example using individual sets:</em></p>
+<dd><p>Apply the configurable attribute(s) within the object to RASLog.</p>
+<p><em>Below is an Example Using Individual Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the raslog object</span>
 <span class="n">raslog_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">raslog</span><span class="p">()</span>
 <span class="c1"># set the message-id attribute to enable the</span>
@@ -719,7 +735,7 @@ and individual attributes accessed through peek methods.</p>
 <span class="n">raslog_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Below is an example of combining object                     initialization and attribute sets:</em></p>
+<p><em>Below is an Example of Combining Object                     Initialization and Attribute Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the raslog object and</span>
 <span class="c1"># set the enable-state attribute</span>
 <span class="n">raslog_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">raslog</span><span class="p">(</span>
@@ -733,27 +749,27 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a dictionary of error or success information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success information.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.raslog.peek_message_id">
 <code class="descname">peek_message_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog.peek_message_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the message id of raslog in the object.</p>
+<dd><p>Reads the message ID of the RASLog in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">message id</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The message ID.</td>
 </tr>
 </tbody>
 </table>
@@ -762,12 +778,12 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.raslog.peek_message_text">
 <code class="descname">peek_message_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog.peek_message_text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads Message description in the raslog object.</p>
+<dd><p>Reads the message description in the RASLog object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Text description of the raslog</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A text description of the RASLog.</td>
 </tr>
 </tbody>
 </table>
@@ -776,14 +792,14 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.raslog.set_message_enabled">
 <code class="descname">set_message_enabled</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog.set_message_enabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the raslog message object.</p>
+<dd><p>Sets the RASLog message object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – message status flag within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – The message status flag within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -797,7 +813,7 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or status of the raslog</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the status of the RASLog.</td>
 </tr>
 </tbody>
 </table>
@@ -811,7 +827,7 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or status of the raslog</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the status of the RASLog.</td>
 </tr>
 </tbody>
 </table>
@@ -820,14 +836,14 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.raslog.set_syslog_enabled">
 <code class="descname">set_syslog_enabled</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog.set_syslog_enabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the raslog message object for syslog.</p>
+<dd><p>Sets the RASLog message object for syslog.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – syslog status flag within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – The syslog status flag within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -841,7 +857,7 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or syslog status of the raslog</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the syslog status of the RASLog.</td>
 </tr>
 </tbody>
 </table>
@@ -850,14 +866,14 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.raslog.set_current_severity">
 <code class="descname">set_current_severity</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog.set_current_severity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the severity of raslog message object.</p>
+<dd><p>Sets the severity of RASLog message object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – severity value within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The severity value within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -871,7 +887,7 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or severity of the raslog</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the severity of the RASLog.</td>
 </tr>
 </tbody>
 </table>
@@ -885,7 +901,7 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or default severity of the raslog</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the default severity of the RASLog.</td>
 </tr>
 </tbody>
 </table>
@@ -897,7 +913,7 @@ and individual attributes accessed through peek methods.</p>
 <dl class="class">
 <dt id="pyfos_brocade_logging.raslog_module">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_logging.</code><code class="descname">raslog_module</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog_module" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class of configurable parameters of all raslog of a FOS Module</p>
+<dd><p>Class of configurable parameters of all RASLog of a FOS module.</p>
 <p>Important class members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
@@ -907,43 +923,44 @@ and individual attributes accessed through peek methods.</p>
 <col width="39%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>module-id</td>
-<td>The module id
-of the raslog</td>
+<td>The module ID
+of the RASLog.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog_module.peek_module_id" title="pyfos_brocade_logging.raslog_module.peek_module_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_module_id()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>log-enabled</td>
 <td>The status of all
-raslogs in FOS Module</td>
+RASLog in the FOS
+module.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.raslog_module.set_log_enabled" title="pyfos_brocade_logging.raslog_module.set_log_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_log_enabled()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
+<p><em>Object Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.raslog_module.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog_module.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_logging.raslog_module" title="pyfos_brocade_logging.raslog_module"><code class="xref py py-class docutils literal notranslate"><span class="pre">raslog_module</span></code></a> object with attributes from
-raslog_module.</p>
+the RASLog module.</p>
 <p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
-and individual attributes accessed through peek methods.</p>
+and individual attributes can be accessed through peek methods.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or a
-<a class="reference internal" href="#pyfos_brocade_logging.raslog_module" title="pyfos_brocade_logging.raslog_module"><code class="xref py py-class docutils literal notranslate"><span class="pre">raslog_module</span></code></a> object</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a
+<a class="reference internal" href="#pyfos_brocade_logging.raslog_module" title="pyfos_brocade_logging.raslog_module"><code class="xref py py-class docutils literal notranslate"><span class="pre">raslog_module</span></code></a> object.</td>
 </tr>
 </tbody>
 </table>
@@ -952,8 +969,8 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.raslog_module.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog_module.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply configurable attribute(s) within the object to raslog_module.</p>
-<p><em>Below is an example using individual sets:</em></p>
+<dd><p>Apply configurable attribute(s) within the object to RASLog module.</p>
+<p><em>Below is an Example Using Individual Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the raslog_module object</span>
 <span class="n">raslog_module_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">raslog_module</span><span class="p">()</span>
 <span class="c1"># set the module-id attribute to enable the</span>
@@ -964,7 +981,7 @@ and individual attributes accessed through peek methods.</p>
 <span class="n">raslog_module_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Below is an example of combining object                     initialization and attribute sets:</em></p>
+<p><em>Below is an Example of Combining Object                     Initialization and Attribute Sets:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the raslog_module object and</span>
 <span class="c1"># set the enable-state attribute</span>
 <span class="n">raslog_module_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">raslog_module</span><span class="p">(</span>
@@ -978,27 +995,27 @@ and individual attributes accessed through peek methods.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a dictionary of error or success information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success information.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.raslog_module.peek_module_id">
 <code class="descname">peek_module_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog_module.peek_module_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the module id of raslog_module in the object.</p>
+<dd><p>Reads the module ID of RASLog module in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">module id</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The module ID.</td>
 </tr>
 </tbody>
 </table>
@@ -1007,15 +1024,15 @@ and individual attributes accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.raslog_module.set_log_enabled">
 <code class="descname">set_log_enabled</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.raslog_module.set_log_enabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the raslog_module module object.</p>
+<dd><p>Sets the RASLog module in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – message status flag for all messages in tha module
-within the object</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – The message status flag for all messages in the module
+within the object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or dictionary of error information</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None or a dictionary of error information.</td>
 </tr>
 </tbody>
 </table>
@@ -1028,61 +1045,60 @@ within the object</td>
 <dt id="pyfos_brocade_logging.syslog_server">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_logging.</code><code class="descname">syslog_server</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>This class provides methods/options to retrieve, configure, modify</dt>
+<dt>This class provides methods and options to retrieve, configure, modify,</dt>
 <dd>and delete syslog.</dd>
 </dl>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
 <col width="27%" />
-<col width="32%" />
-<col width="41%" />
+<col width="33%" />
+<col width="40%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>server</td>
-<td>syslog server name</td>
+<td>The syslog server
+name.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.syslog_server.peek_server" title="pyfos_brocade_logging.syslog_server.peek_server"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_server()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.syslog_server.set_server" title="pyfos_brocade_logging.syslog_server.set_server"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_server()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>port</td>
-<td>port syslog server</td>
+<td>The port syslog
+server.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.syslog_server.peek_port" title="pyfos_brocade_logging.syslog_server.peek_port"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.syslog_server.set_port" title="pyfos_brocade_logging.syslog_server.set_port"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_port()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>secure-mode</td>
-<td>secure mode
-using TLS protocol</td>
+<td>The secure mode
+using TLS protocol.</td>
 <td><a class="reference internal" href="#pyfos_brocade_logging.syslog_server.peek_secure_mode" title="pyfos_brocade_logging.syslog_server.peek_secure_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_secure_mode()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_logging.syslog_server.set_secure_mode" title="pyfos_brocade_logging.syslog_server.set_secure_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_secure_mode()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
-<dl class="method">
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.get" title="Permalink to this definition">¶</a></dt>
 <dt>
-<code class="descname">Returns a :class:`syslog_server` object or list of objects filled with</code></dt>
-<dt>
-<code class="descname">syslog server attributes.</code></dt>
-<dd><p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
-and individual attributes accessed through peek methods.</p>
+<code class="descname">Returns a :class:`syslog_server` object or list of objects with           syslog server attributes.</code></dt>
+<dd><p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>          and individual attributes can be accessed through peek methods.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.post">
 <code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.post" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add members to a list attribute of the object. This method is used to
-add syslog servers.</p>
-<p>Example usage of the method to configure new syslog server:</p>
+<dd><p>Add members to a list attribute of the object. This method is used to           add syslog servers.</p>
+<p>Example Usage of the Method to Configure a new Syslog Server:</p>
 <p># initialize the syslog server object
 syslog_server_obj = pyfos_brocade_logging.syslog_server()
 # set the IP address of server
@@ -1091,10 +1107,10 @@ syslog_server_obj.set_server(“10.10.10.10”)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1104,8 +1120,8 @@ syslog_server_obj.set_server(“10.10.10.10”)</p>
 <dt id="pyfos_brocade_logging.syslog_server.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.patch" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div><p>Apply configurable attribute(s) within the object to syslog_server</p>
-<p><em>Below is an example using individual sets:</em></p>
+<div><p>Apply configurable attribute(s) within the object to the               syslog server.</p>
+<p><em>Below is an Example Using Individual Sets:</em></p>
 </div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the syslog server object</span>
 <span class="n">syslog_server_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">syslog_server</span><span class="p">()</span>
@@ -1117,9 +1133,9 @@ syslog_server_obj.set_server(“10.10.10.10”)</p>
 <span class="n">syslog_server_obj</span><span class="o">.</span><span class="n">set_secure_mode</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>
 <span class="n">syslog_server_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 
-<span class="p">:</span><span class="n">param</span> <span class="n">session</span><span class="p">:</span> <span class="n">session</span> <span class="n">handler</span> <span class="n">returned</span> <span class="n">by</span>
-    <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`pyfos_auth.login`</span>
-<span class="p">:</span><span class="n">rtype</span><span class="p">:</span> <span class="n">a</span> <span class="n">dictionary</span> <span class="n">of</span> <span class="n">error</span> <span class="ow">or</span> <span class="n">success</span> <span class="n">information</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">session</span><span class="p">:</span> <span class="n">The</span> <span class="n">session</span> <span class="n">handler</span> <span class="n">returned</span> <span class="n">by</span>
+    <span class="p">:</span><span class="n">func</span><span class="p">:</span><span class="sb">`pyfos_auth.login`</span><span class="o">.</span>
+<span class="p">:</span><span class="n">rtype</span><span class="p">:</span> <span class="n">A</span> <span class="n">dictionary</span> <span class="n">of</span> <span class="n">errors</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">success</span> <span class="n">response</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1127,31 +1143,38 @@ syslog_server_obj.set_server(“10.10.10.10”)</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.delete">
 <code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete members from a list attribute of the object. This method
-deletes the syslog server configured.</p>
-<blockquote>
-<div>Example usage of the method to create a new Mappings:</div></blockquote>
-<p># initialize the syslog server object
-syslog_server_obj = pyfos_brocade_logging.syslog_server()
-# set the IP address of server
-syslog_server_obj.set_server(“10.10.10.10”)
-# delete the syslog server
-syslog_server_obj.delete(session)</p>
+<dd><blockquote>
+<div><dl class="docutils">
+<dt>Delete members from a list attribute of the object. This method</dt>
+<dd><p class="first">deletes the configured syslog server.</p>
+<p class="last">Example Usage of the Method to Create New Mappings:</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the syslog server object</span>
+<span class="n">syslog_server_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_logging</span><span class="o">.</span><span class="n">syslog_server</span><span class="p">()</span>
+<span class="c1"># set the IP address of server</span>
+<span class="n">syslog_server_obj</span><span class="o">.</span><span class="n">set_server</span><span class="p">(</span><span class="s2">&quot;10.10.10.10&quot;</span><span class="p">)</span>
+<span class="c1"># delete the syslog server</span>
+<span class="n">syslog_server_obj</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
-<p><em>Attribute methods</em></p>
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.set_server">
 <code class="descname">set_server</code><span class="sig-paren">(</span><em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.set_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets server in the object</p>
+<dd><p>Sets the server in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server</strong> – IPv4/v6 address or dns name of syslog server</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server</strong> – The IPv4 or IPv6 address or the DNS name of the                             syslog server.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1160,12 +1183,12 @@ syslog_server_obj.delete(session)</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.peek_server">
 <code class="descname">peek_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.peek_server" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads syslog server in the object.</p>
+<dd><p>Reads the syslog server in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">server IP address or dns name</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The IP address or DNS name of the server.</td>
 </tr>
 </tbody>
 </table>
@@ -1174,14 +1197,14 @@ syslog_server_obj.delete(session)</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.set_port">
 <code class="descname">set_port</code><span class="sig-paren">(</span><em>port</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.set_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets port number in the object.</p>
+<dd><p>Sets the port number in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> – port number of syslog server</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> – The port number of the syslog server.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1190,12 +1213,12 @@ syslog_server_obj.delete(session)</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.peek_port">
 <code class="descname">peek_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.peek_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads port number in the object.</p>
+<dd><p>Reads the port number in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">port number in the object</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The port number in the object.</td>
 </tr>
 </tbody>
 </table>
@@ -1204,20 +1227,28 @@ syslog_server_obj.delete(session)</p>
 <dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.set_secure_mode">
 <code class="descname">set_secure_mode</code><span class="sig-paren">(</span><em>true/false</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.set_secure_mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets secure mode in the object</p>
-<p>:param true/false:true=enables secure mode and false disables it
-:rtype: dictionary of error or success response</p>
+<dd><p>Sets the secure mode in the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>true/false</strong> – True enables secure mode and false disables it.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyfos_brocade_logging.syslog_server.peek_secure_mode">
 <code class="descname">peek_secure_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_logging.syslog_server.peek_secure_mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads secure mode in the object.</p>
+<dd><p>Reads the secure mode in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">secure mode true or false</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The secure mode (true or false)</td>
 </tr>
 </tbody>
 </table>
@@ -1242,8 +1273,8 @@ syslog_server_obj.delete(session)</p>
   <p class="topless"><a href="pyfos_brocade_fru.html"
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_fru</span></code> - PyFOS module to provide rest support for the FRU.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="pyfos_brocade_license.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_license</span></code> - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric.</a></p>
+  <p class="topless"><a href="pyfos_brocade_maps.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_maps</span></code> - PyFOS module to provide REST support for MAPS.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1277,7 +1308,7 @@ syslog_server_obj.delete(session)</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_license.html" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric."
+          <a href="pyfos_brocade_maps.html" title="pyfos_brocade_maps - PyFOS module to provide REST support for MAPS."
              >next</a> |</li>
         <li class="right" >
           <a href="pyfos_brocade_fru.html" title="pyfos_brocade_fru - PyFOS module to provide rest support for the FRU."
@@ -1287,7 +1318,7 @@ syslog_server_obj.delete(session)</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Brocade Communications Systems LLC..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>
