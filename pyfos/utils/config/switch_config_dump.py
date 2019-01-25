@@ -37,6 +37,7 @@ added to --compare option and directory name is given instead.
     * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: IP address.
+    * --json: Use JSon Format, Default is XLSX format. [Optional]
 
 * Outputs:
     * None
@@ -54,6 +55,10 @@ from pyfos.utils import brcd_util
 
 
 def usage():
+    print("  Script specific options:")
+    print("")
+    print("    --json                      ",
+          "Use JSON format, Default is XLSX format. [Optional]")
     print("")
 
 

@@ -1029,7 +1029,7 @@ def read_simple_object(file_name, pyfos_class):
         if row[0].value is not None:
             num_of_entries = num_of_entries + 1
 
-    if num_of_entries is 1:
+    if num_of_entries == 1:
         old_dict = {}
     elif num_of_entries > 1:
         old_dict = []

@@ -13,7 +13,6 @@ disable=C0103, #Class name doesn't conform to PascalCase naming style (invalid-n
         E0602, #Undefined variable 'is_key' (undefined-variable)
         E1101, #Instance of 'rest_object' has no 'name_dict' member
         E1120, #No value for argument 'uri' in constructor call (no-value-for-parameter)
-        E1121, #Too many function arguments
         R0201, #Method could be a function (no-self-use)
         R0801, #Similar lines in 2 files
         R0902, #Too many instance attributes (28/7) (too-many-instance-attributes)
@@ -31,4 +30,3 @@ disable=C0103, #Class name doesn't conform to PascalCase naming style (invalid-n
         W0212, #Access to a protected member _create_unverified_context of a client class (protected-access)
         W0221, #Parameters differ from overridden 'default' method (arguments-differ)
         W0511, #TODO Compact the attribute class based on new defines (fixme)
-        W0123, #Use of eval (eval-used) 

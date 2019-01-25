@@ -1072,8 +1072,7 @@ class rest_attribute():
                 return rows
         else:
             if self.is_leaf:
-                if self.value is None:
-                    return 1
+                return 1
         self.dbg_print(ERR, "Default return ", self.name)
         return 1
 

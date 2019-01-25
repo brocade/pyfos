@@ -4110,10 +4110,10 @@ class security_certificate_action(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "protocol", pyfos_type.type_str,
-            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "remote-host-ip", pyfos_type.type_str,
-            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "remote-user-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))

@@ -81,6 +81,25 @@ class config_manager():
         # filters
         self.clsfilters = []
         self.logger = clsmanager.initlogger('ConfigManager')
+        self.configlist = list()
+        self.loadconfiglist()
+
+    def loadconfiglist(self):
+        """
+        Load the config supported class list
+        """
+        configfileanme = Path("configfilters.json")
+        if configfileanme.exists():
+            Confighandle = open(configfileanme.name, 'r')
+            configdata = Confighandle.read()
+            Confighandle.close()
+            try:
+                self.configlist = json.loads(configdata)
+            except ValueError as err:
+                print("Unable to load filters : ", err)
+                self.log(3, "Unable to load filters : ", err)
+        # print (self.loaddict)
+        return 0
 
     def log(self, level, *msg):
         clsmanager.logbase(self.logger, level, "".join(map(str, msg)))
@@ -140,7 +159,6 @@ class config_manager():
             fidfile = str(dumpfile)
             fidfile = re.sub(".json", "_" + str(fid) + ".json", fidfile)
             wb = open(fidfile, 'w')
-            del wb['Sheet']
 
             if fid != "None":
                 session['vfid'] = fid
@@ -154,11 +172,15 @@ class config_manager():
         """
         Dump the switch configuration object in .xlsx file in JSON format.
         """
+        self.dumplist = []
         if fmtobj != 'json':
             self.log(1, "Defaulting to json for the supported fmtfile")
             print("Defaulting to json for the supported fmtfile")
         for i in range(len(self.clslist)):
             cls = self.clslist[i]
+            if any(self.configlist) and\
+               cls().getcontainer() not in self.configlist:
+                continue
             if not clsmanager.isConfigClass(cls, session):
                 # print("skipping non config class", self.clslist[i])
                 continue
@@ -273,6 +295,9 @@ class config_manager():
                 continue
             if container is not None and \
                container != self.clslist[i]().getcontainer():
+                continue
+            if any(self.configlist) and\
+               self.clslist[i]().getcontainer() not in self.configlist:
                 continue
             ret = self.clslist[i].get(session)
             if utils.is_failed_resp(ret):
@@ -400,7 +425,12 @@ class config_manager():
             return 1
         ws = wb.read()
         wb.close()
-        loadallcell = json.loads(ws)
+        try:
+            loadallcell = json.loads(ws)
+        except ValueError as err:
+            print("Unable to load JSON dump file : ", err)
+            self.log(3, "Unable to JSON dump file : ", err)
+            return 1
         self.loaded = list(map(lambda x:
                                clsmanager.getInstacefromContainer(
                                    next(iter(x)), x),
@@ -410,10 +440,35 @@ class config_manager():
             tmpdict.update(dict({self.clslist[i]().getcontainer(): list()}))
         self.loaddict.update(dict({fid: tmpdict}))
         for i in range(len(self.loaded)):
-            self.loaddict[fid][self.loaded[i].getcontainer()] +=\
-                                                              [self.loaded[i]]
+            if self.loaded[i].__class__ not in self.clsfilters:
+                self.clsfilters += [self.loaded[i].__class__]
+            self.loaddict[fid][self.loaded[i].
+                               getcontainer()] += [self.loaded[i]]
         # print (self.loaddict)
         return 0
+
+    def loadmygobjson(self, dumpfile, container):
+        """
+        Load the switch configuration from a persistent file per fid
+        based on JSON format.
+        """
+        wb = open(dumpfile, "r")
+        ws = wb.read()
+        wb.close()
+        try:
+            loadallcell = json.loads(ws)
+        except ValueError as err:
+            print("Unable to load JSON dump file for container : ", err)
+            self.log(3, "Unable to load JSON dump file container : ", err)
+            return False, None
+        self.loaded = list(map(lambda x:
+                               clsmanager.getInstacefromContainer(
+                                   next(iter(x)), x),
+                               loadallcell))
+        for i in range(len(self.loaded)):
+            if self.loaded[i].getcontainer() == container:
+                return True, self.loaded[i]
+        return False, None
 
     def loadfromfidclass(self, wb, fid, fmtobj, gob):
         """
@@ -648,7 +703,7 @@ class config_manager():
                                                  'samelist': diffset})}))
         self.diffdict[fid].update(dict({cls().getcontainer(): tmpdict}))
 
-    def showdiff(self):
+    def showdiff(self, session=None):
         """
         Display the diff calculation after the diff operation is completed.
         """
@@ -666,7 +721,7 @@ class config_manager():
                     op = allop[k]
                     for l in range(len(self.diffslots)):
                         slot = self.diffslots[l]
-                        entry = self.get(fid, cls, op, slot, None)
+                        entry = self.get(fid, cls, op, slot, session)
                         if len(entry) == 0:
                             continue
                         tmpdict = dict(dict({str(cls):
@@ -872,8 +927,15 @@ class config_manager():
             # print("No file found with the name", dumpfile)
             self.log(1, "No file found with the name", dumpfile)
             return False
-        wb = openpyxl.load_workbook(dumpfile)
-        ret, gob = self.getmyobjectfromrow(wb, container, osr)
+        # pylint: disable=W1401
+        ext = re.sub(".*\.", ".", str(dumpfile))
+        if ext == '.json':
+            ret, gob = self.loadmygobjson(dumpfile, container)
+            print(gob, container)
+        else:
+            wb = openpyxl.load_workbook(dumpfile)
+            ret, gob = self.getmyobjectfromrow(wb, container, osr)
+
         if ret is False:
             print("Unable to load the object")
             self.log(3, "Unable to load the object",
@@ -885,6 +947,7 @@ class config_manager():
         self.loadcurrent(session, container)
         clsmanager.clsorderinginit(self.currentslots)
         self.diffslots = self.currentslots
+        self.difffids = self.currentfids
         self.rmmanager = rmmanager(rmmanager.defaultconfigrules(), self)
         for j in range(len(self.currentfids)):
             fid = self.currentfids[j]
@@ -915,7 +978,7 @@ class config_manager():
                     self.loaddict[fid].update(dict({container: oldlist}))
                     # End of old list creation
                     self.diff(self.clslist[i], fid, oldlist, new)
-        self.showdiff()
+        self.showdiff(session)
         print("Apply Rule Manager.")
         self.log(1, "Apply Rule Manager.")
         self.rmmanager.allconfigrules(session,

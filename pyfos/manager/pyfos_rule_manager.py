@@ -477,6 +477,7 @@ class rmcond(rmelem):
             self.codeme += code(tabs, lhs + " = " +
                                 self.lhs.code(session, tag,
                                               args, tabs))
+            # pylint: disable=E1121
             self.codeme += code(0, mykey, " = eval(\"not " +
                                 ckey(self.lhs.key) + "\"")
         else:

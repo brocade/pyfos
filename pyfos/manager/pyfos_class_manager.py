@@ -538,6 +538,7 @@ class clsmanager():
         Map the Object function for all pyfos class.
         """
         newlist = list(clslist)
+        # pylint: disable=W0123
         return list(map(lambda x: eval("x()." + fname+"()"), newlist))
 
     # print(clsmanager.mapInstacefunction('cliusage'))
@@ -547,6 +548,7 @@ class clsmanager():
         Map the classmethod function for all pyfos class.
         """
         newlist = list(clslist)
+        # pylint: disable=W0123
         return list(map(lambda x: eval("x." + fname+"()"), newlist))
 
     @classmethod

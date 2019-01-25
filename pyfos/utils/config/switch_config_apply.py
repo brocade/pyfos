@@ -34,10 +34,13 @@ appropriate :func:`cfgenable`, :func:`cfgsave` or
 The configuration files are saved by :mod:`switch_config_dump` script.
 
 The configuration files can be in spreadsheet format or in JSON format.
-By default, spreadsheet format is used. Name of the spreadsheet is
-given without .<vfid>.xlsx file extension for --compare option. For
-JSON format configuration files, --json option added to --compare
-option and directory name is given instead.
+By default, spreadsheet format is used. The name of the file is
+given with/without vfid in filename format of .<vfid>.<xlsx/json> for
+--compare option. For JSON format configuration files, --json option
+added to --compare option is given instead. For using the config
+functionality for only specific objects configfilters.json file should
+be populated with the list of container names and should be present
+in the execution directory.
 
 * Inputs:
     * -L=<login>: Login ID. If not provided, an interactive
@@ -45,12 +48,16 @@ option and directory name is given instead.
     * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: IP address.
-    * --compare=<compare directory>: name of the directory that
-        contains the JSON encoded switch configuration files or
-        name of the spreadsheet without .<vfid>.xlsx file extension.
+    * --compare=<compare dump file>: name of the directory that
+        contains the XLSX/JSON encoded switch configuration files with
+        name of the file with/without vfid in the dump filename of format
+        _<vfid>.<file extension>. If vfid is specified only that vfid
+        is used else it will try and detect all vfids for loading and
+        config operation.
+    * --json: Use JSON Format, Default is XLSX format. [Optional]
 
 * Outputs:
-    * A List of attributes that changed.
+    * A List of attributes that changed, and config apply changes.
 
 """
 
@@ -69,7 +76,9 @@ from pyfos.manager.pyfos_class_manager import clsmanager
 def usage():
     print("  Script specific options:")
     print("")
-    print("    --compare=PATH               directory name")
+    print("    --compare=PATH               Config dump file name")
+    print("    --json                      ",
+          "Use JSON format, Default is XLSX format. [Optional]")
     print("")
 
 

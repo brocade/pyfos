@@ -1,5 +1,5 @@
-PyFOS - 1.1
-===========
+PyFOS - 1.1.1
+=============
 
 ### What is PyFOS ###
 
@@ -26,7 +26,7 @@ PyFOS - 1.1
 
 ### FOS and PyFOS versions ###
 
-    PyFOS 1.1 covers up to FOS 8.2.1
+    PyFOS 1.1.1 covers up to FOS 8.2.1
 
 ### Directory structure ###
 
