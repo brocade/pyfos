@@ -15,13 +15,13 @@
 
 """
 
-:mod:`tacacs_server_show` - PyFOS util to show a TACACS+ sever configuraion.
+:mod:`tacacs_server_show` - PyFOS util to show a TACACS+ server configuration.
 *******************************************************************************
 The :mod:`tacacs_server_show` util supports showing a TACACS+ \
-sever configuraion.
+server configuration.
 
 This module is a stand-alone script and API that can be used to display a \
-TACACS+ server or list of TACACS+ servers.
+TACACS+ server or a list of TACACS+ servers.
 
 * Input:
 

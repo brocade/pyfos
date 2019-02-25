@@ -17,7 +17,7 @@
 
 :mod:`sshutil_public_key_modify` - PyFOS util to modify a public key.
 **************************************************************************************
-The :mod:`sshutil_public_key_modify` util used to modify a public key.
+The :mod:`sshutil_public_key_modify` util is used to modify a public key.
 
 This module is a stand-alone script that can be used to modify a public key.
 
@@ -52,7 +52,7 @@ This module is a stand-alone script that can be used to modify a public key.
                              remote_ip, remote_dir, pub_key_name, login_name, \
                              login_password, action, algorithm_type)
 
-    * Import or Export a specified public key from/to a remote server \
+    * Import or export a specified public key from/to a remote server \
         to/from a switch.
 
         Example Usage of the Method::
@@ -95,8 +95,8 @@ This module is a stand-alone script that can be used to modify a public key.
 
         *Use Cases*
 
-        1. Imports a specified public key from a remote server to the switch.
-        2. Exports a public key from the switch to a remote server.
+        1. Import a specified public key from a remote server to the switch.
+        2. Export a public key from the switch to a remote server.
     """
 
 import sys

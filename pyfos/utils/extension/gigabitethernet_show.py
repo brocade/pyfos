@@ -43,7 +43,7 @@ gigabitethernet_show.py: Usage
 .. function:: gigabitethernet_show.show(session,\
 name, speed)
 
-    *Show extension gigabitethernet*
+    *Show Extension Gigabitethernet*
 
         Example Usage of the Method::
 
@@ -67,7 +67,7 @@ name, speed)
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
-from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
+from pyfos.pyfos_brocade_interface import gigabitethernet
 from pyfos.utils import brcd_util
 
 

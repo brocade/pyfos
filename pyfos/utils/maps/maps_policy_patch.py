@@ -23,24 +23,24 @@ This script is used to update the rule list in a MAPS policy.
 
 Note: The patch operation replaces all rules in a policy by what is provided \
 in the input.
-To add rules to the existing policy, use the POST operation.
-To delete rules from existing policy, use the DELETE operation.
+To add rules to an existing policy, use the POST operation.
+To delete rules from an existing policy, use the DELETE operation.
 
 * Input:
 
-| Infrastructure Options:
+* Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
-|   -L,--login=LOGIN       The login name.
-|   -P,--password=PASSWORD The password.
-|   -f,--vfid=VFID         The VFID to which the request \
-                            is directed [OPTIONAL].
-|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           Verbose mode [OPTIONAL].
+    * -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+    * -L,--login=LOGIN       The login name.
+    * -P,--password=PASSWORD The password.
+    * -f,--vfid=VFID         The VFID to which the request is \
+                             directed [OPTIONAL].
+    * -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose           Verbose mode [OPTIONAL].
 
 * Util Script Options:
-   --name                 Specifies a MAPS policy.
-    --rule-list           Sets the rule list in the MAPS policy.
+   --name                Specifies a MAPS policy.
+   --rule-list           Sets the rule list in the MAPS policy.
 
 * Output:
     * A success response or a dictionary in case of error.

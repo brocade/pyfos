@@ -15,32 +15,35 @@
 
 """
 
-:mod:`port_trunk_area_create_add` - PyFOS util for Port Trunk Add/Create.
-*******************************************************************************
+:mod:`port_trunk_area_create_add` - PyFOS util for adding or creating a \
+port trunk.
+************************************************************************\
+************
 The :mod:`port_trunk_area_create_add` - PyFOS util for adding port members to \
-        a portareatrunk-group/ Creating new portareatrunk-group.
+a port area trunk group or creating new port area trunk group.
 
-This module is a standalone script for adding port members to \
-        a portareatrunk-group/ Creating new portareatrunk-group.
+This module is a stand-alone script for adding port members to \
+a port area trunk group or creating new port area trunk group.
 
-* inputs:
+* Input:
 
 | Infrastructure options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                           directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --trunk-index=VALUE                 Trunk-index of the porttrunkarea-group
-    --trunk-members=PORTS               Ports in slot/port format to be added \
-                                        to the group. Eg. "0/1;0/2"
+* Util Script Options:
+    --trunk-index=VALUE    The trunk index of the port area trunk group.
+    --trunk-members=PORTS  Ports in slot/port format to be added \
+                           to the group. For example: "0/1;0/2"
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 """
 

@@ -1,0 +1,736 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>snmp_system_modify - PyFOS util for updating snmp system attributes &#8212; PyFOS 1.2.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="snmp_mib_capability_show - PyFOS util to show the snmp mib capability." href="snmp_mib_capability_show.html" />
+    <link rel="prev" title="snmp_system_show - PyFOS util to show the snmp system information." href="snmp_system_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="snmp_mib_capability_show.html" title="snmp_mib_capability_show - PyFOS util to show the snmp mib capability."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="snmp_system_show.html" title="snmp_system_show - PyFOS util to show the snmp system information."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-snmp_system_modify"></span><div class="section" id="snmp-system-modify-pyfos-util-for-updating-snmp-system-attributes">
+<h1><a class="reference internal" href="#module-snmp_system_modify" title="snmp_system_modify: PyFOS module to modify system attributes in SNMP. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">snmp_system_modify</span></code></a> - PyFOS util for updating snmp system attributes<a class="headerlink" href="#snmp-system-modify-pyfos-util-for-updating-snmp-system-attributes" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-snmp_system_modify" title="snmp_system_modify: PyFOS module to modify system attributes in SNMP. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">snmp_system_modify</span></code></a> provides option to modify snmp system
+attributes</p>
+<p>This module can be used to modify system description, location, contact,
+informs enabled, encryption enabled, audit interval, default config,
+security level for get &amp; set operations and snmpv1 enabled.</p>
+<ul class="simple">
+<li>inputs:</li>
+</ul>
+<div class="line-block">
+<div class="line">Infrastructure options:</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch</div>
+<div class="line">-L,–login=LOGIN       login name.</div>
+<div class="line">-P,–password=PASSWORD password.</div>
+<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Util scripts options:</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">–sys-description=SYS-DESCRIPTION System description[OPTIONAL]</div>
+<div class="line">–sys-location=SYS-LOCATION       System location[OPTIONAL]</div>
+<div class="line">–sys-contact=SYS-CONTACT         System contact[OPTIONAL]</div>
+<div class="line">–informs-enabled=INFORMS-ENABLED Informs enabled &lt;true|false&gt;[OPTIONAL]</div>
+<div class="line">–audit-interval=AUDIT-INTERVAL   Audit interval[OPTIONAL]</div>
+<div class="line">–sec-get-level=SEC-GET-LEVEL     SNMP GET security level[OPTIONAL]</div>
+<div class="line">–sec-set-level=SEC-SET-LEVEL     SNMP SET security level[OPTIONAL]</div>
+<div class="line">–default-config=DEFAULT-CONFIG   Defaulting SNMP configurations[OPTIONAL]</div>
+<div class="line">–snmpv1-enabled=SNMPV1-ENABLED   SNMPv1 is enabled &lt;true|false&gt;[OPTIONAL]</div>
+<div class="line">–encryption-enabled=ENCRYPTION-ENABLED Encryption enabled &lt;true|false&gt;</div>
+</div>
+</div></blockquote>
+<ul>
+<li><p class="first">outputs:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Status of the modified system description</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_description">
+<code class="descclassname">system_obj.</code><code class="descname">set_description</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_description" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures system description</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">description</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_system</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">system description.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified system location</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_location">
+<code class="descclassname">system_obj.</code><code class="descname">set_location</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_location" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures system location</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_location</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_location</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">location</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_location</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_system</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param location:</th><td class="field-body">system location.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified system contact</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_contact">
+<code class="descclassname">system_obj.</code><code class="descname">set_contact</code><span class="sig-paren">(</span><em>contact</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_contact" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures system contact</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_contact</span><span class="p">(</span><span class="n">contact</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_contact</span><span class="p">(</span><span class="n">contact</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">contact</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_contact</span><span class="p">(</span><span class="n">contact</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_system</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param contact:</th><td class="field-body">system contact.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified snmpv3 informs_enabled</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_informs_enabled">
+<code class="descclassname">system_obj.</code><code class="descname">set_informs_enabled</code><span class="sig-paren">(</span><em>informs_enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_informs_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures snmpv3 informs enabled</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_informs_enabled</span><span class="p">(</span><span class="n">informs_enabled</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_informs_enabled</span><span class="p">(</span><span class="n">informs_enabled</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">informs_enabled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_informs_enabled</span><span class="p">(</span><span class="n">informs_enabled</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_informs_enabled</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param informs_enabled:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">snmpv3 informs enabled.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified snmpv3 passwords encryption flag enabled</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_encryption_enabled">
+<code class="descclassname">system_obj.</code><code class="descname">set_encryption_enabled</code><span class="sig-paren">(</span><em>encrypt_enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_encryption_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures snmpv3 passwords encryption flag enabled</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_encryption_enabled</span><span class="p">(</span><span class="n">encrypt_enabled</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_encryption_enabled</span><span class="p">(</span><span class="n">encrypt_enabled</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">encrypt_enabled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_encryption_enabled</span><span class="p">(</span><span class="n">encrypt_enabled</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_system</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param encryption enabled flag:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">snmpv3 passwords
+encryption flag enabled.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified system audit interval</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_audit_interval">
+<code class="descclassname">system_obj.</code><code class="descname">set_audit_interval</code><span class="sig-paren">(</span><em>audit_interval</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_audit_interval" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures system audit interval</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">audit_interval</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">audit_interval</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">audit_interval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">audit_interval</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_audit_interval</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param audit_interval:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">system audit interval.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified snmp default configurations</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_default_config_default_control">
+<code class="descclassname">system_obj.</code><code class="descname">set_default_config_default_control</code><span class="sig-paren">(</span><em>default_contrl</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_default_config_default_control" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures snmp default values</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_default_config_default_control</span><span class="p">(</span><span class="n">default_contrl</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">default_contrl</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">default_contrl</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_default_config_default_control</span><span class="p">(</span><span class="n">default_contrl</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_default_control</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param default_contrl:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">snmp default configuration value</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified snmp GET security level</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_security_get_level">
+<code class="descclassname">system_obj.</code><code class="descname">set_security_get_level</code><span class="sig-paren">(</span><em>sec_get_level</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_security_get_level" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures snmp GET security level</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_get_level</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_get_level</span><span class="p">(</span><span class="n">sec_get_level</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">sec_get_level</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_get_level</span><span class="p">(</span><span class="n">sec_get_level</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_security_get_level</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param sec_get_level:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">snmp GET security level</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified snmp SET security level</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_security_set_level">
+<code class="descclassname">system_obj.</code><code class="descname">set_security_set_level</code><span class="sig-paren">(</span><em>sec_set_level</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_security_set_level" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures snmp SET security level</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_set_level</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_set_level</span><span class="p">(</span><span class="n">sec_set_level</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">sec_set_level</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_set_level</span><span class="p">(</span><span class="n">sec_set_level</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_security_set_level</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param sec_get_level:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">snmp SET security level</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Status of the modified snmpv1 flag enabled</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="snmp_system_modify.system_obj.set_snmpv1_enabled">
+<code class="descclassname">system_obj.</code><code class="descname">set_snmpv1_enabled</code><span class="sig-paren">(</span><em>snmpv1_enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_system_modify.system_obj.set_snmpv1_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Configures snmpv1 flag enabled</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_snmpv1_enabled</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<span class="n">system_obj</span><span class="o">.</span><span class="n">set_snmpv1_enabled</span><span class="p">(</span><span class="n">snmpv1_enabled</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">snmpv1_enabled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">system_obj</span><span class="o">.</span><span class="n">set_snmpv1_enabled</span><span class="p">(</span><span class="n">snmpv1_enabled</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmpv1_enabled</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param snmpv1_enabled:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">snmpv1 flag enabled.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_snmp.html#module-pyfos_brocade_snmp" title="pyfos_brocade_snmp: PyFOS module to provide REST support for SNMP (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_snmp</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="snmp_system_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">snmp_system_show</span></code> - PyFOS util to show the snmp system information.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="snmp_mib_capability_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">snmp_mib_capability_show</span></code> - PyFOS util to show the snmp mib capability.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/snmp_system_modify.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="snmp_mib_capability_show.html" title="snmp_mib_capability_show - PyFOS util to show the snmp mib capability."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="snmp_system_show.html" title="snmp_system_show - PyFOS util to show the snmp system information."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

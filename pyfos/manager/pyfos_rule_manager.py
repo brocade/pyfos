@@ -20,46 +20,671 @@
 The :mod:`pyfos_rule_manager`  Provides the rule management for REST
 supported classes.
 
-Predefined Rules identified for Config Management
+.. _intro:
 
-    Details of all predefined rules:
+Introduction
+---------------------
+The module :mod:`pyfos_rule_manager` supports rules a method for config
+management support. User can write rules based on various classes/object
+and attribute with conditionals for config operations.
+
+.. _Predefined-Rules-table`:
+
+Table for all predefined rules
+--------------------------------
 
         +------+-------------------------------+--------------------------------------------------------------+
         | Rule |         Pyfos Class           |Details                                                       |
         +======+===============================+==============================================================+
-        | R1   |   defined_configuration       | Save the Zoning configuration after creation/POST            |
+        | R1   |   defined_configuration       | Save the Zoning configuration after POST :ref:`R1`           |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R2   |   defined_configuration       | Save the Zoning configuration after deletion/DELETE          |
+        | R2   |   defined_configuration       | Save the Zoning configuration after DELETE :ref:`R2`         |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R3   |   defined_configuration       | Save the Zoning configuration after modification/PATCH       |
+        | R3   |   defined_configuration       | Save the Zoning configuration after PATCH  :ref:`R3`         |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R4   |   extension_ip_route          | Ignore non static route entries for creation/POST            |
+        | R4   |   extension_ip_route          | Ignore non static route entries for DELETE :ref:`R4`         |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R5   |   extension_ip_route          | Ignore non static route entries for deletion/DELETE          |
+        | R5   |   extension_ip_route          | Ignore non static route entries for POST  :ref:`R5`          |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R6   |   effective_configuration     | Populate the checksum in effective configuration for PATCH   |
+        | R6   |   fibrechannel                | Disable/Enable ports while applying configs :ref:`R6`        |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R7   |   fibrechannel                | Disable/Enable ports while applying configs                  |
+        | R7   |   effective_configuration     | Handle the effective configuration for PATCH :ref:`R7`       |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R8   |   fibrechannel_switch         | Disable the switch after applying the configs                |
+        | R8   |   fibrechannel_switch         | Disable the switch after applying the configs :ref:`R8`      |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R9   |   n_port_map                  | Delete all n-port-map instance with configured fports        |
+        | R9   |   n_port_map                  | Delete all n-port-map instance configured fports :ref:`R9`   |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R10  |   n_port_map                  | Patch all n-port-map instance with configured fports         |
+        | R10  |   n_port_map                  | Patch all n-port-map instance configured fports  :ref:`R10`  |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R11  |   port_group                  | Delete all port-groups except for pg0                        |
+        | R11  |   port_group                  | Delete all port-groups except for pg0  :ref:`R11`            |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R12  |   port_group                  | Create all port-groups other than pg0                        |
+        | R12  |   port_group                  | Create all port-groups other than pg0  :ref:`R12`            |
         +------+-------------------------------+--------------------------------------------------------------+
-        | R13  |   port_group                  | Patch only port-group instance for pg0                       |
+        | R13  |   port_group                  | Patch only port-group instance for pg0 :ref:`R13`            |
         +------+-------------------------------+--------------------------------------------------------------+
+
+
+.. _R1:
+
+Rule-R1
+---------------------
+This rule is a predefined rule for *defined-configuration* `POST` operation.
+As part of rule its meant to fetch the *effective-configuration* before `POST`
+operation of *defined-configuration* and then execute cfgsave after the `POST`
+operation is complete using *effective-configuration* `PATCH` operation.
+This is used by the :mod:`switch_config_apply` for config apply sequence.
+
+
+    Create defined-configuration config diff::
+
+        > +{
+        > +         "defined-configuration": {
+        > +             "alias": [
+        > +                 {
+        > +                     "alias-name": "ali1_test",
+        > +                     "member-entry": {
+        > +                         "alias-entry-name": [
+        > +                             "70:00:8c:7c:ff:5f:54:00",
+        > +                             "70:00:8c:7c:ff:5f:55:00"
+        > +                         ]
+        > +                     }
+        > +                 },
+        > +             ],
+        > +             "cfg": [
+        > +                 {
+        > +                     "cfg-name": "testcfg",
+        > +                     "member-zone": {
+        > +                         "zone-name": [
+        > +                             "zone1",
+        > +                             "zone2"
+        > +                         ]
+        > +                     }
+        > +                 }
+        > +             ],
+        > +             "zone": [
+        > +                 {
+        > +                     "member-entry": {
+        > +                         "entry-name": [
+        > +                             "11:22:33:44:55:66:77:88",
+        > +                             "21:22:33:44:55:66:77:88"
+        > +                         ]
+        > +                     },
+        > +                     "zone-name": "zone1",
+        > +                     "zone-type": "0"
+        > +                 },
+        > +                 {
+        > +                     "member-entry": {
+        > +                         "entry-name": [
+        > +                             "11:22:33:44:55:66:77:88",
+        > +                             "21:22:33:44:55:66:77:88"
+        > +                         ]
+        > +                     },
+        > +                     "zone-name": "zone2",
+        > +                     "zone-type": "0"
+        > +             }
+        > +             ]
+        > +       }
+        > +}
+
+    Example::
+
+        Execute  R1 <class 'pyfos.pyfos_brocade_zone.defined_configuration'>
+        POST http://10.200.151.183/rest/running/zoning/
+        defined-configuration?vf-id=128 - CONTENT ->
+        <defined-configuration>
+                <cfg>
+                        <member-zone>
+                                <zone-name>zone1</zone-name>
+                                <zone-name>zone2</zone-name>
+                        </member-zone>
+                        <cfg-name>testcfg</cfg-name>
+                </cfg>
+                <alias>
+                        <alias-name>ali1_test</alias-name>
+                        <member-entry>
+                                <alias-entry-name>70:00:8c:7c:ff:5f:54:00
+                                </alias-entry-name>
+                                <alias-entry-name>70:00:8c:7c:ff:5f:55:00
+                                </alias-entry-name>
+                        </member-entry>
+                </alias>
+                <zone>
+                        <zone-type>0</zone-type>
+                        <member-entry>
+                                <entry-name>11:22:33:44:55:66:77:88
+                                </entry-name>
+                                <entry-name>21:22:33:44:55:66:77:88
+                                </entry-name>
+                        </member-entry>
+                        <zone-name>zone1</zone-name>
+                </zone>
+                <zone>
+                        <zone-type>0</zone-type>
+                        <member-entry>
+                                <entry-name>11:22:33:44:55:66:77:88
+                                </entry-name>
+                                <entry-name>21:22:33:44:55:66:77:88
+                                </entry-name>
+                        </member-entry>
+                        <zone-name>zone2</zone-name>
+                </zone>
+        </defined-configuration>
+        {'success-code': 201, 'success-message': 'Created',
+        'success-type': 'Success'}
+        PATCH http://10.200.151.183/rest/running/zoning/
+        effective-configuration?vf-id=128 - CONTENT ->
+        <effective-configuration>
+                <cfg-action>1</cfg-action>
+                <checksum>f4edaf2cfa6c629ecaef3ee3460bb1ea</checksum>
+        </effective-configuration>
+        {'success-code': 204, 'success-message': 'No Content',
+        'success-type': 'Success'}
+
+.. _R2:
+
+Rule-R2
+---------------------
+This rule is a predefined rule for *defined-configuration* `DELETE`
+operation. As part of rule its meant to fetch the *effective-configuration*
+before `DELETE`operation of *defined-configuration* and then execute cfgsave
+after the `DELETE` operation is complete using *effective-configuration*
+`PATCH` operation. This is used by the :mod:`switch_config_apply` for
+config apply sequence.
+
+    Delete defined-configuration config diff::
+
+        < -{
+        < -	"defined-configuration": {
+        < -		"alias": [
+        < -			{
+        < -				"alias-name": "ali2_test",
+        < -				"member-entry": {
+        < -					"alias-entry-name": [
+        < -						"90:00:8c:7c:ff:5f:54:00",
+        < -						"90:00:8c:7c:ff:5f:55:00"
+        < -					]
+        < -				}
+        < -			},
+        < -			{
+        < -				"alias-name": "ali3_test",
+        < -				"member-entry": {
+        < -					"alias-entry-name": [
+        < -						"80:00:8c:7c:ff:5f:54:00",
+        < -						"80:00:8c:7c:ff:5f:55:00"
+        < -					]
+        < -				}
+        < -			}
+        < -		]
+        < -	}
+        < -}
+
+    Example::
+
+        Execute  R2 <class 'pyfos.pyfos_brocade_zone.defined_configuration'>
+        DELETE http://10.200.151.183/rest/running/zoning/
+        defined-configuration?vf-id=128 - CONTENT ->
+        <defined-configuration>
+                <alias>
+                        <member-entry>
+                                <alias-entry-name>90:00:8c:7c:ff:5f:54:00
+                                </alias-entry-name>
+                                <alias-entry-name>90:00:8c:7c:ff:5f:55:00
+                                </alias-entry-name>
+                        </member-entry>
+                        <alias-name>ali2_test</alias-name>
+                </alias>
+                <alias>
+                        <member-entry>
+                                <alias-entry-name>80:00:8c:7c:ff:5f:54:00
+                                </alias-entry-name>
+                                <alias-entry-name>80:00:8c:7c:ff:5f:55:00
+                                </alias-entry-name>
+                        </member-entry>
+                        <alias-name>ali3_test</alias-name>
+                </alias>
+        </defined-configuration>
+        {'success-code': 204, 'success-message': 'No Content',
+        'success-type': 'Success'}
+        PATCH http://10.200.151.183/rest/running/zoning/
+        effective-configuration?vf-id=128 - CONTENT ->
+        <effective-configuration>
+                <cfg-action>1</cfg-action>
+                <checksum>dee3f061746beddbf4ad1c417bc0a61b</checksum>
+        </effective-configuration>
+        {'success-code': 204, 'success-message': 'No Content',
+        'success-type': 'Success'}
+
+
+.. _R3:
+
+Rule-R3
+---------------------
+This rule is a predefined rule for *defined-configuration* `PATCH`
+operation. As part of rule its meant to fetch the *effective-configuration*
+before `PATCH`operation of *defined-configuration* and then execute cfgsave
+after the `PATCH` operation is complete using *effective-configuration*
+`PATCH` operation. This is used by the :mod:`switch_config_apply` for
+config apply sequence.
+
+    PATCH defined-configuration config diff::
+
+            {
+                "defined-configuration": {
+                    "alias": [
+                        {
+                            "alias-name": "ali1_test",
+                            "member-entry": {
+        < -                     "alias-entry-name":
+                                                "['70:00:8c:7c:ff:5f:54:00',
+                                                  '70:00:8c:7c:ff:5f:55:00']"
+        ---
+        > +                     "alias-entry-name":
+                                                "['70:00:8c:7c:ff:5f:54:00',
+                                                  '70:00:8c:7c:ff:5f:55:00',
+                                                  '80:00:8c:7c:ff:5f:55:00']"
+                            }
+                        }
+                    ],
+                    "zone": [
+                        {
+                            "member-entry": {
+        < -                     "entry-name": "['11:22:33:44:55:66:77:88',
+                                                '21:22:33:44:55:66:77:88']"
+        ---
+        > +                     "entry-name": "['11:22:33:44:55:66:77:88']"
+                            },
+                            "zone-name": "zone1"
+                        }
+                    ]
+                }
+            }
+
+
+    Example::
+
+        Execute  R3 <class 'pyfos.pyfos_brocade_zone.defined_configuration'>
+        PATCH http://10.200.151.183/rest/running/zoning/
+        defined-configuration?vf-id=128 - CONTENT ->
+        <defined-configuration>
+                <zone>
+                        <zone-name>zone1</zone-name>
+                        <member-entry>
+                                <entry-name>11:22:33:44:55:66:77:88
+                                </entry-name>
+                        </member-entry>
+                </zone>
+                <alias>
+                        <member-entry>
+                                <alias-entry-name>70:00:8c:7c:ff:5f:54:00
+                                </alias-entry-name>
+                                <alias-entry-name>70:00:8c:7c:ff:5f:55:00
+                                </alias-entry-name>
+                                <alias-entry-name>80:00:8c:7c:ff:5f:55:00
+                                </alias-entry-name>
+                        </member-entry>
+                        <alias-name>ali1_test</alias-name>
+                </alias>
+        </defined-configuration>
+        {'success-code': 204, 'success-message': 'No Content',
+        'success-type': 'Success'}
+        PATCH http://10.200.151.183/rest/running/zoning/
+        effective-configuration?vf-id=128 - CONTENT ->
+        <effective-configuration>
+                <cfg-action>1</cfg-action>
+                <checksum>e4356bad642e80b7509002c03161e048</checksum>
+        </effective-configuration>
+        {'success-code': 204, 'success-message': 'No Content',
+        'success-type': 'Success'}
+
+.. _R4:
+
+Rule-R4
+---------------------
+This rule is a predefined rule for *extension_ip_route* `DELETE`
+operation to ignore default routes. If only default routes are
+identified for config operation then there wont be any creation
+of iproute seen.
+
+
+    Delete extension-ip-route config diff::
+
+        < -[
+        < -    {
+        < -        "extension-ip-route": {
+        < -            "dp-id": "0",
+        < -            "ip-address": "11.20.50.0",
+        < -            "ip-gateway": "*",
+        < -            "ip-prefix-length": "24",
+        < -           "name": "0/7"
+        < -         }
+        < -    }
+        < -]
+
+    Example::
+
+        Execute  R5 <class
+        'pyfos.pyfos_brocade_extension_ip_route.extension_ip_route'>
+
+.. _R5:
+
+Rule-R5
+---------------------
+This rule is a predefined rule for *extension_ip_route* `POST`
+operation to ignore default routes. If only default routes are
+identified for config operation then there wont be any creation
+of iproute seen.
+
+
+    Create extension-ip-route config diff::
+
+        > +[
+        > +    {
+        > +        "extension-ip-route": {
+        > +            "dp-id": "0",
+        > +            "ip-address": "51.50.50.0",
+        > +            "ip-gateway": "*",
+        > +            "ip-prefix-length": "24",
+        > +           "name": "0/7"
+        > +         }
+        > +    }
+        > +]
+
+    Example::
+
+        Execute  R4 <class
+        'pyfos.pyfos_brocade_extension_ip_route.extension_ip_route'>
+
+.. _R6:
+
+Rule-R6
+---------------------
+This rule is a predefined rule for *fibrechannel* `PATCH`
+operation. As part of rule its meant to disable the ports and enable them
+after `PATCH` operation.
+
+    Example::
+
+        Execute  R5 <class 'pyfos.pyfos_brocade_fibrechannel.fibrechannel'>
+        PATCH http://10.200.151.183/rest/running/brocade-interface/
+        fibrechannel?vf-id=128 - CONTENT ->
+        <fibrechannel>
+                <name>0/0</name>
+                <enabled-state>6</enabled-state>
+        </fibrechannel>
+        {'success-type': 'Success', 'success-message': 'No Content',
+        'success-code': 204}
+        PATCH http://10.200.151.183/rest/running/brocade-interface/
+        fibrechannel?vf-id=128 - CONTENT ->
+        <fibrechannel>
+                <name>0/0</name>
+                <npiv-enabled>0</npiv-enabled>
+                <speed>16000000000</speed>
+        </fibrechannel>
+        {'success-type': 'Success', 'success-message': 'No Content',
+        'success-code': 204}
+        PATCH http://10.200.151.183/rest/running/brocade-interface/
+        fibrechannel?vf-id=128 - CONTENT ->
+        <fibrechannel>
+                <name>0/0</name>
+                <enabled-state>2</enabled-state>
+        </fibrechannel>
+        {'success-type': 'Success', 'success-message': 'No Content',
+        'success-code': 204}
+
+.. _R7:
+
+Rule-R7
+---------------------
+This rule is a predefined rule for *effective-configuration* `PATCH`
+operation. As part of rule its meant to fetch the *effective-configuration*
+before `PATCH` operation and use it to populate the checksum
+for the `PATCH` operation
+
+    Example::
+
+        Execute  R7 <class 'pyfos.pyfos_brocade_zone.effective_configuration'>
+        PATCH http://10.200.151.183/rest/running/zoning/
+        effective-configuration?vf-id=128 - CONTENT ->
+        <effective-configuration>
+                <cfg-name>testcfg</cfg-name>
+                <checksum>dee3f061746beddbf4ad1c417bc0a61b</checksum>
+        </effective-configuration>
+        {'success-code': 204, 'success-message': 'No Content',
+        'success-type': 'Success'}
+
+.. _R8:
+
+Rule-R8
+---------------------
+This rule is a predefined rule for *fibrechannel-switch* `PATCH`
+operation. As part of rule its meant to disable the *fibrechannel-switch*
+before `PATCH` operation and then perform the expected patch operation
+for the `PATCH` operation
+
+    Example::
+
+        Execute  R8 <class
+        'pyfos.pyfos_brocade_fibrechannel_switch.fibrechannel_switch'>
+        PATCH http://10.155.107.42/rest/running/brocade-fibrechannel-switch/
+        fibrechannel-switch - CONTENT ->
+        <fibrechannel-switch>
+                <name>10:00:00:27:f8:fd:1f:80</name>
+                <enabled-state>3</enabled-state>
+        </fibrechannel-switch>
+        {'http-resp-code': 204, 'success-type': 'Success', 'success-code': 204,
+        'success-message': 'No Content'}
+        PATCH http://10.155.107.42/rest/running/brocade-fibrechannel-switch/
+        fibrechannel-switch - CONTENT ->
+        <fibrechannel-switch>
+                <name>10:00:00:27:f8:fd:1f:80</name>
+                <ag-mode>3</ag-mode>
+        </fibrechannel-switch>
+        {'http-resp-code': 204, 'success-type': 'Success', 'success-code': 204,
+        'success-message': 'No Content'}
+        .......More ports below.......
+
+.. _R9:
+
+Rule-R9
+---------------------
+This rule is a predefined rule for *n-port-map* `DELETE`
+operation where all n-port-map with configured fports are deleted.
+
+
+    DELETE  n-port-map config diff::
+
+        < -{
+        < -    "n-port-map": {
+        < -         "configured-f-port-list": {
+        < -           "f-port": [
+        < -                "0/0",
+        < -                "0/1"
+        < -            ]
+        < -         },
+        < -         "failback-enabled": "1",
+        < -         "failover-enabled": "1",
+        < -         "n-port": "0/16",
+        < -         "online-status": "0",
+        < -         "reliable-status": "1"
+        < -    }
+        < -},
+
+
+    Example::
+
+        Execute  R9 <class 'pyfos.pyfos_brocade_access_gateway.n_port_map'>
+        DELETE http://10.155.107.42/rest/running/brocade-access-gateway/
+        n-port-map - CONTENT ->
+        <n-port-map>
+                <n-port>0/16</n-port>
+        </n-port-map>
+        .......More ports below.......
+
+.. _R10:
+
+Rule-R10
+---------------------
+This rule is a predefined rule for *n-port-map* `PATCH`
+operation. As part of rule its meant to configure all *n-port-maps*
+with configured fports.
+
+
+    PATCH  n-port-map config diff::
+
+    > +{
+    > +    [
+    > +        {
+    > +            "n-port-map": {
+    > +                "failback-enabled": "1",
+    > +                "failover-enabled": "1",
+    > +                "n-port": "0/23",
+    > +                "online-status": "0",
+    > +                "reliable-status": "1"
+    > +            }
+    > +        }
+    > +    ]
+
+
+    Example::
+
+        Execute  R10 <class 'pyfos.pyfos_brocade_access_gateway.n_port_map'>
+        PATCH http://10.155.107.42/rest/running/brocade-access-gateway/
+        n-port-map - CONTENT ->
+        <n-port-map>
+                <n-port>0/16</n-port>
+                <failover-enabled>1</failover-enabled>
+                <failback-enabled>1</failback-enabled>
+                <configured-f-port-list>
+                        <f-port>0/0</f-port>
+                        <f-port>0/1</f-port>
+                </configured-f-port-list>
+        </n-port-map>
+        {'success-message': 'No Content', 'success-type': 'Success',
+        'success-code': 204, 'http-resp-code': 204}
+
+.. _R11:
+
+Rule-R11
+---------------------
+This rule is a predefined rule for *port-group* `DELETE`
+operation to skip default *port-group* **pg0**. if there
+are no port-group deltions then it wont do anything.
+
+    Example::
+
+        Execute  R11 <class 'pyfos.pyfos_brocade_access_gateway.port_group'>
+
+
+.. _R12:
+
+Rule-R12
+---------------------
+This rule is a predefined rule for *port-group* `POST`
+operation to skip default *port-group* **pg0** from creation.
+
+
+    POST port-group config diff::
+
+        > +{
+        > +    "port-group": {
+        > +        "port-group-id": "1",
+        > +        "port-group-mode": {
+        > +            "load-balancing-mode-enabled": "0",
+        > +            "multiple-fabric-name-monitoring-mode-enabled": "0"
+        > +        },
+        > +        "port-group-n-ports": {
+        > +            "n-port": [
+        > +                "0/4"
+        > +            ]
+        > +        },
+        > +        "port-group-name": "pg1"
+        > +    }
+        > +}
+
+
+    Example::
+
+        Execute  R12 <class 'pyfos.pyfos_brocade_access_gateway.port_group'>
+        POST http://10.155.107.42/rest/running/brocade-access-gateway/
+        port-group - CONTENT ->
+        <port-group>
+                <port-group-id>1</port-group-id>
+                <port-group-mode>
+                        <load-balancing-mode-enabled>0
+                        </load-balancing-mode-enabled>
+                        <multiple-fabric-name-monitoring-mode-enabled>0
+                        </multiple-fabric-name-monitoring-mode-enabled>
+                </port-group-mode>
+                <port-group-n-ports>
+                        <n-port>0/4</n-port>
+                </port-group-n-ports>
+                <port-group-name>pg1</port-group-name>
+        </port-group>
+        {'success-message': 'Created', 'success-type': 'Success',
+        'success-code': 201, 'http-resp-code': 201}
+
+
+.. _R13:
+
+Rule-R13
+---------------------
+This rule is a predefined rule for *port-group* `PATCH`
+operation to only use default *port-group* **pg0** for modification.
+
+
+    PATCH port-group config diff::
+
+            {
+                "port-group": {
+                      "port-group-id": "0",
+                      "port-group-n-ports": {
+        < -           "n-port": "['0/16', '0/17', '0/18', '0/19', '0/20',
+                                  '0/21', '0/22', '0/23']"
+        ---
+        > +           "n-port": "['0/6', '0/7', '0/8', '0/9', '0/12', '0/13',
+                                  '0/14', '0/15', '0/16', '0/17', '0/18',
+                                  '0/19', '0/20', '0/21', '0/22', '0/23']"
+                     }
+                }
+            }
+
+
+    Example::
+
+        Execute  R13 <class 'pyfos.pyfos_brocade_access_gateway.port_group'>
+        PATCH http://10.155.107.42/rest/running/brocade-access-gateway/
+        port-group - CONTENT ->
+        <port-group>
+                <port-group-id>0</port-group-id>
+                <port-group-n-ports>
+                        <n-port>0/6</n-port>
+                        <n-port>0/7</n-port>
+                        <n-port>0/8</n-port>
+                        <n-port>0/9</n-port>
+                        <n-port>0/12</n-port>
+                        <n-port>0/13</n-port>
+                        <n-port>0/14</n-port>
+                        <n-port>0/15</n-port>
+                        <n-port>0/16</n-port>
+                        <n-port>0/17</n-port>
+                        <n-port>0/18</n-port>
+                        <n-port>0/19</n-port>
+                        <n-port>0/20</n-port>
+                        <n-port>0/21</n-port>
+                        <n-port>0/22</n-port>
+                        <n-port>0/23</n-port>
+                </port-group-n-ports>
+        </port-group>
+        {'success-message': 'No Content', 'success-type': 'Success',
+        'success-code': 204, 'http-resp-code': 204}
+
 
 """
 
 import inspect
 import json
 from pyfos.manager.pyfos_class_manager import clsmanager
-from pyfos.pyfos_brocade_fibrechannel import fibrechannel
+from pyfos.pyfos_brocade_interface import fibrechannel
 from pyfos.pyfos_brocade_extension_ip_route import extension_ip_route
 from pyfos.pyfos_brocade_zone import defined_configuration
 from pyfos.pyfos_brocade_zone import effective_configuration
@@ -422,7 +1047,8 @@ class rmcond(rmelem):
             else:
                 ret = self.ret
         else:
-            if self.lhs is None or (self.rhs is None and self.op not in ("not any", "any")):
+            if self.lhs is None or (self.rhs is None
+               and self.op not in ("not any", "any")):
                 # print ("LHS/RHS is none", "LHS=", self.lhs, "RHS", self.rhs)
                 return False
             if self.eleval is None:
@@ -477,11 +1103,11 @@ class rmcond(rmelem):
             self.codeme += code(tabs, lhs + " = " +
                                 self.lhs.code(session, tag,
                                               args, tabs))
-            # pylint: disable=E1121
-            self.codeme += code(0, mykey, " = eval(\"not " +
+            self.codeme += code(0, mykey + " = eval(\"not " +
                                 ckey(self.lhs.key) + "\"")
         else:
-            if self.lhs is None or (self.rhs is None and self.op not in("any", "not any")):
+            if self.lhs is None or (self.rhs is None
+               and self.op not in("any", "not any")):
                 # print ("LHS/RHS is none", "LHS=", self.lhs, "RHS", self.rhs)
                 return ""
             else:
@@ -792,7 +1418,8 @@ class rmrule(rmelem):
         if self.fargs is not None:
             for i in range(len(self.fargs)):
                 self.codeme += self.fargs[i].code(session, tag, args, newtab)
-                self.codeme += code(tabs + 1, "if  " + ckey(self.fargs[i].key) +
+                self.codeme += code(tabs + 1, "if  " +
+                                    ckey(self.fargs[i].key) +
                                     " is False:")
                 self.codeme += code(tabs + 2, "continue")
 
@@ -1209,48 +1836,75 @@ DefConfigrule7 = rmrule('R7', 'effectivepatch',
 
 DefConfigrule8 = rmrule('R8', 'switchdisableenable',
                         list([rmclass('i1', fibrechannel_switch, "GET"),
-                              rmclass('i2', fibrechannel_switch, "GET", rmclass.diff)]),
+                              rmclass('i2', fibrechannel_switch, "GET",
+                                      rmclass.diff)]),
                         None,
-                        list([rmcond('c1', 'set', rmattribute('i1',
-                                                              'set_enabled_state'),
+                        list([rmcond('c1', 'set',
+                                     rmattribute('i1',
+                                                 'set_enabled_state'),
                                      rmconst("3"))]),
                         list([rmclass('i1', fibrechannel_switch, "PATCH"),
-                              rmclass('i2', fibrechannel_switch, "PATCH", rmclass.diff)]),
+                              rmclass('i2', fibrechannel_switch, "PATCH",
+                                      rmclass.diff)]),
                         None,
                         None)
 
 DefConfigrule9 = rmrule('R9', 'deletealln_port_map',
                         list([rmclass('i1', n_port_map, "GET", rmclass.diff)]),
-                        list([rmcond('c1', 'any', rmattribute('i1', 'peek_configured_f_port_list_f_port'), None)]),
+                        list([rmcond('c1', 'any',
+                                     rmattribute('i1',
+                                                 "peek_configured_f_port" +
+                                                 "_list_f_port"), None)]),
                         None,
-                        list([rmclass('i1', n_port_map, "DELETE", rmclass.diff)]),
+                        list([rmclass('i1', n_port_map, "DELETE",
+                                      rmclass.diff)]),
                         None,
                         None)
 DefConfigrule10 = rmrule('R10', 'patchalln_port_map',
-                         list([rmclass('i1', n_port_map, "GET", rmclass.diff)]),
-                         list([rmcond('c1', 'any', rmattribute('i1', 'peek_configured_f_port_list_f_port'), None)]),
+                         list([rmclass('i1', n_port_map, "GET",
+                                       rmclass.diff)]),
+                         list([rmcond('c1', 'any',
+                                      rmattribute('i1',
+                                                  "peek_configured_f_port" +
+                                                  "_list_f_port"), None)]),
                          None,
-                         list([rmclass('i1', n_port_map, "PATCH", rmclass.diff)]),
+                         list([rmclass('i1', n_port_map, "PATCH",
+                                       rmclass.diff)]),
                          None,
                          None)
 DefConfigrule11 = rmrule('R11', 'deleteallportgroup',
-                         list([rmclass('i1', port_group, "GET", rmclass.diff)]),
-                         list([rmcond('c1', 'not eq', rmattribute('i1', 'peek_port_group_name'), rmconst("pg0"))]),
+                         list([rmclass('i1', port_group, "GET",
+                                       rmclass.diff)]),
+                         list([rmcond('c1', 'not eq',
+                                      rmattribute('i1',
+                                                  'peek_port_group_name'),
+                                      rmconst("pg0"))]),
                          None,
-                         list([rmclass('i1', port_group, "DELETE", rmclass.diff)]),
+                         list([rmclass('i1', port_group, "DELETE",
+                                       rmclass.diff)]),
                          None,
                          None)
 DefConfigrule12 = rmrule('R12', 'createallportgroup',
-                         list([rmclass('i1', port_group, "GET", rmclass.diff)]),
-                         list([rmcond('c1', 'not eq', rmattribute('i1', 'peek_port_group_name'), rmconst("pg0"))]),
+                         list([rmclass('i1', port_group, "GET",
+                                       rmclass.diff)]),
+                         list([rmcond('c1', 'not eq',
+                                      rmattribute('i1',
+                                                  'peek_port_group_name'),
+                                      rmconst("pg0"))]),
                          None,
-                         list([rmclass('i1', port_group, "POST", rmclass.diff)]),
+                         list([rmclass('i1', port_group, "POST",
+                                       rmclass.diff)]),
                          None,
                          None)
 DefConfigrule13 = rmrule('R13', 'patchportgroup',
-                         list([rmclass('i1', port_group, "GET", rmclass.diff)]),
-                         list([rmcond('c1', 'eq', rmattribute('i1', 'peek_port_group_name'), rmconst("pg0"))]),
+                         list([rmclass('i1', port_group, "GET",
+                                       rmclass.diff)]),
+                         list([rmcond('c1', 'eq',
+                                      rmattribute('i1',
+                                                  'peek_port_group_name'),
+                                      rmconst("pg0"))]),
                          None,
-                         list([rmclass('i1', port_group, "PATCH", rmclass.diff)]),
+                         list([rmclass('i1', port_group, "PATCH",
+                                       rmclass.diff)]),
                          None,
                          None)

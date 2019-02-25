@@ -27,12 +27,12 @@ circuit.
 extension_circuit_modify.py: Usage
 
 * Infrastructure Options:
-    * -i,--ipaddr=IPADDR: IP address of the FOS switch.
-    * -L,--login=LOGIN: Login name.
-    * -P,--password=PASSWORD: Password.
-    * -f,--vfid=VFID: VFID to which the request is directed.
-    * -s,--secured=MODE: HTTPS mode "self" or "CA" [Optional].
-    * -v,--verbose: Verbose mode [Optional].
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: The verbose mode [Optional].
 
 * Util Script Options:
     * -n,--name=NAME: Sets the name or slot/port of the circuit.
@@ -71,7 +71,7 @@ cid, local, remote, minB, maxB)
             session, circuit)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the VE_Port name expressed as slot/port.
             :param cid: Sets the ID of the circuit.
             :param local: Sets the local IP address for the circuit.

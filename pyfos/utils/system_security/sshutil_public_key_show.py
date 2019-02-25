@@ -42,7 +42,7 @@ This module can be used to display key information.
 
 .. function:: sshutil_show.show_system_security_sshutil(session)
 
-    * Display the SSH key information in the switch.
+    * Displays the SSH key information in the switch.
 
         Example Usage of the Method:
 
@@ -64,7 +64,7 @@ This module can be used to display key information.
 
         *Use Cases*
 
-        1. Retrieve the public key related information.
+        1. Retrieve the public key-related information.
 
 
 """

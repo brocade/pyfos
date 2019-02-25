@@ -19,10 +19,10 @@
  a switch.
 ***************************************************************************\
 *******************
-The :mod:`syslog_create` util provides option to create the configuration\
+The :mod:`syslog_create` util provides the option to create the configuration\
  parameters of the syslog server on a switch.
 
-This module is a stand-alone script that can be used to display the syslog
+This module is a stand-alone script that can be used to create the syslog
 server configuration on a switch.
 
 * Input:
@@ -39,12 +39,12 @@ server configuration on a switch.
 
 | Util Script Options:
 
-  | --server=server ip address
+  | --server=server IP address
   | --port=port number
   | --secure_mode=true | false
 
 * Output:
-    * Status of the create or add syslog server operation
+    * Status of the create or add syslog server operation.
 
 .. function:: create_syslog_server(session, server, port, secure_mode)
 
@@ -68,12 +68,12 @@ server configuration on a switch.
 
         * Input:
                 :param session: The session returned by the login.
-                :param server: The server IP.
+                :param server: The server IP address.
                 :param port: The port number.
                 :param secure-mode: True or false.
 
-        * OSutput:
-                :rtype: A dictionary of return status matching the\
+        * Output:
+                :rtype: A dictionary of return status matching the \
                  REST response.
 
         *Use Cases*

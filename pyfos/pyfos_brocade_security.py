@@ -14,10 +14,10 @@
 """
 
 :mod:`pyfos_brocade_security` - PyFOS module to provide REST support for\
-System Security.
+system security.
 ************************************************************************************************
 The :mod:`pyfos_brocade_security` module provides REST support for \
-System Security.
+system security.
 
 """
 
@@ -61,7 +61,7 @@ class radius_server(pyfos_rest_util.rest_object):
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`radius_server` object with RADIUS server
+            Returnss a :class:`radius_server` object with the RADIUS server
                                             attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
@@ -69,18 +69,18 @@ class radius_server(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by the \
                 :func:`pyfos_auth.login`.
-            :rtype: The :class:`radius_server` object, if name is provided, \
-                     or list of objects if there is more than one. \
+            :rtype: The :class:`radius_server` object, if a name is provided, \
+                     or a list of objects if there is more than one. \
                      A dictionary in case of error.
 
         .. method:: post(session)
 
-            Create a RADIUS server entry. The required fields are set
+            Creates a RADIUS server entry. The required fields are set
             within the object using the attribute's set method.
             This method is used to create a new RADIUS server configuration for
             AAA authentication to a switch.
 
-            Example Usage of the Method to Configure a New AAA RADIUS server:
+            Example Usage of the Method to Configure a New AAA RADIUS Server:
 
             .. code-block:: python
 
@@ -94,11 +94,11 @@ class radius_server(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by the \
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a success response.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: patch(session)
 
-            Edit an existing configuration. The required fields are set within
+            Edits an existing configuration. The required fields are set within
             the object using the attribute's set method. This method is used to
             modify the existing RADIUS server configuration.
 
@@ -134,12 +134,12 @@ class radius_server(pyfos_rest_util.rest_object):
 
         .. method:: delete(session)
 
-            Delete a RADIUS server entry. Fields involved are
+            Deletes a RADIUS server entry. The required fields are
             set within the object using attribute's
             set method. This method is used to delete a RADIUS server
             configuration.
 
-            Example usage of the method to delete an RADIUS configuration:
+            Example Usage of the Method to Delete a RADIUS Configuration:
 
             .. code-block:: python
 
@@ -155,7 +155,7 @@ class radius_server(pyfos_rest_util.rest_object):
 
         .. method:: set_server(name)
 
-            Sets the RADIUS name in the object.
+            Sets the RADIUS server name in the object.
 
             :param name: The RADIUS server FQDN/IP to be set within the object
             :rtype: A dictionary in case of error or a success response.
@@ -211,7 +211,7 @@ class radius_server(pyfos_rest_util.rest_object):
 
             Sets the RADIUS server authentication protocol type in the object.
 
-            :param protocol: the RADIUS server authentication protocol type \
+            :param protocol: The RADIUS server authentication protocol type \
                           to be set within the object.
             :rtype: A dictionary in case of error or a success response.
 
@@ -316,7 +316,7 @@ class tacacs_server(pyfos_rest_util.rest_object):
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`tacacs_server` object with TACACS+ Server
+            Returns a :class:`tacacs_server` object with TACACS+ Server
             attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
@@ -330,7 +330,7 @@ class tacacs_server(pyfos_rest_util.rest_object):
 
         .. method:: post(session)
 
-            Create a TACACS+ server entry. The required fields are set
+            Creates a TACACS+ server entry. The required fields are set
             within the object using the attribute's set method.
             This method is used to create a new TACACS+ server configuration
             for AAA authentication to the switch.
@@ -349,13 +349,13 @@ class tacacs_server(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a success response.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: patch(session)
 
-            Edit an existing configuration. The required fields are set within
+            Edits an existing configuration. The required fields are set within
             the object using the attribute's set method. This method is used \
-            to modify the existing TACACS+ server configuration.
+            to modify an existing TACACS+ server configuration.
 
             Example Usage of the Method to Configure a Response Timeout:
 
@@ -389,7 +389,7 @@ class tacacs_server(pyfos_rest_util.rest_object):
 
         .. method:: delete(session)
 
-            Delete a TACACS+ server entry. The required fields are
+            Deletes a TACACS+ server entry. The required fields are
             set within the object using the attribute's set method. \
             This method is used to delete a TACACS+ server configuration.
 
@@ -565,7 +565,7 @@ class ldap_server(pyfos_rest_util.rest_object):
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`ldap_server` object with LDAP Server
+            Returns a :class:`ldap_server` object with LDAP Server
                              attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
@@ -573,13 +573,13 @@ class ldap_server(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: The :class:`ldap_server` object, if name is provided, \
+            :rtype: The :class:`ldap_server` object, if a name is provided, \
                 or a list of objects if there is more than one. \
                 A dictionary in case of error.
 
         .. method:: post(session)
 
-            Create an LDAP server entry. The required fields are set
+            Creates an LDAP server entry. The required fields are set
             within the object using the attribute's set method.
             This method is used to create a new LDAP server configuration for
             AAA authentication to the switch.
@@ -598,11 +598,11 @@ class ldap_server(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a success response.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: patch(session)
 
-            Edit an existing configuration. The required fields are set within
+            Edits an existing configuration. The required fields are set within
             the object using the attribute's set method. This method is used to
             modify the existing LDAP server configuration.
 
@@ -638,7 +638,7 @@ class ldap_server(pyfos_rest_util.rest_object):
 
         .. method:: delete(session)
 
-            Delete an LDAP server entry. The required fields are
+            Deletes an LDAP server entry. The required fields are
             set within the object using the attribute's
             set method. This method is used to delete an LDAP server
             configuration.
@@ -661,7 +661,7 @@ class ldap_server(pyfos_rest_util.rest_object):
 
             Sets the LDAP name in the object.
 
-            :param name: the LDAP FQDN/IP to be set within the object.
+            :param name: The LDAP FQDN/IP to be set within the object.
             :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_server()
@@ -757,7 +757,7 @@ class auth_spec(pyfos_rest_util.rest_object):
     Important Class Members:
 
         +-------------------------------------------+----------------------------------+------------------------------------------------------+
-        | Attribute name                            | Description                      |Frequently used methods                               |
+        | Attribute Name                            | Description                      |Frequently Used Methods                               |
         +===========================================+==================================+======================================================+
         | authentication-mode                       | The authentication mode for      |:func:`set_authentication_mode`                       |
         |                                           | RADIUS, TACACS+, and LDAP.       |:func:`peek_authentication_mode`                      |
@@ -839,9 +839,9 @@ class auth_spec(pyfos_rest_util.rest_object):
 
         .. method:: set_primary_auth_log_messages(bool)
 
-            Sets the log messages enable or disable value in the object.
+            Enables or disables log messages in the object.
 
-            :param bool: The log message enable or disable to be set within \
+            :param bool: The log message enabled or disabled within \
                           the object.
             :rtype: A dictionary in case of error or a success response.
 
@@ -909,25 +909,26 @@ class ipfilter_policy(pyfos_rest_util.rest_object):
             Each object can be printed using :func:`pyfos_util.response_print`
             and individual attributes are accessed through peek methods.
 
-            Example Usage of the method to get ipfilter policies:
+            Example Usage of the Method to Get IP Filter Policies:
 
             .. code-block:: python
 
                # initialize the switch object
                ipfilter_obj=pyfos_brocade_security.ipfilter_policy.get(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`ipfilter_policy` object if name is given or list of
-                objects if there are more than one. Dictionary in case of error
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: The :class:`ipfilter_policy` object if a name is given or \
+                a list of objects if there are more than one. A dictionary in \
+                case of error.
 
         .. method:: post(session)
 
-            Create an ipfilter policy entry. Fields involved are set
+            Creates an IP filter policy entry. The required fields are set
             within the object using attribute's set method.
-            This method is used to create a new ipfilter policy configuration.
+            This method is used to create a new IP filter policy configuration.
 
-            Example usage of the method to configure a new ipfilter policy:
+            Example Usage of the Method to Configure a New IP filter Policy:
 
             .. code-block:: python
 
@@ -941,17 +942,17 @@ class ipfilter_policy(pyfos_rest_util.rest_object):
                 # switch connected through session
                 ipfilter_obj.post(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: patch(session)
 
-            Fields involved are set within the object using attribute's set
+            The required fields are set within the object using attribute's set
             method. This method is used to perform actions such as commit,
-            save, activate the policy, clone.
+            save, activate the policy, and clone.
 
-            Example usage of the method to perform clone operation:
+            Example Usage of the Method to Clone an IP Filter Policy:
 
             .. code-block:: python
 
@@ -967,18 +968,18 @@ class ipfilter_policy(pyfos_rest_util.rest_object):
                 # switch connected through session
                 ipfilter_info.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary in case of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete an ipfilter policy. Fields involved are
+            Deletes an IP filter policy. The required fields are
             set within the object using attribute's
-            set method. This method is used to delete an ipfilter policy
+            set method. This method is used to delete an IP filter policy
             configuration.
 
-            Example usage of the method to delete an ipfilter policy
+            Example Usage of the Method to Delete an IP Filter Policy
             configuration:
 
             .. code-block:: python
@@ -991,69 +992,71 @@ class ipfilter_policy(pyfos_rest_util.rest_object):
                 # switch connected through session
                 ipfilter_obj.delete(session)
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_name(name)
 
             Sets policy name in the object.
 
-            :param name: policy name to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param name: The policy name to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_name()
 
-            Reads the ipfilter policy name from the object.
+            Reads the IP filter policy name from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_ip_version(version)
 
-            Sets policy ip version in the object.
+            Sets the policy IP version in the object.
 
-            :param version: policy ip version (ipv4/ipv6) to be set within the
-                            object
+            :param version: The policy IP version (IPv4/IPv6) to be set within \
+                            the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_ip_version()
 
-            Reads the policy ip version from the object.
+            Reads the policy IP version from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_is_policy_active()
 
             Reads the status of the policy from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_is_default_policy()
 
-            Reads whether default or user defined policy from the object.
+            Reads whether it is a default or user-defined policy from \
+            the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_action(ops)
 
             Sets the action to perform in the object.
 
-            :param ops: ipfilter action to be set within the object
+            :param ops: The IP filter action to be set within the object
                    supported operations: clone, save, activate and
-                   commit-and-activate
+                   commit-and-activate.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_clone_destination_policy_name("myclone")
 
-            Sets the destination policy name for the clone action in the object
+            Sets the destination policy name for the clone action in \
+            the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_clone_destination_policy_name()
 
             Reads the destination policy name from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -1085,64 +1088,64 @@ class ipfilter_policy(pyfos_rest_util.rest_object):
 
 
 class ipfilter_rule(pyfos_rest_util.rest_object):
-    """This class provides the ipfilter rule information and also can configure
-       the ipfilter rule.
+    """This class provides the IP filter rule information and also can configure
+       an IP filter rule.
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | Attribute name                            | Description                      |Frequently used methods                             |
+        | Attribute Name                            | Description                      |Frequently Used Methods                             |
         +===========================================+==================================+====================================================+
-        | policy-name                               | Policy name                      |:func:`set_policy_name`                             |
+        | policy-name                               | The policy name.                 |:func:`set_policy_name`                             |
         |                                           |                                  |:func:`peek_policy_name`                            |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | index                                     | Rule number                      |:func:`set_index`                                   |
+        | index                                     | The rule number.                 |:func:`set_index`                                   |
         |                                           |                                  |:func:`peek_index`                                  |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | source-ip                                 | Source IP                        |:func:`set_source_ip`                               |
+        | source-ip                                 | The source IP address.           |:func:`set_source_ip`                               |
         |                                           |                                  |:func:`peek_source_ip`                              |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | destination-start-port                    | Destination start port           |:func:`set_destination_start_port`                  |
+        | destination-start-port                    | The destination start port.      |:func:`set_destination_start_port`                  |
         |                                           |                                  |:func:`peek_destination_start_port`                 |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | destination-end-port                      | Destination end port             |:func:`set_destination_end_port`                    |
+        | destination-end-port                      | The destination end port.        |:func:`set_destination_end_port`                    |
         |                                           |                                  |:func:`peek_destination_end_port`                   |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | protocol                                  | Protocol type                    |:func:`set_protocol`                                |
+        | protocol                                  | The protocol type.               |:func:`set_protocol`                                |
         |                                           |                                  |:func:`peek_protocol`                               |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | permission                                | Permission permit/deny           |:func:`set_permission`                              |
+        | permission                                | The permission (permitor deny).  |:func:`set_permission`                              |
         |                                           |                                  |:func:`peek_permission`                             |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | traffic-type                              | Traffic type INPUT/FORWARD       |:func:`set_traffic_type`                            |
-        |                                           |                                  |:func:`peek_traffic_type`                           |
+        | traffic-type                              | The traffic type (INPUT          |:func:`set_traffic_type`                            |
+        |                                           | or FORWARD).                     |:func:`peek_traffic_type`                           |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
-        | destination-ip                            | Destination IP                   |:func:`set_destination_ip`                          |
+        | destination-ip                            | The destination IP address.      |:func:`set_destination_ip`                          |
         |                                           |                                  |:func:`peek_destination_ip`                         |
         +-------------------------------------------+----------------------------------+----------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`ipfilter_rule` object filled with Ipfilter
+            Returns a :class:`ipfilter_rule` object filled with IP filter
                              rule attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`ipfilter_rule` object or dictionary in case of
-                            error
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`ipfilter_rule` object or a dictionary in case of
+                            error.
 
         .. method:: post(session)
 
-            Create an ipfilter rule entry. Fields involved are set
+            Creates an IP filter rule entry. The required fields are set
             within the object using attribute's set method.
-            This method is used to create a new ipfilter rule.
+            This method is used to create a new IP filter rule.
 
-            Example usage of the method to configure a new ipfilter rule:
+            Example Usage of the Method to Configure a New IP Filter Rule:
 
             .. code-block:: python
 
@@ -1160,18 +1163,18 @@ class ipfilter_rule(pyfos_rest_util.rest_object):
                 # switch connected through session
                 ipfilter_obj.post(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete an ipfilter rule. Fields involved are
+            Deletes an IP filter rule. The required fields are
             set within the object using attribute's
-            set method. This method is used to delete a ipfilter rule
+            set method. This method is used to delete an IP filter rule
             configuration.
 
-            Example usage of the method to delete an ipfilter rule
+            Example Usage of the Method to Delete an IP Filter Rule
             configuration:
 
             .. code-block:: python
@@ -1185,132 +1188,133 @@ class ipfilter_rule(pyfos_rest_util.rest_object):
                 # switch connected through session
                 ipfilter_obj.delete(session)
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_policy_name(name)
 
-            Sets policy name in the object.
+            Sets the policy name in the object.
 
-            :param name: policy name to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param name: The policy name to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_policy_name()
 
-            Reads the ipfilter policy from the object.
+            Reads the IP filter policy from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_index(index)
 
-            Sets rule number in the object.
+            Sets the rule number in the object.
 
-            :param index: rule number to be set within the object
+            :param index: The rule number to be set within the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_index()
 
             Reads the rule number from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_source_ip(ip)
 
-            Sets source ip address in the object.
+            Sets the source IP address in the object.
 
-            :param ip: source ip to be set within the object
+            :param ip: The source IP address to be set within the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_source_ip()
 
-            Reads the source ip from the object.
+            Reads the source IP address from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_destination_start_port(port)
 
-            Sets destination start port in the object.
+            Sets the destination start port in the object.
 
-            :param port: destination start port to be set within the object
+            :param port: The destination start port to be set within \
+                         the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_destination_start_port()
 
             Reads the destination start port from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_destination_end_port(port)
 
-            Sets destination end port in the object.
+            Sets the destination end port in the object.
 
-            :param port: destination end port to be set within the object
+            :param port: The destination end port to be set within the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_destination_end_port()
 
             Reads the destination end port from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_protocol(type)
 
-            Sets protocol type in the object.
+            Sets the protocol type in the object.
 
-            :param type: protocol type to be set within the object
+            :param type: The protocol type to be set within the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_protocol()
 
             Reads the protocol type from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_permission(type)
 
-            Sets permission type in the object.
+            Sets the permission type in the object.
 
-            :param type: permission type to be set within the object
+            :param type: The permission type to be set within the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_permission()
 
             Reads the permission type from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_traffic_type(type)
 
-            Sets traffic type in the object.
+            Sets the traffic type in the object.
 
-            :param type: traffic type to be set within the object
+            :param type: The traffic type to be set within the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_traffic_type()
 
             Reads the traffic type from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_destination_ip(ip)
 
-            Sets destination ip address in the object.
+            Sets the destination IP address in the object.
 
-            :param ip: destination ip to be set within the object
+            :param ip: The destination IP address to be set within the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_destination_ip()
 
-            Reads the destination ip from the object.
+            Reads the destination IP address from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -1353,124 +1357,129 @@ class ipfilter_rule(pyfos_rest_util.rest_object):
 class sec_crypto_cfg(pyfos_rest_util.rest_object):
     """Class to display active cryptographic configurations.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | Attribute name                                 | Description                      |Frequently used methods                                              |
+        | Attribute Name                                 | Description                      |Frequently Used Methods                                              |
         +================================================+==================================+=====================================================================+
-        | ssh-cipher					 | SSH cipher configuration         |:func:`peek_ssh_cipher`					          |
+        | ssh-cipher                                     | The SSH cipher configuration.    |:func:`peek_ssh_cipher`                                              |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | ssh-kex				         | SSH kex configuration            |:func:`peek_ssh_kex`				                  |
+        | ssh-kex                                        | The SSH kex configuration.       |:func:`peek_ssh_kex`                                                 |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | ssh-mac				         | SSH mac configuration            |:func:`peek_ssh_mac`				                  |
+        | ssh-mac                                        | The SSH mac configuration.       |:func:`peek_ssh_mac`                                                 |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | https-cipher			                 | HTTPS cipher configuration       |:func:`peek_https_cipher`			                          |
+        | https-cipher                                   | The HTTPS cipher configuration.  |:func:`peek_https_cipher`                                            |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | radius-cipher    	                         | Radius cipher configuration      |:func:`peek_radius_cipher`		                                  |
+        | radius-cipher                                  | The RADIUS cipher configuration. |:func:`peek_radius_cipher`                                           |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | ldap-cipher	                                 | Ldap cipher configuration        |:func:`peek_ldap_cipher`  		                                  |
+        | ldap-cipher                                    | The LDAP cipher configuration.   |:func:`peek_ldap_cipher`                                             |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | syslog-cipher 	                         | Syslog cipher configuration      |:func:`peek_syslog_cipher`		                                  |
+        | syslog-cipher                                  | The Syslog cipher configuration. |:func:`peek_syslog_cipher`                                           |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | https-tls-protocol		                 | TLS Protocol version for HTTPS   |:func:`peek_ttps_tls_protocol`      	                          |
+        | https-tls-protocol                             | The TLS Protocol version         |:func:`peek_ttps_tls_protocol`                                       |
+        |                                                | for HTTPS.                       |                                                                     |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | radius-tls-protocol  		                 | TLS Protocol version for RADIUS  |:func:`peek_radius_tls_protocol`                       		  |
+        | radius-tls-protocol                            | The TLS protocol version         |:func:`peek_radius_tls_protocol`                                     |
+        |                                                | for RADIUS.                      |                                                                     |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | ldap-tls-protocol    		                 | TLS Protocol version for LDAP    |:func:`peek_ldap_tls_protocol`                             	  |
+        | ldap-tls-protocol                              | The TLS protocol version for     |:func:`peek_ldap_tls_protocol`                                       |
+        |                                                | for LDAP.                        |                                                                     |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | syslog-tls-protocol		                 | TLS Protocol version for SYSLOG  |:func:`peek_syslog_tls_protocol`                            	  |
+        | syslog-tls-protocol                            | The TLS protocol version         |:func:`peek_syslog_tls_protocol`                                     |
+        |                                                | for SYSLOG.                      |                                                                     |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
-        | x509v3-validation-mode                         | X509 validation mode selection   |:func:`peek_x509v3_validation_mode`                                  |
+        | x509v3-validation-mode                         | The X509 validation mode         |:func:`peek_x509v3_validation_mode`                                  |
+        |                                                | selection.                       |                                                                     |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. staticmethod:: get()
 
-            Return a :class:`sec_crypto_cfg` object filled with cryptographic
+            Returns a :class:`sec_crypto_cfg` object filled with cryptographic
                       attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
             and individual attributes accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`sec_crypto_cfg` object or dictionary in case of
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`sec_crypto_cfg` object or a dictionary in case of
                             error.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: peek_ssh_cipher()
 
-            Reads ssh cipher algorithm from the object.
+            Reads the SSH cipher algorithm from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_ssh_kex()
 
-            Reads ssh kex algorithm from the object.
+            Reads the SSH kex algorithm from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_ssh_mac()
 
-            Reads ssh mac algorithm from the object.
+            Reads the SSH MAC algorithm from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_https_cipher()
 
-            Reads https cipher algorithm from the object.
+            Reads the https cipher algorithm from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_radius_cipher()
 
-            Reads radius cipher algorithm from the object.
+            Reads the RADIUS cipher algorithm from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_ldap_cipher()
 
-            Reads ldap cipher algorithm from the object.
+            Reads the LDAP cipher algorithm from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_syslog_cipher()
 
-            Reads syslog cipher algorithm from the object.
+            Reads the syslog cipher algorithm from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_https_tls_protocol()
 
-            Reads TLS protocol version for https from the object.
+            Reads the TLS protocol version for https from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_radius_tls_protocol()
 
-            Reads TLS protocol version for radius from the object.
+            Reads the TLS protocol version for RADIUS from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_ldap_tls_protocol()
 
-            Reads TLS protocol version for ldap from the object.
+            Reads the TLS protocol version for LDAP from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_syslog_tls_protocol()
 
-            Reads TLS protocol version for syslog from the object.
+            Reads the TLS protocol version for syslog from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_x509v3_validation_mode()
 
-            Reads X509 validation mode selection from the object.
+            Reads the X509 validation mode selection from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -1522,41 +1531,42 @@ class sec_crypto_cfg(pyfos_rest_util.rest_object):
 class sec_crypto_cfg_template(pyfos_rest_util.rest_object):
     """Class for cryptographic template display.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | Attribute name                                 | Description                      |Frequently used methods                                 |
+        | Attribute Name                                 | Description                      |Frequently Used Methods                                 |
         +================================================+==================================+========================================================+
-        | name                                           | Template name                    |:func:`peek_name`                                       |
+        | name                                           | The template name.               |:func:`peek_name`                                       |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | template                                       | Template Content                 |:func:`peek_template`                                   |
+        | template                                       | The template content.            |:func:`peek_template`                                   |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. staticmethod:: get(session, name=None)
-            Return a :class:`sec_crypto_cfg_template` object filled with
+            Returns a :class:`sec_crypto_cfg_template` object filled with
                              template contents.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`sec_crypto_cfg_template` object if name is given or
-               list of objects if name is None. Dictionary in case of error.
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`sec_crypto_cfg_template` object if name is given
+               or list of objects if name is None.
+               A dictionary in case of error.
 
-    *Attribute methods*
+    *Attribute Methods*
         .. method:: peek_name()
 
             Reads the template name from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_template()
 
             Reads the template content from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
     """
     def __init__(self, dictvalues={}):
         super().__init__(
@@ -1574,39 +1584,40 @@ class sec_crypto_cfg_template(pyfos_rest_util.rest_object):
 
 
 class sec_crypto_cfg_template_action(pyfos_rest_util.rest_object):
-    """This class provides the cryptographic template configurations and
+    """ This class provides the cryptographic template configurations and
        operations.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | Attribute name                                 | Description                      |Frequently used methods                                 |
+        | Attribute Name                                 | Description                      |Frequently Used Methods                                 |
         +================================================+==================================+========================================================+
-        | template-name                                  | Template name                    |:func:`set_template_name`                               |
+        | template-name                                  | The template name.               |:func:`set_template_name`                               |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | action                                         | Set crypto action                |:func:`set_action`                                      |
+        | action                                         | Sets the crypto action.          |:func:`set_action`                                      |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-user-name                               | Set remote user login name       |:func:`set_remote_user_name`                            |
+        | remote-user-name                               | Sets the remote user login name. |:func:`set_remote_user_name`                            |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-host-ip                                 | Set remote host ip               |:func:`set_remote_host_ip`                              |
+        | remote-host-ip                                 | Sets the remote host IP address. |:func:`set_remote_host_ip`                              |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-user-password                           | Set remote user password         |:func:`set_remote_user_password`                        |
+        | remote-user-password                           | Sets the remote user password.   |:func:`set_remote_user_password`                        |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-directory                               | Remote directory file path       |:func:`set_remote_directory`                            |
+        | remote-directory                               | The remote directory file path.  |:func:`set_remote_directory`                            |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
-        | file-transfer-protocol-type                    | Set file transfer protocol type  |:func:`set_file_transfer_protocol_type`                 |
+        | file-transfer-protocol-type                    | Sets the file transfer           |:func:`set_file_transfer_protocol_type`                 |
+        |                                                | protocol type.                   |                                                        |
         +------------------------------------------------+----------------------------------+--------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: patch(session)
 
-            Fields involved are set within the object using attribute's
-            set method. This method is used to set import/export cryptographic
-            template which is configured in host machine, verify and apply
-            template.
+            The required fields are set within the object using attribute's
+            set method. This method is used to set the import or export  \
+            cryptographic template, which is configured in the host machine, \
+            verify and apply template.
 
-            Example usage of the method to apply cipher configuration:
+            Example Usage of the Method to Apply Cipher Configuration:
 
             .. code-block:: python
 
@@ -1620,17 +1631,17 @@ class sec_crypto_cfg_template_action(pyfos_rest_util.rest_object):
                 # switch connected through session
                 crypto_info.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary in case of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete a user defined template. Fields involved are
-            set within the object using attribute's
-            set method. This command is used to delete user defined template
+            Deletes a user-defined template. The required fields are
+            set within the object using attribute's set method.
+            This command is used to delete a user-defined template.
 
-            Example usage of the method to delete a user defined template:
+            Example Usage of the Method to Delete a User-defined Template:
 
                 # initialize the switch object
                 crypto_obj = pyfos_brocade_security.sec_crypto_cfg_template()
@@ -1638,62 +1649,65 @@ class sec_crypto_cfg_template_action(pyfos_rest_util.rest_object):
                 crypto_obj.set_template_name("mytemplate")
                 crypto_obj.delete(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_template_name(name)
 
-            Sets template  name in the object.
+            Sets the template  name in the object.
 
-            :param name: default template name to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param name: The default template name to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_action(ops)
 
-            Sets seccryptographic action in the object.
+            Sets the seccryptographic action in the object.
 
-            :param ops: seccryptographic action to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param ops: The seccryptographic action to be set within \
+                        the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_user_name(loginname)
 
-            Sets remote user login name in the object.
+            Sets the remote user login name in the object.
 
-            :param loginname: remote user login name name to be set within the
-                              object
-            :rtype: dictionary in case of error or success response
+            :param loginname: The remote user login name name to be set \
+                              within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_host_ip(ip)
 
-            Sets remote user ip in the object.
+            Sets the remote user IP address in the object.
 
-            :param ip: remote user ip to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param ip: The remote user IP address to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_user_password(passwd)
 
-            Sets remote user password in the object.
+            Sets the remote user password in the object.
 
-            :param passwd: remote user password to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param passwd: The remote user password to be set within \
+                           the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_directory(template_file)
 
             Sets the template file path in the object.
 
-            :param template_file: template file path to be set within the
-                                  object
-            :rtype: dictionary in case of error or success response
+            :param template_file: The template file path to be set within \
+                                  the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_file_transfer_protocol_type(protocol)
 
-            Sets file transfer protocol in the object.
+            Sets the file transfer protocol in the object.
 
-            :param protocol: file transfer protocol to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param protocol: The file transfer protocol to be set within \
+                             the object.
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -1729,47 +1743,46 @@ class sec_crypto_cfg_template_action(pyfos_rest_util.rest_object):
 
 
 class ldap_role_map(pyfos_rest_util.rest_object):
-    """Class of LDAP Role mapping configuration
-               Important class members:
+    """Class of LDAP Role mapping configuration.
 
-    Important class members:
+    Important Class Members:
 
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | Attribute name                    | Description                   |Frequstly used methods                                 |
+        | Attribute Name                    | Description                   |Frequently Used Methods                                |
         +===================================+===============================+=======================================================+
-        | ldap-role                         | LDAP role to be mapped to     |:func:`set_ldap_role`                                  |
-        |                                   | a switch role                 |:func:`peek_ldap_role`                                 |
+        | ldap-role                         | The LDAP role to be mapped    |:func:`set_ldap_role`                                  |
+        |                                   | to a switch role.             |:func:`peek_ldap_role`                                 |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | switch-role                       | switch role to which the LDAP |:func:`set_switch_role`                                |
-        |                                   | role is mapped.               |:func:`peek_switch_role`                               |
+        | switch-role                       | The switch role to which the  |:func:`set_switch_role`                                |
+        |                                   | LDAP role is mapped.          |:func:`peek_switch_role`                               |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | home-virtual-fabric               | home VF ID                    |:func:`set_home_virtual_fabric`                        |
+        | home-virtual-fabric               | The home VF ID.               |:func:`set_home_virtual_fabric`                        |
         |                                   |                               |:func:`peek_home_virtual_fabric`                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | chassis-access-role               | chassis level role            |:func:`set_chassis_access_role`                        |
+        | chassis-access-role               | The chassis-level role.       |:func:`set_chassis_access_role`                        |
         |                                   |                               |:func:`peek_chassis_access_role`                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session)
 
-            Return :class`ldap_role_map`
+            Returns a :class`ldap_role_map`
             object with values for all the attributes.
-            The object can be printed using :func:`pyfos_utils.response_print`
+            The object can be printed using :func:`pyfos_utils.response_print`.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or
-                :class:`ldap_role_map` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or an
+                :class:`ldap_role_map` object.
 
         .. method:: post(session)
 
-            Create an entry. Fields involved are set within the object using
-            attribute's set method.  This command is used to create
-            a ldap_map_role.
+            Creates an entry. The required fields are set within the object \
+            using attribute's set method.  This command is used to create
+            an ldap_map_role.
 
-            Example usage of the method to create a new cfg::
+            Example Usage of the Method to Create a New Configuration::
 
                 ldap_cfg_obj =
                     pyfos_ldapcfg.ldap_role_map()
@@ -1777,17 +1790,18 @@ class ldap_role_map(pyfos_rest_util.rest_object):
                 ldap_cfg_obj.set_switch_role("switchRole")
                 ldap_cfg_obj.post(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: patch()
 
-            To modify ldap configuration such as vf-list, vf-role-list etc.
-            Fields involved are set within the object using
-            attribute's set method.
+            Modifies an LDAP configuration such as vf-list, vf-role-list, \
+            and so on. The required fields are set within the object using
+            the attribute's set method.
 
-            Example usage of the method to modify existing ldaprole cfg::
+            Example Usage of the Method to Modify an Existing LDAP \
+            Role Configuration::
 
                 ldap_cfg_obj =
                     pyfos_ldapcfg.ldap_role_map()
@@ -1796,80 +1810,80 @@ class ldap_role_map(pyfos_rest_util.rest_object):
                 ldap_cfg_obj.set_home_virtual_fabric(128)
                 ldap_cfg_obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete()
 
-            Delete an LDAP role mapping. Fields involved are
-            set within the object using attribute's
-            set method. This command is used to delete LDAP role mapping.
+            Deletes an LDAP role mapping. The required fields are
+            set within the object using attribute's set method.
+            This command is used to delete an LDAP role mapping.
 
-            Example usage of the method to delete an existing LDAP role map::
+            Example Usage of the Method to Delete an Existing LDAP Role Map::
 
                ldap_cfg_obj =
                     pyfos_ldapcfg.ldap_role_map()
                 ldap_cfg_obj.set_ldap_role("ldapRole")
                 ldap_cfg_obj.delete(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_ldap_role(role)
 
-           Sets ldap role in the object
+           Sets the LDAP role in the object
 
-            :param role: LDAP role to be mapped to a switch role
-            :rtype: dictionary of error or success response
+            :param role: The LDAP role to be mapped to a switch role.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_ldap_role()
 
-            Reads ldap role from the object.
+            Reads the LDAP role from the object.
 
-            :rtype: None or ldap_role
+            :rtype: None or ldap_role.
 
         .. method:: set_switch_role(role)
 
-                Sets switch role in the object
+                Sets the switch role in the object.
 
-            :param role: switch role to which the  LDAP  role is mapped
-            :rtype: dictionary of error or success response
+            :param role: The switch role to which the LDAP role is mapped.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_switch_role()
 
-            Reads switch role from the object.
+            Reads the switch role from the object.
 
-            :rtype: None or switch_role
+            :rtype: None or switch_role.
 
         .. method:: set_home_virtual_fabric(fcid)
 
-                Sets home virtual fabric in the object
+                Sets the home virtual fabric in the object.
 
-            :param fcid: default virtual fabric switch context
-            :rtype: dictionary of error or success response
+            :param fcid: The default virtual fabric switch context.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_home_virtual_fabric()
 
-            Reads home virtual fabric from the object.
+            Reads the home virtual fabric from the object.
 
-            :rtype: None or home_virtual_fabric
+            :rtype: None or home_virtual_fabric.
 
         .. method:: set_chassis_access_role(role)
 
-                Sets chassis access role in the object
+                Sets the chassis access role in the object.
 
-            :param role: chassis level role
-            :rtype: dictionary of error or success response
+            :param role: The chassis level role.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_chassis_access_role()
 
-            Reads chassis access role from the object.
+            Reads the chassis access role from the object.
 
-            :rtype: None or chassis_access_role
+            :rtype: None or chassis_access_role.
 
        """
 
@@ -1894,105 +1908,110 @@ class ldap_role_map(pyfos_rest_util.rest_object):
 
 
 class password_cfg(pyfos_rest_util.rest_object):
-    """Class of password configuration
-                Important class members:
+    """Class of password configuration.
+                Important Class Members:
 
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | Attribute name                    | Description                   |Frequstly used methods                                 |
+        | Attribute Name                    | Description                   |Frequently Used Methods                                |
         +===================================+===============================+=======================================================+
-        | minimum-length                    | Minimum length of the password|:func:`set_minimum_length`                             |
-        |                                   |                               |:func:`peek_minimum_length`                            |
+        | minimum-length                    | The minimum length of the     |:func:`set_minimum_length`                             |
+        |                                   | password.                     |:func:`peek_minimum_length`                            |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | character-set                     | Minimum criteria on the       |:func:`set_character_set`                              |
-        |                                   | character set                 |:func:`peek_character_set`                             |
+        | character-set                     | The minimum criteria on the   |:func:`set_character_set`                              |
+        |                                   | character set.                |:func:`peek_character_set`                             |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | user-name-allowed                 | Enable/disable username is    |:func:`set_user_name_allowed`                          |
-        |                                   | allowed in the password       |:func:`peek_user_name_allowed`                         |
+        | user-name-allowed                 | Enable or disable username is |:func:`set_user_name_allowed`                          |
+        |                                   | allowed in the password.      |:func:`peek_user_name_allowed`                         |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | minimum-lower-case-character      | Minimum number of lowercase   |:func:`set_minimum_lower_case_character`               |
-        |                                   | alphabetic characters         |:func:`peek_minimum_lower_case_character`              |
+        | minimum-lower-case-character      | The minimum number of         |:func:`set_minimum_lower_case_character`               |
+        |                                   | lowercase alphabetic          |:func:`peek_minimum_lower_case_character`              |
+        |                                   | characters.                   |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | minimum-upper-case-character      | Minimum number of uppercase   |:func:`set_minimum_upper_case_character`               |
-        |                                   | alphabetic characters         |:func:`peek_minimum_upper_case_character`              |
+        | minimum-upper-case-character      | The minimum number of         |:func:`set_minimum_upper_case_character`               |
+        |                                   | uppercase alphabetic          |:func:`peek_minimum_upper_case_character`              |
+        |                                   | characters.                   |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | minimum-numeric-character         | Minimum number of digits      |:func:`set_minimum_numeric_character`                  |
+        | minimum-numeric-character         | The minimum number of digits. |:func:`set_minimum_numeric_character`                  |
         |                                   |                               |:func:`peek_minimum_numeric_character`                 |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | minimum-special-character         | Minimum number of punctuation |:func:`set_minimum_special_character`                  |
-        |                                   | characters                    |:func:`peek_minimum_special_character`                 |
+        | minimum-special-character         | The minimum number of         |:func:`set_minimum_special_character`                  |
+        |                                   | punctuation characters.       |:func:`peek_minimum_special_character`                 |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | past-password-history             | Number of past password value |:func:`set_past_password_history`                      |
-        |                                   | that are disallowed           |:func:`peek_past_password_history`                     |
+        | past-password-history             | The number of past password   |:func:`set_past_password_history`                      |
+        |                                   | values that are disallowed.   |:func:`peek_past_password_history`                     |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | minimum-password-age              | Minimum number of days before |:func:`set_minimum_password_age`                       |
-        |                                   | which password cannot be      |:func:`peek_minimum_password_age`                      |
-        |                                   | modified                      |                                                       |
+        | minimum-password-age              | The minimum number of days    |:func:`set_minimum_password_age`                       |
+        |                                   | before which a password       |:func:`peek_minimum_password_age`                      |
+        |                                   | cannot be modified.           |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | maximum-password-age              | Maximum number of days after  |:func:`set_maximum_password_age`                       |
-        |                                   | which the password should be  |:func:`peek_maximum_password_age`                      |
-        |                                   | modified                      |                                                       |
+        | maximum-password-age              | The maximum number of days    |:func:`set_maximum_password_age`                       |
+        |                                   | after which the password      |:func:`peek_maximum_password_age`                      |
+        |                                   | should be modified.           |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | warn-on-expire                    | Number of days prior to       |:func:`set_warn_on_expire`                             |
+        | warn-on-expire                    | The number of days prior to   |:func:`set_warn_on_expire`                             |
         |                                   | password expiration when the  |:func:`peek_warn_on_expire`                            |
-        |                                   | user should be warned         |                                                       |
+        |                                   | user should be warned.        |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | lock-out-threshold                | Number of time user can give  |:func:`set_lock_out_threshold`                         |
-        |                                   | incorrect password            |:func:`peek_lock_out_threshold`                        |
+        | lock-out-threshold                | The number of time user can   |:func:`set_lock_out_threshold`                         |
+        |                                   | give the incorrect password.  |:func:`peek_lock_out_threshold`                        |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | lock-out-duration                 | Lockout duration in minutes   |:func:`set_lock_out_duration`                          |
-        |                                   |                               |:func:`peek_lock_out_duration`                         |
+        | lock-out-duration                 | The lockout duration          |:func:`set_lock_out_duration`                          |
+        |                                   | in minutes.                   |:func:`peek_lock_out_duration`                         |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | admin-lock-out-enabled            | Enable/disable admin lockout  |:func:`set_admin_lock_out_enabled`                     |
-        |                                   |                               |:func:`peek_admin_lock_out_enabled`                    |
+        | admin-lock-out-enabled            | Enables or disables admin     |:func:`set_admin_lock_out_enabled`                     |
+        |                                   | lockout.                      |:func:`peek_admin_lock_out_enabled`                    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | repeat-character-limit            | Length of the character       |:func:`set_repeat_character_limit`                     |
-        |                                   | sequences                     |:func:`peek_repeat_character_limit`                    |
+        | repeat-character-limit            | The length of the character   |:func:`set_repeat_character_limit`                     |
+        |                                   | sequences.                    |:func:`peek_repeat_character_limit`                    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | sequence-character-limit          | Length of sequential character|:func:`set_sequence_character_limit`                   |
-        |                                   | sequences                     |:func:`peek_sequence_character_limit`                  |
+        | sequence-character-limit          | The length of sequential      |:func:`set_sequence_character_limit`                   |
+        |                                   | character sequences.          |:func:`peek_sequence_character_limit`                  |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | password-config-changed           | Indicates account default     |:func:`peek_password_config_changed`                   |
-        |                                   | configuration or not          |                                                       |
+        | password-config-changed           | Indicates whether it is the   |:func:`peek_password_config_changed`                   |
+        |                                   | account default               |                                                       |
+        |                                   | configuration.                |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | reverse-user-name-allowed         | Allow/disallow reverse user   |:func:`set_reverse_user_name_allowed`                  |
-        |                                   | name in password              |:func:`peek_reverse_user_name_allowed`                 |
+        | reverse-user-name-allowed         | Allows or disallows the       |:func:`set_reverse_user_name_allowed`                  |
+        |                                   | reverse username in           |:func:`peek_reverse_user_name_allowed`                 |
+        |                                   | the password.                 |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | hash-type                         | Hash type                     |:func:`set_hash_type`                                  |
+        | hash-type                         | The hash type.                |:func:`set_hash_type`                                  |
         |                                   |                               |:func:`peek_hash_type`                                 |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | manual-hash-enabled               | Enable/disable manual hash    |:func:`set_manual_hash_enabled`                        |
-        |                                   |                               |:func:`peek_manual_hash_enabled`                       |
+        | manual-hash-enabled               | Enables or disables manual    |:func:`set_manual_hash_enabled`                        |
+        |                                   | hash.                         |:func:`peek_manual_hash_enabled`                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | enforce-expire                    | Expires the password for user |:func:`set_enforce_expire`                             |
-        |                                   |                               |:func:`peek_enforce_expire`                            |
+        | enforce-expire                    | Expires the password for      |:func:`set_enforce_expire`                             |
+        |                                   | the user.                     |:func:`peek_enforce_expire`                            |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | minimum-difference                | Number of character difference|:func:`set_minimum_difference`                         |
-        |                                   | expected between old and new  |:func:`peek_minimum_difference`                        |
-        |                                   | password                      |                                                       |
+        | minimum-difference                | The number of character       |:func:`set_minimum_difference`                         |
+        |                                   | differences expected between  |:func:`peek_minimum_difference`                        |
+        |                                   | the old and new password.     |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | password-action                   | Password configuration action |:func:`set_password_action`                            |
+        | password-action                   | The password configuration    |:func:`set_password_action`                            |
+        |                                   | action.                       |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
 
-       *Object methods*
+       *Object Methods*
         .. method:: get(session)
 
-            Return :class`password_cfg`
+            Returns a :class`password_cfg`
             object with values for all the attributes.
-            The object can be printed using :func:`pyfos_utils.response_print`
+            The object can be printed using :func:`pyfos_utils.response_print`.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or
-                :class:`password_cfg` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a
+                :class:`password_cfg` object.
 
         .. method:: patch()
 
-            To modify password configuration.
-            Fields involved are set within the object using attribute's
+            Modifies the password configuration.
+            The required fields are set within the object using attribute's
             set method.
 
-            Example usage of the method to modify global password
-            configuration::
+            Example Usage of the Method to Modify the Global Password
+            Configuration::
 
                 password_obj =
                     pyfos_password_cfg.password_cfg()
@@ -2001,332 +2020,344 @@ class password_cfg(pyfos_rest_util.rest_object):
                 password_obj.set_user_name_allowed(0)
                 password_obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete a user defined password configuration.
-            Fields involved are set within the object using attribute's
-            set method. This command is used to delete password configuration.
+            Deletes a user-defined password configuration.
+            The fields are set within the object using attribute's
+            set method. This command is used to delete a \
+            password configuration.
 
-            Example usage of the method to delete a password configuration::
+            Example Usage of the Method to Delete a Password Configuration::
 
                 password_obj =
                     pyfos_password_cfg.password_cfg()
                 password_obj.set_password_action("delete-all")
                 password_obj.delete(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-       *Attribute methods*
+       *Attribute Methods*
 
         .. method:: set_minimum_length(length)
 
-                Sets minimum length of the password in the object
+                Sets the minimum length of the password in the object.
 
-            :param length: minimum length of the password
-            :rtype: dictionary in case of error or success response
+            :param length: The minimum length of the password.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_length()
 
-            Reads minimum length of the password from the object.
+            Reads the minimum length of the password from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_character_set(criteria)
 
-                Sets minimum criteria for the password ot the object
+                Sets the minimum criteria for the password of the object.
 
-            :param criteria: minimum criteria on the password
-            :rtype: dictionary in case of error or success response
+            :param criteria: The minimum criteria on the password.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method::peek_character_set()
 
-            Reads minimum criteria from the object.
+            Reads the minimum criteria from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_length()
 
-            Reads minimum criteria from the object.
+            Reads the minimum criteria from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_user_name_allowed(bool)
 
-                Sets enable/disable username allowed to the object
+                Sets whether enabling or disabling the username is allowed on \
+                the object.
 
-            :param bool: enable/disable username allowed
-            :rtype: dictionary in case of error or success response
+            :param bool: Whether enabling or disabling the username is allowed.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_user_name_allowed()
 
-            Reads username allowed in password or not from the object.
+            Reads whether the username is allowed in password from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_minimum_lower_case_character(number)
 
-                Sets minimum lowercase character to the object
+                Sets the minimum lowercase characters to the object.
 
-            :param number: minimum number of lowercase character
-            :rtype: dictionary in case of error or success response
+            :param number: The minimum number of lowercase characters.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_lower_case_character()
 
-            Reads minimum number of lowercase character from the object.
+            Reads the minimum number of lowercase characters from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_minimum_upper_case_character(number)
 
                 Sets minimum uppercase character to the object
 
             :param number: minimum number of uppercase character
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_upper_case_character()
 
             Reads minimum number of uppercase character from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_minimum_numeric_character(number)
 
-                Sets minimum digits to the object
+                Sets the minimum digits to the object.
 
-            :param number: minimum number of digits
-            :rtype: dictionary in case of error or success response
+            :param number: The minimum number of digits.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_numeric_character()
 
-            Reads minimum number of digits from the object.
+            Reads the minimum number of digits from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_minimum_special_character(number)
 
-                Sets minimum punctuational character to the object
+                Sets the minimum punctuation characters to the object.
 
-            :param number: minimum number of punctuational character
-            :rtype: dictionary in case of error or success response
+            :param number: The minimum number of punctuation characters.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_special_character()
 
-            Reads minimum number of punctuational character from the object.
+            Reads the minimum number of punctuation characters from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_past_password_history(number)
 
-                Sets number of past password disallowed to the object
+                Sets the number of past passwords disallowed to the object.
 
-            :param number: number of past password disallowed
-            :rtype: dictionary in case of error or success response
+            :param number: The number of past passwords disallowed.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_past_password_history()
 
-            Reads number of past password disallowed from the object.
+            Reads the number of past passwords disallowed from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_minimum_password_age(number)
 
-                Sets minimum number of days before which the password cannot be
-                modified
+                Sets the minimum number of days that must elapse before a \
+                password can be changed.
 
-            :param number: minimum number of days
-            :rtype: dictionary in case of error or success response
+            :param number: The minimum number of days that must elapse before \
+                           a password can be changed.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_password_age()
 
-            Reads minimum number of days of password age from the object.
+            Reads the minimum number of days that must elapse before a \
+            password can be changed.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_maximum_password_age(number)
 
-                Sets maximum number of days after which the password should be
-                modified
+                Sets the maximum number of days that can elapse before a \
+                password can be changed.
 
-            :param number: maximum number of days
-            :rtype: dictionary in case of error or success response
+            :param number: The maximum number of days that can elapse before \
+                           a password can be changed.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_maximum_password_age()
 
-            Reads maximum number of days of password age from the object.
+            Reads the maximum number of days that can elapse before a \
+            password can be changed.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_warn_on_expire(number)
 
-                Sets number of days prior to password expiration to the object
+                Sets the number of days prior to password expiration to \
+                the object.
 
-            :param number: number of days
-            :rtype: dictionary in case of error or success response
+            :param number: The number of days prior to password expiration.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_warn_on_expire()
 
-            Reads number of days prior to password expiration from the object.
+            Reads the number of days prior to password expiration from \
+            the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_lock_out_threshold(times)
 
-                Sets number of times a user can specify an incorrect password
-                 to the object
+                Sets the number of times a user can specify an incorrect \
+                password to the object.
 
-            :param times: number of times
-            :rtype: dictionary in case of error or success response
+            :param times: The number of times a user can specify an \
+                          incorrect password.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_lock_out_threshold()
 
-            Reads number of times ia user can specify an incorrect password
+            Reads the number of times a user can specify an incorrect password
             from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_lock_out_duration(times)
 
                 Sets the time, in minutes, after which a previously locked
-                account automatically unlocks to the object
+                account automatically unlocks to the object.
 
-            :param times: number of minutes
-            :rtype: dictionary in case of error or success response
+            :param times: The time, in minutes, after which a previously locked
+                          account automatically unlocks.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_lock_out_duration()
 
-            Reads the minutes for automatically unlocks the locked accout
-            from the object.
+            Reads time, in minutes, after which a previously locked
+            account automatically unlocks from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_admin_lock_out_enabled(bool)
 
-                Sets enable/disable admin lockout to the object
+                Enables or disables admin lockout to the object.
 
-            :param bool: enable/disable admin lockout
-            :rtype: dictionary in case of error or success response
+            :param bool: Enable or disable admin lockout.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_admin_lock_out_enabled()
 
-            Reads admin lockout status from the object.
+            Reads the admin lockout status from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_repeat_character_limit(length)
 
-                Sets length of repeated character sequences to the object
+                Sets the length of repeated character sequences to the object.
 
-            :param length: length of repeated character sequences
-            :rtype: dictionary in case of error or success response
+            :param length: The length of repeated character sequences.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_repeat_character_limit(length)
 
-            Reads length of repeated character sequences from the object.
+            Reads the length of repeated character sequences from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_sequence_character_limit(length)
 
-                Sets length of sequential character sequences to the object
+                Sets the length of sequential character sequences to \
+                the object.
 
-            :param length: length of sequential character sequences
-            :rtype: dictionary in case of error or success response
+            :param length: The length of sequential character sequences.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_sequence_character_limit()
 
-            Reads length of sequential character sequences from the object.
+            Reads the length of sequential character sequences from \
+            the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_password_config_changed()
 
-            Reads status of the userdefined configuration or default
+            Reads the status of the user-defined configuration or the default
             configuration from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_reverse_user_name_allowed(bool)
 
-                Sets enable/disable reverse user name in password to the object
+                Enables or disables use of reverse username in the password \
+                to the object.
 
-            :param bool: status of the reverse user name
-            :rtype: dictionary in case of error or success response
+            :param bool: Enables or disables use of reverse username.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_reverse_user_name_allowed()
 
-            Reads status of the reverse user name from the object.
+            Reads the status of reverse username allowed from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_hash_type(hash)
 
-                Sets hash type to the object
+                Sets the hash type to the object.
 
-            :param hash: hash type for the password
-            :rtype: dictionary in case of error or success response
+            :param hash: The hash type for the password.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_hash_type()
 
-            Reads hash type from the object.
+            Reads the hash type from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_manual_hash_enabled(bool)
 
-                Sets enable/disable manual hash to the object
+                Enables or disables manual hash to the object.
 
-            :param bool: status of the hash type change can be manual or not
-            :rtype: dictionary in case of error or success response
+            :param bool: Enables or disables manual hash type change.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_manual_hash_enabled()
 
-            Reads status of the hash type change can be manual or not
-            from the object.
+            Reads the status of the manual hash type change from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_enforce_expire(bool)
 
-                Sets enable/disable password expiration for the user
-                to the object
+                Enables or disables password expiration for the user
+                to the object.
 
-            :param bool: enable/disable password expiration
-            :rtype: dictionary in case of error or success response
+            :param bool: Enables or disables password expiration.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_enforce_expire()
 
-            Reads status of the password expiration for the user
+            Reads the status of password expiration for the user
             from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_password_action(ops)
 
-                Sets password action to be perform to the object
+                Sets the password action to be performed to the object.
 
-            :param ops: password action to be perform
-            :rtype: dictionary in case of error or success response
+            :param ops: The password action to be performed.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_minimum_difference(value)
 
-                Sets minimum difference expected between the old and new
-                password
+                Sets the minimum difference expected between the old and new
+                password.
 
-            :param value: minimum difference between old and new password
-            :rtype: dictionary in case of error or success response
+            :param value: The minimum difference between old and new passwords.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_difference()
 
-            Reads the value of minimum difference between old and new password
-            from the object.
+            Reads the value of the minimum difference between old and new \
+            passwords from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
        """
 
     def __init__(self, dictvalues={}):
@@ -2408,52 +2439,54 @@ class password_cfg(pyfos_rest_util.rest_object):
 
 class user_specific_password_cfg(pyfos_rest_util.rest_object):
     """Class of user specific password configuration
-                Important class members:
+                Important Class Members:
 
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | Attribute name                    | Description                   |Frequstly used methods                                 |
+        | Attribute Name                    | Description                   |Frequently Used Methods                                |
         +===================================+===============================+=======================================================+
-        | user-name                         | User Name                     |:func:`set_user_name`                                  |
+        | user-name                         | The username.                 |:func:`set_user_name`                                  |
         |                                   |                               |:func:`peek_user_name`                                 |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | minimum-password-age              | Minimum number of days before |:func:`set_minimum_password_age`                       |
-        |                                   | which the password cannot be  |:func:`peek_minimum_password_age`                      |
-        |                                   | modified                      |                                                       |
+        | minimum-password-age              | The minimum number of days    |:func:`set_minimum_password_age`                       |
+        |                                   | that must elapse before a     |:func:`peek_minimum_password_age`                      |
+        |                                   | password can be changed.      |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | maximum-password-age              | Maximum number of days after  |:func:`set_maximum_password_age`                       |
-        |                                   | which the password should be  |:func:`peek_maximum_password_age`                      |
-        |                                   | modified                      |                                                       |
+        | maximum-password-age              | The maximum number of days    |:func:`set_maximum_password_age`                       |
+        |                                   | that can elapse before a      |:func:`peek_maximum_password_age`                      |
+        |                                   | password can be changed.      |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | warn-on-expire                    | Number of days prior to       |:func:`set_warn_on_expire`                             |
-        |                                   | password expiration           |:func:`peek_warn_on_expire`                            |
+        | warn-on-expire                    | The number of days prior to   |:func:`set_warn_on_expire`                             |
+        |                                   | password expiration that a    |:func:`peek_warn_on_expire`                            |
+        |                                   | that a warning about password |                                                       |
+        |                                   | expiration displays.          |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | enforce-expire                    | Enable/disable expires the    |:func:`set_enforce_expire`                             |
-        |                                   | password for user             |:func:`peek_enforce_expire`                            |
+        | enforce-expire                    | Enables or disables password  |:func:`set_enforce_expire`                             |
+        |                                   | expiration for user.          |:func:`peek_enforce_expire`                            |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | hash-type                         | Hash type                     |:func:`set_hash_type`                                  |
+        | hash-type                         | The hash type.                |:func:`set_hash_type`                                  |
         |                                   |                               |:func:`peek_hash_type`                                 |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
 
-       *Object methods*
+       *Object Methods*
         .. method:: get(session)
 
-            Return :class`user_specific_password_cfg`
+            Returns a :class`user_specific_password_cfg`
             object with values for all the attributes.
-            The object can be printed using :func:`pyfos_utils.response_print`
+            The object can be printed using :func:`pyfos_utils.response_print`.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or
-                :class:`user_specific_password_cfg` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a
+                :class:`user_specific_password_cfg` object.
 
         .. method:: post(session)
 
-            Create a password configuration for specific user.
-            Fields involved are set within the object using attribute's set
-            method.  This command is used to create a password configuration
-            for specific user.
+            Creates a password configuration for a specific user.
+            The fields are set within the object using attribute's set
+            method. This command is used to create a password configuration
+            for a specific user.
 
-            Example usage of the method to create a new configuration::
+            Example Usage of the Method to Create a New Configuration::
 
                 password_obj =
                     pyfos_password_cfg.password_cfg()
@@ -2463,17 +2496,18 @@ class user_specific_password_cfg(pyfos_rest_util.rest_object):
                 password_obj.set_warn_on_expire(5)
                 password_obj.post(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: patch()
 
-            To modify user specific password configuration.
-            Fields involved are set within the object using attribute's
+            Modifies a user's specific password configuration.
+            The fields are set within the object using attribute's
             set method.
 
-            Example usage of the method to modify user password configuration::
+            Example Usage of the Method to Modify a User's Password \
+            Configuration::
 
                 password_obj =
                     pyfos_password_cfg.password_cfg()
@@ -2481,111 +2515,118 @@ class user_specific_password_cfg(pyfos_rest_util.rest_object):
                 password_obj.set_maximum_length(20)
                 password_obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete a user defined password configuration.
-            Fields involved are set within the object using attribute's
-            set method. This command is used to delete password configuration.
+            Deletes a user-defined password configuration.
+            The fields are set within the object using attribute's
+            set method. This command is used to delete a user-defined \
+            password configuration.
 
-            Example usage of the method to delete a user specific password
-            configuration::
+            Example Usage of the Method to Delete a User-defined Password
+            Configuration::
 
                 password_obj =
                     pyfos_password_cfg.password_cfg()
                 password_obj.set_user_name("mytestuser")
                 password_obj.delete(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-       *Attribute methods*
+       *Attribute Methods*
 
         .. method:: set_user_name(name)
 
-           Sets user name in the object
+           Sets the username in the object.
 
-            :param name: user name for the password configuration
-            :rtype: dictionary in case of error or success response
+            :param name: The username for the password configuration.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_user_name
 
-            Reads user name from the object.
+            Reads the username from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_minimum_password_age(number)
 
-                Sets minimum number of days before which the password cannot be
-                modified
+                Sets the minimum number of days that must elapse before a \
+                password can be changed.
 
-            :param number: minimum number of days
-            :rtype: dictionary in case of error or success response
+            :param number: The minimum number of days that must elapse before \
+                           a password can be changed.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_minimum_password_age()
 
-            Reads minimum number of days of password age from the object.
+            Reads the minimum number of days that must elapse before a \
+            password can be changed from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_maximum_password_age(number)
 
-                Sets maximum number of days after which the password should be
-                modified
+                Sets the maximum number of days that can elapse before a \
+                password can be changed.
 
-            :param number: maximum number of days
-            :rtype: dictionary in case of error or success response
+            :param number: The maximum number of days before password \
+                           expiration.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_maximum_password_age()
 
-            Reads maximum number of days of password age from the object.
+            Reads the maximum number of days before password expiration \
+            from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_warn_on_expire(number)
 
-                Sets number of days prior to password expiration to the object
+                Sets the number of days prior to password expiration to \
+                the object.
 
             :param number: number of days
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_warn_on_expire()
 
-            Reads number of days prior to password expiration from the object.
+            Reads the number of days prior to password expiration that a \
+            warning about password expiration displays from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_hash_type(hash)
 
-                Sets hash type to the object
+                Sets the hash type to the object.
 
-            :param hash: hash type for the password
-            :rtype: dictionary in case of error or success response
+            :param hash: The hash type for the password.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_hash_type()
 
-            Reads hash type from the object.
+            Reads the hash type from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_enforce_expire(bool)
 
-                Sets enable/disable password expiration for the user
-                to the object
+                Enables or disables password expiration for the user
+                to the object.
 
-            :param bool: enable/disable password expiration
-            :rtype: dictionary in case of error or success response
+            :param bool: Enables or disables password expiration.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_enforce_expire()
 
-            Reads status of the password expiration for the user
+            Reads the status of the password expiration for the user
             from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
        """
 
@@ -2617,70 +2658,72 @@ class user_specific_password_cfg(pyfos_rest_util.rest_object):
 
 
 class user_config(pyfos_rest_util.rest_object):
-    """Class of user configuration
-               Important class members:
+    """Class of user configuration.
+               Important Class Members:
 
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | Attribute name                    | Description                   |Frequstly used methods                                 |
+        | Attribute Name                    | Description                   |Frequently Used Methods                                |
         +===================================+===============================+=======================================================+
-        | name                              | Name of the user account      |:func:`set_name`                                       |
+        | name                              | The name of the user account. |:func:`set_name`                                       |
         |                                   |                               |:func:`peek_name`                                      |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | password                          | User account password         |:func:`set_password`                                   |
+        | password                          | The user account password.    |:func:`set_password`                                   |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | role                              | Use role name                 |:func:`set_role`                                       |
+        | role                              | The user's role name.         |:func:`set_role`                                       |
         |                                   |                               |:func:`peek_role`                                      |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | account-description               | Account description           |:func:`set_account_description`                        |
+        | account-description               | The account description.      |:func:`set_account_description`                        |
         |                                   |                               |:func:`peek_account_description`                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | account-enabled                   | Indicates user account status |:func:`set_account_enabled`                            |
-        |                                   |                               |:func:`peek_account_enabled`                           |
+        | account-enabled                   | Indicates the user's account  |:func:`set_account_enabled`                            |
+        |                                   | status.                       |:func:`peek_account_enabled`                           |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | password-change-enforced          | Enable/disable password       |:func:`set_password_change_enforced`                   |
-        |                                   | change enforce while login    |:func:`peek_password_change_enforced`                  |
+        | password-change-enforced          | Enables or disables enforcing |:func:`set_password_change_enforced`                   |
+        |                                   |  password change during       |:func:`peek_password_change_enforced`                  |
+        |                                   |  login.                       |                                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | account-locked                    | Unlocks the user accout if    |:func:`set_account_locked`                             |
-        |                                   | it locked already             |:func:`peek_account_locked`                            |
+        | account-locked                    | Unlocks the user account if   |:func:`set_account_locked`                             |
+        |                                   | already locked.               |:func:`peek_account_locked`                            |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | access-start-time                 | Access start time for account |:func:`set_access_start_time`                          |
-        |                                   |                               |:func:`peek_access_start_time`                         |
+        | access-start-time                 | The access start time for     |:func:`set_access_start_time`                          |
+        |                                   | the account.                  |:func:`peek_access_start_time`                         |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | access-end-time                   | Access end time for account   |:func:`set_access_end_time`                            |
-        |                                   |                               |:func:`peek_access_end_time`                           |
+        | access-end-time                   | The access end time for       |:func:`set_access_end_time`                            |
+        |                                   | the account.                  |:func:`peek_access_end_time`                           |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | home-virtual-fabric               | Home Virtual Fabric for       |:func:`set_home_virtual_fabric`                        |
-        |                                   | account                       |:func:`peek_home_virtual_fabric`                       |
+        | home-virtual-fabric               | The home Virtual Fabric for   |:func:`set_home_virtual_fabric`                        |
+        |                                   | the account/                  |:func:`peek_home_virtual_fabric`                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | chassis-access-role               | Chassis access role name      |:func:`set_chassis_access_role`                        |
+        | chassis-access-role               | The chassis access role name. |:func:`set_chassis_access_role`                        |
         |                                   |                               |:func:`peek_chassis_access_role`                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | virtual-fabric-role-id-list/      | Virtual Fabric role name list |:func:`set_virtual_fabric_role_id_list_role_id`        |
-        |              role-id              |                               |:func:`peek_virtual_fabric_role_id_list_role_id`       |
+        | virtual-fabric-role-id-list/      | The Virtual Fabric role       |:func:`set_virtual_fabric_role_id_list_role_id`        |
+        |              role-id              | name list.                    |:func:`peek_virtual_fabric_role_id_list_role_id`       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
 
-       *Attribute methods*
+       *Attribute Methods*
 
         .. staticmethod:: get(session, name=None)
 
-            Return a :class:`user_config` object filled with user config
+            Returns a :class:`user_config` object filled with user config
                              attributes.
 
             Each object can be printed using :func:`pyfos_util.response_print`
-            and individual attributes accessed through peek methods.
+            and individual attributes can be accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: :class:`user_config` object if name is given or list of
-                objects if there are more than one. Dictionary in case of error
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`user_config` object if the name is given or list \
+                    of objects if there is more than one. A dictionary in case \
+                    of error.
 
         .. method:: post(session)
 
-            Create a user account. Fields involved are set
+            Creates a user account. The fields are set
             within the object using attribute's set method.
             This method is used to create a new user account configuration.
 
-            Example usage of the method to configure a new user account:
+            Example Usage of the Method to Configure a New User Account:
 
             .. code-block:: python
 
@@ -2694,17 +2737,17 @@ class user_config(pyfos_rest_util.rest_object):
                 # switch connected through session
                 user_obj.post(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: patch(session)
 
-            Replace existing configuration. Fields involved are set within
+            Replaces an existing configuration. The fields are set within
             the object using attribute's set method. This method is used to
             modifying the existing user account configuration.
 
-            Example usage of the method to configure response timeout:
+            Example Usage of the Method to Configure the Response Timeout:
 
             .. code-block:: python
 
@@ -2717,18 +2760,18 @@ class user_config(pyfos_rest_util.rest_object):
                 # switch connected through session
                 user_info.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary in case of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete a user account. Fields involved are
+            Deletes a user account. The fields are
             set within the object using attribute's
             set method. This method is used to delete a user account
             configuration.
 
-            Example usage of the method to delete a user account:
+            Example Usage of the Method to Delete a User Account:
 
             .. code-block:: python
 
@@ -2739,160 +2782,158 @@ class user_config(pyfos_rest_util.rest_object):
                 # switch connected through session
                 user_obj.delete(session)
 
-       *Attribute methods*
+       *Attribute Methods*
 
         .. method:: set_name(name)
 
-           Sets user account name in the object
+           Sets the user account name in the object.
 
-            :param name: User account name to be set within the object
-            :rtype: dictionary of error or success response
+            :param name: The user account name to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_name()
 
-            Reads user account name from the object.
+            Reads the user account name from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_password(pass)
 
-           Sets user account password in the object.
+           Sets the user account password in the object.
 
-            :param pass: user account password to be set within the object
-            :rtype: dictionary in case of error or success response
+            :param pass: The user account password to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_role(role)
 
-           Sets user role in the object
+           Sets the user role in the object.
 
-            :param role: User role to be set within the object
-            :rtype: dictionary of error or success response
+            :param role: The user role to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_role()
 
-            Reads user role from the object.
+            Reads the user role from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_account_description(message)
 
-           Sets user account description in the object
+           Sets the user account description in the object.
 
-            :param message: user account description to be set within the
-                            object
-            :rtype: dictionary of error or success response
+            :param message: The user account description to be set within the
+                            object.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_account_description()
 
-            Reads user account description from the object.
+            Reads the user account description from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_account_enabled(bool)
 
-           Sets enable/disable user account in the object
+           Enables or disables user account in the object.
 
-            :param bool: enable/disable user account to be set within the
-                         object
-            :rtype: dictionary of error or success response
+            :param bool: Enables or disables the user account.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_account_enabled()
 
-            Reads status of user account from the object.
+            Reads the status of user account from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_password_change_enforced(bool)
 
-           Sets enable/disable password change while login in the object
+           Enables or disables password change during login in the object.
 
-            :param bool: enable/disable password change to be set within the
-                         object
-            :rtype: dictionary of error or success response
+            :param bool: Enables or disables password change durning login.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_password_change_enforced()
 
-            Reads status password change while login from the object.
+            Reads status password change during login from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_account_locked(bool)
 
-           Sets unlocks user account if already locked in the object
+           Unlocks the user account if already locked in the object.
 
-            :param bool: Unlocks user account to be set within the object
-            :rtype: dictionary of error or success response
+            :param bool: Unlocks the user account.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_account_locked()
 
-            Reads status of user account about locked/unlocked from the object.
+            Reads the locked or unlocked status of user accountfrom the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_access_start_time(time)
 
-           Sets user access start time in the object
+           Sets the user access start time in the object.
 
-            :param time: access start time to be set within the object
-            :rtype: dictionary of error or success response
+            :param time: The user access start time.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_access_start_time()
 
-            Reads access start time from the object.
+            Reads the user access start time from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_access_end_time(time)
 
-           Sets user access end time in the object
+           Sets the user access end time in the object.
 
-            :param time: access end time to be set within the object
-            :rtype: dictionary of error or success response
+            :param time: The user access end time.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_access_end_time()
 
-            Reads access end time from the object.
+            Reads the user access end time from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_home_virtual_fabric(fid)
 
-           Sets user account home fid in the object
+           Sets the user account home FID in the object
 
-            :param fid: home fid to be set within the object
-            :rtype: dictionary of error or success response
+            :param fid: The user account home FID.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_home_virtual_fabric()
 
-            Reads account home fid from the object.
+            Reads the user account home FID from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_chassis_access_role(role)
 
-           Sets chassis access role in the object
+           Sets the chassis access role in the object.
 
-            :param role: chassis access role to be set within the object
-            :rtype: dictionary of error or success response
+            :param role: The chassis access role.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_chassis_access_role()
 
-            Reads chassis access role from the object.
+            Reads the chassis access role from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_virtual_fabric_role_id_list_role_id(roles)
 
-           Sets virtual fabric roles in the object
+           Sets the virtual fabric roles in the object.
 
-            :param roles: virtual fabric role and id set within the object
-            :rtype: dictionary of error or success response
+            :param roles: The virtual fabric role and ID.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_virtual_fabric_role_id_list_role_id()
 
-            Reads virtual fabric role and id from the object.
+            Reads the virtual fabric role and ID from the object.
 
-            :rtype: dictionary in case of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
        """
     def __init__(self, dictvalues={}):
@@ -2944,42 +2985,42 @@ class user_config(pyfos_rest_util.rest_object):
 
 
 class sshutil(pyfos_rest_util.rest_object):
-    """ This class provides methods/options to manage
+    """ This class provides methods to manage
     and configure public and private key pairs in a switch.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | Attribute name                                 | Description                      |Frequently used methods                                  |
+        | Attribute Name                                 | Description                      |Frequently Used Methods                                  |
         +================================================+==================================+=========================================================+
-        | allow-user-name                                | user name                        |:func:`set_allow_user_name`                              |
+        | allow-user-name                                | The username.                    |:func:`set_allow_user_name`                              |
         |                                                |                                  |:func:`peek_allow_user_name`                             |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | rekey-interval                                 | rekey interval duration          |:func:`set_rekey_interval`                               |
+        | rekey-interval                                 | The rekey interval duration.     |:func:`set_rekey_interval`                               |
         |                                                |                                  |:func:`peek_rekey_interval`                              |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get()
 
-            Return :class:`sshutil`
+            Returns a :class:`sshutil`
             object with values for all the attributes.
-            The object can be printed using :func:`pyfos_utils.response_print`
+            The object can be printed using :func:`pyfos_utils.response_print`.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or
-                :class:`sshutil` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a
+                :class:`sshutil` object.
 
         .. method:: patch()
 
-            Replace entry members. Fields involved are set within the object
+            Replaces entry members. The fields are set within the object
             using attribute's set method. This command is used to
-            Import public key from remote host to switch,
-            Export public key from switch to a remote host.
+            import public key from remote host to switch or
+            export public key from switch to a remote host.
 
-            Example usage of the method to export public key:
+            Example Usage of the Method to Export a Public Key:
 
             .. code-block:: python
 
@@ -2989,7 +3030,7 @@ class sshutil(pyfos_rest_util.rest_object):
                                                    "root", "pray4green")
                 sshutil_obj.patch(session)
 
-            Example usage of the method to import public key:
+            Example Usage of the Method to Import a Public Key:
 
             .. code-block:: python
 
@@ -2999,37 +3040,37 @@ class sshutil(pyfos_rest_util.rest_object):
                                                 "key.pub","root", "pray4green")
                 sshutil_obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_allow_user_name("user")
 
-            Sets user name in the object
+            Sets the username in the object.
 
-            :param pgid: allow user name
-            :rtype: dictionary of error or success response
+            :param pgid: Allows the username.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_allow_user_name()
 
-            Reads allow user name in the object.
+            Reads whether the username is allowed in the object.
 
-            :rtype: None or pgid
+            :rtype: None or the PGID.	
 
         .. method:: set_rekey_interval(int)
 
-             Sets rekey interval duration in the object
+             Sets the rekey interval duration in the object.
 
-            :param interval: rekey interval duration
-            :rtype: dictionary of error or success response
+            :param interval: The rekey interval duration.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_rekey_interval()
 
-            Reads rekey interval duration in the object.
+            Reads the rekey interval duration in the object.
 
-            :rtype: None or multiple fabric name monitoring mode status
+            :rtype: None or the multiple fabric name monitoring mode status.
 
         """
 
@@ -3052,46 +3093,46 @@ class sshutil_key(pyfos_rest_util.rest_object):
     """ This class provides methods/options to manage
     and configure public and private key pairs in a switch.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | Attribute name                                 | Description                      |Frequently used methods                                  |
+        | Attribute Name                                 | Description                      |Frequently Used Methods                                  |
         +================================================+==================================+=========================================================+
-        | key-type                                       | key type                         |:func:`set_key_type`                                     |
+        | key-type                                       | The key type.                    |:func:`set_key_type`                                     |
         |                                                |                                  |:func:`peek_key_type`                                    |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | passphrase                                     | Passphrase for the key           |:func:`set_passphrase`                                   |
+        | passphrase                                     | The passphrase for the key.      |:func:`set_passphrase`                                   |
         |                                                |                                  |:func:`peek_passphrase`                                  |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | algorithm-type                                 | Algorithm type                   |:func:`set_algorithm_type`                               |
+        | algorithm-type                                 | The algorithm type.              |:func:`set_algorithm_type`                               |
         |                                                |                                  |:func:`peek_algorithm_type`                              |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | size                                           | size                             |:func:`peek_size`                                        |
+        | size                                           | The size.                        |:func:`peek_size`                                        |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | fingerprint                                    | fingerprint                      |:func:`peek_fingerprint`                                 |
+        | fingerprint                                    | The fingerprint.                 |:func:`peek_fingerprint`                                 |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get()
 
-            Return :class:`sshutilkey`
+            Returns a :class:`sshutilkey`
             object with values for all the attributes.
-            The object can be printed using :func:`pyfos_utils.response_print`
+            The object can be printed using :func:`pyfos_utils.response_print`.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or
-                :class:`sshutil` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a
+                :class:`sshutil` object.
 
         .. method:: post()
 
-            Create an entry or add members. Fields involved are set
+            Creates an entry or adds members. The fields are set
             within the object using attribute's set method.
             This method is used to create a host key or
             public and private key pair.
 
-            Example usage of the method to create a new host key:
+            Example Usage of the Method to Create a New Host Key:
 
             .. code-block:: python
 
@@ -3101,21 +3142,21 @@ class sshutil_key(pyfos_rest_util.rest_object):
                 sshutil_obj.generate_host_key("rsa")
                 sshutil_obj.post(session)
 
-            The above example will generate public/private key pair and
-            host key with rsa algorithm.
+            The example above generates a public/private key pair and
+            host key with and RSA algorithm.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete()
 
-            Delete an entry or entry members. Fields involved are
+            Deletes an entry or entry members. The fields are
             set within the object using attribute's
-            set method. This command is used to delete public key(s) or
-            private key or delknownhost(s) or hostkey.
+            set method. This command is used to delete public key(s),
+            private key, delknownhost(s), or hostkey.
 
-            Example usage of the method to delete public key:
+            Example Usage of the Method to Delete a Public Key:
 
             .. code-block:: python
 
@@ -3125,7 +3166,7 @@ class sshutil_key(pyfos_rest_util.rest_object):
                 sshutil_obj.delete_host_keys("user")
                 sshutil_obj.delete(session)
 
-            Example usage of the method to delete private key:
+            Example Usage of the Method to Delete a Private Key:
 
             .. code-block:: python
 
@@ -3134,7 +3175,7 @@ class sshutil_key(pyfos_rest_util.rest_object):
                 sshutil_obj.delete_private_key("user")
                 sshutil_obj.delete(session)
 
-            Example usage of the method to delete host key:
+            Example Usage of the Method to Delete a Host Key:
 
             .. code-block:: python
 
@@ -3143,49 +3184,49 @@ class sshutil_key(pyfos_rest_util.rest_object):
                 sshutil_obj.delete_host_key("rsa")
                 sshutil_obj.delete(session)
 
-            Example usage of the method to delete known host:
+            Example Usage of the Method to Delete a Known Host:
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_key_type("type")
 
-            Sets key type in the object
+            Sets the key type in the object.
 
-            :param pgid: key type(public-private-key or host-key)
-            :rtype: dictionary of error or success response
+            :param pgid: The key type (public-private-key or host-key).
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_key_type()
 
-            Reads key type in the object.
+            Reads the key type from the object.
 
-            :rtype: None or pgid
+            :rtype: None or the PGID.
 
         .. method:: set_passphrase(password)
 
-             Sets passphrase for key generation in the object
+             Sets the passphrase for key generation in the object.
 
-            :param password: password for generating key
-            :rtype: dictionary of error or success response
+            :param password: The password for key generation.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_algorithm_type(type)
 
-             Sets algorithm type in the object
+             Sets the algorithm type in the object.
 
-            :param algorithm type: algorithm type(rsa/dsa/ecdsa)
-            :rtype: dictionary of error or success response
+            :param algorithm type: The algorithm type (rsa, dsa, or ecdsa).
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_size()
 
-            Reads size in the object.
+            Reads the size in the object.
 
-            :rtype: None or multiple fabric name monitoring mode status
+            :rtype: None or the multiple fabric name monitoring mode status.
 
         .. method:: peek_fingerprint()
 
-             Reads finger print in the object
+             Reads the fingerprint in the object
 
-            :param operation: finger print
-            :rtype: dictionary of error or success response
+            :param operation: The fingerprint.
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -3214,41 +3255,42 @@ class sshutil_key(pyfos_rest_util.rest_object):
 
 
 class sshutil_public_key_action(pyfos_rest_util.rest_object):
-    """ This class provides methods/options to manage
-    and configure public and private key pairs in a switch.
+    """ This class provides methods to manage and configure
+    public and private key pairs in a switch.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | Attribute name                                 | Description                      |Frequently used methods                                  |
+        | Attribute Name                                 | Description                      |Frequently Used Methods                                  |
         +================================================+==================================+=========================================================+
-        | user-name                                      | user name                        |:func:`set_user_name`                                    |
+        | user-name                                      | The username.                    |:func:`set_user_name`                                    |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | public-key-name                                | Public key name                  |:func:`set_public_key_name`                              |
+        | public-key-name                                | The public key name.             |:func:`set_public_key_name`                              |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | remote-host-ip                                 | user name for the remote host    |:func:`set_remote_host_ip`                               |
+        | remote-host-ip                                 | The username for the             |:func:`set_remote_host_ip`                               |
+        |                                                | remote host.                     |                                                         |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | remote-directory                               | Directory in remote host         |:func:`set_remote_dir`                                   |
+        | remote-directory                               | The directory in remote host.    |:func:`set_remote_dir`                                   |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | remote-user-name                               | user name for the host           |:func:`set_remote_user_name`                             |
+        | remote-user-name                               | The username for the host.       |:func:`set_remote_user_name`                             |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | remote-user-password                           | Password for the remote user     |:func:`set_remote_user_password`                         |
+        | remote-user-password                           | The remote user's password.      |:func:`set_remote_user_password`                         |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | algorithm-type                                 | Algorithm type                   |:func:`set_algorithm_type`                               |
+        | algorithm-type                                 | The algorithm type.              |:func:`set_algorithm_type`                               |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | action                                         | sshutil operations               |:func:`set_action`                                       |
+        | action                                         | The sshutil operations.          |:func:`set_action`                                       |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: patch()
 
-            Replace entry members. Fields involved are set within the object
+            Replaces entry members. The fields are set within the object
             using attribute's set method. This command is used to
-            Import public key from remote host to switch,
-            Export public key from switch to a remote host.
+            import public key from remote host to switch,
+            export public key from switch to a remote host.
 
-            Example usage of the method to export public key:
+            Example Usage of the Method to Export a Public Key:
 
             .. code-block:: python
 
@@ -3258,7 +3300,7 @@ class sshutil_public_key_action(pyfos_rest_util.rest_object):
                                                    "root", "pray4green")
                 sshutil_obj.patch(session)
 
-            Example usage of the method to import public key:
+            Example Usage of the Method to Import a Public Key:
 
             .. code-block:: python
 
@@ -3268,73 +3310,73 @@ class sshutil_public_key_action(pyfos_rest_util.rest_object):
                                                 "key.pub","root","pray4green")
                 sshutil_obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_user_name("user")
 
-            Sets user name in the object
+            Sets the username in the object.
 
-            :param pgid: user name
-            :rtype: dictionary of error or success response
+            :param pgid: The username.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_user_name()
 
-            Reads user name in the object.
+            Reads the username in the object.
 
-            :rtype: None or pgid
+            :rtype: None or the PGID.
 
         .. method:: set_public_key_name(name)
 
-            Sets public key name in the object
+            Sets the public key name in the object.
 
-            :param name: name of public key
-            :rtype: dictionary of error or success response
+            :param name: The name of the public key.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_host_ip(ip)
 
-            Sets remote host ip address object
+            Sets the remote host IP address in the object.
 
-            :param ip: ip address of the remote host
-            :rtype: dictionary of error or success response
+            :param ip: The IP address of the remote host.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_dir(location)
 
-            Sets a remote directory path object
+            Sets a remote directory path in the object.
 
-            :param location: directory path in remote host
-            :rtype: dictionary of error or success response
+            :param location: The directory path in remote host.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_user_name(username)
 
-            Sets remote host's user name in the object
+            Sets the remote host's username in the object.
 
-            :param user name: user name for authenticating remote host
-            :rtype: dictionary of error or success response
+            :param user name: The username for authenticating the remote host.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_user_password(password)
 
-             Sets remote host's user password in the object
+             Sets the remote host's user password in the object.
 
-            :param password: password for remote host
-            :rtype: dictionary of error or success response
+            :param password: The password for the remote host.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_algorithm_type(type)
 
-             Sets algorithm type in the object
+             Sets the algorithm type in the object.
 
-            :param algorithm type: algorithm type
-            :rtype: dictionary of error or success response
+            :param algorithm type: The algorithm type.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_action(type)
 
-             Sets action in the object
+             Sets an action in the object.
 
             :param operation: action
-            :rtype: dictionary of error or success response
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -3373,42 +3415,42 @@ class sshutil_public_key_action(pyfos_rest_util.rest_object):
 
 
 class sshutil_public_key(pyfos_rest_util.rest_object):
-    """ This class provides methods/options to manage
+    """ This class provides methods to manage
     and configure public and private key pairs in a switch.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | Attribute name                                 | Description                      |Frequently used methods                                  |
+        | Attribute Name                                 | Description                      |Frequently Used Methods                                  |
         +================================================+==================================+=========================================================+
-        | user-name                                      | user name                        |:func:`set_user_name`                                    |
+        | user-name                                      | The username.                    |:func:`set_user_name`                                    |
         |                                                |                                  |:func:`peek_user_name`                                   |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
-        | public-key                                     | Public key                       |:func:`set_public_key`                                   |
+        | public-key                                     | The public key.                  |:func:`set_public_key`                                   |
         |                                                |                                  |:func:`peek_public_key`                                  |
         +------------------------------------------------+----------------------------------+---------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get()
 
-            Return :class:`sshutil_public_key`
+            Returns a :class:`sshutil_public_key`
             object with values for all the attributes.
-            The object can be printed using :func:`pyfos_utils.response_print`
+            The object can be printed using :func:`pyfos_utils.response_print`.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or
-                :class:`sshutil` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a
+                :class:`sshutil` object.
 
         .. method:: delete()
 
-            Delete an entry or entry members. Fields involved are
+            Deletes an entry or entry members. The fields are
             set within the object using attribute's
-            set method. This command is used to delete public key(s) or
-            private key or delknownhost(s) or hostkey.
+            set method. This command is used to delete public key(s), a
+            private key, delknownhost(s) or a host key.
 
-            Example usage of the method to delete public key:
+            Example Usage of the Method to Delete a Public Key:
 
             .. code-block:: python
 
@@ -3417,27 +3459,27 @@ class sshutil_public_key(pyfos_rest_util.rest_object):
                 sshutil_obj.delete_public_keys("user")
                 sshutil_obj.delete(session)
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_user_name("user")
 
-            Sets user name in the object
+            Sets the username in the object.
 
-            :param pgid: user name
-            :rtype: dictionary of error or success response
+            :param pgid: The username.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_user_name()
 
-            Reads user name in the object.
+            Reads the username in the object.
 
-            :rtype: None or pgid
+            :rtype: None or the PGID.
 
         .. method:: peek_public_key()
 
-            Reads public key in the object
+            Reads the public key in the object.
 
-            :param name: public key
-            :rtype: dictionary of error or success response
+            :param name: The public key.
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -3459,30 +3501,30 @@ class sshutil_public_key(pyfos_rest_util.rest_object):
 class password(pyfos_rest_util.rest_object):
     """This class provides methods to change password.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+----------------------------------+----------------------------------------------------------------+
-        | Attribute name                                 | Description                      |Frequently used methods                                         |
+        | Attribute Name                                 | Description                      |Frequently Used Methods                                         |
         +================================================+==================================+================================================================+
-        | user-name                          | name of the user to change password          |:func:`set_user_name`                                           |
+        | user-name                          | The name of the user to change password.     |:func:`set_user_name`                                           |
         |                                                |                                  |:func:`peek_user_name`                                          |
         +------------------------------------------------+----------------------------------+----------------------------------------------------------------+
-        | old-password                       | Current password.                            |:func:`set_old_password`                                        |
+        | old-password                       | The current password.                        |:func:`set_old_password`                                        |
         |                                                |                                  |:func:`peek_old_password`                                       |
         +------------------------------------------------+----------------------------------+----------------------------------------------------------------+
-        | new-password                       | New password.                                |:func:`set_new_password`                                        |
+        | new-password                       | The new password.                            |:func:`set_new_password`                                        |
         |                                                |                                  |:func:`peek_new_password`                                       |
         +------------------------------------------------+----------------------------------+----------------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: patch()
 
-            Replace entry members. Fields involved are set within the object
+            Replaces entry members. The fields are set within the object
             using attribute's set method. This command is used to
-            change user password.
+            change a user password.
 
-            Example usage of the method to change password:
+            Example Usage of the Method to Change a Password:
 
             .. code-block:: python
 
@@ -3491,18 +3533,18 @@ class password(pyfos_rest_util.rest_object):
                 passwd_obj.change_password(username)
                 passwd_obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: change_password(username, old_password, new_password)
 
-            Change password for the specified user
+            Changes the password for the specified user.
 
-            :param username: change password
-            :rtype: dictionary of error or success response
+            :param username: Changes the password.
+            :rtype: A dictionary in case of error or a success response.
 
         """
 
@@ -3528,79 +3570,80 @@ class password(pyfos_rest_util.rest_object):
 class security_certificate(pyfos_rest_util.rest_object):
     """This class provides options to display and configure certificates.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | Attribute name                                 | Description                       |Frequently used methods                      |
+        | Attribute Name                                 | Description                       |Frequently Used Methods                      |
         +================================================+===================================+=============================================+
-        | certificate-entity                             | CSR/switch/CA certificate         |:func:`set_certificate_entity`               |
-        |                                                |                                   |:func:`peek_certificate_entity`              |
+        | certificate-entity                             | The certificate entity (CSR,      |:func:`set_certificate_entity`               |
+        |                                                | switch, or CA certificate.        |:func:`peek_certificate_entity`              |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | certificate-type                               | Certificate types (commoncert/    |:func:`peek_certificate_type`                |
-        |                                                | https/radius/ldap/syslog)         |:func:`set_certificate_type`                 |
+        | certificate-type                               | The certificate types             |:func:`peek_certificate_type`                |
+        |                                                | (commoncert, https, radius, ldap, |:func:`set_certificate_type`                 |
+        |                                                | or syslog).                       |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | certificate                                    | Certificate                       |:func:`peek_certificate`                     |
+        | certificate                                    | The certificate.                  |:func:`peek_certificate`                     |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | certificate-hexdump                            | Certificate in hex format         |:func:`peek_certificate_hexdump`             |
+        | certificate-hexdump                            | The certificate in hex format.    |:func:`peek_certificate_hexdump`             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get(session)
 
-            Returns :class:`seccertmgmt_show` object or a list of objects
-            filled with certificate attributes gathered. If certificate entity
-            and certificate type is given, a certificate matching the name of
-            the certificate entity and type is returned or an empty object is
-            returned if no match is found.
+            Returns a :class:`seccertmgmt_show` object or a list of objects
+            filled with the certificate attributes. If certificate entity
+            and certificate type is specified, a certificate matching the name
+            of the certificate entity and type is returned or an empty object
+            is returned if no match is found.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`.
             and individual attributes accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a :class:`seccertmgmt` object to get a object or
-                a list of objects if there are more than one
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`seccertmgmt` object to get a object or
+                a list of objects if there are more than one.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_certificate_entity(cert)
 
-            Sets certificate entity in the object.
+            Sets the certificate entity in the object.
 
-            :param cert: certificate entity to be set within the object
-            :rtype: None or dictionary of error information
+            :param cert: The certificate entity to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_certificate_entity()
 
-            Reads certificate entity in the object.
+            Reads the certificate entity in the object.
 
-            :rtype: certificate entity
+            :rtype: The certificate entity.
 
         .. method:: set_certificate_type(cert)
 
-            Sets certificate type in the object.
+            Sets the certificate type in the object.
 
-            :param cert type: certificate type to be set within the object
-            :rtype: None or dictionary of error information
+            :param cert type: The certificate type to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_certificate_type()
 
-            Reads certificate type in the object.
+            Reads the certificate type in the object.
 
-            :rtype: certificate type
+            :rtype: The certificate type.
 
         .. method:: peek_certificate()
 
-            Gets certificate in the object.
+            Gets the certificate in the object.
 
-            :rtype: None or certificate
+            :rtype: None or a certificate.
 
         .. method:: peek_certificate_hexdump()
 
-            Gets certificate(hexa format) in the object.
+            Gets the certificate in hex format in the object.
 
-            :rtype: None or certificate
+            :rtype: None or the certificate in hex format.
 
         """
 
@@ -3629,66 +3672,69 @@ class security_certificate(pyfos_rest_util.rest_object):
 class security_certificate_generate(pyfos_rest_util.rest_object):
     """This class provides options to display and configure certificates.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | Attribute name                                 | Description                       |Frequently used methods                      |
+        | Attribute Name                                 | Description                       |Frequently Used Methods                      |
         +================================================+===================================+=============================================+
-        | certificate-entity                             | CSR/switch/CA certificate         |:func:`set_certificate_entity`               |
+        | certificate-entity                             | The certificate entity (CSR,      |:func:`set_certificate_entity`               |
+        |                                                | switch, or CA certificate.        |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | certificate-type                               | Certificate types (commoncert/    |:func:`set_certificate_type`                 |
-        |                                                | https/radius/ldap/syslog)         |                                             |
+        | certificate-type                               | The certificate types             |:func:`set_certificate_type`                 |
+        |                                                | (commoncert, https, radius, ldap, |                                             |
+        |                                                | or syslog).                       |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | algorithm-type                                 | Algorithm type (rsa/dsa/ecdsa)    |:func:`set_algorithm_type`                   |
+        | algorithm-type                                 | The algorithm type (rsa, dsa,     |:func:`set_algorithm_type`                   |
+        |                                                | or ecdsa).                        |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | key-size                                       | Size of the key                   |:func:`set_key_size`                         |
+        | key-size                                       | The size of the key.              |:func:`set_key_size`                         |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | hash-type                                      | hash type                         |:func:`set_hash_type`                        |
+        | hash-type                                      | The hash type.                    |:func:`set_hash_type`                        |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | years                                          | certificate validity              |:func:`peek_years`                           |
+        | years                                          | The certificate validity.         |:func:`peek_years`                           |
         |                                                |                                   |:func:`set_years`                            |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | country-name                                   | Country name                      |:func:`set_country_name`                     |
-        |                                                | Needed only for generating CSR    |:func:`peek_country_name`                    |
+        | country-name                                   | The country name.                 |:func:`set_country_name`                     |
+        |                                                | Only needed to generate a CSR.    |:func:`peek_country_name`                    |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | state-name                                     | State name                        |:func:`set_state_name`                       |
-        |                                                | Needed only for generating CSR    |:func:`peek_state_name`                      |
+        | state-name                                     | The state name.                   |:func:`set_state_name`                       |
+        |                                                | Only needed to generate a CSR.    |:func:`peek_state_name`                      |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | locality-name                                  | Locality name                     |:func:`set_locality_name`                    |
-        |                                                | Needed only for generating CSR    |:func:`peek_locality_name`                   |
+        | locality-name                                  | The locality name.                |:func:`set_locality_name`                    |
+        |                                                | Only needed to generate a CSR.    |:func:`peek_locality_name`                   |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | organization-name                              | Organization name                 |:func:`set_organization_name`                |
-        |                                                | Needed only for generating CSR    |:func:`peek_organization_name`               |
+        | organization-name                              | The organization name.            |:func:`set_organization_name`                |
+        |                                                | Only needed to generate a CSR.    |:func:`peek_organization_name`               |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | unit-name                                      | Unit name                         |:func:`set_unit_name`                        |
-        |                                                | Needed only for generating CSR    |:func:`peek_unit_name`                       |
+        | unit-name                                      | The unit name.                    |:func:`set_unit_name`                        |
+        |                                                | Only needed to generate a CSR.    |:func:`peek_unit_name`                       |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | domain-name                                    | domain name                       |:func:`set_domain_name`                      |
-        |                                                | Needed only for generating CSR    |:func:`peek_domain_name`                     |
+        | domain-name                                    | The domain name.                  |:func:`set_domain_name`                      |
+        |                                                | Only needed to generate a CSR.    |:func:`peek_domain_name`                     |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
 
         .. method:: get(session)
 
-            Returns :class:`security_certificate_generate` object or a list of
-            objects filled with certificate attributes gathered. If certificate
-            entity and certificate type is given, a certificate matching the
-            name of the certificate entity and type is returned or an empty
-            object is returned if no match is found.
+            Returns a :class:`security_certificate_generate` object or a list
+            of objects filled with the certificate attributes. If a
+            certificate entity and certificate type is specified, a certificate
+            matching the name of the certificate entity and type is returned or
+            an empty object is returned if no match is found.
 
             Each object can be printed using :func:`pyfos_util.response_print`
             and individual attributes accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a :class:`seccertmgmt` object to get a object or
-                a list of objects if there are more than one
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`seccertmgmt` object to get a object or
+                a list of objects if there are more than one.
 
         .. method:: post(session)
 
-            Generates certificate. This method is used
+            Generates a certificate. This method is used
             to create a specified certificate.
 
-            Example usage of the method to create a new Certificate::
+            Example Usage of the Method to Create a New Certificate::
 
                 # initialize the System Security object
                 seccertmgmt =
@@ -3698,173 +3744,173 @@ class security_certificate_generate(pyfos_rest_util.rest_object):
                 result = security_certificate_generate.post(session)
 
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_certificate_entity(cert)
 
-            Sets certificate entity in the object.
+            Sets the certificate entity in the object.
 
-            :param cert: certificate entity to be set within the object
-            :rtype: None or dictionary of error information
+            :param cert: The certificate entity to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_certificate_entity()
 
-            Reads certificate entity in the object.
+            Reads the certificate entity in the object.
 
             :rtype: certificate entity
 
         .. method:: set_certificate_type(cert)
 
-            Sets certificate type in the object.
+            Sets the certificate type in the object.
 
-            :param cert type: certificate type to be set within the object
-            :rtype: None or dictionary of error information
+            :param cert type: The certificate type to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_certificate_type()
 
-            Reads certificate type in the object.
+            Reads the certificate type in the object.
 
             :rtype: certificate type
 
         .. method:: set_algorithm_type(algo)
 
-            Sets algorithm type in the object.
+            Sets the algorithm type in the object.
 
-            :param algo: algorithm type within the object
-            :rtype: None or dictionary of error information
+            :param algo: The algorithm type to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_algorithm_type()
 
-            Reads algorithm type in the object.
+            Reads the algorithm type in the object.
 
             :rtype: algorithm type
 
         .. method:: set_key_size(size)
 
-            Sets size of the key in the object.
+            Sets the size of the key in the object.
 
-            :param size: size of the key
-            :rtype: None or dictionary of error information
+            :param size: The size of the key.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_key_size()
 
-            Gets size of the key in the object.
+            Gets the size of the key in the object.
 
-            :rtype: None or key size
+            :rtype: None or the key size.
 
         .. method:: set_hash_type(hash_type)
 
-            Sets hash type in the object.
+            Sets the hash type in the object.
 
-            :param hash_type: hash type
-            :rtype: None or dictionary of error information
+            :param hash_type: The hash type.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_hash_type()
 
-            Gets hash type in the object.
+            Gets the hash type in the object.
 
-            :rtype: None or hash type
+            :rtype: None or a hash type.
 
         .. method:: peek_years()
 
-            Gets years in the object.
+            Gets the years in the object.
 
-            :rtype: None or years
+            :rtype: None or the years.
 
         .. method:: set_years(years)
 
-            Sets years in the object.
+            Sets the years in the object.
 
-            :param years: years
-            :rtype: None or dictionary of error information
+            :param years: The years.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_certificate()
 
-            Gets certificate in the object.
+            Gets the certificate in the object.
 
-            :rtype: None or certificate
+            :rtype: None or a certificate.
 
         .. method:: peek_country_name()
 
-            Gets country name in the object.
+            Gets the country name in the object.
 
-            :rtype: None or country name
+            :rtype: None or the country name.
 
         .. method:: set_country_name(country_name)
 
-            Sets country name in the object.
+            Sets the country name in the object.
 
-            :param country_name: country name
-            :rtype: None or dictionary of error information
+            :param country_name: The country name.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_state_name()
 
-            Gets state name in the object.
+            Gets the state name in the object.
 
-            :rtype: None or state name
+            :rtype: None or the state name.
 
         .. method:: set_state_name(state_name)
 
-            Sets state name in the object.
+            Sets the state name in the object.
 
-            :param state_name: state name
-            :rtype: None or dictionary of error information
+            :param state_name: The state name.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_locality_name()
 
-            Gets locality name in the object.
+            Gets the locality name in the object.
 
-            :rtype: None or locality name
+            :rtype: None or the locality name.
 
         .. method:: set_locality_name(locality_name)
 
-            Sets locality name in the object.
+            Sets the locality name in the object.
 
-            :param locality_name: locality name
-            :rtype: None or dictionary of error information
+            :param locality_name: The locality name.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_organization_name()
 
-            Gets organization name in the object.
+            Gets the organization name in the object.
 
-            :rtype: None or organization name
+            :rtype: None or the organization name.
 
         .. method:: set_organization_name(organization_name)
 
-            Sets organization name in the object.
+            Sets the organization name in the object.
 
-            :param organization_name: organization name
-            :rtype: None or dictionary of error information
+            :param organization_name: The organization name.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_unit_name()
 
-            Gets unit name in the object.
+            Gets the unit name in the object.
 
-            :rtype: None or unit name
+            :rtype: None or the unit name.
 
         .. method:: set_unit_name(unit_name)
 
-            Sets unit name in the object.
+            Sets the unit name in the object.
 
-            :param unit_name: unit name
-            :rtype: None or dictionary of error information
+            :param unit_name: The unit name.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_domain_name()
 
-            Gets domain name in the object.
+            Gets the domain name in the object.
 
-            :rtype: None or domain name
+            :rtype: None or the domain name.
 
         .. method:: set_domain_name(domain_name)
 
-            Sets domain name in the object.
+            Sets the domain name in the object.
 
-            :param domain_name: domain name
-            :rtype: None or dictionary of error information
+            :param domain_name: The domain name.
+            :rtype: None or a dictionary of error information.
 
         """
 
@@ -3918,57 +3964,61 @@ class security_certificate_generate(pyfos_rest_util.rest_object):
 class security_certificate_action(pyfos_rest_util.rest_object):
     """This class provides options to display and configure certificates.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | Attribute name                                 | Description                       |Frequently used methods                      |
+        | Attribute Name                                 | Description                       |Frequently Used Methods                      |
         +================================================+===================================+=============================================+
-        | certificate-entity                             | CSR/switch/CA certificate         |:func:`set_certificate_entity`               |
+        | certificate-entity                             | The certificate entity (CSR,      |:func:`set_certificate_entity`               |
+        |                                                | switch, or CA certificate.        |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | certificate-type                               | Certificate types (commoncert/    |:func:`set_certificate_type`                 |
+        | certificate-type                               | The certificate types             |:func:`set_certificate_type`                 |
+        |                                                | (commoncert, https, radius, ldap, |                                             |
+        |                                                | or syslog).                       |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | certificate-name                               | certificate name                  |:func:`set_certificate_name`                 |
+        | certificate-name                               | The certificate name.             |:func:`set_certificate_name`                 |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | operation                                      | operation                         |:func:`set_operation`                        |
+        | operation                                      | The operation.                    |:func:`set_operation`                        |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | protocol                                       | Protocol used for import/export   |:func:`set_protocol`                         |
+        | protocol                                       | The protocol used for import      |:func:`set_protocol`                         |
+        |                                                | or export.                        |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | remote-host-ip                                 | Remote host ip for import/export  |:func:`set_remote_host_ip`                   |
+        | remote-host-ip                                 | The remote host IP address for    |:func:`set_remote_host_ip`                   |
+        |                                                | import or export.                 |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | remote-directory                               | Directory in remote host          |:func:`set_remote_dir`                       |
+        | remote-directory                               | The directory in remote host.     |:func:`set_remote_dir`                       |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | remote-user-name                               | User name for the remote host     |:func:`set_remote_user_name`                 |
+        | remote-user-name                               | The username for the remote host. |:func:`set_remote_user_name`                 |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
-        | remote-user-password                           | Password for the remote host      |:func:`set_remote_user_password`             |
+        | remote-user-password                           | The password for the remote host. |:func:`set_remote_user_password`             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: set(session)
 
-            Returns :class:`security_certificate_action` object or a list of
-            objects filled with certificate attributes gathered. If certificate
-            entity and certificate type is given, a certificate matching the
-            name of the certificate entity and type is returned or an empty
+            Returns a :class:`security_certificate_action` object or a list of
+            objects filled with the certificate attributes. If a certificate
+            entity and certificate type is specified, a certificate matching
+            the name of the certificate entity and type is returned or an empty
             object is returned if no match is found.
 
             Each object can be printed using :func:`pyfos_util.response_print`
             and individual attributes accessed through peek methods.
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a :class:`seccertmgmt` object to get a object or
-                a list of objects if there are more than one
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`seccertmgmt` object to get a object or
+                a list of objects if there are more than one.
 
         .. method:: patch(session)
 
-            Import or export of certificate or CSR from and to a
+            Imports or exports the certificate or CSR to and from a
             remote server. This method imports or exports a
-            specified certifiate from or to
-            a switch. This certificate will overwrite
-            any existing certificate that is already present in the switch.
-            Also, this method is used to send a signing request(CSR) from the
-            switch to a remote server.
+            specified certifiate to or from a switch. This certificate
+            overwrites any existing certificate already present
+            in the switch. Also, this method is used to send a signing
+            request (CSR) from the switch to a remote server.
 
             *Below is an example using individual sets:*
 
@@ -3985,16 +4035,16 @@ class security_certificate_action(pyfos_rest_util.rest_object):
                 seccertmgmt.patch(session)
 
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a dictionary of error or success information
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: delete(session)
 
-            Delete a certificate.
-            This method is used to remove/clear specified certificate.
+            Deletes a certificate.
+            This method is used to remove or clear the specified certificate.
 
-            Example usage of the method to delete certificate::
+            Example Usage of the Method to Delete a Certificate::
 
                 # initialize the System Security object
                 seccertmgmt = pyfos_brocade_security.seccertmgmt();
@@ -4003,90 +4053,90 @@ class security_certificate_action(pyfos_rest_util.rest_object):
                 result = seccertmgmt.delete(session)
 
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: dictionary of error or success response
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary in case of error or a success response.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: set_certificate_entity(cert)
 
-            Sets certificate entity in the object.
+            Sets the certificate entity in the object.
 
-            :param cert: certificate entity to be set within the object
-            :rtype: None or dictionary of error information
+            :param cert: The certificate entity to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_certificate_entity()
 
-            Reads certificate entity in the object.
+            Reads the certificate entity in the object.
 
-            :rtype: certificate entity
+            :rtype: The certificate entity.
 
         .. method:: set_certificate_type(cert)
 
-            Sets certificate type in the object.
+            Sets the certificate type in the object.
 
-            :param cert type: certificate type to be set within the object
-            :rtype: None or dictionary of error information
+            :param cert type: the certificate type to be set within the object.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_certificate_type()
 
-            Reads certificate type in the object.
+            Reads the certificate type in the object.
 
-            :rtype: certificate type
+            :rtype: The certificate type.
 
         .. method:: peek_certificate_name()
 
-            Gets certificate name in the object.
+            Gets the certificate name in the object.
 
-            :rtype: None or certificate name
+            :rtype: None or the certificate name.
 
         .. method:: set_certificate_name(cert_name)
 
-            Sets certificate name type in the object.
+            Sets the certificate name type in the object.
 
-            :param cert_name: certificate name
-            :rtype: None or dictionary of error information
+            :param cert_name: the certificate name
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_operation()
 
-            Gets certificate operation in the object.
+            Gets the certificate operation in the object.
 
-            :rtype: None or certificate operation
+            :rtype: None or the certificate operation.
 
         .. method:: set_operation()
 
-            Sets certificate operation in the object.
+            Sets the certificate operation in the object.
 
-            :rtype: None or certificate operation
+            :rtype: None or the certificate operation.
 
         .. method:: set_remote_host_ip(ip)
 
-            Sets remote host ip address object
+            Sets the remote host ip address object
 
-            :param ip: ip address of the remote host
-            :rtype: dictionary of error or success response
+            :param ip: The IP address of the remote host.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_dir(location)
 
-            Sets a remote directory path object
+            Sets a remote directory path in the object.
 
-            :param location: directory path in remote host
-            :rtype: dictionary of error or success response
+            :param location: The directory path in remote host.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_user_name(username)
 
-            Sets remote host's user name in the object
+            Sets the remote host's username in the object.
 
-            :param user name: user name for authenticating remote host
-            :rtype: dictionary of error or success response
+            :param user name: The username for authenticating the remote host.
+            :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_remote_user_password(password)
 
-             Sets remote host's user password in the object
+             Sets the remote host's user password in the object.
 
-            :param password: password for remote host
-            :rtype: dictionary of error or success response
+            :param password: The password for remote host.
+            :rtype: A dictionary in case of error or a success response.
 
         """
 

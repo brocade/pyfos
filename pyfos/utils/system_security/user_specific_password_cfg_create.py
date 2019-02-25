@@ -15,7 +15,8 @@
 
 """
 
-:mod:`user_specific_password_cfg_create` - PyFOS util to create user specific password config parameters
+:mod:`user_specific_password_cfg_create` - PyFOS util to create user specific \
+password config parameters
 ********************************************************************************************************
 This module is a standalone script and API that can be used to create
 user specific password config paramters.
@@ -60,25 +61,25 @@ def main(argv):
 
     inputs = brcd_util.parse(argv, user_specific_password_cfg, filters)
 
-    user_specific_password_cfg_obj = inputs['utilobject']
+    user_specific_passrdcfg_obj = inputs['utilobject']
 
-    if user_specific_password_cfg_obj.peek_user_name() is None:
+    if user_specific_passrdcfg_obj.peek_user_name() is None:
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)
 
-    if (user_specific_password_cfg_obj.peek_minimum_password_age() is None and
-            user_specific_password_cfg_obj.peek_maximum_password_age() is None and
-            user_specific_password_cfg_obj.peek_warn_on_expire() is None and
-            user_specific_password_cfg_obj.peek_hash_type() is None and
-            user_specific_password_cfg_obj.peek_enforce_expire() is None):
+    if (user_specific_passrdcfg_obj.peek_minimum_password_age() is None and
+            user_specific_passrdcfg_obj.peek_maximum_password_age() is None and
+            user_specific_passrdcfg_obj.peek_warn_on_expire() is None and
+            user_specific_passrdcfg_obj.peek_hash_type() is None and
+            user_specific_passrdcfg_obj.peek_enforce_expire() is None):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)
 
     session = brcd_util.getsession(inputs)
 
-    result = user_specific_password_cfg_obj.post(session)
+    result = user_specific_passrdcfg_obj.post(session)
     pyfos_util.response_print(result)
 
     pyfos_auth.logout(session)

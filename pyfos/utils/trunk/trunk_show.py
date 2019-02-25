@@ -15,27 +15,30 @@
 
 """
 
-:mod:`trunk_show` - PyFOS util for getting info \
-        of a E port trunk-group.
+:mod:`trunk_show` - PyFOS util for getting data about \
+an E_Port trunk group.
 ***********************************************************************************
-The :mod:`trunk_show` - PyFOS util for getting info \
-        of a E port trunk-group.
+The :mod:`trunk_show` - PyFOS util for getting data about \
+an E_Port trunk group.
 
-This module is a standalone script that can be used to get the info \
-        of a E port trunk-group.
+This module is a stand-alone script that can be used to get data about \
+an E_Port trunk group.
 
-| Infrastructure options:
+* Input:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+| Infrastructure Options:
 
-* Util Script Options:
-    --group=VALUE         	 group index of the E-port trunk group.
-    --source_port=VALUE          Source port of the E-port trunk group.
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                           directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
+
+* Util Scripts Options:
+    --group=VALUE          The group index of the E_Port trunk group.
+    --source_port=VALUE    The source port of the E_Port trunk group.
 
 * Output:
     * Python dictionary content with RESTCONF response data.

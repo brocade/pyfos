@@ -71,7 +71,7 @@ name, dp, ip, prefix, vlan=None, mtu=None)
             session, IP)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the GE_Port name expressed as slot/port.
             :param dp-id: Sets the DP instance.
             :param ip: Sets the extension IP address.

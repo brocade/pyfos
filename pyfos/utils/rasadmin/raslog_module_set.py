@@ -17,7 +17,7 @@
 
 :mod:`raslog_module_set` - PyFOS util for configuring the RASLog module.
 *******************************************************************************
-The :mod:`raslog_module_set` util provides for configuring RASLog module.
+The :mod:`raslog_module_set` util provides for configuring the RASLog module.
 
 This module is a stand-alone script that can be used to display RASLog module
 attributes.
@@ -66,7 +66,8 @@ attributes.
             :rtype: A dictionary of return status matching the REST response.
 
         *Use Cases*
-        1. Enables or disables the RASLog messages belonging to a FOS module.
+
+        1. Enable or disable the RASLog messages belonging to a FOS module.
 
 """
 

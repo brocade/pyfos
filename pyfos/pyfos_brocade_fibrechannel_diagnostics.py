@@ -24,6 +24,7 @@ The :mod:`pyfos_brocade_fibrechannel_diagnostics` module provides REST \
 
 from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
+import pyfos.pyfos_version as version
 
 
 DIAG_STOP = 0
@@ -468,8 +469,14 @@ class fibrechannel_diagnostics(pyfos_rest_util.rest_object):
         """
 
     def __init__(self, dictvalues={}):
-        super().__init__(pyfos_rest_util.rest_obj_type.port_diag,
-                         "/rest/running/diagnostics/fibrechannel-diagnostics")
+        urilist = list([dict({'URIVER': version.VER_RANGE_820_TO_821A,
+                              'URI': "/rest/running/diagnostics/" +
+                              "fibrechannel-diagnostics"}),
+                        dict({'URIVER': version.VER_RANGE_821b_and_ABOVE,
+                              'URI': "/rest/running/" +
+                              "brocade-fibrechannel-diagnostics/" +
+                              "fibrechannel-diagnostics"})])
+        super().__init__(pyfos_rest_util.rest_obj_type.port_diag, urilist)
 
         self.add(pyfos_rest_util.rest_attribute(
             "name", pyfos_type.type_wwn,

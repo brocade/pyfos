@@ -36,9 +36,9 @@ extension_tunnel_create.py: Usage
 * Util Script Options:
     * -n,--name=NAME: Sets the name.
     * -l,--load-level=VALUE: Sets the load level.
-    * -f,--fast-write-enabled=VALUE: Sets the fast write enabled.
+    * -f,--fast-write-enabled=VALUE: Enables or disables FastWrite.
     * -c,--compression-tunnel=VALUE: Sets the compression tunnel.
-    * -a,--admin-enabled=VALUE: Sets the admin enabled.
+    * -a,--admin-enabled=VALUE: Enables or disables the admin status.
     *    --ipsec-policy=VALUE: Sets the IPsec policy.
     *    --user-friendly-name=VALUE: Sets the user friendly name.
     *    --fc-compression=VALUE: Sets the FC compression.
@@ -71,7 +71,7 @@ extension_tunnel_create.py: Usage
             :param name: Sets the VE_Port name expressed as slot/port.
 
         * Output:
-            :rtype: A dictionary of return status matching the REST response.
+            :rtype: A dictionary of return statuses matching the REST response.
 
         *Use Cases*
 

@@ -18,7 +18,7 @@
 :mod:`sshutil_create` - PyFOS util for creating a host key or \
 public/private key pair.
 *******************************************************************************************
-The :mod:`sshutil_create` util provides option to generate a host key or \
+The :mod:`sshutil_create` util provides the option to generate a host key or \
 public/private key pair.
 
 This module can be used to generate a host key or public/private key pair.
@@ -33,6 +33,7 @@ This module can be used to generate a host key or public/private key pair.
 |   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
 |   -v,--verbose           Verbose mode [OPTIONAL].
 
+
 |  Util Script Options:
 
   |    --algorithm-type=ALGO	Sets the algorithm type.
@@ -45,14 +46,14 @@ This module can be used to generate a host key or public/private key pair.
 
 * Output:
 
-    * The status of the generate key operation.
+    * The status of the key generation.
 
 
 .. function:: sshutil_create.generate_key(
                   session, algorithm_type, key_type, passphrase)
 
 
-    * Generate a public/private key or a host key.
+    * Generates a public/private key or a host key.
 
 
         Example Usage of the Method::

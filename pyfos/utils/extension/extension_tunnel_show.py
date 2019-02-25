@@ -35,10 +35,10 @@ extension_tunnel_show.py: Usage
 
 * Util Script Options:
     * -n,--name=NAME: Sets the name.
-    * -a,--admin-enabled=VALUE: Sets the admin enabled.
+    * -a,--admin-enabled=VALUE: Enables or disables the admin status.
     *    --ipsec-enabled=VALUE: Sets the IPsec policy.
     *    --ficon=VALUE: Sets the FICON enabled state.
-    *    --ip-extension=VALUE: Sets the IP extension.
+    *    --ip-extension=VALUE: Sets IP extension.
 
 * Output:
     * Python dictionary content with RESTCONF response data.
@@ -67,8 +67,8 @@ name, ipsec, ipextn, ficon, admin)
             tunnel)
 
         * Input:
-            :param session: The session returned by login.
-            :param name: Sets the VE port name expressed as slot/port.
+            :param session: The session returned by the login.
+            :param name: Sets the VE_Port name expressed as slot/port.
             :param admin: Sets the admin enabled state.
             :param ipsec: Sets the IPsec policy enabled state.
             :param ipextn: Sets the IP extension enabled state.

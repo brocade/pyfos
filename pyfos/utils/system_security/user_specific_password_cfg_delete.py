@@ -15,7 +15,8 @@
 
 """
 
-:mod:`user_specific_password_cfg_delete` - PyFOS util to delete user specific password config parameters
+:mod:`user_specific_password_cfg_delete` - PyFOS util to delete user specific \
+password config parameters
 ********************************************************************************************************
 This module is a standalone script and API that can be used to delete
 user specific password config paramters.

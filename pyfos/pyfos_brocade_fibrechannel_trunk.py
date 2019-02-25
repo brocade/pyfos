@@ -28,14 +28,14 @@ import pyfos.pyfos_version as version
 
 class trunk(pyfos_rest_util.rest_object):
     """
-    Class for TrunkShow which shows E_Port trunk information.
+    Class for TrunkShow that shows E_Port trunk information.
 
     Important Class Members:
 
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
         | Attribute Name                    | Description                    |Frequently Used Methods                                |
         +===================================+================================+=======================================================+
-        | group				    | The group index for the trunk. |:func:`peek_group`  		                     |
+        | group                             | The group index for the trunk. |:func:`peek_group`                                     |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
         | master                            | The master port of the trunk.  |:func:`peek_master`                                    |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
@@ -51,10 +51,10 @@ class trunk(pyfos_rest_util.rest_object):
         | neighbor-switch-name              | The user friendly name of the  |:func:`peek_neighbor_switch_name`                      |
         |                                   | neighbor switch.               |                                                       |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
-        | neighbor-domain-id                | The domain-id of the neighbor  |:func:`peek_neighbor_domain_id` 	                     |
-        |                                   | switch.   		     |                                                       |
+        | neighbor-domain-id                | The domain-ID of the neighbor  |:func:`peek_neighbor_domain_id` 	                     |
+        |                                   | switch.                        |                                                       |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
-        | deskew	                    | The link deskew of the trunk.  |:func:`peek_deskew`	                             |
+        | deskew                            | The link deskew of the trunk.  |:func:`peek_deskew`                                    |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
 
     *Object Methods*
@@ -63,10 +63,10 @@ class trunk(pyfos_rest_util.rest_object):
 
             Returns :class:`trunk` objects for all trunk groups gathered \
             from the switch.
-            When optional params group and source port params are passed, \
-            returns either an object matching the group and source port
+            When optional group parameters and source port parameters are \
+            passed, either returns an object matching the group and source port
             or if no match is found, returns an empty object.
-            When these optional params are passed, both should be set.
+            When these optional parameters are passed, both should be set.
             The object can be printed using :func:`pyfos_utils.response_print`.
 
             :param session: The session handler returned by
@@ -93,7 +93,7 @@ class trunk(pyfos_rest_util.rest_object):
 
             Reads the source port in the object.
 
-            :rtype: None or the source port
+            :rtype: None or the source port.
 
         .. method:: peek_destination_port()
 
@@ -167,27 +167,35 @@ class performance(pyfos_rest_util.rest_object):
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
         | Attribute Name                    | Description                   |Frequently Used Methods                                |
         +===================================+===============================+=======================================================+
-        | group       		            | Group index for the trunk.    |:func:`peek_group`                               	    |
+        | group                             | The group index for           |:func:`peek_group`                               	    |
+        |                                   | the trunk.                    |                                                  	    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | tx-bandwidth                      | TX side b/w of the trunk.     |:func:`peek_tx_bandwidth`                              |
+        | tx-bandwidth                      | The TX side bandwidth of      |:func:`peek_tx_bandwidth`                              |
+        |                                   | the trunk.                    |                                                  	    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | tx-throughput                     | TX side frame transmission    |:func:`peek_tx_throughput`                             |
+        | tx-throughput                     | The TX side frame             |:func:`peek_tx_throughput`                             |
+        |                                   | transmission rate.            |                                              	    |
+        +-----------------------------------+-------------------------------+-------------------------------------------------------+
+        | tx-percentage                     | The TX side bandwidth         |:func:`peek_tx_percentage`                             |
+        |                                   | percentage.                   |                                                  	    |
+        +-----------------------------------+-------------------------------+-------------------------------------------------------+
+        | rx-bandwidth                      | The RX side bandwidth of      |:func:`peek_rx_bandwidth`                              |
+        |                                   | the trunk.                    |                                              	    |
+        +-----------------------------------+-------------------------------+-------------------------------------------------------+
+        | rx-throughput                     | The RX side frame transmission|:func:`peek_rx_throughput`                             |
         |                                   | rate.                         |                                              	    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | tx-percentage                     | TX side b/w percentage.       |:func:`peek_tx_percentage`                             |
+        | rx-percentage                     | The RX side bandwidth         |:func:`peek_rx_percentage`                             |
+        |                                   | percentage.                   |                                              	    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | rx-bandwidth                      | RX side b/w of the trunk.     |:func:`peek_rx_bandwidth`                              |
+        | txrx-bandwidth                    | The TXRX side bandwidth of    |:func:`peek_txrx_bandwidth`                            |
+        |                                   |  the trunk.                   |                                              	    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | rx-throughput                     | RX side frame transmission    |:func:`peek_rx_throughput`                             |
+        | txrx-throughput                   | The TXRX frame transmission   |:func:`peek_txrx_throughput`                           |
         |                                   | rate.                         |                                              	    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | rx-percentage                     | RX side b/w percentage.       |:func:`peek_rx_percentage`                             |
-        +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | txrx-bandwidth                    | TXRX side b/w of the trunk.   |:func:`peek_txrx_bandwidth`                            |
-        +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | txrx-throughput                   | TXRX frame transmission rate. |:func:`peek_txrx_throughput`                           |
-        +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | txrx-percentage                   | TXRX side b/w percentage.     |:func:`peek_txrx_percentage`                           |
+        | txrx-percentage                   | The TXRX side bandwidth       |:func:`peek_txrx_percentage`                           |
+        |                                   | percentage.                   |                                              	    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
 
     *Object Methods*
@@ -201,7 +209,7 @@ class performance(pyfos_rest_util.rest_object):
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
             :rtype: A dictionary of errors or
-                :class:`performance` object.
+                :class:`performance` objects.
 
 
     *Attribute Methods*
@@ -214,57 +222,57 @@ class performance(pyfos_rest_util.rest_object):
 
         .. method:: peek_tx_bandwidth()
 
-            Reads the tx bandwidth in the object.
+            Reads the TX bandwidth in the object.
 
-            :rtype: None or the tx bandwidth.
+            :rtype: None or the TX bandwidth.
 
         .. method:: peek_tx_throughput()
 
-            Reads the tx throughput in the object.
+            Reads the TX throughput in the object.
 
-            :rtype: None or the tx throughput.
+            :rtype: None or the TX throughput.
 
         .. method:: peek_tx_percentage()
 
-            Reads the tx percentage in the object.
+            Reads the TX percentage in the object.
 
-            :rtype: None or the tx percentage.
+            :rtype: None or the TX percentage.
 
         .. method:: peek_rx_bandwidth()
 
-            Reads the rx bandwidth in the object.
+            Reads the RX bandwidth in the object.
 
-            :rtype: None or the rx bandwidth.
+            :rtype: None or the RX bandwidth.
 
         .. method:: peek_rx_throughput()
 
-            Reads the rx throughput in the object.
+            Reads the RX throughput in the object.
 
-            :rtype: None or the rx throughput.
+            :rtype: None or the RX throughput.
 
         .. method:: peek_rx_percentage()
 
-            Reads the rx percentage in the object.
+            Reads the RX percentage in the object.
 
-            :rtype: None or the rx percentage.
+            :rtype: None or the RX percentage.
 
         .. method:: peek_txrx_bandwidth()
 
-            Reads the txrx bandwidth in the object.
+            Reads the TXRX bandwidth in the object.
 
-            :rtype: None or the txrx bandwidth.
+            :rtype: None or the TXRX bandwidth.
 
         .. method:: peek_txrx_throughput()
 
-            Reads the txrx throughput in the object.
+            Reads the TXRX throughput in the object.
 
-            :rtype: None or the txrx throughput.
+            :rtype: None or the TXRX throughput.
 
         .. method:: peek_txrx_percentage()
 
-            Reads the txrx percentage in the object.
+            Reads the TXRX percentage in the object.
 
-            :rtype: None or the txrx percentage.
+            :rtype: None or the TXRX percentage.
 
     """
     def __init__(self, dictvalues={}):
@@ -308,7 +316,7 @@ class performance(pyfos_rest_util.rest_object):
 
 class trunk_area(pyfos_rest_util.rest_object):
     """
-    Class for port trunk area which shows or configures the \
+    Class for the port trunk area that shows or configures the \
     port trunk area (F_Port trunk).
 
     Important Class Members:
@@ -319,7 +327,7 @@ class trunk_area(pyfos_rest_util.rest_object):
         | trunk-index                       | The trunk index for the port  |:func:`peek_trunk_index`                               |
         |                                   | trunk area.                   |:func:`set_trunk_index`                                |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | trunk-members/trunk_member        | The trunk members of          |:func:`peek_trunk_members_trunk_member`                |
+        | trunk-members/trunk_member        | The members of                |:func:`peek_trunk_members_trunk_member`                |
         |                                   | the trunk.                    |:func:`set_trunk_members_trunk_member`                 |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
         | master-port                       | The master port of the trunk. |:func:`peek_master_port`                               |
@@ -340,10 +348,10 @@ class trunk_area(pyfos_rest_util.rest_object):
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
             :rtype: A dictionary of errors or
-                :class:`trunk_area` object.
+                :class:`trunk_area` objects.
         .. method:: post()
 
-            Create an entry. The required fields are set within the object \
+            Creates an entry. The required fields are set within the object \
             using the attribute's set method. This command is used to create
             a new F_Port trunk group or add ports to an existing trunk group.
 
@@ -353,7 +361,7 @@ class trunk_area(pyfos_rest_util.rest_object):
 
         .. method:: delete()
 
-            Delete an entry or entry members. The required fields are
+            Deletes an entry or entry members. The required fields are
             set within the object using the attribute's
             set method. This command is used to delete a trunk group
             or delete the existing members of the trunk group.
@@ -381,7 +389,7 @@ class trunk_area(pyfos_rest_util.rest_object):
 
         .. method:: set_trunk_members_trunk_member(trunk_members)
 
-            Sets trunk_members_trunk_member in the object
+            Sets the trunk members in the object.
 
             :param: The trunk members.
             :rtype: A dictionary of errors or a success response.
@@ -390,7 +398,7 @@ class trunk_area(pyfos_rest_util.rest_object):
 
             Reads the trunk members in the object.
 
-            :rtype: None or the trunk members of the trunk member
+            :rtype: None or the trunk members of the trunk member.
 
         .. method:: peek_master_port()
 
@@ -400,9 +408,9 @@ class trunk_area(pyfos_rest_util.rest_object):
 
         .. method:: peek_trunk_active()
 
-            Reads the trunk active in the object.
+            Reads the active trunk in the object.
 
-            :rtype: None or trunk active.
+            :rtype: None or the active trunk.
     """
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.port_trunk_area,

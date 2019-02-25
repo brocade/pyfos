@@ -19,7 +19,7 @@
 ***************************************************************************
 The :mod:`fan_show` util displays the fan unit information.
 
-This module can be used to display the FAN unit information.
+This module can be used to display the fan unit information.
 
 * Input:
 
@@ -33,17 +33,18 @@ This module can be used to display the FAN unit information.
 |   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
 |   -v,--verbose           Verbose mode [OPTIONAL].
 
+
 |  Util Script Options:
 
    |   --unit-number=unit-number    Sets the unit number.
 
 * Output:
     * Fan unit information. When the unit number is not provided,
-      all the units will be displayed.
+      all units will be displayed.
 
 .. function:: fan_unit_show.show_fan_unit(session, unit)
 
-    * Display the fan unit details.
+    * Displays the fan unit details.
 
         Example Usage of the Method::
 
@@ -65,7 +66,7 @@ This module can be used to display the FAN unit information.
 
         * Input:
             :param session: The session returned by the login.
-            :param unit: The specific unit number or none for all fan-units.
+            :param unit: The specific unit number or none for all fan units.
 
         * Output:
             :rtype: A dictionary of return status matching the REST response.

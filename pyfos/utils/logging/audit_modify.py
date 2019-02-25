@@ -16,8 +16,8 @@
 """
 :mod:`audit_modify` - PyFOS util to modify the audit configuration on a switch.
 *******************************************************************************
-The :mod:`audit_modify` util provides option to modify the configuration\
-parameters of audit on a switch.
+The :mod:`audit_modify` util provides option to modify the configuration \
+parameters of the audit on a switch.
 
 This module is a stand-alone script that can be used to modify the audit
 configuration on a switch.
@@ -36,13 +36,13 @@ configuration on a switch.
 
 |  Util Script Options:
 
-  | --enable, <true/false>
+  | --enable <true/false>
   | --severity <critical | error | warning | info>
   | --filters <zone | security | configuration | firmware | fabric \
               | ls | cli | maps>
 
 * Output:
-    * Status of the modify operation
+    * Status of the modify operation.
 
 .. function:: modify_audit(session, audit_enabled, severity, filter)
 

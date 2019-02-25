@@ -39,39 +39,18 @@ switches in a fabric.
 
 import sys
 from pyfos import pyfos_auth
-import pyfos.pyfos_brocade_fabric as pyfos_fabric
+from pyfos.pyfos_brocade_fabric import fabric_switch
 from pyfos import pyfos_util
 from pyfos.utils import brcd_util
 
 
-def usage():
-    print("")
-
-
 def main(argv):
-    valid_options = []
-    inputs = brcd_util.generic_input(argv, usage, valid_options)
 
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
-              [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
-        sys.exit()
+    filters = []
+    inputs = brcd_util.parse(argv, fabric_switch, filters)
+    session = brcd_util.getsession(inputs)
 
-    brcd_util.exit_register(session)
-
-    vfid = None
-    if 'vfid' in inputs:
-        vfid = inputs['vfid']
-
-    if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
-
-    fabric = pyfos_fabric.fabric_switch.get(session)
+    fabric = fabric_switch.get(inputs['session'])
     if isinstance(fabric, list):
         for switch in fabric:
             pyfos_util.response_print(switch)

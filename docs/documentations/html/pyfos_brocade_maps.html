@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_maps - PyFOS module to provide REST support for MAPS. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>pyfos_brocade_maps - PyFOS module to provide REST support for MAPS. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_brocade_logging.html" title="pyfos_brocade_logging - PyFOS module to provide REST support for configuring the logging facilities in the FC switch."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -49,7 +49,7 @@
 <dt id="pyfos_brocade_maps.dashboard_misc">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">dashboard_misc</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div>Represents the dashboard’s miscellaneous information such as starttime
+<div>Represents the dashboard’s miscellaneous information such as start time
 and operation.</div></blockquote>
 <p>Important Class Members:</p>
 <blockquote>
@@ -119,7 +119,7 @@ Returns the dashboard miscellaneous information             (such as maps start 
 <div><dl class="method">
 <dt id="pyfos_brocade_maps.dashboard_misc.peek_maps_start_time">
 <code class="descname">peek_maps_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc.peek_maps_start_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the monitoring start time. MAPS is a restartable service             so the start time can be different than system up time.</p>
+<dd><p>Returns the monitoring start time. MAPS is a restartable service,             so the start time can be different than the system uptime.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -170,8 +170,8 @@ rules triggered and the objects on which the rules were triggered over
 a specified period of time, and to clear the  dashboard data.</p>
 <p>Gets a triggered rules list for the last 7 days. The rule list is
 needed to get the complete picture of switch operation. Data provides
-two views of operating state - the state since midnight and
-last 7 days. For both views, you must complete the details of         each rule triggered and all  rules data.</p>
+two views of the operating state: the state since midnight and
+the last 7 days. For both views, you must complete the details of         each rule triggered and all  rules data.</p>
 </div></blockquote>
 <p>Important Class Members:</p>
 <blockquote>
@@ -210,7 +210,7 @@ triggered for the category.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule.peek_repetition_count" title="pyfos_brocade_maps.dashboard_rule.peek_repetition_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_repetition_count()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>objects/object</td>
-<td>The objects violated the rule
+<td>The objects that violated the rule
 - for example ports, circuits.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule.peek_objects_object" title="pyfos_brocade_maps.dashboard_rule.peek_objects_object"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_objects_object()</span></code></a></td>
 </tr>
@@ -223,7 +223,7 @@ triggered for the category.</td>
 <dt id="pyfos_brocade_maps.dashboard_rule.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.dashboard_rule" title="pyfos_brocade_maps.dashboard_rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">dashboard_rule</span></code></a> object.
-Returns the MAPS dashboard information, the switch summary             for last 7 days, and the rule violations affecting health.</p>
+Returns the MAPS dashboard information, the switch summary             for the last 7 days, and the rule violations affecting health.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -301,7 +301,7 @@ Returns the MAPS dashboard information, the switch summary             for last 
 <code class="descname">peek_repetition_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_rule.peek_repetition_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents the rule repetition count (how many times a rule has
 been triggered). The same rule can be triggered multiple times for
-the same or different objects. For example, defALL_D_PORTSCRC_10             might be triggered 20 times in an hour for the same or different             objects - in this case repetition-count would be 20.</p>
+the same or different objects. For example, defALL_D_PORTSCRC_10             might be triggered 20 times in an hour for the same or different             objects–in this case repetition-count would be 20.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -341,7 +341,7 @@ manner, such as UNIX ports or long-distance ports. The elements in a
 group must be of the same type: ports, circuits, or SFP.
 By creating a group of similar elements, you can manage these elements
 as a single  entity.</div></blockquote>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -377,8 +377,8 @@ as a single  entity.</div></blockquote>
 <a class="reference internal" href="#pyfos_brocade_maps.group.peek_feature_pattern" title="pyfos_brocade_maps.group.peek_feature_pattern"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_feature_pattern()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>is-predefined</td>
-<td>Returns true if group is
-pre-defined group.</td>
+<td>Returns true if the group is
+a predefined group.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.group.peek_is_predefined" title="pyfos_brocade_maps.group.peek_is_predefined"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_predefined()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>is-modifiable</td>
@@ -388,7 +388,8 @@ modifiable or not.</td>
 </tr>
 <tr class="row-even"><td>members/member</td>
 <td>A list of members (for example a
-list of ports, sfps or circuits.</td>
+list of ports, SFPs,
+or circuits).</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.group.set_members_member" title="pyfos_brocade_maps.group.set_members_member"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_members_member()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.group.peek_members_member" title="pyfos_brocade_maps.group.peek_members_member"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_members_member()</span></code></a></td>
 </tr>
@@ -419,11 +420,11 @@ objects if there are more than one.</td>
 <dl class="method">
 <dt id="pyfos_brocade_maps.group.post">
 <code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.post" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a MAPS group on switch.
+<dd><p>Creates a MAPS group on the switch.
 Use the POST operation to create dynamic groups.
 If the group already exists, use the POST operation to add members
 to the group.</p>
-<p>Example Usage of the Method to Create New Group on Switch</p>
+<p>Example Usage of the Method to Create a New Group on the Switch</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
 <span class="n">maps_grp</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 <span class="c1"># set the policy name</span>
@@ -544,7 +545,7 @@ If members are present, then this operation deletes members             from the
 <dl class="method">
 <dt id="pyfos_brocade_maps.group.set_group_feature">
 <code class="descname">set_group_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.set_group_feature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the dynamic group feature. There are two types of groups in             MAPS (dynamic groups and static groups). If this feature is set             then the group is considered to be a dynamic group.</p>
+<dd><p>Sets the dynamic group feature. There are two types of groups in             MAPS (dynamic groups and static groups). If this feature is set,             then the group is considered to be a dynamic group.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -572,7 +573,7 @@ If members are present, then this operation deletes members             from the
 <dl class="method">
 <dt id="pyfos_brocade_maps.group.set_feature_pattern">
 <code class="descname">set_feature_pattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group.set_feature_pattern" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the dynamic group feature pattern. It can be port name             or node WWN.</p>
+<dd><p>Sets the dynamic group feature pattern. It can be a port name             or node WWN.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -663,30 +664,16 @@ User-defined groups are defined or configured by a user.</p>
 <dt id="pyfos_brocade_maps.maps_config">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">maps_config</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div><dl class="docutils">
-<dt>Manages the MAPS behavior for the switch. Use  this  module  to</dt>
-<dd>perform the following MAPS functions:</dd>
-</dl>
-<ol class="arabic">
-<li><dl class="first docutils">
-<dt>Define the list of allowable actions that can be taken on the switch</dt>
-<dd><p class="first last">when a threshold is triggered.</p>
-</dd>
-</dl>
-</li>
-<li><p class="first">Configure  e-mail  address  to  which  the alerts must be delivered.</p>
-</li>
-<li><dl class="first docutils">
-<dt>Delete all user-defined MAPS  configurations  related  to rules, groups,</dt>
-<dd><p class="first last">policies, and so on.</p>
-</dd>
-</dl>
-</li>
-<li><p class="first">Display MAPS settings.</p>
-</li>
+<div><p>Manages the MAPS behavior for the switch. Use this module to         perform the following MAPS functions:</p>
+<ol class="arabic simple">
+<li>Define the list of allowable actions that can be taken on the switch
+when a threshold is triggered.</li>
+<li>Configure  the email  address  to  which  the alerts must be            delivered.</li>
+<li>Delete all user-defined MAPS  configurations  related  to rules,            groups, policies, and so on.</li>
+<li>Display MAPS settings.</li>
 </ol>
 </div></blockquote>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -707,8 +694,8 @@ User-defined groups are defined or configured by a user.</p>
 <a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_actions_action" title="pyfos_brocade_maps.maps_config.peek_actions_action"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_actions_action()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>decommission-cfg</td>
-<td>The decommission behavior
-- default or impair.</td>
+<td>The decommission behavior:
+default or impair.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_decommission_cfg" title="pyfos_brocade_maps.maps_config.set_decommission_cfg"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_decommission_cfg()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_decommission_cfg" title="pyfos_brocade_maps.maps_config.peek_decommission_cfg"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_decommission_cfg()</span></code></a></td>
 </tr>
@@ -750,7 +737,7 @@ User-defined groups are defined or configured by a user.</p>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_maps.maps_config.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a <a class="reference internal" href="#pyfos_brocade_maps.maps_config" title="pyfos_brocade_maps.maps_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_config</span></code></a> object.</p>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.maps_config" title="pyfos_brocade_maps.maps_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_config</span></code></a> object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -768,8 +755,8 @@ objects if there are more than one.</td>
 <dl class="staticmethod">
 <dt id="pyfos_brocade_maps.maps_config.patch">
 <em class="property">static </em><code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Uses the PATCH operation to update any member of the maps-config             class.
-Example Usage of the Method</p>
+<dd><p>Uses the PATCH operation to update any member of the maps-config             class.</p>
+<p>Example Usage of the Method</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
 <span class="n">maps_config_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">maps_config</span><span class="p">()</span>
 <span class="c1"># set the rule name</span>
@@ -825,7 +812,7 @@ Example Usage of the Method</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_config.set_decommission_cfg">
 <code class="descname">set_decommission_cfg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_decommission_cfg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the decommission behavior - default or impair.</p>
+<dd><p>Sets the decommission behavior: default or impair.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -839,7 +826,7 @@ Example Usage of the Method</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_config.peek_decommission_cfg">
 <code class="descname">peek_decommission_cfg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_decommission_cfg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the decommission behavior - default or impair.</p>
+<dd><p>Gets the decommission behavior: default or impair.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -853,7 +840,7 @@ Example Usage of the Method</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_config.set_recipient_address_list_recipient_address">
 <code class="descname">set_recipient_address_list_recipient_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_recipient_address_list_recipient_address" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the recipient email address, maximum number is 5.</p>
+<dd><p>Configures the recipient email address; the maximum number is 5.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -895,7 +882,7 @@ Example Usage of the Method</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_config.peek_sender_address">
 <code class="descname">peek_sender_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_sender_address" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the configured sender email address.</p>
+<dd><p>Gets the configured sender email addresses.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1025,7 +1012,7 @@ Example Usage of the Method</p>
 <dt id="pyfos_brocade_maps.maps_policy">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">maps_policy</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div>This class manages policies - create and manage monitoring policies.
+<div>This class manages policies.
 A MAPS policy is a set of rules that define thresholds for measures
 and actions to take when a threshold is triggered. When you enable a
 policy, all of the rules in the policy are in effect. A switch can have
@@ -1056,13 +1043,13 @@ multiple policies.</div></blockquote>
 <a class="reference internal" href="#pyfos_brocade_maps.maps_policy.peek_rule_list_rule" title="pyfos_brocade_maps.maps_policy.peek_rule_list_rule"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_rule_list_rule()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>is-predefined-policy</td>
-<td>Whether the policy is active
-or non-active.</td>
+<td>Whether the policy is predefined
+or user-defined.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.maps_policy.peek_is_predefined_policy" title="pyfos_brocade_maps.maps_policy.peek_is_predefined_policy"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_predefined_policy()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>is-active-policy</td>
-<td>Whether the policy is predefined
-or user-defined.</td>
+<td>Whether the policy is active
+or non-active.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.maps_policy.set_is_active_policy" title="pyfos_brocade_maps.maps_policy.set_is_active_policy"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_is_active_policy()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.maps_policy.peek_is_active_policy" title="pyfos_brocade_maps.maps_policy.peek_is_active_policy"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_active_policy()</span></code></a></td>
 </tr>
@@ -1074,7 +1061,7 @@ or user-defined.</td>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_maps.maps_policy.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.maps_policy" title="pyfos_brocade_maps.maps_policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_policy</span></code></a> object if group name is provided.
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.maps_policy" title="pyfos_brocade_maps.maps_policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_policy</span></code></a> object if a group name is provided.
 Otherwise, returns all objects of the <a class="reference internal" href="#pyfos_brocade_maps.maps_policy" title="pyfos_brocade_maps.maps_policy"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_policy</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1094,8 +1081,8 @@ Otherwise, returns all objects of the <a class="reference internal" href="#pyfos
 <code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.post" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a MAPS policy and adds rules to an existing policy.
 If the rules list is empty, then an empty MAPS policy (without             any rules) is created.
-If the policy is already present, then use POST operation to add             rules to the policy.</p>
-<p>Example Usage of the Method to Create New Policy on Switch</p>
+If the policy is already present, then use a POST operation to             add rules to the policy.</p>
+<p>Example Usage of the Method to Create a New Policy on the Switch</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
 <span class="n">maps_pol</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">maps_policy</span><span class="p">()</span>
 <span class="c1"># set the policy name</span>
@@ -1121,7 +1108,7 @@ If the policy is already present, then use POST operation to add             rul
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_policy.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates the list of rules in a policy with the input rules. Note             when you use the PATCH operation, all rules are replaced by the             ones provided in the CLI.
+<dd><p>Updates the list of rules in a policy with the input rules. Note             that when you use the PATCH operation, all rules are replaced by             the ones provided in the CLI.
 To add rules to an existing policy, use the POST operation.
 To delete rules from an existing policy, use the DELETE operation.</p>
 </dd></dl>
@@ -1189,8 +1176,7 @@ If the rule list is not empty, deletes the rules from the policy.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_policy.set_rule_list_rule">
 <code class="descname">set_rule_list_rule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.set_rule_list_rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the list of rules in rule list container which will be part of
-a MAPS policy.</p>
+<dd><p>Sets the list of rules in a rule list container that will be part             of a MAPS policy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1218,7 +1204,7 @@ a MAPS policy.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_policy.peek_is_predefined_policy">
 <code class="descname">peek_is_predefined_policy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.peek_is_predefined_policy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns whether policy is pre-defined or not.</p>
+<dd><p>Returns whether the policy is pre-defined or not.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1232,7 +1218,7 @@ a MAPS policy.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_policy.peek_is_active_policy">
 <code class="descname">peek_is_active_policy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.peek_is_active_policy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns whether policy is active or not.</p>
+<dd><p>Returns whether the policy is active or not.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1246,8 +1232,7 @@ a MAPS policy.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.maps_policy.set_is_active_policy">
 <code class="descname">set_is_active_policy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_policy.set_is_active_policy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the policy name and when PATCH operation is performed, then
-the specified MAPS policy will be enabled.</p>
+<dd><p>Sets the policy name; when a PATCH operation is performed,             the specified MAPS policy is enabled.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1265,7 +1250,7 @@ the specified MAPS policy will be enabled.</p>
 <dt id="pyfos_brocade_maps.monitoring_system_matrix">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">monitoring_system_matrix</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div>Represents the list of monitoring systems. Each monitoring stem can         support different time bases, actions, or thresholds. Certain         monitoring systems are supported on certain systems (for example,         circuit or tunnel monitoring systems are supported on         extension platforms.</div></blockquote>
+<div>Represents the list of monitoring systems. Each monitoring stem can         support different time bases, actions, or thresholds. Certain         monitoring systems are supported on certain systems (for example,         circuit or tunnel monitoring systems are supported on         extension platforms).</div></blockquote>
 <p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
@@ -1282,20 +1267,20 @@ the specified MAPS policy will be enabled.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>monitoring-system</td>
-<td>Represents monitoring system name.</td>
+<td>Represents the monitoring system name.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_system" title="pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_system"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_monitoring_system()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>dashboard-category</td>
-<td>Represents dashboard category of the
+<td>Represents the dashboard category of the
 monitoring system.</td>
-<td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_dashbroad_category" title="pyfos_brocade_maps.monitoring_system_matrix.peek_dashbroad_category"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_dashbroad_category()</span></code></a></td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_dashbroad_category()</span></code></td>
 </tr>
 <tr class="row-even"><td>group-type</td>
-<td>Represents group type.</td>
+<td>Represents the group type.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_group_type" title="pyfos_brocade_maps.monitoring_system_matrix.peek_group_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_group_type()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>base-time-bases/time-base</td>
-<td>The supported timebases.</td>
+<td>The supported time bases.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_base_time_bases_time_base" title="pyfos_brocade_maps.monitoring_system_matrix.peek_base_time_bases_time_base"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_base_time_bases_time_base()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>rule-on-rule-time-bases/rule-on-rule-time-base</td>
@@ -1309,15 +1294,17 @@ on rules.</td>
 </tr>
 <tr class="row-even"><td>monitored-logical-switch</td>
 <td>Monitoring can be in all the logical
-switches or only in default logical switch</td>
+switches or only in the default logical
+switch.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitored_logical_switch" title="pyfos_brocade_maps.monitoring_system_matrix.peek_monitored_logical_switch"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_monitored_logical_switch()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>is-rule-on-rule-supported</td>
-<td>True if rule-on-rule supported.</td>
+<td>True if rule-on-rule is supported.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_rule_on_rule_supported" title="pyfos_brocade_maps.monitoring_system_matrix.peek_is_rule_on_rule_supported"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_rule_on_rule_supported()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>is-quiet-time-supported</td>
-<td>True if quiet time feature supported.</td>
+<td>True if the quiet time feature
+is supported.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_quiet_time_supported" title="pyfos_brocade_maps.monitoring_system_matrix.peek_is_quiet_time_supported"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_quiet_time_supported()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>minimum-quiet-time</td>
@@ -1325,7 +1312,8 @@ switches or only in default logical switch</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_minimum_quiet_time" title="pyfos_brocade_maps.monitoring_system_matrix.peek_minimum_quiet_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_minimum_quiet_time()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>monitoring-type</td>
-<td>Monitoring type of the monitoring systems</td>
+<td>Monitoring the type of monitoring
+systems.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_type" title="pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_monitoring_type()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>data-type</td>
@@ -1337,19 +1325,19 @@ switches or only in default logical switch</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_description" title="pyfos_brocade_maps.monitoring_system_matrix.peek_description"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_description()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>actions/action</td>
-<td>Represents global actions list.</td>
+<td>Represents the global actions list.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_actions_action" title="pyfos_brocade_maps.monitoring_system_matrix.peek_actions_action"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_actions_action()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>unit</td>
-<td>Represents data unit.</td>
+<td>Represents the data unit.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_unit" title="pyfos_brocade_maps.monitoring_system_matrix.peek_unit"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unit()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>data-range</td>
-<td>Represents data range.</td>
+<td>Represents the data range.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_data_range" title="pyfos_brocade_maps.monitoring_system_matrix.peek_data_range"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_data_range()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>logical-operators/logical-operator</td>
-<td>Supported logical operator.</td>
+<td>The supported logical operator.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_logical_operators_logical_operator" title="pyfos_brocade_maps.monitoring_system_matrix.peek_logical_operators_logical_operator"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_logical_operators_logical_operator()</span></code></a></td>
 </tr>
 </tbody>
@@ -1360,7 +1348,7 @@ switches or only in default logical switch</td>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_maps.monitoring_system_matrix.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return all <a class="reference internal" href="monitoring_system_matrix.html#module-monitoring_system_matrix" title="monitoring_system_matrix: PyFOS module to list all monitoring systems in MAPS (Linux)"><code class="xref py py-class docutils literal notranslate"><span class="pre">monitoring_system_matrix</span></code></a> objects.
+<dd><p>Returns all <a class="reference internal" href="monitoring_system_matrix.html#module-monitoring_system_matrix" title="monitoring_system_matrix: PyFOS module to list all monitoring systems in MAPS (Linux)"><code class="xref py py-class docutils literal notranslate"><span class="pre">monitoring_system_matrix</span></code></a> objects.
 Individual attributes can be accessed through peek methods.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1376,12 +1364,12 @@ Individual attributes can be accessed through peek methods.</p>
 </dd></dl>
 
 </div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Attribute Methods</em></p>
 <blockquote>
 <div><dl class="method">
 <dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_system">
 <code class="descname">peek_monitoring_system</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_monitoring_system" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents the monitoring system name(CRC, SEC_LV)</p>
+<dd><p>Represents the monitoring system name (CRC, SEC_LV).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1393,8 +1381,8 @@ Individual attributes can be accessed through peek methods.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_dashbroad_category">
-<code class="descname">peek_dashbroad_category</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_dashbroad_category" title="Permalink to this definition">¶</a></dt>
+<dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_dashboard_category">
+<code class="descname">peek_dashboard_category</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_dashboard_category" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents the dashboard category of the monitoring system.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1423,7 +1411,7 @@ Individual attributes can be accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_base_time_bases_time_base">
 <code class="descname">peek_base_time_bases_time_base</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_base_time_bases_time_base" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents the supported timebases.</p>
+<dd><p>Represents the supported time bases.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1451,7 +1439,7 @@ Individual attributes can be accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_is_read_only">
 <code class="descname">peek_is_read_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_is_read_only" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns true for read only monitoring systems.</p>
+<dd><p>Returns true for read-only monitoring systems.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1508,7 +1496,7 @@ Returns “default-switch-only” if it is monitored on the default             
 <dl class="method">
 <dt id="pyfos_brocade_maps.monitoring_system_matrix.peek_minimum_quiet_time">
 <code class="descname">peek_minimum_quiet_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.monitoring_system_matrix.peek_minimum_quiet_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Quiet time feature is supported.</p>
+<dd><p>The quiet time feature is supported.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1642,8 +1630,8 @@ Manages only port, SFP, and circuits to pause or resume monitoring.</div></block
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>group-type</td>
-<td>Represents group type for pausing
-or resuming monitoring.</td>
+<td>Represents the group type for
+pausing or resuming monitoring.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.paused_cfg.set_group_type" title="pyfos_brocade_maps.paused_cfg.set_group_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_group_type()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.paused_cfg.peek_group_type" title="pyfos_brocade_maps.paused_cfg.peek_group_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_group_type()</span></code></a></td>
 </tr>
@@ -1662,7 +1650,7 @@ monitoring.</td>
 <dt id="pyfos_brocade_maps.paused_cfg.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.paused_cfg" title="pyfos_brocade_maps.paused_cfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">paused_cfg</span></code></a> object.
-Returns a list of all the members which are currently paused             for monitoring.</p>
+Returns a list of all members that are currently paused             for monitoring.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1686,7 +1674,7 @@ The members can be fc-port, sfp, or circuit.</p>
 <dl class="staticmethod">
 <dt id="pyfos_brocade_maps.paused_cfg.delete">
 <em class="property">static </em><code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specifies the members on which to resume (continue) monitoring.
+<dd><p>Specifies the members on which to resume monitoring.
 The members can be fc-port, sfp, or circuit.</p>
 </dd></dl>
 
@@ -1762,7 +1750,7 @@ condition with actions that must be triggered when the specified
 condition is evaluated to be true. When you modify a rule, the rule does not
 take effect until you enable the policy. If the rule is part of the enabled
 policy, you must re-enable the policy for the rule to take effect.</div></blockquote>
-<p>Important class members:</p>
+<p>Important Class Members:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -1771,9 +1759,9 @@ policy, you must re-enable the policy for the rule to take effect.</div></blockq
 <col width="37%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1789,17 +1777,17 @@ policy, you must re-enable the policy for the rule to take effect.</div></blockq
 </tr>
 <tr class="row-even"><td>monitoring-system</td>
 <td>The stats or error being
-monitored (CRC, ITW, PS_STATE)</td>
+monitored (CRC, ITW, PS_STATE).</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_monitoring_system" title="pyfos_brocade_maps.rule.set_monitoring_system"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_monitoring_system()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.rule.peek_monitoring_system" title="pyfos_brocade_maps.rule.peek_monitoring_system"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_monitoring_system()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>time-base</td>
-<td>The timebase in the rule.</td>
+<td>The time base in the rule.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_time_base" title="pyfos_brocade_maps.rule.set_time_base"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_time_base()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.rule.peek_time_base" title="pyfos_brocade_maps.rule.peek_time_base"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_time_base()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>logical-operator</td>
-<td>The logical operators.</td>
+<td>The logical operator.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_logical_operator" title="pyfos_brocade_maps.rule.set_logical_operator"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_logical_operator()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.rule.peek_logical_operator" title="pyfos_brocade_maps.rule.peek_logical_operator"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_logical_operator()</span></code></a></td>
 </tr>
@@ -1824,7 +1812,7 @@ defined.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.rule.peek_is_predefined" title="pyfos_brocade_maps.rule.peek_is_predefined"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_is_predefined()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>event-severity</td>
-<td>The user configured severity -
+<td>The user configured severity:
 warning, error, critical, info.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.rule.set_event_severity" title="pyfos_brocade_maps.rule.set_event_severity"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_event_severity()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.rule.peek_event_severity" title="pyfos_brocade_maps.rule.peek_event_severity"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_event_severity()</span></code></a></td>
@@ -1865,7 +1853,7 @@ un-quarantine-timeout.</td>
 <div><dl class="staticmethod">
 <dt id="pyfos_brocade_maps.rule.get">
 <em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.rule" title="pyfos_brocade_maps.rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">rule</span></code></a> object if rule name is provided.
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.rule" title="pyfos_brocade_maps.rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">rule</span></code></a> object if the rule name is provided.
 Otherwise, returns all  objects of the <a class="reference internal" href="#pyfos_brocade_maps.rule" title="pyfos_brocade_maps.rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">rule</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1885,8 +1873,8 @@ Otherwise, returns all  objects of the <a class="reference internal" href="#pyfo
 <code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.post" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a MAPS rule. The required fields are set
 within the object using the attribute’s set method.
-This method is used to create new rule on switch.</p>
-<p>Example Usage of the Method to Create New Rule on a Switch</p>
+This method is used to create a new rule on a switch.</p>
+<p>Example Usage of the Method to Create a New Rule on a Switch</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
 <span class="n">maps_Rule</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">rule</span><span class="p">()</span>
 <span class="c1"># set the rule name</span>
@@ -1924,8 +1912,8 @@ This method is used to create new rule on switch.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.rule.patch">
 <code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates the rule to modify threshold values, or interval of             monitoring and so on.
-If a rule which is part of active policy is changed, the
+<dd><p>Updates the rule to modify threshold values, the interval of             monitoring, and so on.
+If a rule that is part of an active policy is changed, the
 policy must be re-activated for the rule to take effect.</p>
 <p>Example Usage of the Method to Update an Existing Rule on a Switch</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
@@ -1967,7 +1955,7 @@ policy must be re-activated for the rule to take effect.</p>
 <code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes a MAPS group. The required fields are
 set within the object using the attribute’s
-set method. This method is used to delete a MAPS group.</p>
+set method.</p>
 <p>Example Usage of the Method to Delete a MAPS Group</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
 <span class="n">maps_Rule</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">rule</span><span class="p">()</span>
@@ -2040,7 +2028,7 @@ This flag must be set while creating RoR rules.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.rule.peek_is_rule_on_rule">
 <code class="descname">peek_is_rule_on_rule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_is_rule_on_rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the value of RoR flag.</p>
+<dd><p>Returns the value of the RoR flag.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2082,7 +2070,7 @@ This flag must be set while creating RoR rules.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.rule.set_time_base">
 <code class="descname">set_time_base</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_time_base" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the time base which is the interval for monitoring.</p>
+<dd><p>Sets the time base, which is the interval for monitoring.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2294,8 +2282,7 @@ are “[critical | error | warning | info] | default]”.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.rule.set_quiet_time">
 <code class="descname">set_quiet_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_quiet_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the quiet time. If quiet time is configured, then reporting of
-rule violations will be done only after the expiry of quiet time.</p>
+<dd><p>Sets the quiet time. If the quiet time is configured, then reporting             of rule violations will be done only after the expiry of the             quiet time.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2323,7 +2310,7 @@ rule violations will be done only after the expiry of quiet time.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.rule.set_quiet_time_clear">
 <code class="descname">set_quiet_time_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_quiet_time_clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates the flag to clear quiet time.</p>
+<dd><p>Updates the flag to clear the quiet time.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2393,7 +2380,7 @@ rule violations will be done only after the expiry of quiet time.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.rule.peek_un_quarantine_clear">
 <code class="descname">peek_un_quarantine_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.peek_un_quarantine_clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the flag un-quarantine clear.</p>
+<dd><p>Returns the un-quarantine clear flag.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2429,8 +2416,8 @@ the SSP state. The SSP provides the overall status of the switch.         If the
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>switch-health</td>
-<td>The switch state. Switch health
-represents switch operating health.</td>
+<td>The switch state. The switch health
+represents the switch operating health.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_switch_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_switch_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_switch_health()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>power-supply-health</td>
@@ -2451,7 +2438,7 @@ represents switch operating health.</td>
 </tr>
 <tr class="row-odd"><td>ha-health</td>
 <td>The state of the high availability
-state - both CPs are in sync.</td>
+state: both CPs are in sync.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_ha_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_ha_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ha_health()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>control-processor-health</td>
@@ -2468,23 +2455,23 @@ state - both CPs are in sync.</td>
 </tr>
 <tr class="row-odd"><td>flash-health</td>
 <td>The flash usage state. Flash usage
-could be above threshold or limit.</td>
+could be above the threshold or limit.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_flash_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_flash_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_flash_health()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>marginal-port-health</td>
-<td>The marginal ports state.</td>
+<td>The  state of the marginal ports.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_marginal_port_health()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>faulty-port-health</td>
-<td>The faulty ports state.</td>
+<td>The  state of the faulty ports state.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_faulty_port_health()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>missing-sfp-health</td>
-<td>The missing SFPs state.</td>
+<td>The  state of the missing SFPs state.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_missing_sfp_health()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>error-port-health</td>
-<td>The error ports state.</td>
+<td>The  state of the error ports state.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_error_port_health()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>expired-certificate-health</td>
@@ -2594,7 +2581,7 @@ Individual attributes can be accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.switch_status_policy_report.peek_ha_health">
 <code class="descname">peek_ha_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_ha_health" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the state of the high availability state (both CPs in sync).</p>
+<dd><p>Reads the state of the high availability (both CPs in sync).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2664,7 +2651,7 @@ Individual attributes can be accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health">
 <code class="descname">peek_marginal_port_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the marginal ports state.</p>
+<dd><p>Reads the  state of the marginal ports.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2678,7 +2665,7 @@ Individual attributes can be accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health">
 <code class="descname">peek_faulty_port_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the faulty ports state.</p>
+<dd><p>Reads the  state of the faulty ports.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2692,7 +2679,7 @@ Individual attributes can be accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health">
 <code class="descname">peek_missing_sfp_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the missing SFPs state.</p>
+<dd><p>Reads the  state of the missing SFPs.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2706,7 +2693,7 @@ Individual attributes can be accessed through peek methods.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health">
 <code class="descname">peek_error_port_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the error ports state.</p>
+<dd><p>Reads the  state of the error ports.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2754,7 +2741,7 @@ Individual attributes can be accessed through peek methods.</p>
 <dt id="pyfos_brocade_maps.system_resources">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">system_resources</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.system_resources" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div>Manages the system resources - flash, RAM, and CPU usage. Usage is not
+<div>Manages the system resources: flash, RAM, and CPU usage. Usage is not
 real time and is delayed up to 2 minutes.</div></blockquote>
 <p>Important Class Members:</p>
 <blockquote>
@@ -2931,7 +2918,7 @@ Module <a class="reference internal" href="maps_rule_create.html#module-maps_rul
         <li class="right" >
           <a href="pyfos_brocade_logging.html" title="pyfos_brocade_logging - PyFOS module to provide REST support for configuring the logging facilities in the FC switch."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

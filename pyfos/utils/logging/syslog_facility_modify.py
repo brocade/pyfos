@@ -18,11 +18,11 @@
  configuration on a switch.
 ***********************************************************************************\
 *************************
-The :mod:`syslog_facility_modify` util provides option to modify the\
- configuration parameter of the syslog facility level on a switch.
+The :mod:`syslog_facility_modify` util provides the option to modify the \
+configuration parameter of the syslog facility level on a switch.
 
-This module is a stand-alone script that can be used to modify the syslog\
- facility configuration on a switch.
+This module is a stand-alone script that can be used to modify the syslog \
+facility configuration on a switch.
 
 * Input:
 
@@ -41,7 +41,7 @@ This module is a stand-alone script that can be used to modify the syslog\
   | --syslog_facility_level=facility-level
 
 * Output:
-    * Status of the modify operation
+    * Status of the modify operation.
 
 .. function:: modify_syslog_facility(session, facility):
 

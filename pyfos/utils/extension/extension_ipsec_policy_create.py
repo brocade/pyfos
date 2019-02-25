@@ -19,7 +19,7 @@
 :mod:`extension_ipsec_policy_create` - PyFOS util for creating an IPsec policy.
 ***********************************************************************************
 The :mod:`extension_ipsec_policy_create` util is used to create an \
-IPsec Policy.
+IPsec policy.
 
 This module is a stand-alone script that can be used to create an extension
 IPsec policy.

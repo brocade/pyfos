@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>log_setting_keep_alive_period_set - PyFOS util for setting the keep alive period. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>log_setting_keep_alive_period_set - PyFOS util for setting the keepalive period. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="raslog_get - PyFOS util for retrieving the RASLog message." href="raslog_get.html" />
-    <link rel="prev" title="log_setting_keep_alive_period_get - PyFOS util for setting the alive period." href="log_setting_keep_alive_period_get.html" /> 
+    <link rel="next" title="raslog_show - PyFOS util for retrieving the RASLog message." href="raslog_show.html" />
+    <link rel="prev" title="log_setting_keep_alive_period_show - PyFOS util for setting the keepalive period." href="log_setting_keep_alive_period_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="raslog_get.html" title="raslog_get - PyFOS util for retrieving the RASLog message."
+          <a href="raslog_show.html" title="raslog_show - PyFOS util for retrieving the RASLog message."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="log_setting_keep_alive_period_get.html" title="log_setting_keep_alive_period_get - PyFOS util for setting the alive period."
+          <a href="log_setting_keep_alive_period_show.html" title="log_setting_keep_alive_period_show - PyFOS util for setting the keepalive period."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,10 +42,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-log_setting_keep_alive_period_set"></span><div class="section" id="log-setting-keep-alive-period-set-pyfos-util-for-setting-the-keep-alive-period">
-<h1><a class="reference internal" href="#module-log_setting_keep_alive_period_set" title="log_setting_keep_alive_period_set: PyFOS util for configuring log_setting op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_set</span></code></a> - PyFOS util for setting the keep alive period.<a class="headerlink" href="#log-setting-keep-alive-period-set-pyfos-util-for-setting-the-keep-alive-period" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-log_setting_keep_alive_period_set" title="log_setting_keep_alive_period_set: PyFOS util for configuring log_setting op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_set</span></code></a> util provides for setting the keep alive period.</p>
-<p>This module is a stand-alone script that can be used to set the keep alive period.</p>
+  <span class="target" id="module-log_setting_keep_alive_period_set"></span><div class="section" id="log-setting-keep-alive-period-set-pyfos-util-for-setting-the-keepalive-period">
+<h1><a class="reference internal" href="#module-log_setting_keep_alive_period_set" title="log_setting_keep_alive_period_set: PyFOS util for configuring log_setting op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_set</span></code></a> - PyFOS util for setting the keepalive period.<a class="headerlink" href="#log-setting-keep-alive-period-set-pyfos-util-for-setting-the-keepalive-period" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-log_setting_keep_alive_period_set" title="log_setting_keep_alive_period_set: PyFOS util for configuring log_setting op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_set</span></code></a> util provides for setting the keepalive period.</p>
+<p>This module is a stand-alone script that can be used to set the keepalive period.</p>
 <ul>
 <li><dl class="first docutils">
 <dt>Input:</dt>
@@ -84,7 +84,7 @@
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--alive=<var>ALIVE-PERIOD</var></span></kbd></td>
 </tr>
-<tr><td>&#160;</td><td><p class="first last">Sets the alive period for the log in hours.</p>
+<tr><td>&#160;</td><td><p class="first last">Sets the alive period for the login hours.</p>
 </td></tr>
 </tbody>
 </table>
@@ -129,7 +129,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param period:</th><td class="field-body">The keep alive period in hours.</td>
+<tr class="field-even field"><th class="field-name">param period:</th><td class="field-body">The keepalive period in hours.</td>
 </tr>
 </tbody>
 </table>
@@ -152,7 +152,7 @@
 </ul>
 <p><em>Use Cases</em></p>
 <ol class="arabic simple">
-<li>Configures the keep alive period of the RASLog.</li>
+<li>Configure the keepalive period of the RASLog.</li>
 </ol>
 </dd></dl>
 
@@ -169,11 +169,11 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="log_setting_keep_alive_period_get.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_get</span></code> - PyFOS util for setting the alive period.</a></p>
+  <p class="topless"><a href="log_setting_keep_alive_period_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">log_setting_keep_alive_period_show</span></code> - PyFOS util for setting the keepalive period.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="raslog_get.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">raslog_get</span></code> - PyFOS util for retrieving the RASLog message.</a></p>
+  <p class="topless"><a href="raslog_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">raslog_show</span></code> - PyFOS util for retrieving the RASLog message.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -207,12 +207,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="raslog_get.html" title="raslog_get - PyFOS util for retrieving the RASLog message."
+          <a href="raslog_show.html" title="raslog_show - PyFOS util for retrieving the RASLog message."
              >next</a> |</li>
         <li class="right" >
-          <a href="log_setting_keep_alive_period_get.html" title="log_setting_keep_alive_period_get - PyFOS util for setting the alive period."
+          <a href="log_setting_keep_alive_period_show.html" title="log_setting_keep_alive_period_show - PyFOS util for setting the keepalive period."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

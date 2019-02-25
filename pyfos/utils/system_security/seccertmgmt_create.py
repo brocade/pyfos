@@ -15,12 +15,12 @@
 
 """
 
-:mod:`seccertmgmt_create` - PyFOS util for generating certificates on a switch
+:mod:`seccertmgmt_create` - PyFOS util for generating certificates on a switch.
 ***********************************************************************************
-The :mod:`seccertmgmt_create` provides option to generate certificate
+The :mod:`seccertmgmt_create` provides the option to generate a certificate.
 
-This module can be used to create/generate certificate for a specified entity
-and type
+This module can be used to generate a certificate for a specified entity
+and type.
 
 * Input:
 
@@ -35,7 +35,7 @@ and type
 * Util Script Options:
 
    |   --certificate-entity=ENTITY-NAME    Sets the certificate entity name.
-   |   --certificate-type=CERT-TYPE        Sets the certificate type name.
+   |   --certificate-type=CERT-TYPE        Sets the certificate type.
    |   --key-size=VALUE                    Sets the key size.
    |   --country-name=VALUE                Sets the country name.
    |   --state-name=VALUE                  Sets the state name.
@@ -43,7 +43,8 @@ and type
    |   --hash-type=VALUE                   Sets the hash type.
    |   --algorithm-type=VALUE              Sets the algorithm type.
    |   --organization-name=VALUE           Sets the organization name.
-   |   --years=VALUE                       Sets the certificate validity.
+   |   --years=VALUE                       Sets the time for which the \
+                                           certificate is valid.
    |   --domain-name=VALUE                 Sets the domain name.
    |   --locality-name=VALUE               Sets the locality name.
 
@@ -52,7 +53,7 @@ and type
 
 .. function:: seccertmgmt_create.create_security_certificate(session)
 
-    * Generate a certificate in the switch.
+    * Generates a certificate in the switch.
 
         Example Usage of the Method:
 
@@ -66,7 +67,7 @@ cert_entity, cert_type)
               session, \'cert\', \'https\')
 
         * Input:
-            :param session: THe session returned by the login.
+            :param session: The session returned by the login.
             :param cert_entity: The associated certificate entity \
                                 (ca-client/ca-server/cert/csr).
             :param cert_type: The associated certificate type \
@@ -75,7 +76,7 @@ cert_entity, cert_type)
         * Output:
             :rtype: A dictionary of return status matching the REST response.
 
-        * Use Cases*
+        *Use Cases*
 
         1. Generate the specified certificate.
 

@@ -39,7 +39,7 @@ a port
 
 import sys
 from pyfos import pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel import fibrechannel
+from pyfos.pyfos_brocade_interface import fibrechannel
 from pyfos import pyfos_util
 from pyfos.utils import brcd_util
 
@@ -70,7 +70,7 @@ def main(argv):
         fcObject.set_enabled_state(6)
     else:
         print("Invalid value for enabled_state")
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, filters)
         sys.exit()
     session = brcd_util.getsession(inputs)
 

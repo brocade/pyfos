@@ -17,8 +17,8 @@
 :mod:`syslog_delete` - PyFOS util to delete the syslog configuration on\
  a switch.
 *********************************************************************************
-The :mod:`syslog_delete` util provides option to delete the configuration\
- parameters of syslog on a switch.
+The :mod:`syslog_delete` util provides the option to delete the syslog \
+configuration parameters of syslog on a switch.
 
 This module is a stand-alone script that can be used to delete the syslog
 configuration on a switch.
@@ -37,10 +37,10 @@ configuration on a switch.
 
 | Util Script Options:
 
-  | --server=<server ip address>
+  | --server=<server IP address>
 
 * Output:
-    * Status of the delete operation
+    * Status of the delete operation.
 
 .. function:: del_syslog_server(session, server)
 

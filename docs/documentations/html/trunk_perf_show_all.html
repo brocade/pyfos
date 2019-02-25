@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>trunk_perf_show_all - PyFOS util for getting info of performance of all the E-port trunks of the switch. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>trunk_perf_show_all - PyFOS util for getting performance data for all E_Port trunks of the switch. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="trunk_perf_show - PyFOS util for getting info of performance of a E-port trunk" href="trunk_perf_show.html" />
-    <link rel="prev" title="port_trunk_area_show - PyFOS util for getting info of a porttrunkarea-group." href="port_trunk_area_show.html" /> 
+    <link rel="next" title="trunk_perf_show - PyFOS util for getting performance data for an E_Port trunk." href="trunk_perf_show.html" />
+    <link rel="prev" title="port_trunk_area_show - PyFOS util for getting info about a port trunk area group." href="port_trunk_area_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="trunk_perf_show.html" title="trunk_perf_show - PyFOS util for getting info of performance of a E-port trunk"
+          <a href="trunk_perf_show.html" title="trunk_perf_show - PyFOS util for getting performance data for an E_Port trunk."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="port_trunk_area_show.html" title="port_trunk_area_show - PyFOS util for getting info of a porttrunkarea-group."
+          <a href="port_trunk_area_show.html" title="port_trunk_area_show - PyFOS util for getting info about a port trunk area group."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,29 +42,29 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-trunk_perf_show_all"></span><div class="section" id="trunk-perf-show-all-pyfos-util-for-getting-info-of-performance-of-all-the-e-port-trunks-of-the-switch">
-<h1><a class="reference internal" href="#module-trunk_perf_show_all" title="trunk_perf_show_all: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trunk_perf_show_all</span></code></a> - PyFOS util for getting info of performance of all the E-port trunks of the switch.<a class="headerlink" href="#trunk-perf-show-all-pyfos-util-for-getting-info-of-performance-of-all-the-e-port-trunks-of-the-switch" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-trunk_perf_show_all" title="trunk_perf_show_all: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trunk_perf_show_all</span></code></a> - PyFOS util for getting info of performance of all the E-port trunks of the switch.</p>
-<p>This module is a standalone script that can be used to get the info of of performance of all the E-port trunks of the switch.</p>
+  <span class="target" id="module-trunk_perf_show_all"></span><div class="section" id="trunk-perf-show-all-pyfos-util-for-getting-performance-data-for-all-e-port-trunks-of-the-switch">
+<h1><a class="reference internal" href="#module-trunk_perf_show_all" title="trunk_perf_show_all: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trunk_perf_show_all</span></code></a> - PyFOS util for getting performance data for all E_Port trunks of the switch.<a class="headerlink" href="#trunk-perf-show-all-pyfos-util-for-getting-performance-data-for-all-e-port-trunks-of-the-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-trunk_perf_show_all" title="trunk_perf_show_all: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trunk_perf_show_all</span></code></a> - PyFOS util for getting performance data for all E_Port trunks of the switch.</p>
+<p>This module is a standalone script that can be used to get performance data for all E_Port trunks of the switch.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request is                            directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>Python dictionary content with RESTCONF response data</li>
+<li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
 </dl>
@@ -84,10 +84,10 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="port_trunk_area_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">port_trunk_area_show</span></code> - PyFOS util for getting info         of a porttrunkarea-group.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">port_trunk_area_show</span></code> - PyFOS util for getting info about a port trunk area group.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="trunk_perf_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">trunk_perf_show</span></code> - PyFOS util for getting info         of performance of a E-port trunk</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">trunk_perf_show</span></code> - PyFOS util for getting performance data for an E_Port trunk.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -121,12 +121,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="trunk_perf_show.html" title="trunk_perf_show - PyFOS util for getting info of performance of a E-port trunk"
+          <a href="trunk_perf_show.html" title="trunk_perf_show - PyFOS util for getting performance data for an E_Port trunk."
              >next</a> |</li>
         <li class="right" >
-          <a href="port_trunk_area_show.html" title="port_trunk_area_show - PyFOS util for getting info of a porttrunkarea-group."
+          <a href="port_trunk_area_show.html" title="port_trunk_area_show - PyFOS util for getting info about a port trunk area group."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

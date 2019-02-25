@@ -15,32 +15,35 @@
 
 """
 
-:mod:`auth_spec_set` - PyFOS util to modify authentication mode configuration
-*******************************************************************************
-The :mod:`auth_spec_set` supports 'aaaconfig' CLI use case.
+:mod:`auth_spec_set` - PyFOS util to modify the authentication \
+mode configuration.
+***************************************************************\
+********************
+The :mod:`auth_spec_set` supports the 'aaaconfig' CLI use case.
 
-This module is a standalone script and API that can be used to modify a
-ldap server.
+This module is a stand-alone script and API that can be used to modify an
+LDAP server.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                           directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --authentication-mode         set authentication mode
-    --activate-no-log-out         set enable/disable log out
-    --primary-auth-log-messages   set enable/disable primary authentication
-                                                             error messages
+* Util Script Options:
+    --authentication-mode         Sets the authentication mode.
+    --activate-no-log-out         Enables or disables log out.
+    --primary-auth-log-messages   Enables or disables primary authentication \
+                                  error messages.
 
-* outputs:
-    * success response or dictionary in case of error
+* Output:
+    * A success response or dictionary in case of error.
 
 """
 

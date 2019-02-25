@@ -85,23 +85,28 @@ def set_response_parse(response):
     test_parse_response(response, page)
 
     if response.status >= 100 and response.status < 200:
-        ret_error = {"info-code": response.status,
+        ret_error = {"http-resp-code": response.status,
+                     "info-code": response.status,
                      "info-message": response.reason,
                      "info-type": "Informational"}
     elif response.status >= 200 and response.status < 300:
-        ret_error = {"success-code": response.status,
+        ret_error = {"http-resp-code": response.status,
+                     "success-code": response.status,
                      "success-message": response.reason,
                      "success-type": "Success"}
     elif response.status >= 300 and response.status < 400:
-        ret_error = {"redirection-code": response.status,
+        ret_error = {"http-resp-code": response.status,
+                     "redirection-code": response.status,
                      "redirection-message": response.reason,
                      "redirection-type": "Redirection"}
     elif response.status >= 400 and response.status < 500:
-        ret_error = {"client-error-code": response.status,
+        ret_error = {"http-resp-code": response.status,
+                     "client-error-code": response.status,
                      "client-error-message": response.reason,
                      "client-errors": parse_page(page)}
     else:
-        ret_error = {"server-error-code": response.status,
+        ret_error = {"http-resp-code": response.status,
+                     "server-error-code": response.status,
                      "server-error-message": response.reason,
                      "server-error-type": "Server error"}
 
@@ -385,7 +390,8 @@ def strjson(response):
 
     :param response: Dictionary of information to be converted to JSON.
     """
-    return str(json.dumps(response, cls=json_encoder, sort_keys=True, indent=4))
+    return str(json.dumps(response, cls=json_encoder,
+                          sort_keys=True, indent=4))
 
 
 def test_results_print():
@@ -434,11 +440,14 @@ def test_results_print():
         count = 0
         for executed_test in executed_tests:
             if executed_test.overall_passed is False:
-                print_test_yellow("Error #" + str(count) + ":" + executed_test.title)
-                print_test_lred("Test description:" + executed_test.description + "\n")
+                print_test_yellow("Error #" + str(count) + ":" +
+                                  executed_test.title)
+                print_test_lred("Test description:" +
+                                executed_test.description + "\n")
                 if executed_test.overall_result_description is not None:
                     print_test_red("Test result description:" +
-                                   str(executed_test.overall_result_description))
+                                   str(executed_test.
+                                       overall_result_description))
                 if len(executed_test.requests) > 0:
                     print("=================")
                     for request in executed_test.requests:
@@ -653,7 +662,8 @@ def get_from_dict(resp, key):
 
 
 def is_success_resp(resp):
-    return bool(isinstance(resp, dict) and 'success-type' in resp and resp['success-type'] == 'Success')
+    return bool(isinstance(resp, dict) and 'success-type' in resp
+                and resp['success-type'] == 'Success')
 
 
 def is_failed_resp(resp):

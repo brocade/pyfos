@@ -21,7 +21,7 @@ The :mod:`seccryptocfg_show` util supports displaying a \
 cryptographic configuration.
 
 This module is a stand-alone script and API that can be used to display a \
-cryptographic configurations.
+cryptographic configuration.
 
 * Input:
 

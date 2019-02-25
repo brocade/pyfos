@@ -16,27 +16,28 @@
 """
 
 :mod:`port_trunk_area_show` - PyFOS util for getting info \
-        of a porttrunkarea-group.
+about a port trunk area group.
 ****************************************************************************************************************
 The :mod:`port_trunk_area_show` - PyFOS util for getting info \
-        of a porttrunkarea-group.
+about a port trunk area group.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                           directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --trunk-index=VALUE                Trunk-index of the porttrunkarea-group
+* Util Scripts Options:
+    --trunk-index=VALUE    The trunk index of the port trunk area group.
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 """
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seccertmgmt_delete - PyFOS util for deleting certificate(s) on a switch. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>seccertmgmt_delete - PyFOS util for deleting certificates on a switch. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify certificates."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,9 +42,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-seccertmgmt_delete"></span><div class="section" id="seccertmgmt-delete-pyfos-util-for-deleting-certificate-s-on-a-switch">
-<h1><a class="reference internal" href="#module-seccertmgmt_delete" title="seccertmgmt_delete: PyFOS module to delete certificate(s) in a switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_delete</span></code></a> - PyFOS util for deleting certificate(s) on a switch.<a class="headerlink" href="#seccertmgmt-delete-pyfos-util-for-deleting-certificate-s-on-a-switch" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-seccertmgmt_delete" title="seccertmgmt_delete: PyFOS module to delete certificate(s) in a switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_delete</span></code></a> provides option to delete a certificate.</p>
+  <span class="target" id="module-seccertmgmt_delete"></span><div class="section" id="seccertmgmt-delete-pyfos-util-for-deleting-certificates-on-a-switch">
+<h1><a class="reference internal" href="#module-seccertmgmt_delete" title="seccertmgmt_delete: PyFOS module to delete certificate(s) in a switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_delete</span></code></a> - PyFOS util for deleting certificates on a switch.<a class="headerlink" href="#seccertmgmt-delete-pyfos-util-for-deleting-certificates-on-a-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-seccertmgmt_delete" title="seccertmgmt_delete: PyFOS module to delete certificate(s) in a switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_delete</span></code></a> provides the option to delete a certificate.</p>
 <p>This module can be used to delete a certificate.</p>
 <ul class="simple">
 <li>Input:</li>
@@ -57,21 +57,21 @@
 <div class="line">-L,–login=LOGIN       The login name.</div>
 <div class="line">-P,–password=PASSWORD The password.</div>
 <div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
+<div class="line">-v,–verbose           The Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><p class="first">Util Script Options:</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">–certificate-entity=ENTITY-NAME     Sets the certificate entity name.</div>
-<div class="line">–certificate-type=CERT-TYPE         Sets the certificate type name.</div>
+<div class="line">–certificate-type=CERT-TYPE         Sets the certificate type.</div>
 </div>
 </div></blockquote>
 </li>
 <li><dl class="first docutils">
 <dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>Creates the certificate.</li>
+<li>The certificate.</li>
 </ul>
 </dd>
 </dl>
@@ -81,7 +81,7 @@
 <dt id="seccertmgmt_delete.seccertmgmt_delete.delete_security_certificate">
 <code class="descclassname">seccertmgmt_delete.</code><code class="descname">delete_security_certificate</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#seccertmgmt_delete.seccertmgmt_delete.delete_security_certificate" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
-<li><p class="first">Delete a certificate in the switch.</p>
+<li><p class="first">Deletes a certificate in the switch.</p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
 <blockquote>
@@ -126,9 +126,8 @@ print (ret)</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">Use Cases*</p>
-</li>
 </ul>
+<p><em>Use Cases</em></p>
 <ol class="arabic simple">
 <li>Delete a specified certificate.</li>
 </ol>
@@ -194,7 +193,7 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
         <li class="right" >
           <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify certificates."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

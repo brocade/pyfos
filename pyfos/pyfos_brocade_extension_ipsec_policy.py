@@ -56,7 +56,7 @@ class extension_ipsec_policy(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned
              by :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or success response.
+            :rtype: A dictionary of error or a success response.
 
     *Attribute Functions*
 
@@ -74,7 +74,7 @@ class extension_ipsec_policy(pyfos_rest_util.rest_object):
 
         .. function:: peek_authentication_data()
 
-            Reads the authentication data from an IPsec object
+            Reads the authentication data from an IPsec object.
 
             :rtype: None on error and a value on success.
 
@@ -94,29 +94,29 @@ class extension_ipsec_policy(pyfos_rest_util.rest_object):
 
             Sets the policy name in an IPsec object.
 
-            :rtype: A dictionary of errors or success response and a value
+            :rtype: A dictionary of error or a success response and a value
              with the policy name as the key.
 
         .. function:: set_profile_name(profileName)
 
             Sets the profile name in an IPsec object.
 
-            :rtype: A dictionary of errors or success response and a value
+            :rtype: A dictionary of error or a success response and a value
              with the profile name as the key.
 
         .. function:: set_authentication_data(authData)
 
-            Sets the authentication Data in an Object
+            Sets the authentication data in an object.
 
-            :rtype: A dictionary of errors or success response and a value
+            :rtype: A dictionary of error or a success response and a value
              with the authentication data as the key.
 
         .. function:: set_restart_ike_sessions(restartIkeSession)
 
             Sets the restart IKE session in an IPsec object.
 
-            :rtype: A dictionary of errors or success response and a value
-             with the restart IKE sessions as the key.
+            :rtype: A dictionary of error or a success response and a value
+             with the restart IKE session as the key.
 
     """
 

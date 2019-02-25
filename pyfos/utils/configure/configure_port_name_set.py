@@ -15,22 +15,23 @@
 
 """
 
-:mod:`configure_port_name_set` - PyFos util to set port name mode of the \
+:mod:`configure_port_name_set` - PyFos util to set the port name mode of the \
 switch.
-***********************************************************************************
+*****************************************************************************\
+********
 The :mod:`configure_port_name_set` sets the port name mode of the switch.
 
 This module is a stand-alone script that can be used to set the port name mode
-of the switch. If the mode is "dynamic", the dynamic portname format can be
+of the switch. If the mode is "dynamic", the dynamic port name format can be
 set as well.
 
 * Infrastructure Options:
-    * -i,--ipaddr=IPADDR: The IP address of FOS switch.
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
     * -L,--login=LOGIN: The login name.
     * -P,--password=PASSWORD: The password.
     * -f,--vfid=VFID: The VFID to which the request is directed.
-    * -s,--secured=MODE: The HTTPS mode "self" or "CA"[OPTIONAL].
-    * -v,--verbose: Verbose mode[OPTIONAL].
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose: Verbose mode [OPTIONAL].
 
 * Util Script Options:
     * --portname-mode=PORTNAME-MODE: Sets the given port name mode.
@@ -58,7 +59,7 @@ port name format [OPTIONAL].
         :param session: The session returned by login.
         :param portname_mode: Sets the port name mode.
         :param dynamic_portname_format: Sets the dynamic port name format,
-                 if dynamic mode specified.
+                 if dynamic mode is specified.
 
     * Output:
         :rtype: A dictionary of return status matching the REST response.

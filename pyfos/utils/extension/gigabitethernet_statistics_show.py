@@ -23,7 +23,7 @@ The :mod:`gigabitethernet_statistics_show` util is used to display\
  GE_Port statistics.
 
 This module is a stand-alone script that can be used to show the
-switch GE_Port stats on an extension platform.
+switch GE_Port statistics on an extension platform.
 
 gigabitethernet_statistics_show.py: Usage
 
@@ -32,7 +32,7 @@ gigabitethernet_statistics_show.py: Usage
     * -L,--login=LOGIN: The login name.
     * -P,--password=PASSWORD: The password.
     * -f,--vfid=VFID: The VFID to which the request is directed.
-    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optioanl].
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
     * -v,--verbose: Verbose mode [Optional].
 
 * Util Script Options:
@@ -44,7 +44,7 @@ gigabitethernet_statistics_show.py: Usage
 .. function:: gigabitethernet_statistics_show.show(\
 session, name, speed)
 
-    *Show extension gigabitethernet statistics*
+    *Show Extension Gigabitethernet Statistics*
 
         Example Usage of the Method::
 
@@ -68,7 +68,7 @@ session, name, speed)
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
-from pyfos.pyfos_brocade_gigabitethernet import \
+from pyfos.pyfos_brocade_interface import \
      gigabitethernet_statistics
 from pyfos.utils import brcd_util
 

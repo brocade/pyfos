@@ -14,9 +14,10 @@
 # limitations under the License.
 
 """
-:mod:`radius_server_delete` - PyFOS util to delete a radius server configuration
-*********************************************************************************
-The :mod:`radius_server_delete` supports 'aaaconfig' CLI use case.
+:mod:`radius_server_delete` - PyFOS util to delete a RADIUS server \
+configuration.
+**********************************************************************************************
+The :mod:`radius_server_delete` util supports the 'aaaconfig' CLI use case.
 
 This module is a stand-alone script and API that can be used to delete a
 RADIUS server configuration.

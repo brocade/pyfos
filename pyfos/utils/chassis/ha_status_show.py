@@ -24,13 +24,14 @@ of the switch.
 
 
 | Infrastructure Options:
+
     * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
     * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: The IP address.
     * -n=<port name>: The <slot>/<port> name of the port.
-    * -u=<user name>: The string name to be assigned to switch
+    * -u=<user name>: The string name to be assigned to the switch.
     * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
         a VFID of 128 is assumed.
 

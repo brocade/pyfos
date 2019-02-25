@@ -41,6 +41,7 @@ chassis_vf_enabled_set.py: Usage
   | -v,--verbose           Verbose mode [OPTIONAL].
 
 | Util Script Options:
+
 |   --vf-enabled=VALUE     Sets the VF-enabled state (enable=true, \
                             disable=false).
 
@@ -72,7 +73,7 @@ chassis_vf_enabled_set.py: Usage
         * Output:
             :rtype: A dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
          Enable or disable the chassis VF-enabled state.
 

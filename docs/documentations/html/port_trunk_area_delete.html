@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>port_trunk_area_delete - PyFOS util for removing port members from a portareatrunk-group. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>port_trunk_area_delete - PyFOS util for removing port members from a port area trunk group. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="port_trunk_area_show_all - PyFOS util for getting info of all porttrunkarea-groups enabled on the switch." href="port_trunk_area_show_all.html" />
-    <link rel="prev" title="port_trunk_area_create_add - PyFOS util for Port Trunk Add/Create." href="port_trunk_area_create_add.html" /> 
+    <link rel="next" title="port_trunk_area_show_all - PyFOS util for getting info about all port trunk area groups enabled on the switch." href="port_trunk_area_show_all.html" />
+    <link rel="prev" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk." href="port_trunk_area_create_add.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="port_trunk_area_show_all.html" title="port_trunk_area_show_all - PyFOS util for getting info of all porttrunkarea-groups enabled on the switch."
+          <a href="port_trunk_area_show_all.html" title="port_trunk_area_show_all - PyFOS util for getting info about all port trunk area groups enabled on the switch."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="port_trunk_area_create_add.html" title="port_trunk_area_create_add - PyFOS util for Port Trunk Add/Create."
+          <a href="port_trunk_area_create_add.html" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,27 +42,27 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-port_trunk_area_delete"></span><div class="section" id="port-trunk-area-delete-pyfos-util-for-removing-port-members-from-a-portareatrunk-group">
-<h1><a class="reference internal" href="#module-port_trunk_area_delete" title="port_trunk_area_delete: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">port_trunk_area_delete</span></code></a> - PyFOS util for removing port members from         a portareatrunk-group.<a class="headerlink" href="#port-trunk-area-delete-pyfos-util-for-removing-port-members-from-a-portareatrunk-group" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-port_trunk_area_delete" title="port_trunk_area_delete: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">port_trunk_area_delete</span></code></a> - PyFOS util for removing port members from         a porttrunkarea-group.</p>
-<p>This module is a standalone script for removing port members from         a porttrunkarea-group.</p>
+  <span class="target" id="module-port_trunk_area_delete"></span><div class="section" id="port-trunk-area-delete-pyfos-util-for-removing-port-members-from-a-port-area-trunk-group">
+<h1><a class="reference internal" href="#module-port_trunk_area_delete" title="port_trunk_area_delete: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">port_trunk_area_delete</span></code></a> - PyFOS util for removing port members from a port area trunk group.<a class="headerlink" href="#port-trunk-area-delete-pyfos-util-for-removing-port-members-from-a-port-area-trunk-group" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-port_trunk_area_delete" title="port_trunk_area_delete: PyFOS module to manage FOS FC ports (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">port_trunk_area_delete</span></code></a> - PyFOS util for removing port members from a port area trunk group.</p>
+<p>This module is a standalone script for removing port members from a port area trunk group.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
 <div class="line">Infrastructure options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request is                            directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><table class="first last docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
@@ -70,12 +70,12 @@
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--trunk-index=<var>VALUE</var></span></kbd></td>
 </tr>
-<tr><td>&#160;</td><td><p class="first last">Trunk-index of the porttrunkarea-group</p>
+<tr><td>&#160;</td><td><p class="first last">The trunk index of the port area trunk group.</p>
 </td></tr>
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--trunk-members=<var>PORTS</var></span></kbd></td>
 </tr>
-<tr><td>&#160;</td><td><p class="first last">Ports in slot/port format to be removed                                         to the group. Eg. “0/1;0/2”</p>
+<tr><td>&#160;</td><td><p class="first last">Ports in slot/port format to be removed                              to the group. For example: “0/1;0/2”</p>
 </td></tr>
 </tbody>
 </table>
@@ -83,9 +83,9 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>Python dictionary content with RESTCONF response data</li>
+<li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
 </dl>
@@ -105,10 +105,10 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="port_trunk_area_create_add.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">port_trunk_area_create_add</span></code> - PyFOS util for Port Trunk Add/Create.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">port_trunk_area_create_add</span></code> - PyFOS util for adding or creating a port trunk.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="port_trunk_area_show_all.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">port_trunk_area_show_all</span></code> - PyFOS util for getting info of all porttrunkarea-groups enabled on the switch.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">port_trunk_area_show_all</span></code> - PyFOS util for getting info about all port trunk area groups enabled on the switch.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -142,12 +142,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="port_trunk_area_show_all.html" title="port_trunk_area_show_all - PyFOS util for getting info of all porttrunkarea-groups enabled on the switch."
+          <a href="port_trunk_area_show_all.html" title="port_trunk_area_show_all - PyFOS util for getting info about all port trunk area groups enabled on the switch."
              >next</a> |</li>
         <li class="right" >
-          <a href="port_trunk_area_create_add.html" title="port_trunk_area_create_add - PyFOS util for Port Trunk Add/Create."
+          <a href="port_trunk_area_create_add.html" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

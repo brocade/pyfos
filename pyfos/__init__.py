@@ -12,3 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+from .version import __version__
+from .version import __version_major_minor__
+from .version import __copyright__
+from .version import __license__

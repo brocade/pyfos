@@ -23,6 +23,7 @@ The :mod:`pyfos_brocade_zone` provides a REST support for \
 
 from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
+import pyfos.pyfos_version as version
 
 CFG_ACTION_SAVE = 1
 CFG_ACTION_DISABLE = 2
@@ -328,8 +329,13 @@ class defined_configuration(pyfos_rest_util.rest_object):
         """
 
     def __init__(self, dictvalues={}):
-        super().__init__(pyfos_rest_util.rest_obj_type.zone_defined,
-                         "/rest/running/zoning/defined-configuration")
+        urilist = list([dict({'URIVER': version.VER_RANGE_820_TO_821A,
+                              'URI': "/rest/running/zoning/" +
+                              "defined-configuration"}),
+                        dict({'URIVER': version.VER_RANGE_821b_and_ABOVE,
+                              'URI': "/rest/running/brocade-zone/" +
+                              "defined-configuration"})])
+        super().__init__(pyfos_rest_util.rest_obj_type.zone_defined, urilist)
 
         self.add(pyfos_rest_util.rest_attribute(
             "cfg", pyfos_type.type_na,
@@ -609,9 +615,13 @@ class effective_configuration(pyfos_rest_util.rest_object):
     """
 
     def __init__(self, dictvalues={}):
-        super().__init__(pyfos_rest_util.rest_obj_type.zone_effective,
-                         "/rest/running/zoning/effective-configuration")
-
+        urilist = list([dict({'URIVER': version.VER_RANGE_820_TO_821A,
+                              'URI': "/rest/running/zoning/" +
+                              "effective-configuration"}),
+                        dict({'URIVER': version.VER_RANGE_821b_and_ABOVE,
+                              'URI': "/rest/running/brocade-zone/" +
+                              "effective-configuration"})])
+        super().__init__(pyfos_rest_util.rest_obj_type.zone_effective, urilist)
         self.add(pyfos_rest_util.rest_attribute(
             "cfg-name", pyfos_type.type_zoning_name,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))

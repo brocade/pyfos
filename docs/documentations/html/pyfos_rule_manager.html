@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_rule_manager - PyFOS module to provide rule based handling Support. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>pyfos_rule_manager - PyFOS module to provide rule based handling Support. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_class_manager.html" title="pyfos_class_manager - PyFOS module to Manage all pyfos classes."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -46,9 +46,14 @@
 <h1><a class="reference internal" href="#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a> - PyFOS module to provide rule based handling        Support.<a class="headerlink" href="#pyfos-rule-manager-pyfos-module-to-provide-rule-based-handling-support" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a>  Provides the rule management for REST
 supported classes.</p>
-<p>Predefined Rules identified for Config Management</p>
-<blockquote>
-<div><p>Details of all predefined rules:</p>
+<div class="section" id="introduction">
+<span id="intro"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a> supports rules a method for config
+management support. User can write rules based on various classes/object
+and attribute with conditionals for config operations.</p>
+</div>
+<div class="section" id="table-for-all-predefined-rules">
+<span id="predefined-rules-table"></span><h2>Table for all predefined rules<a class="headerlink" href="#table-for-all-predefined-rules" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -65,59 +70,657 @@ supported classes.</p>
 <tbody valign="top">
 <tr class="row-even"><td>R1</td>
 <td>defined_configuration</td>
-<td>Save the Zoning configuration after creation/POST</td>
+<td>Save the Zoning configuration after POST <a class="reference internal" href="#r1"><span class="std std-ref">Rule-R1</span></a></td>
 </tr>
 <tr class="row-odd"><td>R2</td>
 <td>defined_configuration</td>
-<td>Save the Zoning configuration after deletion/DELETE</td>
+<td>Save the Zoning configuration after DELETE <a class="reference internal" href="#r2"><span class="std std-ref">Rule-R2</span></a></td>
 </tr>
 <tr class="row-even"><td>R3</td>
 <td>defined_configuration</td>
-<td>Save the Zoning configuration after modification/PATCH</td>
+<td>Save the Zoning configuration after PATCH  <a class="reference internal" href="#r3"><span class="std std-ref">Rule-R3</span></a></td>
 </tr>
 <tr class="row-odd"><td>R4</td>
 <td>extension_ip_route</td>
-<td>Ignore non static route entries for creation/POST</td>
+<td>Ignore non static route entries for DELETE <a class="reference internal" href="#r4"><span class="std std-ref">Rule-R4</span></a></td>
 </tr>
 <tr class="row-even"><td>R5</td>
 <td>extension_ip_route</td>
-<td>Ignore non static route entries for deletion/DELETE</td>
+<td>Ignore non static route entries for POST  <a class="reference internal" href="#r5"><span class="std std-ref">Rule-R5</span></a></td>
 </tr>
 <tr class="row-odd"><td>R6</td>
-<td>effective_configuration</td>
-<td>Populate the checksum in effective configuration for PATCH</td>
+<td>fibrechannel</td>
+<td>Disable/Enable ports while applying configs <a class="reference internal" href="#r6"><span class="std std-ref">Rule-R6</span></a></td>
 </tr>
 <tr class="row-even"><td>R7</td>
-<td>fibrechannel</td>
-<td>Disable/Enable ports while applying configs</td>
+<td>effective_configuration</td>
+<td>Handle the effective configuration for PATCH <a class="reference internal" href="#r7"><span class="std std-ref">Rule-R7</span></a></td>
 </tr>
 <tr class="row-odd"><td>R8</td>
 <td>fibrechannel_switch</td>
-<td>Disable the switch after applying the configs</td>
+<td>Disable the switch after applying the configs <a class="reference internal" href="#r8"><span class="std std-ref">Rule-R8</span></a></td>
 </tr>
 <tr class="row-even"><td>R9</td>
 <td>n_port_map</td>
-<td>Delete all n-port-map instance with configured fports</td>
+<td>Delete all n-port-map instance configured fports <a class="reference internal" href="#r9"><span class="std std-ref">Rule-R9</span></a></td>
 </tr>
 <tr class="row-odd"><td>R10</td>
 <td>n_port_map</td>
-<td>Patch all n-port-map instance with configured fports</td>
+<td>Patch all n-port-map instance configured fports  <a class="reference internal" href="#r10"><span class="std std-ref">Rule-R10</span></a></td>
 </tr>
 <tr class="row-even"><td>R11</td>
 <td>port_group</td>
-<td>Delete all port-groups except for pg0</td>
+<td>Delete all port-groups except for pg0  <a class="reference internal" href="#r11"><span class="std std-ref">Rule-R11</span></a></td>
 </tr>
 <tr class="row-odd"><td>R12</td>
 <td>port_group</td>
-<td>Create all port-groups other than pg0</td>
+<td>Create all port-groups other than pg0  <a class="reference internal" href="#r12"><span class="std std-ref">Rule-R12</span></a></td>
 </tr>
 <tr class="row-even"><td>R13</td>
 <td>port_group</td>
-<td>Patch only port-group instance for pg0</td>
+<td>Patch only port-group instance for pg0 <a class="reference internal" href="#r13"><span class="std std-ref">Rule-R13</span></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
+</div>
+<div class="section" id="rule-r1">
+<span id="r1"></span><h2>Rule-R1<a class="headerlink" href="#rule-r1" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>defined-configuration</em> <cite>POST</cite> operation.
+As part of rule its meant to fetch the <em>effective-configuration</em> before <cite>POST</cite>
+operation of <em>defined-configuration</em> and then execute cfgsave after the <cite>POST</cite>
+operation is complete using <em>effective-configuration</em> <cite>PATCH</cite> operation.
+This is used by the <a class="reference internal" href="switch_config_apply.html#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> for config apply sequence.</p>
+<blockquote>
+<div><p>Create defined-configuration config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&gt;</span> <span class="o">+</span><span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>         <span class="s2">&quot;defined-configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>             <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                 <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;alias-name&quot;</span><span class="p">:</span> <span class="s2">&quot;ali1_test&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                         <span class="s2">&quot;alias-entry-name&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;70:00:8c:7c:ff:5f:54:00&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;70:00:8c:7c:ff:5f:55:00&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>                         <span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>                 <span class="p">},</span>
+<span class="o">&gt;</span> <span class="o">+</span>             <span class="p">],</span>
+<span class="o">&gt;</span> <span class="o">+</span>             <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                 <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;cfg-name&quot;</span><span class="p">:</span> <span class="s2">&quot;testcfg&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;member-zone&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                         <span class="s2">&quot;zone-name&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;zone1&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;zone2&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>                         <span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>                 <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>             <span class="p">],</span>
+<span class="o">&gt;</span> <span class="o">+</span>             <span class="s2">&quot;zone&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                 <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                         <span class="s2">&quot;entry-name&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;11:22:33:44:55:66:77:88&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;21:22:33:44:55:66:77:88&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>                         <span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="p">},</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;zone-name&quot;</span><span class="p">:</span> <span class="s2">&quot;zone1&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;zone-type&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>                 <span class="p">},</span>
+<span class="o">&gt;</span> <span class="o">+</span>                 <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                         <span class="s2">&quot;entry-name&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;11:22:33:44:55:66:77:88&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;21:22:33:44:55:66:77:88&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>                         <span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="p">},</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;zone-name&quot;</span><span class="p">:</span> <span class="s2">&quot;zone2&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;zone-type&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>             <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>             <span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">+</span>       <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R1 &lt;class &#39;pyfos.pyfos_brocade_zone.defined_configuration&#39;&gt;
+POST http://10.200.151.183/rest/running/zoning/
+defined-configuration?vf-id=128 - CONTENT -&gt;
+&lt;defined-configuration&gt;
+        &lt;cfg&gt;
+                &lt;member-zone&gt;
+                        &lt;zone-name&gt;zone1&lt;/zone-name&gt;
+                        &lt;zone-name&gt;zone2&lt;/zone-name&gt;
+                &lt;/member-zone&gt;
+                &lt;cfg-name&gt;testcfg&lt;/cfg-name&gt;
+        &lt;/cfg&gt;
+        &lt;alias&gt;
+                &lt;alias-name&gt;ali1_test&lt;/alias-name&gt;
+                &lt;member-entry&gt;
+                        &lt;alias-entry-name&gt;70:00:8c:7c:ff:5f:54:00
+                        &lt;/alias-entry-name&gt;
+                        &lt;alias-entry-name&gt;70:00:8c:7c:ff:5f:55:00
+                        &lt;/alias-entry-name&gt;
+                &lt;/member-entry&gt;
+        &lt;/alias&gt;
+        &lt;zone&gt;
+                &lt;zone-type&gt;0&lt;/zone-type&gt;
+                &lt;member-entry&gt;
+                        &lt;entry-name&gt;11:22:33:44:55:66:77:88
+                        &lt;/entry-name&gt;
+                        &lt;entry-name&gt;21:22:33:44:55:66:77:88
+                        &lt;/entry-name&gt;
+                &lt;/member-entry&gt;
+                &lt;zone-name&gt;zone1&lt;/zone-name&gt;
+        &lt;/zone&gt;
+        &lt;zone&gt;
+                &lt;zone-type&gt;0&lt;/zone-type&gt;
+                &lt;member-entry&gt;
+                        &lt;entry-name&gt;11:22:33:44:55:66:77:88
+                        &lt;/entry-name&gt;
+                        &lt;entry-name&gt;21:22:33:44:55:66:77:88
+                        &lt;/entry-name&gt;
+                &lt;/member-entry&gt;
+                &lt;zone-name&gt;zone2&lt;/zone-name&gt;
+        &lt;/zone&gt;
+&lt;/defined-configuration&gt;
+{&#39;success-code&#39;: 201, &#39;success-message&#39;: &#39;Created&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/zoning/
+effective-configuration?vf-id=128 - CONTENT -&gt;
+&lt;effective-configuration&gt;
+        &lt;cfg-action&gt;1&lt;/cfg-action&gt;
+        &lt;checksum&gt;f4edaf2cfa6c629ecaef3ee3460bb1ea&lt;/checksum&gt;
+&lt;/effective-configuration&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r2">
+<span id="r2"></span><h2>Rule-R2<a class="headerlink" href="#rule-r2" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>defined-configuration</em> <cite>DELETE</cite>
+operation. As part of rule its meant to fetch the <em>effective-configuration</em>
+before <cite>DELETE`operation of *defined-configuration* and then execute cfgsave
+after the `DELETE</cite> operation is complete using <em>effective-configuration</em>
+<cite>PATCH</cite> operation. This is used by the <a class="reference internal" href="switch_config_apply.html#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> for
+config apply sequence.</p>
+<blockquote>
+<div><p>Delete defined-configuration config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&lt;</span> <span class="o">-</span><span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>     <span class="s2">&quot;defined-configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>             <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&lt;</span> <span class="o">-</span>                     <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                             <span class="s2">&quot;alias-name&quot;</span><span class="p">:</span> <span class="s2">&quot;ali2_test&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                             <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                     <span class="s2">&quot;alias-entry-name&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                             <span class="s2">&quot;90:00:8c:7c:ff:5f:54:00&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                             <span class="s2">&quot;90:00:8c:7c:ff:5f:55:00&quot;</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                     <span class="p">]</span>
+<span class="o">&lt;</span> <span class="o">-</span>                             <span class="p">}</span>
+<span class="o">&lt;</span> <span class="o">-</span>                     <span class="p">},</span>
+<span class="o">&lt;</span> <span class="o">-</span>                     <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                             <span class="s2">&quot;alias-name&quot;</span><span class="p">:</span> <span class="s2">&quot;ali3_test&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                             <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                     <span class="s2">&quot;alias-entry-name&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                             <span class="s2">&quot;80:00:8c:7c:ff:5f:54:00&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                             <span class="s2">&quot;80:00:8c:7c:ff:5f:55:00&quot;</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                     <span class="p">]</span>
+<span class="o">&lt;</span> <span class="o">-</span>                             <span class="p">}</span>
+<span class="o">&lt;</span> <span class="o">-</span>                     <span class="p">}</span>
+<span class="o">&lt;</span> <span class="o">-</span>             <span class="p">]</span>
+<span class="o">&lt;</span> <span class="o">-</span>     <span class="p">}</span>
+<span class="o">&lt;</span> <span class="o">-</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R2 &lt;class &#39;pyfos.pyfos_brocade_zone.defined_configuration&#39;&gt;
+DELETE http://10.200.151.183/rest/running/zoning/
+defined-configuration?vf-id=128 - CONTENT -&gt;
+&lt;defined-configuration&gt;
+        &lt;alias&gt;
+                &lt;member-entry&gt;
+                        &lt;alias-entry-name&gt;90:00:8c:7c:ff:5f:54:00
+                        &lt;/alias-entry-name&gt;
+                        &lt;alias-entry-name&gt;90:00:8c:7c:ff:5f:55:00
+                        &lt;/alias-entry-name&gt;
+                &lt;/member-entry&gt;
+                &lt;alias-name&gt;ali2_test&lt;/alias-name&gt;
+        &lt;/alias&gt;
+        &lt;alias&gt;
+                &lt;member-entry&gt;
+                        &lt;alias-entry-name&gt;80:00:8c:7c:ff:5f:54:00
+                        &lt;/alias-entry-name&gt;
+                        &lt;alias-entry-name&gt;80:00:8c:7c:ff:5f:55:00
+                        &lt;/alias-entry-name&gt;
+                &lt;/member-entry&gt;
+                &lt;alias-name&gt;ali3_test&lt;/alias-name&gt;
+        &lt;/alias&gt;
+&lt;/defined-configuration&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/zoning/
+effective-configuration?vf-id=128 - CONTENT -&gt;
+&lt;effective-configuration&gt;
+        &lt;cfg-action&gt;1&lt;/cfg-action&gt;
+        &lt;checksum&gt;dee3f061746beddbf4ad1c417bc0a61b&lt;/checksum&gt;
+&lt;/effective-configuration&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r3">
+<span id="r3"></span><h2>Rule-R3<a class="headerlink" href="#rule-r3" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>defined-configuration</em> <cite>PATCH</cite>
+operation. As part of rule its meant to fetch the <em>effective-configuration</em>
+before <cite>PATCH`operation of *defined-configuration* and then execute cfgsave
+after the `PATCH</cite> operation is complete using <em>effective-configuration</em>
+<cite>PATCH</cite> operation. This is used by the <a class="reference internal" href="switch_config_apply.html#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> for
+config apply sequence.</p>
+<blockquote>
+<div><p>PATCH defined-configuration config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;defined-configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;alias-name&quot;</span><span class="p">:</span> <span class="s2">&quot;ali1_test&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                     <span class="s2">&quot;alias-entry-name&quot;</span><span class="p">:</span>
+                                        <span class="s2">&quot;[&#39;70:00:8c:7c:ff:5f:54:00&#39;,</span>
+                                          <span class="s1">&#39;70:00:8c:7c:ff:5f:55:00&#39;</span><span class="p">]</span><span class="s2">&quot;</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;alias-entry-name&quot;</span><span class="p">:</span>
+                                        <span class="s2">&quot;[&#39;70:00:8c:7c:ff:5f:54:00&#39;,</span>
+                                          <span class="s1">&#39;70:00:8c:7c:ff:5f:55:00&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;80:00:8c:7c:ff:5f:55:00&#39;</span><span class="p">]</span><span class="s2">&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;zone&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                     <span class="s2">&quot;entry-name&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;11:22:33:44:55:66:77:88&#39;,</span>
+                                        <span class="s1">&#39;21:22:33:44:55:66:77:88&#39;</span><span class="p">]</span><span class="s2">&quot;</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="s2">&quot;entry-name&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;11:22:33:44:55:66:77:88&#39;]&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;zone-name&quot;</span><span class="p">:</span> <span class="s2">&quot;zone1&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R3 &lt;class &#39;pyfos.pyfos_brocade_zone.defined_configuration&#39;&gt;
+PATCH http://10.200.151.183/rest/running/zoning/
+defined-configuration?vf-id=128 - CONTENT -&gt;
+&lt;defined-configuration&gt;
+        &lt;zone&gt;
+                &lt;zone-name&gt;zone1&lt;/zone-name&gt;
+                &lt;member-entry&gt;
+                        &lt;entry-name&gt;11:22:33:44:55:66:77:88
+                        &lt;/entry-name&gt;
+                &lt;/member-entry&gt;
+        &lt;/zone&gt;
+        &lt;alias&gt;
+                &lt;member-entry&gt;
+                        &lt;alias-entry-name&gt;70:00:8c:7c:ff:5f:54:00
+                        &lt;/alias-entry-name&gt;
+                        &lt;alias-entry-name&gt;70:00:8c:7c:ff:5f:55:00
+                        &lt;/alias-entry-name&gt;
+                        &lt;alias-entry-name&gt;80:00:8c:7c:ff:5f:55:00
+                        &lt;/alias-entry-name&gt;
+                &lt;/member-entry&gt;
+                &lt;alias-name&gt;ali1_test&lt;/alias-name&gt;
+        &lt;/alias&gt;
+&lt;/defined-configuration&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/zoning/
+effective-configuration?vf-id=128 - CONTENT -&gt;
+&lt;effective-configuration&gt;
+        &lt;cfg-action&gt;1&lt;/cfg-action&gt;
+        &lt;checksum&gt;e4356bad642e80b7509002c03161e048&lt;/checksum&gt;
+&lt;/effective-configuration&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r4">
+<span id="r4"></span><h2>Rule-R4<a class="headerlink" href="#rule-r4" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>extension_ip_route</em> <cite>DELETE</cite>
+operation to ignore default routes. If only default routes are
+identified for config operation then there wont be any creation
+of iproute seen.</p>
+<blockquote>
+<div><p>Delete extension-ip-route config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&lt;</span> <span class="o">-</span><span class="p">[</span>
+<span class="o">&lt;</span> <span class="o">-</span>    <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>        <span class="s2">&quot;extension-ip-route&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>            <span class="s2">&quot;dp-id&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>            <span class="s2">&quot;ip-address&quot;</span><span class="p">:</span> <span class="s2">&quot;11.20.50.0&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>            <span class="s2">&quot;ip-gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>            <span class="s2">&quot;ip-prefix-length&quot;</span><span class="p">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>           <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;0/7&quot;</span>
+<span class="o">&lt;</span> <span class="o">-</span>         <span class="p">}</span>
+<span class="o">&lt;</span> <span class="o">-</span>    <span class="p">}</span>
+<span class="o">&lt;</span> <span class="o">-</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R5 &lt;class
+&#39;pyfos.pyfos_brocade_extension_ip_route.extension_ip_route&#39;&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r5">
+<span id="r5"></span><h2>Rule-R5<a class="headerlink" href="#rule-r5" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>extension_ip_route</em> <cite>POST</cite>
+operation to ignore default routes. If only default routes are
+identified for config operation then there wont be any creation
+of iproute seen.</p>
+<blockquote>
+<div><p>Create extension-ip-route config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&gt;</span> <span class="o">+</span><span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>    <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="s2">&quot;extension-ip-route&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="s2">&quot;dp-id&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="s2">&quot;ip-address&quot;</span><span class="p">:</span> <span class="s2">&quot;51.50.50.0&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="s2">&quot;ip-gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="s2">&quot;ip-prefix-length&quot;</span><span class="p">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>           <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;0/7&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>         <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>    <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R4 &lt;class
+&#39;pyfos.pyfos_brocade_extension_ip_route.extension_ip_route&#39;&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r6">
+<span id="r6"></span><h2>Rule-R6<a class="headerlink" href="#rule-r6" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>fibrechannel</em> <cite>PATCH</cite>
+operation. As part of rule its meant to disable the ports and enable them
+after <cite>PATCH</cite> operation.</p>
+<blockquote>
+<div><p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R5 &lt;class &#39;pyfos.pyfos_brocade_fibrechannel.fibrechannel&#39;&gt;
+PATCH http://10.200.151.183/rest/running/brocade-interface/
+fibrechannel?vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/0&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-type&#39;: &#39;Success&#39;, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-code&#39;: 204}
+PATCH http://10.200.151.183/rest/running/brocade-interface/
+fibrechannel?vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/0&lt;/name&gt;
+        &lt;npiv-enabled&gt;0&lt;/npiv-enabled&gt;
+        &lt;speed&gt;16000000000&lt;/speed&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-type&#39;: &#39;Success&#39;, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-code&#39;: 204}
+PATCH http://10.200.151.183/rest/running/brocade-interface/
+fibrechannel?vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/0&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-type&#39;: &#39;Success&#39;, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-code&#39;: 204}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r7">
+<span id="r7"></span><h2>Rule-R7<a class="headerlink" href="#rule-r7" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>effective-configuration</em> <cite>PATCH</cite>
+operation. As part of rule its meant to fetch the <em>effective-configuration</em>
+before <cite>PATCH</cite> operation and use it to populate the checksum
+for the <cite>PATCH</cite> operation</p>
+<blockquote>
+<div><p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R7 &lt;class &#39;pyfos.pyfos_brocade_zone.effective_configuration&#39;&gt;
+PATCH http://10.200.151.183/rest/running/zoning/
+effective-configuration?vf-id=128 - CONTENT -&gt;
+&lt;effective-configuration&gt;
+        &lt;cfg-name&gt;testcfg&lt;/cfg-name&gt;
+        &lt;checksum&gt;dee3f061746beddbf4ad1c417bc0a61b&lt;/checksum&gt;
+&lt;/effective-configuration&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r8">
+<span id="r8"></span><h2>Rule-R8<a class="headerlink" href="#rule-r8" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>fibrechannel-switch</em> <cite>PATCH</cite>
+operation. As part of rule its meant to disable the <em>fibrechannel-switch</em>
+before <cite>PATCH</cite> operation and then perform the expected patch operation
+for the <cite>PATCH</cite> operation</p>
+<blockquote>
+<div><p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R8 &lt;class
+&#39;pyfos.pyfos_brocade_fibrechannel_switch.fibrechannel_switch&#39;&gt;
+PATCH http://10.155.107.42/rest/running/brocade-fibrechannel-switch/
+fibrechannel-switch - CONTENT -&gt;
+&lt;fibrechannel-switch&gt;
+        &lt;name&gt;10:00:00:27:f8:fd:1f:80&lt;/name&gt;
+        &lt;enabled-state&gt;3&lt;/enabled-state&gt;
+&lt;/fibrechannel-switch&gt;
+{&#39;http-resp-code&#39;: 204, &#39;success-type&#39;: &#39;Success&#39;, &#39;success-code&#39;: 204,
+&#39;success-message&#39;: &#39;No Content&#39;}
+PATCH http://10.155.107.42/rest/running/brocade-fibrechannel-switch/
+fibrechannel-switch - CONTENT -&gt;
+&lt;fibrechannel-switch&gt;
+        &lt;name&gt;10:00:00:27:f8:fd:1f:80&lt;/name&gt;
+        &lt;ag-mode&gt;3&lt;/ag-mode&gt;
+&lt;/fibrechannel-switch&gt;
+{&#39;http-resp-code&#39;: 204, &#39;success-type&#39;: &#39;Success&#39;, &#39;success-code&#39;: 204,
+&#39;success-message&#39;: &#39;No Content&#39;}
+.......More ports below.......
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r9">
+<span id="r9"></span><h2>Rule-R9<a class="headerlink" href="#rule-r9" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>n-port-map</em> <cite>DELETE</cite>
+operation where all n-port-map with configured fports are deleted.</p>
+<blockquote>
+<div><p>DELETE  n-port-map config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&lt;</span> <span class="o">-</span><span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>    <span class="s2">&quot;n-port-map&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>         <span class="s2">&quot;configured-f-port-list&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>           <span class="s2">&quot;f-port&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&lt;</span> <span class="o">-</span>                <span class="s2">&quot;0/0&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                <span class="s2">&quot;0/1&quot;</span>
+<span class="o">&lt;</span> <span class="o">-</span>            <span class="p">]</span>
+<span class="o">&lt;</span> <span class="o">-</span>         <span class="p">},</span>
+<span class="o">&lt;</span> <span class="o">-</span>         <span class="s2">&quot;failback-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>         <span class="s2">&quot;failover-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>         <span class="s2">&quot;n-port&quot;</span><span class="p">:</span> <span class="s2">&quot;0/16&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>         <span class="s2">&quot;online-status&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>         <span class="s2">&quot;reliable-status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+<span class="o">&lt;</span> <span class="o">-</span>    <span class="p">}</span>
+<span class="o">&lt;</span> <span class="o">-</span><span class="p">},</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R9 &lt;class &#39;pyfos.pyfos_brocade_access_gateway.n_port_map&#39;&gt;
+DELETE http://10.155.107.42/rest/running/brocade-access-gateway/
+n-port-map - CONTENT -&gt;
+&lt;n-port-map&gt;
+        &lt;n-port&gt;0/16&lt;/n-port&gt;
+&lt;/n-port-map&gt;
+.......More ports below.......
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r10">
+<span id="r10"></span><h2>Rule-R10<a class="headerlink" href="#rule-r10" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>n-port-map</em> <cite>PATCH</cite>
+operation. As part of rule its meant to configure all <em>n-port-maps</em>
+with configured fports.</p>
+<blockquote>
+<div><p>PATCH  n-port-map config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&gt;</span> <span class="o">+</span><span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>    <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="s2">&quot;n-port-map&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                <span class="s2">&quot;failback-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                <span class="s2">&quot;failover-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                <span class="s2">&quot;n-port&quot;</span><span class="p">:</span> <span class="s2">&quot;0/23&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                <span class="s2">&quot;online-status&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                <span class="s2">&quot;reliable-status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>    <span class="p">]</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R10 &lt;class &#39;pyfos.pyfos_brocade_access_gateway.n_port_map&#39;&gt;
+PATCH http://10.155.107.42/rest/running/brocade-access-gateway/
+n-port-map - CONTENT -&gt;
+&lt;n-port-map&gt;
+        &lt;n-port&gt;0/16&lt;/n-port&gt;
+        &lt;failover-enabled&gt;1&lt;/failover-enabled&gt;
+        &lt;failback-enabled&gt;1&lt;/failback-enabled&gt;
+        &lt;configured-f-port-list&gt;
+                &lt;f-port&gt;0/0&lt;/f-port&gt;
+                &lt;f-port&gt;0/1&lt;/f-port&gt;
+        &lt;/configured-f-port-list&gt;
+&lt;/n-port-map&gt;
+{&#39;success-message&#39;: &#39;No Content&#39;, &#39;success-type&#39;: &#39;Success&#39;,
+&#39;success-code&#39;: 204, &#39;http-resp-code&#39;: 204}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r11">
+<span id="r11"></span><h2>Rule-R11<a class="headerlink" href="#rule-r11" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>port-group</em> <cite>DELETE</cite>
+operation to skip default <em>port-group</em> <strong>pg0</strong>. if there
+are no port-group deltions then it wont do anything.</p>
+<blockquote>
+<div><p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R11 &lt;class &#39;pyfos.pyfos_brocade_access_gateway.port_group&#39;&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r12">
+<span id="r12"></span><h2>Rule-R12<a class="headerlink" href="#rule-r12" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>port-group</em> <cite>POST</cite>
+operation to skip default <em>port-group</em> <strong>pg0</strong> from creation.</p>
+<blockquote>
+<div><p>POST port-group config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&gt;</span> <span class="o">+</span><span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>    <span class="s2">&quot;port-group&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="s2">&quot;port-group-id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="s2">&quot;port-group-mode&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="s2">&quot;load-balancing-mode-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="s2">&quot;multiple-fabric-name-monitoring-mode-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="p">},</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="s2">&quot;port-group-n-ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="s2">&quot;n-port&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                <span class="s2">&quot;0/4&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="p">},</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="s2">&quot;port-group-name&quot;</span><span class="p">:</span> <span class="s2">&quot;pg1&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>    <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R12 &lt;class &#39;pyfos.pyfos_brocade_access_gateway.port_group&#39;&gt;
+POST http://10.155.107.42/rest/running/brocade-access-gateway/
+port-group - CONTENT -&gt;
+&lt;port-group&gt;
+        &lt;port-group-id&gt;1&lt;/port-group-id&gt;
+        &lt;port-group-mode&gt;
+                &lt;load-balancing-mode-enabled&gt;0
+                &lt;/load-balancing-mode-enabled&gt;
+                &lt;multiple-fabric-name-monitoring-mode-enabled&gt;0
+                &lt;/multiple-fabric-name-monitoring-mode-enabled&gt;
+        &lt;/port-group-mode&gt;
+        &lt;port-group-n-ports&gt;
+                &lt;n-port&gt;0/4&lt;/n-port&gt;
+        &lt;/port-group-n-ports&gt;
+        &lt;port-group-name&gt;pg1&lt;/port-group-name&gt;
+&lt;/port-group&gt;
+{&#39;success-message&#39;: &#39;Created&#39;, &#39;success-type&#39;: &#39;Success&#39;,
+&#39;success-code&#39;: 201, &#39;http-resp-code&#39;: 201}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rule-r13">
+<span id="r13"></span><h2>Rule-R13<a class="headerlink" href="#rule-r13" title="Permalink to this headline">¶</a></h2>
+<p>This rule is a predefined rule for <em>port-group</em> <cite>PATCH</cite>
+operation to only use default <em>port-group</em> <strong>pg0</strong> for modification.</p>
+<blockquote>
+<div><p>PATCH port-group config diff:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;port-group&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">&quot;port-group-id&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port-group-n-ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>           <span class="s2">&quot;n-port&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;0/16&#39;, &#39;0/17&#39;, &#39;0/18&#39;, &#39;0/19&#39;, &#39;0/20&#39;,</span>
+                          <span class="s1">&#39;0/21&#39;</span><span class="p">,</span> <span class="s1">&#39;0/22&#39;</span><span class="p">,</span> <span class="s1">&#39;0/23&#39;</span><span class="p">]</span><span class="s2">&quot;</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="o">+</span>           <span class="s2">&quot;n-port&quot;</span><span class="p">:</span> <span class="s2">&quot;[&#39;0/6&#39;, &#39;0/7&#39;, &#39;0/8&#39;, &#39;0/9&#39;, &#39;0/12&#39;, &#39;0/13&#39;,</span>
+                          <span class="s1">&#39;0/14&#39;</span><span class="p">,</span> <span class="s1">&#39;0/15&#39;</span><span class="p">,</span> <span class="s1">&#39;0/16&#39;</span><span class="p">,</span> <span class="s1">&#39;0/17&#39;</span><span class="p">,</span> <span class="s1">&#39;0/18&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;0/19&#39;</span><span class="p">,</span> <span class="s1">&#39;0/20&#39;</span><span class="p">,</span> <span class="s1">&#39;0/21&#39;</span><span class="p">,</span> <span class="s1">&#39;0/22&#39;</span><span class="p">,</span> <span class="s1">&#39;0/23&#39;</span><span class="p">]</span><span class="s2">&quot;</span>
+             <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>Execute  R13 &lt;class &#39;pyfos.pyfos_brocade_access_gateway.port_group&#39;&gt;
+PATCH http://10.155.107.42/rest/running/brocade-access-gateway/
+port-group - CONTENT -&gt;
+&lt;port-group&gt;
+        &lt;port-group-id&gt;0&lt;/port-group-id&gt;
+        &lt;port-group-n-ports&gt;
+                &lt;n-port&gt;0/6&lt;/n-port&gt;
+                &lt;n-port&gt;0/7&lt;/n-port&gt;
+                &lt;n-port&gt;0/8&lt;/n-port&gt;
+                &lt;n-port&gt;0/9&lt;/n-port&gt;
+                &lt;n-port&gt;0/12&lt;/n-port&gt;
+                &lt;n-port&gt;0/13&lt;/n-port&gt;
+                &lt;n-port&gt;0/14&lt;/n-port&gt;
+                &lt;n-port&gt;0/15&lt;/n-port&gt;
+                &lt;n-port&gt;0/16&lt;/n-port&gt;
+                &lt;n-port&gt;0/17&lt;/n-port&gt;
+                &lt;n-port&gt;0/18&lt;/n-port&gt;
+                &lt;n-port&gt;0/19&lt;/n-port&gt;
+                &lt;n-port&gt;0/20&lt;/n-port&gt;
+                &lt;n-port&gt;0/21&lt;/n-port&gt;
+                &lt;n-port&gt;0/22&lt;/n-port&gt;
+                &lt;n-port&gt;0/23&lt;/n-port&gt;
+        &lt;/port-group-n-ports&gt;
+&lt;/port-group&gt;
+{&#39;success-message&#39;: &#39;No Content&#39;, &#39;success-type&#39;: &#39;Success&#39;,
+&#39;success-code&#39;: 204, &#39;http-resp-code&#39;: 204}
+</pre></div>
+</div>
 </div></blockquote>
 <dl class="class">
 <dt id="pyfos_rule_manager.rmanyclass">
@@ -290,6 +893,7 @@ implement default like this:</p>
 </dd></dl>
 
 </div>
+</div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last">Module <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a>
@@ -302,6 +906,28 @@ Module <a class="reference internal" href="pyfos_config_manager.html#module-pyfo
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code> - PyFOS module to provide rule based handling        Support.</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#table-for-all-predefined-rules">Table for all predefined rules</a></li>
+<li><a class="reference internal" href="#rule-r1">Rule-R1</a></li>
+<li><a class="reference internal" href="#rule-r2">Rule-R2</a></li>
+<li><a class="reference internal" href="#rule-r3">Rule-R3</a></li>
+<li><a class="reference internal" href="#rule-r4">Rule-R4</a></li>
+<li><a class="reference internal" href="#rule-r5">Rule-R5</a></li>
+<li><a class="reference internal" href="#rule-r6">Rule-R6</a></li>
+<li><a class="reference internal" href="#rule-r7">Rule-R7</a></li>
+<li><a class="reference internal" href="#rule-r8">Rule-R8</a></li>
+<li><a class="reference internal" href="#rule-r9">Rule-R9</a></li>
+<li><a class="reference internal" href="#rule-r10">Rule-R10</a></li>
+<li><a class="reference internal" href="#rule-r11">Rule-R11</a></li>
+<li><a class="reference internal" href="#rule-r12">Rule-R12</a></li>
+<li><a class="reference internal" href="#rule-r13">Rule-R13</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="pyfos_class_manager.html"
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code> - PyFOS module to Manage all pyfos classes.</a></p>
@@ -346,7 +972,7 @@ Module <a class="reference internal" href="pyfos_config_manager.html#module-pyfo
         <li class="right" >
           <a href="pyfos_class_manager.html" title="pyfos_class_manager - PyFOS module to Manage all pyfos classes."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

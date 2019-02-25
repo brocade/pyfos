@@ -44,7 +44,7 @@ gigabitethernet_enabled_state_set.py: Usage
 .. function:: gigabitethernet_enabled_state_set.port_state_set(\
 session, name, enabled)
 
-    *Modify extension gigabitethernet state*
+    *Modify Extension Gigabitethernet State*
 
         Example Usage of the Method::
 
@@ -77,7 +77,7 @@ session, name, enabled)
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
-from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
+from pyfos.pyfos_brocade_interface import gigabitethernet
 from pyfos.utils import brcd_util
 
 isHttps = "0"

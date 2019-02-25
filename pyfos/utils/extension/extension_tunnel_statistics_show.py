@@ -19,7 +19,7 @@
 :mod:`extension_tunnel_statistics_show` - PyFOS util to display tunnel \
 statistics.
 ***********************************************************************************
-The :mod:`extension_tunnel_statistics_show` util to display tunnel statistics.
+The :mod:`extension_tunnel_statistics_show` util displays tunnel statistics.
 
 This module is a stand-alone script that can be used to show extension
 tunnel statistics.
@@ -36,7 +36,7 @@ extension_tunnel_statistics_show.py: Usage
 
 * Util Script Options:
     * -n,--name=NAME: Sets the name or slot/port of the tunnel.
-    * --operational-status: Sets the operational status of the ciruit.
+    * --operational-status: Sets the operational status of the circuit.
 
 * Output:
     * Python dictionary content with RESTCONF response data.

@@ -16,49 +16,286 @@
 
 """
 
-:mod:`switch_config_diff` - PyFOS util for specific config op use case.
+:mod:`switch_config_diff` - PyFOS util to detect configuration drift from dump.
 ***********************************************************************************
-The :mod:`switch_config_diff` provides for a specific config op use case.
+The :mod:`switch_config_diff` PyFOS util to detect configuration drift from\
+dump.
 
-This module is a stand-alone script that can be used to display
-drifted attributes between the current switch configuration and a previously
-saved configuration files.
+This module is a stand-alone script that is used to display the drifted
+configurations in terms of different *config true* attributes of an object
+instance compared to the corresponding instance from an existing dump file.
+The drift is between the current switch configuration and a previously saved
+dump configuration file.
 
 The configuration files are saved by :mod:`switch_config_dump` script.
 
-The configuration files can be in spreadsheet format or in JSON format.
-By default, spreadsheet format is used. The name of the file is
-given with/without vfid in filename format of .<vfid>.<xlsx/json> for
---compare option. For JSON format configuration files, --json option
-added to --compare option is given instead. For using the config
-functionality for only specific objects configfilters.json file should
-be populated with the list of container names and should be present
-in the execution directory.
-
 * Inputs:
-    * -L=<login>: Login ID. If not provided, an interactive
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, an interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
-    * -i=<IP address>: IP address.
-    * --compare=<compare dump file>: name of the directory that
+    * -i=<IP address>: The IP address.
+    * --compare=<compare dump file>: The name of the directory that
         contains the XLSX/JSON encoded switch configuration files with
-        name of the file with/without vfid in the dump filename of format
-        _<vfid>.<file extension>. If vfid is specified only that vfid
-        is used else it will try and detect all vfids for loading and
-        config operation.
-    * --json: Use JSON Format, Default is XLSX format. [Optional]
+        name of the file with or without a vfid in the dump filename in the
+        format _<vfid>.<file extension>. If the vfid is specified, only that
+        vfid is used; otherwise it detects all vfids for loading and
+        drift detection for configuration operation.
+    * --json: Use JSON format, The default is XLSX format. [Optional]
 
-* Outputs:
-    * List of attributes that have drifted.
+* Output:
+    * Displays the list of attributes that have drifted.
+
+**Assumptions**:
+
+    1. The switch_config_dump contains only read-write supported objects
+       (objects that supports **POST, PATCH, DELETE, PUT** operations).
+       Therefore, the diff operation is supported for read-write objects.
+    2. The switch_config_dump of objects contains only **config true**
+       attributes as per yang in the *XLSX* format, but for *JSON* all
+       attributes are dumped. However, in both the format types only
+       **config true** attributes diff is displayed. This is because config
+       false attributes are runtime stats/state values and are dependent on
+       environment and are not supported for configuration operations.
+    3. The filtering support for switch_config_diff is limited to the object
+       level (filtering is supported at the top level container/list). The
+       filtering support is not extended to the individual attribute leaves.
+    4. The complete list of objects available for configuration operations
+       should be part of :mod:`pyfos_class_manager`. Please ensure the object
+       is part of :py:obj:`pyfos.manager.pyfos_class_manager.clslist` before
+       it can be used for configuration operation.
+
+**Object Filtering Support**:
+
+    The diff util supports the object filtering (selectively using one or
+    more objects for a config dump, diff, apply sequence). Follow the
+    procedure below to selectively apply the configuration operations.
+
+    1. Create a file with the name *configfilters.json*.
+    2. Add the container name for all objects to be used for configuration
+       operation.
+    3. Put the *configfilters.json* file in the execution directory. Otherwise,
+       no user available CLI options are supported to pass this filename.
+    4. If the **configfilter.json** file is empty then all objects in the
+       :mod: `pyfos_class_manager` list are used for configuration operation.
+    5. If the **configfilter.json** file is not empty, only the objects in
+       the filters file are used for configuration operation.
+
+    Example Content of the *configfilters.json* File::
+
+        [
+            "fibrechannel-switch",
+            "extesnion-tunnel"
+        ]
+
+**Using the switch_config_diff utility**:
+
+    1. Collect the dump from the switch.
+        To use the switch_config_diff functionality, you should already
+        have a known dump file with the configuration from the switch.
+        Please check the util :mod:`switch_config_dump` for steps to
+        collect the configuration dump from the switch.
+
+    2. File name format for diff.
+        The dump configuration file name follows the format:
+        *FOS_<switch IP address>_<date>_<time stamp>_<vfid>.<format>*.
+        For logical switch supported switches, the configuration dump
+        will be across multiple files each with a different **vfid** in the
+        filename. For logical switch or VF not supported the keyword
+        **None** replaces the **vfid**. However, to pass multiple filename
+        for diff functionality the **vfid** should be skipped when providing
+        the filename if you want to run it across multiple vfids.
+
+        Example::
+
+            Dump filename :FOS_10.155.107.42_2019_02_14_09_15_14_None.json
+            Diff filename :FOS_10.155.107.42_2019_02_14_09_15_14.json
+
+    3. File Type Formats.
+        The configuration utility provides two file type formats supported
+        for the config diff functionality (*XLSX* and *JSON*). The default
+        mode is *XLSX* and is implicit in the command line arguments. However
+        for *JSON* format you should explicitly pass **--json**.
+
+        Similar to :mod:`switch_config_diff` there is another
+        utility :mod:`switch_config_apply` which can do a diff and even revert
+        from drifted configuration on a switch.
+
+        Example XLSX::
+
+            switch_config_diff.py  -i 10.200.151.183 -L admin -P password
+            --compare=FOS_10.155.107.42_2019_02_18_01_30_55.xlsx
+
+        Example JSON::
+
+            switch_config_diff.py  -i 10.200.151.183 -L admin -P password
+            --json --compare=FOS_10.155.107.42_2019_02_18_01_30_55.json
+
+        Example Execution::
+
+            ./switch_config_diff.py  -i 10.155.107.42 -L admin -P password
+            --json --compare=FOS_10.155.107.42_2019_02_14_09_15_14_None.json
+            Handle Diff Start.
+            Loading Dump configuration Start.
+            Loading from file : FOS_10.155.107.42_2019_02_14_09_15_14_None.json
+            Loading Dump configuration Complete.
+            Loading Switch configuration Start[ None ].
+            Loading Switch configuration Complete.
+            Init Class Ordering.
+            Calculating Diff Start
+            Calculating Diff Complete.
+            "------Colored------------"
+               [
+                   {
+                       [
+                           {
+                               "fibrechannel-switch": {
+                                   "name": "10:00:00:27:f8:fd:1f:80",
+            < -                    "user-friendly-name": "EDGE"
+            ---
+            > +                    "user-friendly-name": "AG"
+                               }
+                           }
+                       ]
+                   }
+               ]
+            "------No Color------------"
+               [
+                   {
+                       [
+                           {
+                               "fibrechannel-switch": {
+                                   "name": "10:00:00:27:f8:fd:1f:80",
+            < -                    "user-friendly-name": "EDGE"
+            ---
+            > +                    "user-friendly-name": "AG"
+                               }
+                           }
+                       ]
+                   }
+               ]
+
+
+**Working Of switch_config_diff**:
+
+    1. The switch_config_diff is based on the principle that only if config
+       true attributes are different then there is a diff. The steps involved
+       in the diff calculation process are as follows.
+
+        * Find all instances that are missing in the dumped configurations and
+          mark them for deletion.
+        * Find all instances that are missing in the switch configurations and
+          mark them for creations.
+        * Find the matching old and new instances whose keys are the same
+          for diff calculation.
+        * Once the two instances are identified for diff calculation then
+          they are used to calculate the diff between their attributes
+          from top to bottom for config true attributes only.
+        * Once the attributes are compared, their diff is marked at the
+          attribute level and also at an object level using bitmasked
+          flags along with a cached drifted value.
+        * The type of diff identified can be easily mapped into
+          different REST CRUD operations.
+        * Once the diff has been completed the diff object can be
+          used for generating diff corresponding payload itself based
+          on different CRUD operations.
+        * A single object can participate in multiple CRUD operations
+          with different payload generation as per diff identifcation
+          (for example`defined-configuration`).
+
+    2. The display format for different diff identified are shown below.
+       For leaf level only modification identified, the display of
+       the restobject will only have its corresponding key values along with
+       the diff modification identified for different attributes (leaf,list).
+       However, in case of creation or deletion the corresponding object
+       instance is missing in either the old list or the new list.
+       Therefore in case of POST or DELETE operations identified by diff
+       utility the complete object dump will be seen.
+
+        Example Yang Leaf's Modification::
+
+                {
+                     "gigabitethernet": {
+                         "name": "0/17",
+            < -          "speed": "10000000000"
+            ---
+            > +          "speed": "1000000000"
+                     }
+                }
+
+        Example Yang List Modification::
+
+                {
+                        "defined-configuration": {
+                                "alias": [
+                                        {
+                                                "alias-name": "ali1_test",
+                                                "member-entry": {
+            < -                                     "alias-entry-name":
+            < - "['70:00:8c:7c:ff:5f:54:00', '70:00:8c:7c:ff:5f:55:00']"
+            ---
+            > +                                     "alias-entry-name":
+            > + "['70:00:8c:7c:ff:5f:54:00']"
+                                                }
+                                        }
+                                ]
+                        }
+                }
+
+        Example Yang List Creation::
+
+                {
+                        "defined-configuration": {
+                                "alias": [
+            > +                     {
+            > +                             "alias-name": "ali1_test",
+            > +                             "member-entry": {
+            > +                                     "alias-entry-name": [
+            > +                                      "70:00:8c:7c:ff:5f:54:00",
+            > +                                      "70:00:8c:7c:ff:5f:55:00"
+            > +                                     ]
+            > +                             }
+            > +                     },
+                                ]
+                        }
+                }
+
+        Example Diff Object Creation::
+
+            > +        [
+            > +            {
+            > +                "extension-ip-route": {
+            > +                    "dp-id": "0",
+            > +                    "ip-address": "51.50.50.0",
+            > +                    "ip-gateway": "10.200.14.18",
+            > +                    "ip-prefix-length": "24",
+            > +                    "name": "0/7"
+            > +                }
+            > +            }
+            > +        ]
+
+        Example Diff Object Deletion::
+
+            < -            {
+            < -                "n-port-map": {
+            < -                    "configured-f-port-list": {
+            < -                        "f-port": [
+            < -                            "0/6",
+            < -                            "0/7"
+            < -                        ]
+            < -                    },
+            < -                    "failback-enabled": "1",
+            < -                    "failover-enabled": "1",
+            < -                    "n-port": "0/19",
+            < -                    "online-status": "0",
+            < -                    "reliable-status": "1"
+            < -                }
+            < -            },
 
 """
 
 import sys
-import switch_config_util
-import switch_config_obj
 from pyfos import pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
 from pyfos.utils import brcd_util
 from pyfos.manager.pyfos_config_manager import config_manager
 
@@ -70,28 +307,6 @@ def usage():
     print("    --json                      ",
           "Use JSON format, Default is XLSX format. [Optional]")
     print("")
-
-
-def process_diff(session, envelope_name, in_json, template, inputs, vf):
-    if vf == 128:
-        print("processing diff for default switch or non-vf")
-    else:
-        print("processing diff for VFID", vf)
-
-    pyfos_auth.vfid_set(session, vf)
-    if vf == 128:
-        vf_based_name = envelope_name
-    else:
-        vf_based_name = envelope_name + "." + str(vf)
-
-    for obj in switch_config_obj.objects_to_process:
-        if obj["obj_name"] == pyfos_switchfcport.fibrechannel and 'template' in inputs and 'reffcport' in inputs:
-            switch_config_util.process_object(
-                session, vf_based_name, obj, True, False, in_json, template,
-                [{"name": inputs['reffcport']}])
-        else:
-            switch_config_util.process_object(
-                session, vf_based_name, obj, True, False, in_json, template)
 
 
 def main(argv):

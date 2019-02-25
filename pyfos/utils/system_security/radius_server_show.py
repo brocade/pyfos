@@ -15,9 +15,10 @@
 
 """
 
-:mod:`radius_server_show` - PyFOS util to show RADIUS sever configuraions.
+:mod:`radius_server_show` - PyFOS util to show RADIUS sever configurations.
 *******************************************************************************
-The :mod:`radius_server_show` util supports showing RADIUS sever configuraions.
+The :mod:`radius_server_show` util supports showing RADIUS sever \
+configurations.
 
 This module is a stand-alone script and API that can be used to display a \
 single RADIUS server or list of RADIUS servers.
@@ -35,7 +36,7 @@ single RADIUS server or list of RADIUS servers.
 |   -v,--verbose           Verbose mode [OPTIONAL].
 
 * Output:
-    * The radius server or list of radius server configurations.
+    * The RADIUS server or list of RADIUS server configurations.
 
 """
 

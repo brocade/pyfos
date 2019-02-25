@@ -1,4 +1,4 @@
-PyFOS - 1.1.1
+PyFOS - 1.2.0
 =============
 
 ### What is PyFOS ###
@@ -26,7 +26,7 @@ PyFOS - 1.1.1
 
 ### FOS and PyFOS versions ###
 
-    PyFOS 1.1.1 covers up to FOS 8.2.1
+    PyFOS 1.2.0 covers up to FOS 8.2.1b
 
 ### Directory structure ###
 
@@ -45,27 +45,18 @@ PyFOS - 1.1.1
 
 ### Installation ###
 
-    1) create library directories
-        mkdir -p ~<login>/python_lib/lib/python3.5/site-packages
+    1) install dependencies
+        pip3 install --user openpyxl colorconsole xlrd jsondiff requests xmltodict
 
-    2) set env variable for library directory according to your shell env
+    2) pyfos can be installed directly from github.com or using pip
 
-        for example for csh:
+        2.1) install pyfos directly from github.com into the library path
+            git clone https://github.com/brocade/pyfos
+            cd pyfos
+            pip3 install --user -e .
 
-            setenv PYTHONPATH ~<login>/python_lib/lib/python3.5/site-packages
-
-    3) install dependencies
-        pip3 install openpyxl colorconsole xlrd jsondiff requests xmltodict --prefix=~<login>/python_lib
-
-    4) pyfos can be installed directly from github.com or using pip
-
-        4.1) install pyfos directly from github.com into the library path
-            cd <pyfos directory>
-            python3 setup.py install --prefix=~<login>/python_lib
-
-        4.2) install pyfos using pip into the library path
-            cd <pyfos directory>
-            pip3 install pyfos --prefix=~<login>/python_lib
+        2.2) install pyfos using pip into the library path
+            pip3 install --user pyfos
 
 ### HTML based documentation ###
 

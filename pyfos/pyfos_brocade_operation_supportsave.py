@@ -16,12 +16,12 @@
 
 """
 
-:mod:`pyfos_brocade_operation_supportsave` - PyFOS module for supportsave \
+:mod:`pyfos_brocade_operation_supportsave` - PyFOS module for the supportsave \
  operation.
-***************************************************************************\
-************
+******************************************************************************\
+***********
 The :mod:`pyfos_brocade_operation_supportsave` module provides REST support for
- supportsave operation.
+ the supportsave operation.
 
 """
 
@@ -31,7 +31,7 @@ import pyfos.pyfos_version as ver
 
 
 class supportsave(pyfos_rest_util.rest_object):
-    """Class of supportsave operation
+    """Class of the supportsave Operation
 
     Important Class Members:
 
@@ -53,12 +53,12 @@ class supportsave(pyfos_rest_util.rest_object):
 
         .. method:: post()
 
-            Create an object and post. The required fields are set
+            Configures supportsave. The required fields are set
             within the object using the attribute's set method.
             This method is used to trigger the supportsave operation in the \
             switch.
 
-            Example Usage of the Method to Post Supportsave Operation:
+            Example Usage of the Method to Post the Supportsave Operation:
 
             .. code-block:: python
 

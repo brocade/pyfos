@@ -45,6 +45,12 @@ class fan(pyfos_rest_util.rest_object):
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
         | airflow-direction                 | Air flow direction of the Fan  |:meth:`peek_airflow_direction`                         |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-alive                        | Number of days the Fan         |:meth:`peek_time_alive`                                |
+        |                                   | has been powered on            |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-awake                        | Number of days since the Fan   |:meth:`peek_time_awake`                                |
+        |                                   | was last powered on            |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
 
     *Object methods*
 
@@ -106,6 +112,18 @@ class fan(pyfos_rest_util.rest_object):
 
             :rtype: None or serial number of the fan
 
+        .. method:: peek_time_awake()
+
+            Reads the number of days the fan has been powered on.
+
+            :rtype: None or time awake of the fan.
+
+        .. method:: peek_time_alive()
+
+            Reads number of days since the fan was last powered on.
+
+            :rtype: None or time alive of the fan.
+
         """
 
     def __init__(self, dictvalues={}):
@@ -134,6 +152,14 @@ class fan(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "serial-number", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-alive", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-awake", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
 
         self.load(dictvalues, 1)
 
@@ -167,6 +193,15 @@ class power_supply(pyfos_rest_util.rest_object):
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
         | temperature                       | Temperature of the power       |:meth:`peek_temperature`                               |
         |                                   | supply sensor                  |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-alive                        | Number of days the Unit        |:meth:`peek_time_alive`                                |
+        |                                   | has been powered on            |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-awake                        | Number of days since the Unit  |:meth:`peek_time_awake`                                |
+        |                                   | last powered on                |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | power-usage                       | power being consumed           |:meth:`peek_power_usage`                               |
+        |                                   | by the unit                    |                                                       |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
 
     *Object methods*
@@ -241,6 +276,24 @@ class power_supply(pyfos_rest_util.rest_object):
 
             :rtype: None or Temperature of the powersupply sensor.
 
+        .. method:: peek_power_usage()
+
+            Reads power being consumed by the object.
+
+            :rtype: None or power usage by the Unit.
+
+        .. method:: peek_time_awake()
+
+            Reads the number of days the powersupply has been powered on.
+
+            :rtype: None or time awake of the powersupply.
+
+        .. method:: peek_time_alive()
+
+            Reads number of days since the powersupply was last powered on.
+
+            :rtype: None or time alive of the powersupply.
+
         """
 
     def __init__(self, dictvalues={}):
@@ -275,6 +328,18 @@ class power_supply(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "serial-number", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "power-usage", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-alive", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-awake", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
 
         self.load(dictvalues, 1)
 
@@ -337,6 +402,18 @@ class blade(pyfos_rest_util.rest_object):
         | extension-ge-mode                 | Extension blade ge mode        |:meth:`peek_extension_ge_mode`                         |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
         | extension-ge-mode                 | Extension blade ge mode        |:meth:`set_extension_ge_mode`                          |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-alive                        | Number of days the blade       |:meth:`peek_time_alive`                                |
+        |                                   | has been powered on            |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-awake                        | Number of days since the       |:meth:`peek_time_awake`                                |
+        |                                   | blade last powered on          |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | power-usage                       | power being consumed           |:meth:`peek_power_usage`                               |
+        |                                   | by the blade                   |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | power-consumption                 | Power consumption of the       |:meth:`peek_power_consumption`                         |
+        |                                   | hardware component             |                                                       |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
 
     *Object methods*
@@ -498,6 +575,30 @@ class blade(pyfos_rest_util.rest_object):
             :rtype: dictionary of error or success response and value
              with extension-ge-mode as key.
 
+        .. method:: peek_power_consumption()
+
+            Reads power consumption from the blade object.
+
+            :rtype: None or power consumption by the blade.
+
+        .. method:: peek_power_usage()
+
+            Reads power being consumed by the blade object.
+
+            :rtype: None or power usage by the blade.
+
+        .. method:: peek_time_awake()
+
+            Reads the number of days the blade has been powered on.
+
+            :rtype: None or time awake of the blade.
+
+        .. method:: peek_time_alive()
+
+            Reads number of days since the blade was last powered on.
+
+            :rtype: None or time alive of the blade.
+
         """
 
     def __init__(self, dictvalues={}):
@@ -573,5 +674,21 @@ class blade(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "subnet-mask", pyfos_type.type_ip_addr,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "power-consumption", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "power-usage", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-alive", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-awake", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
 
         self.load(dictvalues, 1)

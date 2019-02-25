@@ -187,7 +187,8 @@ class fosversion():
     def __eq__(self, rhs):
         if isinstance(rhs, fosversion):
             if (self.major == rhs.major) and (self.minor == rhs.minor)\
-                   and (self.patch == rhs.patch):
+                   and (self.patch == rhs.patch)\
+                   and compareRelease(self.release, rhs.release) == 0:
                 return True
         return False
 
@@ -237,6 +238,8 @@ class fosversion_range():
 
 VER_820 = "8.2.0"
 VER_RANGE_820_ABOVE = {'START': "8.2.0", 'END': "9999.9999.9"}
+VER_RANGE_820_TO_821A = {'START': "8.2.0", 'END': "8.2.1a"}
 VER_RANGE_820_PATCH_A = {'START': "8.2.0", 'END': "8.2.0a"}
 VER_RANGE_820a_and_ABOVE = {'START': "8.2.0a", 'END': "9999.9999.9"}
 VER_RANGE_821_and_ABOVE = {'START': "8.2.1", 'END': "9999.9999.9"}
+VER_RANGE_821b_and_ABOVE = {'START': "8.2.1b", 'END': "9999.9999.9"}

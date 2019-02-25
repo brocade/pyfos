@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>switch_config_apply - PyFOS util for specific config op use case. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>switch_config_apply - PyFOS util for applying configurations from dump. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="switch_config_diff - PyFOS util for specific config op use case." href="switch_config_diff.html" />
+    <link rel="next" title="switch_config_diff - PyFOS util to detect configuration drift from dump." href="switch_config_diff.html" />
     <link rel="prev" title="switch_show - PyFOS util for specific switch op use case." href="switch_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="switch_config_diff.html" title="switch_config_diff - PyFOS util for specific config op use case."
+          <a href="switch_config_diff.html" title="switch_config_diff - PyFOS util to detect configuration drift from dump."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="switch_show.html" title="switch_show - PyFOS util for specific switch op use case."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,74 +42,1169 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-switch_config_apply"></span><div class="section" id="switch-config-apply-pyfos-util-for-specific-config-op-use-case">
-<h1><a class="reference internal" href="#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> - PyFOS util for specific config op use case.<a class="headerlink" href="#switch-config-apply-pyfos-util-for-specific-config-op-use-case" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> provides for a specific config op use case.</p>
-<p>This module is a stand-alone script that can be used to apply saved
-configuration files to the switch. Any drift will be reset to the
-saved value.</p>
-<p>If <a class="reference internal" href="pyfos_brocade_zone.html#pyfos_brocade_zone.defined_configuration" title="pyfos_brocade_zone.defined_configuration"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_brocade_zone.defined_configuration</span></code></a> is changed,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">cfgsave()</span></code> is executed
-to apply the changes to persistent database. If
-<a class="reference internal" href="pyfos_brocade_zone.html#pyfos_brocade_zone.effective_configuration" title="pyfos_brocade_zone.effective_configuration"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_brocade_zone.effective_configuration</span></code></a> is changed,
-appropriate <code class="xref py py-func docutils literal notranslate"><span class="pre">cfgenable()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">cfgsave()</span></code> or
-<code class="xref py py-func docutils literal notranslate"><span class="pre">cfgdisable()</span></code> is called.</p>
-<p>The configuration files are saved by <a class="reference internal" href="switch_config_dump.html#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> script.</p>
-<p>The configuration files can be in spreadsheet format or in JSON format.
-By default, spreadsheet format is used. The name of the file is
-given with/without vfid in filename format of .&lt;vfid&gt;.&lt;xlsx/json&gt; for
-–compare option. For JSON format configuration files, –json option
-added to –compare option is given instead. For using the config
-functionality for only specific objects configfilters.json file should
-be populated with the list of container names and should be present
-in the execution directory.</p>
+  <span class="target" id="module-switch_config_apply"></span><div class="section" id="switch-config-apply-pyfos-util-for-applying-configurations-from-dump">
+<h1><a class="reference internal" href="#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> - PyFOS util for applying configurations from dump.<a class="headerlink" href="#switch-config-apply-pyfos-util-for-applying-configurations-from-dump" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> PyFOS util for applying configurations fromdump.</p>
+<p>This module is a stand-alone script that can be used to apply a previously
+saved dump configuration file from the <a class="reference internal" href="switch_config_dump.html#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> to the switch.
+The utility can identify the drifted configuration and revert to the same
+configuration as the dump file by applying diff only configurations.
+Users can opt to first review the drifted configuration by first passing
+similar arguments to the <a class="reference internal" href="switch_config_diff.html#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> to verify the configuration
+changes which are identified and the same would be used for reverting the
+configuration.</p>
 <ul>
 <li><dl class="first docutils">
-<dt>Inputs:</dt>
+<dt>Input:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt>-L=&lt;login&gt;: Login ID. If not provided, an interactive</dt>
+<dt>-L=&lt;login&gt;: The login ID. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>-P=&lt;password&gt;: Password. If not provided, an interactive</dt>
+<dt>-P=&lt;password&gt;:The password. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: IP address.</p>
+<li><p class="first">-i=&lt;IP address&gt;: The IP address.</p>
 </li>
 <li><dl class="first docutils">
-<dt>–compare=&lt;compare dump file&gt;: name of the directory that</dt>
+<dt>–compare=&lt;compare dump file&gt;: The name of the directory that</dt>
 <dd><p class="first last">contains the XLSX/JSON encoded switch configuration files with
-name of the file with/without vfid in the dump filename of format
-_&lt;vfid&gt;.&lt;file extension&gt;. If vfid is specified only that vfid
-is used else it will try and detect all vfids for loading and
-config operation.</p>
+name of the file with or without a vfid in the dump filename in the
+format _&lt;vfid&gt;.&lt;file extension&gt;. If the vfid is specified, only that
+vfid is used; otherwise it detects all vfids for loading and
+drift detection for configuration operation.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">–json: Use JSON Format, Default is XLSX format. [Optional]</p>
+<li><p class="first">–json: Use JSON format, The default is XLSX format. [Optional]</p>
 </li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>A List of attributes that changed, and config apply changes.</li>
+<li>A list of changed attributes, and switch_config_apply changes.</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
+<p><strong>Assumptions</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A switch_config_dump contains only the read-write supported objects
+(objects that supports <strong>POST, PATCH, DELETE, PUT</strong> operations).
+Therefore, the switch_config_appy operation is only supported for
+read-write objects. Since we cannot make changes to read-only object
+instances, we are not tracking those objects.</li>
+<li>A switch_config_dump of objects contains only <strong>config true</strong> attributes
+as per yang in the <em>XLSX</em> format, but for <em>JSON</em> all attributes
+are dumped. However, in both format types only <strong>config true</strong>
+attributes diff and apply sequence are executed. This is because config
+false attributes are runtime stats/state values and are dependent on
+environment and hence are not supported for configuration operations.</li>
+<li>The filtering support for the switch_config_apply is limited only to the
+object level (filtering is supported at the top level container/list).
+The filtering support is not extended to the individual attribute
+leaves.</li>
+<li>The complete list of objects available for configuration operations
+should be part of <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a>. Please ensure the object
+is part of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfos.manager.pyfos_class_manager.clslist</span></code> before
+using ir for configuration operation.</li>
+<li>Not all the objects are supported for configuration operations. The
+applying of configuration is a complex functionality and requires
+multiple inputs such as sequencing and ordering across different
+objects. Also, there is special case handling with specific values
+and may be disruptive in nature.</li>
+<li>The <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a> provides mechanism to segregate
+configurations operations across different stages along with priority
+for each module to determine ordering requirements. It supports
+customizations support for ordering in special cases for specific
+attribute values, including disruptive switch_config_apply handling.
+Note: For switch_config_apply handling, not all objects may be
+supported or tested.</li>
+<li>The <a class="reference internal" href="pyfos_rule_manager.html#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a> has predefined rules for some of the
+common objects for configuration operations. An examples is
+saving the defined-configuration occurs after configuration
+operations. Based on new objects, there may be additions to
+the existing configurations for them.</li>
+<li>Please understand that not all switch_config_apply operations may be
+successful based on ordering, other requirements, interdependencies
+for untested scenario or objects. For error cases we may need to check
+the sequencing and ordering for them to work correctly.</li>
+</ol>
+</div></blockquote>
+<p><strong>Object Filtering Support</strong>:</p>
+<blockquote>
+<div><p>The switch_config_apply util supports the object filtering (selectively
+using one or more objects for a config dump, diff, apply sequence).
+Follow the below procedure for selectively applying the configurations.</p>
+<ol class="arabic simple">
+<li>Create a file with the name <em>configfilters.json</em>.</li>
+<li>Add the container name for all objects to be used for configuration
+operations.</li>
+<li>Put the <em>configfilters.json</em> file in the execution directory. Otherwise,
+no user available CLI options are supported to pass this filename.</li>
+<li>If the <strong>configfilter.json</strong> file is empty then all objects in the
+<a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a> list are used for configuration operation.</li>
+<li>If the <strong>configfilter.json</strong> file is not empty, only the objects in
+the filters file are used for configuration operation.</li>
+</ol>
+<p>Example Content of the <em>configfilters.json</em> File:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">[</span>
+    <span class="s2">&quot;fibrechannel-switch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extesnion-tunnel&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Using the switch_config_apply util</strong>:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><dl class="first docutils">
+<dt>Collect the switch_config_dump from switch.</dt>
+<dd><p class="first last">To use the configuration apply functionality the user should already
+have a known dump file with the configuration from the switch. Please
+check the <a class="reference internal" href="switch_config_dump.html#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> util for steps to collect the
+configuration dump from the switch.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>File name format for apply.</dt>
+<dd><p class="first">The dump configuration file name follows the format of
+<em>FOS_&lt;switch IP address&gt;_&lt;date&gt;_&lt;time stamp&gt;_&lt;vfid&gt;.&lt;format&gt;</em>.
+For logical switch supported switches the configuration dump
+will be across multiple files each with a different <strong>vfid</strong> in the
+filename. For logical switch or VF is not supported then  the
+keyword <strong>None</strong> replaces the <strong>vfid</strong>. However, to pass multiple
+file name for apply functionality, the <strong>vfid</strong> should be skipped
+when providing the filename if you want to run it across multiple
+vfids.</p>
+<p>Example:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span class="n">Dump</span> <span class="n">filename</span> <span class="p">:</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_14_09_15_14_None</span><span class="o">.</span><span class="n">json</span>
+<span class="n">apply</span> <span class="n">filename</span> <span class="p">:</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_14_09_15_14</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>File Type Formats.</dt>
+<dd><p class="first">The configuraion utility provides two file type formats supported for
+the config apply functionality (<em>XLSX</em> and <em>JSON</em>). The default mode is
+<em>XLSX</em> and is implicit in the command line arguments. However, for
+of <em>JSON</em> format, you should explicitly pass <strong>–json</strong>.</p>
+<p>Similar to <a class="reference internal" href="#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> there is another
+utility <a class="reference internal" href="switch_config_diff.html#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> which can do a diff and of
+the drifted configuration on a switch.</p>
+<p>Example XLSX:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">switch_config_apply</span><span class="o">.</span><span class="n">py</span>  <span class="o">-</span><span class="n">i</span> <span class="mf">10.155</span><span class="o">.</span><span class="mf">107.42</span> <span class="o">-</span><span class="n">L</span> <span class="n">admin</span> <span class="o">-</span><span class="n">P</span> <span class="n">password</span>
+<span class="o">--</span><span class="n">compare</span><span class="o">=</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_18_01_30_55</span><span class="o">.</span><span class="n">xlsx</span>
+</pre></div>
+</div>
+<p>Example json:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span class="n">switch_config_apply</span><span class="o">.</span><span class="n">py</span>  <span class="o">-</span><span class="n">i</span> <span class="mf">10.155</span><span class="o">.</span><span class="mf">107.42</span> <span class="o">-</span><span class="n">L</span> <span class="n">admin</span> <span class="o">-</span><span class="n">P</span> <span class="n">password</span>
+<span class="o">--</span><span class="n">json</span> <span class="o">--</span><span class="n">compare</span><span class="o">=</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_18_11_30_15</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<dl class="docutils">
+<dt><strong>Working of switch_config_apply</strong>:</dt>
+<dd><ol class="first last arabic simple">
+<li>Similar to <a class="reference internal" href="switch_config_diff.html#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> even <a class="reference internal" href="#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a>
+util identifies the drifted configuration before applying them for
+reverting the same.</li>
+<li>The utility interacts with the <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a> to segregate
+the configuration drift changes into different configuration stages
+along with priority for the sequencing or ordering requirement for
+interdependencies. The segregated configuration across fid and
+different stages are managed by <a class="reference internal" href="pyfos_config_manager.html#module-pyfos_config_manager" title="pyfos_config_manager: PyFOS module to provide Config Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_config_manager</span></code></a>.</li>
+<li>The utility interacts with the <a class="reference internal" href="pyfos_rule_manager.html#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a> to apply the
+drifted configuration. It supports a set of predefined rules for
+switch_config_apply and handles scenarios where something needs to be
+done before or after the changes or otherwise skipped or their
+combinations.</li>
+</ol>
+</dd>
+</dl>
+<p><strong>Example switch_config_apply</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>switch_config_apply.py  -i 10.155.107.42 -L admin -P password
+--json --compare=FOS_10.200.151.183_2018_12_14_18_30_15_128.json
+
+Handle Diff Start.
+Loading Dump configuration Start.
+Loading from file : FOS_10.200.151.183_2018_12_14_18_30_15_128.json
+Loading objects fmt type: attributes
+Loading Dump configuration Complete.
+Loading Switch configuration Start[ 128 ].
+Loading Switch configuration Complete.
+Init Class Ordering.
+Calculating Diff Start
+Calculating Diff Complete.
+   [
+       {
+           [
+               {
+                   &quot;fibrechannel&quot;: {
+                       &quot;name&quot;: &quot;0/23&quot;,
+&lt; -                    &quot;npiv-enabled&quot;: &quot;0&quot;
+---
+&gt; +                    &quot;npiv-enabled&quot;: &quot;1&quot;
+                   }
+               }
+           ]
+       },
+       {
+           [
+               {
+                   &quot;defined-configuration&quot;: {
+                       &quot;alias&quot;: [
+                           {
+                               &quot;alias-name&quot;: &quot;ali1_test&quot;,
+                               &quot;member-entry&quot;: {
+&lt; -                                &quot;alias-entry-name&quot;: &quot;
+[&#39;70:00:8c:7c:ff:5f:54:00&#39;, &#39;70:00:8c:7c:ff:5f:55:00&#39;,
+&#39;80:00:8c:7c:ff:5f:55:00&#39;]&quot;
+---
+&gt; +                                &quot;alias-entry-name&quot;:
+&quot;[&#39;70:00:8c:7c:ff:5f:54:00&#39;, &#39;70:00:8c:7c:ff:5f:55:00&#39;]&quot;
+                               }
+                           }
+                       ],
+                       &quot;zone&quot;: [
+                           {
+                               &quot;member-entry&quot;: {
+&lt; -                                &quot;entry-name&quot;:
+&quot;[&#39;11:22:33:44:55:66:77:88&#39;]&quot;
+---
+&gt; +                                &quot;entry-name&quot;:
+&quot;[&#39;11:22:33:44:55:66:77:88&#39;, &#39;21:22:33:44:55:66:77:88&#39;]&quot;
+                               },
+                               &quot;zone-name&quot;: &quot;zone1&quot;
+                           }
+                       ]
+                   }
+               }
+           ]
+       },
+       {
+&gt; +        [
+&gt; +            {
+&gt; +                &quot;extension-circuit&quot;: {
+&gt; +                    &quot;admin-enabled&quot;: &quot;1&quot;,
+&gt; +                    &quot;arl-algorithm-mode&quot;: &quot;0&quot;,
+&gt; +                    &quot;circuit-id&quot;: &quot;0&quot;,
+&gt; +                    &quot;failover-group-id&quot;: &quot;0&quot;,
+&gt; +                    &quot;local-ip-address&quot;: &quot;103.11.7.2&quot;,
+&gt; +                    &quot;maximum-communication-rate&quot;: &quot;100000&quot;,
+&gt; +                    &quot;metric&quot;: &quot;0&quot;,
+&gt; +                    &quot;minimum-communication-rate&quot;: &quot;100000&quot;,
+&gt; +                    &quot;name&quot;: &quot;0/24&quot;,
+&gt; +                    &quot;remote-ip-address&quot;: &quot;102.10.2.2&quot;
+&gt; +                }
+&gt; +            }
+&gt; +        ]
+       },
+       {
+&gt; +        [
+&gt; +            {
+&gt; +                &quot;extension-tunnel&quot;: {
+&gt; +                    &quot;admin-enabled&quot;: &quot;1&quot;,
+&gt; +                    &quot;compression-tunnel&quot;: &quot;0&quot;,
+&gt; +                    &quot;fast-write-enabled&quot;: &quot;0&quot;,
+&gt; +                    &quot;ficon&quot;: &quot;0&quot;,
+&gt; +                    &quot;ip-extension&quot;: &quot;0&quot;,
+&gt; +                    &quot;load-level&quot;: &quot;Failover&quot;,
+&gt; +                    &quot;name&quot;: &quot;0/24&quot;,
+&gt; +                    &quot;qos-ratio&quot;: {
+&gt; +                        &quot;distribution&quot;: &quot;1&quot;,
+&gt; +                        &quot;fc-high-qos&quot;: &quot;50&quot;,
+&gt; +                        &quot;fc-low-qos&quot;: &quot;20&quot;,
+&gt; +                        &quot;fc-medium-qos&quot;: &quot;30&quot;
+&gt; +                    },
+&gt; +                    &quot;tape-read&quot;: &quot;0&quot;,
+&gt; +                    &quot;tape-write&quot;: &quot;0&quot;
+&gt; +                }
+&gt; +            },
+&gt; +            {
+&gt; +                &quot;extension-tunnel&quot;: {
+&gt; +                    &quot;admin-enabled&quot;: &quot;1&quot;,
+&gt; +                    &quot;compression-tunnel&quot;: &quot;0&quot;,
+&gt; +                    &quot;fast-write-enabled&quot;: &quot;0&quot;,
+&gt; +                    &quot;ficon&quot;: &quot;0&quot;,
+&gt; +                    &quot;ip-extension&quot;: &quot;0&quot;,
+&gt; +                    &quot;load-level&quot;: &quot;Failover&quot;,
+&gt; +                    &quot;name&quot;: &quot;0/34&quot;,
+&gt; +                    &quot;qos-ratio&quot;: {
+&gt; +                        &quot;distribution&quot;: &quot;1&quot;,
+&gt; +                        &quot;fc-high-qos&quot;: &quot;50&quot;,
+&gt; +                        &quot;fc-low-qos&quot;: &quot;20&quot;,
+&gt; +                        &quot;fc-medium-qos&quot;: &quot;30&quot;
+&gt; +                    },
+&gt; +                    &quot;tape-read&quot;: &quot;0&quot;,
+&gt; +                    &quot;tape-write&quot;: &quot;0&quot;
+&gt; +                }
+&gt; +            }
+&gt; +        ]
+       },
+       {
+&gt; +        [
+&gt; +            {
+&gt; +                &quot;extension-ip-route&quot;: {
+&gt; +                    &quot;dp-id&quot;: &quot;0&quot;,
+&gt; +                    &quot;ip-address&quot;: &quot;51.50.50.0&quot;,
+&gt; +                    &quot;ip-gateway&quot;: &quot;*&quot;,
+&gt; +                    &quot;ip-prefix-length&quot;: &quot;24&quot;,
+&gt; +                    &quot;name&quot;: &quot;0/7&quot;
+&gt; +                }
+&gt; +            }
+&gt; +        ]
+       },
+       {
+           [
+               {
+                   &quot;extension-ip-interface&quot;: {
+                       &quot;dp-id&quot;: &quot;0&quot;,
+                       &quot;ip-address&quot;: &quot;103.11.7.2&quot;,
+                       &quot;name&quot;: &quot;0/7&quot;,
+&lt; -                    &quot;vlan-id&quot;: &quot;200&quot;
+---
+&gt; +                    &quot;vlan-id&quot;: &quot;0&quot;
+                   }
+               }
+           ]
+       },
+       {
+&gt; +        [
+&gt; +            {
+&gt; +                &quot;extension-ip-interface&quot;: {
+&gt; +                    &quot;dp-id&quot;: &quot;0&quot;,
+&gt; +                    &quot;ip-address&quot;: &quot;51.50.50.10&quot;,
+&gt; +                    &quot;ip-prefix-length&quot;: &quot;24&quot;,
+&gt; +                    &quot;mtu-size&quot;: &quot;1500&quot;,
+&gt; +                    &quot;name&quot;: &quot;0/7&quot;,
+&gt; +                    &quot;vlan-id&quot;: &quot;0&quot;
+&gt; +                }
+&gt; +            }
+&gt; +        ]
+       },
+       {
+           [
+               {
+                   &quot;gigabitethernet&quot;: {
+                       &quot;name&quot;: &quot;0/17&quot;,
+&lt; -                    &quot;speed&quot;: &quot;10000000000&quot;
+---
+&gt; +                    &quot;speed&quot;: &quot;1000000000&quot;
+                   }
+               }
+           ]
+       },
+       {
+           [
+               {
+                   &quot;blade&quot;: {
+&lt; -                    &quot;extension-app-mode&quot;: &quot;FCIP&quot;
+---
+&gt; +                    &quot;extension-app-mode&quot;: &quot;hybrid&quot;
+                       &quot;slot-number&quot;: &quot;0&quot;
+                   }
+               }
+           ]
+       }
+   ]
+
+Init Rule Manager.
+Apply Rule Manager.
+Execute  R3 &lt;class &#39;pyfos.pyfos_brocade_zone.defined_configuration&#39;&gt;
+PATCH http://10.200.151.183/rest/running/zoning/defined-configuration?
+vf-id=128 - CONTENT -&gt;
+&lt;defined-configuration&gt;
+        &lt;zone&gt;
+                &lt;zone-name&gt;zone1&lt;/zone-name&gt;
+                &lt;member-entry&gt;
+                        &lt;entry-name&gt;11:22:33:44:55:66:77:88&lt;/entry-name&gt;
+                        &lt;entry-name&gt;21:22:33:44:55:66:77:88&lt;/entry-name&gt;
+                &lt;/member-entry&gt;
+        &lt;/zone&gt;
+        &lt;alias&gt;
+                &lt;alias-name&gt;ali1_test&lt;/alias-name&gt;
+                &lt;member-entry&gt;
+                        &lt;alias-entry-name&gt;70:00:8c:7c:ff:5f:54:00
+                        &lt;/alias-entry-name&gt;
+                        &lt;alias-entry-name&gt;70:00:8c:7c:ff:5f:55:00
+                        &lt;/alias-entry-name&gt;
+                &lt;/member-entry&gt;
+        &lt;/alias&gt;
+&lt;/defined-configuration&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/zoning/effective-configuration?
+vf-id=128 - CONTENT -&gt;
+&lt;effective-configuration&gt;
+        &lt;checksum&gt;8da3d60cb0cfcc1500b514cedf6131f7&lt;/checksum&gt;
+        &lt;cfg-action&gt;1&lt;/cfg-action&gt;
+&lt;/effective-configuration&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+Execute  R6 &lt;class &#39;pyfos.pyfos_brocade_fibrechannel.fibrechannel&#39;&gt;
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/0&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/0&lt;/name&gt;
+        &lt;speed&gt;8000000000&lt;/speed&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/0&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/1&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/1&lt;/name&gt;
+        &lt;speed&gt;8000000000&lt;/speed&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/1&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/2&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/2&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/2&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/3&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/3&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/3&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/4&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/4&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/4&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/5&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/5&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/5&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/6&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/6&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/6&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/7&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/7&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/7&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/8&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/8&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/8&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/9&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/9&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/9&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/10&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/10&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/10&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/11&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/11&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/11&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/12&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/12&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/12&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/13&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/13&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/13&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/14&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/14&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/14&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/15&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/15&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/15&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/16&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/16&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/16&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/17&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/17&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/17&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/18&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/18&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/18&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/19&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/19&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/19&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/20&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/20&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/20&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/21&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/21&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/21&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/22&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/22&lt;/name&gt;
+        &lt;compression-configured&gt;1&lt;/compression-configured&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/22&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/23&lt;/name&gt;
+        &lt;enabled-state&gt;6&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/23&lt;/name&gt;
+        &lt;npiv-enabled&gt;1&lt;/npiv-enabled&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/fibrechannel?
+vf-id=128 - CONTENT -&gt;
+&lt;fibrechannel&gt;
+        &lt;name&gt;0/23&lt;/name&gt;
+        &lt;enabled-state&gt;2&lt;/enabled-state&gt;
+&lt;/fibrechannel&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+Execute  DEFPRE_PATCH &lt;class &#39;pyfos.pyfos_brocade_fru.blade&#39;&gt;
+PATCH http://10.200.151.183/rest/running/brocade-fru/blade?
+vf-id=128 - CONTENT -&gt;
+&lt;blade&gt;
+        &lt;slot-number&gt;0&lt;/slot-number&gt;
+        &lt;extension-app-mode&gt;hybrid&lt;/extension-app-mode&gt;
+&lt;/blade&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+Start sleep for [ 400 ]s.[ 10.200.151.183 ]
+End sleep of [ 400 ]s.[ 10.200.151.183 ]
+Dup Session start
+Start sleep for [ 20 ]s.[ 10.200.151.183 ]
+End sleep of [ 20 ]s.[ 10.200.151.183 ]
+Start sleep for [ 20 ]s.[ 10.200.151.183 ]
+End sleep of [ 20 ]s.[ 10.200.151.183 ]
+Start sleep for [ 20 ]s.[ 10.200.151.183 ]
+End sleep of [ 20 ]s.[ 10.200.151.183 ]
+Start sleep for [ 20 ]s.[ 10.200.151.183 ]
+End sleep of [ 20 ]s.[ 10.200.151.183 ]
+Start sleep for [ 20 ]s.[ 10.200.151.183 ]
+End sleep of [ 20 ]s.[ 10.200.151.183 ]
+Dup Session Completed after Iterations: 5
+Start sleep for [ 30 ]s.[ 10.200.151.183 ]
+End sleep of [ 30 ]s.[ 10.200.151.183 ]
+Execute  DEFPRE_PATCH &lt;class
+&#39;pyfos.pyfos_brocade_extension_ip_interface.extension_ip_interface&#39;&gt;
+PATCH http://10.200.151.183/rest/running/brocade-interface/
+extension-ip-interface?vf-id=128 - CONTENT -&gt;
+&lt;extension-ip-interface&gt;
+        &lt;name&gt;0/6&lt;/name&gt;
+        &lt;ip-address&gt;103.11.6.16&lt;/ip-address&gt;
+        &lt;dp-id&gt;0&lt;/dp-id&gt;
+        &lt;mtu-size&gt;9216&lt;/mtu-size&gt;
+        &lt;vlan-id&gt;200&lt;/vlan-id&gt;
+&lt;/extension-ip-interface&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/
+extension-ip-interface?vf-id=128 - CONTENT -&gt;
+&lt;extension-ip-interface&gt;
+        &lt;name&gt;0/6&lt;/name&gt;
+        &lt;ip-address&gt;103.11.6.17&lt;/ip-address&gt;
+        &lt;dp-id&gt;0&lt;/dp-id&gt;
+        &lt;mtu-size&gt;9216&lt;/mtu-size&gt;
+&lt;/extension-ip-interface&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/
+extension-ip-interface?vf-id=128 - CONTENT -&gt;
+&lt;extension-ip-interface&gt;
+        &lt;name&gt;0/7&lt;/name&gt;
+        &lt;ip-address&gt;103.11.7.2&lt;/ip-address&gt;
+        &lt;dp-id&gt;0&lt;/dp-id&gt;
+        &lt;vlan-id&gt;0&lt;/vlan-id&gt;
+&lt;/extension-ip-interface&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+Execute  DEFPRE_PATCH &lt;class
+&#39;pyfos.pyfos_brocade_gigabitethernet.gigabitethernet&#39;&gt;
+PATCH http://10.200.151.183/rest/running/brocade-interface/
+gigabitethernet?vf-id=128 - CONTENT -&gt;
+&lt;gigabitethernet&gt;
+        &lt;name&gt;0/16&lt;/name&gt;
+        &lt;speed&gt;10000000000&lt;/speed&gt;
+&lt;/gigabitethernet&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+PATCH http://10.200.151.183/rest/running/brocade-interface/
+gigabitethernet?vf-id=128 - CONTENT -&gt;
+&lt;gigabitethernet&gt;
+        &lt;name&gt;0/17&lt;/name&gt;
+        &lt;speed&gt;1000000000&lt;/speed&gt;
+&lt;/gigabitethernet&gt;
+{&#39;success-code&#39;: 204, &#39;success-message&#39;: &#39;No Content&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+Execute  DEFPOST &lt;class
+&#39;pyfos.pyfos_brocade_extension_ip_interface.extension_ip_interface&#39;&gt;
+POST http://10.200.151.183/rest/running/brocade-interface/
+extension-ip-interface?vf-id=128 - CONTENT -&gt;
+&lt;extension-ip-interface&gt;
+        &lt;name&gt;0/7&lt;/name&gt;
+        &lt;ip-address&gt;51.50.50.10&lt;/ip-address&gt;
+        &lt;dp-id&gt;0&lt;/dp-id&gt;
+        &lt;ip-prefix-length&gt;24&lt;/ip-prefix-length&gt;
+        &lt;mtu-size&gt;1500&lt;/mtu-size&gt;
+        &lt;vlan-id&gt;0&lt;/vlan-id&gt;
+&lt;/extension-ip-interface&gt;
+{&#39;success-code&#39;: 201, &#39;success-message&#39;: &#39;Created&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+Execute  R5 &lt;class
+&#39;pyfos.pyfos_brocade_extension_ip_route.extension_ip_route&#39;&gt;
+Execute  DEFPOST &lt;class
+&#39;pyfos.pyfos_brocade_extension_tunnel.extension_tunnel&#39;&gt;
+POST http://10.200.151.183/rest/running/brocade-extension-tunnel/
+extension-tunnel?vf-id=128 - CONTENT -&gt;
+&lt;extension-tunnel&gt;
+        &lt;name&gt;0/24&lt;/name&gt;
+        &lt;admin-enabled&gt;1&lt;/admin-enabled&gt;
+        &lt;fast-write-enabled&gt;0&lt;/fast-write-enabled&gt;
+        &lt;tape-read&gt;0&lt;/tape-read&gt;
+        &lt;tape-write&gt;0&lt;/tape-write&gt;
+        &lt;ficon&gt;0&lt;/ficon&gt;
+        &lt;ip-extension&gt;0&lt;/ip-extension&gt;
+        &lt;load-level&gt;Failover&lt;/load-level&gt;
+        &lt;compression-tunnel&gt;0&lt;/compression-tunnel&gt;
+        &lt;qos-ratio&gt;
+                &lt;distribution&gt;1&lt;/distribution&gt;
+                &lt;fc-high-qos&gt;50&lt;/fc-high-qos&gt;
+                &lt;fc-medium-qos&gt;30&lt;/fc-medium-qos&gt;
+                &lt;fc-low-qos&gt;20&lt;/fc-low-qos&gt;
+        &lt;/qos-ratio&gt;
+&lt;/extension-tunnel&gt;
+{&#39;success-code&#39;: 201, &#39;success-message&#39;: &#39;Created&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+POST http://10.200.151.183/rest/running/brocade-extension-tunnel/
+extension-tunnel?vf-id=128 - CONTENT -&gt;
+&lt;extension-tunnel&gt;
+        &lt;name&gt;0/34&lt;/name&gt;
+        &lt;admin-enabled&gt;1&lt;/admin-enabled&gt;
+        &lt;fast-write-enabled&gt;0&lt;/fast-write-enabled&gt;
+        &lt;tape-read&gt;0&lt;/tape-read&gt;
+        &lt;tape-write&gt;0&lt;/tape-write&gt;
+        &lt;ficon&gt;0&lt;/ficon&gt;
+        &lt;ip-extension&gt;0&lt;/ip-extension&gt;
+        &lt;load-level&gt;Failover&lt;/load-level&gt;
+        &lt;compression-tunnel&gt;0&lt;/compression-tunnel&gt;
+        &lt;qos-ratio&gt;
+                &lt;distribution&gt;1&lt;/distribution&gt;
+                &lt;fc-high-qos&gt;50&lt;/fc-high-qos&gt;
+                &lt;fc-medium-qos&gt;30&lt;/fc-medium-qos&gt;
+                &lt;fc-low-qos&gt;20&lt;/fc-low-qos&gt;
+        &lt;/qos-ratio&gt;
+&lt;/extension-tunnel&gt;
+{&#39;success-code&#39;: 201, &#39;success-message&#39;: &#39;Created&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+Execute  DEFPOST &lt;class
+&#39;pyfos.pyfos_brocade_extension_tunnel.extension_circuit&#39;&gt;
+POST http://10.200.151.183/rest/running/brocade-extension-tunnel/
+extension-circuit?vf-id=128 - CONTENT -&gt;
+&lt;extension-circuit&gt;
+        &lt;name&gt;0/24&lt;/name&gt;
+        &lt;circuit-id&gt;0&lt;/circuit-id&gt;
+        &lt;local-ip-address&gt;103.11.7.2&lt;/local-ip-address&gt;
+        &lt;remote-ip-address&gt;102.10.2.2&lt;/remote-ip-address&gt;
+        &lt;metric&gt;0&lt;/metric&gt;
+        &lt;failover-group-id&gt;0&lt;/failover-group-id&gt;
+        &lt;admin-enabled&gt;1&lt;/admin-enabled&gt;
+        &lt;minimum-communication-rate&gt;100000&lt;/minimum-communication-rate&gt;
+        &lt;maximum-communication-rate&gt;100000&lt;/maximum-communication-rate&gt;
+        &lt;arl-algorithm-mode&gt;0&lt;/arl-algorithm-mode&gt;
+&lt;/extension-circuit&gt;
+{&#39;success-code&#39;: 201, &#39;success-message&#39;: &#39;Created&#39;,
+&#39;success-type&#39;: &#39;Success&#39;}
+</pre></div>
+</div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_config_manager.html#module-pyfos_config_manager" title="pyfos_config_manager: PyFOS module to provide Config Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_config_manager</span></code></a>
+Module <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a>
+Module <a class="reference internal" href="pyfos_rule_manager.html#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a>
+Module <a class="reference internal" href="switch_config_diff.html#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a>
+Module <a class="reference internal" href="#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a>
+Module <a class="reference internal" href="switch_config_dump.html#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a></p>
 </div>
 
 
@@ -123,7 +1218,7 @@ config operation.</p>
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">switch_show</span></code> - PyFOS util for specific switch op use case.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="switch_config_diff.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">switch_config_diff</span></code> - PyFOS util for specific config op use case.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">switch_config_diff</span></code> - PyFOS util to detect configuration drift from dump.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -157,12 +1252,12 @@ config operation.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="switch_config_diff.html" title="switch_config_diff - PyFOS util for specific config op use case."
+          <a href="switch_config_diff.html" title="switch_config_diff - PyFOS util to detect configuration drift from dump."
              >next</a> |</li>
         <li class="right" >
           <a href="switch_show.html" title="switch_show - PyFOS util for specific switch op use case."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

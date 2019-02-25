@@ -31,7 +31,7 @@ from pyfos.pyfos_brocade_fdmi import hba
 from pyfos.pyfos_brocade_name_server import fibrechannel_name_server
 from pyfos.pyfos_brocade_fibrechannel_diagnostics import \
      fibrechannel_diagnostics
-from pyfos.pyfos_brocade_fibrechannel import fibrechannel
+from pyfos.pyfos_brocade_interface import fibrechannel
 from pyfos.pyfos_brocade_zone import defined_configuration
 from pyfos.pyfos_brocade_zone import effective_configuration
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
@@ -41,8 +41,8 @@ from pyfos.pyfos_brocade_extension_tunnel import extension_tunnel_statistics
 from pyfos.pyfos_brocade_extension_ip_route import extension_ip_route
 from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
 from pyfos.pyfos_brocade_extension_ipsec_policy import extension_ipsec_policy
-from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
-from pyfos.pyfos_brocade_gigabitethernet import \
+from pyfos.pyfos_brocade_interface import gigabitethernet
+from pyfos.pyfos_brocade_interface import \
     gigabitethernet_statistics
 from pyfos.pyfos_brocade_fibrechannel_logical_switch import \
     fibrechannel_logical_switch

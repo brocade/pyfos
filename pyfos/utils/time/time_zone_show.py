@@ -20,7 +20,7 @@
 The :mod:`time_zone_show` util sets and shows the time zone information.
 
 This module is a stand-alone script and API that can be used to set
-and display time zone by the time zone name or the off-set value.
+and display the time zone by the time zone name or the off-set value.
 
 * Input:
 

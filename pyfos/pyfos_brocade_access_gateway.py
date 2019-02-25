@@ -63,7 +63,7 @@ class port_group(pyfos_rest_util.rest_object):
         .. method:: get()
 
             Returns the :class:`port_group`
-            object with values for all the attributes.
+            object with values for all attributes.
             The object can be printed using :func:`pyfos_utils.response_print`.
 
             :param session: The session handler returned by
@@ -133,7 +133,7 @@ class port_group(pyfos_rest_util.rest_object):
                 portgroup_obj.set_port_group_id(1)
                 portgroup_obj.delete(session)
 
-            Example Usage of the Method to Delete N_Ports From Port Group 1:
+            Example Usage of the Method to Delete N_Ports from Port Group 1:
 
             .. code-block:: python
 
@@ -151,7 +151,7 @@ class port_group(pyfos_rest_util.rest_object):
 
         .. method:: set_port_group_id(pgid)
 
-            Sets the PGID in the object.
+            Sets the port group identifier (PGID) in the object.
 
             :param pgid: The port group identifier.
             :rtype: A dictionary of errors or a success response.
@@ -179,7 +179,7 @@ class port_group(pyfos_rest_util.rest_object):
 
             Sets a list of N_Ports in the port group object.
 
-            :param nport_list: List of N_Port members of the port-group.
+            :param nport_list: List of N_Port members of the port group.
             :rtype: A dictionary of errors or a success response.
 
         .. method:: peek_port_group_n_ports_n_port()
@@ -203,9 +203,9 @@ class port_group(pyfos_rest_util.rest_object):
 
         .. method:: set_port_group_mode_load_balancing_mode_enabled(enable)
 
-            Enables or disables the load balancing mode in the port group.
+            Enables or disables load balancing mode in the port group.
 
-            :param enable: Enables (1) or disables (0) the load balancing mode.
+            :param enable: Enables (1) or disables (0) load balancing mode.
             :rtype: A dictionary of errors or a success response.
 
         .. method:: peek_port_group_mode_load_balancing_mode_enabled()
@@ -216,10 +216,10 @@ class port_group(pyfos_rest_util.rest_object):
 
         .. method:: set_port_group_mode_multiple_fabric_name_monitoring_mode_enabled(enable)
 
-            Enables or disables the multiple fabric name monitoring mode
+            Enables or disables multiple fabric name monitoring mode
             in the port group.
 
-            :param enable: Enables (1) or disables (0) the multiple \
+            :param enable: Enables (1) or disables (0) multiple \
                            fabric name monitoring mode.
             :rtype: A dictionary of errors or a success response.
 
@@ -287,7 +287,7 @@ class f_port_list(pyfos_rest_util.rest_object):
         | f-port-info/fcid                          | The Fibre Channel ID of          |:func:`peek_f_port_info_fcid`                                             |
         |                                           | the F_Port.                      |                                                                          |
         +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
-        | f-port-info/attached-port-wwn             | The attached port WWN of         |:func:`peek_f_port_info_attached_port_wwn`                                |
+        | f-port-info/attached-port-wwn             | The attached WWN of              |:func:`peek_f_port_info_attached_port_wwn`                                |
         |                                           | the F_Port.                      |                                                                          |
         +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
         | f-port-info/n-port                        | The N_Port currently mapped to   |:func:`peek_f_port_info_n_port`                                           |
@@ -362,7 +362,7 @@ class f_port_list(pyfos_rest_util.rest_object):
 
         .. method:: peek_f_port_info_n_port()
 
-            Reads the current mapped N_Port of the F_Port.
+            Reads the currently mapped N_Port of the F_Port.
 
             :rtype: None or the N_Port interface.
 
@@ -500,7 +500,7 @@ class n_port_settings(pyfos_rest_util.rest_object):
         | Attribute Name                                 | Description                      |Frequently Used Methods                                         |
         +================================================+==================================+================================================================+
         | reliability-counter                            | Reads or sets the reliability    |:func:`set_reliability_counter`                                 |
-        |                                                | counter for a N_Port.            |:func:`peek_reliability_counter`                                |
+        |                                                | counter for an N_Port.           |:func:`peek_reliability_counter`                                |
         +------------------------------------------------+----------------------------------+----------------------------------------------------------------+
 
     *Object Methods*
@@ -513,14 +513,14 @@ class n_port_settings(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or
+            :rtype: A dictionary of errors or the
                 :class:`n_port_settings` object.
 
         .. method:: patch()
 
             Replaces entry members. The required fields are set within \
             the object using the attribute's set method. This method is used to
-            set the N_Port settings, for example, reliability counter.
+            set the N_Port settings, for example, the reliability counter.
 
             Example Usage of the Method to Set the Reliability Counter to 20:
 
@@ -546,7 +546,7 @@ class n_port_settings(pyfos_rest_util.rest_object):
 
         .. method:: peek_reliability_counter()
 
-            Reads the current count of N_Port reliability counter.
+            Reads the current count of the N_Port reliability counter.
 
             :rtype: The counter value.
 
@@ -565,8 +565,8 @@ class n_port_settings(pyfos_rest_util.rest_object):
 
 
 class n_port_map(pyfos_rest_util.rest_object):
-    """This class provides options to display and configure N_Port-to
-    -F_Port mapping.
+    """This class provides options to display and configure \
+N_Port-to-F_Port mapping.
 
     Important Class Members:
 
@@ -601,7 +601,7 @@ class n_port_map(pyfos_rest_util.rest_object):
         | n-port-info/attached-switch-user-friendly-name | The attached switch's user        |:func:`peek_n_port_info_attached_switch_user_friendly_name` |
         |                                                | friendly name.                    |                                                            |
         +------------------------------------------------+-----------------------------------+------------------------------------------------------------+
-        | n-port-info/attached-switch-f-port             | The Fabric switch port name of    |:func:`peek_n_port_info_attached_switch_f_port`             |
+        | n-port-info/attached-switch-f-port             | The fabric switch name of         |:func:`peek_n_port_info_attached_switch_f_port`             |
         |                                                | the port attached to the N_Port.  |                                                            |
         +------------------------------------------------+-----------------------------------+------------------------------------------------------------+
         | n-port-info/attached-switch-ip-address         | The attached switch out-of-band   |:func:`peek_n_port_info_attached_switch_ip_address`         |
@@ -618,13 +618,13 @@ class n_port_map(pyfos_rest_util.rest_object):
             port is returned or an empty object is returned
             if no match is found.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
             :rtype: An :class:`n_port_map` object if there is
-                only one N_Port Configured in the switch or
+                only one N_Port configured in the switch or
                 a list of objects if there are more than one.
 
         .. method:: patch(session)
@@ -658,7 +658,7 @@ class n_port_map(pyfos_rest_util.rest_object):
 
         .. method:: post(session)
 
-            Add members to a list attribute of the object. This method is used
+            Adds members to a list attribute of the object. This method is used
             to add a specified list of F_Ports (configured and static)
             to a given N_Port.
 
@@ -764,7 +764,7 @@ class n_port_map(pyfos_rest_util.rest_object):
 
         .. method:: peek_static_f_port_list_fport()
 
-            Gets a list of static F_Port mappings for N_Port in the object.
+            Gets a list of static F_Port mappings for the N_Port in the object.
 
             :rtype: None or a list of statically mapped F_Ports.
 
@@ -881,27 +881,28 @@ class n_port_map(pyfos_rest_util.rest_object):
 
 
 class device_list(pyfos_rest_util.rest_object):
-    """This class provides information about the devices logged in Access Gateway.
+    """This class provides information about the devices logged in to the \
+Access Gateway.
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
-        | Attribute name                            | Description                      |Frequently used methods                                                   |
+        | Attribute Name                            | Description                      |Frequently Used Methods                                                   |
         +===========================================+==================================+==========================================================================+
-        | wwn                                       | The port wwn of the device.      |:func:`peek_wwn`                                                          |
+        | wwn                                       | The port WWN of the device.      |:func:`peek_wwn`                                                          |
         |                                           |                                  |                                                                          |
         +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
-        | fcid                                      | The fibre channel ID of          |:func:`peek_fcid`                                                         |
+        | fcid                                      | The Fibre Channel ID of          |:func:`peek_fcid`                                                         |
         |                                           | the device.                      |                                                                          |
         +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
-        | f-port                                    | The F-port to which the device   |:func:`peek_f_port`                                                       |
+        | f-port                                    | The F_Port to which the device   |:func:`peek_f_port`                                                       |
         |                                           | is connected.                    |                                                                          |
         +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
-        | n-port                                    | N-port to which the device       |:func:`peek_n_port`                                                       |
-        |                                           | f-port is mapped.                |                                                                          |
+        | n-port                                    | The N_Port to which the device   |:func:`peek_n_port`                                                       |
+        |                                           | F_Port is mapped.                |                                                                          |
         +-------------------------------------------+----------------------------------+--------------------------------------------------------------------------+
 
-    *Object methods*
+    *Object Methods*
 
         .. method:: get()
 
@@ -914,15 +915,15 @@ class device_list(pyfos_rest_util.rest_object):
             :rtype: A dictionary of errors or a \
                 :class:`device_list` object.
 
-            Example Usage of the Method to Get Information of All WWNs:
+            Example Usage of the Method to Get Information for All WWNs:
 
             .. code-block:: python
 
                 wwn_obj = pyfos_brocade_access_gateway.device_list()
                 wwn_obj.get(session, None)
 
-            Example Usage of the Method to Get Information of a
-            Specific wwn "30:08:09:27:f8:8b:74:62":
+            Example Usage of the Method to Get Information for a
+            Specific WWN "30:08:09:27:f8:8b:74:62":
 
             .. code-block:: python
 
@@ -942,14 +943,14 @@ class device_list(pyfos_rest_util.rest_object):
 
         .. method:: peek_fcid()
 
-            Reads the fibre channel ID of the device.
+            Reads the Fibre Channel ID of the device.
 
-            :rtype: None or the fibre channel ID.
+            :rtype: None or the Fibre Channel ID.
 
 
         .. method:: peek_nport()
 
-            Reads the current mapped N_Port of the F_Port.
+            Reads the currently mapped N_Port of the F_Port.
 
             :rtype: None or the N_Port.
 

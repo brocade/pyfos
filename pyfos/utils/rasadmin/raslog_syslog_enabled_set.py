@@ -35,7 +35,7 @@ attributes.
     * --msg=MSG-IDENTIFIER                         Sets the message ID.
     * --syslog-enable=SYSLOG-ENABLE                Sets the syslog status flag.
 
-* outputs:
+* Output:
     * RASLog attributes in JSON format.
 
 .. function:: set_syslog(session, msg_id, flag)
@@ -66,7 +66,7 @@ attributes.
 
         *Use Cases*
 
-        1. Enables or disables the syslog message.
+        1. Enable or disable the syslog message.
 
 
 """

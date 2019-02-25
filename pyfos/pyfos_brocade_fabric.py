@@ -21,6 +21,7 @@ The :mod:`pyfos_brocade_fabric` provides a REST support for Fabric.
 
 from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
+import pyfos.pyfos_version as version
 
 
 class fabric_switch(pyfos_rest_util.rest_object):
@@ -54,6 +55,8 @@ class fabric_switch(pyfos_rest_util.rest_object):
         | firmware-version          | FOS version of switch        |:meth:`peek_firmware_version`          |
         +---------------------------+------------------------------+---------------------------------------+
         | fcid-hex                  | switch FCID in hex string    |:meth:`peek_fcid_hex`                  |
+        +---------------------------+------------------------------+---------------------------------------+
+        | path-count                | hops to reach rem. domain    |:meth:`peek_path_count`                |
         +---------------------------+------------------------------+---------------------------------------+
 
     *Object methods*
@@ -146,12 +149,22 @@ class fabric_switch(pyfos_rest_util.rest_object):
 
             :rtype: None or FCID of the switch in hex string
 
+        .. method:: peek_path_count()
+
+            Reads path count to reach remote domain.
+
+            :rtype: None or path count in integer
+
+
         """
 
     def __init__(self, dictvalues={}):
-        super().__init__(pyfos_rest_util.rest_obj_type.fabric,
-                         "/rest/running/fabric/fabric-switch")
-
+        urilist = list([dict({'URIVER': version.VER_RANGE_820_TO_821A,
+                              'URI': "/rest/running/fabric/fabric-switch"}),
+                        dict({'URIVER': version.VER_RANGE_821b_and_ABOVE,
+                              'URI': "/rest/running/brocade-fabric/" +
+                              "fabric-switch"})])
+        super().__init__(pyfos_rest_util.rest_obj_type.fabric, urilist)
         self.add(pyfos_rest_util.rest_attribute(
             "name", pyfos_type.type_wwn,
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
@@ -188,5 +201,8 @@ class fabric_switch(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "fcid-hex", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
-
+        self.add(pyfos_rest_util.rest_attribute(
+            "path-count", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
         self.load(dictvalues, 1)

@@ -20,7 +20,7 @@
 ***********************************************************************************
 The :mod:`extension_circuit_show` util displays a circuit.
 
-This module is a stand-alone script that can be used to the show extension
+This module is a stand-alone script that can be used to the show an extension
 circuit.
 
 extension_circuit_show.py: Usage
@@ -66,7 +66,7 @@ name, cid, local, remote)
             circuit)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the VE_Port name expressed as slot/port.
             :param cid: Sets the circuit ID.
             :param local: Sets the local IP address of the circuit.

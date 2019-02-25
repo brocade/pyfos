@@ -15,7 +15,8 @@
 
 """
 
-:mod:`ipfilter_policy_activate_set` - PyFOS util to activate specified ipfilter policy
+:mod:`ipfilter_policy_activate_set` - PyFOS util to activate specified \
+ipfilter policy
 **************************************************************************************
 The :mod:`ipfilter_policy_activate_set` supports 'ipfilter' CLI use case.
 

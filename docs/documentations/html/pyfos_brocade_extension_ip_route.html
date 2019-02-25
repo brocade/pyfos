@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_extension_ip_route - PyFOS module for extension IP routes. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>pyfos_brocade_extension_ip_route - PyFOS module for extension IP routes. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_brocade_extension_ip_interface.html" title="pyfos_brocade_extension_ip_interface - PyFOS module for extension IP."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -44,7 +44,7 @@
             
   <span class="target" id="module-pyfos_brocade_extension_ip_route"></span><div class="section" id="pyfos-brocade-extension-ip-route-pyfos-module-for-extension-ip-routes">
 <h1><a class="reference internal" href="#module-pyfos_brocade_extension_ip_route" title="pyfos_brocade_extension_ip_route: PyFOS module to support IP route module for REST. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_extension_ip_route</span></code></a> - PyFOS module for extension IP routes.<a class="headerlink" href="#pyfos-brocade-extension-ip-route-pyfos-module-for-extension-ip-routes" title="Permalink to this headline">¶</a></h1>
-<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_extension_iproute</span></code> module provides REST support for
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_extension_iproute</span></code> module provides REST support for
 IP route extension objects.</p>
 <dl class="class">
 <dt id="pyfos_brocade_extension_ip_route.extension_ip_route">
@@ -75,8 +75,7 @@ GE_Port.</td>
 <tr class="row-odd"><td>ip-address</td>
 <td>The IPv4/IPv6
 address.</td>
-<td><a class="reference internal" href="#pyfos_brocade_extension_ip_route.extension_ip_route.peek_ip_address" title="pyfos_brocade_extension_ip_route.extension_ip_route.peek_ip_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ip_address()</span></code></a>
-<a class="reference internal" href="#pyfos_brocade_extension_ip_route.extension_ip_route.peek_ip_address" title="pyfos_brocade_extension_ip_route.extension_ip_route.peek_ip_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ip_address()</span></code></a></td>
+<td><a class="reference internal" href="#pyfos_brocade_extension_ip_route.extension_ip_route.peek_ip_address" title="pyfos_brocade_extension_ip_route.extension_ip_route.peek_ip_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ip_address()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>dp-id</td>
 <td>The data-path
@@ -94,7 +93,7 @@ length.</td>
 <td>The IP address
 of the
 gateway.</td>
-<td>&#160;</td>
+<td><a class="reference internal" href="#pyfos_brocade_extension_ip_route.extension_ip_route.peek_ip_gateway" title="pyfos_brocade_extension_ip_route.extension_ip_route.peek_ip_gateway"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_ip_gateway()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>status-flags</td>
 <td>The IP
@@ -220,7 +219,7 @@ by <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success response
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response
 and a value with the name as the key.</td>
 </tr>
 </tbody>
@@ -235,7 +234,7 @@ and a value with the name as the key.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success response
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response
 and a value with “ip-address” as the key.</td>
 </tr>
 </tbody>
@@ -250,7 +249,7 @@ and a value with “ip-address” as the key.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success response and
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and
 a value with the DP ID as the key.</td>
 </tr>
 </tbody>
@@ -265,8 +264,8 @@ a value with the DP ID as the key.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success response and a value
-with “IP prefix length as the key.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and a value
+with “ip-prefix-length” as the key.</td>
 </tr>
 </tbody>
 </table>
@@ -275,13 +274,13 @@ with “IP prefix length as the key.</td>
 <dl class="function">
 <dt id="pyfos_brocade_extension_ip_route.extension_ip_route.set_ip_gateway">
 <code class="descname">set_ip_gateway</code><span class="sig-paren">(</span><em>gateway</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_extension_ip_route.extension_ip_route.set_ip_gateway" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the MTU size in the object.</p>
+<dd><p>Sets the IP address of the gateway in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or success response and a value
-with the MTU size as the key.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and a value
+with the IP address of the gateway as the key.</td>
 </tr>
 </tbody>
 </table>
@@ -355,7 +354,7 @@ Module <a class="reference internal" href="extension_ip_route_delete.html#module
         <li class="right" >
           <a href="pyfos_brocade_extension_ip_interface.html" title="pyfos_brocade_extension_ip_interface - PyFOS module for extension IP."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

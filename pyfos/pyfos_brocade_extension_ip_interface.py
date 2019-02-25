@@ -35,7 +35,7 @@ class extension_ip_interface(pyfos_rest_util.rest_object):
         |                |GE_Port.      |                             |
         +----------------+--------------+-----------------------------+
         |ip-address      |The IPv4/IPv6 |:func:`peek_ip_address`      |
-        |                |address.      |:func:`peek_ip_address`      |
+        |                |address.      |                             |
         +----------------+--------------+-----------------------------+
         |dp-id           |The data-path |:func:`peek_dp_id`           |
         |                |processor ID. |:func:`set_dp_id`            |
@@ -68,7 +68,7 @@ class extension_ip_interface(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned
              by :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or success response.
+            :rtype: A dictionary of error or a success response.
 
     *Attribute Functions*
 
@@ -118,42 +118,42 @@ class extension_ip_interface(pyfos_rest_util.rest_object):
 
             Sets the name in the object.
 
-            :rtype: A dictionary of errors or success response
+            :rtype: A dictionary of error or a success response
              and a value with the name as the key.
 
         .. function:: set_ip_address(ip_address)
 
             Sets the IP address in the object.
 
-            :rtype: A dictionary of errors or success response and
+            :rtype: A dictionary of error or a success response and
              a value with the IP address as the key.
 
         .. function:: set_dp_id(dpid)
 
             Sets the data-path processor ID in the object.
 
-            :rtype: A dictionary of errors or success response and
+            :rtype: A dictionary of error or a success response and
              a value with the DP ID as the key.
 
         .. function:: set_ip_prefix_length(prefixlength)
 
             Sets the IP prefix length in the object.
 
-            :rtype: A dictionary of errors or success response and a value
+            :rtype: A dictionary of error or a success response and a value
              with the IP prefix length as the key.
 
         .. function:: set_mtu_size(mtuSize)
 
             Sets the MTU size in the object.
 
-            :rtype: A dictionary of errors or success response and
+            :rtype: A dictionary of error or a success response and
              a value with the MTU size as the key.
 
         .. function:: set_vlan_id(vlanId)
 
             Sets the VLAN ID in the object.
 
-            :rtype: A dictionary of errors or success response and
+            :rtype: A dictionary of error or a success response and
              a value with the VLAN ID as the key.
 
         """

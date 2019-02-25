@@ -14,12 +14,13 @@
 # limitations under the License.
 
 """
-:mod:`seccryptocfg_apply_set` - PyFOS util to apply the default/userdefined template
-************************************************************************************
-The :mod:`seccryptocfg` supports 'seccryptocfg' CLI use case.
+:mod:`seccryptocfg_apply_set` - PyFOS util to apply the default or \
+user-defined template.
+******************************************************************************************************
+The :mod:`seccryptocfg` supports the 'seccryptocfg' CLI use case.
 
 This module is a stand-alone script and API that can be used to apply the
-default or user-defined template
+default or user-defined template.
 
 * Input:
 

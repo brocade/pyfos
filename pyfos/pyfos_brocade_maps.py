@@ -29,7 +29,7 @@ import pyfos.pyfos_version as version
 
 class maps_policy(pyfos_rest_util.rest_object):
     """
-        This class manages policies - create and manage monitoring policies.
+        This class manages policies.
         A MAPS policy is a set of rules that define thresholds for measures
         and actions to take when a threshold is triggered. When you enable a
         policy, all of the rules in the policy are in effect. A switch can have
@@ -46,18 +46,18 @@ class maps_policy(pyfos_rest_util.rest_object):
         | rule-list/rule                            | List of rules in the policy.     |:func:`set_rule_list_rule`                    |
         |                                           |                                  |:func:`peek_rule_list_rule`                   |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | is-predefined-policy                      | Whether the policy is active     |:func:`peek_is_predefined_policy`             |
-        |                                           | or non-active.                   |                                              |
+        | is-predefined-policy                      | Whether the policy is predefined |:func:`peek_is_predefined_policy`             |
+        |                                           | or user-defined.                 |                                              |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | is-active-policy                          | Whether the policy is predefined |:func:`set_is_active_policy`                  |
-        |                                           | or user-defined.                 |:func:`peek_is_active_policy`                 |
+        | is-active-policy                          | Whether the policy is active     |:func:`set_is_active_policy`                  |
+        |                                           | or non-active.                   |:func:`peek_is_active_policy`                 |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
 
     *Object Methods*
 
         .. staticmethod:: get(session)
 
-            Returns a :class:`maps_policy` object if group name is provided.
+            Returns a :class:`maps_policy` object if a group name is provided.
             Otherwise, returns all objects of the :class:`maps_policy`.
 
             :param session: The session handler returned by
@@ -70,10 +70,10 @@ class maps_policy(pyfos_rest_util.rest_object):
             Creates a MAPS policy and adds rules to an existing policy.
             If the rules list is empty, then an empty MAPS policy (without \
             any rules) is created.
-            If the policy is already present, then use POST operation to add \
-            rules to the policy.
+            If the policy is already present, then use a POST operation to \
+            add rules to the policy.
 
-            Example Usage of the Method to Create New Policy on Switch
+            Example Usage of the Method to Create a New Policy on the Switch
 
             .. code-block:: python
 
@@ -92,8 +92,8 @@ class maps_policy(pyfos_rest_util.rest_object):
         .. method:: patch(session)
 
             Updates the list of rules in a policy with the input rules. Note \
-            when you use the PATCH operation, all rules are replaced by the \
-            ones provided in the CLI.
+            that when you use the PATCH operation, all rules are replaced by \
+            the ones provided in the CLI.
             To add rules to an existing policy, use the POST operation.
             To delete rules from an existing policy, use the DELETE operation.
 
@@ -135,8 +135,8 @@ class maps_policy(pyfos_rest_util.rest_object):
 
         .. method:: set_rule_list_rule()
 
-            Sets the list of rules in rule list container which will be part of
-            a MAPS policy.
+            Sets the list of rules in a rule list container that will be part \
+            of a MAPS policy.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -148,20 +148,20 @@ class maps_policy(pyfos_rest_util.rest_object):
 
         .. method:: peek_is_predefined_policy()
 
-            Returns whether policy is pre-defined or not.
+            Returns whether the policy is pre-defined or not.
 
             :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_is_active_policy()
 
-            Returns whether policy is active or not.
+            Returns whether the policy is active or not.
 
             :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_is_active_policy()
 
-            Sets the policy name and when PATCH operation is performed, then
-            the specified MAPS policy will be enabled.
+            Sets the policy name; when a PATCH operation is performed, \
+            the specified MAPS policy is enabled.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -206,7 +206,7 @@ class group(pyfos_rest_util.rest_object):
         By creating a group of similar elements, you can manage these elements
         as a single  entity.
 
-    Important class members:
+    Important Class Members:
 
         +-------------------------------------------+----------------------------------+----------------------------------------------+
         | Attribute name                            | Description                      |Frequently used methods                       |
@@ -223,14 +223,15 @@ class group(pyfos_rest_util.rest_object):
         | feature-pattern                           | The feature pattern.             |:func:`set_feature_pattern`                   |
         |                                           |                                  |:func:`peek_feature_pattern`                  |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
-        | is-predefined                             | Returns true if group is         |:func:`peek_is_predefined`                    |
-        |                                           | pre-defined group.               |                                              |
+        | is-predefined                             | Returns true if the group is     |:func:`peek_is_predefined`                    |
+        |                                           | a predefined group.              |                                              |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
         | is-modifiable                             | Indicates whether the group is   |:func:`peek_is_modifiable`                    |
         |                                           | modifiable or not.               |                                              |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
         | members/member                            | A list of members (for example a |:func:`set_members_member`                    |
-        |                                           | list of ports, sfps or circuits. |:func:`peek_members_member`                   |
+        |                                           | list of ports, SFPs,             |:func:`peek_members_member`                   |
+        |                                           | or circuits).                    |                                              |
         +-------------------------------------------+----------------------------------+----------------------------------------------+
 
     *Object Methods*
@@ -247,12 +248,12 @@ class group(pyfos_rest_util.rest_object):
 
         .. method:: post(session)
 
-            Creates a MAPS group on switch.
+            Creates a MAPS group on the switch.
             Use the POST operation to create dynamic groups.
             If the group already exists, use the POST operation to add members
             to the group.
 
-            Example Usage of the Method to Create New Group on Switch
+            Example Usage of the Method to Create a New Group on the Switch
 
             .. code-block:: python
 
@@ -325,7 +326,7 @@ class group(pyfos_rest_util.rest_object):
         .. method:: set_group_feature()
 
             Sets the dynamic group feature. There are two types of groups in \
-            MAPS (dynamic groups and static groups). If this feature is set \
+            MAPS (dynamic groups and static groups). If this feature is set, \
             then the group is considered to be a dynamic group.
 
             :rtype: A dictionary in case of error or a success response.
@@ -338,7 +339,7 @@ class group(pyfos_rest_util.rest_object):
 
         .. method:: set_feature_pattern()
 
-            Sets the dynamic group feature pattern. It can be port name \
+            Sets the dynamic group feature pattern. It can be a port name \
             or node WWN.
 
             :rtype: A dictionary in case of error or a success response.
@@ -427,10 +428,10 @@ class rule(pyfos_rest_util.rest_object):
         take effect until you enable the policy. If the rule is part of the enabled
         policy, you must re-enable the policy for the rule to take effect.
 
-    Important class members:
+    Important Class Members:
 
         +----------------------------------+-------------------------------------------+----------------------------------------------+
-        | Attribute name                   | Description                               |Frequently used methods                       |
+        | Attribute Name                   | Description                               |Frequently Used Methods                       |
         +==================================+===========================================+==============================================+
         | name                             | The rule name.                            |:func:`set_name`                              |
         |                                  |                                           |:func:`peek_name`                             |
@@ -439,12 +440,12 @@ class rule(pyfos_rest_util.rest_object):
         |                                  |                                           |:func:`peek_is_rule_on_rule`                  |
         +----------------------------------+-------------------------------------------+----------------------------------------------+
         | monitoring-system                | The stats or error being                  |:func:`set_monitoring_system`                 |
-        |                                  | monitored (CRC, ITW, PS_STATE)            |:func:`peek_monitoring_system`                |
+        |                                  | monitored (CRC, ITW, PS_STATE).           |:func:`peek_monitoring_system`                |
         +----------------------------------+-------------------------------------------+----------------------------------------------+
-        | time-base                        | The timebase in the rule.                 |:func:`set_time_base`                         |
+        | time-base                        | The time base in the rule.                |:func:`set_time_base`                         |
         |                                  |                                           |:func:`peek_time_base`                        |
         +----------------------------------+-------------------------------------------+----------------------------------------------+
-        | logical-operator                 | The logical operators.                    |:func:`set_logical_operator`                  |
+        | logical-operator                 | The logical operator.                     |:func:`set_logical_operator`                  |
         |                                  |                                           |:func:`peek_logical_operator`                 |
         +----------------------------------+-------------------------------------------+----------------------------------------------+
         | threshold-value                  | The threshold value.                      |:func:`set_threshold_value`                   |
@@ -459,7 +460,7 @@ class rule(pyfos_rest_util.rest_object):
         | is-predefined                    | Returns true if the rule is system        |:func:`peek_is_predefined`                    |
         |                                  | defined.                                  |                                              |
         +----------------------------------+-------------------------------------------+----------------------------------------------+
-        | event-severity                   | The user configured severity -            |:func:`set_event_severity`                    |
+        | event-severity                   | The user configured severity:             |:func:`set_event_severity`                    |
         |                                  | warning, error, critical, info.           |:func:`peek_event_severity`                   |
         +----------------------------------+-------------------------------------------+----------------------------------------------+
         | toggle-time                      | The port toggle time.                     |:func:`set_toggle_time`                       |
@@ -482,7 +483,7 @@ class rule(pyfos_rest_util.rest_object):
 
         .. staticmethod:: get(session)
 
-            Returns a :class:`rule` object if rule name is provided.
+            Returns a :class:`rule` object if the rule name is provided.
             Otherwise, returns all  objects of the :class:`rule`.
 
             :param session: The session handler returned by
@@ -494,9 +495,9 @@ class rule(pyfos_rest_util.rest_object):
 
             Creates a MAPS rule. The required fields are set
             within the object using the attribute's set method.
-            This method is used to create new rule on switch.
+            This method is used to create a new rule on a switch.
 
-            Example Usage of the Method to Create New Rule on a Switch
+            Example Usage of the Method to Create a New Rule on a Switch
 
             .. code-block:: python
 
@@ -526,9 +527,9 @@ class rule(pyfos_rest_util.rest_object):
 
         .. method:: patch(session)
 
-            Updates the rule to modify threshold values, or interval of \
-            monitoring and so on.
-            If a rule which is part of active policy is changed, the
+            Updates the rule to modify threshold values, the interval of \
+            monitoring, and so on.
+            If a rule that is part of an active policy is changed, the
             policy must be re-activated for the rule to take effect.
 
             Example Usage of the Method to Update an Existing Rule on a Switch
@@ -563,7 +564,7 @@ class rule(pyfos_rest_util.rest_object):
 
             Deletes a MAPS group. The required fields are
             set within the object using the attribute's
-            set method. This method is used to delete a MAPS group.
+            set method.
 
             Example Usage of the Method to Delete a MAPS Group
 
@@ -604,7 +605,7 @@ class rule(pyfos_rest_util.rest_object):
 
         .. method:: peek_is_rule_on_rule()
 
-            Returns the value of RoR flag.
+            Returns the value of the RoR flag.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -622,7 +623,7 @@ class rule(pyfos_rest_util.rest_object):
 
         .. method:: set_time_base()
 
-            Sets the time base which is the interval for monitoring.
+            Sets the time base, which is the interval for monitoring.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -715,8 +716,9 @@ class rule(pyfos_rest_util.rest_object):
 
         .. method:: set_quiet_time()
 
-            Sets the quiet time. If quiet time is configured, then reporting of
-            rule violations will be done only after the expiry of quiet time.
+            Sets the quiet time. If the quiet time is configured, then reporting \
+            of rule violations will be done only after the expiry of the \
+            quiet time.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -728,7 +730,7 @@ class rule(pyfos_rest_util.rest_object):
 
         .. method:: set_quiet_time_clear()
 
-            Updates the flag to clear quiet time.
+            Updates the flag to clear the quiet time.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -758,7 +760,7 @@ class rule(pyfos_rest_util.rest_object):
 
         .. method:: peek_un_quarantine_clear()
 
-            Returns the flag un-quarantine clear.
+            Returns the un-quarantine clear flag.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -839,17 +841,18 @@ class rule(pyfos_rest_util.rest_object):
 class maps_config(pyfos_rest_util.rest_object):
 
     """
-        Manages the MAPS behavior for the switch. Use  this  module  to
-                perform the following MAPS functions:
+        Manages the MAPS behavior for the switch. Use this module to \
+        perform the following MAPS functions:
 
         1. Define the list of allowable actions that can be taken on the switch
-                when a threshold is triggered.
-        2. Configure  e-mail  address  to  which  the alerts must be delivered.
-        3. Delete all user-defined MAPS  configurations  related  to rules, groups,
-                policies, and so on.
+           when a threshold is triggered.
+        2. Configure  the email  address  to  which  the alerts must be \
+           delivered.
+        3. Delete all user-defined MAPS  configurations  related  to rules, \
+           groups, policies, and so on.
         4. Display MAPS settings.
 
-    Important class members:
+    Important Class Members:
 
         +------------------------------------------+-------------------------------------------+--------------------------------------------------------+
         | Attribute name                           | Description                               |Frequently used methods                                 |
@@ -857,8 +860,8 @@ class maps_config(pyfos_rest_util.rest_object):
         | actions/action                           | The global actions list.                  |:func:`set_actions_action`                              |
         |                                          |                                           |:func:`peek_actions_action`                             |
         +------------------------------------------+-------------------------------------------+--------------------------------------------------------+
-        | decommission-cfg                         | The decommission behavior                 |:func:`set_decommission_cfg`                            |
-        |                                          | - default or impair.                      |:func:`peek_decommission_cfg`                           |
+        | decommission-cfg                         | The decommission behavior:                |:func:`set_decommission_cfg`                            |
+        |                                          | default or impair.                        |:func:`peek_decommission_cfg`                           |
         +------------------------------------------+-------------------------------------------+--------------------------------------------------------+
         | recipient-address-list/recipient-address | The recipient email addresses.            |:func:`set_recipient_address_list_recipient_address`    |
         |                                          |                                           |:func:`peek_recipient_address_list_recipient_address`   |
@@ -883,7 +886,7 @@ class maps_config(pyfos_rest_util.rest_object):
 
         .. staticmethod:: get(session)
 
-            Return a :class:`maps_config` object.
+            Returns a :class:`maps_config` object.
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
@@ -894,6 +897,7 @@ class maps_config(pyfos_rest_util.rest_object):
 
             Uses the PATCH operation to update any member of the maps-config \
             class.
+
             Example Usage of the Method
 
             .. code-block:: python
@@ -925,19 +929,19 @@ class maps_config(pyfos_rest_util.rest_object):
 
         .. method:: set_decommission_cfg()
 
-            Sets the decommission behavior - default or impair.
+            Sets the decommission behavior: default or impair.
 
             :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_decommission_cfg()
 
-            Gets the decommission behavior - default or impair.
+            Gets the decommission behavior: default or impair.
 
             :rtype: A dictionary in case of error or a success response.
 
         .. method:: set_recipient_address_list_recipient_address()
 
-            Configures the recipient email address, maximum number is 5.
+            Configures the recipient email address; the maximum number is 5.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -955,7 +959,7 @@ class maps_config(pyfos_rest_util.rest_object):
 
         .. method:: peek_sender_address()
 
-            Gets the configured sender email address.
+            Gets the configured sender email addresses.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -1078,8 +1082,8 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
         | Attribute Name                      | Description                              |Frequently Used Methods                             |
         +=====================================+==========================================+====================================================+
-        | switch-health                       | The switch state. Switch health          |:func:`peek_switch_health`                          |
-        |                                     | represents switch operating health.      |                                                    |
+        | switch-health                       | The switch state. The switch health      |:func:`peek_switch_health`                          |
+        |                                     | represents the switch operating health.  |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
         | power-supply-health                 | The state of the power supplies.         |:func:`peek_power_supply_health`                    |
         |                                     |                                          |                                                    |
@@ -1094,7 +1098,7 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
         | ha-health                           | The state of the high availability       |:func:`peek_ha_health`                              |
-        |                                     | state - both CPs are in sync.            |                                                    |
+        |                                     | state: both CPs are in sync.             |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
         | control-processor-health            | The state of the CPs.                    |:func:`peek_control_processor_health`               |
         |                                     |                                          |                                                    |
@@ -1106,18 +1110,18 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
         | flash-health                        | The flash usage state. Flash usage       |:func:`peek_flash_health`                           |
-        |                                     | could be above threshold or limit.       |                                                    |
+        |                                     | could be above the threshold or limit.   |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
-        | marginal-port-health                | The marginal ports state.                |:func:`peek_marginal_port_health`                   |
+        | marginal-port-health                | The  state of the marginal ports.        |:func:`peek_marginal_port_health`                   |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
-        | faulty-port-health                  | The faulty ports state.                  |:func:`peek_faulty_port_health`                     |
+        | faulty-port-health                  | The  state of the faulty ports state.    |:func:`peek_faulty_port_health`                     |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
-        | missing-sfp-health                  | The missing SFPs state.                  |:func:`peek_missing_sfp_health`                     |
+        | missing-sfp-health                  | The  state of the missing SFPs state.    |:func:`peek_missing_sfp_health`                     |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
-        | error-port-health                   | The error ports state.                   |:func:`peek_error_port_health`                      |
+        | error-port-health                   | The  state of the error ports state.     |:func:`peek_error_port_health`                      |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
         | expired-certificate-health          | The expired certificate state.           |:func:`peek_expired_certificate_health`             |
@@ -1173,7 +1177,7 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
 
         .. method:: peek_ha_health()
 
-            Reads the state of the high availability state (both CPs in sync).
+            Reads the state of the high availability (both CPs in sync).
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -1203,25 +1207,25 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
 
         .. method:: peek_marginal_port_health()
 
-            Reads the marginal ports state.
+            Reads the  state of the marginal ports.
 
             :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_faulty_port_health()
 
-            Reads the faulty ports state.
+            Reads the  state of the faulty ports.
 
             :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_missing_sfp_health()
 
-            Reads the missing SFPs state.
+            Reads the  state of the missing SFPs.
 
             :rtype: A dictionary in case of error or a success response.
 
         .. method:: peek_error_port_health()
 
-            Reads the error ports state.
+            Reads the  state of the error ports.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -1319,23 +1323,23 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
         support different time bases, actions, or thresholds. Certain \
         monitoring systems are supported on certain systems (for example, \
         circuit or tunnel monitoring systems are supported on \
-        extension platforms.
+        extension platforms).
 
     Important Class Members:
 
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
         | Attribute Name                                 | Description                               |Frequently Used Methods                                    |
         +================================================+===========================================+===========================================================+
-        | monitoring-system                              | Represents monitoring system name.        |:func:`peek_monitoring_system`                             |
+        | monitoring-system                              | Represents the monitoring system name.    |:func:`peek_monitoring_system`                             |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | dashboard-category                             | Represents dashboard category of the      |:func:`peek_dashbroad_category`                            |
+        | dashboard-category                             | Represents the dashboard category of the  |:func:`peek_dashbroad_category`                            |
         |                                                | monitoring system.                        |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | group-type                                     | Represents group type.                    |:func:`peek_group_type`                                    |
+        | group-type                                     | Represents the group type.                |:func:`peek_group_type`                                    |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | base-time-bases/time-base                      | The supported timebases.                  |:func:`peek_base_time_bases_time_base`                     |
+        | base-time-bases/time-base                      | The supported time bases.                 |:func:`peek_base_time_bases_time_base`                     |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
         | rule-on-rule-time-bases/rule-on-rule-time-base | Represents supported time bases for rule  |:func:`peek_rule_on_rule_time_bases_rule_on_rule_time_base`|
@@ -1345,19 +1349,20 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
         | monitored-logical-switch                       | Monitoring can be in all the logical      |:func:`peek_monitored_logical_switch`                      |
-        |                                                | switches or only in default logical switch|                                                           |
+        |                                                | switches or only in the default logical   |                                                           |
+        |                                                | switch.                                   |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | is-rule-on-rule-supported                      | True if rule-on-rule supported.           |:func:`peek_is_rule_on_rule_supported`                     |
+        | is-rule-on-rule-supported                      | True if rule-on-rule is supported.        |:func:`peek_is_rule_on_rule_supported`                     |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | is-quiet-time-supported                        | True if quiet time feature supported.     |:func:`peek_is_quiet_time_supported`                       |
-        |                                                |                                           |                                                           |
+        | is-quiet-time-supported                        | True if the quiet time feature            |:func:`peek_is_quiet_time_supported`                       |
+        |                                                | is supported.                             |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
         | minimum-quiet-time                             | Quiet time feature supported.             |:func:`peek_minimum_quiet_time`                            |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | monitoring-type                                | Monitoring type of the monitoring systems |:func:`peek_monitoring_type`                               |
-        |                                                |                                           |                                                           |
+        | monitoring-type                                | Monitoring the type of monitoring         |:func:`peek_monitoring_type`                               |
+        |                                                | systems.                                  |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
         | data-type                                      | The unit of the data.                     |:func:`peek_data_type`                                     |
         |                                                |                                           |                                                           |
@@ -1365,16 +1370,16 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
         | description                                    | Description of the monitoring system.     |:func:`peek_description`                                   |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | actions/action                                 | Represents global actions list.           |:func:`peek_actions_action`                                |
+        | actions/action                                 | Represents the global actions list.       |:func:`peek_actions_action`                                |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | unit                                           | Represents data unit.                     |:func:`peek_unit`                                          |
+        | unit                                           | Represents the data unit.                 |:func:`peek_unit`                                          |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | data-range                                     | Represents data range.                    |:func:`peek_data_range`                                    |
+        | data-range                                     | Represents the data range.                |:func:`peek_data_range`                                    |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
-        | logical-operators/logical-operator             | Supported logical operator.               |:func:`peek_logical_operators_logical_operator`            |
+        | logical-operators/logical-operator             | The supported logical operator.           |:func:`peek_logical_operators_logical_operator`            |
         |                                                |                                           |                                                           |
         +------------------------------------------------+-------------------------------------------+-----------------------------------------------------------+
 
@@ -1382,7 +1387,7 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
 
         .. staticmethod:: get(session)
 
-            Return all :class:`monitoring_system_matrix` objects.
+            Returns all :class:`monitoring_system_matrix` objects.
             Individual attributes can be accessed through peek methods.
 
             :param session: The session handler returned by
@@ -1390,15 +1395,15 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
             :rtype: A :class:`monitoring_system_matrix` object. \
                     A dictionary in case of error.
 
-    *Attribute methods*
+    *Attribute Methods*
 
         .. method:: peek_monitoring_system()
 
-            Represents the monitoring system name(CRC, SEC_LV)
+            Represents the monitoring system name (CRC, SEC_LV).
 
             :rtype: A dictionary in case of error or a success response.
 
-        .. method:: peek_dashbroad_category()
+        .. method:: peek_dashboard_category()
 
             Represents the dashboard category of the monitoring system.
 
@@ -1412,7 +1417,7 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
 
         .. method:: peek_base_time_bases_time_base()
 
-            Represents the supported timebases.
+            Represents the supported time bases.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -1424,7 +1429,7 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
 
         .. method:: peek_is_read_only()
 
-            Returns true for read only monitoring systems.
+            Returns true for read-only monitoring systems.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -1451,7 +1456,7 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
 
         .. method:: peek_minimum_quiet_time()
 
-            Quiet time feature is supported.
+            The quiet time feature is supported.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -1606,8 +1611,8 @@ class paused_cfg(pyfos_rest_util.rest_object):
         +-------------------------------+----------------------------------+----------------------------------------------+
         | Attribute Name                | Description                      |Frequently Used Methods                       |
         +===============================+==================================+==============================================+
-        | group-type                    | Represents group type for pausing|:func:`set_group_type`                        |
-        |                               | or resuming monitoring.          |:func:`peek_group_type`                       |
+        | group-type                    | Represents the group type for    |:func:`set_group_type`                        |
+        |                               | pausing or resuming monitoring.  |:func:`peek_group_type`                       |
         +-------------------------------+----------------------------------+----------------------------------------------+
         | members/member                | Members for pausing or resuming  |:func:`set_members_member`                    |
         |                               | monitoring.                      |:func:`peek_members_member`                   |
@@ -1618,7 +1623,7 @@ class paused_cfg(pyfos_rest_util.rest_object):
         .. staticmethod:: get(session)
 
             Returns a :class:`paused_cfg` object.
-            Returns a list of all the members which are currently paused \
+            Returns a list of all members that are currently paused \
             for monitoring.
 
             :param session: The session handler returned by
@@ -1633,7 +1638,7 @@ class paused_cfg(pyfos_rest_util.rest_object):
 
         .. staticmethod:: delete(session)
 
-            Specifies the members on which to resume (continue) monitoring.
+            Specifies the members on which to resume monitoring.
             The members can be fc-port, sfp, or circuit.
 
     *Attribute Methods*
@@ -1686,7 +1691,7 @@ class paused_cfg(pyfos_rest_util.rest_object):
 
 class system_resources(pyfos_rest_util.rest_object):
     """
-        Manages the system resources - flash, RAM, and CPU usage. Usage is not
+        Manages the system resources: flash, RAM, and CPU usage. Usage is not
         real time and is delayed up to 2 minutes.
 
     Important Class Members:
@@ -1773,7 +1778,7 @@ class system_resources(pyfos_rest_util.rest_object):
 
 class dashboard_misc(pyfos_rest_util.rest_object):
     """
-        Represents the dashboard's miscellaneous information such as starttime
+        Represents the dashboard's miscellaneous information such as start time
         and operation.
 
     Important Class Members:
@@ -1812,8 +1817,8 @@ class dashboard_misc(pyfos_rest_util.rest_object):
 
         .. method:: peek_maps_start_time()
 
-            Returns the monitoring start time. MAPS is a restartable service \
-            so the start time can be different than system up time.
+            Returns the monitoring start time. MAPS is a restartable service, \
+            so the start time can be different than the system uptime.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -1856,8 +1861,8 @@ class dashboard_rule(pyfos_rest_util.rest_object):
 
         Gets a triggered rules list for the last 7 days. The rule list is
         needed to get the complete picture of switch operation. Data provides
-        two views of operating state - the state since midnight and
-        last 7 days. For both views, you must complete the details of \
+        two views of the operating state: the state since midnight and
+        the last 7 days. For both views, you must complete the details of \
         each rule triggered and all  rules data.
 
     Important Class Members:
@@ -1880,7 +1885,7 @@ class dashboard_rule(pyfos_rest_util.rest_object):
         | repetition-count              | The rule repetition count.           |:func:`peek_repetition_count`                 |
         |                               |                                      |                                              |
         +-------------------------------+--------------------------------------+----------------------------------------------+
-        | objects/object                | The objects violated the rule        |:func:`peek_objects_object`                   |
+        | objects/object                | The objects that violated the rule   |:func:`peek_objects_object`                   |
         |                               | - for example ports, circuits.       |                                              |
         +-------------------------------+--------------------------------------+----------------------------------------------+
 
@@ -1890,7 +1895,7 @@ class dashboard_rule(pyfos_rest_util.rest_object):
 
             Returns a :class:`dashboard_rule` object.
             Returns the MAPS dashboard information, the switch summary \
-            for last 7 days, and the rule violations affecting health.
+            for the last 7 days, and the rule violations affecting health.
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
@@ -1929,7 +1934,7 @@ class dashboard_rule(pyfos_rest_util.rest_object):
             been triggered). The same rule can be triggered multiple times for
             the same or different objects. For example, defALL_D_PORTSCRC_10 \
             might be triggered 20 times in an hour for the same or different \
-            objects - in this case repetition-count would be 20.
+            objects--in this case repetition-count would be 20.
 
             :rtype: A dictionary in case of error or a success response.
 

@@ -17,7 +17,7 @@
 
 :mod:`radius_server_set` - PyFOS util to modify a RADIUS server configuration.
 *******************************************************************************
-The :mod:`radius_server_create` util supports modifying a RADIUS \
+The :mod:`radius_server_set` util supports modifying a RADIUS \
 server configuration.
 
 This module is a stand-alone script and API that can be used to modify a

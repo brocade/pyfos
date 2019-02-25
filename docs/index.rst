@@ -33,7 +33,6 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
 
    pyfos_brocade_access_gateway
    pyfos_brocade_fabric
-   pyfos_brocade_fibrechannel
    pyfos_brocade_fibrechannel_configuration
    pyfos_brocade_fibrechannel_diagnostics
    pyfos_brocade_fibrechannel_switch
@@ -41,6 +40,7 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    pyfos_brocade_zone
    pyfos_brocade_fdmi
    pyfos_brocade_fibrechannel_logical_switch
+   pyfos_brocade_interface
    pyfos_brocade_name_server
    pyfos_brocade_security
    pyfos_brocade_chassis
@@ -49,6 +49,9 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    pyfos_brocade_logging
    pyfos_brocade_maps
    pyfos_brocade_time
+   pyfos_brocade_license
+   pyfos_brocade_snmp
+   pyfos_brocade_module_version
 
 *PyFOS Operation Support Modules*
 
@@ -63,12 +66,13 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
 .. toctree::
    :maxdepth: 2
 
-   log_quiet_control_get
+   log_quiet_control_show
    log_quiet_control_modify
-   log_setting_keep_alive_period_get
+   log_setting_keep_alive_period_show
    log_setting_keep_alive_period_set
-   raslog_get
+   raslog_show
    raslog_message_enabled_set
+   raslog_module_show
    raslog_module_set
    raslog_current_severity_set
    raslog_syslog_enabled_set
@@ -86,13 +90,13 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
 .. toctree::
    :maxdepth: 2
 
-   switch_configuration_get
+   switch_configuration_show
    switch_configuration_modify
-   f_port_login_settings_get
+   f_port_login_settings_show
    f_port_login_settings_modify
-   dns_config_get
+   dns_config_show
    dns_config_modify
-   switch_ip_config_get
+   switch_ip_config_show
    switch_ip_config_modify
    configure_fabric_show
    configure_fabric_modify
@@ -102,7 +106,6 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
 .. toctree::
    :maxdepth: 2
 
-   pyfos_brocade_gigabitethernet
    pyfos_brocade_extension_ip_interface
    pyfos_brocade_extension_ip_route
    pyfos_brocade_extension_ipsec_policy
@@ -192,7 +195,7 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    zoning_zone_remove
    zone_allow_pair
    zone_allow_pair_to_peer
-
+   license_show
 
 *PyFOS Access Gateway Mode utils Modules*
 
@@ -370,7 +373,36 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    :maxdepth: 2
 
    supportsave
- 
+
+*PyFOS Snmp utils Modules*
+
+.. toctree::
+   :maxdepth: 2
+
+   snmp_system_show
+   snmp_system_modify
+   snmp_mib_capability_show
+   snmp_mib_capability_modify
+   snmp_trap_capability_show
+   snmp_trap_capability_modify
+   snmp_v1_account_show
+   snmp_v1_account_modify
+   snmp_v1_trap_show
+   snmp_v1_trap_modify
+   snmp_v3_account_show
+   snmp_v3_account_modify
+   snmp_v3_trap_show
+   snmp_v3_trap_modify
+   snmp_access_control_show
+   snmp_access_control_modify
+
+*PyFOS Version Module:*
+
+.. toctree::
+   :maxdepth: 2
+
+   module_version_show
+
 Indices and tables
 
 * :ref:`genindex`

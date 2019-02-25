@@ -41,7 +41,7 @@ is given, media information will be displayed for all ports.
   |    --name=Interface/slot/port                  Sets the port name.
 
 
-* Uutput:
+* Output:
     * Media information about specified port. When the port is not provided,
       media information will be displayed for all existing ports.
 
@@ -70,7 +70,7 @@ is given, media information will be displayed for all ports.
         * Input:
             :param session: The session returned by the login.
             :param name: The specific port in the format of interface/slot/port
-                         or none for all ports. Interface should be either
+                         or none for all ports. Interface should be
                          FC, GE, or TE.
 
         * Output:

@@ -20,26 +20,27 @@
 *******************************************************************************
 
 
-This script is used to delete rules in a MAPS policy or delete a MAPS policy.
+This script is used to delete rules in a MAPS policy or to delete a \
+MAPS policy.
 If a rule list is provided in the input, then those rules are deleted from
 the specified policy.
 If the rule list is empty, then the MAPS policy is deleted.
 
 * Input:
 
-| Infrastructure Options:
+* Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
-|   -L,--login=LOGIN       The login name.
-|   -P,--password=PASSWORD The password.
-|   -f,--vfid=VFID         The VFID to which the request \
-                            is directed [OPTIONAL].
-|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           Verbose mode [OPTIONAL].
+    * -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+    * -L,--login=LOGIN       The login name.
+    * -P,--password=PASSWORD The password.
+    * -f,--vfid=VFID         The VFID to which the request is \
+                             directed [OPTIONAL].
+    * -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose           Verbose mode [OPTIONAL].
 
 * Util Script Options:
    --name                 Specifies a MAPS policy.
-    --rule-list           Sets the rule list in the MAPS policy.
+   --rule-list           Sets the rule list in the MAPS policy.
 
 * Output:
     * A success response or a dictionary in case of error.

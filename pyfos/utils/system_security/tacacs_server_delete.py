@@ -14,10 +14,11 @@
 # limitations under the License.
 
 """
-:mod:`tacacs_server_create` - PyFOS util to delete a tacacs+ server configuration
-*********************************************************************************
-The :mod:`tacacs_server_create` util supports deleting a TACACS+ server \
+:mod:`tacacs_server_delete` - PyFOS util to delete a TACACS+ server \
 configuration
+*********************************************************************************
+The :mod:`tacacs_server_delete` util supports deleting a TACACS+ server \
+configuration.
 
 This module is a stand-alone script and API that can be used to delete a
 TACACS+ server.

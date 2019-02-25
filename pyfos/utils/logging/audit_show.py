@@ -16,8 +16,8 @@
 """
 :mod:`audit_show` - PyFOS util to show the audit configuration on a switch.
 *******************************************************************************
-The :mod:`audit_show` util provides option to show the parameters of audit on a
-switch.
+The :mod:`audit_show` util provides the option to show the parameters of the \
+audit on a switch.
 
 This module is a stand-alone script that can be used to display the audit
 configuration on a switch.

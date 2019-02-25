@@ -16,7 +16,7 @@
 :mod:`pyfos_brocade_extension_ip_route` - PyFOS module for extension \
 IP routes.
 ********************************************************************************
-The :mod:`pyfos_extension_iproute` module provides REST support for
+The :mod:`pyfos_brocade_extension_iproute` module provides REST support for
 IP route extension objects.
 """
 from pyfos import pyfos_rest_util
@@ -36,7 +36,7 @@ class extension_ip_route(pyfos_rest_util.rest_object):
         |                |GE_Port.      |                             |
         +----------------+--------------+-----------------------------+
         |ip-address      |The IPv4/IPv6 |:func:`peek_ip_address`      |
-        |                |address.      |:func:`peek_ip_address`      |
+        |                |address.      |                             |
         +----------------+--------------+-----------------------------+
         |dp-id           |The data-path |:func:`peek_dp_id`           |
         |                |processor ID. |:func:`set_dp_id`            |
@@ -45,7 +45,7 @@ class extension_ip_route(pyfos_rest_util.rest_object):
         |ip-prefix-length|The IP prefix |:func:`peek_ip_prefix_length`|
         |                |length.       |:func:`set_ip_prefix_length` |
         +----------------+--------------+-----------------------------+
-        |ip-gateway      |The IP address|                             |
+        |ip-gateway      |The IP address|:func:`peek_ip_gateway`      |
         |                |of the        |                             |
         |                |gateway.      |                             |
         |                |              |                             |
@@ -108,36 +108,36 @@ class extension_ip_route(pyfos_rest_util.rest_object):
 
             Sets the name in the object.
 
-            :rtype: A dictionary of errors or success response
+            :rtype: A dictionary of error or a success response
              and a value with the name as the key.
 
         .. function:: set_ip_address(ip_address)
 
             Sets the IP address in the object.
 
-            :rtype: A dictionary of errors or success response
+            :rtype: A dictionary of error or a success response
              and a value with "ip-address" as the key.
 
         .. function:: set_dp_id(dpid)
 
             Sets the data-path processor ID in the object.
 
-            :rtype: A dictionary of errors or success response and
+            :rtype: A dictionary of error or a success response and
              a value with the DP ID as the key.
 
         .. function:: set_ip_prefix_length(prefixlength)
 
             Sets the IP prefix length in the object.
 
-            :rtype: A dictionary of errors or success response and a value
-             with "IP prefix length as the key.
+            :rtype: A dictionary of error or a success response and a value
+             with "ip-prefix-length" as the key.
 
         .. function:: set_ip_gateway(gateway)
 
-            Sets the MTU size in the object.
+            Sets the IP address of the gateway in the object.
 
-            :rtype: A dictionary of errors or success response and a value
-             with the MTU size as the key.
+            :rtype: A dictionary of error or a success response and a value
+             with the IP address of the gateway as the key.
 
         """
     def __init__(self, dictvalues={}):

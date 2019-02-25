@@ -260,7 +260,7 @@ def main(argv):
         print("login failed because",
               g_session.get(pyfos_auth.CREDENTIAL_KEY)
               [pyfos_auth.LOGIN_ERROR_KEY])
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
     brcd_util.exit_register(g_session)
@@ -274,22 +274,22 @@ def main(argv):
 
     if "hostname" not in inputs:
         print("--hostname is mandatory")
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
     if "hostport" not in inputs:
         print("--hostport is mandatory")
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
     if "targetname" not in inputs:
         print("--targetname is mandatory")
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
     if "targetport" not in inputs:
         print("--targetport is mandatory")
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
     ret_code, details = zone_allow_pair(

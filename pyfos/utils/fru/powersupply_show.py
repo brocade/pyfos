@@ -23,7 +23,7 @@ This module can be used to display the power supply unit information.
 
 * Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
 |   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
 |   -L,--login=LOGIN       The login name.
@@ -38,12 +38,12 @@ This module can be used to display the power supply unit information.
    |   --unit-number=unit-number     Sets the unit number.
 
 * Output:
-    * Power supply unit information. When unit number is not provided,
+    * Power supply unit information. When the unit number is not provided,
       all power supply units will be displayed.
 
 .. function:: ps_unit_show.show_ps_unit(session, unit)
 
-    * Display the power supply unit details.
+    * Displays the power supply unit details.
 
         Example Usage of the Method::
 

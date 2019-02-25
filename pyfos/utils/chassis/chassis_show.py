@@ -15,11 +15,11 @@
 
 """
 
-:mod:`chassis_show` - PyFOS util displays chassis attributes.
+:mod:`chassis_show` - PyFOS util to display chassis attributes.
 ************************************************************************
 The :mod:`chassis_show` util displays chassis attributes.
 
-This module is a stan-dalone script that can be used to display chassis
+This module is a stand-alone script that can be used to display chassis
 attributes.
 
 * Input:

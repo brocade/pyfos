@@ -67,7 +67,7 @@ show_extension_circuit_statistics(session,name, cid, local, remote)
             circuit)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the VE_Port name expressed as slot/port.
             :param cid: Sets the circuit ID.
             :param opstatus: Sets the operational status of the circuit.

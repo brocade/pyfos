@@ -15,7 +15,8 @@
 
 """
 
-:mod:`user_specific_password_cfg_show` - PyFOS util to display user specific password configurations
+:mod:`user_specific_password_cfg_show` - PyFOS util to display user specific \
+password configurations
 ****************************************************************************************************
 This module is a standalone script and API that can be used to display
 user specific password config paramters.

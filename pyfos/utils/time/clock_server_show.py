@@ -15,7 +15,8 @@
 
 """
 
-:mod:`clock_server_show` - PyFOS util to show one or list of external NTP servers.
+:mod:`clock_server_show` - PyFOS util to show one or list of external \
+NTP servers.
 **********************************************************************************
 The :mod:`clock_server_show` supports 'tsclockserver' CLI use case.
 

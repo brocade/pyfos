@@ -63,7 +63,7 @@ name, cid)
             session, circuit)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the VE_Port name expressed as slot/port.
             :param cid: Sets the ID of the circuit.
 

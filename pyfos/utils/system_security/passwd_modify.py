@@ -16,10 +16,10 @@
 
 :mod:`passwd_modify` - PyFOS util to change a password.
 ***************************************************************************************
-The :mod:`passwd_modify` util provides options to change a passord for a
-                         specified user.
+The :mod:`passwd_modify` util provides options to change a passord for a \
+specified user.
 
-This module is a stan-dalone script that can be used to a change password.
+This module is a stand-alone script that can be used to change a password.
 
 * Input:
 
@@ -46,7 +46,7 @@ This module is a stan-dalone script that can be used to a change password.
 .. function:: passwd_modify.change_password(
                   session, user_name, old_password, new_password)
 
-    * Change the password for a specified user
+    * Changes the password for a specified user.
 
         Example Usage of the Method::
 

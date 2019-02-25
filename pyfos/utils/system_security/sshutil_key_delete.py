@@ -15,11 +15,11 @@
 
 """
 
-:mod:`sshutil_delete`-PyFOS util to delete a public/private key pair, \
+:mod:`sshutil_delete` - PyFOS util to delete a public/private key pair, \
 a host key, or known hosts in a switch.
 **********************************************************************\
 *****************************************
-The :mod:`sshutil_delete` util provides the option to delete\
+The :mod:`sshutil_delete` util provides the option to delete \
 a public/private key pair, a host key, or known hosts in a switch.
 
 This module can be used to delete a public/private key pair, a host key, \
@@ -48,7 +48,8 @@ or known hosts in a switch.
 
 .. function:: sshutil_delete.del_members(session, key_type, algo_type)
 
-    * Delete a public/private key pair, a host key, or known hosts in a switch.
+    * Deletes a public/private key pair, a host key, or known hosts in a\
+      switch.
 
         Example Usage of the Method::
 
@@ -80,7 +81,7 @@ or known hosts in a switch.
 
         *Use Cases*
 
-        1. Delete a private key.
+        1. Delete a public/private key.
         2. Delete a host key.
 
 """

@@ -41,7 +41,7 @@ on a given port.
 import sys
 import time
 from pyfos import pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+import pyfos.pyfos_brocade_interface as pyfos_switchfcport
 import pyfos.pyfos_brocade_fibrechannel_diagnostics as pyfos_diag
 from pyfos import pyfos_util
 from pyfos.utils import brcd_util

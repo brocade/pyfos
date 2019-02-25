@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>switch_config_dump - PyFOS util for specific config op use case. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>switch_config_dump - PyFOS util to dump existing switch configuration. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="zoning_alias_create_add - PyFOS util for alias create/add use case" href="zoning_alias_create_add.html" />
-    <link rel="prev" title="switch_config_diff - PyFOS util for specific config op use case." href="switch_config_diff.html" /> 
+    <link rel="prev" title="switch_config_diff - PyFOS util to detect configuration drift from dump." href="switch_config_diff.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="zoning_alias_create_add.html" title="zoning_alias_create_add - PyFOS util for alias create/add use case"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="switch_config_diff.html" title="switch_config_diff - PyFOS util for specific config op use case."
+          <a href="switch_config_diff.html" title="switch_config_diff - PyFOS util to detect configuration drift from dump."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,37 +42,32 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-switch_config_dump"></span><div class="section" id="switch-config-dump-pyfos-util-for-specific-config-op-use-case">
-<h1><a class="reference internal" href="#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> - PyFOS util for specific config op use case.<a class="headerlink" href="#switch-config-dump-pyfos-util-for-specific-config-op-use-case" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> provides for a specific config op use case.</p>
-<p>This module is a stand-alone script that can be used to dump
-spreadsheet or JSON encoded switch configuration files into
-a timestamped file or directory. The resulting configuration
-files can be used to monitor drift or apply to a switch.</p>
-<p>The configuration files can be in spreadsheet format or in JSON format.
-By default, spreadsheet format is used. Resulting name of the
-spreadsheet is given without .&lt;vfid&gt;.xlsx file extension for
-–compare option. For JSON format configuration files, –json option
-added to –compare option and directory name is given instead.</p>
+  <span class="target" id="module-switch_config_dump"></span><div class="section" id="switch-config-dump-pyfos-util-to-dump-existing-switch-configuration">
+<h1><a class="reference internal" href="#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> - PyFOS util to dump existing switch configuration.<a class="headerlink" href="#switch-config-dump-pyfos-util-to-dump-existing-switch-configuration" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> PyFOS util to dump existing switch configuration.</p>
+<p>This module is a stand-alone script that can be used to dump spreadsheet
+or JSON encoded switch configuration details into a timestamped file. The
+resulting configuration files can be used for monitoring drift in configs
+and/or revert the drifts in config by applying of older configs to a switch.</p>
 <ul>
 <li><dl class="first docutils">
 <dt>Inputs:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt>-L=&lt;login&gt;: Login ID. If not provided, an interactive</dt>
+<dt>-L=&lt;login&gt;: The login ID. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>-P=&lt;password&gt;: Password. If not provided, an interactive</dt>
+<dt>-P=&lt;password&gt;: The password. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: IP address.</p>
+<li><p class="first">-i=&lt;IP address&gt;:The IP address.</p>
 </li>
-<li><p class="first">–json: Use JSon Format, Default is XLSX format. [Optional]</p>
+<li><p class="first">–json: Use JSON Format,The default is XLSX format. [Optional]</p>
 </li>
 </ul>
 </dd>
@@ -81,16 +76,236 @@ added to –compare option and directory name is given instead.</p>
 <li><dl class="first docutils">
 <dt>Outputs:</dt>
 <dd><ul class="first last simple">
-<li>None</li>
+<li>Displays the dump file name</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
+<p><strong>Using switch_config_dump</strong>:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">File Name Format.
+The dump configuration file name follows the format:
+<em>FOS_&lt;switch IP address&gt;_&lt;date&gt;_&lt;time stamp&gt;_&lt;vfid&gt;.&lt;format&gt;</em>.
+For logical switch supported switches the configuration dump
+will be across multiple files each with a different <strong>vfid</strong> in the
+filename. For logical switch or VF not supported then
+the keyword <strong>None</strong> replaces the <strong>vfid</strong> .</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_14_09_15_14_None</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</li>
+<li><dl class="first docutils">
+<dt>File Type Formats.</dt>
+<dd><p class="first">The configuration utility provides two file type formats supported
+for the config dump functionality <em>(XLSX and JSON)</em>. The default mode
+is <em>XLSX</em> and is implicit in the command line arguments. However for
+of <em>JSON</em> format you should explicitly pass <strong>–json</strong>. The dumped
+configuration file can be passed to the <a class="reference internal" href="switch_config_diff.html#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> and
+<a class="reference internal" href="switch_config_apply.html#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> utils for identifying the drifts and or
+reverting the drifted configurations.</p>
+<p>Example XLSX:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">switch_config_dump</span><span class="o">.</span><span class="n">py</span>  <span class="o">-</span><span class="n">i</span> <span class="mf">10.200</span><span class="o">.</span><span class="mf">151.183</span> <span class="o">-</span><span class="n">L</span> <span class="n">admin</span> <span class="o">-</span><span class="n">P</span> <span class="n">password</span>
+</pre></div>
+</div>
+<p>Example JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">switch_config_dump</span><span class="o">.</span><span class="n">py</span>  <span class="o">-</span><span class="n">i</span> <span class="mf">10.200</span><span class="o">.</span><span class="mf">151.183</span> <span class="o">-</span><span class="n">L</span> <span class="n">admin</span> <span class="o">-</span><span class="n">P</span> <span class="n">password</span>
+<span class="o">--</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Example Execution:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span class="n">python3</span><span class="o">.</span><span class="mi">5</span> <span class="n">switch_config_dump</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">i</span> <span class="mf">10.155</span><span class="o">.</span><span class="mf">107.42</span> <span class="o">-</span><span class="n">L</span> <span class="n">admin</span>
+<span class="o">-</span><span class="n">P</span> <span class="n">password</span> <span class="o">--</span><span class="n">json</span>
+<span class="n">Dump</span> <span class="n">configuration</span> <span class="n">Start</span>
+<span class="n">Saving</span> <span class="n">Dump</span> <span class="n">file</span> <span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_18_01_30_55_None</span><span class="o">.</span><span class="n">json</span>
+<span class="n">Dump</span> <span class="n">configuration</span> <span class="n">Completed</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<p><strong>Assumptions</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>The switch_config_dump contains only the read-write supported objects
+(that supports POST/PATCH/DELETE/PUT operations).</li>
+<li>The switch_config_dump of objects contains only config true attributes
+as per yang in the <em>XLSX</em> format. However in case of <em>JSON</em> all
+attributes are dumped.</li>
+<li>The filtering support for switch_config_dump is limited to the object
+level (filtering is supported at the top level container/list name). The
+filtering support is not extended to the individual attribute leaves.</li>
+<li>The complete list of objects available for configuration operations
+should be part of <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a>. Please ensure the object
+is part of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfos.manager.pyfos_class_manager.clslist</span></code> before it
+can be used for configuration operation.</li>
+</ol>
+</div></blockquote>
+<p><strong>Object Filtering Support</strong>:</p>
+<blockquote>
+<div><p>The utils supports filtering (selectively using one or more objects for
+config dump, diff, apply sequence). Follow the procedure below to
+selectively apply the configuration operations.</p>
+<ol class="arabic simple">
+<li>Create a file with the name <em>configfilters.json</em>.</li>
+<li>Add the container name for all objects to be used for configuration
+operation.</li>
+<li>Put the <em>configfilters.json</em> file in the execution directory. Otherwise,
+no user available CLI options are supported to pass this filename.</li>
+<li>If the <strong>configfilter.json</strong> file is empty then all objects in the
+<a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a> list are used for configuration operation.</li>
+<li>If the <strong>configfilter.json</strong> file is not empty, only the objects in
+the filters file are used for configuration operation.</li>
+</ol>
+<p>Example Content of the <em>configfilters.json</em> File:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">[</span>
+    <span class="s2">&quot;fibrechannel-switch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extesnion-tunnel&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Switch Configuration Object Dump XLSX</strong>:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Each object type is dumped in its own work sheet based on its container
+name. However it’s also possible from the object dump infra to extend
+the dump of attributes of a container or list across multiple work
+sheets. Note that the same is not available as a user configurable
+option. The separation of attributes into multiple sheet makes it
+difficult to review them and is not used in general unless we have
+complex object model which makes them suitable to be separated across
+multiple sheets (for example, sheet dump is only done for
+<strong>defined-configuration</strong>).</p>
+</li>
+<li><p class="first">Each object is dumped in the XLSX file in column based format i.e all
+the leaves of the object form a column entry in the XLSX, irrespective
+of the depth(i.e when inside container or nested container/list).</p>
+</li>
+<li><p class="first">The dump only contains the <em>config true</em> attributes.</p>
+</li>
+<li><p class="first">All instances of the same type are dumped in their separate rows,
+without any empty rows between (all used columns of an object cannot
+be missing values fo all columns between subsequent instances).</p>
+</li>
+<li><p class="first">For list attributes the entries are captured in the subsequent
+below rows of the same column.</p>
+</li>
+<li><p class="first">Each attribute column name uses its unique attribute name. The unique
+attribute name is formed by concatenating the parent name with an
+underscore for any leaf attribute. Also all hyphens ’-’ are converted
+to underscore.</p>
+</li>
+<li><p class="first">An attribute dump of config true attributes follows rules below.</p>
+<ul>
+<li><p class="first">Yang Leaf Attributes:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Each leaf attribute is represented as one column.</li>
+<li>A column-map is created for each attribute leaf internally.</li>
+<li>The leaf value corresponding to each leaf is dumped in it’s
+respective column.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Yang List Attributes:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Each leaf attribute is represented as one column.</li>
+<li>A column-map is created for each attribute leaf internally.</li>
+<li>The leaf value corresponding to each leaf is dumped in it’s
+respective column.</li>
+<li>If there are more than one list element the values are dumped in
+the subsequent rows below.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Yang Container Attributes:</p>
+<ol class="loweralpha simple">
+<li>There is no explicit dump for container attribute as the object
+is flattened as a leaf, list or leaflist and follows the above
+rules for dump.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</div></blockquote>
+<dl class="docutils">
+<dt><strong>Switch Configuration Object Dump JSON</strong>:</dt>
+<dd><p class="first">For JSON dump all objects are dumped as a single list.</p>
+<p>Example</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;fibrechannel&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;auto-negotiate&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;compression-active&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;compression-configured&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;credit-recovery-active&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;credit-recovery-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;d-port-enable&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;default-index&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;e-port-credit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;enabled-state&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;f-port-buffers&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fault-delay-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fcid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fcid-hex&quot;</span><span class="p">:</span> <span class="s2">&quot;0x000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fec-active&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fec-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is-enabled-state&quot;</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;los-tov-mode-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;max-speed&quot;</span><span class="p">:</span> <span class="s2">&quot;16000000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mirror-port-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;n-port-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;0/0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;npiv-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;npiv-flogi-logout-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;npiv-pp-limit&quot;</span><span class="p">:</span> <span class="s2">&quot;128&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;operational-status&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;persistent-disable&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;physical-state&quot;</span><span class="p">:</span> <span class="s2">&quot;no_light&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pod-license-status&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;port-autodisable-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;port-type&quot;</span><span class="p">:</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qos-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;speed&quot;</span><span class="p">:</span> <span class="s2">&quot;16000000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;target-driven-zoning-enable&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;trunk-port-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user-friendly-name&quot;</span><span class="p">:</span> <span class="s2">&quot;port0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;via-tts-fec-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;wwn&quot;</span><span class="p">:</span> <span class="s2">&quot;20:00:00:27:f8:fd:1f:80&quot;</span>
+    <span class="p">}</span>
+<span class="s2">&quot;----------Truncated Lines above-------------&quot;</span>
+<span class="p">},</span> <span class="p">{</span>
+    <span class="s2">&quot;chassis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;chassis-user-friendly-name&quot;</span><span class="p">:</span> <span class="s2">&quot;Brocade6505&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;chassis-wwn&quot;</span><span class="p">:</span> <span class="s2">&quot;10:00:00:27:f8:fd:1f:8f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;manufacturer&quot;</span><span class="p">:</span> <span class="s2">&quot;Brocade Communications Systems LLC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;max-blades-supported&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;part-number&quot;</span><span class="p">:</span> <span class="s2">&quot;40-1000737-03&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;product-name&quot;</span><span class="p">:</span> <span class="s2">&quot;6505&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;serial-number&quot;</span><span class="p">:</span> <span class="s2">&quot;CCD2506K018&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vendor-part-number&quot;</span><span class="p">:</span> <span class="s2">&quot;BROCAD0000650&quot;</span>
+    <span class="p">}</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_config_manager.html#module-pyfos_config_manager" title="pyfos_config_manager: PyFOS module to provide Config Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_config_manager</span></code></a>
+Module <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a>
+Module <a class="reference internal" href="pyfos_rule_manager.html#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a>
+Module <a class="reference internal" href="switch_config_diff.html#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a>
+Module <a class="reference internal" href="switch_config_apply.html#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a></p>
 </div>
 
 
@@ -101,7 +316,7 @@ added to –compare option and directory name is given instead.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="switch_config_diff.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">switch_config_diff</span></code> - PyFOS util for specific config op use case.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">switch_config_diff</span></code> - PyFOS util to detect configuration drift from dump.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="zoning_alias_create_add.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">zoning_alias_create_add</span></code> - PyFOS util for alias create/add use case</a></p>
@@ -141,9 +356,9 @@ added to –compare option and directory name is given instead.</p>
           <a href="zoning_alias_create_add.html" title="zoning_alias_create_add - PyFOS util for alias create/add use case"
              >next</a> |</li>
         <li class="right" >
-          <a href="switch_config_diff.html" title="switch_config_diff - PyFOS util for specific config op use case."
+          <a href="switch_config_diff.html" title="switch_config_diff - PyFOS util to detect configuration drift from dump."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

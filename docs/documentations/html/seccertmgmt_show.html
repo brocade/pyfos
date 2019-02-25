@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seccertmgmt_show - PyFOS util for displaying certificates in the switch. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>seccertmgmt_show - PyFOS util for displaying certificates in the switch. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="seccertmgmt_create - PyFOS util for generating certificates on a switch" href="seccertmgmt_create.html" />
+    <link rel="next" title="seccertmgmt_create - PyFOS util for generating certificates on a switch." href="seccertmgmt_create.html" />
     <link rel="prev" title="sshutil_public_key_modify - PyFOS util to modify a public key." href="sshutil_public_key_modify.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_create.html" title="seccertmgmt_create - PyFOS util for generating certificates on a switch"
+          <a href="seccertmgmt_create.html" title="seccertmgmt_create - PyFOS util for generating certificates on a switch."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="sshutil_public_key_modify.html" title="sshutil_public_key_modify - PyFOS util to modify a public key."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -44,8 +44,8 @@
             
   <span class="target" id="module-seccertmgmt_show"></span><div class="section" id="seccertmgmt-show-pyfos-util-for-displaying-certificates-in-the-switch">
 <h1><a class="reference internal" href="#module-seccertmgmt_show" title="seccertmgmt_show: PyFOS module to display certificates in the switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code></a> - PyFOS util for displaying certificates in the switch.<a class="headerlink" href="#seccertmgmt-show-pyfos-util-for-displaying-certificates-in-the-switch" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-seccertmgmt_show" title="seccertmgmt_show: PyFOS module to display certificates in the switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code></a> provides option to display a certificate.</p>
-<p>This module can be used to display certificate. If the certificate entity and type are not provided, all certificates information is displayed.</p>
+<p>The <a class="reference internal" href="#module-seccertmgmt_show" title="seccertmgmt_show: PyFOS module to display certificates in the switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code></a> util provides the option to display a certificate.</p>
+<p>This module can be used to display a certificate. If the certificate entity and type are not provided, information for all certificates is displayed.</p>
 <ul class="simple">
 <li>Input:</li>
 </ul>
@@ -63,7 +63,7 @@
 <li><p class="first">Util Script Options:</p>
 <div class="line-block">
 <div class="line">–certificate-entity=ENTITY-NAME    Sets the certificate entity name.</div>
-<div class="line">–certificate-type=CERT-TYPE        Sets the certificate type name.</div>
+<div class="line">–certificate-type=CERT-TYPE        Sets the certificate type.</div>
 <div class="line">–is-hexdump-show                   Displays the raw hex data.</div>
 </div>
 </li>
@@ -80,7 +80,7 @@
 <dt id="seccertmgmt_show.seccertmgmt_show.show_system_security_seccertmgmt">
 <code class="descclassname">seccertmgmt_show.</code><code class="descname">show_system_security_seccertmgmt</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#seccertmgmt_show.seccertmgmt_show.show_system_security_seccertmgmt" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
-<li><p class="first">Display the certificate and its information in the switch.</p>
+<li><p class="first">Displays the certificate and its information in the switch.</p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
 <blockquote>
@@ -125,11 +125,10 @@ print (ret)</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">Use Cases*</p>
-</li>
 </ul>
+<p><em>Use Cases</em></p>
 <ol class="arabic simple">
-<li>Retrieve the certificate related information.</li>
+<li>Retrieve the certificate-related information.</li>
 </ol>
 </div></blockquote>
 </li>
@@ -154,7 +153,7 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">sshutil_public_key_modify</span></code> - PyFOS util to modify a public key.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="seccertmgmt_create.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_create</span></code> - PyFOS util for generating certificates on a switch</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_create</span></code> - PyFOS util for generating certificates on a switch.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -188,12 +187,12 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_create.html" title="seccertmgmt_create - PyFOS util for generating certificates on a switch"
+          <a href="seccertmgmt_create.html" title="seccertmgmt_create - PyFOS util for generating certificates on a switch."
              >next</a> |</li>
         <li class="right" >
           <a href="sshutil_public_key_modify.html" title="sshutil_public_key_modify - PyFOS util to modify a public key."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -14,9 +14,11 @@
 # limitations under the License.
 
 """
-:mod:`seccryptocfgtemplate_show` - PyFOS util to display cryptographic templates.
-*********************************************************************************
-The :mod:`seccryptocfgtemplate_show` supports 'seccryptocfg' CLI use case.
+:mod:`seccryptocfgtemplate_show` - PyFOS util to display cryptographic \
+templates
+********************************************************************************
+The :mod:`seccryptocfgtemplate_show` util supports the 'seccryptocfg' CLI \
+use case.
 
 This module is a stand-alone script and API that can be used to display
 cryptographic templates.

@@ -1,0 +1,1736 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP. &#8212; PyFOS 1.2.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules." href="pyfos_brocade_module_version.html" />
+    <link rel="prev" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric." href="pyfos_brocade_license.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_module_version.html" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_license.html" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_snmp"></span><div class="section" id="pyfos-brocade-snmp-pyfos-module-to-provide-rest-support-for-snmp">
+<h1><a class="reference internal" href="#module-pyfos_brocade_snmp" title="pyfos_brocade_snmp: PyFOS module to provide REST support for SNMP (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_snmp</span></code></a> - PyFOS module to provide rest support for SNMP.<a class="headerlink" href="#pyfos-brocade-snmp-pyfos-module-to-provide-rest-support-for-snmp" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_snmp" title="pyfos_brocade_snmp: PyFOS module to provide REST support for SNMP (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_snmp</span></code></a> provides REST support for the SNMP.</p>
+<dl class="class">
+<dt id="pyfos_brocade_snmp.access_control">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_snmp.</code><code class="descname">access_control</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.access_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for SNMP access control.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>index</td>
+<td>Defines the label by which this
+object is known</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.access_control.peek_index" title="pyfos_brocade_snmp.access_control.peek_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_index()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>host</td>
+<td>The subnet area of the access
+host</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.access_control.peek_host" title="pyfos_brocade_snmp.access_control.peek_host"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_host()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.access_control.set_host" title="pyfos_brocade_snmp.access_control.set_host"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_host()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>access-level</td>
+<td>The access level of SNMP access
+control entry</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.access_control.peek_access_level" title="pyfos_brocade_snmp.access_control.peek_access_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_access_level()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.access_control.set_access_level" title="pyfos_brocade_snmp.access_control.set_access_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_access_level()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_snmp.access_control.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.access_control.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">SNMP</span> <span class="pre">access</span> <span class="pre">contorl</span> <span class="pre">list</span></code> object.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">access-control</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.access_control.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.access_control.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_snmp.access_control.peek_index">
+<code class="descname">peek_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.access_control.peek_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads index of SNMP access control entry from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or index number of SNMP access control list entry.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.access_control.set_host">
+<code class="descname">set_host</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.access_control.set_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the IP address of host for the SNMP access control list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.access_control.peek_host">
+<code class="descname">peek_host</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.access_control.peek_host" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads IP address of the subnet area of the access host from</dt>
+<dd>the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or IP address of the host.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.access_control.set_access_level">
+<code class="descname">set_access_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.access_control.set_access_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set access contol level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.access_control.peek_access_level">
+<code class="descname">peek_access_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.access_control.peek_access_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads access level of SNMP access control entry from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or SNMP access level of SNMP access control entry.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_snmp.mib_capability">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_snmp.</code><code class="descname">mib_capability</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.mib_capability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for the SNMP MIB capability.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mib-name</td>
+<td>Indicates the MIB name</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.mib_capability.peek_mib_name" title="pyfos_brocade_snmp.mib_capability.peek_mib_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_mib_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>is-mib-enabled-state</td>
+<td>Indicates the MIB is enabled /
+disabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.mib_capability.set_is_mib_enabled_state" title="pyfos_brocade_snmp.mib_capability.set_is_mib_enabled_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_is_mib_enabled_state()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.mib_capability.peek_is_mib_enabled_state" title="pyfos_brocade_snmp.mib_capability.peek_is_mib_enabled_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_is_mib_enabled_state()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_snmp.mib_capability.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.mib_capability.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">mib-capability</span></code>
+object or a list of objects filled with
+mib capability attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">mib-capability</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.mib_capability.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.mib_capability.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_snmp.mib_capability.peek_mib_name">
+<code class="descname">peek_mib_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.mib_capability.peek_mib_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads mib name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or mib name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.mib_capability.set_is_mib_enabled_state">
+<code class="descname">set_is_mib_enabled_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.mib_capability.set_is_mib_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the mib state enabled / disabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.mib_capability.peek_is_mib_enabled_state">
+<code class="descname">peek_is_mib_enabled_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.mib_capability.peek_is_mib_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the mib state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or mib state.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_snmp.system">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_snmp.</code><code class="descname">system</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for the SNMP system configurations.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="29%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>description</td>
+<td>Texual description of the
+entity</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_description" title="pyfos_brocade_snmp.system.set_description"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_description()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_description" title="pyfos_brocade_snmp.system.peek_description"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_description()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>location</td>
+<td>The physical location of
+this node</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_location" title="pyfos_brocade_snmp.system.set_location"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_location()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_location" title="pyfos_brocade_snmp.system.peek_location"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_location()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>contact</td>
+<td>The textual identification of
+the contact person</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_contact" title="pyfos_brocade_snmp.system.set_contact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_contact()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_contact" title="pyfos_brocade_snmp.system.peek_contact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_contact()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>informs-enabled</td>
+<td>Indicates if informs is enabled
+or not</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_informs_enabled" title="pyfos_brocade_snmp.system.set_informs_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_informs_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_informs_enabled" title="pyfos_brocade_snmp.system.peek_informs_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_informs_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>encryption-enabled</td>
+<td>Indicates if the password flag
+is enabled or not</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_encryption_enabled" title="pyfos_brocade_snmp.system.set_encryption_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_encryption_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_encryption_enabled" title="pyfos_brocade_snmp.system.peek_encryption_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_encryption_enabled()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>audit-interval</td>
+<td>Indicates the SNMP audit
+interval</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_audit_interval" title="pyfos_brocade_snmp.system.set_audit_interval"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_audit_interval()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_audit_interval" title="pyfos_brocade_snmp.system.peek_audit_interval"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_audit_interval()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>default-control</td>
+<td>Defaulting the SNMP
+configurations</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_default_config_default_control" title="pyfos_brocade_snmp.system.set_default_config_default_control"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_default_config_default_control()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>security-get-level</td>
+<td>SNMP GET security level</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_security_get_level" title="pyfos_brocade_snmp.system.set_security_get_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_security_get_level()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_security_get_level" title="pyfos_brocade_snmp.system.peek_security_get_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_security_get_level()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>security-set-level</td>
+<td>SNMP SET security level</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_security_set_level" title="pyfos_brocade_snmp.system.set_security_set_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_security_set_level()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_security_set_level" title="pyfos_brocade_snmp.system.peek_security_set_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_security_set_level()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>snmpv1-enabled</td>
+<td>Indicates if SNMP v1 is enabled
+or not</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.system.set_snmpv1_enabled" title="pyfos_brocade_snmp.system.set_snmpv1_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_snmpv1_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.system.peek_snmpv1_enabled" title="pyfos_brocade_snmp.system.peek_snmpv1_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_snmpv1_enabled()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_snmp.system.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#pyfos_brocade_snmp.system" title="pyfos_brocade_snmp.system"><code class="xref py py-class docutils literal notranslate"><span class="pre">system</span></code></a>
+object or a list of objects filled with
+SNMP system attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<a class="reference internal" href="#pyfos_brocade_snmp.system" title="pyfos_brocade_snmp.system"><code class="xref py py-class docutils literal notranslate"><span class="pre">system</span></code></a> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_description">
+<code class="descname">set_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the system description.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_description">
+<code class="descname">peek_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads system system description of SNMP of the switch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or system description of the switch.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_location">
+<code class="descname">set_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the system location name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_location">
+<code class="descname">peek_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads location name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or location name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_contact">
+<code class="descname">set_contact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_contact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the contact person of the switch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or contact person of the switch.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_contact">
+<code class="descname">peek_contact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_contact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads system contact from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or system contact.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_informs_enabled">
+<code class="descname">set_informs_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_informs_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the informs enabled flag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or informs enabled flag.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_informs_enabled">
+<code class="descname">peek_informs_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_informs_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads informs enabled from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or informs enabled.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_encryption_enabled">
+<code class="descname">set_encryption_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_encryption_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the encryption enabled flag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or encryption enabled flag.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_encryption_enabled">
+<code class="descname">peek_encryption_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_encryption_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads encryption enabled from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or encryption enabled.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_audit_interval">
+<code class="descname">set_audit_interval</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_audit_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the audit interval.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or audit interval.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_audit_interval">
+<code class="descname">peek_audit_interval</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_audit_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads audit interval from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or audit interval.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_default_config_default_control">
+<code class="descname">set_default_config_default_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_default_config_default_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default control.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or default control.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_security_level">
+<code class="descname">set_security_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_security_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the SNMP security level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or security level.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_security_level">
+<code class="descname">peek_security_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_security_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads SNMP security level from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or SNMP security level.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_security_get_level">
+<code class="descname">set_security_get_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_security_get_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the SNMP get security level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or SNMP get security level.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_security_get_level">
+<code class="descname">peek_security_get_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_security_get_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads SNMP get security level from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or SNMP get security level.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_security_set_level">
+<code class="descname">set_security_set_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_security_set_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the SNMP set security level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or SNMP set security level.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_security_set_level">
+<code class="descname">peek_security_set_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_security_set_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads SNMP set security level from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or SNMP set security level.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.set_snmpv1_enabled">
+<code class="descname">set_snmpv1_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.set_snmpv1_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the SNMP v1 enabled flag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or SNMP v1 enabled flag.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.system.peek_snmpv1_enabled">
+<code class="descname">peek_snmpv1_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.system.peek_snmpv1_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads SNMP v1 enabled from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or SNMP v1 enabled.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_snmp.trap_capability">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_snmp.</code><code class="descname">trap_capability</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.trap_capability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for the SNMP MIB trap capability.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>trap-name</td>
+<td>Indicates the SNMP trap name</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.trap_capability.peek_trap_name" title="pyfos_brocade_snmp.trap_capability.peek_trap_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_trap_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>is_trap-enabled-state</td>
+<td>Indicates the trap is enabled /
+disabled</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.trap_capability.set_is_trap_enabled_state" title="pyfos_brocade_snmp.trap_capability.set_is_trap_enabled_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_is_trap_enabled_state()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.trap_capability.peek_is_trap_enabled_state" title="pyfos_brocade_snmp.trap_capability.peek_is_trap_enabled_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_is_trap_enabled_state()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>severity</td>
+<td>Indicates the severity of
+the swEvent trap</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.trap_capability.set_severity" title="pyfos_brocade_snmp.trap_capability.set_severity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_severity()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.trap_capability.peek_severity" title="pyfos_brocade_snmp.trap_capability.peek_severity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_severity()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_snmp.trap_capability.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.trap_capability.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">trap-capability</span></code>
+object or a list of objects filled with
+trap capability attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">trap-capability</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.trap_capability.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.trap_capability.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_snmp.trap_capability.peek_trap_name">
+<code class="descname">peek_trap_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.trap_capability.peek_trap_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads trap name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or trap name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.trap_capability.set_is_trap_enabled_state">
+<code class="descname">set_is_trap_enabled_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.trap_capability.set_is_trap_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the trap state enabled / disabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.trap_capability.peek_is_trap_enabled_state">
+<code class="descname">peek_is_trap_enabled_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.trap_capability.peek_is_trap_enabled_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the trap state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or trap state.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.trap_capability.set_severity">
+<code class="descname">set_severity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.trap_capability.set_severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the severity value to swEvent trap.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.trap_capability.peek_severity">
+<code class="descname">peek_severity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.trap_capability.peek_severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads severity from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or severity.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_snmp.v1_account">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_snmp.</code><code class="descname">v1_account</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for the SNMP v1 account.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>index</td>
+<td>Index of SNMP v1 account</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_account.peek_index" title="pyfos_brocade_snmp.v1_account.peek_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_index()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>community-name</td>
+<td>Name of the community</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_account.set_community_name" title="pyfos_brocade_snmp.v1_account.set_community_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_community_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v1_account.peek_community_name" title="pyfos_brocade_snmp.v1_account.peek_community_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_community_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>community-group</td>
+<td>Community belongs to the group
+RO or RW</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_account.peek_community_group" title="pyfos_brocade_snmp.v1_account.peek_community_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_community_group()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_snmp.v1_account.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_account.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">v1-account</span></code>
+object or a list of objects filled with
+SNMP v1 account attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">v1-account</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_account.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_account.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_snmp.v1_account.peek_index">
+<code class="descname">peek_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_account.peek_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads index of SNMP v1 account entry from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or index number of SNMP v1 account.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_account.set_community_name">
+<code class="descname">set_community_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_account.set_community_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the community name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_account.peek_community_name">
+<code class="descname">peek_community_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_account.peek_community_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads community name from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or community name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_account.peek_community_group">
+<code class="descname">peek_community_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_account.peek_community_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads group name of the SNMP v1 account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or group name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_snmp.v1_trap">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_snmp.</code><code class="descname">v1_trap</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for SNMP v1 trap notification.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>index</td>
+<td>Index of SNMP v1 trap account</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_trap.peek_index" title="pyfos_brocade_snmp.v1_trap.peek_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_index()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>host</td>
+<td>IP address of trap recipient
+system</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_trap.set_host" title="pyfos_brocade_snmp.v1_trap.set_host"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_host()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v1_trap.peek_host" title="pyfos_brocade_snmp.v1_trap.peek_host"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_host()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>trap-severity-level</td>
+<td>Specifies the trap recipient
+severity level</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_trap.set_trap_severity_level" title="pyfos_brocade_snmp.v1_trap.set_trap_severity_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_trap_severity_level()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v1_trap.peek_trap_severity_level" title="pyfos_brocade_snmp.v1_trap.peek_trap_severity_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_trap_severity_level()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-number</td>
+<td>UDP port where SNMP traps will
+be received</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_trap.set_port_number" title="pyfos_brocade_snmp.v1_trap.set_port_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_port_number()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v1_trap.peek_port_number" title="pyfos_brocade_snmp.v1_trap.peek_port_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_number()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_snmp.v1_trap.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">SNMP</span> <span class="pre">v1</span> <span class="pre">trap</span> <span class="pre">recipients</span></code>
+object or a list of objects filled with
+v1 trap attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">v1-trap</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_trap.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_snmp.v1_trap.peek_index">
+<code class="descname">peek_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.peek_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads index of SNMP v1 trap entry from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or index number of SNMP v1 trap entry.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_trap.set_host">
+<code class="descname">set_host</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.set_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the IP address of trap recipient host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_trap.peek_host">
+<code class="descname">peek_host</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.peek_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP address of the trap recipient host from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or IP address of the host.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_trap.set_trap_severity_level">
+<code class="descname">set_trap_severity_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.set_trap_severity_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the severity level of the trap recipient.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or severity level of the trap recipient.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_trap.peek_trap_severity_level">
+<code class="descname">peek_trap_severity_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.peek_trap_severity_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads severity level of the trap recipient from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or severity level of the trap recipient.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_trap.set_port_number">
+<code class="descname">set_port_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.set_port_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the port number for the trap recipient.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_trap.peek_port_number">
+<code class="descname">peek_port_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_trap.peek_port_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port number.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_snmp.v3_account">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_snmp.</code><code class="descname">v3_account</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information of SNMP v3 user account</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>index</td>
+<td>Index of SNMP v3 user account</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.peek_index" title="pyfos_brocade_snmp.v3_account.peek_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_index()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>user-name</td>
+<td>Name of the SNMP v3 user</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.set_user_name" title="pyfos_brocade_snmp.v3_account.set_user_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_user_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v3_account.peek_user_name" title="pyfos_brocade_snmp.v3_account.peek_user_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_user_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>user-group</td>
+<td>SNMP v3 user belongs to the
+group snmpadmin or snmpuser</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.peek_user_group" title="pyfos_brocade_snmp.v3_account.peek_user_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_user_group()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>authentication-protocol</td>
+<td>Authentication protocol for
+SNMP v3 user</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.set_authentication_protocol" title="pyfos_brocade_snmp.v3_account.set_authentication_protocol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_authentication_protocol()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v3_account.peek_authentication_protocol" title="pyfos_brocade_snmp.v3_account.peek_authentication_protocol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_authentication_protocol()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>privacy-protocol</td>
+<td>Privacy protocol for SNMP v3
+user</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.set_privacy_protocol" title="pyfos_brocade_snmp.v3_account.set_privacy_protocol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_privacy_protocol()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v3_account.peek_privacy_protocol" title="pyfos_brocade_snmp.v3_account.peek_privacy_protocol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_privacy_protocol()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>authentication-password</td>
+<td>Authentication password for
+SNMP v3 user</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.set_authentication_password" title="pyfos_brocade_snmp.v3_account.set_authentication_password"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_authentication_password()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>privacy-password</td>
+<td>Privacy password for SNMP v3
+user</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.set_privacy_password" title="pyfos_brocade_snmp.v3_account.set_privacy_password"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_privacy_password()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>manager-engine-id</td>
+<td>The manager engine-id is used
+to receive  the informs
+notification</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.set_manager_engine_id" title="pyfos_brocade_snmp.v3_account.set_manager_engine_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_manager_engine_id()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v3_account.peek_manager_engine_id" title="pyfos_brocade_snmp.v3_account.peek_manager_engine_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_manager_engine_id()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_snmp.v3_account.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">v3-account</span></code>
+object or a list of objects filled with
+SNMP v3 account attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">blade</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.peek_index">
+<code class="descname">peek_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.peek_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads index of SNMP v3 user account from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or index number of SNMP v3 account.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.set_user_name">
+<code class="descname">set_user_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.set_user_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set SNMP V3 user nane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.peek_user_name">
+<code class="descname">peek_user_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.peek_user_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads SNMP v3 user name of SNMP v3 account from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or user name of the SNMP v3 account.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.peek_user_group">
+<code class="descname">peek_user_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.peek_user_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads group of the SNMP v3 user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or group of the SNMP v3 user.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.set_authentication_protocol">
+<code class="descname">set_authentication_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.set_authentication_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set authentication protocol of the SNMP v3 user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.peek_authentication_protocol">
+<code class="descname">peek_authentication_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.peek_authentication_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads authentication protocol of the SNMP v3 user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or auth protocol of the SNMP v3 user.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.set_privacy_protocol">
+<code class="descname">set_privacy_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.set_privacy_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set privacy protocol of the SNMP v3 user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.peek_privacy_protocol">
+<code class="descname">peek_privacy_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.peek_privacy_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads privacy protoco of the SNMP v3 user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or privacy protocol of the SNMP v3 user.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.set_authentication_password">
+<code class="descname">set_authentication_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.set_authentication_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set authentication password of the SNMP v3 user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.set_privacy_password">
+<code class="descname">set_privacy_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.set_privacy_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set privacy password of the SNMP v3 user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.set_manager_engine_id">
+<code class="descname">set_manager_engine_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.set_manager_engine_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set manager engine id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.peek_manager_engine_id">
+<code class="descname">peek_manager_engine_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.peek_manager_engine_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads engine id of the manager.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or manager engine id.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_snmp.v3_trap">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_snmp.</code><code class="descname">v3_trap</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides information for SNMP v3 trap notification.</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>trap-index</td>
+<td>Defines the label by which
+this object is known</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.peek_trap_index" title="pyfos_brocade_snmp.v3_trap.peek_trap_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_trap_index()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>usm-index</td>
+<td>Defines the label by which
+this object is known</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.peek_usm_index" title="pyfos_brocade_snmp.v3_trap.peek_usm_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_usm_index()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>host</td>
+<td>IP address of trap recipient
+system</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.set_host" title="pyfos_brocade_snmp.v3_trap.set_host"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_host()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.peek_host" title="pyfos_brocade_snmp.v3_trap.peek_host"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_host()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>trap-severity-level</td>
+<td>Specifies the trap recipient
+severity level</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.set_trap_severity_level" title="pyfos_brocade_snmp.v3_trap.set_trap_severity_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_trap_severity_level()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.peek_trap_severity_level" title="pyfos_brocade_snmp.v3_trap.peek_trap_severity_level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_trap_severity_level()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port-number</td>
+<td>UDP port where SNMP traps will
+be received</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.set_port_number" title="pyfos_brocade_snmp.v3_trap.set_port_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_port_number()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.peek_port_number" title="pyfos_brocade_snmp.v3_trap.peek_port_number"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_number()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>informs-enabled</td>
+<td>Indicates whether informs is
+enabled or not</td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.set_informs_enabled" title="pyfos_brocade_snmp.v3_trap.set_informs_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_informs_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v3_trap.peek_informs_enabled" title="pyfos_brocade_snmp.v3_trap.peek_informs_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_informs_enabled()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_snmp.v3_trap.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">SNMP</span> <span class="pre">v1</span> <span class="pre">trap</span> <span class="pre">recipients</span></code>
+object or a list of objects filled with
+v1 trap attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">v3-trap</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set within the object
+using the attribute’s set method.</p>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.peek_trap_index">
+<code class="descname">peek_trap_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.peek_trap_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads index of SNMP v3 trap entry from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or index number of SNMP v3 trap entry.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.peek_usm_index">
+<code class="descname">peek_usm_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.peek_usm_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads index of SNMP v3 user entry from the associated object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or index number of SNMP v3 user entry.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.set_host">
+<code class="descname">set_host</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.set_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set IP address of the trap recipient host.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.peek_host">
+<code class="descname">peek_host</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.peek_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads IP address of the trap recipient host from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or IP address of the host.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.set_trap_severity_level">
+<code class="descname">set_trap_severity_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.set_trap_severity_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set severity level of the trap recipient.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.peek_trap_severity_level">
+<code class="descname">peek_trap_severity_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.peek_trap_severity_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads severity level of the trap recipient from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or severity level of the trap recipient.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.set_port_number">
+<code class="descname">set_port_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.set_port_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set port number of the trap recipient.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.peek_port_number">
+<code class="descname">peek_port_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.peek_port_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads port number from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or port number.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.set_informs_enabled">
+<code class="descname">set_informs_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.set_informs_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set  informs enabled flag of the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_trap.peek_informs_enabled">
+<code class="descname">peek_informs_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_trap.peek_informs_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads informs enabled flag from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or informs enabled flag value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_license.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_license</span></code> - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_module_version.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_module_version</span></code> - PyFOS module to provide module level version information for all the supported modules.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_snmp.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_module_version.html" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_license.html" title="pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

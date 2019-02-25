@@ -20,7 +20,7 @@
 The :mod:`log_quiet_control_modify` util provides for configuring log\
  quiet control.
 
-This module is a stand-alone script that can be used to display the raslog
+This module is a stand-alone script that can be used to display the RASLog
 attributes.
 
 * Input:
@@ -29,7 +29,7 @@ attributes.
     * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: The IP address.
-    * -f=<VFID>: the VFID or -1 if VF is disabled. If unspecified,
+    * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
         a VFID of 128 is assumed.
 
 * Util Script Options:
@@ -68,9 +68,9 @@ attributes.
         * Input:
             :param session: The session returned by the login.
             :param log_type: The log type.
-            :param flag: The quiet flag for log type.
-            :param stime: The start-time.
-            :param etime: The end-time.
+            :param flag: The quiet flag for the log type.
+            :param stime: The start time.
+            :param etime: The end time.
             :param dow: The days of the week.
 
         * Output:
@@ -78,7 +78,7 @@ attributes.
 
         *Use Cases*
 
-        1. Enables or disables the quiet for log types.
+        1. Enable or disable the quiet flag for log types.
 
 
 """

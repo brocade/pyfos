@@ -133,8 +133,10 @@ def login(username, password, ip_addr, is_https,
     credential = None
 
     try:
-        credential = pyfos_login.login(username, password, ip_addr,
-                                       is_https)
+        credential, contentdict = pyfos_login.login(username,
+                                                    password,
+                                                    ip_addr,
+                                                    is_https)
     except socket_error as serr:
         if serr.errno == errno.ECONNREFUSED:
             if throttle_delay > 0:
@@ -161,7 +163,8 @@ def login(username, password, ip_addr, is_https,
                 time.sleep(throttle_delay)
 
             return {CREDENTIAL_KEY:
-                    {LOGIN_ERROR_KEY: ip_addr + " unknown error: " + str(serr.errno)},
+                    {LOGIN_ERROR_KEY: ip_addr + " unknown error: " +
+                     str(serr.errno)},
                     "ip_addr": ip_addr,
                     "vfid": -1, "ishttps": is_https, "debug": 0,
                     "version": None,
@@ -184,13 +187,28 @@ def login(username, password, ip_addr, is_https,
 
         return credential
     else:
+        # default version
+        defversion = fosversion("8.2.1b")
+        defcredver = fosversion("1.3.0")
+        credver = None
         session = {CREDENTIAL_KEY: credential, "ip_addr": ip_addr,
                    "vfid": -1, "ishttps": is_https,
                    "debug": 0, "version": None,
                    "throttle_delay": throttle_delay}
+        session.update(contentdict)
+        if contentdict['content-version'] is not None:
+            credverstr = str(contentdict['content-version'])
+            credverlist = credverstr.split("=")
+            credver = fosversion(credverlist[1])
+
+        if credver is not None and credver >= defcredver:
+            session["version"] = defversion
+
         switchobj = pyfos_switch.fibrechannel_switch.get(session)
         if isinstance(switchobj, pyfos_switch.fibrechannel_switch):
             fwversion = fosversion(switchobj.peek_firmware_version())
+            if fwversion == defversion and fwversion.release == "*":
+                fwversion = defversion
             try:
                 fwversion.to_string()
             except AttributeError as error:
@@ -198,7 +216,9 @@ def login(username, password, ip_addr, is_https,
                                     switchobj.peek_firmware_version(), error)
                 logout(session)
                 return {CREDENTIAL_KEY:
-                        {LOGIN_ERROR_KEY: ip_addr + " Incorrect FOS version string :" + switchobj.peek_firmware_version()},
+                        {LOGIN_ERROR_KEY: ip_addr +
+                         " Incorrect FOS version string :" +
+                         switchobj.peek_firmware_version()},
                         "ip_addr": ip_addr,
                         "vfid": -1, "ishttps": is_https, "debug": 0,
                         "version": switchobj.peek_firmware_version(),

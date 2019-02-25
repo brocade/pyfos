@@ -18,7 +18,7 @@
 :mod:`sshutil_modify` - PyFOS util to modify the allowed user and \
 rekey interval.
 **************************************************************************************
-The :mod:`sshutil_modify` util is used to modify allowed user and \
+The :mod:`sshutil_modify` util is used to modify the allowed user and \
 rekey interval.
 
 This module is a stand-alone script that can be used to modify the public key,
@@ -48,7 +48,7 @@ allowed user, and rekey interval value.
 .. function:: sshutil_modify.change_allowed_user(
                  session, user_name, rekey_interval)
 
-    * Change the allowed user name in a switch.
+    * Changes the allowed user name in a switch.
 
         Example Usage of the Method::
 
@@ -73,11 +73,11 @@ allowed user, and rekey interval value.
 
         *Use Cases*
 
-        1. Changes the allowed user name for performing SSH operations.
+        1. Change the allowed user name for performing SSH operations.
 
 .. function:: sshutil_modify.change_rekey_interval(session, rekey_interval)
 
-    * Change the rekey interval duration.
+    * Changes the rekey interval.
 
         Example Usage of the Method::
 
@@ -102,7 +102,7 @@ allowed user, and rekey interval value.
 
         *Use Cases*
 
-        1. Modifies the rekey interval.
+        1. Modify the rekey interval.
 
     """
 

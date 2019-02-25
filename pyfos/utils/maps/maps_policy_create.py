@@ -25,19 +25,19 @@ If the rule list is not empty, then a policy with specified rules is created.
 
 * Input:
 
-| Infrastructure Options:
+* Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
-|   -L,--login=LOGIN       The login name.
-|   -P,--password=PASSWORD The password.
-|   -f,--vfid=VFID         The VFID to which the request \
-                            is directed [OPTIONAL].
-|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           Verbose mode [OPTIONAL].
+    * -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+    * -L,--login=LOGIN       The login name.
+    * -P,--password=PASSWORD The password.
+    * -f,--vfid=VFID         The VFID to which the request is \
+                             directed [OPTIONAL].
+    * -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose           Verbose mode [OPTIONAL].
 
 * Util Script Options:
-   --name                 Specifies a MAPS policy.
-    --rule-list           Sets the rule list in the MAPS policy.
+   --name                Specifies a MAPS policy.
+   --rule-list           Sets the rule list in the MAPS policy.
 
 * Output:
     * A success response or a dictionary in case of error.

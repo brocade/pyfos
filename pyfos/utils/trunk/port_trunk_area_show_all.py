@@ -16,27 +16,28 @@
 """
 
 :mod:`port_trunk_area_show_all` - PyFOS util for getting info \
-of all porttrunkarea-groups enabled on the switch.
+about all port trunk area groups enabled on the switch.
 **************************************************************************************************************************
 The :mod:`port_trunk_area_show_all` - PyFOS util for getting info \
-of all porttrunkarea-groups enabled on the switch.
+about all port trunk area group enabled on the switch.
 
-This module is a standalone script that can be used to get the info of \
-        of all porttrunkarea-groups enabled on the switch.
+This module is a stand-alone script that can be used to get the info of \
+about all port trunk area group enabled on the switch.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is \
+                           directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           Verbose mode [OPTIONAL].
 
-* outputs:
-    * Python dictionary content with RESTCONF response data
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
 """
 

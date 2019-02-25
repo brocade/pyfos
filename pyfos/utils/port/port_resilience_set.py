@@ -43,7 +43,7 @@ resilience state of a port.
 import sys
 import time
 from pyfos import pyfos_auth
-import pyfos.pyfos_brocade_fibrechannel as pyfos_switchfcport
+import pyfos.pyfos_brocade_interface as pyfos_switchfcport
 from pyfos import pyfos_util
 from pyfos.utils import brcd_util
 
@@ -84,7 +84,7 @@ def main(argv):
         print("login failed because",
               session.get(pyfos_auth.CREDENTIAL_KEY)
               [pyfos_auth.LOGIN_ERROR_KEY])
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
     brcd_util.exit_register(session)
@@ -98,7 +98,7 @@ def main(argv):
 
     if "name" not in inputs:
         pyfos_auth.logout(session)
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
     name = inputs["name"]
 
@@ -106,11 +106,11 @@ def main(argv):
 
     if "enable" not in inputs and "disable" not in inputs:
         pyfos_auth.logout(session)
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
     if "enable" in inputs and "disable" in inputs:
         pyfos_auth.logout(session)
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
     if "enable" in inputs:
         config = 1

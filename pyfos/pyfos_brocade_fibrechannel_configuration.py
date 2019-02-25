@@ -17,7 +17,7 @@ FC switches.
 ****************************************************************************\
 *************
 The :mod:`pyfos_brocade_fibrechannel_configuration` module provides REST \
-support for the FC switch configure CLI.
+support to configure FC switches.
 """
 
 from pyfos import pyfos_rest_util
@@ -26,7 +26,7 @@ import pyfos.pyfos_version as version
 
 
 class switch_configuration(pyfos_rest_util.rest_object):
-    """Class of Configurable Parameters of a FC Switch
+    """Class of configurable parameters of a FC switch.
 
     Important Class Members:
 
@@ -43,7 +43,7 @@ class switch_configuration(pyfos_rest_util.rest_object):
         |                | frames.      |                             |
         +----------------+--------------+-----------------------------+
         |area-mode       | Sets the     |:meth:`set_area_mode`        |
-        |                | Address bits |:meth:`peek_area_mode`       |
+        |                | address bits |:meth:`peek_area_mode`       |
         |                | for the area.|                             |
         +----------------+--------------+-----------------------------+
 
@@ -57,9 +57,9 @@ class switch_configuration(pyfos_rest_util.rest_object):
             Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
-            :param session: The session handler returned by the
+            :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a
+            :rtype: A dictionary of error or a
                 :class:`switch` object.
 
         .. method:: patch(session)
@@ -96,7 +96,7 @@ class switch_configuration(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or success information.
+            :rtype: A dictionary of error or success information.
 
     *Attribute Methods*
 
@@ -104,9 +104,9 @@ class switch_configuration(pyfos_rest_util.rest_object):
 
             Sets the WWN-based PID in the object.
 
-            :param mode: The mode configures the WWN-based PID in the object.
+            :param mode: Configures the WWN-based PID in the object.
 
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_wwn_port_id_mode()
 
@@ -121,7 +121,7 @@ class switch_configuration(pyfos_rest_util.rest_object):
             :param time: The edge hold time in the switch to be set within
                          the object.
 
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_edge_hold_time()
 
@@ -136,7 +136,7 @@ class switch_configuration(pyfos_rest_util.rest_object):
             :param mode: The mode value for the PID area limit within
                          the object.
 
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_area_mode()
 
@@ -167,7 +167,7 @@ class switch_configuration(pyfos_rest_util.rest_object):
 
 class f_port_login_settings(pyfos_rest_util.rest_object):
     """Class of configurable parameters of the FC switch corresponding to
-    F_Port login
+    F_Port login.
 
     Class Members:
 
@@ -176,6 +176,7 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 +=========================+===========+=======================================+
 |max-logins               |Sets the   |:meth:`set_max_logins`                 |
 |                         |maximum    |:meth:`peek_max_logins`                |
+|                         |number of  |                                       |
 |                         |logins.    |                                       |
 +-------------------------+-----------+---------------------------------------+
 |max-flogi-rate-per-switch|Sets the   |:meth:`set_max_flogi_rate_per_switch`  |
@@ -197,7 +198,7 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 +-------------------------+-----------+---------------------------------------+
 |max-flogi-rate-per-port  |Sets the   |:meth:`set_max_flogi_rate_per_port`    |
 |                         |FLOGI rate |:meth:`peek_max_flogi_rate_per_port`   |
-|                         |in port.   |                                       |
+|                         |per port.  |                                       |
 +-------------------------+-----------+---------------------------------------+
 
     *Object Methods*
@@ -209,14 +210,14 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
             Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
-            :param session: The session handler returned by the
-                :func:`pyfos_auth.login`
-            :rtype: A dictionary of errors or a
-                :class:`switch` object
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of error or a
+                :class:`switch` object.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to the switch.
+            Applies configurable attribute(s) within the object to the switch.
 
             *Example Using Individual Sets:*
 
@@ -248,13 +249,13 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or success information.
+            :rtype: A dictionary of error or success information.
 
     *Attribute Methods*
 
         .. method:: set_max_logins(value)
 
-            Sets the switch-wide maximum logins in the object.
+            Sets the switch-wide maximum number of logins in the object.
 
             :param value: The maximum number of logins within the object.
             :rtype: None or a dictionary of error information.
@@ -263,7 +264,7 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 
             Reads the switch-wide maximum logins in the object.
 
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: set_max_flogi_rate_per_switch(value)
 
@@ -271,20 +272,20 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 
             :param value: The maximum FLOGI rate in the switch to be set
                           within the object.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_max_flogi_rate_per_switch()
 
             Reads the maximum FLOGI rate per switch in the object.
 
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: set_stage_interval(value)
 
             Sets the staging interval in the object.
 
             :param value: The stage interval to be set within the object.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_stage_interval()
 
@@ -298,7 +299,7 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 
             :param value: The number of FLOGIs allowed before staging to be
                           set within the object.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_free_fdisc()
 
@@ -313,7 +314,7 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 
             :param value: The enforcement for login precedence to be set
                           within the object.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_enforce_login()
 
@@ -327,7 +328,7 @@ class f_port_login_settings(pyfos_rest_util.rest_object):
 
             :param value: The maximum FLOGI rate per port to be set within
                           the object.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_max_flogi_rate_per_port()
 
@@ -404,12 +405,12 @@ class port_configuration(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a
+            :rtype: A dictionary of error or a
                 :class:`port_configuration` object.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to the port
+            Applies configurable attribute(s) within the object to the port
             configuration.
 
             *Example Using Individual Sets:*
@@ -441,7 +442,7 @@ class port_configuration(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or success information.
+            :rtype: A dictionary of error or success information.
 
     *Attribute Methods*
 
@@ -450,7 +451,7 @@ class port_configuration(pyfos_rest_util.rest_object):
             Sets the portname-mode attribute in the object.
 
             :param mode: The port name mode.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_portname_mode()
 
@@ -460,10 +461,10 @@ class port_configuration(pyfos_rest_util.rest_object):
 
         .. method:: set_dynamic_portname_format(portname_format)
 
-            Sets the dynamic-port name-format attribute in the object.
+            Sets the dynamic-portname-format attribute in the object.
 
-            :param portname_format: the dynamic port name format.
-            :rtype: None or a dictionary of errors information.
+            :param portname_format: The dynamic port name format.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_dynamic_portname_format()
 
@@ -476,7 +477,7 @@ class port_configuration(pyfos_rest_util.rest_object):
             Sets the dynamic-d-port-enabled attribute in the object.
 
             :param value: A boolean value.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_dynamic_d_port_enabled()
 
@@ -489,7 +490,7 @@ class port_configuration(pyfos_rest_util.rest_object):
             Sets the on-demand-d-port-enabled attribute in the object.
 
             :param value: A boolean value.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_on_demand_d_port_enabled()
 
@@ -524,7 +525,7 @@ class port_configuration(pyfos_rest_util.rest_object):
 
 class zone_configuration(pyfos_rest_util.rest_object):
     """Class of configurable parameters of the FC switch corresponding
-       to zoning
+       to zoning.
 
     Class Members:
 
@@ -549,7 +550,7 @@ class zone_configuration(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a
+            :rtype: A dictionary of error or a
                 :class:`zone_configuration` object.
 
         .. method:: patch(session)
@@ -586,7 +587,7 @@ class zone_configuration(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or success information.
+            :rtype: A dictionary of error or success information.
 
     *Attribute Methods*
 
@@ -595,7 +596,7 @@ class zone_configuration(pyfos_rest_util.rest_object):
             Sets the node-name-zoning-enabled attribute in the object.
 
             :param value: A boolean value.
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_node_name_zoning_enabled()
 
@@ -620,9 +621,9 @@ class zone_configuration(pyfos_rest_util.rest_object):
 
 
 class fabric(pyfos_rest_util.rest_object):
-    """Class of configurable parameters of the FC switch
+    """Class of configurable parameters of the FC switch.
 
-    Important class members:
+    Important Class Members:
 
 +-----------------------------+------------+---------------------------------------+
 | Attribute Name              |Description |Frequently Used Methods                |
@@ -644,12 +645,12 @@ class fabric(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a
+            :rtype: A dictionary of error or a
                 :class:`fabric` object.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to the fabric.
+            Applies configurable attribute(s) within the object to the fabric.
 
             *Example Using Individual Sets:*
 
@@ -677,9 +678,9 @@ class fabric(pyfos_rest_util.rest_object):
                 # switch connected through session
                 fabric_obj.patch(session)
 
-            :param session: session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a dictionary of error or success information
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of error or success information.
 
     *Attribute Methods*
 
@@ -689,13 +690,13 @@ class fabric(pyfos_rest_util.rest_object):
 
             :param mode: The mode value configures the IDID feature.
 
-            :rtype: None or a dictionary of errors information.
+            :rtype: None or a dictionary of error information.
 
         .. method:: peek_insistent_domain_id_enabled()
 
             Reads the status of the Insistent Domain ID feature.
 
-            :rtype: True or False
+            :rtype: True or False.
 
         """
 

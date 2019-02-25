@@ -17,10 +17,10 @@
 
 :mod:`seccertmgmt_show` - PyFOS util for displaying certificates in the switch.
 ***********************************************************************************
-The :mod:`seccertmgmt_show` provides option to display a certificate.
+The :mod:`seccertmgmt_show` util provides the option to display a certificate.
 
-This module can be used to display certificate. If the certificate entity and \
-type are not provided, all certificates information is displayed.
+This module can be used to display a certificate. If the certificate entity \
+and type are not provided, information for all certificates is displayed.
 
 * Input:
 
@@ -35,7 +35,7 @@ type are not provided, all certificates information is displayed.
 * Util Script Options:
 
   |    --certificate-entity=ENTITY-NAME    Sets the certificate entity name.
-  |    --certificate-type=CERT-TYPE        Sets the certificate type name.
+  |    --certificate-type=CERT-TYPE        Sets the certificate type.
   |    --is-hexdump-show                   Displays the raw hex data.
 
 * Output:
@@ -43,7 +43,7 @@ type are not provided, all certificates information is displayed.
 
 .. function:: seccertmgmt_show.show_system_security_seccertmgmt(session)
 
-    * Display the certificate and its information in the switch.
+    * Displays the certificate and its information in the switch.
 
         Example Usage of the Method:
 
@@ -64,9 +64,9 @@ cert_entity, cert_type)
         * Output:
             :rtype: A dictionary of return status matching the REST response.
 
-        * Use Cases*
+        *Use Cases*
 
-        1. Retrieve the certificate related information.
+        1. Retrieve the certificate-related information.
 """
 
 import sys

@@ -19,26 +19,26 @@
 :mod:`maps_config_patch` - PyFOS util for MAPS configuration.
 *******************************************************************
 
-This script is used to configure MAPS configuration like email addresses,
-relay config, and so on.
-Note: For updating maps-config class any one attribute is mandatory.
+This script is used to configure MAPS such as email addresses and
+relay configuration.
+Note: For updating maps-config class, any one attribute is mandatory.
 
 * Input:
 
-| Infrastructure Options:
+* Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
-|   -L,--login=LOGIN       The login name.
-|   -P,--password=PASSWORD The password.
-|   -f,--vfid=VFID         The VFID to which the request \
-                            is directed [OPTIONAL].
-|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           Verbose mode [OPTIONAL].
+    * -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+    * -L,--login=LOGIN       The login name.
+    * -P,--password=PASSWORD The password.
+    * -f,--vfid=VFID         The VFID to which the request is \
+                             directed [OPTIONAL].
+    * -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose           Verbose mode [OPTIONAL].
 
 * Util Script Options:
     --action               Sets one or more global actions (separated by ";").
-    --decommission-cfg     Sets the decommision behaviour
-    --recipient-address    Sets one or more email addresses in the to list.
+    --decommission-cfg     Sets the decommision behavior.
+    --recipient-address    Sets one or more email addresses in the "to" list.
     --sender-address       Sets the sender email address.
     --domain-name          Sets the domain name.
     --relay-ip-address     Sets the relay configuration.

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_fru - PyFOS module to provide rest support for the FRU. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>pyfos_brocade_fru - PyFOS module to provide rest support for the FRU. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_brocade_media.html" title="pyfos_brocade_media - PyFOS module to provide REST support for port sfp-rdp media."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -160,6 +160,26 @@ partition of the CP blade</td>
 <tr class="row-even"><td>extension-ge-mode</td>
 <td>Extension blade ge mode</td>
 <td><a class="reference internal" href="#pyfos_brocade_fru.blade.set_extension_ge_mode" title="pyfos_brocade_fru.blade.set_extension_ge_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_extension_ge_mode()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>time-alive</td>
+<td>Number of days the blade
+has been powered on</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_time_alive" title="pyfos_brocade_fru.blade.peek_time_alive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_time_alive()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>time-awake</td>
+<td>Number of days since the
+blade last powered on</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_time_awake" title="pyfos_brocade_fru.blade.peek_time_awake"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_time_awake()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>power-usage</td>
+<td>power being consumed
+by the blade</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_power_usage" title="pyfos_brocade_fru.blade.peek_power_usage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_power_usage()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>power-consumption</td>
+<td>Power consumption of the
+hardware component</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.blade.peek_power_consumption" title="pyfos_brocade_fru.blade.peek_power_consumption"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_power_consumption()</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -516,6 +536,62 @@ with extension-ge-mode as key.</td>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_power_consumption">
+<code class="descname">peek_power_consumption</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_power_consumption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads power consumption from the blade object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or power consumption by the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_power_usage">
+<code class="descname">peek_power_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_power_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads power being consumed by the blade object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or power usage by the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_time_awake">
+<code class="descname">peek_time_awake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_time_awake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the number of days the blade has been powered on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or time awake of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.blade.peek_time_alive">
+<code class="descname">peek_time_alive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.blade.peek_time_alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of days since the blade was last powered on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or time alive of the blade.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div></blockquote>
 </dd></dl>
 
@@ -562,6 +638,16 @@ hardware component</td>
 <tr class="row-odd"><td>airflow-direction</td>
 <td>Air flow direction of the Fan</td>
 <td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_airflow_direction" title="pyfos_brocade_fru.fan.peek_airflow_direction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_airflow_direction()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>time-alive</td>
+<td>Number of days the Fan
+has been powered on</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_time_alive" title="pyfos_brocade_fru.fan.peek_time_alive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_time_alive()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>time-awake</td>
+<td>Number of days since the Fan
+was last powered on</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.fan.peek_time_awake" title="pyfos_brocade_fru.fan.peek_time_awake"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_time_awake()</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -691,6 +777,34 @@ and individual attributes accessed through peek methods.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_time_awake">
+<code class="descname">peek_time_awake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_time_awake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the number of days the fan has been powered on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or time awake of the fan.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.fan.peek_time_alive">
+<code class="descname">peek_time_alive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.fan.peek_time_alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of days since the fan was last powered on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or time alive of the fan.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div></blockquote>
 </dd></dl>
 
@@ -752,6 +866,21 @@ voltage type</td>
 <td>Temperature of the power
 supply sensor</td>
 <td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_temperature" title="pyfos_brocade_fru.power_supply.peek_temperature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_temperature()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>time-alive</td>
+<td>Number of days the Unit
+has been powered on</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_time_alive" title="pyfos_brocade_fru.power_supply.peek_time_alive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_time_alive()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>time-awake</td>
+<td>Number of days since the Unit
+last powered on</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_time_awake" title="pyfos_brocade_fru.power_supply.peek_time_awake"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_time_awake()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>power-usage</td>
+<td>power being consumed
+by the unit</td>
+<td><a class="reference internal" href="#pyfos_brocade_fru.power_supply.peek_power_usage" title="pyfos_brocade_fru.power_supply.peek_power_usage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_power_usage()</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -909,6 +1038,48 @@ and individual attributes accessed through peek methods.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_power_usage">
+<code class="descname">peek_power_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_power_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads power being consumed by the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or power usage by the Unit.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_time_awake">
+<code class="descname">peek_time_awake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_time_awake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the number of days the powersupply has been powered on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or time awake of the powersupply.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fru.power_supply.peek_time_alive">
+<code class="descname">peek_time_alive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fru.power_supply.peek_time_alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads number of days since the powersupply was last powered on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or time alive of the powersupply.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div></blockquote>
 </dd></dl>
 
@@ -968,7 +1139,7 @@ and individual attributes accessed through peek methods.</p>
         <li class="right" >
           <a href="pyfos_brocade_media.html" title="pyfos_brocade_media - PyFOS module to provide REST support for port sfp-rdp media."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

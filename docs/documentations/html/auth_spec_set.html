@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>auth_spec_set - PyFOS util to modify authentication mode configuration &#8212; PyFOS 1.1.1 documentation</title>
+    <title>auth_spec_set - PyFOS util to modify the authentication mode configuration. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="radius_server_show - PyFOS util to show RADIUS sever configuraions." href="radius_server_show.html" />
+    <link rel="next" title="radius_server_show - PyFOS util to show RADIUS sever configurations." href="radius_server_show.html" />
     <link rel="prev" title="auth_spec_show - PyFOS util to show the authentication mode configuraion." href="auth_spec_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="radius_server_show.html" title="radius_server_show - PyFOS util to show RADIUS sever configuraions."
+          <a href="radius_server_show.html" title="radius_server_show - PyFOS util to show RADIUS sever configurations."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="auth_spec_show.html" title="auth_spec_show - PyFOS util to show the authentication mode configuraion."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,28 +42,28 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-auth_spec_set"></span><div class="section" id="auth-spec-set-pyfos-util-to-modify-authentication-mode-configuration">
-<h1><a class="reference internal" href="#module-auth_spec_set" title="auth_spec_set: PyFOS module to modify AAA configuration. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_spec_set</span></code></a> - PyFOS util to modify authentication mode configuration<a class="headerlink" href="#auth-spec-set-pyfos-util-to-modify-authentication-mode-configuration" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-auth_spec_set" title="auth_spec_set: PyFOS module to modify AAA configuration. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_spec_set</span></code></a> supports ‘aaaconfig’ CLI use case.</p>
-<p>This module is a standalone script and API that can be used to modify a
-ldap server.</p>
+  <span class="target" id="module-auth_spec_set"></span><div class="section" id="auth-spec-set-pyfos-util-to-modify-the-authentication-mode-configuration">
+<h1><a class="reference internal" href="#module-auth_spec_set" title="auth_spec_set: PyFOS module to modify AAA configuration. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_spec_set</span></code></a> - PyFOS util to modify the authentication mode configuration.<a class="headerlink" href="#auth-spec-set-pyfos-util-to-modify-the-authentication-mode-configuration" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-auth_spec_set" title="auth_spec_set: PyFOS module to modify AAA configuration. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_spec_set</span></code></a> supports the ‘aaaconfig’ CLI use case.</p>
+<p>This module is a stand-alone script and API that can be used to modify an
+LDAP server.</p>
 <ul class="simple">
-<li>inputs:</li>
+<li>Input:</li>
 </ul>
 <div class="line-block">
-<div class="line">Infrastructure options:</div>
+<div class="line">Infrastructure Options:</div>
 </div>
 <div class="line-block">
-<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
-<div class="line">-L,–login=LOGIN       login name.</div>
-<div class="line">-P,–password=PASSWORD password.</div>
-<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
-<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
-<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request is                            directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
 </div>
 <ul>
 <li><dl class="first docutils">
-<dt>Util scripts options:</dt>
+<dt>Util Script Options:</dt>
 <dd><table class="first last docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
@@ -71,18 +71,17 @@ ldap server.</p>
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--authentication-mode</span></kbd></td>
 </tr>
-<tr><td>&#160;</td><td><p class="first last">set authentication mode</p>
+<tr><td>&#160;</td><td><p class="first last">Sets the authentication mode.</p>
 </td></tr>
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--activate-no-log-out</span></kbd></td>
 </tr>
-<tr><td>&#160;</td><td><p class="first last">set enable/disable log out</p>
+<tr><td>&#160;</td><td><p class="first last">Enables or disables log out.</p>
 </td></tr>
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--primary-auth-log-messages</span></kbd></td>
 </tr>
-<tr><td>&#160;</td><td><p class="first last">set enable/disable primary authentication
-error messages</p>
+<tr><td>&#160;</td><td><p class="first last">Enables or disables primary authentication                                   error messages.</p>
 </td></tr>
 </tbody>
 </table>
@@ -90,9 +89,9 @@ error messages</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>success response or dictionary in case of error</li>
+<li>A success response or dictionary in case of error.</li>
 </ul>
 </dd>
 </dl>
@@ -116,7 +115,7 @@ Module <a class="reference internal" href="auth_spec_show.html#module-auth_spec_
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">auth_spec_show</span></code> - PyFOS util to show the authentication mode configuraion.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="radius_server_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">radius_server_show</span></code> - PyFOS util to show RADIUS sever configuraions.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">radius_server_show</span></code> - PyFOS util to show RADIUS sever configurations.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -150,12 +149,12 @@ Module <a class="reference internal" href="auth_spec_show.html#module-auth_spec_
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="radius_server_show.html" title="radius_server_show - PyFOS util to show RADIUS sever configuraions."
+          <a href="radius_server_show.html" title="radius_server_show - PyFOS util to show RADIUS sever configurations."
              >next</a> |</li>
         <li class="right" >
           <a href="auth_spec_show.html" title="auth_spec_show - PyFOS util to show the authentication mode configuraion."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

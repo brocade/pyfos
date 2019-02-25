@@ -36,7 +36,7 @@ extension_tunnel_delete.py: Usage
 * Util Script Options:
     * -n,--name=NAME: Sets the name.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_tunnel_delete.delete_extension_tunnel(session, name)

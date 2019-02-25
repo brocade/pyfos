@@ -15,7 +15,7 @@
 
 """
 
-:mod:`password_cfg_show` - PyFOS util to display a password \
+:mod:`password_cfg_show` - PyFOS util to display password \
 configuration parameters.
 **************************************************************************************
 This module is a stand-alone script and API that can be used to display \

@@ -67,7 +67,7 @@ This module is a stand-alone script that can be used to display the\
 
         *Use Cases*
 
-        1. Enables or disables the RASLog message.
+        1. Enable or disable the RASLog message.
 
 """
 import sys

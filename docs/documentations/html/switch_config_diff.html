@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>switch_config_diff - PyFOS util for specific config op use case. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>switch_config_diff - PyFOS util to detect configuration drift from dump. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="switch_config_dump - PyFOS util for specific config op use case." href="switch_config_dump.html" />
-    <link rel="prev" title="switch_config_apply - PyFOS util for specific config op use case." href="switch_config_apply.html" /> 
+    <link rel="next" title="switch_config_dump - PyFOS util to dump existing switch configuration." href="switch_config_dump.html" />
+    <link rel="prev" title="switch_config_apply - PyFOS util for applying configurations from dump." href="switch_config_apply.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="switch_config_dump.html" title="switch_config_dump - PyFOS util for specific config op use case."
+          <a href="switch_config_dump.html" title="switch_config_dump - PyFOS util to dump existing switch configuration."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="switch_config_apply.html" title="switch_config_apply - PyFOS util for specific config op use case."
+          <a href="switch_config_apply.html" title="switch_config_apply - PyFOS util for applying configurations from dump."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,68 +42,335 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-switch_config_diff"></span><div class="section" id="switch-config-diff-pyfos-util-for-specific-config-op-use-case">
-<h1><a class="reference internal" href="#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> - PyFOS util for specific config op use case.<a class="headerlink" href="#switch-config-diff-pyfos-util-for-specific-config-op-use-case" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> provides for a specific config op use case.</p>
-<p>This module is a stand-alone script that can be used to display
-drifted attributes between the current switch configuration and a previously
-saved configuration files.</p>
+  <span class="target" id="module-switch_config_diff"></span><div class="section" id="switch-config-diff-pyfos-util-to-detect-configuration-drift-from-dump">
+<h1><a class="reference internal" href="#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> - PyFOS util to detect configuration drift from dump.<a class="headerlink" href="#switch-config-diff-pyfos-util-to-detect-configuration-drift-from-dump" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> PyFOS util to detect configuration drift fromdump.</p>
+<p>This module is a stand-alone script that is used to display the drifted
+configurations in terms of different <em>config true</em> attributes of an object
+instance compared to the corresponding instance from an existing dump file.
+The drift is between the current switch configuration and a previously saved
+dump configuration file.</p>
 <p>The configuration files are saved by <a class="reference internal" href="switch_config_dump.html#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> script.</p>
-<p>The configuration files can be in spreadsheet format or in JSON format.
-By default, spreadsheet format is used. The name of the file is
-given with/without vfid in filename format of .&lt;vfid&gt;.&lt;xlsx/json&gt; for
-–compare option. For JSON format configuration files, –json option
-added to –compare option is given instead. For using the config
-functionality for only specific objects configfilters.json file should
-be populated with the list of container names and should be present
-in the execution directory.</p>
 <ul>
 <li><dl class="first docutils">
 <dt>Inputs:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt>-L=&lt;login&gt;: Login ID. If not provided, an interactive</dt>
+<dt>-L=&lt;login&gt;: The login ID. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>-P=&lt;password&gt;: Password. If not provided, an interactive</dt>
+<dt>-P=&lt;password&gt;: The password. If not provided, an interactive</dt>
 <dd><p class="first last">prompt will request one.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: IP address.</p>
+<li><p class="first">-i=&lt;IP address&gt;: The IP address.</p>
 </li>
 <li><dl class="first docutils">
-<dt>–compare=&lt;compare dump file&gt;: name of the directory that</dt>
+<dt>–compare=&lt;compare dump file&gt;: The name of the directory that</dt>
 <dd><p class="first last">contains the XLSX/JSON encoded switch configuration files with
-name of the file with/without vfid in the dump filename of format
-_&lt;vfid&gt;.&lt;file extension&gt;. If vfid is specified only that vfid
-is used else it will try and detect all vfids for loading and
-config operation.</p>
+name of the file with or without a vfid in the dump filename in the
+format _&lt;vfid&gt;.&lt;file extension&gt;. If the vfid is specified, only that
+vfid is used; otherwise it detects all vfids for loading and
+drift detection for configuration operation.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">–json: Use JSON Format, Default is XLSX format. [Optional]</p>
+<li><p class="first">–json: Use JSON format, The default is XLSX format. [Optional]</p>
 </li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
+<dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>List of attributes that have drifted.</li>
+<li>Displays the list of attributes that have drifted.</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
+<p><strong>Assumptions</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>The switch_config_dump contains only read-write supported objects
+(objects that supports <strong>POST, PATCH, DELETE, PUT</strong> operations).
+Therefore, the diff operation is supported for read-write objects.</li>
+<li>The switch_config_dump of objects contains only <strong>config true</strong>
+attributes as per yang in the <em>XLSX</em> format, but for <em>JSON</em> all
+attributes are dumped. However, in both the format types only
+<strong>config true</strong> attributes diff is displayed. This is because config
+false attributes are runtime stats/state values and are dependent on
+environment and are not supported for configuration operations.</li>
+<li>The filtering support for switch_config_diff is limited to the object
+level (filtering is supported at the top level container/list). The
+filtering support is not extended to the individual attribute leaves.</li>
+<li>The complete list of objects available for configuration operations
+should be part of <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a>. Please ensure the object
+is part of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfos.manager.pyfos_class_manager.clslist</span></code> before
+it can be used for configuration operation.</li>
+</ol>
+</div></blockquote>
+<p><strong>Object Filtering Support</strong>:</p>
+<blockquote>
+<div><p>The diff util supports the object filtering (selectively using one or
+more objects for a config dump, diff, apply sequence). Follow the
+procedure below to selectively apply the configuration operations.</p>
+<ol class="arabic simple">
+<li>Create a file with the name <em>configfilters.json</em>.</li>
+<li>Add the container name for all objects to be used for configuration
+operation.</li>
+<li>Put the <em>configfilters.json</em> file in the execution directory. Otherwise,
+no user available CLI options are supported to pass this filename.</li>
+<li>If the <strong>configfilter.json</strong> file is empty then all objects in the
+:mod: <cite>pyfos_class_manager</cite> list are used for configuration operation.</li>
+<li>If the <strong>configfilter.json</strong> file is not empty, only the objects in
+the filters file are used for configuration operation.</li>
+</ol>
+<p>Example Content of the <em>configfilters.json</em> File:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">[</span>
+    <span class="s2">&quot;fibrechannel-switch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extesnion-tunnel&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Using the switch_config_diff utility</strong>:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><dl class="first docutils">
+<dt>Collect the dump from the switch.</dt>
+<dd><p class="first last">To use the switch_config_diff functionality, you should already
+have a known dump file with the configuration from the switch.
+Please check the util <a class="reference internal" href="switch_config_dump.html#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a> for steps to
+collect the configuration dump from the switch.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>File name format for diff.</dt>
+<dd><p class="first">The dump configuration file name follows the format:
+<em>FOS_&lt;switch IP address&gt;_&lt;date&gt;_&lt;time stamp&gt;_&lt;vfid&gt;.&lt;format&gt;</em>.
+For logical switch supported switches, the configuration dump
+will be across multiple files each with a different <strong>vfid</strong> in the
+filename. For logical switch or VF not supported the keyword
+<strong>None</strong> replaces the <strong>vfid</strong>. However, to pass multiple filename
+for diff functionality the <strong>vfid</strong> should be skipped when providing
+the filename if you want to run it across multiple vfids.</p>
+<p>Example:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span class="n">Dump</span> <span class="n">filename</span> <span class="p">:</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_14_09_15_14_None</span><span class="o">.</span><span class="n">json</span>
+<span class="n">Diff</span> <span class="n">filename</span> <span class="p">:</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_14_09_15_14</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>File Type Formats.</dt>
+<dd><p class="first">The configuration utility provides two file type formats supported
+for the config diff functionality (<em>XLSX</em> and <em>JSON</em>). The default
+mode is <em>XLSX</em> and is implicit in the command line arguments. However
+for <em>JSON</em> format you should explicitly pass <strong>–json</strong>.</p>
+<p>Similar to <a class="reference internal" href="#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a> there is another
+utility <a class="reference internal" href="switch_config_apply.html#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a> which can do a diff and even revert
+from drifted configuration on a switch.</p>
+<p>Example XLSX:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">switch_config_diff</span><span class="o">.</span><span class="n">py</span>  <span class="o">-</span><span class="n">i</span> <span class="mf">10.200</span><span class="o">.</span><span class="mf">151.183</span> <span class="o">-</span><span class="n">L</span> <span class="n">admin</span> <span class="o">-</span><span class="n">P</span> <span class="n">password</span>
+<span class="o">--</span><span class="n">compare</span><span class="o">=</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_18_01_30_55</span><span class="o">.</span><span class="n">xlsx</span>
+</pre></div>
+</div>
+<p>Example JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">switch_config_diff</span><span class="o">.</span><span class="n">py</span>  <span class="o">-</span><span class="n">i</span> <span class="mf">10.200</span><span class="o">.</span><span class="mf">151.183</span> <span class="o">-</span><span class="n">L</span> <span class="n">admin</span> <span class="o">-</span><span class="n">P</span> <span class="n">password</span>
+<span class="o">--</span><span class="n">json</span> <span class="o">--</span><span class="n">compare</span><span class="o">=</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_18_01_30_55</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Example Execution:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span class="o">./</span><span class="n">switch_config_diff</span><span class="o">.</span><span class="n">py</span>  <span class="o">-</span><span class="n">i</span> <span class="mf">10.155</span><span class="o">.</span><span class="mf">107.42</span> <span class="o">-</span><span class="n">L</span> <span class="n">admin</span> <span class="o">-</span><span class="n">P</span> <span class="n">password</span>
+<span class="o">--</span><span class="n">json</span> <span class="o">--</span><span class="n">compare</span><span class="o">=</span><span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_14_09_15_14_None</span><span class="o">.</span><span class="n">json</span>
+<span class="n">Handle</span> <span class="n">Diff</span> <span class="n">Start</span><span class="o">.</span>
+<span class="n">Loading</span> <span class="n">Dump</span> <span class="n">configuration</span> <span class="n">Start</span><span class="o">.</span>
+<span class="n">Loading</span> <span class="kn">from</span> <span class="nn">file</span> <span class="p">:</span> <span class="n">FOS_10</span><span class="o">.</span><span class="mf">155.107</span><span class="o">.</span><span class="mi">42</span><span class="n">_2019_02_14_09_15_14_None</span><span class="o">.</span><span class="n">json</span>
+<span class="n">Loading</span> <span class="n">Dump</span> <span class="n">configuration</span> <span class="n">Complete</span><span class="o">.</span>
+<span class="n">Loading</span> <span class="n">Switch</span> <span class="n">configuration</span> <span class="n">Start</span><span class="p">[</span> <span class="kc">None</span> <span class="p">]</span><span class="o">.</span>
+<span class="n">Loading</span> <span class="n">Switch</span> <span class="n">configuration</span> <span class="n">Complete</span><span class="o">.</span>
+<span class="n">Init</span> <span class="n">Class</span> <span class="n">Ordering</span><span class="o">.</span>
+<span class="n">Calculating</span> <span class="n">Diff</span> <span class="n">Start</span>
+<span class="n">Calculating</span> <span class="n">Diff</span> <span class="n">Complete</span><span class="o">.</span>
+<span class="s2">&quot;------Colored------------&quot;</span>
+   <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="p">[</span>
+               <span class="p">{</span>
+                   <span class="s2">&quot;fibrechannel-switch&quot;</span><span class="p">:</span> <span class="p">{</span>
+                       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;10:00:00:27:f8:fd:1f:80&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="s2">&quot;user-friendly-name&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="o">+</span>                    <span class="s2">&quot;user-friendly-name&quot;</span><span class="p">:</span> <span class="s2">&quot;AG&quot;</span>
+                   <span class="p">}</span>
+               <span class="p">}</span>
+           <span class="p">]</span>
+       <span class="p">}</span>
+   <span class="p">]</span>
+<span class="s2">&quot;------No Color------------&quot;</span>
+   <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="p">[</span>
+               <span class="p">{</span>
+                   <span class="s2">&quot;fibrechannel-switch&quot;</span><span class="p">:</span> <span class="p">{</span>
+                       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;10:00:00:27:f8:fd:1f:80&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="s2">&quot;user-friendly-name&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="o">+</span>                    <span class="s2">&quot;user-friendly-name&quot;</span><span class="p">:</span> <span class="s2">&quot;AG&quot;</span>
+                   <span class="p">}</span>
+               <span class="p">}</span>
+           <span class="p">]</span>
+       <span class="p">}</span>
+   <span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<p><strong>Working Of switch_config_diff</strong>:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">The switch_config_diff is based on the principle that only if config
+true attributes are different then there is a diff. The steps involved
+in the diff calculation process are as follows.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Find all instances that are missing in the dumped configurations and
+mark them for deletion.</li>
+<li>Find all instances that are missing in the switch configurations and
+mark them for creations.</li>
+<li>Find the matching old and new instances whose keys are the same
+for diff calculation.</li>
+<li>Once the two instances are identified for diff calculation then
+they are used to calculate the diff between their attributes
+from top to bottom for config true attributes only.</li>
+<li>Once the attributes are compared, their diff is marked at the
+attribute level and also at an object level using bitmasked
+flags along with a cached drifted value.</li>
+<li>The type of diff identified can be easily mapped into
+different REST CRUD operations.</li>
+<li>Once the diff has been completed the diff object can be
+used for generating diff corresponding payload itself based
+on different CRUD operations.</li>
+<li>A single object can participate in multiple CRUD operations
+with different payload generation as per diff identifcation
+(for example`defined-configuration`).</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">The display format for different diff identified are shown below.
+For leaf level only modification identified, the display of
+the restobject will only have its corresponding key values along with
+the diff modification identified for different attributes (leaf,list).
+However, in case of creation or deletion the corresponding object
+instance is missing in either the old list or the new list.
+Therefore in case of POST or DELETE operations identified by diff
+utility the complete object dump will be seen.</p>
+<blockquote>
+<div><p>Example Yang Leaf’s Modification:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>    <span class="p">{</span>
+         <span class="s2">&quot;gigabitethernet&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;0/17&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>          <span class="s2">&quot;speed&quot;</span><span class="p">:</span> <span class="s2">&quot;10000000000&quot;</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="o">+</span>          <span class="s2">&quot;speed&quot;</span><span class="p">:</span> <span class="s2">&quot;1000000000&quot;</span>
+         <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example Yang List Modification:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>    <span class="p">{</span>
+            <span class="s2">&quot;defined-configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span>
+                                    <span class="s2">&quot;alias-name&quot;</span><span class="p">:</span> <span class="s2">&quot;ali1_test&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                                     <span class="s2">&quot;alias-entry-name&quot;</span><span class="p">:</span>
+<span class="o">&lt;</span> <span class="o">-</span> <span class="s2">&quot;[&#39;70:00:8c:7c:ff:5f:54:00&#39;, &#39;70:00:8c:7c:ff:5f:55:00&#39;]&quot;</span>
+<span class="o">---</span>
+<span class="o">&gt;</span> <span class="o">+</span>                                     <span class="s2">&quot;alias-entry-name&quot;</span><span class="p">:</span>
+<span class="o">&gt;</span> <span class="o">+</span> <span class="s2">&quot;[&#39;70:00:8c:7c:ff:5f:54:00&#39;]&quot;</span>
+                                    <span class="p">}</span>
+                            <span class="p">}</span>
+                    <span class="p">]</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example Yang List Creation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>    <span class="p">{</span>
+            <span class="s2">&quot;defined-configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;alias-name&quot;</span><span class="p">:</span> <span class="s2">&quot;ali1_test&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="s2">&quot;member-entry&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                                     <span class="s2">&quot;alias-entry-name&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>                                      <span class="s2">&quot;70:00:8c:7c:ff:5f:54:00&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                                      <span class="s2">&quot;70:00:8c:7c:ff:5f:55:00&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>                                     <span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">+</span>                             <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>                     <span class="p">},</span>
+                    <span class="p">]</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example Diff Object Creation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&gt;</span> <span class="o">+</span>        <span class="p">[</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                <span class="s2">&quot;extension-ip-route&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&gt;</span> <span class="o">+</span>                    <span class="s2">&quot;dp-id&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                    <span class="s2">&quot;ip-address&quot;</span><span class="p">:</span> <span class="s2">&quot;51.50.50.0&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                    <span class="s2">&quot;ip-gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;10.200.14.18&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                    <span class="s2">&quot;ip-prefix-length&quot;</span><span class="p">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">+</span>                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;0/7&quot;</span>
+<span class="o">&gt;</span> <span class="o">+</span>                <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>            <span class="p">}</span>
+<span class="o">&gt;</span> <span class="o">+</span>        <span class="p">]</span>
+</pre></div>
+</div>
+<p>Example Diff Object Deletion:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&lt;</span> <span class="o">-</span>            <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                <span class="s2">&quot;n-port-map&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="s2">&quot;configured-f-port-list&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="o">&lt;</span> <span class="o">-</span>                        <span class="s2">&quot;f-port&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">&lt;</span> <span class="o">-</span>                            <span class="s2">&quot;0/6&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                            <span class="s2">&quot;0/7&quot;</span>
+<span class="o">&lt;</span> <span class="o">-</span>                        <span class="p">]</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="p">},</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="s2">&quot;failback-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="s2">&quot;failover-enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="s2">&quot;n-port&quot;</span><span class="p">:</span> <span class="s2">&quot;0/19&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="s2">&quot;online-status&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="o">&lt;</span> <span class="o">-</span>                    <span class="s2">&quot;reliable-status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+<span class="o">&lt;</span> <span class="o">-</span>                <span class="p">}</span>
+<span class="o">&lt;</span> <span class="o">-</span>            <span class="p">},</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_config_manager.html#module-pyfos_config_manager" title="pyfos_config_manager: PyFOS module to provide Config Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_config_manager</span></code></a>
+Module <a class="reference internal" href="pyfos_class_manager.html#module-pyfos_class_manager" title="pyfos_class_manager: PyFOS module to provide Class Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_class_manager</span></code></a>
+Module <a class="reference internal" href="pyfos_rule_manager.html#module-pyfos_rule_manager" title="pyfos_rule_manager: PyFOS module to provide Rule Management support (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rule_manager</span></code></a>
+Module <a class="reference internal" href="#module-switch_config_diff" title="switch_config_diff: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_diff</span></code></a>
+Module <a class="reference internal" href="switch_config_apply.html#module-switch_config_apply" title="switch_config_apply: PyFOS module to manage specific config op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_apply</span></code></a>
+Module <a class="reference internal" href="switch_config_dump.html#module-switch_config_dump" title="switch_config_dump: PyFOS module to manage specific configuration use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_config_dump</span></code></a></p>
 </div>
 
 
@@ -114,10 +381,10 @@ config operation.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="switch_config_apply.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">switch_config_apply</span></code> - PyFOS util for specific config op use case.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">switch_config_apply</span></code> - PyFOS util for applying configurations from dump.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="switch_config_dump.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">switch_config_dump</span></code> - PyFOS util for specific config op use case.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">switch_config_dump</span></code> - PyFOS util to dump existing switch configuration.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -151,12 +418,12 @@ config operation.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="switch_config_dump.html" title="switch_config_dump - PyFOS util for specific config op use case."
+          <a href="switch_config_dump.html" title="switch_config_dump - PyFOS util to dump existing switch configuration."
              >next</a> |</li>
         <li class="right" >
-          <a href="switch_config_apply.html" title="switch_config_apply - PyFOS util for specific config op use case."
+          <a href="switch_config_apply.html" title="switch_config_apply - PyFOS util for applying configurations from dump."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

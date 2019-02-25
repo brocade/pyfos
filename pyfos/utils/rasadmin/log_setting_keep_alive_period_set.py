@@ -16,13 +16,13 @@
 """
 
 :mod:`log_setting_keep_alive_period_set` - PyFOS util for setting the\
- keep alive period.
+ keepalive period.
 ******************************************************************************************
 The :mod:`log_setting_keep_alive_period_set` util provides for setting the\
- keep alive period.
+ keepalive period.
 
 This module is a stand-alone script that can be used to set the\
- keep alive period.
+ keepalive period.
 
 * Input:
     * -L=<login>: The login ID. If not provided, an interactive
@@ -34,7 +34,7 @@ This module is a stand-alone script that can be used to set the\
         a VFID of 128 is assumed.
 
 * Util Script Options:
-    * --alive=ALIVE-PERIOD     Sets the alive period for the log in hours.
+    * --alive=ALIVE-PERIOD     Sets the alive period for the login hours.
 
 * Output:
     * Log setting attributes in JSON format.
@@ -59,14 +59,14 @@ This module is a stand-alone script that can be used to set the\
 
         * Input:
             :param session: The session returned by the login.
-            :param period: The keep alive period in hours.
+            :param period: The keepalive period in hours.
 
         * Output:
             :rtype: A dictionary of return status matching the REST response.
 
         *Use Cases*
 
-        1. Configures the keep alive period of the RASLog.
+        1. Configure the keepalive period of the RASLog.
 
 """
 

@@ -23,25 +23,25 @@ This script can be used to update an existing MAPS rule.
 
 * Input:
 
-| Infrastructure Options:
+* Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
-|   -L,--login=LOGIN       The login name.
-|   -P,--password=PASSWORD The password.
-|   -f,--vfid=VFID         The VFID to which the request \
-                            is directed [OPTIONAL].
-|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           Verbose mode [OPTIONAL].
+    * -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+    * -L,--login=LOGIN       The login name.
+    * -P,--password=PASSWORD The password.
+    * -f,--vfid=VFID         The VFID to which the request is \
+                             directed [OPTIONAL].
+    * -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose           Verbose mode [OPTIONAL].
 
 * Util Script Options:
     --name                   Specifies the MAPS rule name.
-    --group-name             Sets the MAPS group to which rule is applied.
+    --group-name             Sets the MAPS group to which the rule is applied.
     --monitoring-system      Sets the monitoring statistic to be monitored.
     --time-base              Sets the interval of monitoring.
     --logical-operator       Sets the condition of monitoring.
     --threshold-value        Sets the threshold value.
     --action                 Sets the action to take if a rule \
-                              violation occurs.
+                             violation occurs.
 
     --toggle-time            Sets the toggle time [OPTIONAL].
     --quiet-time             Sets the quiet time [OPTIONAL].

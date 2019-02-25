@@ -68,7 +68,7 @@ name, dp, ip, prefix, gateway = None)
             session, IProute)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the GE_Port name expressed as slot/port.
             :param dp-id: Sets the DP instance.
             :param ip: Sets the extension IP address.
@@ -79,7 +79,7 @@ name, dp, ip, prefix, gateway = None)
         * Output:
             :rtype: A dictionary of return status matching the REST response.
 
-        *UseCases*
+        *Use Cases*
 
          Delete a new extension IP route.
 """

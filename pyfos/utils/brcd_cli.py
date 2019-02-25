@@ -524,6 +524,62 @@ brcd_utils_dict.update({
     },
 })
 
+brcd_utils_dict.update({
+    "snmp_system": {
+        "system":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "snmp_mib_capability": {
+        "mib-capability":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "snmp_trap_capability": {
+        "trap-capability":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "snmp_v1_account": {
+        "v1-account":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "snmp_v1_trap": {
+        "v1-trap":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "snmp_v3_account": {
+        "v3-account":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "snmp_v3_trap": {
+        "v3-trap":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "snmp_access_control": {
+        "access-control":
+            None
+    },
+})
+
 # Used to document the CLI options
 brcd_utils_cli_dict = dict()
 
@@ -2335,7 +2391,7 @@ brcd_utils_cli_dict.update({
 brcd_utils_cli_dict.update({
     "raslog": {
         "message_id": {
-            "help": "\tSet Message Id. ",
+            "help": "\tSet Message Id. eg. <AUTH-1001>,<LOG-1001>,<CONF-1043>",
             "loption": "msg",
             "optional": 0,
             "soption": None
@@ -2353,7 +2409,8 @@ brcd_utils_cli_dict.update({
             "soption": None
         },
         "current_severity": {
-            "help": "\tSet Message Severity for the raslog.",
+            "help": "\tSet Message Severity for the raslog." +
+            " <default|info|warning|error|critical>",
             "loption": "severity",
             "optional": 1,
             "soption": None
@@ -2364,7 +2421,7 @@ brcd_utils_cli_dict.update({
 brcd_utils_cli_dict.update({
     "raslog-module": {
         "module_id": {
-            "help": "\tSet FOS Module Id. ",
+            "help": "\tSet FOS Module Id eg. <AUTH>,<LOG>,<CONF>",
             "loption": "module-id",
             "optional": 0,
             "soption": None
@@ -2382,7 +2439,7 @@ brcd_utils_cli_dict.update({
 brcd_utils_cli_dict.update({
     "log-quiet-control": {
         "log_type": {
-            "help": "\tSet Log type. ",
+            "help": "\tSet Log type <audit|raslog>.",
             "loption": "log-type",
             "optional": 0,
             "soption": None
@@ -2417,7 +2474,7 @@ brcd_utils_cli_dict.update({
 brcd_utils_cli_dict.update({
     "log-setting": {
         "keep_alive_period": {
-            "help": "\tSet alive period for log in hours. ",
+            "help": "\tSet alive period for log in hours. [0-24]",
             "loption": "alive",
             "optional": 1,
             "soption": None
@@ -2716,5 +2773,275 @@ brcd_utils_cli_dict.update({
 
 brcd_utils_cli_dict.update({
     "dashboard-rule": {
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "system": {
+        "description": {
+            "help": "System description[OPTIONAL]",
+            "loption": "sys-description",
+            "optional": 1,
+            "soption": None
+        },
+        "location": {
+            "help": "System location[OPTIONAL]",
+            "loption": "sys-location",
+            "optional": 1,
+            "soption": None
+        },
+        "contact": {
+            "help": "System contact[OPTIONAL]",
+            "loption": "sys-contact",
+            "optional": 1,
+            "soption": None
+        },
+        "informs_enabled": {
+            "help": "Informs enabled <true|false>[OPTIONAL]",
+            "loption": "informs-enabled",
+            "optional": 1,
+            "soption": None
+        },
+        "encryption_enabled": {
+            "help": "Encryption enabled <true|false>[OPTIONAL]",
+            "loption": "encryption-enabled",
+            "optional": 1,
+            "soption": None
+        },
+        "audit_interval": {
+            "help": "Audit interval[OPTIONAL]",
+            "loption": "audit-interval",
+            "optional": 1,
+            "soption": None
+        },
+        "default_config_default_control": {
+            "help": "Defaulting the SNMP configuration values[OPTIONAL]",
+            "loption": "default-config",
+            "optional": 1,
+            "soption": None
+        },
+        "security_get_level": {
+            "help": "SNMP GET security level[OPTIONAL]",
+            "loption": "sec-get-level",
+            "optional": 1,
+            "soption": None
+        },
+        "security_set_level": {
+            "help": "SNMP SET security level[OPTIONAL]",
+            "loption": "sec-set-level",
+            "optional": 1,
+            "soption": None
+        },
+        "snmpv1_enabled": {
+            "help": "SNMPv1 is enabled <true|false>[OPTIONAL]",
+            "loption": "snmpv1-enabled",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "mib-capability": {
+        "mib_name": {
+            "help": "MIB name",
+            "loption": "mib-name",
+            "optional": 0,
+            "soption": None
+        },
+        "is_mib_enabled_state": {
+            "help": "Indicates the MIB state is enabled <true/false>",
+            "loption": "mib-state",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "trap-capability": {
+        "trap_name": {
+            "help": "Trap name",
+            "loption": "trap-name",
+            "optional": 0,
+            "soption": None
+        },
+        "is_trap_enabled_state": {
+            "help": "Indicates the Trap state is enabled <true/false>",
+            "loption": "trap-state",
+            "optional": 1,
+            "soption": None
+        },
+        "severity": {
+            "help": "Trap severity level[OPTIONAL]",
+            "loption": "severity",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "v1-account": {
+        "index": {
+            "help": "Index of SNMPv1 account",
+            "loption": "index",
+            "optional": 0,
+            "soption": None
+        },
+        "community_name": {
+            "help": "The community name",
+            "loption": "community-name",
+            "optional": 0,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "v1-trap": {
+        "index": {
+            "help": "Index of SNMPv1 host recipient",
+            "loption": "index",
+            "optional": 0,
+            "soption": None
+        },
+        "host": {
+            "help": "IP address of trap recipient",
+            "loption": "host",
+            "optional": 0,
+            "soption": None
+        },
+        "trap_severity_level": {
+            "help": "Severity level of trap recipient[OPTIONAL]",
+            "loption": "severity-level",
+            "optional": 1,
+            "soption": None
+        },
+        "port_number": {
+            "help": "The port number of trap recipient[OPTIONAL]",
+            "loption": "port-number",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "v3-account": {
+        "index": {
+            "help": "Index of SNMPv3 account",
+            "loption": "index",
+            "optional": 0,
+            "soption": None
+        },
+        "user_name": {
+            "help": "The snmpv3 user name",
+            "loption": "user-name",
+            "optional": 0,
+            "soption": None
+        },
+        "authentication_protocol": {
+            "help": "The snmpv3 user authentication protocol[OPTIONAL]",
+            "loption": "authentication-protocol",
+            "optional": 1,
+            "soption": None
+        },
+        "privacy_protocol": {
+            "help": "The snmpv3 user privacy protocol[OPTIONAL]",
+            "loption": "privacy-protocol",
+            "optional": 1,
+            "soption": None
+        },
+        "authentication_password": {
+            "help": "The snmpv3 user authentication password[OPTIONAL]",
+            "loption": "authentication-password",
+            "optional": 1,
+            "soption": None
+        },
+        "privacy_password": {
+            "help": "The snmpv3 user privacy password[OPTIONAL]",
+            "loption": "privacy-password",
+            "optional": 1,
+            "soption": None
+        },
+        "manager_engine_id": {
+            "help": "The SNMP manager engine id[OPTIONAL]",
+            "loption": "manager-engine-id",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "v3-trap": {
+        "trap_index": {
+            "help": "Index of SNMPv3 host recipient",
+            "loption": "trap-index",
+            "optional": 0,
+            "soption": None
+        },
+        "usm_index": {
+            "help": "Index of SNMPv3 account",
+            "loption": "usm-index",
+            "optional": 0,
+            "soption": None
+        },
+        "host": {
+            "help": "IP address of trap recipient",
+            "loption": "host",
+            "optional": 0,
+            "soption": None
+        },
+        "trap_severity_level": {
+            "help": "Severity level of trap recipient[OPTIONAL]",
+            "loption": "severity-level",
+            "optional": 1,
+            "soption": None
+        },
+        "port_number": {
+            "help": "The port number of trap recipient[OPTIONAL]",
+            "loption": "port-number",
+            "optional": 1,
+            "soption": None
+        },
+        "informs_enabled": {
+            "help": "Informs enabled for SNMPV3 notification[OPTIONAL]",
+            "loption": "informs-enabled",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "access-control": {
+        "index": {
+            "help": "Index of snmp access control list",
+            "loption": "index",
+            "optional": 0,
+            "soption": None
+        },
+        "host": {
+            "help": "The subnet area of the access host",
+            "loption": "host",
+            "optional": 0,
+            "soption": None
+        },
+        "access_level": {
+            "help": "The access level of the access control entry < ro/rw >[OPTIONAL]",
+            "loption": "access-level",
+            "optional": 1,
+            "soption": None
+        },
     }
 })

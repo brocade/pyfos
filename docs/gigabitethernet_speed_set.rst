@@ -6,4 +6,4 @@
 .. seealso::
 
 	Module :mod:`pyfos_auth`
-	Module :mod:`pyfos_brocade_gigabitethernet`
+	Module :mod:`pyfos_brocade_interface`

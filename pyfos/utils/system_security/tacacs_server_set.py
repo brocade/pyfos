@@ -17,7 +17,7 @@
 
 :mod:`tacacs_server_set` - PyFOS util to modify a TACACS+ server configuration.
 *******************************************************************************
-The :mod:`tacacs_server_create` util supports modifying a TACACS+ \
+The :mod:`tacacs_server_set` util supports modifying a TACACS+ \
 server configuration.
 
 This module is a stand-alone script and API that can be used to modify a

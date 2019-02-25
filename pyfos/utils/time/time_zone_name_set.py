@@ -20,7 +20,7 @@
 The :mod:`time_zone_name_set` util sets the time zone by name.
 
 This module is a stand-alone script and API that can be used to set the \
-time zone by time zone name.
+time zone by name.
 
 * Input:
 
@@ -38,7 +38,7 @@ time zone by time zone name.
     --time_zone_name       Sets the time zone name by country and city.
 
 * Output:
-    * Displays the system time zone details.
+    * Displays the details of the system time zone.
 
 """
 

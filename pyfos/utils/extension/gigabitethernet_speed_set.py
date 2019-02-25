@@ -19,7 +19,7 @@
 
 :mod:`gigabitethernet_speed_set` - PyFOS util to set GE_Port speed.
 *******************************************************************************
-The :mod:`gigabitethernet_speed_set` util is used to set GE_Port speed.
+The :mod:`gigabitethernet_speed_set` util is used to set the GE_Port speed.
 
 This module is a stand-alone script that can be used to set the
 switch GE_Port speed on an extension platform.
@@ -44,7 +44,7 @@ gigabitethernet_speed_set.py: Usage
 .. function:: gigabitethernet_speed_set.set_port_speed(session,\
 name, speed)
 
-    *Modify extension gigabitethernet speed*
+    *Modify Extension Gigabitethernet Speed*
 
         Example Usage of the Method::
 
@@ -76,7 +76,7 @@ name, speed)
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
-from pyfos.pyfos_brocade_gigabitethernet import gigabitethernet
+from pyfos.pyfos_brocade_interface import gigabitethernet
 from pyfos.utils import brcd_util
 
 

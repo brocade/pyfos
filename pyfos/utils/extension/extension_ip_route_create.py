@@ -38,7 +38,7 @@ extension_ip_route_create.py: Usage
     * -g,--ip-gateway=VALUE: Sets the IP gateway.
     * -p,--ip-prefix-length=VALUE: Sets the IP prefix length.
     * -d,--dp-id=VALUE: Sets the DP ID.
-    *    --ip-address=VALUE: Sets the ID address.
+    *    --ip-address=VALUE: Sets the IP address.
 
 * Output:
     * Python dictionary content with RESTCONF response data.
@@ -67,7 +67,7 @@ name, dp, ip, prefix, gateway)
             session, IProute)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the GE_Port name expressed as slot/port.
             :param dp-id: Sets the DP instance.
             :param ip: Sets the extension IP address.

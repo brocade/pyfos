@@ -24,9 +24,9 @@ This module is a stand-alone script that can be used to display fabric
 attributes.
 
 * Input:
-    * -L=<login>: Login ID. If not provided, an interactive
+    * -L=<login>: The login ID. If not provided, an interactive
         prompt will request one.
-    * -P=<password>: Password. If not provided, an interactive
+    * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: The IP address.
     * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,

@@ -16,8 +16,8 @@
 :mod:`pyfos_brocade_logging` - PyFOS module to provide REST \
 support for configuring the logging facilities in the FC switch.
 ******************************************************************\
-******************************************************************
-The :mod:`pyfos_brocade_logging` module provides a REST support for \
+****************************************************************
+The :mod:`pyfos_brocade_logging` module provides REST support for \
 the FC switch logging facilities.
 """
 
@@ -27,42 +27,44 @@ import pyfos.pyfos_version as version
 
 
 class raslog(pyfos_rest_util.rest_object):
-    """Class of configurable parameters of RASLog
+    """Class of RASLog configurable parameters
 
     Important Class Members:
 
         +------------------+--------------------+-----------------------------+
-        | Attribute name   | Description        |Frequently used methods      |
+        | Attribute Name   | Description        |Frequently Used Methods      |
         +==================+====================+=============================+
         | message-id       | The message ID     |:meth:`peek_message_id`      |
         |                  | of the RASLog.     |                             |
         +------------------+--------------------+-----------------------------+
         | message-text     | The message text   |:meth:`peek_message_text`    |
-        |                  | of the RASLog      |                             |
+        |                  | of the RASLog.     |                             |
         +------------------+--------------------+-----------------------------+
         | message-enabled  | The message status |:meth:`set_message_enabled`  |
         |                  | of the RASLog.     |:meth:`peek_message_enabled` |
         +------------------+--------------------+-----------------------------+
-        | message-flooded  | The message status |:meth:`peek_message_flooded` |
-        |                  | of the RASLog.     |                             |
+        | message-flooded  | The message flooded|:meth:`peek_message_flooded` |
+        |                  | status of the      |                             |
+        |                  | RASLog.            |                             |
         +------------------+--------------------+-----------------------------+
         | syslog-enabled   | The syslog status  |:meth:`set_syslog_enabled`   |
-        |                  | the RASLog.        |:meth:`peek_syslog_enabled`  |
+        |                  | of the RASLog.     |:meth:`peek_syslog_enabled`  |
         +------------------+--------------------+-----------------------------+
         | current-severity | The severity level |:meth:`set_current_severity` |
-        |                  | the RASLog         |:meth:`peek_current_severity`|
+        |                  | of the RASLog.     |:meth:`peek_current_severity`|
         +------------------+--------------------+-----------------------------+
-        | default-severity | Default severity   |:meth:`peek_default_severity`|
-        |                  | of the RASLog.     |                             |
+        | default-severity | The default        |:meth:`peek_default_severity`|
+        |                  | severity of the    |                             |
+        |                  | RASLog.            |                             |
         +------------------+--------------------+-----------------------------+
 
     *Object Methods*
 
         .. method:: get(session)
 
-            Returns a :class:`raslog` object with attributes from RASLog.
+            Returns a :class:`raslog` object with attributes from the RASLog.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
             :param session: The session handler returned by
@@ -72,9 +74,10 @@ class raslog(pyfos_rest_util.rest_object):
 
         .. method:: patch(session)
 
-            Apply the configurable attribute(s) within the object to RASLog.
+            Applies the configurable attribute(s) within the object to the \
+            RASLog.
 
-            *Below is an Example Using Individual Sets:*
+            *Below Is an Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -87,7 +90,7 @@ class raslog(pyfos_rest_util.rest_object):
                 # raslog connected through session
                 raslog_obj.patch(session)
 
-            *Below is an Example of Combining Object \
+            *Below Is an Example of Combining Object \
                     Initialization and Attribute Sets:*
 
             .. code-block:: python
@@ -152,7 +155,7 @@ class raslog(pyfos_rest_util.rest_object):
 
         .. method:: set_current_severity(value)
 
-            Sets the severity of RASLog message object.
+            Sets the severity of the RASLog message object.
 
             :param value: The severity value within the object.
             :rtype: None or a dictionary of error information.
@@ -202,9 +205,9 @@ class raslog(pyfos_rest_util.rest_object):
 
 
 class raslog_module(pyfos_rest_util.rest_object):
-    """Class of configurable parameters of all RASLog of a FOS module.
+    """Class of configurable parameters of all RASLogs of a FOS module.
 
-    Important class members:
+    Important Class Members:
 
         +----------------+----------------------+------------------------+
         | Attribute Name | Description          |Frequently Used Methods |
@@ -213,7 +216,7 @@ class raslog_module(pyfos_rest_util.rest_object):
         |                | of the RASLog.       |                        |
         +----------------+----------------------+------------------------+
         | log-enabled    | The status of all    |:meth:`set_log_enabled` |
-        |                | RASLog in the FOS    |                        |
+        |                | RASLogs in the FOS   |                        |
         |                | module.              |                        |
         +----------------+----------------------+------------------------+
 
@@ -224,19 +227,20 @@ class raslog_module(pyfos_rest_util.rest_object):
             Returns a :class:`raslog_module` object with attributes from
             the RASLog module.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A dictionary of error or a
+            :rtype: A dictionary of errors or a
                 :class:`raslog_module` object.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to RASLog module.
+            Applies configurable attribute(s) within the object to the \
+            RASLog module.
 
-            *Below is an Example Using Individual Sets:*
+            *Below Is an Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -249,7 +253,7 @@ class raslog_module(pyfos_rest_util.rest_object):
                 # raslog_module connected through session
                 raslog_module_obj.patch(session)
 
-            *Below is an Example of Combining Object \
+            *Below Is an Example of Combining Object \
                     Initialization and Attribute Sets:*
 
             .. code-block:: python
@@ -270,7 +274,7 @@ class raslog_module(pyfos_rest_util.rest_object):
 
         .. method:: peek_module_id()
 
-            Reads the module ID of RASLog module in the object.
+            Reads the module ID of the RASLog module in the object.
 
             :rtype: The module ID.
 
@@ -333,7 +337,7 @@ class log_quiet_control(pyfos_rest_util.rest_object):
             Returns a :class:`log_quiet_control` object with attributes
             from log quiet control.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
             :param session: The session handler returned by
@@ -343,10 +347,10 @@ class log_quiet_control(pyfos_rest_util.rest_object):
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to
+            Applies configurable attribute(s) within the object to
             log quiet control.
 
-            *Below is an Example Using Individual Sets:*
+            *Below Is an Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -359,7 +363,7 @@ class log_quiet_control(pyfos_rest_util.rest_object):
                 # log_quiet_control connected through session
                 obj.patch(session)
 
-            *Below is an Example of Combining Object \
+            *Below Is an Example of Combining Object \
                     Initialization and Attribute Sets:*
 
             .. code-block:: python
@@ -373,8 +377,8 @@ class log_quiet_control(pyfos_rest_util.rest_object):
                 obj.patch(session)
 
             :param session: The session handler returned by
-                :func:`pyfos_auth.login`
-            :rtype: a dictionary of error or success information
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or success information.
 
     *Attribute Methods*
 
@@ -399,7 +403,7 @@ class log_quiet_control(pyfos_rest_util.rest_object):
 
         .. method:: set_start_time(value)
 
-            Sets the start time of log quiet control object.
+            Sets the start time of the log quiet control object.
 
             :param value: The start time period in hh:mm to quiet the logs \
                           within the switch.
@@ -413,7 +417,7 @@ class log_quiet_control(pyfos_rest_util.rest_object):
 
         .. method:: set_end_time(value)
 
-            Sets the end time of log quiet control object.
+            Sets the end time of the log quiet control object.
 
             :param value: The end time period in hh:mm to quiet the logs within
                           the switch.
@@ -427,7 +431,7 @@ class log_quiet_control(pyfos_rest_util.rest_object):
 
         .. method:: set_days_of_week_day(value)
 
-            Sets the quiet days of log quiet control object.
+            Sets the quiet days of the log quiet control object.
 
             :param value: The day to quiet the logs within the switch.
             :rtype: None or a dictionary of error information.
@@ -493,7 +497,7 @@ class log_setting(pyfos_rest_util.rest_object):
             Returns a :class:`log_setting` object with attributes from
             the log setting.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
             :param session: The session handler returned by
@@ -503,10 +507,10 @@ class log_setting(pyfos_rest_util.rest_object):
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to the \
+            Applies configurable attribute(s) within the object to the \
             log setting.
 
-            *Below is an Example Using Individual Sets:*
+            *Below Is an Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -519,7 +523,7 @@ class log_setting(pyfos_rest_util.rest_object):
                 # log_setting connected through session
                 log_setting_obj.patch(session)
 
-            *Below is an Example of Combining Object \
+            *Below Is an Example of Combining Object \
                     Initialization and Attribute Sets:*
 
             .. code-block:: python
@@ -540,7 +544,7 @@ class log_setting(pyfos_rest_util.rest_object):
 
         .. method:: peek_keep_alive_period()
 
-            Reads the message ID of log setting in the object.
+            Reads the message ID of the log setting in the object.
 
             :rtype: The message ID.
 
@@ -588,18 +592,18 @@ class audit(pyfos_rest_util.rest_object):
 
     Important Class Members:
 
-        +-----------------+-------+-------------------------------------------+
-        | Attribute Name  | Desc. |Frequently Used Methods                    |
-        +=================+=======+===========================================+
-        | audit-enabled   | Audit |:meth:`peek_audit_enabled`                 |
-        |                 | flag. |:meth:`set_audit_enabled`                  |
-        +-----------------+-------+-------------------------------------------+
-        | severity-level  | Severe|:meth:`peek_severity_level`                |
-        |                 | level.|:meth:`set_severity_level`                 |
-        +-----------------+-------+-------------------------------------------+
-        |filter-class-list| Class |:meth:`peek_filter_class_list_filter_class`|
-        |/filter-class    | list. |:meth:`set_filter_class_list_filter_class` |
-        +-----------------+-------+-------------------------------------------+
+       +-----------------+--------+-------------------------------------------+
+       | Attribute Name  | Desc.  |Frequently Used Methods                    |
+       +=================+========+===========================================+
+       | audit-enabled   | Audit  |:meth:`peek_audit_enabled`                 |
+       |                 | flag.  |:meth:`set_audit_enabled`                  |
+       +-----------------+--------+-------------------------------------------+
+       | severity-level  |Severity|:meth:`peek_severity_level`                |
+       |                 | level. |:meth:`set_severity_level`                 |
+       +-----------------+--------+-------------------------------------------+
+       |filter-class-list| Class  |:meth:`peek_filter_class_list_filter_class`|
+       |/filter-class    | list.  |:meth:`set_filter_class_list_filter_class` |
+       +-----------------+--------+-------------------------------------------+
 
     *Object Methods*
 
@@ -607,14 +611,14 @@ class audit(pyfos_rest_util.rest_object):
             Returns a :class:`audit` object or a list of objects \
             with attributes gathered from auditcfg.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
         .. method:: patch(session)
 
                Apply configurable attribute(s) within the object to audit.
 
-               *Below is an Example Using Individual Sets:*
+               *Below Is an Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -649,17 +653,17 @@ class audit(pyfos_rest_util.rest_object):
 
         .. method:: set_severity_level(level)
 
-            Sets the level of severity in the object.
+            Sets the severity level in the object.
 
             :param level: The valid severity level (info, warning, \
-                           critical, error)
+                           critical, error).
             :rtype: A dictionary of errors or a success response.
 
         .. method:: peek_severity_level()
 
             Reads the severity level in the object.
 
-            :rtype: The level of severity of the audit log.
+            :rtype: The severity level of the audit log.
 
         .. method:: set_filter_class_list_filter_class(filter_class_list)
 
@@ -701,7 +705,7 @@ class audit(pyfos_rest_util.rest_object):
 
 class syslog_server(pyfos_rest_util.rest_object):
     """ This class provides methods and options to retrieve, configure, modify,
-        and delete syslog.
+        and delete the syslog.
 
     Important Class Members:
 
@@ -715,7 +719,8 @@ class syslog_server(pyfos_rest_util.rest_object):
         |                | server.            |:meth:`set_port`        |
         +----------------+--------------------+------------------------+
         | secure-mode    | The secure mode    |:meth:`peek_secure_mode`|
-        |                | using TLS protocol.|:meth:`set_secure_mode` |
+        |                | using the TLS      |:meth:`set_secure_mode` |
+        |                | protocol.          |                        |
         +----------------+--------------------+------------------------+
 
 
@@ -725,15 +730,15 @@ class syslog_server(pyfos_rest_util.rest_object):
           Returns a :class:`syslog_server` object or list of objects with \
           syslog server attributes.
 
-          Each object can be printed using :func:`pyfos_util.response_print`\
+          Each object can be printed using :func:`pyfos_util.response_print`.\
           and individual attributes can be accessed through peek methods.
 
       .. method:: post(session)
 
-          Add members to a list attribute of the object. This method is used to \
+          Adds members to a list attribute of the object. This method is used to \
           add syslog servers.
 
-          Example Usage of the Method to Configure a new Syslog Server:
+          Example Usage of the Method to Configure a New Syslog Server:
 
           # initialize the syslog server object
           syslog_server_obj = pyfos_brocade_logging.syslog_server()
@@ -746,10 +751,10 @@ class syslog_server(pyfos_rest_util.rest_object):
 
       .. method:: patch(session)
 
-             Apply configurable attribute(s) within the object to the \
+             Applies configurable attribute(s) within the object to the \
               syslog server.
 
-             *Below is an Example Using Individual Sets:*
+             *Below Is an Example Using Individual Sets:*
 
           .. code-block:: python
 
@@ -769,8 +774,8 @@ class syslog_server(pyfos_rest_util.rest_object):
 
       .. method:: delete(session)
 
-             Delete members from a list attribute of the object. This method
-              deletes the configured syslog server.
+             Deletes members from a list attribute of the object. This method \
+             deletes the configured syslog server.
 
               Example Usage of the Method to Create New Mappings:
 
@@ -814,9 +819,9 @@ class syslog_server(pyfos_rest_util.rest_object):
 
         .. method:: set_secure_mode(true\\/false)
 
-            Sets the secure mode in the object
+            Sets the secure mode in the object.
 
-            :param true\\/false: True enables secure mode and false disables it.
+            :param true\\/false: True enables secure mode, and false disables it.
             :rtype: A dictionary of errors or a success response.
 
         .. method:: peek_secure_mode()

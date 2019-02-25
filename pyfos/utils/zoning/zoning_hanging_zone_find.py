@@ -213,7 +213,7 @@ def process_all_zones(session):
                                                   ns_attributes, entry_name):
                     online_device = online_device + 1
 
-        if online_device is 0:
+        if online_device == 0:
             hanging_zones.append(zone["zone-name"])
         else:
             online_zones.append(zone["zone-name"])
@@ -270,7 +270,7 @@ def main(argv):
         print(" ")
         print("no zones with at least one online device or special zones")
 
-    if len(hanging_zones) is not 0:
+    if len(hanging_zones) != 0:
         print("")
         user_input = input("Delete all hanging zones? (YES in all caps or "
                            "anything else to skip) ")

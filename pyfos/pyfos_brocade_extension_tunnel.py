@@ -15,7 +15,7 @@
 
 :mod:`pyfos_brocade_extension_tunnel` - PyFOS module for an extension tunnel.
 *******************************************************************************
-The :mod:`pyfos_extension_tunnel` module provides REST support for
+The :mod:`pyfos_brocade_extension_tunnel` module provides REST support for
 extension tunnel objects.
 """
 from pyfos import pyfos_rest_util
@@ -67,14 +67,15 @@ class extension_tunnel(pyfos_rest_util.rest_object):
         +-----------------------+--------------+------------------------------------------------+
         |ip-extension           |The IP        |:func:`peek_ip_extension`                       |
         |                       |extension     |:func:`set_ip_extension`                        |
-        |                       |enable or     |                                                |
-        |                       |disable state.|                                                |
+        |                       |enabled or    |                                                |
+        |                       |disabled      |                                                |
+        |                       |state.        |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |load-level             |The configured|:func:`peek_load_level`                         |
-        |                       | load level.  |:func:`set_load_level`                          |
+        |                       |load level.   |:func:`set_load_level`                          |
         +-----------------------+--------------+------------------------------------------------+
         |active-load-level      |The negotiated|:func:`peek_active_load_level`                  |
-        |                       | load level.  |                                                |
+        |                       |load level.   |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |peer-load-level        |The peer load |:func:`peek_peer_load_level`                    |
         |                       |level.        |                                                |
@@ -89,7 +90,7 @@ class extension_tunnel(pyfos_rest_util.rest_object):
         +-----------------------+--------------+------------------------------------------------+
         |fc-compression         |The FC        |:func:`peek_compression_protocol_fc_compression`|
         |                       |protocol      |:func:`set_compression_protocol_fc_compression` |
-        |                       |compressioon  |                                                |
+        |                       |compression   |                                                |
         |                       |value.        |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |ip-compression         |The IP        |:func:`peek_compression_protocol_ip_compression`|
@@ -97,38 +98,38 @@ class extension_tunnel(pyfos_rest_util.rest_object):
         |                       |compressioon  |                                                |
         |                       |value.        |                                                |
         +-----------------------+--------------+------------------------------------------------+
-        |qos-ratio              |The QOS ratio.|:func:`peek_qos_ratio`                          |
+        |qos-ratio              |The QoS ratio.|:func:`peek_qos_ratio`                          |
         |                       |              |:func:`set_qos_ratio`                           |
         +-----------------------+--------------+------------------------------------------------+
-        |distribution           |The QOS       |:func:`peek_qos_ratio_distribution`             |
+        |distribution           |The QoS       |:func:`peek_qos_ratio_distribution`             |
         |                       |distribution. |:func:`set_qos_ratio_distribution`              |
         +-----------------------+--------------+------------------------------------------------+
-        |distribution-value     |The QOS       |:func:`peek_qos_ratio_distribution_value`       |
+        |distribution-value     |The QoS       |:func:`peek_qos_ratio_distribution_value`       |
         |                       |distribution  |:func:`set_qos_ratio_distribution_value`        |
         |                       |value.        |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |fc-high-qos            |The FC        |:func:`peek_qos_ratio_fc_high_qos`              |
-        |                       |QOS high      |:func:`set_qos_ratio_fc_high_qos`               |
+        |                       |QoS high      |:func:`set_qos_ratio_fc_high_qos`               |
         |                       |percentage.   |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |fc-medium-qos          |The FC        |:func:`peek_qos_ratio_fc_medium_qos`            |
-        |                       |QOS medium    |:func:`set_qos_ratio_fc_medium_qos`             |
+        |                       |QoS medium    |:func:`set_qos_ratio_fc_medium_qos`             |
         |                       |percentage.   |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |fc-low-qos             |The FC        |:func:`peek_qos_ratio_fc_low_qos`               |
-        |                       |QOS low       |:func:`set_qos_ratio_fc_low_qos`                |
+        |                       |QoS low       |:func:`set_qos_ratio_fc_low_qos`                |
         |                       |percentage.   |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |ip-high-qos            |The IP        |:func:`peek_qos_ratio_ip_high_qos`              |
-        |                       |QOS high      |:func:`set_qos_ratio_ip_high_qos`               |
+        |                       |QoS high      |:func:`set_qos_ratio_ip_high_qos`               |
         |                       |percentage.   |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |ip-medium-qos          |The IP        |:func:`peek_qos_ratio_ip_medium_qos`            |
-        |                       |QOS medium    |:func:`set_qos_ratio_ip_medium_qos`             |
+        |                       |QoS medium    |:func:`set_qos_ratio_ip_medium_qos`             |
         |                       |percentage.   |                                                |
         +-----------------------+--------------+------------------------------------------------+
         |ip-low-qos             |The IP        |:func:`peek_qos_ratio_ip_low_qos`               |
-        |                       |QOS low       |:func:`set_qos_ratio_ip_low_qos`                |
+        |                       |QoS low       |:func:`set_qos_ratio_ip_low_qos`                |
         |                       |percentage.   |                                                |
         +-----------------------+--------------+------------------------------------------------+
 
@@ -187,12 +188,12 @@ class extension_tunnel(pyfos_rest_util.rest_object):
         |ficon-tape-write-max-pipe    |The maximum    |:func:`peek_ficon_tape_write_max_pipe`             |
         |                             |number of tape |:func:`set_ficon_tape_write_max_pipe`              |
         |                             |write channel  |                                                   |
-        |                             |commands       |                                                   |
+        |                             |commands.      |                                                   |
         +-----------------------------+---------------+---------------------------------------------------+
         |ficon-tape-read-max-pipe     |The maximum    |:func:`peek_ficon_tape_read_max_pipe`              |
         |                             |number of tape |:func:`set_ficon_tape_read_max_pipe`               |
         |                             |read channel   |                                                   |
-        |                             |commands       |                                                   |
+        |                             |commands.      |                                                   |
         +-----------------------------+---------------+---------------------------------------------------+
         |ficon-tape-read-max-devices  |The maximum    |:func:`peek_ficon_tape_read_max_devices`           |
         |                             |number of      |:func:`set_ficon_tape_read_max_devices`            |
@@ -236,7 +237,7 @@ class extension_tunnel(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned
              by :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a success response.
+            :rtype: A dictionary of errors or success response.
 
     *Attribute Functions*
 
@@ -284,7 +285,7 @@ class extension_tunnel(pyfos_rest_util.rest_object):
 
         .. function:: peek_ipsec_policy()
 
-            Reads the IPSec policy name from the tunnel object.
+            Reads the IPsec policy name from the tunnel object.
 
             :rtype: None on error and a value on success.
 
@@ -327,7 +328,8 @@ class extension_tunnel(pyfos_rest_util.rest_object):
 
         .. function:: peek_compression_protocol()
 
-            Reads the tunnel compression for protcol from the tunnel object.
+            Reads the tunnel compression for the protocol from the \
+            tunnel object.
 
             :rtype: None on error and a value on success.
 
@@ -345,55 +347,55 @@ class extension_tunnel(pyfos_rest_util.rest_object):
 
         .. function:: peek_qos_ratio()
 
-            Reads the QOS ratio from the tunnel object.
+            Reads the QoS ratio from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_qos_ratio_distribution()
 
-            Reads the QOS ratio distribution from the tunnel object.
+            Reads the QoS ratio distribution from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_qos_ratio_distribution_value()
 
-            Reads the QOS ratio distribution value from the tunnel object.
+            Reads the QoS ratio distribution value from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_qos_ratio_fc_high_qos()
 
-            Reads the FC high priority QOS ratio from the tunnel object.
+            Reads the FC high priority QoS ratio from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_qos_ratio_fc_medium_qos()
 
-            Reads the FC medium priority QOS ratio from the tunnel object.
+            Reads the FC medium priority QoS ratio from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_qos_ratio_fc_low_qos()
 
-            Reads the FC low priority QOS ratio from the tunnel object.
+            Reads the FC low priority QoS ratio from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_qos_ratio_ip_high_qos()
 
-            Reads the IP high priority QOS ratio from the tunnel object.
+            Reads the IP high priority QoS ratio from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_qos_ratio_ip_medium_qos()
 
-            Reads the IP medium priority QOS ratio from the tunnel object.
+            Reads the IP medium priority QoS ratio from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_qos_ratio_ip_low_qos()
 
-            Reads the IP low priority QOS ratio from the tunnel object.
+            Reads the IP low priority QoS ratio from the tunnel object.
 
             :rtype: None on error and a value on success.
 
@@ -435,13 +437,13 @@ class extension_tunnel(pyfos_rest_util.rest_object):
 
         .. function:: peek_ficon_teradata_read_acceleration()
 
-            Reads the FICON teradata read acceleration from the tunnel object.
+            Reads the FICON Teradata read acceleration from the tunnel object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_ficon_teradata_write_acceleration()
 
-            Reads the FICON teradata write acceleration from the tunnel object.
+            Reads the FICON Teradata write acceleration from the tunnel object.
 
             :rtype: None on error and a value on success.
 
@@ -494,217 +496,217 @@ class extension_tunnel(pyfos_rest_util.rest_object):
 
             Sets the name in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "name" as the key.
 
         .. function:: set_admin_enabled(adminEnabled)
 
             Sets the admin enabled/disabled flag in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "admin-enabled" as the key.
 
         .. function:: set_fast_write_enabled(fastwrite)
 
             Sets the fast write enabled/disabled flag in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "fastwrite-enabled" as the key.
 
         .. function:: set_tape_read(tapeRead)
 
             Sets the tape read pipelining in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "tape-read" as the key.
 
         .. function:: set_tape_write(tapeWrite)
 
             Sets the tape write pipelining in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "tape-write" as the key.
 
         .. function:: set_ipsec_policy(ipsecPolicyName)
 
-            Sets the IPSec policy for the tunnel object.
+            Sets the IPsec policy for the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ipsec-policy" as the key.
 
         .. function:: set_ip_extension(name)
 
             Sets the IP extension enabled flag in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
-             with "ipsec-policy" as the key.
+            :rtype: A dictionary of errors or success response and value
+             with "ip_extension" as the key.
 
         .. function:: set_load_level(loadLevel)
 
             Sets the load level in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "load-level" as the key.
 
         .. function:: set_compression_tunnel(tnlCompression)
 
             Sets the tunnel compression in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "compression-tunnel" as the key.
 
         .. function:: set_compression_protocol(protcolCompressiondict)
 
-            Sets the protcol level compression in the tunnel object.
+            Sets the protocol-level compression in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value with
-             "compression-protcol" as the key.
+            :rtype: A dictionary of errors or success response and value with
+             "compression-protocol" as the key.
 
         .. function:: set_compression_protocol_fc_compression(fccompression)
 
             Sets the FC protcol compression in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "fc-compression" as the key.
 
         .. function:: set_compression_protocol_ip_compression(ipcompression)
 
             Sets the IP protocol compression in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ip-compression" as the key.
 
         .. function:: set_qos_ratio(qosRation)
 
-            Sets the QOS ratio in the tunnel object.
+            Sets the QoS ratio in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "qos-ratio" as the key.
 
         .. function:: set_qos_ratio_distribution(qosDistribution)
 
-            Sets the QOS distribution in the tunnel object.
+            Sets the QoS distribution in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value with
+            :rtype: A dictionary of errors or success response and value with
              "distribution" as the key.
 
         .. function:: set_qos_ratio_distribution_value(qosDistributionVal)
 
-            Sets the QOS distribution value in the tunnel object..
+            Sets the QoS distribution value in the tunnel object..
 
-            :rtype: A dictionary of errors or a success response and value with
+            :rtype: A dictionary of errors or success response and value with
              "distribution-value" as the key.
 
         .. function:: set_qos_ratio_fc_high_qos(fcHighQos)
 
-            Sets the FC high QOS ratio in the tunnel object.
+            Sets the FC high QoS ratio in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and
+            :rtype: A dictionary of errors or success response and
              value with "fc-high-qos" as the key.
 
         .. function:: set_qos_ratio_fc_medium_qos(qosRation)
 
-            Sets the FC medium QOS ratio in the tunnel object.
+            Sets the FC medium QoS ratio in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "fc-medium-qos" as the key.
 
         .. function:: set_qos_ratio_fc_low_qos(fcHighQos)
 
-            Sets the FC low QOS ratio in the tunnel object.
+            Sets the FC low QoS ratio in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "fc-low-qos" as the key.
 
         .. function:: set_qos_ratio_ip_medium_qos(qosRation)
 
-            Set the IP medium QOS ratio in the tunnel object.
+            Set the IP medium QoS ratio in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ip-medium-qos" as the key.
 
         .. function:: set_qos_ratio_ip_high_qos(fcHighQos)
 
-            Sets the IP high QOS ratio in the tunnel object.
+            Sets the IP high QoS ratio in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ip-high-qos" as the key.
 
         .. function:: set_qos_ratio_ip_low_qos(qosRation)
 
-            Sets the FC low QOS ratio in the tunnel object.
+            Sets the IP low QoS ratio in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ip-low-qos" as the key.
 
         .. function:: set_ficon(ficon)
 
             Writes the FICON enabled/disabled flag from the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon" as the key.
 
         .. function:: set_ficon_xrc_acceleration(xrcAccelaration)
 
-            Writes the FICON XRC enabled flag in the tunnel object
+            Writes the FICON XRC enabled flag in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon-xrc-acceleration" as the key.
 
         .. function:: set_ficon_tape_read_acceleration(tapeReadAcc)
 
             Writes the FICON tape read accelaration from the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon-tape-read-acceleration" as the key.
 
         .. function:: set_ficon_tape_write_acceleration(tapeWriteAcc)
 
             Writes the FICON tape write accelaration from the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon-tape-write-acceleration" as the key.
 
         .. function:: set_ficon_tin_tir_emulation(tinTirEmul)
 
             Writes the FICON TIN/TIR emulation from the the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon-tin-tir-emulation" as the key.
 
         .. function:: set_ficon_device_acknowledgement_emulation(deviceAck)
 
             Writes the FICON device acknowledge from the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon-device-acknowledgement-emulation" as the key.
 
         .. function:: set_ficon_teradata_read_acceleration(terradataReadAcc)
 
-            Writes the FICON teradata read acceleration in the tunnel object
+            Writes the FICON Teradata read acceleration in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value with
+            :rtype: A dictionary of errors or success response and value with
              "ficon-teradata-read-acceleration" as the key.
 
         .. function:: set_ficon_teradata_write_acceleration(terradataWriteAcc)
 
-            Writes the FICON teradata write acceleration in the tunnel object
+            Writes the FICON Teradata write acceleration in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value with
+            :rtype: A dictionary of errors or success response and value with
              "ficon-teradata-write-acceleration" as the key.
 
         .. function:: set_ficon_tape_write_max_pipe(tapeWriteMaxPipe)
 
             Writes the FICON tape write max pipe from the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value with
+            :rtype: A dictionary of errors or success response and value with
              "ficon-tape-write-max-pipe" as the key.
 
         .. function:: set_ficon_tape_read_max_pipe(tapeReadMaxPipe)
 
             Writes the FICON tape read max pipe from the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value with
+            :rtype: A dictionary of errors or success response and value with
              "ficon-tape-read-max-pipe" as the key.
 
         .. function:: set_ficon_tape_write_max_devices(tapeWriteMaxdev)
@@ -712,7 +714,7 @@ class extension_tunnel(pyfos_rest_util.rest_object):
             Writes the FICON tape write maximum number of devices from \
              the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value with
+            :rtype: A dictionary of errors or success response and value with
              "ficon-tape-write-max-devices" as the key.
 
         .. function:: set_ficon_tape_read_max_devices(tapeWriteMaxdev)
@@ -720,29 +722,29 @@ class extension_tunnel(pyfos_rest_util.rest_object):
             Writes the FICON tape read maximum number of devices from \
             the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon-tape-read-max-devices" as the key.
 
         .. function:: set_ficon_tape_write_timer(tapeWritetmr)
 
             Writes the FICON tape write timer in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon-tape-write-timer" as the key.
 
         .. function:: set_ficon_tape_write_max_chain(tapeWriteMaxchain)
 
-            Writes the FICON tape write maximum abount of data contained in \
+            Writes the FICON tape write maximum amount of data contained in \
              a CCW chain from the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value with
+            :rtype: A dictionary of errors or success response and value with
              "ficon-tape-write-max-chain" as the key.
 
         .. function:: set_ficon_oxid_base(oxidBase)
 
             Writes the FICON OXID base from the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value
+            :rtype: A dictionary of errors or success response and value
              with "ficon-oxid-base" as the key.
     """
     def __init__(self, dictvalues={}):
@@ -907,13 +909,13 @@ class extension_tunnel(pyfos_rest_util.rest_object):
 class extension_tunnel_statistics(pyfos_rest_util.rest_object):
     """Class of extension_tunnel_statistics
 
-    Important class members:
+    Important Class Members:
 
         +------------------+--------------+-------------------------------+
         | Attribute Name   | Description  |Frequently Used Functions      |
         +==================+==============+===============================+
         |name              |The slot/port |:func:`peek_name`              |
-        |                  |name of       |:func:`set_name`               |
+        |                  |name of the   |:func:`set_name`               |
         |                  |GE_Port.      |                               |
         +------------------+--------------+-------------------------------+
         |flow-status       |The flow      |:func:`peek_flow_status`       |
@@ -948,7 +950,7 @@ class extension_tunnel_statistics(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned
              by :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a success response.
+            :rtype: A dictionary of errors or success response.
 
     *Attribute Functions*
 
@@ -978,7 +980,7 @@ class extension_tunnel_statistics(pyfos_rest_util.rest_object):
 
         .. function:: peek_duration()
 
-            Reads the duration from the tunnel statistics object
+            Reads the duration from the tunnel statistics object.
 
             :rtype: None on error and a value on success.
 
@@ -998,7 +1000,7 @@ class extension_tunnel_statistics(pyfos_rest_util.rest_object):
 
             Sets the name in the object.
 
-            :rtype: A dictionary of errors or a success response and
+            :rtype: A dictionary of errors or success response and
              value with "name" as the key.
 
     """
@@ -1039,8 +1041,8 @@ class extension_circuit(pyfos_rest_util.rest_object):
         | Attribute Name           | Description  |Frequently Used Functions              |
         +==========================+==============+=======================================+
         |name                      |The slot/port |:func:`peek_name`                      |
-        |                          |name of       |:func:`set_name`                       |
-        |                          |VE_Port       |                                       |
+        |                          |name of the   |:func:`set_name`                       |
+        |                          |VE_Port.      |                                       |
         +--------------------------+--------------+---------------------------------------+
         |circuit-id                |The circuit   |:func:`peek_circuit_id`                |
         |                          |ID.           |:func:`set_circuit_id`                 |
@@ -1066,18 +1068,26 @@ class extension_circuit(pyfos_rest_util.rest_object):
         |                          |circuit.      |                                       |
         +--------------------------+--------------+---------------------------------------+
         |admin-enabled             |The admin     |:func:`peek_admin_enabled`             |
-        |                          |enabled tunnel|:func:`set_admin_enabled`              |
-        |                          |state.        |                                       |
+        |                          |enabled state |:func:`set_admin_enabled`              |
+        |                          |of Circuit.   |                                       |
+        +--------------------------+--------------+---------------------------------------+
+        |is-admin-enabled          |The admin     |:func:`peek_is_admin_enabled`          |
+        |                          |enabled state |:func:`set_is_admin_enabled`           |
+        |                          |of Circuit.   |                                       |
+        +--------------------------+--------------+---------------------------------------+
+        |admin-status              |The admin     |:func:`peek_admin_status`              |
+        |                          |status of the |                                       |
+        |                          |Circuit.      |                                       |
         +--------------------------+--------------+---------------------------------------+
         |circuit-status            |The circuit   |:func:`peek_circuit_status`            |
         |                          |status.       |                                       |
         +--------------------------+--------------+---------------------------------------+
         |path-mtu-discovered       |The discovered|:func:`peek_path_mtu_discovered`       |
-        |                          | path MTU.    |                                       |
+        |                          |path MTU.     |                                       |
         +--------------------------+--------------+---------------------------------------+
         |failover-group-id         |The failover  |:func:`peek_failover_group_id`         |
         |                          |group ID of   |:func:`set_failover_group_id`          |
-        |                          |circuit.      |                                       |
+        |                          |the circuit.  |                                       |
         +--------------------------+--------------+---------------------------------------+
         |minimum-communication-rate|The minimum   |:func:`peek_minimum_communication_rate`|
         |                          |communications|:func:`set_minimum_communication_rate` |
@@ -1102,27 +1112,27 @@ class extension_circuit(pyfos_rest_util.rest_object):
         +--------------------------+--------------+---------------------------------------+
         |fc-priority-high          |The high      |:func:`peek_l2_cos_fc_priority_high`   |
         |                          |priority FC   |:func:`set_l2_cos_fc_priority_high`    |
-        |                          |Layer2 COS.   |                                       |
+        |                          |Layer 2 CoS.  |                                       |
         +--------------------------+--------------+---------------------------------------+
         |fc-priority-medium        |The medium    |:func:`peek_l2_cos_fc_priority_medium` |
         |                          |priority FC   |:func:`set_l2_cos_fc_priority_medium`  |
-        |                          |Layer2 COS.   |                                       |
+        |                          |Layer 2 CoS.  |                                       |
         +--------------------------+--------------+---------------------------------------+
         |fc-priority-low           |The low       |:func:`peek_l2_cos_fc_priority_low`    |
         |                          |priority FC   |:func:`set_l2_cos_fc_priority_low`     |
-        |                          |Layer2 COS.   |                                       |
+        |                          |Layer 2 CoS.  |                                       |
         +--------------------------+--------------+---------------------------------------+
         |ip-priority-high          |The high      |:func:`peek_l2_cos_ip_priority_high`   |
         |                          |priority IP   |:func:`set_l2_cos_ip_priority_high`    |
-        |                          |Layer2 COS.   |                                       |
+        |                          |Layer 2 CoS.  |                                       |
         +--------------------------+--------------+---------------------------------------+
         |ip-priority-medium        |The medium    |:func:`peek_l2_cos_ip_priority_medium` |
         |                          |priority IP   |:func:`set_l2_cos_ip_priority_medium`  |
-        |                          |Layer2 COS.   |                                       |
+        |                          |Layer 2 CoS.  |                                       |
         +--------------------------+--------------+---------------------------------------+
         |ip-priority-low           |The low       |:func:`peek_l2_cos_ip_priority_low`    |
         |                          |priority IP   |:func:`set_l2_cos_ip_priority_low`     |
-        |                          |Layer2 COS.   |                                       |
+        |                          |Layer 2 CoS.  |                                       |
         +--------------------------+--------------+---------------------------------------+
         |dscp                      |The DSCP.     |:func:`peek_dscp`                      |
         |                          |              |:func:`set_dscp`                       |
@@ -1156,10 +1166,10 @@ class extension_circuit(pyfos_rest_util.rest_object):
         |                          |DSCP.         |                                       |
         +--------------------------+--------------+---------------------------------------+
         |arl-algorithm-mode        |The ARL       |:func:`peek_arl_algorithm_mode`        |
-        |                          |alogirithm.   |:func:`set_arl_algorithm_mode`         |
+        |                          |algorithm.    |:func:`set_arl_algorithm_mode`         |
         +--------------------------+--------------+---------------------------------------+
-        |keep-alive-timeout        |The keep      |:func:`peek_keep_alive_timeout`        |
-        |                          |alive timeout.|                                       |
+        |keep-alive-timeout        |The keepalive |:func:`peek_keep_alive_timeout`        |
+        |                          |timeout.      |                                       |
         +--------------------------+--------------+---------------------------------------+
 
     *Object Functions*
@@ -1171,8 +1181,8 @@ class extension_circuit(pyfos_rest_util.rest_object):
             using :func:`pyfos_utils.response_print`.
 
             :param session: The session handler returned
-             by the :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a success response.
+             by :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or success response.
 
     *Attribute Functions*
 
@@ -1220,7 +1230,7 @@ class extension_circuit(pyfos_rest_util.rest_object):
 
         .. function:: peek_admin_enabled()
 
-            Reads the admin enabled from the circuit object.
+            Reads the admin status from the circuit object.
 
             :rtype: None on error and a value on success.
 
@@ -1262,49 +1272,49 @@ class extension_circuit(pyfos_rest_util.rest_object):
 
         .. function:: peek_l2_cos()
 
-            Reads the Layer2 COS from the circuit object.
+            Reads the Layer 2 CoS from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_l2_cos_priority_control()
 
-            Reads the priority control Layer2 COS from the circuit object.
+            Reads the priority control Layer 2 CoS from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_l2_cos_fc_priority_high()
 
-            Reads the high FC Layer2 COS from the circuit object.
+            Reads the high priority FC Layer 2 CoS from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_l2_cos_fc_priority_medium()
 
-            Reads the medium FC Layer2 COS from the circuit object.
+            Reads the medium priority FC Layer 2 CoS from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_l2_cos_fc_priority_low()
 
-            Reads the low FC Layer2 COS from the circuit object.
+            Reads the low priority FC Layer 2 CoS from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_l2_cos_ip_priority_high()
 
-            Reads the high IP Layer2 COS from the circuit object.
+            Reads the high priority IP Layer 2 CoS from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_l2_cos_ip_priority_medium()
 
-            Reads the medium IP Layer2 COS from the circuit object.
+            Reads the medium priority IP Layer 2 CoS from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_l2_cos_ip_priority_low()
 
-            Reads the low IP Layer2 COS from the circuit object.
+            Reads the low priority IP Layer 2 CoS from the circuit object.
 
             :rtype: None on error and a value on success.
 
@@ -1322,37 +1332,37 @@ class extension_circuit(pyfos_rest_util.rest_object):
 
         .. function:: peek_dscp_fc_priority_high()
 
-            Reads the high FC DSCP value from the circuit object.
+            Reads the high priority FC DSCP value from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_dscp_fc_priority_medium()
 
-            Reads the medium FC DSCP value from the circuit object.
+            Reads the medium priority FC DSCP value from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_dscp_fc_priority_low()
 
-            Reads the low FC DSCP value from the circuit object.
+            Reads the low priority FC DSCP value from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_dscp_ip_priority_high()
 
-            Reads the high IP DSCP value from the circuit object.
+            Reads the high priority IP DSCP value from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_dscp_ip_priority_medium()
 
-            Reads the medium IP DSCP value from the circuit object.
+            Reads the medium priority IP DSCP value from the circuit object.
 
             :rtype: None on error and a value on success.
 
         .. function:: peek_dscp_ip_priority_low()
 
-            Reads the low IP DSCP value from the circuit object.
+            Reads the low priority IP DSCP value from the circuit object.
 
             :rtype: None on error and a value on success.
 
@@ -1364,7 +1374,7 @@ class extension_circuit(pyfos_rest_util.rest_object):
 
         .. function:: peek_keep_alive_timeout()
 
-            Reads the keep alive timeout from the circuit object.
+            Reads the keepalive timeout from the circuit object.
 
             :rtype: None on error and a value on success.
 
@@ -1372,196 +1382,196 @@ class extension_circuit(pyfos_rest_util.rest_object):
 
             Sets the name in the tunnel object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "name" as the key.
 
         .. function:: set_circuit_id(ciruitID)
 
             Sets the circuit ID in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "circuit-id" as the key.
 
         .. function:: set_local_ip_address(localIP)
 
             Sets the local circuit IP address in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "local-ip-address" as the key.
 
         .. function:: set_remote_ip_address(remoteIP)
 
             Sets the remote circuit IP address in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "remote-ip-address" as the key.
 
         .. function:: set_local_ha_ip_address(localHAIP)
 
             Sets the local HA circuit IP address in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "local-ha-ip-address" as the key.
 
         .. function:: set_remote_ha_ip_address(remoteHAIP)
 
             Sets the remote HA circuit IP address in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "remote-ha-ip-address" as the key.
 
         .. function:: set_metric(metric)
 
             Sets the metric in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "metric" as the key.
 
         .. function:: set_admin_enabled(adminState)
 
             Sets the admin enabled state in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value with\
+            :rtype: A dictionary of errors or success response and value with\
              "admin-enabled" as the key.
 
         .. function:: set_failover_group_id(failoverGroup)
 
             Sets the failover group ID in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value with\
+            :rtype: A dictionary of errors or success response and value with\
              "failover-group-id" as the key.
 
         .. function:: set_minimum_communication_rate(minCommRate)
 
             Sets the minimum communication rate in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value with\
+            :rtype: A dictionary of errors or success response and value with\
              "minimum-communication-rate" as the key.
 
         .. function:: set_maximum_communication_rate(maxCommRate)
 
             Sets the maximum communication rate in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value with\
+            :rtype: A dictionary of errors or success response and value with\
              "maximum-communication-rate" as the key.
 
         .. function:: set_l2_cos(l2cos)
 
-            Sets the Layer2 COS in the circuit object.
+            Sets the Layer 2 CoS in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "l2-cos" as the key.
 
         .. function:: set_l2_cos_priority_control(controll2Cos)
 
-            Sets the priority control Layer2 COS in the circuit object.
+            Sets the priority control Layer 2 CoS in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "priority-control" as the key.
 
         .. function:: set_l2_cos_fc_priority_high(fcHighl2Cos)
 
-            Sets the high FC Layer2 COS in the circuit object.
+            Sets the high priority FC Layer 2 CoS in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "fc-priority-high" as the key.
 
         .. function:: set_l2_cos_fc_priority_medium(fcMedl2Cos)
 
-            Sets the medium FC Layer2 COS in the circuit object.
+            Sets the medium priority FC Layer 2 CoS in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "fc-priority-medium" as the key.
 
         .. function:: set_l2_cos_fc_priority_low(fcLowl2Cos)
 
-            Sets the low FC Layer2 COS in the circuit object.
+            Sets the low priority FC Layer 2 CoS in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "fc-priority-low" as the key.
 
         .. function:: set_l2_cos_ip_priority_high(ipHighl2Cos)
 
-            Sets the high IP Layer2 COS in the circuit object.
+            Sets the high priority IP Layer 2 CoS in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "ip-priority-high" as the key.
 
         .. function:: set_l2_cos_ip_priority_medium(ipMediuml2Cos)
 
-            Sets the medium IP Layer2 COS in the circuit object.
+            Sets the medium priority IP Layer 2 CoS in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "ip-priority-medium" as the key.
 
         .. function:: set_l2_cos_ip_priority_low(iplowl2Cos)
 
-            Sets the low IP Layer2 COS in the circuit object.
+            Sets the low priority IP Layer 2 CoS in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "ip-priority-low" as the key.
 
         .. function:: set_dscp(dscp)
 
             Sets the DSCP in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and
-             value with "l2-cos" as the key.
+            :rtype: A dictionary of errors or success response and
+             value with "dscp" as the key.
 
         .. function:: set_dscp_priority_control(controldscp)
 
-            Sets the priority control Layer2 COS in the circuit object.
+            Sets the priority control DSCP in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "priority-control" as the key.
 
         .. function:: set_dscp_fc_priority_high(fcHighdscp)
 
-            Sets the high FC Layer2 COS in the circuit object.
+            Sets the high priority FC DSCP in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "fc-priority-high" as the key.
 
         .. function:: set_dscp_fc_priority_medium(fcMeddscp)
 
-            Sets the medium FC Layer2 COS in the circuit object.
+            Sets the medium priority FC DSCP in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "fc-priority-medium" as the key.
 
         .. function:: set_dscp_fc_priority_low(fcLowdscp)
 
-            Sets the low FC Layer2 COS in the circuit object.
+            Sets the low priority FC DSCP in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "fc-priority-low" as the key.
 
         .. function:: set_dscp_ip_priority_high(ipHighdscp)
 
-            Sets the high IP Layer2 COS in the circuit object.
+            Sets the high priority IP DSCP in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "ip-priority-high" as the key.
 
         .. function:: set_dscp_ip_priority_medium(ipMediumdscp)
 
-            Set the medium IP Layer2 COS in the circuit object.
+            Sets the medium priority IP DSCP in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "ip-priority-medium" as the key.
 
         .. function:: set_dscp_ip_priority_low(iplowdscp)
 
-            Set the low IP Layer2 COS in the circuit object.
+            Sets the low priority IP DSCP in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "ip-priority-low" as the key.
 
         .. function:: set_arl_algorithm_mode(arlAlgorithmMode)
 
             Sets the ARL algorithm in the circuit object.
 
-            :rtype: A dictionary of errors or a success response and value\
+            :rtype: A dictionary of errors or success response and value\
              with "arl-algorithm-mode" as the key.
 
     """
@@ -1590,6 +1600,14 @@ class extension_circuit(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute("admin-enabled",
                  pyfos_type.type_int, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("is-admin-enabled",
+                 pyfos_type.type_bool, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+                 pyfos_version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute("admin-status",
+                 pyfos_type.type_int, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+                 pyfos_version.VER_RANGE_821b_and_ABOVE))
         self.add(pyfos_rest_util.rest_attribute("path-mtu-discovered",
                  pyfos_type.type_int, None,
                  pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
@@ -1679,24 +1697,24 @@ class extension_circuit_statistics(pyfos_rest_util.rest_object):
         | Attribute Name   | Description  |Frequently Used Functions      |
         +==================+==============+===============================+
         |name              |The slot/port |:func:`peek_name`              |
-        |                  |name of       |:func:`set_name`               |
+        |                  |name of the   |:func:`set_name`               |
         |                  |GE_Port.      |                               |
         +------------------+--------------+-------------------------------+
         |circuit-id        |The circuit   |:func:`peek_circuit_id`        |
         |                  |ID.           |:func:`set_circuit_id`         |
         +------------------+--------------+-------------------------------+
-        |flow-status       |The IPv4/IPv6 |:func:`peek_flow_status`       |
-        |                  |address.      |                               |
+        |flow-status       |The flow      |:func:`peek_flow_status`       |
+        |                  |status.       |                               |
         +------------------+--------------+-------------------------------+
-        |operational-status|The data-path |:func:`peek_operational_status`|
-        |                  |processor ID. |                               |
+        |operational-status|The           |:func:`peek_operational_status`|
+        |                  |operational   |                               |
+        |                  |status.       |                               |
         +------------------+--------------+-------------------------------+
-        |connection-count  |The IP prefix |:func:`peek_connection_count`  |
-        |                  |length.       |                               |
+        |connection-count  |The           |:func:`peek_connection_count`  |
+        |                  |connection    |                               |
+        |                  |count.        |                               |
         +------------------+--------------+-------------------------------+
-        |duration          |The maximum   |:func:`peek_duration`          |
-        |                  |transmission  |                               |
-        |                  |unit.         |                               |
+        |duration          |The duration. |:func:`peek_duration`          |
         +------------------+--------------+-------------------------------+
         |metric            |The circuit   |:func:`peek_metric`            |
         |                  |metric value. |                               |
@@ -1714,7 +1732,7 @@ class extension_circuit_statistics(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned
              by :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a success response.
+            :rtype: A dictionary of errors or success response.
 
     *Attribute Functions*
 
@@ -1750,7 +1768,7 @@ class extension_circuit_statistics(pyfos_rest_util.rest_object):
 
         .. function:: peek_duration()
 
-            Reads the duration for from the circuit statistics object
+            Reads the duration from the circuit statistics object.
 
             :rtype: None on error and a value on success.
 
@@ -1764,14 +1782,14 @@ class extension_circuit_statistics(pyfos_rest_util.rest_object):
 
             Sets the name in the object.
 
-            :rtype: A dictionary of error or a success response and
+            :rtype: A dictionary of errors or success response and
              value with "name" as the key.
 
         .. function:: set_circuit_id(circuitID)
 
             Sets the circuit ID name in the circuit statistics object.
 
-            :rtype: A dictionary of error or a success response and
+            :rtype: A dictionary of errors or success response and
              value with "circuit-id" as the key.
 
     """

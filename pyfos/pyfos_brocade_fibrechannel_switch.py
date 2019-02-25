@@ -14,10 +14,10 @@
 """
 
 :mod:`pyfos_brocade_fibrechannel_switch` - PyFOS module to provide REST \
-        support for a FC switch.
+        support for an FC switch.
 *********************************************************************************************************
 The :mod:`pyfos_brocade_fibrechannel_switch` provides a REST support for \
-        a FC switch.
+        an FC switch.
 
 """
 
@@ -32,7 +32,7 @@ TESTING = 7
 
 
 class fibrechannel_switch(pyfos_rest_util.rest_object):
-    """Class of FC switch
+    """Class of FC Switch
 
     Important Class Members:
 
@@ -56,16 +56,15 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
         | enabled-state                 | Enabled or disabled state.    |:meth:`set_enabled_state`                             |
         |                               |                               |:meth:`peek_enabled_state`                            |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        +-------------------------------+-------------------------------+------------------------------------------------------+
         | up-time                       | The uptime of the switch.     |:meth:`peek_up_time`                                  |
         +-------------------------------+-------------------------------+------------------------------------------------------+
         | model                         | The model of the switch.      |:meth:`peek_model`                                    |
         +-------------------------------+-------------------------------+------------------------------------------------------+
         | firmware-version              |The FOS version of the switch. |:meth:`peek_firmware_version`                         |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | ip-address/ip-address         | A list of IPv4/IPv6 addresses |:meth:`set_ip_address_ip_address`                     |
-        |                               | note the same name of         |:meth:`peek_ip_address_ip_address`                    |
-        |                               | leaf list elements.           |                                                      |
+        | ip-address/ip-address         | A list of IPv4/IPv6           |:meth:`set_ip_address_ip_address`                     |
+        |                               | addresses.                    |:meth:`peek_ip_address_ip_address`                    |
+        |                               |                               |                                                      |
         +-------------------------------+-------------------------------+------------------------------------------------------+
         | ip-static-gateway-list/       | IPv4 and IPv6 static gateway  |:meth:`set_ip_static_gateway_list_ip_static_gateway`  |
         | ip-static-gateway             | addresses for the switch IP.  |:meth:`peek_ip_static_gateway_list_ip_static_gateway` |
@@ -84,34 +83,39 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
         | fabric-user-friendly-name     | The user friendly name of     |:meth:`set_fabric_user_friendly_name`                 |
         |                               | the fabric.                   |:meth:`peek_fabric_user_friendly_name`                |
         +-------------------------------+-------------------------------+------------------------------------------------------+
-        | ag-mode                       | Enable or disable AG mode.    |:meth:`set_ag_mode`                                   |
+        | ag-mode                       | Enables or disables AG mode.  |:meth:`set_ag_mode`                                   |
         |                               |                               |:meth:`peek_ag_mode`                                  |
         +-------------------------------+-------------------------------+------------------------------------------------------+
         | banner                        | The login banner message.     |:meth:`set_banner`                                    |
         |                               |                               |:meth:`peek_banner`                                   |
         +-------------------------------+-------------------------------+------------------------------------------------------+
+        | is-enabled-state              | Enabled or disabled state.    |:meth:`set_enabled_state`                             |
+        |                               |                               |:meth:`peek_enabled_state`                            |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
+        | operational-status            | Current state of the switch.  |:meth:`peek_operational_status`                       |
+        +-------------------------------+-------------------------------+------------------------------------------------------+
 
         .. method:: get(session, name=None)
 
             Returns a :class:`fibrechannel_switch` object or a list of
-            objects with attributes gathered from switch. \
+            objects with attributes gathered from the switch. \
             If an optional name is given, returns either an object
             matching the WWN of the switch or an empty object.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed through peek methods.
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
             :rtype: A :class:`fibrechannel_switch` object if there
-                is only one switch within fabric or a list of
+                is only one switch within the fabric or a list of
                 objects if there is more than one switch.
 
         .. method:: patch(session)
 
-            Apply configurable attribute(s) within the object to the switch.
+            Applies configurable attribute(s) within the object to the switch.
 
-            *Below is an Example Using Individual Sets:*
+            *Below Is an Example Using Individual Sets:*
 
             .. code-block:: python
 
@@ -123,7 +127,7 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
                 # switch connected through session
                 switch.patch(session)
 
-            *Below is an Example of Combining Object \
+            *Below Is an Example of Combining Object \
                     Initialization and Attribute Sets:*
 
             .. code-block:: python
@@ -210,7 +214,7 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
             Reads the enabled state of the switch in the object.
 
-            :rtype: None or enabled state of :data:`ENABLE`,
+            :rtype: None or an enabled state of :data:`ENABLE`,
                 :data:`DISABLE`, :data:`UNDEFINED`, or :data:`TESTING`.
 
         .. method:: peek_up_time()
@@ -270,26 +274,26 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
         .. method:: set_domain_name(domain_name)
 
-            Sets the new domain name of the switch in DNS.
+            Sets the domain name of the switch in DNS.
 
             :rtype: None or a dictionary of error information.
 
         .. method:: peek_domain_name()
 
-            Reads the domain name in DNS of the switch in the object.
+            Reads the DNS domain name of the switch in the object.
 
             :rtype: None or the domain name.
 
         .. method:: set_dns_servers_dns_server(dns-servers)
 
-            Sets the new DNS Servers for the switch with their \
+            Sets the DNS servers for the switch with their \
             IPv4/IPv6 addresses.
 
             :rtype: None or a dictionary of error information.
 
         .. method:: peek_dns_servers_dns_server()
 
-            Reads the IP address of DNS servers set for the switch.
+            Reads the IP address of the DNS servers set for the switch.
 
             :rtype: None or a list of IP addresses.
 
@@ -314,25 +318,51 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
         .. method:: peek_ag_mode()
 
             Reads the Access Gateway mode in the object.
+
             :rtype: None or the AG mode of the switch.
 
         .. method:: set_banner(value)
 
-           Sets the banner message while logging in.
+           Sets the banner message displayed during login.
 
            :rtype: None or a dictionary of error information.
 
         .. method:: peek_banner()
 
-           Reads the banner message while logging in.
+           Reads the banner message displayed during login.
 
-           :rtype: None or the banner message while logging in.
+           :rtype: None or the login banner message.
+
+        .. method:: set_is_enabled_state(newstate)
+
+            Sets the enabled state to :data:`ENABLE` or
+                :data:`DISABLE` in the object.
+
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_is_enabled_state()
+
+            Reads the enabled state of the switch in the object.
+
+            :rtype: None or enabled state of :data:`ENABLE`,
+                :data:`DISABLE`.
+
+        .. method:: peek_operational_status()
+
+            Reads the state of the switch in the object.
+
+            :rtype: None or enabled state of :data:`ENABLE`,
+                :data:`DISABLE`, :data:`UNDEFINED`, or :data:`TESTING`.
          """
 
     def __init__(self, dictvalues={}):
-        super().__init__(pyfos_rest_util.rest_obj_type.switch,
-                         "/rest/running/switch/fibrechannel-switch")
-
+        urilist = list([dict({'URIVER': version.VER_RANGE_820_TO_821A,
+                              'URI': "/rest/running/switch/" +
+                              "fibrechannel-switch"}),
+                        dict({'URIVER': version.VER_RANGE_821b_and_ABOVE,
+                              'URI': "/rest/running/brocade-fibrechannel" +
+                              "-switch/fibrechannel-switch"})])
+        super().__init__(pyfos_rest_util.rest_obj_type.switch, urilist)
         self.add(pyfos_rest_util.rest_attribute(
             "name", pyfos_type.type_wwn,
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
@@ -406,5 +436,13 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "banner", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "is-enabled-state", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "operational-status", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_821b_and_ABOVE))
 
         self.load(dictvalues, 1)

@@ -23,15 +23,15 @@ This script is used to create a MAPS rule.
 
 * Input:
 
-| Infrastructure Options:
+* Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
-|   -L,--login=LOGIN       The login name.
-|   -P,--password=PASSWORD The password.
-|   -f,--vfid=VFID         The VFID to which the request \
-                            is directed [OPTIONAL].
-|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           Verbose mode [OPTIONAL].
+    * -i,--ipaddr=IPADDR     The IP address of the FOS switch.
+    * -L,--login=LOGIN       The login name.
+    * -P,--password=PASSWORD The password.
+    * -f,--vfid=VFID         The VFID to which the request is \
+                             directed [OPTIONAL].
+    * -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+    * -v,--verbose           Verbose mode [OPTIONAL].
 
 * Util Script Options:
     --name                   Specifies the MAPS rule name.
@@ -40,8 +40,8 @@ This script is used to create a MAPS rule.
     --time-base              Sets the interval for monitoring.
     --logical-operator       Sets the condition for monitoring.
     --threshold-value        Sets the threshold value.
-    --action                 Sets the action to take if rule violation occurs.
-
+    --action                 Sets the action to take if a rule violation \
+                             occurs.
     --toggle-time            Sets the toggle time [OPTIONAL].
     --quiet-time             Sets the quiet time [OPTIONAL].
     --quiet-time-clear       Sets the clear quiet time [OPTIONAL].

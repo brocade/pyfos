@@ -47,7 +47,7 @@ fault-delay config for a port.
 
 import sys
 from pyfos import pyfos_auth
-from pyfos.pyfos_brocade_fibrechannel import fibrechannel
+from pyfos.pyfos_brocade_interface import fibrechannel
 from pyfos import pyfos_util
 from pyfos.utils import brcd_util
 

@@ -263,9 +263,15 @@ class fibrechannel_logical_switch(pyfos_rest_util.rest_object):
 
         """
     def __init__(self, dictvalues={}):
+        urilist = list([dict({'URIVER': version.VER_RANGE_820_TO_821A,
+                              'URI': "/rest/running/logical-switch/" +
+                              "fibrechannel-logical-switch"}),
+                        dict({'URIVER': version.VER_RANGE_821b_and_ABOVE,
+                              'URI': "/rest/running/brocade-fibrechannel-" +
+                              "logical-switch/fibrechannel-logical-switch"})])
         super().__init__(
             pyfos_rest_util.rest_obj_type.logical_switch,
-            "/rest/running/logical-switch/fibrechannel-logical-switch",
+            urilist,
             version.VER_RANGE_820a_and_ABOVE)
         self.add(pyfos_rest_util.rest_attribute(
             "fabric-id", pyfos_type.type_int,

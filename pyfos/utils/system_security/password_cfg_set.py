@@ -14,48 +14,74 @@
 # limitations under the License.
 
 """
-:mod:`password_cfg_set` - PyFOS util to change password config parameters.
-******************************************************************************
-This module is a standalone script and API that can be used to change
-password config paramters.
+:mod:`password_cfg_set` - PyFOS util to change password \
+configuration parameters.
+********************************************************\
+**************************
+This module is a stand-alone script and API that can be used to change
+password configuration paramters.
 
-* inputs:
+* Input:
 
-| Infrastructure options:
+| Infrastructure Options:
 
-|   -i,--ipaddr=IPADDR     IP address of FOS switch.
-|   -L,--login=LOGIN       login name.
-|   -P,--password=PASSWORD password.
-|   -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-|   -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           verbose mode[OPTIONAL].
+|   -i,--ipaddr=IPADDR     The IP address of FOS switch.
+|   -L,--login=LOGIN       The login name.
+|   -P,--password=PASSWORD The password.
+|   -f,--vfid=VFID         The VFID to which the request is directed [OPTIONAL].
+|   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
+|   -v,--verbose           The Verbose mode [OPTIONAL].
 
-* Util scripts options:
-    --password-action			actions to be performed
-    --minimum-length			minumum length of the password
-    --character-set			minimum criteria of character set
-    --user-name-allowed			can username be used in the password
-    --min-lower-case-char		minimum lowercase alphabetic characters
-    --min-upper-case-char		minimum uppercase alphabetic characters
-    --min-numeric-char			minimum numeric digits
-    --min-special-char			minimum special characters
-    --past-password-history		number of past password values that are disallowed
-    --min-password-age			Set the minimum number of days before which the password cannot be modified
-    --max-password-age			Set the maximum number of days after which the password should be modified
-    --warn-on-expire			number of days to display warning message till password expiration
-    --lock-out-threshold		max number of login attempts before locking the account
-    --lock-out-duration			duration, in minutes to wait and unlock the locked account
-    --admin-lock-out-enabled		enable/disable admin lockout
-    --repeat-char-limit			max length of repeated character sequences that is disallowed
-    --sequence-character-limit		length of sequential character sequences that is disallowed
-    --reverse-user-name-allowed		allow/disallow reverse string of the username as password
+* Util Script Options:
+    --password-action			The actions to be performed.
+    --minimum-length			The minumum length of the password.
+    --character-set			The minimum criteria of the \
+                                        character set.
+    --user-name-allowed			Whether the username can be used in \
+                                        the password.
+    --min-lower-case-char		The minimum number of lowercase \
+                                        alphabetic characters.
+    --min-upper-case-char		The minimum number of uppercase \
+                                        alphabetic characters.
+    --min-numeric-char			The minimum number of numeric digits.
+    --min-special-char			The minimum number of special \
+                                        characters.
+    --past-password-history		The number of past password values \
+                                        that are disallowed.
+    --min-password-age			Sets the minimum number of days before \
+                                        which the
+                                        password cannot be modified.
+    --max-password-age			Sets the maximum number of days after \
+                                        which the
+                                        password should be modified.
+    --warn-on-expire			The number of days to display warning \
+                                        messages until
+                                        password expiration.
+    --lock-out-threshold		The maximum number of login attempts \
+                                        before the
+                                        account is locked.
+    --lock-out-duration			The duration, in minutes, to wait and \
+                                        unlock the locked
+                                        account.
+    --admin-lock-out-enabled		Enables or disables admin lockout.
+    --repeat-char-limit			The maximum length of repeated character \
+                                        sequences that
+                                        is disallowed.
+    --sequence-character-limit		The length of sequential character \
+                                        sequences that
+                                        is disallowed.
+    --reverse-user-name-allowed		Enables or disables a reverse string of \
+                                        the username
+                                        as the password.
     --hash-type				Sets the hash type.
-    --manual-hash-enabled		password change due to hash change is manually enforced
-    --enforce-expire			enforce password to expire
-    --min-diff				minimum difference between old and new password
+    --manual-hash-enabled		Manually enforces a password change \
+                                        due to hash change.
+    --enforce-expire			Enforces password expiration.
+    --min-diff				The minimum difference between the old \
+                                        and new password.
 
-* outputs:
-    * success response or dictionary in case of error.
+* Output:
+    * A success response or a dictionary in case of error.
 
 """
 

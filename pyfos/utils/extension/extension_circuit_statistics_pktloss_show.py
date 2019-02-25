@@ -22,9 +22,9 @@ The :mod:`extension_circuit_statistics_pktloss_show` util shows circuit \
 packet loss.
 
 This module is a stand-alone script that can be used to show extension \
-circuit statistics for packet loss and the percentage packet loss.
+circuit statistics for packet loss and the percentage of packet loss.
 
-extension_circuit_statistics_pktloss_show.py : Usage
+extension_circuit_statistics_pktloss_show.py: Usage
 
 * Infrastructure Options:
     * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
@@ -55,7 +55,7 @@ show_pktloss(session,name, cid, local, remote)
                 print (ret)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the VE_Port name expressed as slot/port.
             :param cid: Sets the circuit ID.
 
@@ -65,7 +65,7 @@ show_pktloss(session,name, cid, local, remote)
 
         *Use Cases*
 
-        1. Show the percentage packet loss per circuit.
+        1. Show the percentage of packet loss per circuit.
 
 """
 
@@ -78,7 +78,7 @@ from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit_statistics
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
 from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
-from pyfos.pyfos_brocade_gigabitethernet import \
+from pyfos.pyfos_brocade_interface import \
      gigabitethernet_statistics
 
 

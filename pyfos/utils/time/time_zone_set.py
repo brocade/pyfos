@@ -19,8 +19,8 @@
 *******************************************************************************
 The :mod:`time_zone_set` util sets the time zone.
 
-This module is a stand-alone script and API that can be used to set time zone
-by the time zone name and the off-set value.
+This module is a stand-alone script and API that can be used to set the time \
+zone by the time zone name and the off-set value.
 
 * Input:
 

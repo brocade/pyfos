@@ -19,7 +19,7 @@
 
 :mod:`extension_ip_interface_modify` - PyFOS util to modify an IP interface.
 ********************************************************************************
-The :mod:`extension_ip_interface_modify` util is used to modify an IP\
+The :mod:`extension_ip_interface_modify` util is used to modify an IP \
 interface.
 
 This module is a stand-alone script that can be used to modify an extension
@@ -37,10 +37,10 @@ extension_ip_interface_modify.py: Usage
 
 * Util Script Options:
     * -n,--name=NAME: Sets the name.
-    * -m,--mtu-size=VALUE: Sets the MTU ize.
+    * -m,--mtu-size=VALUE: Sets the MTU size.
     * -p,--ip-prefix-length=VALUE: Sets the IP prefix length.
     * -d,--dp-id=VALUE: Sets the DP ID.
-    *    --ip-address=VALUE: SetSets the IP address.
+    *    --ip-address=VALUE: Sets the IP address.
     *    --vlan-id=VALUE: Sets the VLAN ID.
 
 * Output:
@@ -72,7 +72,7 @@ name, dp, ip, prefix, vlan=None, mtu=None)
             session, IP)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the GE_Port name expressed as slot/port.
             :param dp-id: Sets the DP instance.
             :param ip: Sets the extension IP address.

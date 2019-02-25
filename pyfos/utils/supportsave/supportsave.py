@@ -22,7 +22,7 @@ The :mod:`supportsave` util is used to execute the supportsave operation.
 
 This module is a stand-alone script and API that can be used to execute the \
 supportsave operation. Supportsave collects all log files from the switch
-and copies them into the remote server.
+and copies them to the remote server.
 
 * Input:
 
@@ -37,13 +37,14 @@ and copies them into the remote server.
 
 | Util Script Options:
 
-  |    --host=REMOTE-SERVER: Set the remote server ipaddress/domain-name.
-  |    --user=USER-NAME: Set the user name of the remote server.
-  |    --passwd=PASSWORD: Set the remote user password in base64 format.
-  |    --path=PATH:  Set the remote directory path to copy the\
-                      supportsave files.
-  |    --protocol=PROTOCOL: Set the protocol(ftp|scp|sftp) used for the remote\
-                             server connection.
+  |    --host=REMOTE-SERVER: Sets the remote server IP address or \
+                             domain-name.
+  |    --user=USER-NAME: Sets the user name of the remote server.
+  |    --passwd=PASSWORD: Sets the remote user password in base64 format.
+  |    --path=PATH:  Sets the remote directory path to copy the \
+                     supportsave files.
+  |    --protocol=PROTOCOL: Sets the protocol (ftp|scp|sftp) used for the \
+                            remote server connection.
 
 * Output:
 
@@ -107,7 +108,8 @@ def _get_supportsave_status(session, ss_req_obj, ss_rsp_obj):
     sleep(5)
     print("\r\n")
 
-    while ("in-progress" in ss_state or "queued" in ss_state or "done" in ss_state):
+    while ("in-progress" in ss_state or "queued" in ss_state or
+            "done" in ss_state):
         resp = _post_supportsave(session, ss_req_obj)
         if pyfos_util.is_failed_resp(resp):
             ss_state = "failed"
@@ -143,7 +145,10 @@ def ss_show_status(session, ssObj):
 
 
 def ss_validate(ss_obj):
-    if ss_obj.peek_user_name() is None or ss_obj.peek_remote_directory() is None or ss_obj.peek_password() is None or ss_obj.peek_protocol() is None or ss_obj.peek_host() is None:
+    if (ss_obj.peek_user_name() is None or
+            ss_obj.peek_remote_directory() is None or
+            ss_obj.peek_password() is None or ss_obj.peek_protocol() is None or
+            ss_obj.peek_host() is None):
         return 1
     return 0
 

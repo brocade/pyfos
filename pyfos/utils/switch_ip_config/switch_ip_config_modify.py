@@ -16,13 +16,14 @@
 
 """
 
-:mod:`switch_ip_config_modify` - PyFOS util to modify the IP config.
+:mod:`switch_ip_config_modify` - PyFOS util to modify the IP configuration.
 ********************************************************************************
 The :mod:`switch_ip_config_modify` util is used to modify the
-IP config (IP address, static gateways, and subnet mask) set for the switch.
+IP configuration (IP address, static gateways, and subnet mask) set for \
+the switch.
 
 This module is a stand-alone script that can be used to
-modify the IP config for the switch.
+modify the IP configuration for the switch.
 
 switch_ip_config_modify.py: Usage
 
@@ -35,10 +36,11 @@ switch_ip_config_modify.py: Usage
     * -v,--verbose: Verbose mode [Optional].
 
 * Util Script Options:
-    * --addresses=SWITCH_IPS: A list of up to 2 (maximum) IPv4/IPv6 addresses
-        assigned to the switch. One IPv4 and one IPv6 address are allowed.
-    * -g,--gateways=GATEWAY_IPS: A list of up to 2 (maximum) static IPv4/IPv6
-        IP-address of gateways.
+    * --addresses=SWITCH_IPS: A list of up to two (maximum) IPv4/IPv6 \
+        addresses assigned to the switch. One IPv4 and one IPv6 address \
+        are allowed.
+    * -g,--gateways=GATEWAY_IPS: A list of up to two (maximum) static \
+        IPv4/IPv6 gateway IP-addresses.
     * -m,--mask=VALUE: The subnet mask assigned to the switch.
 * Output:
     * Python dictionary content with RESTCONF response data.
@@ -46,8 +48,8 @@ switch_ip_config_modify.py: Usage
 .. function:: switch_ip_config_modify.modify_switch_ip_config_params(session,\
 ip_addresses, gateways, subnet_mask)
 
-    *Modify IP addresses, static IP address of gateways, and the subnet-mask \
-of the switch.*
+    * Modifies IP addresses, static IP address of gateways, and \
+      the subnet-mask of the switch.*
 
         Example Usage of the Method::
 
@@ -79,8 +81,8 @@ session, ip_addresses, gateways , subnet_mask)
 
         *Use Cases*
 
-         Modify the IP addresses of switch, IP address of gateways and \
-subnet mask of a switch.
+         Modify the IP addresses of the switch, the gateway IP addresses, and \
+the subnet mask of the switch.
 
 """
 

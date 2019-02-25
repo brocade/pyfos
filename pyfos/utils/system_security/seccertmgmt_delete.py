@@ -15,9 +15,9 @@
 
 """
 
-:mod:`seccertmgmt_delete` - PyFOS util for deleting certificate(s) on a switch.
+:mod:`seccertmgmt_delete` - PyFOS util for deleting certificates on a switch.
 ***********************************************************************************
-The :mod:`seccertmgmt_delete` provides option to delete a certificate.
+The :mod:`seccertmgmt_delete` provides the option to delete a certificate.
 
 This module can be used to delete a certificate.
 
@@ -29,19 +29,19 @@ This module can be used to delete a certificate.
 |   -L,--login=LOGIN       The login name.
 |   -P,--password=PASSWORD The password.
 |   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
-|   -v,--verbose           Verbose mode [OPTIONAL].
+|   -v,--verbose           The Verbose mode [OPTIONAL].
 
 * Util Script Options:
 
    |    --certificate-entity=ENTITY-NAME     Sets the certificate entity name.
-   |    --certificate-type=CERT-TYPE         Sets the certificate type name.
+   |    --certificate-type=CERT-TYPE         Sets the certificate type.
 
 * Output:
-    * Creates the certificate.
+    * The certificate.
 
 .. function:: seccertmgmt_delete.delete_security_certificate(session)
 
-    * Delete a certificate in the switch.
+    * Deletes a certificate in the switch.
 
         Example Usage of the Method:
 
@@ -64,7 +64,7 @@ session, cert_entity, cert_type)
         * Output:
             :rtype: A dictionary of return status matching the REST response.
 
-        * Use Cases*
+        *Use Cases*
 
         1. Delete a specified certificate.
 

@@ -18,6 +18,7 @@
 import getpass
 import getopt
 import sys
+import os
 import atexit
 import inspect
 from pyfos import pyfos_auth
@@ -27,8 +28,20 @@ from pyfos.utils import brcd_cli
 # pylint: disable=W0603
 session = None
 
+full_usage_infra_short_1 = "<-i IPADDR> <-L LOGIN> <-P PASSWORD>"
+full_usage_infra_short_2 = "[-f VFID] [-v]"
 
-def full_usage(usage):
+
+def full_usage(usage, valid_options):
+    o_str = ""
+    for v_op in valid_options:
+        o_str = o_str + " <--" + v_op + "=" + v_op.upper() + ">"
+    print(os.path.basename(sys.argv[0]) + 
+        " " + full_usage_infra_short_1 +
+        o_str +
+        " " + full_usage_infra_short_2)
+    print("")
+    print("Usage:")
     print("")
     print("  Infrastructure options:")
     print("")
@@ -60,10 +73,6 @@ def exit_register(local_session):
 
 
 def base_generic_input(argv, usage, valid_options):
-    if len(argv) == 0:
-        full_usage(usage)
-        sys.exit()
-
     ret_dict = dict()
 
     # default value that should be added here
@@ -109,22 +118,22 @@ def base_generic_input(argv, usage, valid_options):
                 )
     except getopt.GetoptError as err:
         print("getopt error", str(err))
-        full_usage(usage)
+        full_usage(usage, valid_options)
         sys.exit(2)
 
     if len(args) > 0:
         print("*** Contains invalid options:", args[0])
-        full_usage(usage)
+        full_usage(usage, valid_options)
         sys.exit(3)
 
     for opt, arg in opts:
         if opt in ("-h", "--help"):
-            full_usage(usage)
+            full_usage(usage, valid_options)
             sys.exit()
         elif opt in "--allaccess":
             if not pyfos_util.isInt(arg):
                 print("*** Invalid allacess:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["allaccess"] = int(arg)
@@ -135,7 +144,7 @@ def base_generic_input(argv, usage, valid_options):
         elif opt in "--device":
             if not pyfos_util.isWWN(arg):
                 print("*** Invalid device:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["device"] = arg
@@ -144,7 +153,7 @@ def base_generic_input(argv, usage, valid_options):
         elif opt in ("-f", "--vfid"):
             if not pyfos_util.isInt(arg):
                 print("*** Invalid vfid:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["vfid"] = int(arg)
@@ -159,14 +168,14 @@ def base_generic_input(argv, usage, valid_options):
         elif opt in "--hostport":
             if not pyfos_util.isWWN(arg):
                 print("*** Invalid hostport:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["hostport"] = arg
         elif opt in ("-i", "--ipaddr"):
             if not pyfos_util.isIPAddr(arg):
                 print("*** Invalid ipaddr:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["ipaddr"] = arg
@@ -187,7 +196,7 @@ def base_generic_input(argv, usage, valid_options):
         elif opt in "--reffcport":
             if not pyfos_util.isSlotPort(arg):
                 print("*** Invalid reffcport:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["reffcport"] = arg
@@ -204,7 +213,7 @@ def base_generic_input(argv, usage, valid_options):
         elif opt in "--speed":
             if not pyfos_util.isInt(arg):
                 print("*** Invalid speed:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["speed"] = int(arg)
@@ -215,7 +224,7 @@ def base_generic_input(argv, usage, valid_options):
         elif opt in "--targetport":
             if not pyfos_util.isWWN(arg):
                 print("*** Invalid targetport:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["targetport"] = arg
@@ -224,7 +233,7 @@ def base_generic_input(argv, usage, valid_options):
         elif opt in "--usepeer":
             if arg not in ('WWN', ''):
                 print("*** Invalid userpeer:", arg)
-                full_usage(usage)
+                full_usage(usage, valid_options)
                 sys.exit(5)
 
             ret_dict["usepeer"] = arg
@@ -236,8 +245,14 @@ def base_generic_input(argv, usage, valid_options):
             ret_dict["xlsapply"] = arg
         else:
             print("unknown", opt)
-            full_usage(usage)
+            full_usage(usage, valid_options)
             sys.exit(5)
+
+    if "ipaddr" not in ret_dict:
+        print("Missing IP address input")
+        print("")
+        full_usage(usage, valid_options)
+        sys.exit(6)
 
     if "login" not in ret_dict.keys():
         login = input("Login:")
@@ -258,13 +273,8 @@ def base_generic_input(argv, usage, valid_options):
                         break
                 if not found:
                     print("*** Invalid option given:", k)
-                    full_usage(usage)
+                    full_usage(usage, valid_options)
                     sys.exit(4)
-
-    if "ipaddr" not in ret_dict:
-        print("*** IP address must be given:")
-        full_usage(usage)
-        sys.exit(6)
 
     return ret_dict
 

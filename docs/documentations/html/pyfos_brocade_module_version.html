@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules. &#8212; PyFOS 1.2.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_operation_supportsave - PyFOS module for the supportsave operation." href="pyfos_brocade_operation_supportsave.html" />
+    <link rel="prev" title="pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP." href="pyfos_brocade_snmp.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_supportsave.html" title="pyfos_brocade_operation_supportsave - PyFOS module for the supportsave operation."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_snmp.html" title="pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_module_version"></span><div class="section" id="pyfos-brocade-module-version-pyfos-module-to-provide-module-level-version-information-for-all-the-supported-modules">
+<h1><a class="reference internal" href="#module-pyfos_brocade_module_version" title="pyfos_brocade_module_version: PyFOS module to get all the module versions (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_module_version</span></code></a> - PyFOS module to provide module level version information for all the supported modules.<a class="headerlink" href="#pyfos-brocade-module-version-pyfos-module-to-provide-module-level-version-information-for-all-the-supported-modules" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_module_version" title="pyfos_brocade_module_version: PyFOS module to get all the module versions (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_module_version</span></code></a> provides the REST support for module version.</p>
+<dl class="class">
+<dt id="pyfos_brocade_module_version.module_version">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_module_version.</code><code class="descname">module_version</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_module_version.module_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of module version</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="26%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>It refers to yang module
+name</td>
+<td><a class="reference internal" href="#pyfos_brocade_module_version.module_version.peek_name" title="pyfos_brocade_module_version.module_version.peek_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>version</td>
+<td>Yang module version in the
+format of x.y.z.</td>
+<td><a class="reference internal" href="#pyfos_brocade_module_version.module_version.peek_version" title="pyfos_brocade_module_version.module_version.peek_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_version()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>uri</td>
+<td>Uniform
+Resource Identifier (URI)
+of a module.</td>
+<td><a class="reference internal" href="#pyfos_brocade_module_version.module_version.peek_uri" title="pyfos_brocade_module_version.module_version.peek_uri"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_uri()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>objects</td>
+<td>List of all the supported
+objects from this module.</td>
+<td><a class="reference internal" href="#pyfos_brocade_module_version.module_version.peek_objects" title="pyfos_brocade_module_version.module_version.peek_objects"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_objects()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="classmethod">
+<dt id="pyfos_brocade_module_version.module_version.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_module_version.module_version.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_module_version.module_version" title="pyfos_brocade_module_version.module_version"><code class="xref py py-class docutils literal notranslate"><span class="pre">module_version</span></code></a> object filled with attributes
+gathered throuth the session passed in. Each object can be printed
+using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">utils.brcd_util.getsession()</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a <code class="xref py py-class docutils literal notranslate"><span class="pre">module-version</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_module_version.module_version.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_module_version.module_version.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the module name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_module_version.module_version.peek_version">
+<code class="descname">peek_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_module_version.module_version.peek_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the module version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_module_version.module_version.peek_objects">
+<code class="descname">peek_objects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_module_version.module_version.peek_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the supported objects for this module.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_module_version.module_version.peek_uri">
+<code class="descname">peek_uri</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_module_version.module_version.peek_uri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns this module uri.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_snmp.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_snmp</span></code> - PyFOS module to provide rest support for SNMP.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_operation_supportsave.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_supportsave</span></code> - PyFOS module for the supportsave  operation.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_module_version.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_supportsave.html" title="pyfos_brocade_operation_supportsave - PyFOS module for the supportsave operation."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_snmp.html" title="pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

@@ -36,16 +36,16 @@ extension_tunnel_modify.py: Usage
 * Util Script Options:
     * -n,--name=NAME: Sets the name.
     * -l,--load-level=VALUE: Sets the load level.
-    * -f,--fast-write-enabled=VALUE: Sets the fast write enabled.
+    * -f,--fast-write-enabled=VALUE: Enables or disables FastWrite.
     * -c,--compression-tunnel=VALUE: Sets the compression tunnel.
-    * -a,--admin-enabled=VALUE: Sets the admin enabled.
+    * -a,--admin-enabled=VALUE: Enables or disables the admin status.
     *    --ipsec-policy=VALUE: Sets the IPsec policy.
     *    --user-friendly-name=VALUE: Sets the user friendly name.
     *    --fc-compression=VALUE: Sets the FC compression.
     *    --ip-compression=VALUE: Sets the IP compression.
     *    --ip-extension=VALUE: Sets the IP extension.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_tunnel_modify.modify_extension_tunnel(session, name,\
@@ -74,7 +74,7 @@ ipext = 0)
             :param ipext: Sets the IP-extension-enabled hybrid tunnel.
 
         * Output:
-            :rtype: A dictionary of return status matching the REST response
+            :rtype: A dictionary of return status matching the REST response.
 
         *Use Cases*
 

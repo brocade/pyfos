@@ -14,12 +14,12 @@
 # limitations under the License.
 
 """
-:mod:`syslog_facility_show` - PyFOS util to display the syslog facility\
+:mod:`syslog_facility_show` - PyFOS util to display the syslog facility \
 configuration on a switch.
 ***********************************************************************************\
 *************************
-The :mod:`syslog_facility_show` util provides the option to display the\
- configuration parameter of the syslog facility level on switch.
+The :mod:`syslog_facility_show` util provides the option to display the \
+configuration parameter of the syslog facility level on a switch.
 
 This module is a stand-alone script that can be used to display the syslog
 facility configuration on a switch.
@@ -38,7 +38,7 @@ facility configuration on a switch.
 
 
 * Output:
-    * Status of the show operation
+    * Status of the show operation.
 
 .. function:: show_syslog_facility(session)
 

@@ -41,7 +41,7 @@ extension_circuit_create.py: Usage
     * -b,--min-comm-rate=VALUE: Sets the minimum communication rate in Kb/s.
     * -B,--max-comm-rate=Value: Sets the maximum communication rate in Kb/s.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: extension_circuit_create.create_extension_circuit(session,\
@@ -70,7 +70,7 @@ name, cid, local, remote, minB, maxB)
             session, circuit)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the VE port name, expressed as slot/port.
             :param cid: Sets the ID of the circuit.
             :param local: Sets the local IP address of the circuit.

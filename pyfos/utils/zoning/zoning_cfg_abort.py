@@ -88,7 +88,7 @@ def main(argv):
         print("login failed because",
               session.get(pyfos_auth.CREDENTIAL_KEY)
               [pyfos_auth.LOGIN_ERROR_KEY])
-        brcd_util.full_usage(usage)
+        brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
     brcd_util.exit_register(session)

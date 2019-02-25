@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>syslog_create PyFOS util to create the syslog server configuration on a switch. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>syslog_create PyFOS util to create the syslog server configuration on a switch. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="syslog_delete - PyFOS util to delete the syslog configuration on a switch." href="syslog_delete.html" />
-    <link rel="prev" title="syslog_modify - PyFOS util to modify the syslog configuration on switch." href="syslog_modify.html" /> 
+    <link rel="prev" title="syslog_modify - PyFOS util to modify the syslog configuration on a switch." href="syslog_modify.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="syslog_delete.html" title="syslog_delete - PyFOS util to delete the syslog configuration on a switch."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="syslog_modify.html" title="syslog_modify - PyFOS util to modify the syslog configuration on switch."
+          <a href="syslog_modify.html" title="syslog_modify - PyFOS util to modify the syslog configuration on a switch."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -44,8 +44,8 @@
             
   <span class="target" id="module-syslog_create"></span><div class="section" id="syslog-create-pyfos-util-to-create-the-syslog-server-configuration-on-a-switch">
 <h1><a class="reference internal" href="#module-syslog_create" title="syslog_create: PyFOS module to create/add Syslog configuration attributes. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">syslog_create</span></code></a> PyFOS util to create the syslog server configuration on a switch.<a class="headerlink" href="#syslog-create-pyfos-util-to-create-the-syslog-server-configuration-on-a-switch" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-syslog_create" title="syslog_create: PyFOS module to create/add Syslog configuration attributes. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">syslog_create</span></code></a> util provides option to create the configuration parameters of the syslog server on a switch.</p>
-<p>This module is a stand-alone script that can be used to display the syslog
+<p>The <a class="reference internal" href="#module-syslog_create" title="syslog_create: PyFOS module to create/add Syslog configuration attributes. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">syslog_create</span></code></a> util provides the option to create the configuration parameters of the syslog server on a switch.</p>
+<p>This module is a stand-alone script that can be used to create the syslog
 server configuration on a switch.</p>
 <ul class="simple">
 <li>Input:</li>
@@ -68,7 +68,7 @@ server configuration on a switch.</p>
 </div>
 <blockquote>
 <div><div class="line-block">
-<div class="line">–server=server ip address</div>
+<div class="line">–server=server IP address</div>
 <div class="line">–port=port number</div>
 <div class="line">–secure_mode=true | false</div>
 </div>
@@ -77,7 +77,7 @@ server configuration on a switch.</p>
 <li><dl class="first docutils">
 <dt>Output:</dt>
 <dd><ul class="first last simple">
-<li>Status of the create or add syslog server operation</li>
+<li>Status of the create or add syslog server operation.</li>
 </ul>
 </dd>
 </dl>
@@ -112,7 +112,7 @@ server configuration on a switch.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param server:</th><td class="field-body">The server IP.</td>
+<tr class="field-even field"><th class="field-name">param server:</th><td class="field-body">The server IP address.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">param port:</th><td class="field-body">The port number.</td>
 </tr>
@@ -125,12 +125,12 @@ server configuration on a switch.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>OSutput:</dt>
+<dt>Output:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the                 REST response.</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the                  REST response.</td>
 </tr>
 </tbody>
 </table>
@@ -159,7 +159,7 @@ Module <a class="reference internal" href="pyfos_brocade_logging.html#module-pyf
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="syslog_modify.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">syslog_modify</span></code> - PyFOS util to modify the syslog configuration on switch.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">syslog_modify</span></code> - PyFOS util to modify the syslog configuration on a switch.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="syslog_delete.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">syslog_delete</span></code> - PyFOS util to delete the syslog configuration on a switch.</a></p>
@@ -199,9 +199,9 @@ Module <a class="reference internal" href="pyfos_brocade_logging.html#module-pyf
           <a href="syslog_delete.html" title="syslog_delete - PyFOS util to delete the syslog configuration on a switch."
              >next</a> |</li>
         <li class="right" >
-          <a href="syslog_modify.html" title="syslog_modify - PyFOS util to modify the syslog configuration on switch."
+          <a href="syslog_modify.html" title="syslog_modify - PyFOS util to modify the syslog configuration on a switch."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

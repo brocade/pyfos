@@ -18,7 +18,7 @@
 
 :mod:`extension_ip_interface_delete` - PyFOS util to delete an IP interface.
 ********************************************************************************
-The :mod:`extension_ip_interface_delete` util is used to delete an /
+The :mod:`extension_ip_interface_delete` util is used to delete an \
 IP interface.
 
 This module is a stand-alone script that can be used to delete an extension
@@ -67,7 +67,7 @@ name, dp, ip, prefix, vlan=None, mtu=None)
             session, IP)
 
         * Input:
-            :param session: The session returned by login.
+            :param session: The session returned by the login.
             :param name: Sets the GE_Port name expressed as slot/port.
             :param dp-id: Sets the DP instance.
             :param ip: Sets the extension IP address.
@@ -76,7 +76,7 @@ name, dp, ip, prefix, vlan=None, mtu=None)
         * Output:
             :rtype: Dictionary of return status matching the REST response.
 
-        *Use cases*
+        *Use Cases*
 
          Delete an extension IP interface.
 """

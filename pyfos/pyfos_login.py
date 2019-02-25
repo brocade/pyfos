@@ -54,10 +54,10 @@ def login(user, password, ip_addr, isHttps):
 #    print page
     auth = resp.getheader('authorization')
     content = resp.getheader('content-type')
-
+    contentlist = content.split(";")
     if auth is None:
         if resp.status == 404 and content in 'text/html; charset=iso-8859-1':
-            return {"login-error": "Rest unsupported FOS version"}
+            return {"login-error": "Rest unsupported FOS version"}, dict()
         else:
             errors = pyfos_util.set_response_parse(resp)
 
@@ -65,13 +65,20 @@ def login(user, password, ip_addr, isHttps):
             return {
                     "login-error":
                     errors['client-errors']['errors']['error']['error-message']
-                    }
+                    }, dict()
         elif 'server-error-message' in errors:
-            return {"login-error": errors['server-error-message']}
+            return {"login-error": errors['server-error-message']}, dict()
         else:
-            return {"login-error": "unknown login error"}
+            return {"login-error": "unknown login error"}, dict()
     else:
-        return {"Authorization": auth}
+        if len(contentlist) == 2:
+            content_type = contentlist[0]
+            content_ver = contentlist[1]
+        else:
+            content_type = content
+            content_ver = None
+        return {"Authorization": auth}, {"content-type": content_type,
+                                         "content-version": content_ver}
 
 
 def logout(credential, ip_addr, isHttps):

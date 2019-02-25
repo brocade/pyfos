@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+#
 """
 :mod:`pyfos_rest_util` - PyFOS module to provide REST support for FOS objects.
 **********************************************************************************
@@ -346,7 +346,20 @@ class rest_obj_type():
     sshutil_public_key_action = 424
     fos_end = 425
     # use enums from 100 onwards
-
+    license_start = 500
+    license = 501
+    license_end = 599
+    #SNMP
+    snmp_start = 600
+    system = 601
+    mib_capability = 602
+    trap_capability = 603
+    v1_account = 604
+    v1_trap = 605
+    v3_account = 606
+    v3_trap = 607
+    access_control = 608
+    snmp_end = 699
     # MAPS
     maps_policy = 700
     group = 701
@@ -358,7 +371,9 @@ class rest_obj_type():
     system_resources = 707
     dashboard_misc = 708
     dashboard_rule = 709
-
+    #Module version
+    module_version = 800
+    #RPC
     rpc_start = 5000
     rpc_show_status = 5001
     rpc_supportsave = 5002
@@ -516,6 +531,26 @@ def getrestobjectname(objtype, fmt=0):
             return "configure switch details"
         elif objtype == rest_obj_type.f_port_login_settings:
             return "configure f-port login details"
+        elif objtype == rest_obj_type.license:
+            return "license"
+        elif objtype == rest_obj_type.system:
+            return "SNMP system configuration details"
+        elif objtype == rest_obj_type.mib_capability:
+            return "SNMP MIB capability"
+        elif objtype == rest_obj_type.trap_capability:
+            return "SNMP MIB-trap capability"
+        elif objtype == rest_obj_type.v1_account:
+            return "SNMPv1 account details"
+        elif objtype == rest_obj_type.v1_trap:
+            return "SNMPv1 trap recipient details"
+        elif objtype == rest_obj_type.v3_account:
+            return "SNMPv3 account details"
+        elif objtype == rest_obj_type.v3_trap:
+            return "SNMPv3 trap / inform recipient details"
+        elif objtype == rest_obj_type.access_control:
+            return "SNMP access control configuration details"
+        elif objtype == rest_obj_type.module_version:
+            return "Module version details"
         else:
             return "NOT_EXT_OBJECT"
     else:
@@ -667,6 +702,26 @@ def getrestobjectname(objtype, fmt=0):
             return "switch_configuration"
         elif objtype == rest_obj_type.f_port_login_settings:
             return "f_port_login_settings"
+        elif objtype == rest_obj_type.license:
+            return "license"
+        elif objtype == rest_obj_type.system:
+            return "system"
+        elif objtype == rest_obj_type.mib_capability:
+            return "mib_capability"
+        elif objtype == rest_obj_type.trap_capability:
+            return "trap_capability"
+        elif objtype == rest_obj_type.v1_account:
+            return "v1_account"
+        elif objtype == rest_obj_type.v1_trap:
+            return "v1_trap"
+        elif objtype == rest_obj_type.v3_account:
+            return "v3_account"
+        elif objtype == rest_obj_type.v3_trap:
+            return "v3_trap"
+        elif objtype == rest_obj_type.access_control:
+            return "access_ control"
+        elif objtype == rest_obj_type.module_version:
+            return "module_version"
         else:
             return "Unknown"
 
@@ -1008,8 +1063,8 @@ class rest_attribute():
                 return bool(not any(retdict) or empty is True)
         if self.is_list:
             if self.is_leaf:
-                if self.restobject.configchanged is not 0 \
-                   and self.configchanged is 0:
+                if self.restobject.configchanged != 0 \
+                   and self.configchanged == 0:
                     return True
                 elif self.configchanged == 2:
                     return False
@@ -1024,12 +1079,12 @@ class rest_attribute():
                         if empty is True and not v2.is_key:
                             empty = False
                         retdict[k2] = v2
-                if len(retdict) is not 0 and not empty:
+                if len(retdict) != 0 and not empty:
                     retarray.append(retdict)
             return bool(len(retarray) == 0)
         else:
-            if self.restobject.configchanged is not 0:
-                if (self.configchanged is not 0 or self.is_key) and self.value is not None:
+            if self.restobject.configchanged != 0:
+                if (self.configchanged != 0 or self.is_key) and self.value is not None:
                     return False
                 else:
                     return True
@@ -1206,7 +1261,7 @@ class rest_attribute():
             else:
                 retdict = dict()
                 if self.value is not None:
-                    skip = bool(self.restobject.configchanged is not 0)
+                    skip = bool(self.restobject.configchanged != 0)
                     for k1, v1 in self.value.items():
                         if v1.is_empty() is False:
                             if skip is True and not v1.is_key:
@@ -1235,14 +1290,14 @@ class rest_attribute():
                 for v1 in self.value:
                     if ver is None or self.version_supported.visible(ver):
                         retdict = dict()
-                        skip = bool(self.restobject.configchanged is not 0)
+                        skip = bool(self.restobject.configchanged != 0)
                         for k2, v2 in v1.items():
                             if v2.is_empty() is False:
                                 if skip is True and not v2.is_key:
                                     skip = False
                                 if ver is None or v2.version_supported.visible(ver):
                                     retdict[k2] = v2
-                        if len(retdict) is not 0 and skip is False:
+                        if len(retdict) != 0 and skip is False:
                             retarray.append(retdict)
             if len(retarray) == 0:
                 return None
@@ -2183,11 +2238,11 @@ class rest_handler(rest_debug):
     test = dict()
     test.update({1: {"total_tc": 0, "show_all": 0, "get": 0, "get_uri": 0, "post": 0, "patch": 0, "create_uri": 0, "delete": 0, "delete_uri": 0, "modify_put": 0, "modify_put_uri": 0, "modify_patch": 0, "modify_patch_uri": 0}})
 
-    def __init__(self, uri_base):
+    def __init__(self, uri):
         rest_debug.__init__(self)
-        self.uri_base = uri_base
+        self.urilist = uri
         self.obj = self
-
+        self.uri_base = None
         if self.obj.obj_type not in test.keys():
             test.update({self.obj.obj_type: {"show_all": 0, "get": 0, "get_uri": 0, "post": 0, "patch": 0, "create_uri": 0, "delete": 0, "delete_uri": 0, "modify_put": 0, "modify_put_uri": 0, "modify_patch": 0, "modify_patch_uri": 0}})
 
@@ -2484,13 +2539,7 @@ class rest_object(rest_handler):
         self.attributes_dict = dict()
         self.attributes = []
         self.clone_instance = dict()
-        uriarray = uri.split("/")
         self.configchanged = 0
-        i = len(uriarray)
-        if container is None:
-            self.container = uriarray[i-1]
-        else:
-            self.container = container
         self.initialized = 0
         rest_handler.__init__(self, uri)
         self.version_supported = fosversion_range(visible_version)
@@ -2502,6 +2551,38 @@ class rest_object(rest_handler):
         self.columnmap = dict()
         self.loadcolumnmap = dict()
         self.adjustcolumn = None
+        self.setcontainer = container
+        self.container = container
+        self.setmyuri(self.version_active)
+
+    def setmyuri(self, version=None):
+        if version is None:
+            version = self.version_active
+        tmpuri = None
+        uri = self.urilist
+        if isinstance(uri, list):
+            for i in range(len(uri)):
+                vver = fosversion_range(uri[i]['URIVER'])
+                vuri = uri[i]['URI']
+                if version is not None and vver.visible(version):
+                    tmpuri = str(vuri)
+                elif version is None:
+                    tmpuri = str(vuri)
+            if tmpuri is None:
+                self.dbg_print(ERR, "Unable to Detect the URI from version " +
+                               str(uri),
+                               version)
+        else:
+            tmpuri = str(self.urilist)
+        if self.setcontainer is None:
+            uriarray = tmpuri.split("/")
+            self.uri_base = tmpuri
+            i = len(uriarray)
+            if self.setcontainer is None:
+                self.container = uriarray[i-1]
+        else:
+            self.uri_base = tmpuri
+            self.container = self.setcontainer
 
     def load(self, dictvalues, changed=0, ver=None):
         """The function loads or deserialzes from a dictionary of values into the object itself."""
@@ -3054,6 +3135,7 @@ class rest_object(rest_handler):
                              "info-message": "Switch version is lower than the object",
                              "info-type": "Informational"}
                 return ret_error
+        self.obj.setmyuri(session['version'])
         ret_error = {"info-code": 0,
                      "info-message": "attributes details are present",
                      "info-type": "Informational"}

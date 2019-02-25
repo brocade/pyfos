@@ -19,7 +19,7 @@
 The :mod:`seccertmgmt_action` util provides options to modify certificates.
 
 This module is a stand-alone script that can be used to import or export CSR,
-CA-Client, CA-Server) and supported certificates.
+CA-Client, CA-Server, and supported certificates.
 
 * Input:
 
@@ -45,7 +45,7 @@ CA-Client, CA-Server) and supported certificates.
   |    --remote-host-directory=DIR         Sets the remote host directory.
   |    --remote-login-user=LOGINUSER       Sets the remote login user.
   |    --remote-login-password=PASSWORD    Sets the remote login base64 \
-                                             encrypted password
+                                           encrypted password.
 
 * Output:
 
@@ -55,7 +55,7 @@ CA-Client, CA-Server) and supported certificates.
 certificate-entity, certificate-type, certificate-name, ca-certificate-name, \
 protocol, remote_ip, remote_dir, login_name, login_password)
 
-    * Import a specified certificate from a remote server to a switch.
+    * Imports a specified certificate from a remote server to a switch.
 
         Example Usage of the Method::
 
@@ -87,7 +87,7 @@ login_name, login_password)
             :param ca-cert-name: The CA certificate name.
             :param protocol: The connection protocol.
             :param remote-host-ip: The remote host IP address.
-            :param remote-host-directoy: The location in remote host.
+            :param remote-host-directoy: The location in the remote host.
             :param remote-login-user: The user name of the remote host.
             :param remote-login-password: The password of the remote host.
 
@@ -96,8 +96,8 @@ login_name, login_password)
 
         *Use Cases*
 
-        1. Imports a specified certificate from a remote server to the switch.
-        2. Exports certificate from a switch to a remote server.
+        1. Import a specified certificate from a remote server to the switch.
+        2. Export a certificate from a switch to a remote server.
 """
 
 import sys

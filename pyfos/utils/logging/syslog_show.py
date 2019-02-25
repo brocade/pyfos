@@ -18,8 +18,8 @@
 :mod:`syslog_show` - PyFOS util to show the syslog server configuration\
  on a switch.
 **************************************************************************************
-The :mod:`syslog_show` util provides the option to show the parameters of\
- syslog on a switch.
+The :mod:`syslog_show` util provides the option to show the syslog parameters \
+on a switch.
 
 This module is a stand-alone script that can be used to display the syslog
 server configuration on a switch.
@@ -41,7 +41,7 @@ server configuration on a switch.
   | --server=server-ip:   The IP address of the syslog server.
 
 * Output:
-    * Syslog server information
+    * Syslog server information.
 
 .. function:: show_syslog_server(session, server)
 

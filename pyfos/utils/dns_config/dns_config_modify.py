@@ -36,16 +36,16 @@ dns_config_modify.py: Usage
 
 * Util Script Options:
     * -d,--dns-servers=DNS_IPS: Sets the of IPv4 or IPv6 addresses for a
-        maximum of 2 DNS servers.
+        maximum of two DNS servers.
     * -n,--domain-name=VALUE: Sets the domain name assigned to the switch.
 
-* Outputs:
+* Output:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: dns_config_modify.modify_dns_config_params(session,\
 servers, name)
 
-    *Modify the IP address and domain name (can be empty string) of the \
+    *Modify the IP address and domain name (can be an empty string) of the \
       DNS servers*
 
         Example Usage of the Method::
@@ -75,7 +75,7 @@ servers, name)
 
         *Use Cases*
 
-         Modify the DNS servers and domain name (can be empty string)
+         Modify the DNS servers and domain name (can be an empty string)
          of a switch.
 """
 

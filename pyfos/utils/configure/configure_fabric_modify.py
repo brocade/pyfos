@@ -53,10 +53,10 @@ attributes of the switch.
 
     * Input:
         :param session: The session returned by login.
-        :param idid_mode: Configure the insistent domain mode.
+        :param idid_mode: Configures the insistent domain mode.
 
     * Output:
-        :rtype: A dictionary of return status matching the REST response
+        :rtype: A dictionary of return status matching the REST response.
 
     *Use Cases*
 

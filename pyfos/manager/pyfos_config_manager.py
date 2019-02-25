@@ -618,13 +618,19 @@ class config_manager():
             for items in new:
                 if items.peek_port_group_name() == 'pg0':
                     onlynewsame = [items]
-                    newlbmode = items.peek_port_group_mode_load_balancing_mode_enabled()
+                    newlbmode = getattr(items,
+                                        "peek_port_group_mode_load" +
+                                        "_balancing_mode_enabled")()
                     if newlbmode == 1:
                         tmpobj1 = cls()
                         tmpobj1.set_port_group_id(items.peek_port_group_id())
-                        tmpobj1.set_port_group_mode_load_balancing_mode_enabled(0)
+                        getattr(tmpobj1,
+                                "set_port_group_mode_load" +
+                                "_balancing_mode_enabled")(0)
                         self.addtoslotlist('PRE_DELETE', tmpdict, [tmpobj1])
-                        items.set_port_group_mode_load_balancing_mode_enabled(0)
+                        getattr(items,
+                                "set_port_group_mode_load" +
+                                "_balancing_mode_enabled")(0)
             for items in old:
                 if items.peek_port_group_name() == 'pg0':
                     onlyoldsame = [items]
@@ -685,7 +691,8 @@ class config_manager():
                             self.addtoslotlist('POST', tmpdict, [oldinst])
                         if (oldinst.configchanged & 2) == 2:
                             if cls().getcontainer() == 'fibrechannel-switch':
-                                self.addtoslotlist('PRE_DELETE', tmpdict, [oldinst])
+                                self.addtoslotlist('PRE_DELETE',
+                                                   tmpdict, [oldinst])
                             else:
                                 self.addtoslotlist('PATCH', tmpdict, [oldinst])
                         if (newinst.configchanged & 8) == 8:
@@ -760,7 +767,8 @@ class config_manager():
                 if re.search(r"\"\+\+\+\": \[", lines):
                     exp_pattern = re.sub(r"\"\+\+\+\": \[", "]", str(lines))
             if re.search(r"^.*\".*\": \{", lines):
-                attribute = re.sub(r"[\ ]*\"", "", re.sub(r"\": \{", "", str(lines)))
+                attribute = re.sub(r"[\ ]*\"", "",
+                                   re.sub(r"\": \{", "", str(lines)))
             # list element marked for diff
             if re.search(r"\"\[\+]", lines):
                 marker = '> +'

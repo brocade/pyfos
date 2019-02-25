@@ -47,7 +47,7 @@ extension_ipsec_policy_modify: Usage
 .. function:: extension_ipsec_policy_modify.modify_extension_ipsec_policy(\
 session, name, profile, auth)
 
-    *Create an Extension IPsec Policy*
+    *Modify an Extension IPsec Policy*
 
         Example Usage of the Method::
 
@@ -80,7 +80,7 @@ session, name, profile, auth)
 
         *Use Cases*
 
-         Create a new IPsec policy.
+         Modify an new IPsec policy.
 
 """
 

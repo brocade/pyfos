@@ -14,13 +14,14 @@
 # limitations under the License.
 
 """
-:mod:`syslog_modify` - PyFOS util to modify the syslog configuration on switch.
+:mod:`syslog_modify` - PyFOS util to modify the syslog configuration on \
+a switch.
 *********************************************************************************
-The :mod:`syslog_modify` util provides option to modify the configuration\
- parameters of syslog on a switch.
+The :mod:`syslog_modify` util provides option to modify the syslog \
+configuration parameters on a switch.
 
-This module is a standalone script that can be used to modify the syslog
-configuration on switch.
+This module is a stand-alone script that can be used to modify the syslog
+configuration on a switch.
 
 * Input:
 
@@ -36,9 +37,9 @@ configuration on switch.
 
 | Util Script Options:
 
-  | --server=server ip
-  | --port=port number
-  | --secure-mode=true/false
+  | --server=The IP address of the server.
+  | --port=The port number.
+  | --secure-mode=True or false.
 
 * Output:
 
@@ -68,7 +69,7 @@ configuration on switch.
 
         * Input:
                 :param session: The session returned by the login.
-                :param server: The server IP.
+                :param server: The server IP address.
                 :param port: The port number.
                 :param secure-mode: True or false.
 

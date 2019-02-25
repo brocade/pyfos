@@ -22,7 +22,7 @@ The :mod:`sshutil_key_show` util provides the option to display the \
 SSH host key information.
 
 This module can be used to display the SSH host key information. If the user \
-name is not provided, then all SSH related information is displayed.
+name is not provided, all SSH-related information is displayed.
 
 * Input:
 
@@ -42,11 +42,11 @@ name is not provided, then all SSH related information is displayed.
 
 
 * Output:
-    * The SSH key related information.
+    * The information related to the SSH key.
 
 .. function:: sshutil_show.show_system_security_sshutil_key(session)
 
-    * Display the SSH host key information in the switch.
+    * Displays the SSH host key information in the switch.
 
         Example Usage of the Method:
 

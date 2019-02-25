@@ -4,9 +4,11 @@ Setup for pyfos
 '''
 from setuptools import setup, find_packages
 
+exec(open('pyfos/version.py').read())
+
 setup(
 	name='pyfos',
-	version='1.1.1',
+	version=__version__,
 	description='Brocade FOS Library.',
 	author='Brocade Communications Systems LLC.',
 	author_email='Automation.BSN@broadcom.com',

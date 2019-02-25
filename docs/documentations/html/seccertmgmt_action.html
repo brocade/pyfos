@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seccertmgmt_action - PyFOS util to modify certificates. &#8212; PyFOS 1.1.1 documentation</title>
+    <title>seccertmgmt_action - PyFOS util to modify certificates. &#8212; PyFOS 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="seccertmgmt_delete - PyFOS util for deleting certificate(s) on a switch." href="seccertmgmt_delete.html" />
-    <link rel="prev" title="seccertmgmt_create - PyFOS util for generating certificates on a switch" href="seccertmgmt_create.html" /> 
+    <link rel="next" title="seccertmgmt_delete - PyFOS util for deleting certificates on a switch." href="seccertmgmt_delete.html" />
+    <link rel="prev" title="seccertmgmt_create - PyFOS util for generating certificates on a switch." href="seccertmgmt_create.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_delete.html" title="seccertmgmt_delete - PyFOS util for deleting certificate(s) on a switch."
+          <a href="seccertmgmt_delete.html" title="seccertmgmt_delete - PyFOS util for deleting certificates on a switch."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_create.html" title="seccertmgmt_create - PyFOS util for generating certificates on a switch"
+          <a href="seccertmgmt_create.html" title="seccertmgmt_create - PyFOS util for generating certificates on a switch."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -46,7 +46,7 @@
 <h1><a class="reference internal" href="#module-seccertmgmt_action" title="seccertmgmt_action: PyFOS module provides option to modify certificate. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_action</span></code></a> - PyFOS util to modify certificates.<a class="headerlink" href="#seccertmgmt-action-pyfos-util-to-modify-certificates" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-seccertmgmt_action" title="seccertmgmt_action: PyFOS module provides option to modify certificate. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">seccertmgmt_action</span></code></a> util provides options to modify certificates.</p>
 <p>This module is a stand-alone script that can be used to import or export CSR,
-CA-Client, CA-Server) and supported certificates.</p>
+CA-Client, CA-Server, and supported certificates.</p>
 <ul class="simple">
 <li>Input:</li>
 </ul>
@@ -73,7 +73,7 @@ CA-Client, CA-Server) and supported certificates.</p>
 <div class="line">–remote-host-ip=IP                 Sets the remote host IP address.</div>
 <div class="line">–remote-host-directory=DIR         Sets the remote host directory.</div>
 <div class="line">–remote-login-user=LOGINUSER       Sets the remote login user.</div>
-<div class="line">–remote-login-password=PASSWORD    Sets the remote login base64                                              encrypted password</div>
+<div class="line">–remote-login-password=PASSWORD    Sets the remote login base64                                            encrypted password.</div>
 </div>
 </li>
 <li><p class="first">Output:</p>
@@ -88,7 +88,7 @@ CA-Client, CA-Server) and supported certificates.</p>
 <dt id="seccertmgmt_action.seccertmgmt_modify.export_import_cert">
 <code class="descclassname">seccertmgmt_modify.</code><code class="descname">export_import_cert</code><span class="sig-paren">(</span><em>session</em>, <em>action</em>, <em>certificate-entity</em>, <em>certificate-type</em>, <em>certificate-name</em>, <em>ca-certificate-name</em>, <em>protocol</em>, <em>remote_ip</em>, <em>remote_dir</em>, <em>login_name</em>, <em>login_password</em><span class="sig-paren">)</span><a class="headerlink" href="#seccertmgmt_action.seccertmgmt_modify.export_import_cert" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
-<li><p class="first">Import a specified certificate from a remote server to a switch.</p>
+<li><p class="first">Imports a specified certificate from a remote server to a switch.</p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">seccertmgmt_modify</span><span class="o">.</span><span class="n">export_import_cert</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">OPERATION</span><span class="p">,</span><span class="n">ENTITY</span><span class="o">-</span><span class="n">NAME</span><span class="p">,</span> <span class="n">CERT</span><span class="o">-</span><span class="n">TYPE</span><span class="p">,</span> <span class="n">CERTNAME</span><span class="p">,</span> <span class="n">CACERTNAME</span><span class="p">,</span> <span class="n">PROTOCOL</span><span class="p">,</span> <span class="n">IP</span><span class="p">,</span> <span class="n">DIR</span><span class="p">,</span> <span class="n">LOGINUSER</span><span class="p">,</span><span class="n">PASSWORD</span><span class="p">)</span>
@@ -135,7 +135,7 @@ CA-Client, CA-Server) and supported certificates.</p>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">The remote host IP address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param remote-host-directoy:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">The location in remote host.</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The location in the remote host.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">param remote-login-user:</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">The user name of the remote host.</td>
@@ -164,8 +164,8 @@ CA-Client, CA-Server) and supported certificates.</p>
 </ul>
 <p><em>Use Cases</em></p>
 <ol class="arabic simple">
-<li>Imports a specified certificate from a remote server to the switch.</li>
-<li>Exports certificate from a switch to a remote server.</li>
+<li>Import a specified certificate from a remote server to the switch.</li>
+<li>Export a certificate from a switch to a remote server.</li>
 </ol>
 </div></blockquote>
 </li>
@@ -187,10 +187,10 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="seccertmgmt_create.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_create</span></code> - PyFOS util for generating certificates on a switch</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_create</span></code> - PyFOS util for generating certificates on a switch.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="seccertmgmt_delete.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_delete</span></code> - PyFOS util for deleting certificate(s) on a switch.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_delete</span></code> - PyFOS util for deleting certificates on a switch.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -224,12 +224,12 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_delete.html" title="seccertmgmt_delete - PyFOS util for deleting certificate(s) on a switch."
+          <a href="seccertmgmt_delete.html" title="seccertmgmt_delete - PyFOS util for deleting certificates on a switch."
              >next</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_create.html" title="seccertmgmt_create - PyFOS util for generating certificates on a switch"
+          <a href="seccertmgmt_create.html" title="seccertmgmt_create - PyFOS util for generating certificates on a switch."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.1.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

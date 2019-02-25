@@ -1,0 +1,199 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>snmp_v1_account_show - PyFOS util to show the snmpv1 account. &#8212; PyFOS 1.2.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="snmp_v1_account_modify - PyFOS util for updating snmp v1 account" href="snmp_v1_account_modify.html" />
+    <link rel="prev" title="snmp_trap_capability_modify - PyFOS util to modify snmp trap capability" href="snmp_trap_capability_modify.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="snmp_v1_account_modify.html" title="snmp_v1_account_modify - PyFOS util for updating snmp v1 account"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="snmp_trap_capability_modify.html" title="snmp_trap_capability_modify - PyFOS util to modify snmp trap capability"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-snmp_v1_account_show"></span><div class="section" id="snmp-v1-account-show-pyfos-util-to-show-the-snmpv1-account">
+<h1><a class="reference internal" href="#module-snmp_v1_account_show" title="snmp_v1_account_show: PyFOS module to show snmpv1 account attributes in SNMP. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">snmp_v1_account_show</span></code></a> - PyFOS util to show the snmpv1 account.<a class="headerlink" href="#snmp-v1-account-show-pyfos-util-to-show-the-snmpv1-account" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-snmp_v1_account_show" title="snmp_v1_account_show: PyFOS module to show snmpv1 account attributes in SNMP. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">snmp_v1_account_show</span></code></a> provides option to display the
+snmp v1 account information.</p>
+<p>This module can be used to display the snmp v1 account information
+including the index, community name and community group</p>
+<ul class="simple">
+<li>inputs:</li>
+</ul>
+<div class="line-block">
+<div class="line">Infrastructure options:</div>
+</div>
+<div class="line-block">
+<div class="line">-i,–ipaddr=IPADDR     IP address of FOS switch.</div>
+<div class="line">-L,–login=LOGIN       login name.</div>
+<div class="line">-P,–password=PASSWORD password.</div>
+<div class="line">-f,–vfid=VFID         VFID to which the request is directed to [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           verbose mode[OPTIONAL].</div>
+</div>
+<blockquote>
+<div><p>Util scripts options:</p>
+<div class="line-block">
+<div class="line">–index=INDEX          Index of SNMPv1 account</div>
+</div>
+</div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><ul class="first last simple">
+<li>SNMP v1 account configuration details.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="snmp_v1_account_show.snmp_v1_account_info">
+<code class="descclassname">snmp_v1_account_show.</code><code class="descname">snmp_v1_account_info</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#snmp_v1_account_show.snmp_v1_account_info" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Display the snmp v1 account information.</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<blockquote>
+<div><p>result = snmp_v1_account_info(inputs[‘session’])
+print (result)</p>
+</div></blockquote>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">snmp_v1_acc_obj</span> <span class="o">=</span> <span class="n">v1_account</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">snmp_v1_acc_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return snmp v1 account rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>use cases</em></p>
+<ol class="arabic simple">
+<li>Retrieve the snmp v1 account details.</li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_snmp.html#module-pyfos_brocade_snmp" title="pyfos_brocade_snmp: PyFOS module to provide REST support for SNMP (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_snmp</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="snmp_trap_capability_modify.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">snmp_trap_capability_modify</span></code> - PyFOS util to modify snmp trap capability</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="snmp_v1_account_modify.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">snmp_v1_account_modify</span></code> - PyFOS util for updating snmp v1 account</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/snmp_v1_account_show.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="snmp_v1_account_modify.html" title="snmp_v1_account_modify - PyFOS util for updating snmp v1 account"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="snmp_trap_capability_modify.html" title="snmp_trap_capability_modify - PyFOS util to modify snmp trap capability"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

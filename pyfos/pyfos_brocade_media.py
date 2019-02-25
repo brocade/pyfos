@@ -27,7 +27,7 @@ import pyfos.pyfos_version as version
 
 
 class media_rdp(pyfos_rest_util.rest_object):
-    """ Class of media rdp
+    """ Class of Media rdp
 
     Important Class Members:
 
@@ -38,15 +38,15 @@ class media_rdp(pyfos_rest_util.rest_object):
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | identifier                     | The media identifier.            |:func:`peek_identifier`                                 |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | connector                      | The connector type of media.     |:func:`peek_connector`                                  |
+        | connector                      | The connector type of the media. |:func:`peek_connector`                                  |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | media-speed-capability/speed   | The speed capability list        |:func:`peek_media_speed_capability_speed`               |
-        |                                | supported by media.              |                                                        |
+        |                                | supported by the media.          |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | media-distance/distance        | The distance list supported by   |:func:`peek_media_distance_distance`                    |
-        |                                | media.                           |                                                        |
+        |                                | the media.                       |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | encoding                       | The encoding type of media.      |:func:`peek_encoding`                                   |
+        | encoding                       | The encoding type of the media.  |:func:`peek_encoding`                                   |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | vendor-oui                     | The vendor OUI for the media.    |:func:`peek_vendor_oui`                                 |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
@@ -56,9 +56,10 @@ class media_rdp(pyfos_rest_util.rest_object):
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | vendor-name                    | The vendor name of the media.    |:func:`peek_vendor_name`                                |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | vendor-revision                | Vendor revision of the media.    |:func:`peek_vendor_revision`                            |
+        | vendor-revision                | The vendor revision of the media.|:func:`peek_vendor_revision`                            |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | date-code                      | Manufacturing date of the media. |:func:`peek_date_code`                                  |
+        | date-code                      | Manufacturing date of            |:func:`peek_date_code`                                  |
+        |                                | the media.                       |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | temperature                    |The temperature of the media.     |:func:`peek_temperature`                                |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
@@ -72,7 +73,7 @@ class media_rdp(pyfos_rest_util.rest_object):
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | wavelength                     | The media wavelength.            |:func:`peek_wavelength`                                 |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | power-on-time                  | The media power-on-time.         |:func:`peek_power_on_time`                              |
+        | power-on-time                  | The media power-on time.         |:func:`peek_power_on_time`                              |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | remote-identifier              | The remote media identifier.     |:func:`peek_remote_identifier`                          |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
@@ -95,13 +96,13 @@ class media_rdp(pyfos_rest_util.rest_object):
         | part-number                    | optical product data group.      |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | remote-optical-product-data/   |Media serial number in the remote |:func:`peek_remote_optical_product_data_serial_number`  |
-        |   serial-number                | optical product data group.      |                                                        |
+        | serial-number                  | optical product data group.      |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | remote-optical-product-data/   | Media vendor name in the remote  |:func:`peek_remote_optical_product_data_vendor_name`    |
         |   vendor-name                  | optical product data group.      |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
-        | remote-optical-product-data/   | Media vendor revision in remote  |:func:`peek_remote_optical_product_data_vendor_revision`|
-        |   vendor-revision              | optical product data group.      |                                                        |
+        | remote-optical-product-data/   | Media vendor revision in the     |:func:`peek_remote_optical_product_data_vendor_revision`|
+        | vendor-revision              | remote optical product data group. |                                                        |
         +--------------------------------+----------------------------------+--------------------------------------------------------+
         | remote-optical-product-data/   | Manufacturing date in the remote |:func:`peek_remote_optical_product_data_date_code`      |
         |   date-code                    | optical product data group.      |                                                        |
@@ -178,7 +179,7 @@ class media_rdp(pyfos_rest_util.rest_object):
             or an empty object with the corresponding
             error if no match is found.
 
-            Each object can be printed using :func:`pyfos_util.response_print`
+            Each object can be printed using :func:`pyfos_util.response_print`,
             and individual attributes can be accessed
             through peek methods.
 
@@ -211,7 +212,7 @@ class media_rdp(pyfos_rest_util.rest_object):
 
         .. method:: peek_media_speed_capability_speed()
 
-            Reads a list of speeds media capable.
+            Reads a list of supported speed capabilities of the media.
 
             :rtype: None or a list of speeds.
 
@@ -223,7 +224,7 @@ class media_rdp(pyfos_rest_util.rest_object):
 
         .. method:: peek_encoding()
 
-            Reads the encoding supports type of media.
+            Reads the supported encoding type of the media.
 
             :rtype: None or the encoding type.
 

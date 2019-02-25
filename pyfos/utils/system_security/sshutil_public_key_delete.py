@@ -44,7 +44,7 @@ This module can be used to delete a public key.
 
 .. function:: sshutil_delete.del_members(session, user_name)
 
-    * Delete a public key.
+    * Deletes a public key.
 
         Example Usage of the Method::
 
