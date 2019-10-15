@@ -39,6 +39,8 @@ class chassis(pyfos_rest_util.rest_object):
         +-----------------------------+-------------------------------+----------------------------------------+
         | chassis-wwn                 | WWN of chassis                |:meth:`peek_chassis_wwn`                |
         +-----------------------------+-------------------------------+----------------------------------------+
+        | license-id                  | License ID of chassis         |:meth:`peek_license_id`                 |
+        +-----------------------------+-------------------------------+----------------------------------------+
         | serial-number               | Serial number of chassis      |:meth:`peek_serial_number`              |
         +-----------------------------+-------------------------------+----------------------------------------+
         | manufacturer                | Manufacturer of chassis       |:meth:`peek_manufacturer`               |
@@ -121,6 +123,12 @@ class chassis(pyfos_rest_util.rest_object):
 
         :rtype: None or chassis WWN
 
+    .. method:: peek_license_id()
+
+        Reads License ID from the object.
+
+        :rtype: None or License ID
+
     .. method:: peek_serial_number()
 
         Reads serial number from the object.
@@ -200,6 +208,9 @@ class chassis(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "chassis-wwn", pyfos_type.type_wwn,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "license-id", pyfos_type.type_wwn,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "serial-number", pyfos_type.type_str,

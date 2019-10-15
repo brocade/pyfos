@@ -41,6 +41,7 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    pyfos_brocade_fdmi
    pyfos_brocade_fibrechannel_logical_switch
    pyfos_brocade_interface
+   pyfos_brocade_license
    pyfos_brocade_name_server
    pyfos_brocade_security
    pyfos_brocade_chassis
@@ -58,6 +59,9 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
 .. toctree::
    :maxdepth: 2
 
+   pyfos_brocade_operation_firmwarecleaninstall
+   pyfos_brocade_operation_firmwaredownload
+   pyfos_brocade_operation_license 
    pyfos_brocade_operation_supportsave
    pyfos_brocade_operation_show_status
 
@@ -372,6 +376,10 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
 .. toctree::
    :maxdepth: 2
 
+   firmwarecleaninstall
+   firmwaredownload
+   license_install
+   license_remove
    supportsave
 
 *PyFOS Snmp utils Modules*

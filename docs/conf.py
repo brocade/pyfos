@@ -48,6 +48,8 @@ sys.path.insert(0, os.path.abspath('../pyfos/utils/switch_ip_config'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/trunk'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/snmp'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/module_version'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/firmwarecleaninstall'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/firmwaredownload'))
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.

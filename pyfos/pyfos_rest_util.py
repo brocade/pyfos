@@ -251,6 +251,11 @@ import getopt
 import ast
 import sys
 import os
+import paramiko
+import select
+import threading
+import socket
+import base64
 from pyfos import pyfos_util
 from pyfos.pyfos_type import pyfos_type, rest_yang_type, rest_yang_config
 from pyfos.pyfos_version import fosversion, fosversion_range, VER_RANGE_820_ABOVE
@@ -377,6 +382,9 @@ class rest_obj_type():
     rpc_start = 5000
     rpc_show_status = 5001
     rpc_supportsave = 5002
+    rpc_firmwaredownload = 5003
+    rpc_license = 5004
+    rpc_firmwarecleaninstall = 5005
 
     rpc_end = 6000
 
@@ -551,6 +559,12 @@ def getrestobjectname(objtype, fmt=0):
             return "SNMP access control configuration details"
         elif objtype == rest_obj_type.module_version:
             return "Module version details"
+        elif objtype == rest_obj_type.rpc_firmwaredownload:
+            return "rpc firmwaredownload"
+        elif objtype == rest_obj_type.rpc_license:
+            return "rpc license"
+        elif objtype == rest_obj_type.rpc_firmwarecleaninstall:
+            return "rpc firmwarecleaninstall"
         else:
             return "NOT_EXT_OBJECT"
     else:
@@ -722,6 +736,12 @@ def getrestobjectname(objtype, fmt=0):
             return "access_ control"
         elif objtype == rest_obj_type.module_version:
             return "module_version"
+        elif objtype == rest_obj_type.rpc_firmwaredownload:
+            return "rpcfirmwaredownload"
+        elif objtype == rest_obj_type.rpc_license:
+            return "rpclicense"
+        elif objtype == rest_obj_type.rpc_firmwarecleaninstall:
+            return "rpcfirmwarecleaninstall"
         else:
             return "Unknown"
 
@@ -2223,6 +2243,282 @@ class rest_attribute():
         self.restobject.dbg_print(level, args)
 
 
+SSH_FAILED_PREFIX = "SSH failed:"
+
+def ssh_cmd(login, password, ipaddr, hostkeymust, cmdstr):
+    ssh = paramiko.SSHClient()
+    ssh.load_system_host_keys()
+    if not hostkeymust:
+        ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
+    try:
+        ssh.connect(ipaddr, username=login, password=password)
+    except Exception as e:
+        return (SSH_FAILED_PREFIX + str(e))
+
+    e_stdin, e_stdout, e_stderr = ssh.exec_command(cmdstr)
+    e_resp = e_stdout.read().decode()
+
+    ssh.close()
+
+    return e_resp
+
+
+def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
+    session["fd_thread_status"] = "in-progress"
+    session["fd_thread_message"] = "in-progress"
+    ssh = paramiko.SSHClient()
+    ssh.load_system_host_keys()
+    if not hostkeymust:
+        ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
+    try:
+        ssh.connect(ipaddr, username=login, password=password)
+    except Exception as e:
+        session["fd_thread_status"] = "error"
+        session["fd_thread_message"] = SSH_FAILED_PREFIX + str(e)
+        return (SSH_FAILED_PREFIX + str(e))
+
+
+    chan = ssh.invoke_shell()
+    chan.send(cmdstr + "\n")
+
+    keep_progress = False
+    progress = 0
+    last_line = ""
+    while True:
+        if chan.exit_status_ready():
+            break
+        rl, wl, xl = select.select([chan], [], [], 0.0)
+        if len(rl) > 0:
+            last_line += chan.recv(1024).decode()
+            if last_line.endswith("\n") or "Do you want to continue (Y/N) [Y]:" in last_line:
+                if session["debug"]:
+                    if "firmwaredownload  -p" in last_line:
+                        print("firmwaredownload output: command being suppressed to avoid printing password")
+                    else:
+                        print("firmwaredownload output:", last_line, progress, session["fd_completion"])
+
+                if "failed" in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload detected failed")
+                    session["fd_thread_status"] = "error"
+                    session["fd_thread_message"] = last_line
+                    break
+
+                if "Usage:" in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload invalid inputs")
+                    session["fd_thread_status"] = "error"
+                    session["fd_thread_message"] = last_line
+                    break
+
+                if "The server is inaccessible or firmware path is invalid" in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload unable to get the file")
+                    session["fd_thread_status"] = "error"
+                    session["fd_thread_message"] = last_line
+                    break
+
+                if "Cannot access the server. Please check whether the server name or IP address is valid." in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload cannot access server")
+                    session["fd_thread_status"] = "error"
+                    session["fd_thread_message"] = last_line
+                    break
+
+                if "Please change passwords for switch default accounts now" in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload asking default password change")
+                    session["fd_thread_status"] = "error"
+                    session["fd_thread_message"] = last_line
+                    break
+
+                if "Do you want to continue (Y/N) [Y]:" in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload got prompt")
+                    chan.send("\n")
+                    keep_progress = True
+
+                if "HA Rebooting ..." in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload ha rebooting")
+                    session["fd_thread_status"] = "done"
+                    session["fd_thread_message"] = "done"
+                    break
+
+                if " -r " in cmdstr and "Firmware has been downloaded to the secondary partition of the switch." in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload has downloaded to the secondary partition")
+                    session["fd_thread_status"] = "done"
+                    session["fd_thread_message"] = "done"
+                    break
+
+                if "firmwareactivate" in cmdstr and "No need to activate the firmware" in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload no need to activate")
+                    session["fd_thread_status"] = "error"
+                    session["fd_thread_message"] = last_line
+                    break
+
+                if "Standby CP booted successfully with new firmware." in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload Standby CP is going to reboot with new firmware.")
+                    session["fd_thread_status"] = "done"
+                    session["fd_thread_message"] = "done"
+                    break
+
+                session["fd_thread_message"] = last_line
+
+                if keep_progress:
+                    progress += 1
+                    session["fd_completion"] = int((progress * 100) / 220)
+
+                last_line = ""
+                
+    ssh.close()
+
+    if session["fd_thread_status"] != "done":
+        if session["debug"]:
+            print("firmwaredownload return not done", last_line)
+        session["fd_thread_status"] = "error"
+
+
+def find_if_chassis(session, login, password, ipaddr, hostkeymust):
+    ssh_resp = ssh_cmd(session["username"], session["password"], session["ip_addr"], False, "hashow")
+    if session["debug"]:
+        print("hashow", ssh_resp)
+
+    if SSH_FAILED_PREFIX in ssh_resp:
+        return -1, "Cannot retrieve HA information", False, ""
+
+    if "Not supported on this platform" in ssh_resp:
+        return 0, "Non-Chassis", False, ""
+
+    standby_cp = "unknown"
+    lines = ssh_resp.splitlines()
+    for line in lines:
+        if ": Standby," in line or ": Non-Redundant" in line:
+            if "CP0" in line:
+                standby_cp = "CP0"
+                break
+            elif "CP1" in line:
+                standby_cp = "CP1"
+                break
+    if session["debug"]:
+        print("chassis standby is ", standby_cp)
+
+    if standby_cp == "unknown":
+        return -1, "Cannot retrieve standby information", True, ""
+
+    ssh_resp = ssh_cmd(session["username"], session["password"], session["ip_addr"], False, "ipaddrshow")
+    if session["debug"]:
+        print("ipaddrshow", ssh_resp)
+
+    if SSH_FAILED_PREFIX in ssh_resp:
+        return -1, "Cannot retrieve IP address information", True, ""
+
+    standby_ip = "unknown"
+    found_standby = False
+    lines = ssh_resp.splitlines()
+    for line in lines:
+        if found_standby and "Ethernet IP Address: " in line:
+            standby_ip = line[len("Ethernet IP Address: "):]
+            break
+
+        if standby_cp in line:
+            found_standby = True
+
+    if session["debug"]:
+        print("standby ip address", standby_ip)
+
+    if standby_ip == "unknown":
+        return -1, "Cannot retrieve standby ip information", True, ""
+
+    ssh_resp = ssh_cmd(session["username"], session["password"], standby_ip, False, "version")
+    if session["debug"]:
+        print("version on standby", ssh_resp)
+
+    if SSH_FAILED_PREFIX in ssh_resp:
+        return -1, "Cannot retrieve access standby CP", True, ""
+
+    return 0, "Success", True, standby_ip
+
+FIRMWARECLEANINSTALL_REBOOT = "The system is going down for reboot NOW for firmware clean install"
+
+def ssh_firmwarecleaninstall(session, login, password, ipaddr, hostkeymust, cmdstr):
+    ssh = paramiko.SSHClient()
+    ssh.load_system_host_keys()
+    if not hostkeymust:
+        ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
+    try:
+        ssh.connect(ipaddr, username=login, password=password)
+    except Exception as e:
+        return (SSH_FAILED_PREFIX + str(e))
+
+    chan = ssh.invoke_shell()
+    chan.send(cmdstr + "\n")
+
+    last_line = ""
+    while True:
+        if chan.exit_status_ready():
+            break
+        rl, wl, xl = select.select([chan], [], [], 0.0)
+        if len(rl) > 0:
+            last_line += chan.recv(1024).decode("ISO-8859-1")
+            if last_line.endswith("\n") or "Do you want to continue (Y/N) [Y]:" in last_line:
+                if session["debug"]:
+                    if "firmwarecleaninstall  -p" in last_line:
+                        print("firmwarecleaninstall output: command being suppressed to avoid printing password")
+                    else:
+                        print("firmwarecleaninstall output:", last_line)
+
+                if "The system is going down for reboot NOW" in last_line:
+                    if session["debug"]:
+                        print("firmwwarecleaninstall is rebooting now")
+                    last_line = FIRMWARECLEANINSTALL_REBOOT
+                    time.sleep(20)
+                    break
+
+                if "Do you want to continue (Y/N) [Y]:" in last_line:
+                    if session["debug"]:
+                        print("firmwarecleaninstall got prompt")
+                    chan.send("\n")
+
+                if "The server is inaccessible or firmware path is invalid" in last_line:
+                    if session["debug"]:
+                        print("firmwarecleaninstall unable to get the file")
+                    break
+
+                last_line = ""
+
+    ssh.close()
+
+    return last_line
+
+
+LICENSE_URI = "/rest/operations/license"
+FIRMWAREDOWNLOAD_URI = "/rest/operations/firmwaredownload"
+FIRMWARECLEANINSTALL_URI = "/rest/operations/firmwarecleaninstall"
+SHOW_STATUS_URI = "/rest/operations/show-status"
+CHASSIS_URI = "/rest/running/brocade-chassis/chassis"
+SSH_URIS = [
+    {
+        "uri": LICENSE_URI,
+        "rest_fos_version": fosversion("9.0.0")
+    },
+    {
+        "uri": FIRMWAREDOWNLOAD_URI,
+        "rest_fos_version": fosversion("9.0.0")
+    },
+    {
+        "uri": FIRMWARECLEANINSTALL_URI,
+        "rest_fos_version": fosversion("9.0.0")
+    },
+    {
+        "uri": CHASSIS_URI,
+        "rest_fos_version": fosversion("9.0.0")
+    }
+    ]
+
 class rest_handler(rest_debug):
     """ This class encompasses all the REST operations supported from the FOS objects as per YANG.
 
@@ -2303,13 +2599,30 @@ class rest_handler(rest_debug):
 
         return retdict
 
+    def process_ssh_license_id(self, session):
+        if session["debug"]:
+            print("cmd requested licenseidshow")
+
+        ssh_resp = ssh_cmd(session["username"], session["password"], session["ip_addr"], False, "licenseidshow")
+
+        return ssh_resp.rstrip()
+
     def show_all(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
         if ret["info-code"] != 0:
             return ret
         if is_tc:
             self.createtest("show_all", negative)
-        return pyfos_util.get_request(session, self.uri_base, "")
+        retdict = pyfos_util.get_request(session, self.uri_base, "")
+
+        if pyfos_util.is_failed_resp(retdict):
+            return retdict
+
+        if self.is_ssh(session, self.uri_base, session["version"]):
+            if self.uri_base == CHASSIS_URI:
+                retdict["chassis"]["license-id"] = self.process_ssh_license_id(session)
+
+        return retdict
 
     def get(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
@@ -2343,6 +2656,218 @@ class rest_handler(rest_debug):
         self.dbg_print(DBG, "Options:\n", self.uri_base, self.obj.create_html_content(0, session), ret)
         return ret
 
+    def is_ssh(self, session, uri, c_version):
+        # if uri is show status and message id is created by pyfos
+        # this is async task created through ssh
+        if uri == SHOW_STATUS_URI:
+            if self.peek_message_id() == 0:
+                if session["debug"]:
+                    print("show-status URI requires SSH", uri, c_version.to_string(), self.peek_message_id())
+                return True
+
+        for sshentry in SSH_URIS:
+            if sshentry["uri"] == uri and c_version.__lt__(sshentry["rest_fos_version"]):
+                if session["debug"]:
+                    print("URI requires SSH", uri, c_version.to_string())
+                return True
+        return False
+
+    def process_ssh_license(self, session):
+        ret_dict = {"Response" : {"license-operation-status" : {"status-message": "NA"}}}
+        cmd = ""
+        if self.peek_action() == "install":
+            cmd = "licenseadd " + self.peek_name()
+        elif self.peek_action() == "remove":
+            cmd = "licenseremove " + self.peek_name()
+        else:
+            ret_dict["Response"]["license-operation-status"]["status-message"] = "Unknown action"
+
+        if session["debug"]:
+            print("cmd requested", cmd)
+
+        ssh_resp = ssh_cmd(session["username"], session["password"], session["ip_addr"], False, cmd)
+
+        if ssh_resp.startswith("\nLicense Added"):
+            ret_dict["Response"]["license-operation-status"]["status-message"] = "License Install success"
+        elif ssh_resp.startswith("\nLicense Removed"):
+            ret_dict["Response"]["license-operation-status"]["status-message"] = "License Remove success"
+        else:
+                ret_dict["Response"]["license-operation-status"]["status-message"] = ssh_resp.replace("\n", " ")
+
+        return ret_dict
+
+    def process_ssh_firmwarecleaninstall(self, session):
+        ret_dict = {"Response" : {"firmwarecleaninstall-operation-status" : {"status-message": "NA"}}}
+        cmd = "firmwarecleaninstall "
+
+        if self.peek_protocol() == None:
+            ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Protocol (ftp/scp/sftp) required"
+            return ret_dict
+        else:
+            cmd = cmd + " -p " + self.peek_protocol()
+
+        if self.peek_host() == None:
+            ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Host name required"
+            return ret_dict
+        else:
+            cmd = cmd + " " + self.peek_host() + ","
+
+        if self.peek_user_name() == None:
+            ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "User name required"
+            return ret_dict
+        else:
+            cmd = cmd + self.peek_user_name() + ","
+
+        if self.peek_remote_directory() == None:
+            ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Remote directory required"
+            return ret_dict
+        else:
+            cmd = cmd + self.peek_remote_directory() + ","
+
+        if session["debug"]:
+            print("cmd requested without password", cmd)
+
+        if self.peek_password() == None:
+            ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Password required"
+            return ret_dict
+        else:
+            try:
+                cmd = cmd + base64.b64decode(self.peek_password()).decode("utf-8")
+            except:
+                ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Password cannot be decoded"
+                return ret_dict
+
+        retval, msg, is_chassis, standby_ip = find_if_chassis(session, session["username"], session["password"], session["ip_addr"], False)
+
+        if retval < 0:
+            ret_dict = {"Response" : {"firmwareclean-operation-status" : {"status-message": msg}}}
+        else:
+            ssh_resp = ""
+            if is_chassis is False:
+                ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], session["ip_addr"], False, cmd)
+                ret_dict = {"Response" : {"firmwareclean-operation-status" : {"status-message": ssh_resp}}}
+            else:
+                ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], standby_ip, False, cmd)
+
+                if FIRMWARECLEANINSTALL_REBOOT in ssh_resp:
+                    ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], session["ip_addr"], False, cmd)
+                    if FIRMWARECLEANINSTALL_REBOOT in ssh_resp:
+                        ret_dict = {"Response" : {"firmwareclean-operation-status" : {"status-message": ssh_resp}}}
+                    else:
+                        ret_dict = {"Response" : {"firmwareclean-operation-status" : {"status-message": "Standby firmearecleaninstall success. Active firmwarecleaninstall failed: " + ssh_resp}}}
+                else:
+                    ret_dict = {"Response" : {"firmwareclean-operation-status" : {"status-message": "Standby firmwarecleaninstall failed: " + ssh_resp}}}
+
+        return ret_dict
+
+    def process_ssh_firmwaredownload(self, session):
+        ret_dict = {'show-status': {'message-id': '0', 'status': 'queued', 'application-name': 'RESTAPI', 'percentage-complete': '0', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'XXX'}}}
+        cmd = ""
+
+        if self.peek_activate() == True:
+            cmd = "firmwareactivate"
+
+            if session["debug"]:
+                print("cmd requested", cmd)
+        else:
+
+            cmd = "firmwaredownload "
+
+            if self.peek_stage() == True:
+                cmd = cmd + " -r "
+
+            if self.peek_protocol() == None:
+                ret_dict["show-status"]["firmwaredownload"]["message"] = "Protocol (ftp/scp/sftp) required"
+                return ret_dict
+            else:
+                if "scp" in self.peek_protocol() or "ftp" in self.peek_protocol() or "sftp" in self.peek_protocol():
+                    cmd = cmd + " -p " + self.peek_protocol()
+                else:
+                    ret_dict["show-status"]["firmwaredownload"]["message"] = "Protocol (ftp/scp/sftp) required"
+                    return ret_dict
+
+            if self.peek_host() == None:
+                ret_dict["show-status"]["firmwaredownload"]["message"] = "Host name required"
+                return ret_dict
+            else:
+                cmd = cmd + " " + self.peek_host() + ","
+
+            if self.peek_user_name() == None:
+                ret_dict["show-status"]["firmwaredownload"]["message"] = "User name required"
+                return ret_dict
+            else:
+                cmd = cmd + self.peek_user_name() + ","
+
+            if self.peek_remote_directory() == None:
+                ret_dict["show-status"]["firmwaredownload"]["message"] = "Remote directory required"
+                return ret_dict
+            else:
+                cmd = cmd + self.peek_remote_directory() + ","
+
+            if session["debug"]:
+                print("cmd requested without password", cmd)
+
+            if self.peek_password() == None:
+                ret_dict["show-status"]["firmwaredownload"]["message"] = "Password required"
+                return ret_dict
+            else:
+                try:
+                    cmd = cmd + base64.b64decode(self.peek_password()).decode("utf-8")
+                except:
+                    return  {"client-error-code": 400, "client-error-message": "Bad Request", "client-errors" : {"errors": {"@xmlns": "urn:ietf:params:xml:ns:yang:ietf-restconf", "error": [{"error-type": "application", "error-tag": "operation-failed", "error-app-tag": "Error", "error-message": "Password cannot be decoded", "error-info": { "error-code": 589824, "error-module": "cal"}}]}}}
+
+        ssh_resp = "\n"
+
+        session["fd_thread"] = threading.Thread(target=ssh_firmwaredownload, args=(session, session["username"], session["password"], session["ip_addr"], False, cmd))
+
+        session["fd_thread"].start()
+        session["fd_thread_status"] = "queued"
+        session["fd_thread_message"] = "queued"
+        session["fd_completion"] = 0
+
+        ret_dict["show-status"]["firmwaredownload"]["message"] = "Firmwaredownload initiated successfully"
+#        if ssh_resp == "\n":
+#            ret_dict["show-status"]["firmwaredownload"]["message"] = "Firmwaredownload initiated successfully"
+#        else:
+#            ret_dict["show-status"]["firmwaredownload"]["message"] = ssh_resp
+
+        return ret_dict
+
+    def process_ssh_show_status(self, session):
+        if self.peek_message_id() == 0:
+            if "fd_thread" not in session:
+                ret_dict = {'show-status': {'message-id': self.peek_message_id(), 'status': 'error', 'application-name': 'RESTAPI', 'percentage-complete': '0', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'unknown message-id'}}}
+                return ret_dict
+
+            if session["fd_thread"].is_alive():
+                ret_dict = {'show-status': {'message-id': self.peek_message_id(), 'status': 'in-progress', 'application-name': 'RESTAPI', 'percentage-complete': session["fd_completion"], 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'in-progress'}}}
+            else:
+                if session["fd_thread_status"] == "done":
+                    session["fd_thread_status"] = "delivered"
+                    ret_dict = {'show-status': {'message-id': self.peek_message_id(), 'status': 'delivered', 'application-name': 'RESTAPI', 'percentage-complete': '100', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'delivered'}}}
+                elif session["fd_thread_status"] == "delivered":
+                    ret_dict = {'show-status': {'message-id': self.peek_message_id(), 'status': 'delivered', 'application-name': 'RESTAPI', 'percentage-complete': '100', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'delivered'}}}
+                else:
+                    ret_dict = {'show-status': {'message-id': self.peek_message_id(), 'status': session["fd_thread_status"], 'application-name': 'RESTAPI', 'percentage-complete': '0', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': session["fd_thread_message"]}}}
+        else:
+            ret_dict = {'show-status': {'message-id': self.peek_message_id(), 'status': 'error', 'application-name': 'RESTAPI', 'percentage-complete': '0', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'unknown message-id'}}}
+        return ret_dict
+
+    def process_ssh(self, session, uri):
+        if uri == LICENSE_URI:
+            return self.process_ssh_license(session)
+        elif uri == FIRMWARECLEANINSTALL_URI:
+            return self.process_ssh_firmwarecleaninstall(session)
+        elif uri == FIRMWAREDOWNLOAD_URI:
+            return self.process_ssh_firmwaredownload(session)
+        elif uri == SHOW_STATUS_URI:
+            return self.process_ssh_show_status(session)
+        else:
+            ret_dict = {'show-status': {'message-id': '20000', 'status': 'queued', 'application-name': 'RESTAPI', 'percentage-complete': '0', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'Firmwaredownload sanity check in-progress.'}}}
+            return ret_dict
+
+#        ret_dict = {'show-status': {'message-id': '20000', 'status': 'queued', 'application-name': 'RESTAPI', 'percentage-complete': '0', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'Firmwaredownload sanity check in-progress.'}}}
+
     def post(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
         if ret["info-code"] != 0:
@@ -2350,7 +2875,10 @@ class rest_handler(rest_debug):
         if is_tc:
             self.createtest("post", negative)
         if self.rpc == 1:
-            ret = pyfos_util.rpc_request(session, self.uri_base, self.obj.create_html_content(0, session))
+            if self.is_ssh(session, self.uri_base, session["version"]):
+                ret = self.process_ssh(session, self.uri_base)
+            else:
+                ret = pyfos_util.rpc_request(session, self.uri_base, self.obj.create_html_content(0, session))
         else:
             ret = pyfos_util.post_request(session, self.uri_base, self.obj.create_html_content(0, session))
         self.dbg_print(DBG, "Create:\n", self.uri_base, self.obj.create_html_content(0, session), ret)

@@ -83,6 +83,7 @@ def base_generic_input(argv, usage, valid_options):
         opts, args = getopt.getopt(
                 argv, "hi:f:s:L:P:v",
                 [
+                    "activate",
                     "allaccess=",
                     "compare=",
                     "device=",
@@ -101,14 +102,17 @@ def base_generic_input(argv, usage, valid_options):
                     "password=",
                     "pmembers=",
                     "portid=",
+                    "protocol=",
                     "reffcport=",
                     "secured=",
                     "speed=",
+                    "stage",
                     "template=",
                     "targetname=",
                     "targetport=",
                     "usepeer=",
                     "username=",
+                    "userpassword=",
                     "verbose",
                     "vfid=",
                     "xlsapply=",
@@ -130,6 +134,8 @@ def base_generic_input(argv, usage, valid_options):
         if opt in ("-h", "--help"):
             full_usage(usage, valid_options)
             sys.exit()
+        elif opt in "--activate":
+            ret_dict["activate"] = True
         elif opt in "--allaccess":
             if not pyfos_util.isInt(arg):
                 print("*** Invalid allacess:", arg)
@@ -193,6 +199,8 @@ def base_generic_input(argv, usage, valid_options):
             ret_dict["password"] = arg
         elif opt in "--portid":
             ret_dict["portid"] = arg
+        elif opt in "--protocol":
+            ret_dict["protocol"] = arg
         elif opt in "--reffcport":
             if not pyfos_util.isSlotPort(arg):
                 print("*** Invalid reffcport:", arg)
@@ -217,6 +225,8 @@ def base_generic_input(argv, usage, valid_options):
                 sys.exit(5)
 
             ret_dict["speed"] = int(arg)
+        elif opt in "--stage":
+            ret_dict["stage"] = True
         elif opt in "--template":
             ret_dict["template"] = arg
         elif opt in "--targetname":
@@ -230,6 +240,8 @@ def base_generic_input(argv, usage, valid_options):
             ret_dict["targetport"] = arg
         elif opt in "--username":
             ret_dict["username"] = arg
+        elif opt in "--userpassword":
+            ret_dict["userpassword"] = arg
         elif opt in "--usepeer":
             if arg not in ('WWN', ''):
                 print("*** Invalid userpeer:", arg)

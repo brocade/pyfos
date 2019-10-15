@@ -1,4 +1,4 @@
-PyFOS - 1.2.0
+PyFOS - 1.2.1
 =============
 
 ### What is PyFOS ###
@@ -26,7 +26,7 @@ PyFOS - 1.2.0
 
 ### FOS and PyFOS versions ###
 
-    PyFOS 1.2.0 covers up to FOS 8.2.1b
+    PyFOS 1.2.1 covers up to FOS 8.2.2
 
 ### Directory structure ###
 
@@ -46,7 +46,7 @@ PyFOS - 1.2.0
 ### Installation ###
 
     1) install dependencies
-        pip3 install --user openpyxl colorconsole xlrd jsondiff requests xmltodict
+        pip3 install --user openpyxl colorconsole xlrd jsondiff requests xmltodict paramiko
 
     2) pyfos can be installed directly from github.com or using pip
 

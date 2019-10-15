@@ -43,9 +43,8 @@ import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
 from pyfos.utils import brcd_util
-# pylint: disable=W0622
 from pyfos.pyfos_brocade_license import license
-
+from pyfos.pyfos_brocade_chassis import chassis
 
 def get_license_info(session):
     license_obj = license()
@@ -55,9 +54,6 @@ def get_license_info(session):
 
 def main(argv):
 
-    # Print arguments
-    # print(sys.argv[1:])
-
     filters = []
     inputs = brcd_util.parse(argv, license, filters)
 
@@ -65,6 +61,14 @@ def main(argv):
 
     result = get_license_info(inputs['session'])
     pyfos_util.response_print(result)
+
+    chassis_obj = chassis()
+    result = chassis_obj.get(inputs['session'])
+    if pyfos_util.is_failed_resp(result):
+        pyfos_util.response_print(result)
+    else:
+        print("License ID:", result.peek_license_id())
+
     pyfos_auth.logout(session)
 
 

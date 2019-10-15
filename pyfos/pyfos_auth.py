@@ -230,6 +230,9 @@ def login(username, password, ip_addr, is_https,
 
         debug_set(session, verbose)
 
+        session["username"] = username
+        session["password"] = password
+
         return session
 
 
