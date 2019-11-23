@@ -39,7 +39,9 @@ firmwaredownload operation.
   |    --hostname=REMOTE-SERVER: Sets the remote server IP address or \
                              domain-name.
   |    --username=USER-NAME: Sets the user name of the remote server.
-  |    --userpassword=PASSWORD: Sets the remote user password in base64 format.
+  |    --userpassword=PASSWORD: Sets the remote user password in base64 \
+                                format. Use "" for empty password for \
+                                anonymous ftp.
   |    --filename=PATH:  Sets the remote directory path to firmware location.
   |    --protocol=PROTOCOL: Sets the protocol (ftp|scp|sftp) used for the \
                             remote server connection.
@@ -69,6 +71,7 @@ def usage():
     print("                                 domain-name.")
     print("    --username=USER-NAME         Sets the user name of the remote server.")
     print("    --userpassword=PASSWORD      Sets the remote user password in base64 format.")
+    print("                                 Use \"\" for empty password for anonymous ftp.")
     print("    --filename=PATH              Sets the remote directory path to firmware")
     print("                                 location.")
     print("    --protocol=PROTOCOL          Sets the protocol (ftp|scp|sftp) used for the")

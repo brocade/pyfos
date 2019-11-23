@@ -14,4 +14,4 @@
 __copyright__ = 'Copyright 2019 Brocade Communications Systems LLC.  All rights reserved.'
 __license__ = 'the Apache License, Version 2.0'
 __version_major_minor__ = '1.2'
-__version__ = '1.2.1'
+__version__ = '1.2.2'

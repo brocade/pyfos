@@ -2263,6 +2263,10 @@ def ssh_cmd(login, password, ipaddr, hostkeymust, cmdstr):
     return e_resp
 
 
+MAX_PROGRESS = 330
+PASSWORD_INPUT_POMPT = "Password: "
+CONTINUE_PROMPT = "Do you want to continue (Y/N) [Y]:"
+
 def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
     session["fd_thread_status"] = "in-progress"
     session["fd_thread_message"] = "in-progress"
@@ -2290,7 +2294,7 @@ def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
         rl, wl, xl = select.select([chan], [], [], 0.0)
         if len(rl) > 0:
             last_line += chan.recv(1024).decode()
-            if last_line.endswith("\n") or "Do you want to continue (Y/N) [Y]:" in last_line:
+            if last_line.endswith("\n") or CONTINUE_PROMPT in last_line or PASSWORD_INPUT_POMPT in last_line:
                 if session["debug"]:
                     if "firmwaredownload  -p" in last_line:
                         print("firmwaredownload output: command being suppressed to avoid printing password")
@@ -2332,11 +2336,16 @@ def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
                     session["fd_thread_message"] = last_line
                     break
 
-                if "Do you want to continue (Y/N) [Y]:" in last_line:
+                if CONTINUE_PROMPT in last_line:
                     if session["debug"]:
                         print("firmwaredownload got prompt")
                     chan.send("\n")
                     keep_progress = True
+
+                if PASSWORD_INPUT_POMPT in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload got password prompt")
+                    chan.send("\n")
 
                 if "HA Rebooting ..." in last_line:
                     if session["debug"]:
@@ -2370,7 +2379,7 @@ def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
 
                 if keep_progress:
                     progress += 1
-                    session["fd_completion"] = int((progress * 100) / 220)
+                    session["fd_completion"] = int((progress * 100) / MAX_PROGRESS)
 
                 last_line = ""
                 
@@ -2464,7 +2473,7 @@ def ssh_firmwarecleaninstall(session, login, password, ipaddr, hostkeymust, cmds
         rl, wl, xl = select.select([chan], [], [], 0.0)
         if len(rl) > 0:
             last_line += chan.recv(1024).decode("ISO-8859-1")
-            if last_line.endswith("\n") or "Do you want to continue (Y/N) [Y]:" in last_line:
+            if last_line.endswith("\n") or CONTINUE_PROMPT in last_line or PASSWORD_INPUT_POMPT in last_line:
                 if session["debug"]:
                     if "firmwarecleaninstall  -p" in last_line:
                         print("firmwarecleaninstall output: command being suppressed to avoid printing password")
@@ -2478,9 +2487,14 @@ def ssh_firmwarecleaninstall(session, login, password, ipaddr, hostkeymust, cmds
                     time.sleep(20)
                     break
 
-                if "Do you want to continue (Y/N) [Y]:" in last_line:
+                if CONTINUE_PROMPT in last_line:
                     if session["debug"]:
                         print("firmwarecleaninstall got prompt")
+                    chan.send("\n")
+
+                if PASSWORD_INPUT_POMPT in last_line:
+                    if session["debug"]:
+                        print("firmwarecleaninstall got password prompt")
                     chan.send("\n")
 
                 if "The server is inaccessible or firmware path is invalid" in last_line:

@@ -73,9 +73,7 @@ def main(argv):
 
     user_obj = inputs['utilobject']
     if (user_obj.peek_name() is None or
-            user_obj.peek_password() is None or
-            user_obj.peek_role() is None or
-            user_obj.peek_virtual_fabric_role_id_list_role_id() == "[]"):
+            user_obj.peek_password() is None):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)

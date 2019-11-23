@@ -1,5 +1,5 @@
-PyFOS - 1.2.1
-=============
+PyFOS - 1.2.2_beta
+==================
 
 ### What is PyFOS ###
 
@@ -26,7 +26,7 @@ PyFOS - 1.2.1
 
 ### FOS and PyFOS versions ###
 
-    PyFOS 1.2.1 covers up to FOS 8.2.2
+    PyFOS 1.2.2_beta covers up to FOS 8.2.2
 
 ### Directory structure ###
 
