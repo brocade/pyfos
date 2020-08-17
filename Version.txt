@@ -6,4 +6,4 @@ The below list represents the tested version combinations for PyFOS and FOS rele
 	v1.1.0         v8.2.1
 	v1.1.1         v8.2.1
 	v1.2.0         v8.2.1b
-	v1.2.1         v8.2.1c, v8.2.1d, v8.2.2, v8.2.2b
+	v1.2.1         v8.2.1c, v8.2.1d, v8.2.1e, v8.2.2, v8.2.2b, v8.2.2c
