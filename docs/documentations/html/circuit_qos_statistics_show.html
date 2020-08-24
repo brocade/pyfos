@@ -1,0 +1,252 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>circuit_qos_statistics_show - PyFOS util to show for circuit_qos_statistics &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dp_hcl_status_show - PyFOS util to show for dp_hcl_status" href="dp_hcl_status_show.html" />
+    <link rel="prev" title="fabric_discovery - PyFOS util for fabric discovery using custom login methods." href="fabric_discovery.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dp_hcl_status_show.html" title="dp_hcl_status_show - PyFOS util to show for dp_hcl_status"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fabric_discovery.html" title="fabric_discovery - PyFOS util for fabric discovery using custom login methods."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-circuit_qos_statistics_show"></span><div class="section" id="circuit-qos-statistics-show-pyfos-util-to-show-for-circuit-qos-statistics">
+<h1><a class="reference internal" href="#module-circuit_qos_statistics_show" title="circuit_qos_statistics_show: PyFOS module to display extension circuit QOS statistics. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">circuit_qos_statistics_show</span></code></a> - PyFOS util to show for circuit_qos_statistics<a class="headerlink" href="#circuit-qos-statistics-show-pyfos-util-to-show-for-circuit-qos-statistics" title="Permalink to this headline">¶</a></h1>
+<p>The:mod:<cite>circuit_qos_statistics_show</cite> PyFOS util to show for circuit_qos_statistics</p>
+<p>Represents circuit statistics for extension blade or system.</p>
+<p>circuit_qos_statistics_show: usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config    file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–out-tcp-packets=OUT-TCP-PACKETS: TCP packets sent.</li>
+<li>–tcp-slow-starts=TCP-SLOW-STARTS: TCP slow starts.</li>
+<li>–in-bytes=IN-BYTES: total octets received.</li>
+<li>–duration=DURATION: Connection duration (in seconds).</li>
+<li>–out-tcp-bytes=OUT-TCP-BYTES: Total TCP bytes sent.</li>
+<li>–ha-type=HA-TYPE: Tunnel group HA type configuration.</li>
+<li>–out-bytes=OUT-BYTES: total octets sent.</li>
+<li>–tcp-out-of-order-packets=TCP-OUT-OF-ORDER-PACKETS: TCP total out of      order packets.</li>
+<li>–flow-status=FLOW-STATUS: Flow control status:  false : flow control is      off true : flow control is on</li>
+<li>–rtt=RTT: The round trip time.</li>
+<li>–in-packets=IN-PACKETS: total packets received.</li>
+<li>–tcp-retransmits=TCP-RETRANSMITS: TCP retransmits /lost packets.</li>
+<li>–connection-count=CONNECTION-COUNT: Active connection count.</li>
+<li>–priority=PRIORITY: QOS Priority value for the tunnel</li>
+<li>–circuit-id=CIRCUIT-ID: Circuit identifier the allowed values are for 0      to 9.</li>
+<li>–out-packets=OUT-PACKETS: Total TCP packets sent.</li>
+<li>–in-bytes-average=IN-BYTES-AVERAGE: Total octets received per 30s      average.</li>
+<li>–in-tcp-packets=IN-TCP-PACKETS: TCP packets received.</li>
+<li>–operational-status=OPERATIONAL-STATUS: Circuit operational status.</li>
+<li>–in-tcp-bytes=IN-TCP-BYTES: Total TCP bytes received.</li>
+<li>–out-bytes-average=OUT-BYTES-AVERAGE: Total octets send per 30s      average.</li>
+<li>–ve-port=VE-PORT: The name of the extension-tunnel interface.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="circuit_qos_statistics_show.circuit_qos_statistics_show.show_circuit_qos_statistics">
+<code class="descclassname">circuit_qos_statistics_show.</code><code class="descname">show_circuit_qos_statistics</code><span class="sig-paren">(</span><em>session</em>, <em>out_tcp_packets</em>, <em>tcp_slow_starts</em>, <em>in_bytes</em>, <em>duration</em>, <em>out_tcp_bytes</em>, <em>ha_type</em>, <em>out_bytes</em>, <em>tcp_out_of_order_packets</em>, <em>flow_status</em>, <em>rtt</em>, <em>in_packets</em>, <em>tcp_retransmits</em>, <em>connection_count</em>, <em>priority</em>, <em>circuit_id</em>, <em>out_packets</em>, <em>in_bytes_average</em>, <em>in_tcp_packets</em>, <em>operational_status</em>, <em>in_tcp_bytes</em>, <em>out_bytes_average</em>, <em>ve_port</em><span class="sig-paren">)</span><a class="headerlink" href="#circuit_qos_statistics_show.circuit_qos_statistics_show.show_circuit_qos_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Show circuit_qos_statistics</em></p>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">circuit_qos_statistics_show</span><span class="o">.</span><span class="n">show_circuit_qos_statistics</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">out_tcp_packets</span><span class="p">,</span> <span class="n">tcp_slow_starts</span><span class="p">,</span> <span class="n">in_bytes</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">out_tcp_bytes</span><span class="p">,</span> <span class="n">ha_type</span><span class="p">,</span> <span class="n">out_bytes</span><span class="p">,</span> <span class="n">tcp_out_of_order_packets</span><span class="p">,</span> <span class="n">flow_status</span><span class="p">,</span> <span class="n">rtt</span><span class="p">,</span> <span class="n">in_packets</span><span class="p">,</span> <span class="n">tcp_retransmits</span><span class="p">,</span> <span class="n">connection_count</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="n">circuit_id</span><span class="p">,</span> <span class="n">out_packets</span><span class="p">,</span> <span class="n">in_bytes_average</span><span class="p">,</span> <span class="n">in_tcp_packets</span><span class="p">,</span> <span class="n">operational_status</span><span class="p">,</span> <span class="n">in_tcp_bytes</span><span class="p">,</span> <span class="n">out_bytes_average</span><span class="p">,</span> <span class="n">ve_port</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_qos_statisticsObj</span> <span class="o">=</span> <span class="n">circuit_qos_statistics</span><span class="p">()</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_out_tcp_packets</span><span class="p">(</span><span class="n">out_tcp_packets</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_tcp_slow_starts</span><span class="p">(</span><span class="n">tcp_slow_starts</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_in_bytes</span><span class="p">(</span><span class="n">in_bytes</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_duration</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_out_tcp_bytes</span><span class="p">(</span><span class="n">out_tcp_bytes</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_ha_type</span><span class="p">(</span><span class="n">ha_type</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_out_bytes</span><span class="p">(</span><span class="n">out_bytes</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_tcp_out_of_order_packets</span><span class="p">(</span> <span class="n">tcp_out_of_order_packets</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_flow_status</span><span class="p">(</span><span class="n">flow_status</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_rtt</span><span class="p">(</span><span class="n">rtt</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_in_packets</span><span class="p">(</span><span class="n">in_packets</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_tcp_retransmits</span><span class="p">(</span><span class="n">tcp_retransmits</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_connection_count</span><span class="p">(</span><span class="n">connection_count</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_priority</span><span class="p">(</span><span class="n">priority</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_circuit_id</span><span class="p">(</span><span class="n">circuit_id</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_out_packets</span><span class="p">(</span><span class="n">out_packets</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_in_bytes_average</span><span class="p">(</span><span class="n">in_bytes_average</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_in_tcp_packets</span><span class="p">(</span><span class="n">in_tcp_packets</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_operational_status</span><span class="p">(</span><span class="n">operational_status</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_in_tcp_bytes</span><span class="p">(</span><span class="n">in_tcp_bytes</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_out_bytes_average</span><span class="p">(</span><span class="n">out_bytes_average</span><span class="p">)</span>
+<span class="n">circuit_qos_statisticsObj</span><span class="o">.</span><span class="n">set_ve_port</span><span class="p">(</span><span class="n">ve_port</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">_show_circuit_qos_statistics</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">circuit_qos_statisticsObj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Inputs</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> – The session returned by the login.</li>
+<li><strong>out_tcp_packets</strong> – TCP packets sent.</li>
+<li><strong>tcp_slow_starts</strong> – TCP slow starts.</li>
+<li><strong>in_bytes</strong> – total octets received.</li>
+<li><strong>duration</strong> – Connection duration (in seconds).</li>
+<li><strong>out_tcp_bytes</strong> – Total TCP bytes sent.</li>
+<li><strong>ha_type</strong> – Tunnel group HA type configuration.</li>
+<li><strong>out_bytes</strong> – total octets sent.</li>
+<li><strong>tcp_out_of_order_packets</strong> – TCP total out of order packets.</li>
+<li><strong>flow_status</strong> – Flow control status:  false : flow control is off true      : flow control is on</li>
+<li><strong>rtt</strong> – The round trip time.</li>
+<li><strong>in_packets</strong> – total packets received.</li>
+<li><strong>tcp_retransmits</strong> – TCP retransmits /lost packets.</li>
+<li><strong>connection_count</strong> – Active connection count.</li>
+<li><strong>priority</strong> – QOS Priority value for the tunnel</li>
+<li><strong>circuit_id</strong> – Circuit identifier the allowed values are for 0 to 9.</li>
+<li><strong>out_packets</strong> – Total TCP packets sent.</li>
+<li><strong>in_bytes_average</strong> – Total octets received per 30s average.</li>
+<li><strong>in_tcp_packets</strong> – TCP packets received.</li>
+<li><strong>operational_status</strong> – Circuit operational status.</li>
+<li><strong>in_tcp_bytes</strong> – Total TCP bytes received.</li>
+<li><strong>out_bytes_average</strong> – Total octets send per 30s average.</li>
+<li><strong>ve_port</strong> – The name of the extension-tunnel interface.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or one/more instance of class circuit_qos_statistics on    Success  or a dictionary with error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#module-pyfos_brocade_extension_tunnel" title="pyfos_brocade_extension_tunnel: PyFOS module to support tunnel module for REST. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_extension_tunnel</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fabric_discovery.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">fabric_discovery</span></code> - PyFOS util for fabric discovery using custom login methods.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dp_hcl_status_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">dp_hcl_status_show</span></code> - PyFOS util to show for dp_hcl_status</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/circuit_qos_statistics_show.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dp_hcl_status_show.html" title="dp_hcl_status_show - PyFOS util to show for dp_hcl_status"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fabric_discovery.html" title="fabric_discovery - PyFOS util for fabric discovery using custom login methods."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

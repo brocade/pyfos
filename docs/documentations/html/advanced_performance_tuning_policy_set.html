@@ -1,0 +1,180 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>advanced_performance_tuning_policy_set - PyFOS util to modify fibrechannel_switch &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dynamic_load_sharing_set - PyFOS util to modify fibrechannel_switch" href="dynamic_load_sharing_set.html" />
+    <link rel="prev" title="port_export_state_set - PyFOS util to modify for EX-Port attributes" href="port_export_state_set.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dynamic_load_sharing_set.html" title="dynamic_load_sharing_set - PyFOS util to modify fibrechannel_switch"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="port_export_state_set.html" title="port_export_state_set - PyFOS util to modify for EX-Port attributes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-advanced_performance_tuning_policy_set"></span><div class="section" id="advanced-performance-tuning-policy-set-pyfos-util-to-modify-fibrechannel-switch">
+<h1><a class="reference internal" href="#module-advanced_performance_tuning_policy_set" title="advanced_performance_tuning_policy_set: PyFOS module to manage specific switch op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">advanced_performance_tuning_policy_set</span></code></a> - PyFOS util to modify fibrechannel_switch<a class="headerlink" href="#advanced-performance-tuning-policy-set-pyfos-util-to-modify-fibrechannel-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-advanced_performance_tuning_policy_set" title="advanced_performance_tuning_policy_set: PyFOS module to manage specific switch op use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">advanced_performance_tuning_policy_set</span></code></a> PyFOS util to modify fibrechannel_switch</p>
+<p>Switch state parameters. Requests can also be made using a query that specifies the vf-id of the fabric. This request also provides the switch state parameters.</p>
+<p>advanced_performance_tuning_policy_set : usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–name=NAME: The switch world wide name (WWN).</li>
+<li>–advanced-performance-tuning-policy=APT-POLICY: The desired Advanced      Performance Tuning (APT). The supported values are: port-based,      device-based, and exchange-based.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="advanced_performance_tuning_policy_set.advanced_performance_tuning_policy_set.modify_fibrechannel_switch">
+<code class="descclassname">advanced_performance_tuning_policy_set.</code><code class="descname">modify_fibrechannel_switch</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>apt_policy</em><span class="sig-paren">)</span><a class="headerlink" href="#advanced_performance_tuning_policy_set.advanced_performance_tuning_policy_set.modify_fibrechannel_switch" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Modify fibrechannel_switch</em></p>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">advanced_performance_tuning_policy_set</span><span class="o">.</span><span class="n">modify_fibrechannel_switch</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">apt_policy</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fibrechannel_switchObj</span> <span class="o">=</span> <span class="n">fibrechannel_switch</span><span class="p">()</span>
+<span class="n">fibrechannel_switchObj</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">fibrechannel_switchObj</span><span class="o">.</span><span class="n">set_advanced_performance_tuning_policy</span><span class="p">(</span><span class="n">apt_policy</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> – The session returned by the login.</li>
+<li><strong>name</strong> – The switch world wide name (WWN).</li>
+<li><strong>apt_policy</strong> – The desired Advanced      Performance Tuning (APT) policy for the switch. The APT      policy controls how the switch creates the routes that are      used by traffic flowing through the switch. The supported      values are: port-based, device-based, and exchange-based.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Dictionary of response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="port_export_state_set.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">port_export_state_set</span></code> - PyFOS util to modify for EX-Port attributes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dynamic_load_sharing_set.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">dynamic_load_sharing_set</span></code> - PyFOS util to modify fibrechannel_switch</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/advanced_performance_tuning_policy_set.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dynamic_load_sharing_set.html" title="dynamic_load_sharing_set - PyFOS util to modify fibrechannel_switch"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="port_export_state_set.html" title="port_export_state_set - PyFOS util to modify for EX-Port attributes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

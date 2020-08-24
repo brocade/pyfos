@@ -1,0 +1,191 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>auth_token_delete - PyFOS util to Delete an AuthToken with Manager. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="auth_token_generate - PyFOS util to generate an Auth Token." href="auth_token_generate.html" />
+    <link rel="prev" title="logical_fabric_show - PyFOS util to show logical_e_port" href="logical_fabric_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="auth_token_generate.html" title="auth_token_generate - PyFOS util to generate an Auth Token."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="logical_fabric_show.html" title="logical_fabric_show - PyFOS util to show logical_e_port"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-auth_token_delete"></span><div class="section" id="auth-token-delete-pyfos-util-to-delete-an-authtoken-with-manager">
+<h1><a class="reference internal" href="#module-auth_token_delete" title="auth_token_delete: PyFOS module to Delete an AuthToken from the FOS switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_delete</span></code></a> - PyFOS util to Delete an AuthToken with Manager.<a class="headerlink" href="#auth-token-delete-pyfos-util-to-delete-an-authtoken-with-manager" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-auth_token_delete" title="auth_token_delete: PyFOS module to Delete an AuthToken from the FOS switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_delete</span></code></a> PyFOS util to Delete an AuthToken with Manager.</p>
+<p>AuthToken Delete from a FOS switch using REST operations.</p>
+<p>auth_token_delete : usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–config=CONFIG The Configuration for Auth Token Manager to be used.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="auth_token_delete.auth_token_delete.delete_auth_token_manager">
+<code class="descclassname">auth_token_delete.</code><code class="descname">delete_auth_token_manager</code><span class="sig-paren">(</span><em>session</em>, <em>config</em>, <em>delete_auth_token</em><span class="sig-paren">)</span><a class="headerlink" href="#auth_token_delete.auth_token_delete.delete_auth_token_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Modify auth_token_manager</em></p>
+<blockquote>
+<div><p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">auth_token_delete</span><span class="o">.</span><span class="n">delete_auth_token_manager</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span>            <span class="n">delete_auth_token</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auth_token_managerObj</span> <span class="o">=</span>            <span class="n">brcd_util</span><span class="o">.</span><span class="n">pseudodictrestobject</span><span class="p">(</span><span class="s2">&quot;auth-token-manager&quot;</span><span class="p">)</span>
+<span class="n">auth_token_managerObj</span><span class="o">.</span><span class="n">set_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">_delete_auth_token_manager</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">auth_token_managerObj</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">Input:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">param</span> <span class="n">session</span><span class="p">:</span> <span class="n">The</span> <span class="n">session</span> <span class="n">returned</span> <span class="n">by</span> <span class="n">the</span> <span class="n">login</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">config</span><span class="p">:</span> <span class="n">The</span> <span class="n">Configuration</span> <span class="k">for</span> <span class="n">Auth</span> <span class="n">Token</span> <span class="n">Manager</span> <span class="n">to</span> <span class="n">be</span>              <span class="n">used</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Output:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">Dictionary of response</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="auth_token_generate.html#module-auth_token_generate" title="auth_token_generate: PyFOS module to generate an AuthToken from a FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_generate</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_add_token.html#module-auth_token_manager_add_token" title="auth_token_manager_add_token: PyFOS module to add an AuthToken to Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_add_token</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_delete_token.html#module-auth_token_manager_delete_token" title="auth_token_manager_delete_token: PyFOS module to Delete an AuthToken from Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_delete_token</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_show.html#module-auth_token_manager_show" title="auth_token_manager_show: PyFOS module to Display  AuthToken's and Auth Token Manager instance configurations. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_show</span></code></a>
+Module <a class="reference internal" href="auth_token_migrate_token.html#module-auth_token_migrate_token" title="auth_token_migrate_token: PyFOS module to migrate AuthTokens across AuthTokenManager Instance. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_migrate_token</span></code></a>
+Module <a class="reference internal" href="auth_token_reset_default_config.html#module-auth_token_reset_default_config" title="auth_token_reset_default_config: PyFOS module to reset the default configuration store for Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_reset_default_config</span></code></a>
+Module <a class="reference internal" href="auth_token_set_default_config.html#module-auth_token_set_default_config" title="auth_token_set_default_config: PyFOS module to set a custom Auth Token store as default for Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_set_default_config</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="logical_fabric_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">logical_fabric_show</span></code> - PyFOS util to show logical_e_port</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="auth_token_generate.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">auth_token_generate</span></code> - PyFOS util to generate an Auth Token.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/auth_token_delete.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="auth_token_generate.html" title="auth_token_generate - PyFOS util to generate an Auth Token."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="logical_fabric_show.html" title="logical_fabric_show - PyFOS util to show logical_e_port"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

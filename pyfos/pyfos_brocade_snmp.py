@@ -242,7 +242,7 @@ class system(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "default-control", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
-                 ["default-config"])
+            ["default-config"])
         self.add(pyfos_rest_util.rest_attribute(
             "security-get-level", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
@@ -434,7 +434,7 @@ class v1_account(pyfos_rest_util.rest_object):
         | 				    | 				     |:meth:`peek_community_name`                      	     |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
         | community-group                   | Community belongs to the group |:meth:`peek_community_group`                           |
-        |				    | RO or RW			     |                            			     |
+        |				    | RO or RW			     |:meth:`set_community_group`			     |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
 
     *Object methods*
@@ -484,6 +484,12 @@ class v1_account(pyfos_rest_util.rest_object):
 
             :rtype: None or group name.
 
+        .. method:: set_community_group()
+
+            Set group name of the SNMP v1 account.
+
+            :rtype: dictionary of error or success response.
+
         """
 
     def __init__(self, dictvalues={}):
@@ -499,7 +505,7 @@ class v1_account(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "community-group", pyfos_type.type_str,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)
 
@@ -626,7 +632,8 @@ class v3_account(pyfos_rest_util.rest_object):
         |			            |				     |:meth:`peek_user_name`				     |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
         | user-group                        | SNMP v3 user belongs to the    |:meth:`peek_user_group`                                |
-        |				    | group snmpadmin or snmpuser    |                       				     |
+        |				    | group snmpadmin or snmpuser    |							     |
+        |				    |				     |:meth:`set_user_group`				     |
         +-----------------------------------+--------------------------------+-------------------------------------------------------+
         | authentication-protocol           | Authentication protocol for    |:meth:`set_authentication_protocol`                    |
         |				    | SNMP v3 user		     |:meth:`peek_authentication_protocol`                   |
@@ -676,7 +683,7 @@ class v3_account(pyfos_rest_util.rest_object):
 
         .. method:: set_user_name()
 
-            Set SNMP V3 user nane.
+            Set SNMP V3 user name.
 
             :rtype: dictionary value of error or success response.
 
@@ -688,9 +695,15 @@ class v3_account(pyfos_rest_util.rest_object):
 
         .. method:: peek_user_group()
 
-            Reads group of the SNMP v3 user.
+            Reads group name of the SNMP v3 user.
 
             :rtype: None or group of the SNMP v3 user.
+
+        .. method:: set_user_group()
+
+            Set group name of the SNMP v3 user.
+
+            :rtype: dictionary value of error or success response.
 
         .. method:: set_authentication_protocol()
 
@@ -712,7 +725,7 @@ class v3_account(pyfos_rest_util.rest_object):
 
         .. method:: peek_privacy_protocol()
 
-            Reads privacy protoco of the SNMP v3 user.
+            Reads privacy protocol of the SNMP v3 user.
 
             :rtype: None or privacy protocol of the SNMP v3 user.
 

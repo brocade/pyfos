@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>switch_ag_mode_set - PyFOS util to enable or disable AG mode &#8212; PyFOS 1.2.1 documentation</title>
+    <title>switch_ag_mode_set - PyFOS util to enable or disable AG mode &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="port_stats_show.html" title="port_stats_show - PyFOS util for specific port op use case."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -68,10 +68,10 @@ The switch must be in disabled state before enabling or disabling AG mode.</p>
 <div class="line-block">
 <div class="line">–ag-mode=VALUE     set ag-mode (enable = 3, disable = 1)</div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>outputs:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Status of the AG enable/disable operation.</li>
 </ul>
 </dd>
@@ -85,12 +85,12 @@ The switch must be in disabled state before enabling or disabling AG mode.</p>
 <li><p class="first">Enable/Disable the Access Gateway(AG) mode.</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">switch_ag_mode_set</span><span class="o">.</span><span class="n">set_ag_mode</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">ag_mode</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">switch_ag_mode_set</span><span class="o">.</span><span class="n">set_ag_mode</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">ag_mode</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sw_obj</span> <span class="o">=</span> <span class="n">fibrechannel_switch</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sw_obj</span> <span class="o">=</span> <span class="n">fibrechannel_switch</span><span class="p">()</span>
 <span class="n">current_sw</span> <span class="o">=</span> <span class="n">fibrechannel_switch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 
 <span class="n">sw_obj</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">current_sw</span><span class="o">.</span><span class="n">peek_name</span><span class="p">())</span>
@@ -98,7 +98,7 @@ The switch must be in disabled state before enabling or disabling AG mode.</p>
 <span class="k">return</span> <span class="n">sw_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -195,7 +195,7 @@ Module <a class="reference internal" href="pyfos_brocade_access_gateway.html#mod
         <li class="right" >
           <a href="port_stats_show.html" title="port_stats_show - PyFOS util for specific port op use case."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

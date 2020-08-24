@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright © 2018 Broadcom. All rights reserved. The term "Broadcom"
+# Copyright © 2018-2019 Broadcom. All rights reserved. The term "Broadcom"
 # refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -183,6 +183,7 @@ def zone_allow_pair_to_peer(session, prefix, hostport,
                      {
                         "zone-name": zonename,
                         "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                        "zone-type-string": pyfos_zone.ZONE_TYPE_STRING_PEER,
                         "member-entry": {
                                          "principal-entry-name": [targetport],
                                          "entry-name": [hostport]
@@ -209,11 +210,12 @@ def zone_allow_pair_to_peer(session, prefix, hostport,
             if not found_matching_zone_with_host:
                 if checkmode is False:
                     zones = [
-                             {
-                              "zone-name": zonename,
-                              "zone-type": pyfos_zone.ZONE_TYPE_PEER,
-                              "member-entry": {"entry-name": [hostport]}
-                             }
+                        {
+                          "zone-name": zonename,
+                          "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                          "zone-type-string": pyfos_zone.ZONE_TYPE_STRING_PEER,
+                          "member-entry": {"entry-name": [hostport]}
+                        }
                             ]
                     new_defined = pyfos_zone.defined_configuration()
                     new_defined.set_zone(zones)

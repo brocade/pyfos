@@ -14,9 +14,14 @@
 # limitations under the License.
 
 # Used to document the utils scripts mapping to pyfos objects
+import pyfos.pyfos_rest_util as rest_util
+import pyfos.pyfos_type as pyfos_type
+
+# pylint: disable=W0105
 """
 UTILS Dictionary start
 """
+
 brcd_utils_dict = dict()
 
 brcd_utils_dict.update({
@@ -283,6 +288,10 @@ brcd_utils_dict.update({
         "port-group":
             None
     },
+    "seccertmgmt_extension": {
+        "security-certificate-extension":
+            None
+    },
 })
 
 brcd_utils_dict.update({
@@ -305,6 +314,18 @@ brcd_utils_dict.update({
         "blade":
             None
     },
+    "wwn": {
+        "wwn":
+            None
+    },
+    "sensor": {
+        "sensor":
+            None
+    },
+    "history": {
+        "history-log":
+            None
+    },
 })
 
 brcd_utils_dict.update({
@@ -320,6 +341,10 @@ brcd_utils_dict.update({
         "chassis":
             ["vf-enabled"]
     },
+    "chassis_fcr_enabled": {
+        "chassis":
+            ["fcr-enabled"]
+    },
 })
 
 brcd_utils_dict.update({
@@ -328,6 +353,7 @@ brcd_utils_dict.update({
             None
     },
 })
+
 brcd_utils_dict.update({
     "name_server": {
         "fibrechannel-name-server":
@@ -342,6 +368,10 @@ brcd_utils_dict.update({
     },
     "port": {
         "fibrechannel":
+            None
+    },
+    "logical_e_port": {
+        "logical_e_port":
             None
     },
 })
@@ -409,6 +439,13 @@ brcd_utils_dict.update({
     "syslog_facility": {
         "log-setting":
             ["syslog-facility-level"]
+    }
+})
+
+brcd_utils_dict.update({
+    "clear_log": {
+        "log-setting":
+            ["clear-log"]
     }
 })
 
@@ -522,6 +559,10 @@ brcd_utils_dict.update({
         "fabric-switch":
             None
     },
+    "access_gateway": {
+         "access-gateway": None
+    },
+
 })
 
 brcd_utils_dict.update({
@@ -580,6 +621,59 @@ brcd_utils_dict.update({
     },
 })
 
+brcd_utils_dict.update({
+    "fabric_traffic_controller": {
+        "fabric-traffic-controller":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "fabric_operation_parameters": {
+        "build-fabric":
+            None
+    }
+})
+
+brcd_utils_dict.update({
+    "zone_operation_parameters": {
+        "zone-object":
+            None
+    }
+})
+
+brcd_utils_dict.update({
+    "routing_configuration": {
+        "routing-configuration":
+            ["maximum_lsan_count",
+             "backbone_fabric_id",
+             "shortest_ifl",
+             "lsan_enforce_tags_tag",
+             "lsan_speed_tag"]
+    },
+})
+
+brcd_utils_dict.update({
+    "edge_fabric_alias": {
+        "edge-fabric-alias":
+            ["edge_fabric_id",
+             "alias_name"]
+    },
+})
+
+brcd_utils_dict.update({
+    "lsan_zone": {
+        "lsan-zone":
+            None
+    },
+})
+
+brcd_utils_dict.update({
+    "lsan_device": {
+        "lsan-device":
+            None
+    },
+})
 # Used to document the CLI options
 brcd_utils_cli_dict = dict()
 
@@ -969,6 +1063,13 @@ brcd_utils_cli_dict.update({
 })
 brcd_utils_cli_dict.update({
     "fibrechannel": {
+        "pod_license_state": {
+            "help": "Set  \"released | reserved\" as a \
+value for \"pod-license-state\".",
+            "loption": "pod_license_state",
+            "optional": 1,
+            "soption": None
+        },
         "enable": {
             "help":  "--enable",
             "loption": "enable",
@@ -996,6 +1097,16 @@ brcd_utils_cli_dict.update({
             "loption": "mirror_enabled",
             "optional": 0,
             "soption": "m"
+        },
+        "encryption_enabled": {
+            "help": "Set \"encryption-enabled\" <0|1>",
+            "loption": "enc_enabled",
+            "optional": 0,
+        },
+        "compression_configured": {
+            "help": "Set \"compression-configured\" <0|1>",
+            "loption": "comp_enabled",
+            "optional": 0,
         },
         "enabled_state": {
             "help": "\"enable | disable\" <1|0>",
@@ -1028,6 +1139,11 @@ brcd_utils_cli_dict.update({
             "loption": "npiv_enabled",
             "optional": 0,
         },
+        "port_autodisable_enabled": {
+            "help": "Set \"port-autodisable-enabled\" <0|1>",
+            "loption": "autodisable_enabled",
+            "optional": 0,
+        },
         "credit_recovery_enabled": {
             "help": "Set \"credit_recovery_enabled\" <0|1>",
             "loption": "credit_recovery_enabled",
@@ -1036,6 +1152,21 @@ brcd_utils_cli_dict.update({
         "los_tov_mode_enabled": {
             "help": "Set \"los-tov-mode-enabled\" <0|1>",
             "loption": "los_tov_enabled",
+            "optional": 0,
+        },
+        "ex_port_enabled": {
+            "help": "Set \"ex_port_enabled\" <0|1>",
+            "loption": "exportstate",
+            "optional": 0,
+        },
+        "edge_fabric_id": {
+            "help": "Set the fabric id for edge switch",
+            "loption": "edgefid",
+            "optional": 0,
+        },
+        "preferred_front_domain_id": {
+            "help": "Set the preffered front domain id",
+            "loption": "frontdomid",
             "optional": 0,
         },
     }
@@ -1057,6 +1188,12 @@ brcd_utils_cli_dict.update({
         "static_f_port_list": {
             "help": "List of statically mapped F-ports",
             "loption": "static-f-ports",
+            "optional": 1,
+            "soption": None
+        },
+        "preferred_f_ports": {
+            "help": "List of preferred mapped F-ports",
+            "loption": "preferred-f-port",
             "optional": 1,
             "soption": None
         },
@@ -1125,8 +1262,14 @@ brcd_utils_cli_dict.update({
         "node_name_zoning_enabled": {
             "help": "Enable node name zoning",
             "loption": "node-name-zoning-enabled",
-            "optional": 0,
-            "soption": None
+            "optional": 1,
+            "soption": "n"
+        },
+        "fabric_lock_timeout": {
+            "help": "Set the zone fabric lock timeout",
+            "loption": "timeout",
+            "optional": 1,
+            "soption": "t"
         }
     }
 })
@@ -1134,11 +1277,58 @@ brcd_utils_cli_dict.update({
 brcd_utils_cli_dict.update({
     "fabric": {
         "insistent_domain_id_enabled": {
-            "help": "Set consistent domain ID of the switch",
+            "help": "\tSet consistent domain ID of the switch",
             "loption": "insistent-domain-id-enabled",
             "optional": 0,
             "soption": None
+        },
+        "principal_selection_enabled": {
+            "help": "\tSets principal selection mode in the switch",
+            "loption": "principal-selection-enabled",
+            "optional": 0,
+            "soption": None
+        },
+        "principal_priority": {
+            "help": "\tSet priority value for principal switch selection",
+            "loption": "principal-priority",
+            "optional": 0,
+            "soption": None
         }
+    }
+})
+
+brcd_utils_cli_dict.update({
+   "access-gateway": {
+           "switch_wwn": {
+            "help": "switch wwn",
+            "loption": "wwn",
+            "optional": 0,
+            "soption": None
+           },
+           "user_friendly_name": {
+            "help": "user name",
+            "loption": "name",
+            "optional": 0,
+            "soption": None
+           },
+           "firmware_version": {
+            "help": "version",
+            "loption": "version",
+            "optional": 0,
+            "soption": None
+           },
+           "ip-addresses": {
+            "help": "ip address",
+            "loption": "ip",
+            "optional": 0,
+            "soption": None
+           },
+           "is-edge-ag": {
+            "help": "edge ag",
+            "loption": "edge",
+            "optional": 0,
+            "soption": None
+           },
     }
 })
 
@@ -1291,13 +1481,13 @@ brcd_utils_cli_dict.update({
             "soption": None
         },
         "old_password": {
-            "help": "existing pasword",
+            "help": "existing password in base64",
             "loption": "old-password",
             "optional": 1,
             "soption": None
         },
         "new_password": {
-            "help": "new password",
+            "help": "new password in base64",
             "loption": "new-password",
             "optional": 1,
             "soption": None
@@ -1508,6 +1698,12 @@ brcd_utils_cli_dict.update({
         "vf_enabled": {
             "help": "set VF enabled-state (enable=true, disable=false)",
             "loption": "vf-enabled",
+            "optional": 0,
+            "soption": None
+        },
+        "fcr_enabled": {
+            "help": "set FCR enabled-state (enable=true, disable=false)",
+            "loption": "fcr-enabled",
             "optional": 0,
             "soption": None
         },
@@ -2319,6 +2515,20 @@ brcd_utils_cli_dict.update({
             "loption": "passwd",
             "optional": 1,
             "soption": None
+        },
+        "serial_mode": {
+            "help": "Set to true/false to enable/disable legacy serial-mode " +
+            "module supportsave collection",
+            "loption": "serial-mode",
+            "optional": 0,
+            "soption": None
+        },
+        "port": {
+            "help": "User defined port number can be configured only for " +
+            "scp/sftp protocol",
+            "loption": "port",
+            "optional": 0,
+            "soption": None
         }
     }
 })
@@ -2356,7 +2566,8 @@ brcd_utils_cli_dict.update({
             "soption": None
         },
         "free_fdisc": {
-            "help": "\tConfigures freely allowed fdisc logins before staging. [OPTIONAL]",
+            "help": "\tConfigures freely allowed fdisc logins before " +
+                    "staging. [OPTIONAL]",
             "loption": "free-fdisc",
             "optional": 1,
             "soption": None
@@ -2368,7 +2579,8 @@ brcd_utils_cli_dict.update({
             "soption": None
         },
         "max_flogi_rate_per_switch": {
-            "help": "\tConfigures Max Logins per second in a switch. [OPTIONAL]",
+            "help": "\tConfigures Max Logins per second in a switch." +
+                    " [OPTIONAL]",
             "loption": "max-logins-switch",
             "optional": 1,
             "soption": None
@@ -2380,7 +2592,8 @@ brcd_utils_cli_dict.update({
             "soption": None
         },
         "stage_interval": {
-            "help": "\tConfigures stage interval time in milliseconds. [OPTIONAL]",
+            "help": "\tConfigures stage interval time in milliseconds." +
+                    " [OPTIONAL]",
             "loption": "stage-interval",
             "optional": 1,
             "soption": None
@@ -2484,6 +2697,13 @@ brcd_utils_cli_dict.update({
             "loption": "syslog-facility-level",
             "optional": 1,
             "soption": None
+        },
+        "clear_log": {
+            "help": "\tSet it to \"error-log\" to clear errdump, \
+\"audit-log\" to clear auditdump, \"all\" to clear both errdump and auditdump",
+            "loption": "clear-log",
+            "optional": 1,
+            "soption": "c"
         }
     }
 })
@@ -2519,13 +2739,15 @@ brcd_utils_cli_dict.update({
             "soption": None
         },
         "severity_level": {
-            "help": "\tConfigure severity level for audit (info,warning,error,critical)",
+            "help": "\tConfigure severity level for audit " +
+                    "(info,warning,error,critical)",
             "loption": "severity",
             "optional": 1,
             "soption": None
         },
         "filter_class_list_filter_class": {
-            "help": "\tConfigure filter class for audit (zone,security,configuration,firmware,fabric,ls,cli,maps)",
+            "help": "\tConfigure filter class for audit (zone,security," +
+                    "configuration,firmware,fabric,ls,cli,maps)",
             "loption": "filter",
             "optional": 1,
             "soption": None
@@ -3038,10 +3260,518 @@ brcd_utils_cli_dict.update({
             "soption": None
         },
         "access_level": {
-            "help": "The access level of the access control entry < ro/rw >[OPTIONAL]",
+            "help": "The access level of the access control entry" +
+                    " < ro/rw >[OPTIONAL]",
             "loption": "access-level",
             "optional": 1,
             "soption": None
         },
     }
 })
+
+
+brcd_utils_cli_dict.update({
+    "error-log": {
+        "message_id": {
+            "help": "Filter and display error logs that match the \
+message ID passed",
+            "loption": "message-id",
+            "optional": 1,
+            "soption": "m"
+        },
+        "severity_level": {
+            "help": "Filter and display error logs that match the \
+severity level passed",
+            "loption": "severity-level",
+            "optional": 1,
+            "soption": "l"
+        },
+        "slot_id": {
+            "help": "Filter and display error logs that match the \
+slot id passed",
+            "loption": "slot-id",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "supportftp": {
+        "host": {
+            "help": "\tConfigure IP address or DNS name of server",
+            "loption": "host",
+            "optional": 1,
+            "soption": None
+        },
+        "user_name": {
+            "help": "\tConfigure user name of account in server",
+            "loption": "user-name",
+            "optional": 1,
+            "soption": "u"
+        },
+        "password": {
+            "help": "\tConfigure password of account in server in Base64",
+            "loption": "login-password",
+            "optional": 1,
+            "soption": "w"
+        },
+        "remote_directory": {
+            "help": "\tConfigure directory path in server",
+            "loption": "remote-directory",
+            "optional": 1,
+            "soption": "d"
+        },
+        "auto_enabled": {
+            "help": "\tSet to true/false to enable/disable auto supportftp",
+            "loption": "auto-enabled",
+            "optional": 1,
+            "soption": "a"
+        },
+        "protocol": {
+            "help": "\tConfigure protocol(ftp/scp/sftp) used to transfer data",
+            "loption": "protocol",
+            "optional": 1,
+            "soption": "p"
+        },
+        "connectivity_check_interval": {
+            "help": "\tConfigure interval to check server connectivity",
+            "loption": "check-interval",
+            "optional": 1,
+            "soption": "c"
+        },
+     }
+})
+
+brcd_utils_cli_dict.update({
+    "supportlink_profile": {
+        "server": {
+            "help": "\tConfigure IP address or DNS name of server",
+            "loption": "server",
+            "optional": 1,
+            "soption": None
+        },
+        "port": {
+            "help": "\tConfigure HTTPS port of server",
+            "loption": "port",
+            "optional": 1,
+            "soption": "p"
+        },
+        "user_name": {
+            "help": "\tConfigure user name of account in server",
+            "loption": "user-name",
+            "optional": 1,
+            "soption": "u"
+        },
+        "start_date": {
+            "help": "\tConfigure start date",
+            "loption": "start-date",
+            "optional": 1,
+            "soption": "d"
+        },
+        "start_time": {
+            "help": "\tConfigure start time",
+            "loption": "start-time",
+            "optional": 1,
+            "soption": "t"
+        },
+        "end_time_period": {
+            "help": "\tConfigure end time period",
+            "loption": "end-time-period",
+            "optional": 1,
+            "soption": "o"
+        },
+        "retry_time": {
+            "help": "\tConfigure retry time",
+            "loption": "retry-time",
+            "optional": 1,
+            "soption": "r"
+        },
+        "period": {
+            "help": "\tConfigure frequency/period",
+            "loption": "period",
+            "optional": 1,
+            "soption": "i"
+        },
+        "collection_time": {
+            "help": "\tConfigure collection time",
+            "loption": "collection-time",
+            "optional": 1,
+            "soption": "c"
+        },
+        "group_tag": {
+            "help": "\tConfigure group tag",
+            "loption": "group-tag",
+            "optional": 1,
+            "soption": "g"
+        },
+        "proxy_server": {
+            "help": "\tConfigure proxy server",
+            "loption": "proxy-server",
+            "optional": 1,
+            "soption": "v"
+        },
+        "proxy_port": {
+            "help": "\tConfigure proxy port",
+            "loption": "proxy-port",
+            "optional": 1,
+            "soption": "x"
+        },
+        "proxy_user": {
+            "help": "\tConfigure proxy user",
+            "loption": "proxy-user",
+            "optional": 1,
+            "soption": "y"
+        },
+        "proxy_password": {
+            "help": "\tConfigure proxy password",
+            "loption": "proxy-password",
+            "optional": 1,
+            "soption": "w"
+        },
+        "proxy_protocol": {
+            "help": "\tConfigure proxy protocol",
+            "loption": "proxy-protocol",
+            "optional": 1,
+            "soption": "l"
+        },
+        "supportlink_enabled": {
+            "help": "\tConfigure supportlink feature",
+            "loption": "supportlink-enabled",
+            "optional": 1,
+            "soption": "e"
+        },
+     }
+})
+
+brcd_utils_cli_dict.update({
+    "fabric-traffic-controller": {
+        "n_port_id": {
+            "help": "N_Port ID. [OPTIONAL]",
+            "loption": "n-port-id",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+brcd_utils_cli_dict.update({
+    "sensor": {
+        "id": {
+            "help": "The sensor id [OPTIONAL]",
+            "loption": "id",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "wwn": {
+        "unit_number": {
+            "help": "set \"unit-number\"",
+            "loption": "unit-number",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "logical_e_port": {
+        "port_index": {
+            "help": "set \"port-index\"",
+            "loption": "port-index",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+            }
+    }
+})
+pseudorestobjectclidict = dict()
+pseudorestobjectclidict.update({
+    "auth-token-manager":
+    {
+        "config": {
+            "help": "The Configuration for Auth Token Manager to be used.",
+            "loption": "config",
+            "optional": 1,
+            "soption": "c",
+            "noarg": True,
+            "valtype": pyfos_type.pyfos_type.type_str,
+            "resttype": rest_util.REST_ATTRIBUTE_CONFIG
+        },
+        "migrate-config": {
+            "help": "Configuration for Manager to migrate the AuthTokens.",
+            "loption": "migrate-config",
+            "optional": 1,
+            "noarg": True,
+            "soption": "m",
+            "valtype": pyfos_type.pyfos_type.type_str,
+            "resttype": rest_util.REST_ATTRIBUTE_CONFIG
+
+        },
+        "switch-user": {
+            "help": "The switch user account associated with Auth Token.",
+            "loption": "switch-user",
+            "optional": 1,
+            "soption": None,
+            "noarg": True,
+            "valtype": pyfos_type.pyfos_type.type_str,
+            "resttype": rest_util.REST_ATTRIBUTE_CONFIG
+        },
+        "switch-ip-address": {
+            "help": "The switch IP address associated with Auth Token.",
+            "loption": "switch-ip-address",
+            "optional": 1,
+            "soption": None,
+            "noarg": True,
+            "valtype": pyfos_type.pyfos_type.type_str,
+            "resttype": rest_util.REST_ATTRIBUTE_CONFIG
+        },
+        "switch-auth-token": {
+            "help": "The switch Auth Token in base64 format.",
+            "loption": "switch-auth-token",
+            "optional": 1,
+            "soption": None,
+            "noarg": True,
+            "valtype": pyfos_type.pyfos_type.type_str,
+            "resttype": rest_util.REST_ATTRIBUTE_CONFIG
+        },
+    }
+})
+brcd_utils_cli_dict.update({
+    "device": {
+        "n_port_id": {
+            "help": "The Fibre Channel ID (FCID) of the device",
+            "loption": "n-port-id",
+            "optional": 0,
+            "soption": None
+        },
+        "n_port_wwn": {
+            "help": "The world wide Port name (PWWN) of the device",
+            "loption": "n-port-wwn",
+            "optional": 0,
+            "soption": None
+        },
+        "payload": {
+            "help": "opaque payload and response buffer in base64 format",
+            "loption": "payload",
+            "optional": 0,
+            "soption": None
+        },
+        "version": {
+            "help": "Version Identifier for the remote device",
+            "loption": "version",
+            "optional": 1,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "fabric-operation-parameters": {
+        "build_fabric": {
+            "help": "Triggers build fabric operation",
+            "loption": "build-fabric",
+            "optional": 0,
+            "soption": "b"
+        }
+    }
+})
+brcd_utils_cli_dict.update({
+    "license-parameters": {
+        "password": {
+            "help": "The password for the remote server.The password must be \
+base64 encoded.",
+            "loption": "license-password",
+            "optional": 1,
+            "soption": None
+        },
+        "remote-directory": {
+            "help": "The xml file path of the server from which the license \
+file to be transferred.",
+            "loption": "remote-directory",
+            "optional": 1,
+            "soption": None
+        },
+        "name": {
+            "help": "The license key or serial number.",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+        "protocol": {
+            "help": "The transport protocol.",
+            "loption": "protocol",
+            "optional": 1,
+            "soption": None
+        },
+        "host": {
+            "help": "The ip address or host name of the remote server.",
+            "loption": "host",
+            "optional": 1,
+            "soption": None
+        },
+        "user-name": {
+            "help": "The user name of the remote server.",
+            "loption": "user-name",
+            "optional": 1,
+            "soption": None
+        },
+        "action": {
+            "help": "The Action against specified license. \
+Input values are \"install | remove\".",
+            "loption": "action",
+            "optional": 1,
+            "soption": None
+        },
+        "port": {
+            "help": "User defined port number for scp and sftp \
+protocols [OPTIONAL].",
+            "loption": "port",
+            "optional": 1,
+            "soption": None
+        },
+        "license-payload": {
+            "help": "To send entire license certificate content as a input. \
+The license certificate payload must be base64 encoded value.",
+            "loption": "license-payload",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "license": {
+        "name": {
+            "help": "Set license key or serial number to get specific \
+license details.",
+            "loption": "name",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+
+brcd_utils_cli_dict.update({
+    "routing-configuration": {
+        "maximum_lsan_count": {
+            "help": "set max lsan count of router switch",
+            "loption": "maximum-lsan-count",
+            "optional": 1,
+            "soption": None
+        },
+        "backbone_fabric_id": {
+            "help": "set backbone fabric id of the router switch",
+            "loption": "backbone-fabric-id",
+            "optional": 1,
+            "soption": None
+        },
+        "shortest_ifl": {
+            "help": "set shortest IFL mode",
+            "loption": "shortest-ifl",
+            "optional": 1,
+            "soption": None
+        },
+        "lsan_enforce_tags_tag": {
+            "help": "set lsan enforce tag",
+            "loption": "lsan-enforce-tag",
+            "optional": 1,
+            "soption": None
+        },
+        "lsan_speed_tag": {
+            "help": "set lsan speed tag",
+            "loption": "lsan-speed-tag",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "edge-fabric-alias": {
+        "edge_fabric_id": {
+            "help": "set edge fabric ID",
+            "loption": "edge-fabric-id",
+            "optional": 1,
+            "soption": None
+        },
+        "alias_name": {
+            "help": "set alias name",
+            "loption": "alias-name",
+            "optional": 1,
+            "soption": None
+        },
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "slot-test": {
+                "slot_id": {
+                    "help": "Set the slot number between which the" +
+                    " test needs to be run.\n\t\t\t\t\t\t  255 Indicates" +
+                    " all the slots in the chassis.",
+                    "loption": "slot-id",
+                    "optional": 1,
+                    "soption": None
+                },
+        }
+})
+
+brcd_utils_cli_dict.update({
+    "lsan-zone": {
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "lsan-device": {
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "zone-operation-parameters": {
+        "zone_object": {
+            "help": "Name of object to be expunged",
+            "loption": "zone-object",
+            "optional": 0,
+            "soption": None
+        }
+    }
+})
+
+brcd_utils_cli_dict.update({
+    "chassis-config-settings": {
+        "ezserver_enabled": {
+            "help": "set \"ezserver-enabled\" " +
+            "<0/False/false|1/True/true>",
+            "loption": "ezserver-enabled",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+        "firmware_synchronization_enabled": {
+            "help": "set \"firmware-synchronization-enabled\" " +
+            "<0/False/false|1/True/true>",
+            "loption": "firmware-synchronization-enabled",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        },
+        "http_session_ttl": {
+            "help": "set \"http-session-ttl\" <60-432000>",
+            "loption": "http-session-ttl",
+            "optional": 0,
+            "soption": None,
+            "value": 0
+        }
+    }
+})
+
+
+def pseudorestcli(dictkey):
+    if dictkey in pseudorestobjectclidict.keys():
+        return dict({dictkey: pseudorestobjectclidict[dictkey]})
+    return None

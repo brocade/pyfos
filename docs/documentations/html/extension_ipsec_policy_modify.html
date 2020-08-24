@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>extension_ipsec_policy_modify - PyFOS util for modifying an IPsec policy. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>extension_ipsec_policy_modify - PyFOS util to modify for extension_ipsec_policy &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="extension_ipsec_policy_delete - PyFOS util for deleting an IPsec policy." href="extension_ipsec_policy_delete.html" />
-    <link rel="prev" title="extension_ipsec_policy_create - PyFOS util for creating an IPsec policy." href="extension_ipsec_policy_create.html" /> 
+    <link rel="next" title="extension_ipsec_policy_show - PyFOS util to show for extension_ipsec_policy" href="extension_ipsec_policy_show.html" />
+    <link rel="prev" title="extension_ipsec_policy_delete - PyFOS util to delete for extension_ipsec_policy" href="extension_ipsec_policy_delete.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="extension_ipsec_policy_delete.html" title="extension_ipsec_policy_delete - PyFOS util for deleting an IPsec policy."
+          <a href="extension_ipsec_policy_show.html" title="extension_ipsec_policy_show - PyFOS util to show for extension_ipsec_policy"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="extension_ipsec_policy_create.html" title="extension_ipsec_policy_create - PyFOS util for creating an IPsec policy."
+          <a href="extension_ipsec_policy_delete.html" title="extension_ipsec_policy_delete - PyFOS util to delete for extension_ipsec_policy"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,40 +42,42 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-extension_ipsec_policy_modify"></span><div class="section" id="extension-ipsec-policy-modify-pyfos-util-for-modifying-an-ipsec-policy">
-<h1><a class="reference internal" href="#module-extension_ipsec_policy_modify" title="extension_ipsec_policy_modify: PyFOS module to create an IPSec Policy. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_ipsec_policy_modify</span></code></a> - PyFOS util for modifying an IPsec policy.<a class="headerlink" href="#extension-ipsec-policy-modify-pyfos-util-for-modifying-an-ipsec-policy" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-extension_ipsec_policy_modify" title="extension_ipsec_policy_modify: PyFOS module to create an IPSec Policy. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_ipsec_policy_modify</span></code></a> util is used to modify an IPsec policy.</p>
-<p>This module is a stand-alone script that can be used to modify an extension
-IPsec policy.</p>
-<p>extension_ipsec_policy_modify: Usage</p>
-<ul>
+  <span class="target" id="module-extension_ipsec_policy_modify"></span><div class="section" id="extension-ipsec-policy-modify-pyfos-util-to-modify-for-extension-ipsec-policy">
+<h1><a class="reference internal" href="#module-extension_ipsec_policy_modify" title="extension_ipsec_policy_modify: PyFOS module to create an IPSec Policy. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_ipsec_policy_modify</span></code></a> - PyFOS util to modify for extension_ipsec_policy<a class="headerlink" href="#extension-ipsec-policy-modify-pyfos-util-to-modify-for-extension-ipsec-policy" title="Permalink to this headline">¶</a></h1>
+<p>The:mod:<cite>extension_ipsec_policy_modify</cite> PyFOS util to modify for extension_ipsec_policy</p>
+<p>Represents IPsec policy defined on extension blade or system.</p>
+<p>extension_ipsec_policy_modify: usage</p>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Infrastructure Options:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
 <li>-L,–login=LOGIN: The login name.</li>
 <li>-P,–password=PASSWORD: The password.</li>
 <li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
-<li>-s,–secured=MODE: The HTTPS mode “self” or “CA”.</li>
-<li>-v,–verbose: Verbose mode.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config    file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Script Specific Options:</dt>
-<dd><ul class="first last simple">
-<li>–profile-name: Sets the profile name.</li>
-<li>–restart-ike-sessions: Sets the restart IKE sessions.</li>
-<li>–policy-name: Sets the policy name.</li>
-<li>–authentication-data: Sets the authentication data.</li>
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–profile-name=PROFILE-NAME: Specifies the IPsec profile to use with the      IPSec policy. Valid values for profile name are ‘preshared’ and ‘pki’.</li>
+<li>–policy-name=POLICY-NAME: Specifies  the name for the IPsec policy. The      IPsec policy name can be up to 31 characters long and cannot contain      certain special characters and keywords such as ‘all’ and ‘none’.</li>
+<li>–restart-ike-sessions=RESTART-IKE-SESSIONS: Write-only leaf, will not      be returned in GET request. Set it to 1 to restart all inactive IKE      sessions for this policy in PATCH request.</li>
+<li>–authentication-data=AUTHENTICATION-DATA: Specifies the      authentication-data depending on the profile used:  For ‘preshared’      profile, this field specifies the preshared-key to be used for      authentication. This operand is required with shared-key      authentication. Preshared key length should have minimum length of 16      characters and maximum length of 64 characters.  For ‘pki’ profile,      this field specifies the local key pair name to use for IKE      authentication. This operand is required with PKI profile. Key pair      name length should have minimum length of 1 character and maximum      length of 32 characters.  Authentication data will returned as a zero      length string for read operations on policies with ‘preshared’      profile.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Outputs:</dt>
-<dd><ul class="first last simple">
+<dt>Output:</dt>
+<dd><ul class="first last">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
@@ -84,69 +86,48 @@ IPsec policy.</p>
 </ul>
 <dl class="function">
 <dt id="extension_ipsec_policy_modify.extension_ipsec_policy_modify.modify_extension_ipsec_policy">
-<code class="descclassname">extension_ipsec_policy_modify.</code><code class="descname">modify_extension_ipsec_policy</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>profile</em>, <em>auth</em><span class="sig-paren">)</span><a class="headerlink" href="#extension_ipsec_policy_modify.extension_ipsec_policy_modify.modify_extension_ipsec_policy" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Modify an Extension IPsec Policy</em></p>
-<blockquote>
-<div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span>
-<span class="n">extension_ipsec_policy_modify</span><span class="o">.</span><span class="n">modify_extension_ipsec_policy</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
-<span class="n">name</span><span class="p">,</span> <span class="n">profile</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">restart_ike</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+<code class="descclassname">extension_ipsec_policy_modify.</code><code class="descname">modify_extension_ipsec_policy</code><span class="sig-paren">(</span><em>session</em>, <em>profile_name</em>, <em>policy_name</em>, <em>restart_ike_sessions</em>, <em>authentication_data</em><span class="sig-paren">)</span><a class="headerlink" href="#extension_ipsec_policy_modify.extension_ipsec_policy_modify.modify_extension_ipsec_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Modify extension_ipsec_policy</em></p>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_ipsec_policy_modify</span><span class="o">.</span><span class="n">modify_extension_ipsec_policy</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">profile_name</span><span class="p">,</span> <span class="n">policy_name</span><span class="p">,</span> <span class="n">restart_ike_sessions</span><span class="p">,</span> <span class="n">authentication_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="s2">&quot;extension-ipsec-policy&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;authentication-data&quot;</span><span class="p">:</span> <span class="s2">&quot;1111111111111111111111111111&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;policy-name&quot;</span><span class="p">:</span> <span class="s2">&quot;mynewipsecpolicy&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;profile-name&quot;</span><span class="p">:</span> <span class="s2">&quot;preshared&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;restart_ike-sessions&quot;</span><span class="p">:</span> <span class="n">restart_ike</span>
-<span class="p">}</span>
-<span class="n">result</span> <span class="o">=</span>
-<span class="n">extension_ipsec_policy_modify</span><span class="o">.</span><span class="n">_modify_extension_ipsec_policy</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
-<span class="n">restobject</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extension_ipsec_policyObj</span> <span class="o">=</span> <span class="n">extension_ipsec_policy</span><span class="p">()</span>
+<span class="n">extension_ipsec_policyObj</span><span class="o">.</span><span class="n">set_profile_name</span><span class="p">(</span><span class="n">profile_name</span><span class="p">)</span>
+<span class="n">extension_ipsec_policyObj</span><span class="o">.</span><span class="n">set_policy_name</span><span class="p">(</span><span class="n">policy_name</span><span class="p">)</span>
+<span class="n">extension_ipsec_policyObj</span><span class="o">.</span><span class="n">set_restart_ike_sessions</span><span class="p">(</span><span class="n">restart_ike_sessions</span><span class="p">)</span>
+<span class="n">extension_ipsec_policyObj</span><span class="o">.</span><span class="n">set_authentication_data</span><span class="p">(</span><span class="n">authentication_data</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">_modify_extension_ipsec_policy</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">extension_ipsec_policyObj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
-<li><dl class="first docutils">
-<dt>Input:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<p><strong>Inputs</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">Sets the IPsec policy name.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">param profile:</th><td class="field-body">Sets the IPsec profile name.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param auth:</th><td class="field-body">Sets the authentication data.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param restart_ike:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Sets the restart IKE sessions.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Output:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> – The session returned by the login.</li>
+<li><strong>profile_name</strong> – Specifies the IPsec profile to use with the IPSec      policy. Valid values for profile name are ‘preshared’ and ‘pki’.</li>
+<li><strong>policy_name</strong> – Specifies  the name for the IPsec policy. The IPsec      policy name can be up to 31 characters long and cannot contain certain      special characters and keywords such as ‘all’ and ‘none’.</li>
+<li><strong>restart_ike_sessions</strong> – Write-only leaf, will not be returned in GET      request. Set it to 1 to restart all inactive IKE sessions for this      policy in PATCH request.</li>
+<li><strong>authentication_data</strong> – Specifies the authentication-data depending on      the profile used:  For ‘preshared’ profile, this field specifies the      preshared-key to be used for authentication. This operand is required      with shared-key authentication. Preshared key length should have      minimum length of 16 characters and maximum length of 64 characters.       For ‘pki’ profile, this field specifies the local key pair name to use      for IKE authentication. This operand is required with PKI profile. Key      pair name length should have minimum length of 1 character and maximum      length of 32 characters.  Authentication data will returned as a zero      length string for read operations on policies with ‘preshared’      profile.</li>
 </ul>
-<p><em>Use Cases</em></p>
-<blockquote>
-<div>Modify an new IPsec policy.</div></blockquote>
-</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of response</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -163,11 +144,11 @@ Module <a class="reference internal" href="pyfos_brocade_extension_ipsec_policy.
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="extension_ipsec_policy_create.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extension_ipsec_policy_create</span></code> - PyFOS util for creating an IPsec policy.</a></p>
-  <h4>Next topic</h4>
   <p class="topless"><a href="extension_ipsec_policy_delete.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_ipsec_policy_delete</span></code> - PyFOS util for deleting an IPsec policy.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extension_ipsec_policy_delete</span></code> - PyFOS util to delete for extension_ipsec_policy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extension_ipsec_policy_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_ipsec_policy_show</span></code> - PyFOS util to show for extension_ipsec_policy</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -201,12 +182,12 @@ Module <a class="reference internal" href="pyfos_brocade_extension_ipsec_policy.
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="extension_ipsec_policy_delete.html" title="extension_ipsec_policy_delete - PyFOS util for deleting an IPsec policy."
+          <a href="extension_ipsec_policy_show.html" title="extension_ipsec_policy_show - PyFOS util to show for extension_ipsec_policy"
              >next</a> |</li>
         <li class="right" >
-          <a href="extension_ipsec_policy_create.html" title="extension_ipsec_policy_create - PyFOS util for creating an IPsec policy."
+          <a href="extension_ipsec_policy_delete.html" title="extension_ipsec_policy_delete - PyFOS util to delete for extension_ipsec_policy"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

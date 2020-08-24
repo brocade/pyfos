@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-# Copyright © 2018 Broadcom. All Rights Reserved. The term “Broadcom” refers to
-# Broadcom Inc. and/or its subsidiaries.
+
+# Copyright © 2019-2020 Broadcom. All rights reserved.
+# The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,100 +16,121 @@
 # limitations under the License.
 
 
+# gigabitethernet_statistics_show.py(pyGen v1.0.0)
+
+
 """
 
-:mod:`gigabitethernet_statistics_show` - PyFOS util for GE_Port statistics.
+:mod:`gigabitethernet_statistics_show` - PyFOS util to show for\
+ gigabitethernet_statistics
+******************************************************************************\
 *******************************************************************************
-The :mod:`gigabitethernet_statistics_show` util is used to display\
- GE_Port statistics.
+The:mod:`gigabitethernet_statistics_show` PyFOS util to show for\
+ gigabitethernet_statistics
 
-This module is a stand-alone script that can be used to show the
-switch GE_Port statistics on an extension platform.
 
-gigabitethernet_statistics_show.py: Usage
+A list of interface-related statistics for gigabitethernet port.
 
-* Infrastructure options:
+gigabitethernet_statistics_show: usage
+
+* Infrastructure Options:
     * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
     * -L,--login=LOGIN: The login name.
     * -P,--password=PASSWORD: The password.
     * -f,--vfid=VFID: The VFID to which the request is directed.
     * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
     * -v,--verbose: Verbose mode [Optional].
+    * -a,--authtoken: AuthToken value or AuthTokenManager config\
+    file[OPTIONAL].
+    * -z,--nosession: Sessionless authentication based login[OPTIONAL].
+    * --nocredential: No credential to be sent in the request[OPTIONAL].
 
 * Util Script Options:
-    * -n,--name=NAME : Sets the name.
-
+    * --name=NAME: The name of the interface.
 * Output:
     * Python dictionary content with RESTCONF response data.
 
-.. function:: gigabitethernet_statistics_show.show(\
-session, name, speed)
 
-    *Show Extension Gigabitethernet Statistics*
+.. function:: gigabitethernet_statistics_show.show_gigabitethernet_statistics(\
+session, name)
 
-        Example Usage of the Method::
+    *Show gigabitethernet_statistics*
 
-            ret = gigabitethernet_statistics_show.show(
-            session, name)
-            print (ret)
+    Example Usage of the Method::
 
-        * Input:
-            :param session: The session returned by the login.
-            :param name: The GE_Port name expressed as slot/port.
+            ret =\
+ gigabitethernet_statistics_show.show_gigabitethernet_statistics(session,\
+ name)
+            print(ret)
 
-        * Output:
-            :rtype: A list of GE_Ports.
+    Details::
 
-        *Use Cases*
+        gigabitethernet_statisticsObj = gigabitethernet_statistics()
+        gigabitethernet_statisticsObj.set_name(name)
+        ret = _show_gigabitethernet_statistics(session,\
+ gigabitethernet_statisticsObj)
+        print(ret)
 
-         Show the GE_Port statistics.
+    **Inputs**
+
+    :param session: The session returned by the login.
+    :param name: The name of the interface.
+
+    **Output**
+
+    :rtype: None or one/more instance of class gigabitethernet_statistics on\
+    Success  or a dictionary with error.
+
 """
 
 
+# Start utils imports
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
-from pyfos.pyfos_brocade_interface import \
-     gigabitethernet_statistics
+from pyfos.pyfos_brocade_interface import gigabitethernet_statistics
+
 from pyfos.utils import brcd_util
+# End module imports
 
 
-def _show(session, geObject):
+def _show_gigabitethernet_statistics(session, gigabitethernet_statisticsObj):
     objlist = gigabitethernet_statistics.get(session)
-    gelist = []
+    gigabitethernet_statisticslist = list()
     if isinstance(objlist, gigabitethernet_statistics):
         objlist = [objlist]
     if isinstance(objlist, list):
         for i in range(len(objlist)):
-            if geObject.peek_name() is not None and\
-               geObject.peek_name() != objlist[i].peek_name():
+            if gigabitethernet_statisticsObj.peek_name() is not None and\
+               gigabitethernet_statisticsObj.peek_name() !=\
+               objlist[i].peek_name():
                 continue
-            gelist.append(objlist[i])
+            gigabitethernet_statisticslist.append(objlist[i])
     else:
-        print(objlist)
-    return gelist
+        return objlist
+    return gigabitethernet_statisticslist
 
 
-def show(session, name):
-    geObject = gigabitethernet_statistics()
-    geObject.set_name(name)
-    result = _show(session, geObject)
-    return result
+def show_gigabitethernet_statistics(session, name=None):
+    gigabitethernet_statisticsObj = gigabitethernet_statistics()
+    gigabitethernet_statisticsObj.set_name(name)
+    return _show_gigabitethernet_statistics(session,
+                                            gigabitethernet_statisticsObj)
+
+
+def validate(gigabitethernet_statisticsObj):
+    if gigabitethernet_statisticsObj.peek_name() is None:
+        return 0
+    return 0
 
 
 def main(argv):
-    # myinputs = "-i 10.17.3.70 --name 4/17"
-    # argv = myinputs.split()
-    filters = ['name']
-    inputs = brcd_util.parse(argv, gigabitethernet_statistics,
-                             filters)
-    geObject = inputs['utilobject']
+    filters = ["name"]
+    inputs = brcd_util.parse(argv, gigabitethernet_statistics, filters,
+                             validate)
     session = brcd_util.getsession(inputs)
-    result = _show(session, geObject)
-    if len(result) == 0:
-        print("No GE interface found.")
-    else:
-        pyfos_util.response_print(result)
+    result = _show_gigabitethernet_statistics(session, inputs['utilobject'])
+    pyfos_util.response_print(result)
     pyfos_auth.logout(session)
 
 

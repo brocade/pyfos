@@ -1,0 +1,255 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>traffic_control_list_modify - PyFOS util to modify for traffic_control_list &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="traffic_control_list_show - PyFOS util to show for traffic_control_list" href="traffic_control_list_show.html" />
+    <link rel="prev" title="traffic_control_list_delete - PyFOS util to delete for traffic_control_list" href="traffic_control_list_delete.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="traffic_control_list_show.html" title="traffic_control_list_show - PyFOS util to show for traffic_control_list"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="traffic_control_list_delete.html" title="traffic_control_list_delete - PyFOS util to delete for traffic_control_list"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-traffic_control_list_modify"></span><div class="section" id="traffic-control-list-modify-pyfos-util-to-modify-for-traffic-control-list">
+<h1><a class="reference internal" href="#module-traffic_control_list_modify" title="traffic_control_list_modify: PyFOS module to modify a Traffic Control List (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">traffic_control_list_modify</span></code></a> - PyFOS util to modify for traffic_control_list<a class="headerlink" href="#traffic-control-list-modify-pyfos-util-to-modify-for-traffic-control-list" title="Permalink to this headline">¶</a></h1>
+<p>The:mod:<cite>traffic_control_list_modify</cite> PyFOS util to modify for traffic_control_list</p>
+<p>Represents traffic control lists in order to manage IP Extension LAN flows.</p>
+<p>traffic_control_list_modify: usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config    file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–target-ve-port=TARGET-VE-PORT: The VE port of the extension-tunnel      used for allowing a LAN ingress traffic to be sent over the WAN.</li>
+<li>–action=ACTION: Set the action for this TCL. The TCL can be programmed      to allow a traffic or deny the traffic.</li>
+<li>–segment-preservation-enabled=SEGMENT-PRESERVATION-ENABLED: Is segment      preservation for this TCL enabled. Default: false, Values supported      are true/false.  false - Disabled true - Enabled</li>
+<li>–port=PORT: The protocol port input filter for this TCL. The port      arguments can be specified as a single port or in case of multiple      ports a comma separated list of ports or else a range of ports can be      specified or a combination. example : 22 or 600-603 or 300,302,305</li>
+<li>–traffic-control-list-name=TRAFFIC-CONTROL-LIST-NAME: Name of the      Traffic-Control-List.</li>
+<li>–source-address=SOURCE-ADDRESS: Source IP address input filter for this      TCL.</li>
+<li>–target-slot=TARGET-SLOT: In case of non-chassis system, the slot      number is always 0. In case of chassis system, it is the slot number      of chassis in which the extension blade is inserted in. In case of      chassis, slot number is non-zero value.</li>
+<li>–target-dp-id=TARGET-DP-ID: Extension Data Path Processor ID. Based on      platform either it will have a single DP or dual DP. In case of single      DP only DP0 is supported, and in case of dual DP both DP0 and DP1 are      supported  0 : DP0 1 : DP1.</li>
+<li>–l4-protocol=L4-PROTOCOL: The Layer 4 protocol input filter for this      TCL.  The value can be a well known protocol string value or otherwise      a L4 protocol number.  The ‘any’ protocol string is the default value      and is meant to match any L4 protocol value.  The valid range for L4      protocol is from 0-255.  The list of known protocol string values from      system are as below:  ICMP  ICMP6  TCP  UDP  VRRP</li>
+<li>–target-qos=TARGET-QOS: QoS priority associated with an      extension-tunnel to be used to allow a LAN ingress traffic over WAN.</li>
+<li>–reset-propagation-enabled=RESET-PROPAGATION-ENABLED: Is End to End      reset propagation for this TCL enabled. Default: false, Values      supported are true/false.  false - Disabled true - Enabled</li>
+<li>–source-address-prefix-length=SOURCE-ADDRESS-PREFIX-LENGTH: The prefix      length operator for source IP address input filter.</li>
+<li>–application=APPLICATION: The application input filter for this TCL.      This includes a list of known apps already present or a user defined      app-type name. The ‘any’ application type name is a special value to      identify any application.  Below are few examples of system defined      known application types:  CIFS  Data-Domain  FCIP  FTP  HTTP  HTTPS</li>
+<li>–destination-address-prefix-length=DESTINATION-ADDRESS-PREFIX-LENGTH:      The prefix length operator for destination IP address input filter.</li>
+<li>–hit-count=HIT-COUNT: Total number of times this TCL rule was hit.</li>
+<li>–dscp=DSCP: The DSCP input filter for this TCL. The values supported      are from 0-63. The value ‘any’ is default value and is meant to match      any dscp value specified.</li>
+<li>–cp-dp-synchronized=CP-DP-SYNCHRONIZED: Indicates whether an      admin-statatus-enabled TCL is synchronized between the CP-&gt;DP. In case      of error the value will be set to false  false - CP-DP synchronizing      failed. true - CP-DP is synchronized.</li>
+<li>–vlan=VLAN: The VLAN input filter for this TCL. The values supported      are from 1-4095. The value ‘any’ is the default value and is meant to      match any vlan-id value specified.</li>
+<li>–l2cos=L2COS: The L2CoS input filter for this TCL. The valid values are      from 0-7. The value ‘any’ is the default value and is meant to match      any value of l2CoS.</li>
+<li>–destination-address=DESTINATION-ADDRESS: Destination IP address input      filter for this TCL.</li>
+<li>–admin-state-enabled=ADMIN-STATE-ENABLED: Is TCL admin status enabled.      Default: false, Values supported are true/false.  false - Disabled      true - Enabled</li>
+<li>–priority=PRIORITY: TCL priority provides an order of precedence to the      TCL rule within the overall TCL list. The priority 65535 is a special      priority associated or applicable to only the default TCL rule and no      other user configured TCL is allowed this value. The priority 0 is a      also treated as a special priority and is only to indicate that the      priority is not set. A valid user configured TCL priority must use a      value from 1 to 65534 only.</li>
+<li>–non-terminated-enabled=NON-TERMINATED-ENABLED: Is non terminated      traffic for this TCL enabled. Default: false, Values supported are      true/false.  false - Disabled true - Enabled</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="traffic_control_list_modify.traffic_control_list_modify.modify_traffic_control_list">
+<code class="descclassname">traffic_control_list_modify.</code><code class="descname">modify_traffic_control_list</code><span class="sig-paren">(</span><em>session</em>, <em>target_ve_port</em>, <em>action</em>, <em>segment_preservation_enabled</em>, <em>port</em>, <em>traffic_control_list_name</em>, <em>source_address</em>, <em>target_slot</em>, <em>target_dp_id</em>, <em>l4_protocol</em>, <em>target_qos</em>, <em>reset_propagation_enabled</em>, <em>source_address_prefix_length</em>, <em>application</em>, <em>destination_address_prefix_length</em>, <em>hit_count</em>, <em>dscp</em>, <em>cp_dp_synchronized</em>, <em>vlan</em>, <em>l2cos</em>, <em>destination_address</em>, <em>admin_state_enabled</em>, <em>priority</em>, <em>non_terminated_enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#traffic_control_list_modify.traffic_control_list_modify.modify_traffic_control_list" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Modify traffic_control_list</em></p>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">traffic_control_list_modify</span><span class="o">.</span><span class="n">modify_traffic_control_list</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">target_ve_port</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">segment_preservation_enabled</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">traffic_control_list_name</span><span class="p">,</span> <span class="n">source_address</span><span class="p">,</span> <span class="n">target_slot</span><span class="p">,</span> <span class="n">target_dp_id</span><span class="p">,</span> <span class="n">l4_protocol</span><span class="p">,</span> <span class="n">target_qos</span><span class="p">,</span> <span class="n">reset_propagation_enabled</span><span class="p">,</span> <span class="n">source_address_prefix_length</span><span class="p">,</span> <span class="n">application</span><span class="p">,</span> <span class="n">destination_address_prefix_length</span><span class="p">,</span> <span class="n">hit_count</span><span class="p">,</span> <span class="n">dscp</span><span class="p">,</span> <span class="n">cp_dp_synchronized</span><span class="p">,</span> <span class="n">vlan</span><span class="p">,</span> <span class="n">l2cos</span><span class="p">,</span> <span class="n">destination_address</span><span class="p">,</span> <span class="n">admin_state_enabled</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="n">non_terminated_enabled</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">traffic_control_listObj</span> <span class="o">=</span> <span class="n">traffic_control_list</span><span class="p">()</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_target_ve_port</span><span class="p">(</span><span class="n">target_ve_port</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_action</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_segment_preservation_enabled</span><span class="p">(</span> <span class="n">segment_preservation_enabled</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_port</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_traffic_control_list_name</span><span class="p">(</span> <span class="n">traffic_control_list_name</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_source_address</span><span class="p">(</span><span class="n">source_address</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_target_slot</span><span class="p">(</span><span class="n">target_slot</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_target_dp_id</span><span class="p">(</span><span class="n">target_dp_id</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_l4_protocol</span><span class="p">(</span><span class="n">l4_protocol</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_target_qos</span><span class="p">(</span><span class="n">target_qos</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_reset_propagation_enabled</span><span class="p">(</span> <span class="n">reset_propagation_enabled</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_source_address_prefix_length</span><span class="p">(</span> <span class="n">source_address_prefix_length</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_application</span><span class="p">(</span><span class="n">application</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_destination_address_prefix_length</span><span class="p">(</span> <span class="n">destination_address_prefix_length</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_hit_count</span><span class="p">(</span><span class="n">hit_count</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_dscp</span><span class="p">(</span><span class="n">dscp</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_cp_dp_synchronized</span><span class="p">(</span><span class="n">cp_dp_synchronized</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_vlan</span><span class="p">(</span><span class="n">vlan</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_l2cos</span><span class="p">(</span><span class="n">l2cos</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_destination_address</span><span class="p">(</span><span class="n">destination_address</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_admin_state_enabled</span><span class="p">(</span><span class="n">admin_state_enabled</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_priority</span><span class="p">(</span><span class="n">priority</span><span class="p">)</span>
+<span class="n">traffic_control_listObj</span><span class="o">.</span><span class="n">set_non_terminated_enabled</span><span class="p">(</span><span class="n">non_terminated_enabled</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">_modify_traffic_control_list</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">traffic_control_listObj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Inputs</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> – The session returned by the login.</li>
+<li><strong>target_ve_port</strong> – The VE port of the extension-tunnel used for      allowing a LAN ingress traffic to be sent over the WAN.</li>
+<li><strong>action</strong> – Set the action for this TCL. The TCL can be programmed to      allow a traffic or deny the traffic.</li>
+<li><strong>segment_preservation_enabled</strong> – Is segment preservation for this TCL      enabled. Default: false, Values supported are true/false.  false -      Disabled true - Enabled</li>
+<li><strong>port</strong> – The protocol port input filter for this TCL. The port      arguments can be specified as a single port or in case of multiple      ports a comma separated list of ports or else a range of ports can be      specified or a combination. example : 22 or 600-603 or 300,302,305</li>
+<li><strong>traffic_control_list_name</strong> – Name of the Traffic-Control-List.</li>
+<li><strong>source_address</strong> – Source IP address input filter for this TCL.</li>
+<li><strong>target_slot</strong> – In case of non-chassis system, the slot number is      always 0. In case of chassis system, it is the slot number of chassis      in which the extension blade is inserted in. In case of chassis, slot      number is non-zero value.</li>
+<li><strong>target_dp_id</strong> – Extension Data Path Processor ID. Based on platform      either it will have a single DP or dual DP. In case of single DP only      DP0 is supported, and in case of dual DP both DP0 and DP1 are      supported  0 : DP0 1 : DP1.</li>
+<li><strong>l4_protocol</strong> – The Layer 4 protocol input filter for this TCL.  The      value can be a well known protocol string value or otherwise a L4      protocol number.  The ‘any’ protocol string is the default value and      is meant to match any L4 protocol value.  The valid range for L4      protocol is from 0-255.  The list of known protocol string values from      system are as below:  ICMP  ICMP6  TCP  UDP  VRRP</li>
+<li><strong>target_qos</strong> – QoS priority associated with an extension-tunnel to be      used to allow a LAN ingress traffic over WAN.</li>
+<li><strong>reset_propagation_enabled</strong> – Is End to End reset propagation for this      TCL enabled. Default: false, Values supported are true/false.  false -      Disabled true - Enabled</li>
+<li><strong>source_address_prefix_length</strong> – The prefix length operator for source      IP address input filter.</li>
+<li><strong>application</strong> – The application input filter for this TCL. This      includes a list of known apps already present or a user defined      app-type name. The ‘any’ application type name is a special value to      identify any application.  Below are few examples of system defined      known application types:  CIFS  Data-Domain  FCIP  FTP  HTTP  HTTPS</li>
+<li><strong>destination_address_prefix_length</strong> – The prefix length operator for      destination IP address input filter.</li>
+<li><strong>hit_count</strong> – Total number of times this TCL rule was hit.</li>
+<li><strong>dscp</strong> – The DSCP input filter for this TCL. The values supported are      from 0-63. The value ‘any’ is default value and is meant to match any      dscp value specified.</li>
+<li><strong>cp_dp_synchronized</strong> – Indicates whether an admin-statatus-enabled TCL      is synchronized between the CP-&gt;DP. In case of error the value will be      set to false  false - CP-DP synchronizing failed. true - CP-DP is      synchronized.</li>
+<li><strong>vlan</strong> – The VLAN input filter for this TCL. The values supported are      from 1-4095. The value ‘any’ is the default value and is meant to      match any vlan-id value specified.</li>
+<li><strong>l2cos</strong> – The L2CoS input filter for this TCL. The valid values are      from 0-7. The value ‘any’ is the default value and is meant to match      any value of l2CoS.</li>
+<li><strong>destination_address</strong> – Destination IP address input filter for this      TCL.</li>
+<li><strong>admin_state_enabled</strong> – Is TCL admin status enabled. Default: false,      Values supported are true/false.  false - Disabled true - Enabled</li>
+<li><strong>priority</strong> – TCL priority provides an order of precedence to the TCL      rule within the overall TCL list. The priority 65535 is a special      priority associated or applicable to only the default TCL rule and no      other user configured TCL is allowed this value. The priority 0 is a      also treated as a special priority and is only to indicate that the      priority is not set. A valid user configured TCL priority must use a      value from 1 to 65534 only.</li>
+<li><strong>non_terminated_enabled</strong> – Is non terminated traffic for this TCL      enabled. Default: false, Values supported are true/false.  false -      Disabled true - Enabled</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_extension.html#module-pyfos_brocade_extension" title="pyfos_brocade_extension: PyFOS module to support Extension LAN/HCL objects for REST. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_extension</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="traffic_control_list_delete.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">traffic_control_list_delete</span></code> - PyFOS util to delete for traffic_control_list</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="traffic_control_list_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">traffic_control_list_show</span></code> - PyFOS util to show for traffic_control_list</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/traffic_control_list_modify.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="traffic_control_list_show.html" title="traffic_control_list_show - PyFOS util to show for traffic_control_list"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="traffic_control_list_delete.html" title="traffic_control_list_delete - PyFOS util to delete for traffic_control_list"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

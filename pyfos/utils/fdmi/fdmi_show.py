@@ -100,18 +100,7 @@ def main(argv):
     valid_options = ["hbaid"]
     inputs = brcd_util.generic_input(argv, usage, valid_options)
 
-    # Login to switch
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
-              [pyfos_auth.LOGIN_ERROR_KEY])
-        brcd_util.full_usage(usage, valid_options)
-        sys.exit()
-
-    brcd_util.exit_register(session)
+    session = brcd_util.getsession(inputs)
 
     # Set VF ID, if necessary
     vfid = None

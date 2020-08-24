@@ -103,16 +103,19 @@ import errno
 import time
 from socket import error as socket_error
 from pyfos import pyfos_login
+from pyfos import pyfos_util
 import pyfos.pyfos_brocade_fibrechannel_switch as pyfos_switch
 from pyfos.pyfos_version import fosversion
+from pyfos.pyfos_auth_token import auth_token, auth_token_manager
 
 LOGIN_ERROR_KEY = 'login-error'
 CREDENTIAL_KEY = 'credential'
-DEFAULT_THROTTLE_DELAY = 1.1
+DEFAULT_THROTTLE_DELAY = 4
 
 
 def login(username, password, ip_addr, is_https,
-          throttle_delay=DEFAULT_THROTTLE_DELAY, verbose=0):
+          throttle_delay=DEFAULT_THROTTLE_DELAY, verbose=0,
+          tokenArg=None, sessionless=False, nocred=False):
     """Establish a session to the FOS switch based on a valid login credential.
 
     :param username: User name to establish a session.
@@ -126,65 +129,116 @@ def login(username, password, ip_addr, is_https,
             number of requests allowed on FOS RESTCONF. The maximum number \
             of request per period is configurable on FOS.
     :param verbose: 1 for verbose session.
+    :param tokenArg: The "AuthToken" input argument, The values supported are \
+            a string "AuthToken" or an "AuthTokenManager" instance. The utils \
+            will use TokenManager instance internally for its use. The custom \
+            tokenManager implementation may pass the string "AuthToken".
+    :param sessionless: The session-less authentication for REST request. \
+            The value passed is False by default. If the value is True then \
+            login session is not used, however existing infra can continue to \
+            use the login and logout infra as no-operation in this scenario .
+    :param nocred: There is no credential needed for the REST request. \
+            The support is limited to some known requests only and is not\
+            supported for all REST requests.\
     :rtype: Dictionary of the error description.
         :ref:`Generic error structure <error-structure-reference>` \
                 or session description.
     """
+    if nocred is True:
+        return {CREDENTIAL_KEY: None,
+                "user": None,
+                "ip_addr": ip_addr,
+                "vfid": -1, "ishttps": is_https, "debug": 0,
+                "throttle_delay": throttle_delay,
+                "auth_token": tokenArg,
+                "sessionless": sessionless,
+                "nocredential": nocred,
+                "version": None}
     credential = None
+    authtoken = None
+    if tokenArg is not None:
+        if password is not None:
+            # print("Error: password not needed for authtoken based session.")
+            return {CREDENTIAL_KEY:
+                    {LOGIN_ERROR_KEY: ip_addr + " Password not needed for "
+                     "authtoken based REST session."},
+                    "user": username,
+                    "ip_addr": ip_addr,
+                    "vfid": -1, "ishttps": is_https, "debug": 0,
+                    "version": None,
+                    "throttle_delay": throttle_delay,
+                    "auth_token": tokenArg,
+                    "sessionless": sessionless}
+        else:
+            if isinstance(tokenArg, auth_token_manager):
+                authtoken = tokenArg.findToken(ip_addr, username)
+                if authtoken is None or authtoken.auth_token is None:
+                    return {CREDENTIAL_KEY:
+                            {LOGIN_ERROR_KEY: ip_addr + " No Auth Token"},
+                            "user": username,
+                            "ip_addr": ip_addr,
+                            "vfid": -1, "ishttps": is_https, "debug": 0,
+                            "version": None,
+                            "throttle_delay": throttle_delay,
+                            "auth_token": tokenArg,
+                            "sessionless": sessionless}
+            elif isinstance(tokenArg, str):
+                authtoken = auth_token()
+                authtoken.setValue(ip_addr, username, tokenArg)
 
     try:
         credential, contentdict = pyfos_login.login(username,
                                                     password,
                                                     ip_addr,
-                                                    is_https)
+                                                    is_https,
+                                                    throttle_delay,
+                                                    authtoken,
+                                                    sessionless)
     except socket_error as serr:
         if serr.errno == errno.ECONNREFUSED:
-            if throttle_delay > 0:
-                time.sleep(throttle_delay)
-
             return {CREDENTIAL_KEY:
                     {LOGIN_ERROR_KEY: ip_addr + " refused connection"},
+                    "user": username,
                     "ip_addr": ip_addr,
                     "vfid": -1, "ishttps": is_https, "debug": 0,
                     "version": None,
-                    "throttle_delay": throttle_delay}
+                    "throttle_delay": throttle_delay,
+                    "auth_token": tokenArg,
+                    "sessionless": sessionless}
         elif serr.errno == errno.EHOSTUNREACH:
-            if throttle_delay > 0:
-                time.sleep(throttle_delay)
-
             return {CREDENTIAL_KEY:
                     {LOGIN_ERROR_KEY: ip_addr + " not reachable"},
+                    "user": username,
                     "ip_addr": ip_addr,
                     "vfid": -1, "ishttps": is_https, "debug": 0,
                     "version": None,
-                    "throttle_delay": throttle_delay}
+                    "throttle_delay": throttle_delay,
+                    "auth_token": tokenArg,
+                    "sessionless": sessionless}
         else:
-            if throttle_delay > 0:
-                time.sleep(throttle_delay)
-
             return {CREDENTIAL_KEY:
                     {LOGIN_ERROR_KEY: ip_addr + " unknown error: " +
                      str(serr.errno)},
+                    "user": username,
                     "ip_addr": ip_addr,
                     "vfid": -1, "ishttps": is_https, "debug": 0,
                     "version": None,
-                    "throttle_delay": throttle_delay}
+                    "throttle_delay": throttle_delay,
+                    "auth_token": tokenArg,
+                    "sessionless": sessionless}
 
     if isinstance(credential, dict) and LOGIN_ERROR_KEY in credential.keys():
-        if throttle_delay > 0:
-            time.sleep(throttle_delay)
-
         return {CREDENTIAL_KEY:
                 {LOGIN_ERROR_KEY: ip_addr + " " + credential[LOGIN_ERROR_KEY]},
                 "ip_addr": ip_addr,
+                "user": username,
                 "vfid": -1, "ishttps": is_https, "debug": 0,
                 "version": None,
-                "throttle_delay": throttle_delay}
+                "throttle_delay": throttle_delay,
+                "auth_token": tokenArg,
+                "sessionless": sessionless}
 
     if isinstance(credential, list):
-        if throttle_delay > 0:
-            time.sleep(throttle_delay)
-
         return credential
     else:
         # default version
@@ -192,9 +246,12 @@ def login(username, password, ip_addr, is_https,
         defcredver = fosversion("1.3.0")
         credver = None
         session = {CREDENTIAL_KEY: credential, "ip_addr": ip_addr,
+                   "user": username,
                    "vfid": -1, "ishttps": is_https,
                    "debug": 0, "version": None,
-                   "throttle_delay": throttle_delay}
+                   "throttle_delay": throttle_delay,
+                   "auth_token": tokenArg,
+                   "sessionless": sessionless}
         session.update(contentdict)
         if contentdict['content-version'] is not None:
             credverstr = str(contentdict['content-version'])
@@ -220,13 +277,13 @@ def login(username, password, ip_addr, is_https,
                          " Incorrect FOS version string :" +
                          switchobj.peek_firmware_version()},
                         "ip_addr": ip_addr,
+                        "user": username,
                         "vfid": -1, "ishttps": is_https, "debug": 0,
                         "version": switchobj.peek_firmware_version(),
-                        "throttle_delay": throttle_delay}
+                        "throttle_delay": throttle_delay,
+                        "auth_token": tokenArg,
+                        "sessionless": sessionless}
             session["version"] = fwversion
-
-        if throttle_delay > 0:
-            time.sleep(throttle_delay)
 
         debug_set(session, verbose)
 
@@ -242,16 +299,21 @@ def logout(session):
     :param session: Dictionary of the session returned by :func:`login`.
     :rtype: None.
     """
-    delay = session.get("throttle_delay")
-    if delay > 0:
-        time.sleep(delay)
+    sessionless = session.get('sessionless', False)
+    nocred = session.get('nocredential', False)
+    if sessionless is True or nocred is True:
+        return {'logout-success': 'Success'}
+
+    delay = pyfos_util.getthrottledelay(session)
     try:
         ret = pyfos_login.logout(session.get(CREDENTIAL_KEY),
                                  session.get("ip_addr"),
-                                 session.get("ishttps"))
+                                 session.get("ishttps"),
+                                 delay)
     except socket_error as serr:
         ret = {'logout-error': serr}
         # print(ret)
+
     return ret
 
 
@@ -282,7 +344,8 @@ def vfid_set(session, vfid):
 
 
 def is_failed_login(session):
-    if LOGIN_ERROR_KEY in session.get(CREDENTIAL_KEY).keys():
+    nocred = session.get("nocredential", False)
+    if not nocred and LOGIN_ERROR_KEY in session.get(CREDENTIAL_KEY).keys():
         return True
 
     return False

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>nport_map_modify - PyFOS util for updating F-port to N-port mappings &#8212; PyFOS 1.2.1 documentation</title>
+    <title>nport_map_modify - PyFOS util for updating F-port to N-port mappings &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="nport_map_del.html" title="nport_map_del - PyFOS util for deleting F-port to N-port mappings"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -73,6 +73,7 @@ Failover and Failback modes</p>
 <div class="line">–n-port=N-PORT                           N-Port Name</div>
 <div class="line">–failback=FAILBACK                       Failback mode of N-port &lt;0|1&gt;</div>
 <div class="line">–failover=FAILOVER                       Failover mode of N-port &lt;0|1&gt;</div>
+<div class="line">–preferred-f-ports=CONFIG-F-PORTS        List of preferred mapped F-ports</div>
 </div>
 </div></blockquote>
 <ul>
@@ -91,12 +92,12 @@ Failover and Failback modes</p>
 <li><p class="first">Configures a specified list of F_Ports to be mapped to a given N_Port</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_modify</span><span class="o">.</span><span class="n">set_mapped_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">mfports</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_modify</span><span class="o">.</span><span class="n">set_mapped_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">mfports</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
 <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="n">nport</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">mfports</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_configured_f_port_list_f_port</span><span class="p">(</span><span class="n">mfports</span><span class="p">)</span>
@@ -104,7 +105,7 @@ Failover and Failback modes</p>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_access_gateway_nportmap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -152,12 +153,12 @@ for the specified N_Port.</p>
 <li><p class="first">Statically maps the specified list of F-Ports to a given N-port.</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_modify</span><span class="o">.</span><span class="n">set_static_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">sfports</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_modify</span><span class="o">.</span><span class="n">set_static_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">sfports</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
 <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="n">nport</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">sfports</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_configured_f_port_list_f_port</span><span class="p">(</span><span class="n">sfports</span><span class="p">)</span>
@@ -165,7 +166,7 @@ for the specified N_Port.</p>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_access_gateway_nportmap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -214,7 +215,7 @@ configuration for the specified N_Port.</p>
 </ul>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre>    <span class="n">ret</span> <span class="o">=</span> <span class="n">nportmapmodify</span><span class="o">.</span><span class="n">set_failback_mode</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">ret</span> <span class="o">=</span> <span class="n">nportmapmodify</span><span class="o">.</span><span class="n">set_failback_mode</span><span class="p">(</span>
              <span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">failbackmode</span><span class="p">)</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 
@@ -248,19 +249,19 @@ configuration for the specified N_Port.</p>
 <blockquote>
 <div><blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">nportmapmodify</span><span class="o">.</span><span class="n">set_failover_mode</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">nportmapmodify</span><span class="o">.</span><span class="n">set_failover_mode</span><span class="p">(</span>
        <span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">failovermode</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
 <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="n">nport</span><span class="p">)</span>
 <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_failover_mode</span><span class="p">(</span><span class="n">failovermode</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_access_gateway_nportmap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -297,6 +298,73 @@ configuration for the specified N_Port.</p>
 <ol class="arabic simple">
 <li>Configures Failover mode for N-port</li>
 </ol>
+</div></blockquote>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="nport_map_modify.nport_map_modify.set_preferred_fports">
+<code class="descclassname">nport_map_modify.</code><code class="descname">set_preferred_fports</code><span class="sig-paren">(</span><em>session</em>, <em>nport</em>, <em>preffports</em><span class="sig-paren">)</span><a class="headerlink" href="#nport_map_modify.nport_map_modify.set_preferred_fports" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">The specified list of F-ports sets as preferred N_Port.</p>
+<blockquote>
+<div><p>Example usage of the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">nport_map_modify</span><span class="o">.</span><span class="n">set_preferred_fports</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport</span><span class="p">,</span> <span class="n">preffports</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nport_obj</span> <span class="o">=</span> <span class="n">n_port_map</span><span class="p">()</span>
+<span class="n">nport_obj</span><span class="o">.</span><span class="n">set_n_port</span><span class="p">(</span><span class="n">nport</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">preffports</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">nport_obj</span><span class="o">.</span><span class="n">set_preferred_f_ports_preferred_f_port</span><span class="p">(</span><span class="n">preffports</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">_set_access_gateway_nportmap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nport_obj</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>inputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">session returned by login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param N-port:</th><td class="field-body">N-port identifier in slot/port format.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param preffports:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Sets the preferred N_Port for the F_Ports</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>outputs:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">dictionary of return status matching rest response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>use cases</em></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Configures a specified list of F_Ports to be preferred mapped
+to a given N_Port. This new map configuration will overwrite
+any existing preferred mapping configuration for the specified
+N_Port.</li>
+</ol>
+</div></blockquote>
 </div></blockquote>
 </li>
 </ul>
@@ -359,7 +427,7 @@ Module <a class="reference internal" href="pyfos_brocade_access_gateway.html#mod
         <li class="right" >
           <a href="nport_map_del.html" title="nport_map_del - PyFOS util for deleting F-port to N-port mappings"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

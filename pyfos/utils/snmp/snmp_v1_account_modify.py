@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+
+# Copyright © 2019-2020 Broadcom. All rights reserved.
+# The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,102 +15,110 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+# snmp_v1_account_modify.py(pyGen v1.0.0)
+
+
 """
 
-:mod:`snmp_v1_account_modify` - PyFOS util for updating snmp v1 account
-***********************************************************************
-The :mod:`snmp_v1_account__modify` provides option to modify snmp v1 account
-attribute
+:mod:`snmp_v1_account_modify` - PyFOS util to modify for v1_account
+*******************************************************************************
+The :mod:`snmp_v1_account_modify` PyFOS util to modify for v1_account
 
-This module can be used to modify snmpv1 account attributes.
 
-* inputs:
+The SNMPv1 user account to access the system resource via SNMP. It also\
+contains the snmpv1 host recipients to receive the SNMPv1 traps. Refer to\
+RFC 1157.
 
-|  Infrastructure options:
+snmp_v1_account_modify : usage
 
-  | -i,--ipaddr=IPADDR     IP address of FOS switch
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
 
-|  Util scripts options:
+* Util Script Options:
+    * --community-name=COMMUNITY-NAME The community name.
+    * --community-group=COMMUNITY-GROUP Indicates whether the SNMPv1 community\
+      belongs to read-only or read-write group.
+    * --index=INDEX The label for this object.
+* Output:
+    * Python dictionary content with RESTCONF response data.
 
-  | --index=VALUE                             Index of SNMPv1 account
-  | --community-name=VALUE                    The community name
 
-* outputs:
+.. function:: snmp_v1_account_modify.modify_v1_account(session,\
+community_name, community_group, index)
 
-    * Status of the patch operation on v1 account's attribute
+    *Modify v1_account*
 
-.. function:: v1_acc_obj.set_community_name(community)
+        Example Usage of the Method::
 
-    * Configures community name
-
-        Example usage of the method::
-
-            ret = v1_acc_obj.set_community_name(community)
+            ret = snmp_v1_account_modify.modify_v1_account(session,\
+            community_name, community_group, index)
             print (ret)
 
         Details::
 
-            v1_acc_obj = v1_account()
-            if community is not None:
-                v1_acc_obj.set_community_name(community)
+            v1_accountObj = v1_account()
+            v1_accountObj.set_community_name(community_name)
+            v1_accountObj.set_community_group(community_group)
+            v1_accountObj.set_index(index)
+            print (ret)
 
-            result = _set_snmp_v1_account(session, v1_acc_obj)
+        * Input::
 
-        * inputs:
-            :param session: session returned by login.
-            :param community: community name of a snmpv1 account
+            :param session: The session returned by the login.
+            :param community_name: The community name.
+            :param community_group: Indicates whether the SNMPv1 community\
+              belongs to read-only or read-write group.
+            :param index: The label for this object.
 
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+        * Output:
 
+            :rtype: Dictionary of response
 
 """
 
+
+# Start utils imports
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
-from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_snmp import v1_account
 
-
-def _set_snmp_v1_account(session, restobject):
-    return restobject.patch(session)
-
-
-def _set_community_name(session, community):
-    v1_acc_obj = v1_account()
-    if community is not None:
-        v1_acc_obj.set_community_name(community)
-    result = _set_snmp_v1_account(session, v1_acc_obj)
-    return result
+from pyfos.utils import brcd_util
+# End module imports
 
 
-def validate(v1_acc_obj):
-    if (v1_acc_obj.peek_index() is None and
-            v1_acc_obj.peek_community_name() is None):
+def _modify_v1_account(session, v1_accountObj):
+    return v1_accountObj.patch(session)
+
+
+def modify_v1_account(session, community_name=None, community_group=None,
+                      index=None):
+    v1_accountObj = v1_account()
+    v1_accountObj.set_community_name(community_name)
+    v1_accountObj.set_community_group(community_group)
+    v1_accountObj.set_index(index)
+    return _modify_v1_account(session, v1_accountObj)
+
+
+def validate(v1_accountObj):
+    if v1_accountObj.peek_community_name() is None or\
+       v1_accountObj.peek_index() is None:
         return 1
     return 0
 
 
 def main(argv):
-
-    # Print arguments
-    # print(sys.argv[1:])
-
-    filters = ['index', 'community_name']
-
+    filters = ["community_name", "community_group", "index"]
     inputs = brcd_util.parse(argv, v1_account, filters, validate)
-
     session = brcd_util.getsession(inputs)
-
-    result = _set_snmp_v1_account(inputs['session'], inputs['utilobject'])
+    result = _modify_v1_account(session, inputs['utilobject'])
     pyfos_util.response_print(result)
-
     pyfos_auth.logout(session)
 
 

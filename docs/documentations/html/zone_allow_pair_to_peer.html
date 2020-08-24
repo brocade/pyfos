@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>zone_allow_pair_to_peer - PyFOS util for specific Zoning use case. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>zone_allow_pair_to_peer - PyFOS util for specific Zoning use case. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="license_show - PyFOS util to show installed licenses on a switch." href="license_show.html" />
+    <link rel="next" title="license_show - PyFOS util to show for license" href="license_show.html" />
     <link rel="prev" title="zone_allow_pair - PyFOS util for specific Zoning use case." href="zone_allow_pair.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="license_show.html" title="license_show - PyFOS util to show installed licenses on a switch."
+          <a href="license_show.html" title="license_show - PyFOS util to show for license"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="zone_allow_pair.html" title="zone_allow_pair - PyFOS util for specific Zoning use case."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -52,34 +52,27 @@ The script creates a new Peer Zone a using target name along with a
 prefix, adds port WWNs to the newly created zone, adds to the current CFG or
 creates a new CFG to add the newly created Zone, and enable the CFG. If a Peer
 Zoning with the target name already exists, the new target is simply added.</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Inputs:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>-L=&lt;login&gt;: Login ID. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>-P=&lt;password&gt;: Password. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: IP address.</p>
-</li>
-<li><p class="first">–hostport=&lt;WWN&gt;: PWWN of the host.</p>
-</li>
-<li><p class="first">–targetname=&lt;hostname&gt;: String name of the target or target port.</p>
-</li>
-<li><p class="first">–targetport=&lt;WWN&gt;: PWWN of the target.</p>
-</li>
+<li>-i=&lt;IP address&gt;: IP address.</li>
+<li>–hostport=&lt;WWN&gt;: PWWN of the host.</li>
+<li>–targetname=&lt;hostname&gt;: String name of the target or target port.</li>
+<li>–targetport=&lt;WWN&gt;: PWWN of the target.</li>
 <li><dl class="first docutils">
 <dt>-f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd><p class="first last">a  VFID of 128 is assumed.</p>
-</dd>
+<dd>a  VFID of 128 is assumed.</dd>
 </dl>
 </li>
 </ul>
@@ -88,7 +81,7 @@ Zoning with the target name already exists, the new target is simply added.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Outputs:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Indicates if Zone DB has been changed or not due to the execution.</li>
 <li>Python dictionary content with detailed string descriptions.</li>
 </ul>
@@ -101,7 +94,7 @@ Zoning with the target name already exists, the new target is simply added.</p>
 <code class="descclassname">zone_allow_pair_to_peer.</code><code class="descname">zone_allow_pair_to_peer</code><span class="sig-paren">(</span><em>session</em>, <em>prefix</em>, <em>hostport</em>, <em>targetname</em>, <em>targetport</em>, <em>if_no_cfg</em>, <em>checkmode</em><span class="sig-paren">)</span><a class="headerlink" href="#zone_allow_pair_to_peer.zone_allow_pair_to_peer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create/add a pair of hosts and targets to a peer Zone.</p>
 <p>Example usage of the method to create a new peer zone with a pair:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret_code</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">zone_allow_pair_to_peer</span><span class="o">.</span><span class="n">zone_allow_pair_to_peer</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret_code</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">zone_allow_pair_to_peer</span><span class="o">.</span><span class="n">zone_allow_pair_to_peer</span><span class="p">(</span>
     <span class="n">session</span><span class="p">,</span> <span class="s2">&quot;az__pz__&quot;</span><span class="p">,</span> <span class="s2">&quot;11:22:33:44:55:66:77:88&quot;</span><span class="p">,</span>
     <span class="s2">&quot;mytarget&quot;</span><span class="p">,</span> <span class="s2">&quot;88:77:66:55:44:33:22:11&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg_if_there_is_non&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">ret_code</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -157,7 +150,7 @@ return status only.</li>
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">zone_allow_pair</span></code> - PyFOS util for specific Zoning use case.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="license_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">license_show</span></code> - PyFOS util to show installed licenses  on a switch.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">license_show</span></code> - PyFOS util to show for license</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -191,12 +184,12 @@ return status only.</li>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="license_show.html" title="license_show - PyFOS util to show installed licenses on a switch."
+          <a href="license_show.html" title="license_show - PyFOS util to show for license"
              >next</a> |</li>
         <li class="right" >
           <a href="zone_allow_pair.html" title="zone_allow_pair - PyFOS util for specific Zoning use case."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

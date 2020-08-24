@@ -110,7 +110,11 @@ def create_extension_ip_route(session, name, dp, ip, prefix, gateway):
 
 
 def validate(iprouteobject):
-    if iprouteobject.peek_name() is None or iprouteobject.peek_dp_id() is None or iprouteobject.peek_ip_prefix_length() is None or iprouteobject.peek_ip_address() is None or iprouteobject.peek_ip_gateway() is None:
+    if iprouteobject.peek_name() is None or\
+       iprouteobject.peek_dp_id() is None or\
+       iprouteobject.peek_ip_prefix_length() is None or\
+       iprouteobject.peek_ip_address() is None or\
+       iprouteobject.peek_ip_gateway() is None:
         return 1
     return 0
 

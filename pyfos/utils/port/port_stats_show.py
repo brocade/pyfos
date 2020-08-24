@@ -30,9 +30,11 @@ Otherwise, of the specified port:.
     * -P=<password>: Password. If not provided, an  interactive
         prompt will request one.
     * -i=<IP address>: IP address.
-    * -n=<port name>: <slot>/<port> Name of the port.
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
         VFID of 128 is assumed.
+
+* Util scripts options:
+    --name=NAME                               Port in slot/port.
 
 * Outputs:
     * Display of port stats for all ports or a specified port.
@@ -57,24 +59,7 @@ def main(argv):
     valid_options = ["name"]
     inputs = brcd_util.generic_input(argv, usage, valid_options)
 
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
-              [pyfos_auth.LOGIN_ERROR_KEY])
-        usage()
-        sys.exit()
-
-    brcd_util.exit_register(session)
-
-    vfid = None
-    if 'vfid' in inputs:
-        vfid = inputs['vfid']
-
-    if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
+    session = brcd_util.getsession(inputs)
 
     if "name" not in inputs:
         ports = pyfos_switchfcport.fibrechannel_statistics.get(session)

@@ -20,7 +20,7 @@
  operation.
 ******************************************************************************\
 *******************************************
-The :mod:`pyfos_brocade_operation_firmwarecleaninstall` module provides REST support for
+The :mod:`pyfos_brocade_operation_firmwarecleaninstall` The PyFOS module supports for
  the firmwarecleaninstall operation.
 
 """
@@ -48,6 +48,8 @@ class firmwarecleaninstall(pyfos_rest_util.rest_object):
         +---------------------------+-------------------------------+---------------------------------------+
         | protocol                  | Protocol to access the host.  |:func:`set_protocol`                   |
         +---------------------------+-------------------------------+---------------------------------------+
+        | eula-action               | action for BSN EULA.          |:func:`set_eula_action`                |
+        +---------------------------+-------------------------------+---------------------------------------+
 
     *Object Methods*
 
@@ -68,6 +70,7 @@ class firmwarecleaninstall(pyfos_rest_util.rest_object):
                 fci_obj.set_password("abcd")
                 fci_obj.set_remote_directory("/a/b/c/d")
                 fci_obj.set_protcolo("scp")
+                fci_obj.set_eula_action("accept-eula")
                 fci_obj.post(session)
 
             The above example triggers the firmwarecleaninstall operation.
@@ -113,6 +116,13 @@ class firmwarecleaninstall(pyfos_rest_util.rest_object):
             :param protocol: The protocol to communicate with the server.
             :rtype: A dictionary of errors or a success response.
 
+        .. method:: set_eula_action()
+
+            Indicates acceptance of BSN EULA
+
+            :param choice: "accept-eula", "decline-eula", "display-eula"
+            :rtype: A dictionary of errors or a success response.
+
         """
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.rpc_license,
@@ -131,6 +141,9 @@ class firmwarecleaninstall(pyfos_rest_util.rest_object):
                  pyfos_type.type_str, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute("protocol",
+                 pyfos_type.type_str, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("eula-action",
                  pyfos_type.type_str, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.load(dictvalues, 1)

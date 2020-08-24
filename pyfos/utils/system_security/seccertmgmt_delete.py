@@ -35,6 +35,7 @@ This module can be used to delete a certificate.
 
    |    --certificate-entity=ENTITY-NAME     Sets the certificate entity name.
    |    --certificate-type=CERT-TYPE         Sets the certificate type.
+   |    --keypair-tag=KEYPAIR-TAG            Sets the  keypair-tag.
 
 * Output:
     * The certificate.
@@ -95,7 +96,8 @@ def main(argv):
     # Print arguments
     # print(sys.argv[1:])
 
-    filters = ['certificate_entity', 'certificate_type']
+    filters = ['certificate_entity', 'certificate_type', 'keypair_tag',
+               'certificate_name']
 
     inputs = brcd_util.parse(argv, security_certificate_action, filters)
 

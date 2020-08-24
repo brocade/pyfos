@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>configure_fabric_modify - PyFOS util for configuring fabric parameters. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>configure_fabric_modify - PyFOS util for configuring fabric parameters. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyfos_brocade_extension_ip_interface - PyFOS module for extension IP." href="pyfos_brocade_extension_ip_interface.html" />
-    <link rel="prev" title="fabric_configuration_show - PyFOS util for fetching the fabric configuration." href="configure_fabric_show.html" /> 
+    <link rel="next" title="pyfos_brocade_extension_ip_route - PyFOS module Represents static IP route on the IP interface defined on extension blade or system." href="pyfos_brocade_extension_ip_route.html" />
+    <link rel="prev" title="configure_fabric_show - PyFOS util for fetching the fabric configuration." href="configure_fabric_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_extension_ip_interface.html" title="pyfos_brocade_extension_ip_interface - PyFOS module for extension IP."
+          <a href="pyfos_brocade_extension_ip_route.html" title="pyfos_brocade_extension_ip_route - PyFOS module Represents static IP route on the IP interface defined on extension blade or system."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="configure_fabric_show.html" title="fabric_configuration_show - PyFOS util for fetching the fabric configuration."
+          <a href="configure_fabric_show.html" title="configure_fabric_show - PyFOS util for fetching the fabric configuration."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -46,10 +46,10 @@
 <h1><a class="reference internal" href="#module-configure_fabric_modify" title="configure_fabric_modify: Pyfos util for configuring fabric parameters (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configure_fabric_modify</span></code></a> - PyFOS util for configuring fabric parameters.<a class="headerlink" href="#configure-fabric-modify-pyfos-util-for-configuring-fabric-parameters" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-configure_fabric_modify" title="configure_fabric_modify: Pyfos util for configuring fabric parameters (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configure_fabric_modify</span></code></a> util provides updates for the fabric configuration.</p>
 <p>This module is a stand-alone script that can be used to update the fabric attributes of the switch.</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Infrastructure Options:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
 <li>-L,–login=LOGIN: The login name.</li>
 <li>-P,–password=PASSWORD: The password.</li>
@@ -62,35 +62,39 @@
 </li>
 <li><dl class="first docutils">
 <dt>Util Script Options:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>–insistent-domain-id-enabled=INSISTENT-DOMAIN-ID-ENABLED: Sets the           fabric to insistent domain mode.</li>
+<li>–principal-selection-enabled=PRINCIPAL-SELECTION-ENABLED Enables or      disables principal  switch  selection.  true     : Enables principal      switch selection mode.  false    : Disables principal switch selection      mode.</li>
+<li>–principal-priority=PRINCIPAL-PRIORITY Sets  the  principal  selection       priority  of  the switch. Not  all of these values can be assigned.      This mechanism provide a preference for a switch requesting to be the      principal switch in a fabric, but they do not provide an absolute      guarantee that a switch requesting to be the principal switch is      granted this status.  0x01     Highest and default priority (if      priority nt given).  0x02     Should be avoided as this is internal      priority          given during fabric rebuild.  0x03-    Priority       value range. Higher  numbers 0xFE     mean lower priority.  0xFF          Switch  is not capable of acting as a principal          switch.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<p>..function:: set_fabric_configure(session, idid_mode)</p>
-<blockquote>
-<div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">configure_fabric_modify</span><span class="o">.</span><span class="n">set_fabric_configuration</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
-        <span class="n">idid_mode</span><span class="p">)</span>
+<dl class="docutils">
+<dt>..function:: set_fabric_configure(session, idid_mode,</dt>
+<dd><blockquote class="first">
+<div>princ_sel_mode, princ_pri)</div></blockquote>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">configure_fabric_modify</span><span class="o">.</span><span class="n">set_fabric_configuration</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+        <span class="n">idid_mode</span><span class="p">,</span> <span class="n">princ_sel_mode</span><span class="p">,</span> <span class="n">princ_pri</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">configure_fabric_modify</span><span class="o">.</span><span class="n">set_fabric_configuration</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
-         <span class="n">idid_mode</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">configure_fabric_modify</span><span class="o">.</span><span class="n">set_fabric_configuration</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+         <span class="n">idid_mode</span><span class="p">,</span> <span class="n">princ_sel_mode</span><span class="p">,</span> <span class="n">princ_pri</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -101,6 +105,12 @@
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">param idid_mode:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Configures the insistent domain mode.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param princ_sel_mode:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Enables or disables principal                                             switch  selection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param princ_pri:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Sets  the  principal  selection                                    priority  of  the switch.</td>
 </tr>
 </tbody>
 </table>
@@ -122,12 +132,13 @@
 </li>
 </ul>
 <p><em>Use Cases</em></p>
-<blockquote>
+<blockquote class="last">
 <div><ol class="arabic simple">
 <li>Patch the fabric configuration parameters of a switch.</li>
 </ol>
 </div></blockquote>
-</div></blockquote>
+</dd>
+</dl>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
@@ -142,10 +153,10 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="configure_fabric_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">fabric_configuration_show</span></code> - PyFOS util for fetching the fabric configuration.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">configure_fabric_show</span></code> - PyFOS util for fetching the fabric configuration.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="pyfos_brocade_extension_ip_interface.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_extension_ip_interface</span></code> - PyFOS module for extension IP.</a></p>
+  <p class="topless"><a href="pyfos_brocade_extension_ip_route.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_extension_ip_route</span></code> - PyFOS module Represents static IP route on the IP interface defined on extension blade or system.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -179,12 +190,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_extension_ip_interface.html" title="pyfos_brocade_extension_ip_interface - PyFOS module for extension IP."
+          <a href="pyfos_brocade_extension_ip_route.html" title="pyfos_brocade_extension_ip_route - PyFOS module Represents static IP route on the IP interface defined on extension blade or system."
              >next</a> |</li>
         <li class="right" >
-          <a href="configure_fabric_show.html" title="fabric_configuration_show - PyFOS util for fetching the fabric configuration."
+          <a href="configure_fabric_show.html" title="configure_fabric_show - PyFOS util for fetching the fabric configuration."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

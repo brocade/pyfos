@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_maps - PyFOS module to provide REST support for MAPS. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>pyfos_brocade_maps - PyFOS module to provide REST support for MAPS. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_brocade_logging.html" title="pyfos_brocade_logging - PyFOS module to provide REST support for configuring the logging facilities in the FC switch."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -45,6 +45,440 @@
   <span class="target" id="module-pyfos_brocade_maps"></span><div class="section" id="pyfos-brocade-maps-pyfos-module-to-provide-rest-support-for-maps">
 <h1><a class="reference internal" href="#module-pyfos_brocade_maps" title="pyfos_brocade_maps: PyFOS module to manage FOS MAPS (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_maps</span></code></a> - PyFOS module to provide REST support for MAPS.<a class="headerlink" href="#pyfos-brocade-maps-pyfos-module-to-provide-rest-support-for-maps" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-pyfos_brocade_maps" title="pyfos_brocade_maps: PyFOS module to manage FOS MAPS (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_maps</span></code></a> module provides REST support for MAPS.</p>
+<dl class="class">
+<dt id="pyfos_brocade_maps.credit_stall_dashboard">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">credit_stall_dashboard</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.credit_stall_dashboard" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Credit stall dashboard provides information on ports.</div></blockquote>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>slot-port</td>
+<td>slot and port information in
+slot/port format.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.credit_stall_dashboard.peek_slot_port" title="pyfos_brocade_maps.credit_stall_dashboard.peek_slot_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_slot_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>timestamp</td>
+<td>timestamp of the credit-stall
+congestion data sample.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.credit_stall_dashboard.peek_timestamp" title="pyfos_brocade_maps.credit_stall_dashboard.peek_timestamp"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_timestamp()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>state</td>
+<td>state of the credit-stall
+congestion data sample.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.credit_stall_dashboard.peek_state" title="pyfos_brocade_maps.credit_stall_dashboard.peek_state"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_state()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>frequency</td>
+<td>number of times port is in
+congestion state for given minute</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.credit_stall_dashboard.peek_frequency" title="pyfos_brocade_maps.credit_stall_dashboard.peek_frequency"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_frequency()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.credit_stall_dashboard.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.credit_stall_dashboard.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.credit_stall_dashboard" title="pyfos_brocade_maps.credit_stall_dashboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">credit_stall_dashboard</span></code></a> object.
+Returns the credit stall dashboard information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A <a class="reference internal" href="#pyfos_brocade_maps.credit_stall_dashboard" title="pyfos_brocade_maps.credit_stall_dashboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">credit_stall_dashboard</span></code></a> object.                     A dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.credit_stall_dashboard.peek_slot_port">
+<code class="descname">peek_slot_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.credit_stall_dashboard.peek_slot_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the slot and port information in slot/port format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.credit_stall_dashboard.peek_timestamp">
+<code class="descname">peek_timestamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.credit_stall_dashboard.peek_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the timestamp of the credit-stall congestion data sample.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.credit_stall_dashboard.peek_state">
+<code class="descname">peek_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.credit_stall_dashboard.peek_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the state of the credit-stall congestion data sample.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.credit_stall_dashboard.peek_frequency">
+<code class="descname">peek_frequency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.credit_stall_dashboard.peek_frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of times port is in congestion state             for given minute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_maps.dashboard_history">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">dashboard_history</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>The historical data of various counters.</div></blockquote>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>category</td>
+<td>logical grouping of the counters</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_category" title="pyfos_brocade_maps.dashboard_history.peek_category"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_category()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>date</td>
+<td>Date of the day when the
+counters’ data was cached</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_date" title="pyfos_brocade_maps.dashboard_history.peek_date"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_date()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>crc-errors</td>
+<td>group of ports on which CRC
+errors were detected.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_crc_errors" title="pyfos_brocade_maps.dashboard_history.peek_crc_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_crc_errors()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>itw-errors</td>
+<td>group of ports on which ITW
+errors were detected.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_itw_errors" title="pyfos_brocade_maps.dashboard_history.peek_itw_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_itw_errors()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>link-failure</td>
+<td>group of ports on which Link
+failure errors were detected.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_link_failure" title="pyfos_brocade_maps.dashboard_history.peek_link_failure"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_link_failure()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>signal-loss</td>
+<td>group of ports on which signal
+loss errors were detected.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_signal_loss" title="pyfos_brocade_maps.dashboard_history.peek_signal_loss"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_signal_loss()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>protocol-errors</td>
+<td>group of ports on which
+protocol errors were detected.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_protocol_errors" title="pyfos_brocade_maps.dashboard_history.peek_protocol_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_protocol_errors()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>state-change</td>
+<td>group of ports on which state
+changes were detected.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_state_change" title="pyfos_brocade_maps.dashboard_history.peek_state_change"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_state_change()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>link-reset</td>
+<td>group of ports on which link
+reset were detected.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_link_reset" title="pyfos_brocade_maps.dashboard_history.peek_link_reset"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_link_reset()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>c3-tx-to</td>
+<td>group of ports on which class 3
+frame timeouts were detected.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_c3_tx_to" title="pyfos_brocade_maps.dashboard_history.peek_c3_tx_to"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_c3_tx_to()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>rx-perf</td>
+<td>list of ports sorted based on
+percentage of RX BW used.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_rx_perf" title="pyfos_brocade_maps.dashboard_history.peek_rx_perf"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_rx_perf()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>tx-perf</td>
+<td>list of ports sorted based on
+percentage of TX BW used.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_tx_perf" title="pyfos_brocade_maps.dashboard_history.peek_tx_perf"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_tx_perf()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>utilization</td>
+<td>list of ports sorted based on
+percentage of total BW (RX + TX)</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.dashboard_history.peek_utilization" title="pyfos_brocade_maps.dashboard_history.peek_utilization"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_utilization()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.dashboard_history.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.dashboard_history" title="pyfos_brocade_maps.dashboard_history"><code class="xref py py-class docutils literal notranslate"><span class="pre">dashboard_history</span></code></a> object.
+Returns the dashboard history information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A <a class="reference internal" href="#pyfos_brocade_maps.dashboard_history" title="pyfos_brocade_maps.dashboard_history"><code class="xref py py-class docutils literal notranslate"><span class="pre">dashboard_history</span></code></a> object.                     A dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_category">
+<code class="descname">peek_category</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dashboard category.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_date">
+<code class="descname">peek_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Date of the day when the counters were cached.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_crc_errors">
+<code class="descname">peek_crc_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_crc_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group of ports on which CRC errors were detected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_itw_errors">
+<code class="descname">peek_itw_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_itw_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group of ports on which ITW errors were detected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_port_loss">
+<code class="descname">peek_port_loss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_port_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the port loss.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_link_failure">
+<code class="descname">peek_link_failure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_link_failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group of ports on which Link failure errors             were detected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_signal_loss">
+<code class="descname">peek_signal_loss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_signal_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group of ports on which signal loss errors             were detected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_protocol_errors">
+<code class="descname">peek_protocol_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_protocol_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group of ports on which protocol errors were             detected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_state_change">
+<code class="descname">peek_state_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_state_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group of ports on which state changes were             detected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_link_reset">
+<code class="descname">peek_link_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_link_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group of ports on which link reset were detected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_c3_tx_to">
+<code class="descname">peek_c3_tx_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_c3_tx_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group of ports on which class 3             frame timeout errors were detected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_rx_perf">
+<code class="descname">peek_rx_perf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_rx_perf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of ports sorted based on percentage of RX BW used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_tx_perf">
+<code class="descname">peek_tx_perf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_tx_perf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of ports sorted based on percentage of TX BW used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.dashboard_history.peek_utilization">
+<code class="descname">peek_utilization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_history.peek_utilization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of ports sorted based on percentage of total             BW (RX + TX).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
 <dl class="class">
 <dt id="pyfos_brocade_maps.dashboard_misc">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">dashboard_misc</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.dashboard_misc" title="Permalink to this definition">¶</a></dt>
@@ -330,6 +764,345 @@ the same or different objects. For example, defALL_D_PORTSCRC_10             mig
 </dd></dl>
 
 <dl class="class">
+<dt id="pyfos_brocade_maps.fpi_profile">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">fpi_profile</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>The FPI profile. This container enables you to create and manage
+Fabric Performance Impact monitoring thresholds. The FPI Profile
+is a set of FPI states such as performance impact, frame loss
+and thresholds for each state are Transmit Queue Latency (TXQL),
+CREDIT-ZERO buffer. The FPI rules in MAPS policy gets the thresholds
+for each state from the active FPI profile.
+The FPI profile is per logical switch.</div></blockquote>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="24%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>FPI profile name</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.peek_name" title="pyfos_brocade_maps.fpi_profile.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.set_name" title="pyfos_brocade_maps.fpi_profile.set_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>predefined-profile</td>
+<td>whether the profile is
+predefined or user defined</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.peek_predefined_profile" title="pyfos_brocade_maps.fpi_profile.peek_predefined_profile"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_predefined_profile()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>performance-impact/
+transmit-queue-latency</td>
+<td>TXQL threshold in msec</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.peek_performance_impact_transmit_queue_latency" title="pyfos_brocade_maps.fpi_profile.peek_performance_impact_transmit_queue_latency"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_performance_impact_transmit_queue_latency()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.set_performance_impact_transmit_queue_latency" title="pyfos_brocade_maps.fpi_profile.set_performance_impact_transmit_queue_latency"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_performance_impact_transmit_queue_latency()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>performance-impact/
+credit-zero-percentage-1-sec</td>
+<td>credit-zero buffer stats
+threshold % in 1-second</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_1_sec" title="pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_1_sec"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_performance_impact_credit_zero_percentage_1_sec()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_1_sec" title="pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_1_sec"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_performance_impact_credit_zero_percentage_1_sec()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>performance-impact/
+credit-zero-percentage-5-sec</td>
+<td>credit-zero buffer stats
+threshold % in 5-second</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_5_sec" title="pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_5_sec"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_performance_impact_credit_zero_percentage_5_sec()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_5_sec" title="pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_5_sec"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_performance_impact_credit_zero_percentage_5_sec()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>performance-impact/
+credit-zero-percentage-10-sec</td>
+<td>credit-zero buffer stats
+threshold % in 10-second</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_10_sec" title="pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_10_sec"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_performance_impact_credit_zero_percentage_10_sec()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_10_sec" title="pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_10_sec"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_performance_impact_credit_zero_percentage_10_sec()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>frame-loss/
+transmit-queue-latency</td>
+<td>TXQL threshold in msec</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.peek_frame_loss_transmit_queue_latency" title="pyfos_brocade_maps.fpi_profile.peek_frame_loss_transmit_queue_latency"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_frame_loss_transmit_queue_latency()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.set_frame_loss_transmit_queue_latency" title="pyfos_brocade_maps.fpi_profile.set_frame_loss_transmit_queue_latency"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_frame_loss_transmit_queue_latency()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-oversubscription/
+transmit-percentage</td>
+<td>TX utilization in
+percentage</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.fpi_profile.peek_port_oversubscription_transmit_percentage" title="pyfos_brocade_maps.fpi_profile.peek_port_oversubscription_transmit_percentage"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_oversubscription_transmit_percentage()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.fpi_profile.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.fpi_profile" title="pyfos_brocade_maps.fpi_profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">fpi_profile</span></code></a> object.
+Returns the dashboard history information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A <a class="reference internal" href="#pyfos_brocade_maps.fpi_profile" title="pyfos_brocade_maps.fpi_profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">fpi_profile</span></code></a> object.                     A dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an user defined FPI profile with user configured
+values for Transmit Queue Latency(TXQL) threshold in milliseconds
+or credit-zero buffer stats threshold percentage in
+1-second or 5-second or 10-second.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates an user defined FPI profile with user configured
+values for Transmit Queue Latency(TXQL) threshold in milliseconds
+or credit-zero buffer stats threshold percentage in
+1-second or 5-second or 10-second.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the FPI profile.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the FPI profile name.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the FPI profile name.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.peek_predefined_profile">
+<code class="descname">peek_predefined_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.peek_predefined_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Whether the profile is predefined or user-defined.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.peek_performance_impact_transmit_queue_latency">
+<code class="descname">peek_performance_impact_transmit_queue_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.peek_performance_impact_transmit_queue_latency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns The Transmit Queue latency(TXQL) threshold in milliseconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.set_performance_impact_transmit_queue_latency">
+<code class="descname">set_performance_impact_transmit_queue_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.set_performance_impact_transmit_queue_latency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the Transmit Queue latency(TXQL) threshold in milliseconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_1_sec">
+<code class="descname">peek_performance_impact_credit_zero_percentage_1_sec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_1_sec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns The credit-zero buffer stats threshold percentage             in 1-second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_1_sec">
+<code class="descname">set_performance_impact_credit_zero_percentage_1_sec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_1_sec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the credit-zero buffer stats threshold percentage in 1-second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_5_sec">
+<code class="descname">peek_performance_impact_credit_zero_percentage_5_sec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_5_sec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns The credit-zero buffer stats threshold percentage             in 5-second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_5_sec">
+<code class="descname">set_performance_impact_credit_zero_percentage_5_sec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_5_sec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the credit-zero buffer stats threshold percentage in 5-second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_10_sec">
+<code class="descname">peek_performance_impact_credit_zero_percentage_10_sec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.peek_performance_impact_credit_zero_percentage_10_sec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns The credit-zero buffer stats threshold percentage             in 10-second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_10_sec">
+<code class="descname">set_performance_impact_credit_zero_percentage_10_sec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.set_performance_impact_credit_zero_percentage_10_sec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set The credit-zero buffer stats threshold percentage in 10-second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.peek_frame_loss_transmit_queue_latency">
+<code class="descname">peek_frame_loss_transmit_queue_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.peek_frame_loss_transmit_queue_latency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns The Transmit Queue Latency(TXQL) threshold in milliseconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.set_frame_loss_transmit_queue_latency">
+<code class="descname">set_frame_loss_transmit_queue_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.set_frame_loss_transmit_queue_latency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set The Transmit Queue Latency(TXQL) threshold in milliseconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.fpi_profile.peek_port_oversubscription_transmit_percentage">
+<code class="descname">peek_port_oversubscription_transmit_percentage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.fpi_profile.peek_port_oversubscription_transmit_percentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns The Transmit(TX) utilization in percentage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
 <dt id="pyfos_brocade_maps.group">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">group</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.group" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
@@ -425,7 +1198,7 @@ Use the POST operation to create dynamic groups.
 If the group already exists, use the POST operation to add members
 to the group.</p>
 <p>Example Usage of the Method to Create a New Group on the Switch</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the object</span>
 <span class="n">maps_grp</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 <span class="c1"># set the policy name</span>
 <span class="n">maps_grp</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;group1&quot;</span><span class="p">)</span>
@@ -461,7 +1234,7 @@ For static groups, use the DELETE operation to delete members.</p>
 <dd><p>Deletes a MAPS group if there are no members.
 If members are present, then this operation deletes members             from the group.</p>
 <p>Example Usage of the Method to Delete a MAPS Group</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the object</span>
 <span class="n">maps_grp</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 <span class="c1"># set the group name</span>
 <span class="n">maps_grp</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;group1&quot;</span><span class="p">)</span>
@@ -729,6 +1502,11 @@ default or impair.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_test_email_body" title="pyfos_brocade_maps.maps_config.set_test_email_body"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_test_email_body()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_test_email_body" title="pyfos_brocade_maps.maps_config.peek_test_email_body"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_test_email_body()</span></code></a></td>
 </tr>
+<tr class="row-even"><td>quiet-time</td>
+<td>The Global Quiet Time.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.maps_config.set_quiet_time" title="pyfos_brocade_maps.maps_config.set_quiet_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_quiet_time()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_maps.maps_config.peek_quiet_time" title="pyfos_brocade_maps.maps_config.peek_quiet_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_quiet_time()</span></code></a></td>
+</tr>
 </tbody>
 </table>
 </div></blockquote>
@@ -757,7 +1535,7 @@ objects if there are more than one.</td>
 <em class="property">static </em><code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.patch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses the PATCH operation to update any member of the maps-config             class.</p>
 <p>Example Usage of the Method</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the object</span>
 <span class="n">maps_config_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">maps_config</span><span class="p">()</span>
 <span class="c1"># set the rule name</span>
 <span class="n">maps_config_obj</span><span class="o">.</span><span class="n">set_sender_address</span><span class="p">(</span><span class="s2">&quot;temp1@broadcom.com&quot;</span><span class="p">)</span>
@@ -1005,6 +1783,91 @@ objects if there are more than one.</td>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_quiet_time">
+<code class="descname">set_quiet_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_quiet_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the global quiet time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_quiet_time">
+<code class="descname">peek_quiet_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_quiet_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the configured global quiet time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_f_port_fpi_profile">
+<code class="descname">set_f_port_fpi_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_f_port_fpi_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the F-port FPI profile name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_f_port_fpi_profile">
+<code class="descname">peek_f_port_fpi_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_f_port_fpi_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the configured F-port FPI profile name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.set_e_port_fpi_profile">
+<code class="descname">set_e_port_fpi_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.set_e_port_fpi_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the E-port FPI profile name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.maps_config.peek_e_port_fpi_profile">
+<code class="descname">peek_e_port_fpi_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.maps_config.peek_e_port_fpi_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the configured global quiet time.
+Gets the configured E-port FPI profile name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div></blockquote>
 </dd></dl>
 
@@ -1083,7 +1946,7 @@ Otherwise, returns all objects of the <a class="reference internal" href="#pyfos
 If the rules list is empty, then an empty MAPS policy (without             any rules) is created.
 If the policy is already present, then use a POST operation to             add rules to the policy.</p>
 <p>Example Usage of the Method to Create a New Policy on the Switch</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the object</span>
 <span class="n">maps_pol</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">maps_policy</span><span class="p">()</span>
 <span class="c1"># set the policy name</span>
 <span class="n">maps_pol</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;policy1&quot;</span><span class="p">)</span>
@@ -1120,7 +1983,7 @@ To delete rules from an existing policy, use the DELETE operation.</p>
 If the rule list is empty, deletes the MAPS policy.
 If the rule list is not empty, deletes the rules from the policy.</p>
 <p>Example Usage of the Method to Delete MAPS Policy</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the object</span>
 <span class="n">maps_pol</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">maps_policy</span><span class="p">()</span>
 <span class="c1"># set the policy name</span>
 <span class="n">maps_pol</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;policy1&quot;</span><span class="p">)</span>
@@ -1609,6 +2472,113 @@ Returns “default-switch-only” if it is monitored on the default             
 </dd></dl>
 
 <dl class="class">
+<dt id="pyfos_brocade_maps.oversubscription_dashboard">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">oversubscription_dashboard</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.oversubscription_dashboard" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>oversubscription dashboard gives the details of ports which
+are oversubscribed.</div></blockquote>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>slot-port</td>
+<td>slot and port information in
+slot/port format.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.oversubscription_dashboard.peek_slot_port" title="pyfos_brocade_maps.oversubscription_dashboard.peek_slot_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_slot_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>timestamp</td>
+<td>timestamp of the oversubscription
+data sample.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.oversubscription_dashboard.peek_timestamp" title="pyfos_brocade_maps.oversubscription_dashboard.peek_timestamp"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_timestamp()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>state</td>
+<td>state of the oversubscription
+data sample.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.oversubscription_dashboard.peek_state" title="pyfos_brocade_maps.oversubscription_dashboard.peek_state"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_state()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_maps.oversubscription_dashboard.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.oversubscription_dashboard.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_maps.oversubscription_dashboard" title="pyfos_brocade_maps.oversubscription_dashboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">oversubscription_dashboard</span></code></a> object.
+Returns the oversubscription dashboard information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A <a class="reference internal" href="#pyfos_brocade_maps.oversubscription_dashboard" title="pyfos_brocade_maps.oversubscription_dashboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">oversubscription_dashboard</span></code></a> object.                     A dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_maps.oversubscription_dashboard.peek_slot_port">
+<code class="descname">peek_slot_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.oversubscription_dashboard.peek_slot_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the slot and port information in slot/port format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.oversubscription_dashboard.peek_timestamp">
+<code class="descname">peek_timestamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.oversubscription_dashboard.peek_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the timestamp of the oversubscription data sample.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_maps.oversubscription_dashboard.peek_state">
+<code class="descname">peek_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.oversubscription_dashboard.peek_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the state of the oversubscription data sample.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
 <dt id="pyfos_brocade_maps.paused_cfg">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_maps.</code><code class="descname">paused_cfg</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.paused_cfg" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
@@ -1875,7 +2845,7 @@ Otherwise, returns all  objects of the <a class="reference internal" href="#pyfo
 within the object using the attribute’s set method.
 This method is used to create a new rule on a switch.</p>
 <p>Example Usage of the Method to Create a New Rule on a Switch</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the object</span>
 <span class="n">maps_Rule</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">rule</span><span class="p">()</span>
 <span class="c1"># set the rule name</span>
 <span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;rule1&quot;</span><span class="p">)</span>
@@ -1916,7 +2886,7 @@ This method is used to create a new rule on a switch.</p>
 If a rule that is part of an active policy is changed, the
 policy must be re-activated for the rule to take effect.</p>
 <p>Example Usage of the Method to Update an Existing Rule on a Switch</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the object</span>
 <span class="n">maps_Rule</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">rule</span><span class="p">()</span>
 <span class="c1"># set the rule name</span>
 <span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;rule1&quot;</span><span class="p">)</span>
@@ -1957,7 +2927,7 @@ policy must be re-activated for the rule to take effect.</p>
 set within the object using the attribute’s
 set method.</p>
 <p>Example Usage of the Method to Delete a MAPS Group</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c1"># initialize the object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the object</span>
 <span class="n">maps_Rule</span> <span class="o">=</span> <span class="n">pyfos_brocade_maps</span><span class="o">.</span><span class="n">rule</span><span class="p">()</span>
 <span class="c1"># set the rule name</span>
 <span class="n">maps_Rule</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&quot;rule1&quot;</span><span class="p">)</span>
@@ -2282,7 +3252,7 @@ are “[critical | error | warning | info] | default]”.</p>
 <dl class="method">
 <dt id="pyfos_brocade_maps.rule.set_quiet_time">
 <code class="descname">set_quiet_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.rule.set_quiet_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the quiet time. If the quiet time is configured, then reporting             of rule violations will be done only after the expiry of the             quiet time.</p>
+<dd><p>Sets the quiet time. If the quiet time is configured, then             reporting of rule violations will be done only after the expiry             of the quiet time.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2459,19 +3429,19 @@ could be above the threshold or limit.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_flash_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_flash_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_flash_health()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>marginal-port-health</td>
-<td>The  state of the marginal ports.</td>
+<td>The state of the marginal ports.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_marginal_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_marginal_port_health()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>faulty-port-health</td>
-<td>The  state of the faulty ports state.</td>
+<td>The state of the faulty ports state.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_faulty_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_faulty_port_health()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>missing-sfp-health</td>
-<td>The  state of the missing SFPs state.</td>
+<td>The state of the missing SFPs state.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_missing_sfp_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_missing_sfp_health()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>error-port-health</td>
-<td>The  state of the error ports state.</td>
+<td>The state of the error ports state.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_error_port_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_error_port_health()</span></code></a></td>
 </tr>
 <tr class="row-even"><td>expired-certificate-health</td>
@@ -2481,6 +3451,10 @@ could be above the threshold or limit.</td>
 <tr class="row-odd"><td>airflow-mismatch-health</td>
 <td>The air flow mismatch state.</td>
 <td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_airflow_mismatch_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_airflow_mismatch_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_airflow_mismatch_health()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>marginal-sfp-health</td>
+<td>The state of marginal sfps.</td>
+<td><a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report.peek_marginal_sfp_health" title="pyfos_brocade_maps.switch_status_policy_report.peek_marginal_sfp_health"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_marginal_sfp_health()</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -2499,7 +3473,7 @@ Individual attributes can be accessed through peek methods.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
 <a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A <a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report" title="pyfos_brocade_maps.switch_status_policy_report"><code class="xref py py-class docutils literal notranslate"><span class="pre">switch_status_policy_report</span></code></a> object. A dictionary                     in case of error.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A <a class="reference internal" href="#pyfos_brocade_maps.switch_status_policy_report" title="pyfos_brocade_maps.switch_status_policy_report"><code class="xref py py-class docutils literal notranslate"><span class="pre">switch_status_policy_report</span></code></a> object.                     A dictionary in case of error.</td>
 </tr>
 </tbody>
 </table>
@@ -2734,6 +3708,22 @@ Individual attributes can be accessed through peek methods.</p>
 </div></blockquote>
 </dd></dl>
 
+<dl class="method">
+<dt id="pyfos_brocade_maps.switch_status_policy_report.peek_marginal_sfp_health">
+<code class="descname">peek_marginal_sfp_health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_maps.switch_status_policy_report.peek_marginal_sfp_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the marginal sfp’s health state.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
 </div></blockquote>
 </dd></dl>
 
@@ -2918,7 +3908,7 @@ Module <a class="reference internal" href="maps_rule_create.html#module-maps_rul
         <li class="right" >
           <a href="pyfos_brocade_logging.html" title="pyfos_brocade_logging - PyFOS module to provide REST support for configuring the logging facilities in the FC switch."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>wwncard_show - PyFOS util to show the wwncard unit information. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk." href="port_trunk_area_create_add.html" />
+    <link rel="prev" title="sensor_show - PyFOS util to show the details about sensors." href="sensor_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="port_trunk_area_create_add.html" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sensor_show.html" title="sensor_show - PyFOS util to show the details about sensors."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-wwncard_show"></span><div class="section" id="wwncard-show-pyfos-util-to-show-the-wwncard-unit-information">
+<h1><a class="reference internal" href="#module-wwncard_show" title="wwncard_show: PyFOS module to display the wwncard unit information. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wwncard_show</span></code></a> - PyFOS util to show the wwncard unit information.<a class="headerlink" href="#wwncard-show-pyfos-util-to-show-the-wwncard-unit-information" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-wwncard_show" title="wwncard_show: PyFOS module to display the wwncard unit information. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wwncard_show</span></code></a> util displays the wwncard unit information.</p>
+<p>This module can be used to display the wwncard unit information.</p>
+<ul class="simple">
+<li>Input:</li>
+</ul>
+<div class="line-block">
+<div class="line">Infrastructure options:</div>
+</div>
+<div class="line-block">
+<div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
+<div class="line">-L,–login=LOGIN       The login name.</div>
+<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-f,–vfid=VFID         The VFID to which the request is                             directed [OPTIONAL].</div>
+<div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
+<div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
+</div>
+<div class="line-block">
+<div class="line">Util Script Options:</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">–unit-number=unit-number    Sets the unit number.</div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>WWN unit information. When the unit number is not provided,
+all units will be displayed.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="wwncard_show.wwn_unit_show.show_wwn_unit">
+<code class="descclassname">wwn_unit_show.</code><code class="descname">show_wwn_unit</code><span class="sig-paren">(</span><em>session</em>, <em>unit</em><span class="sig-paren">)</span><a class="headerlink" href="#wwncard_show.wwn_unit_show.show_wwn_unit" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">Displays the wwn unit details.</p>
+<blockquote>
+<div><p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1: Display all the wwn_units</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">wwn_unit_show</span><span class="o">.</span><span class="n">show_wwn_unit</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+
+<span class="c1"># Example 2: Display a specific wwn-unit 1</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">wwn_unit_show</span><span class="o">.</span><span class="n">show_wwn_unit</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wwn_obj</span> <span class="o">=</span> <span class="n">wwn</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">unit</span><span class="o">-</span><span class="n">number</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># All wwn units</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">wwn_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">wwn_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Input:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param unit:</th><td class="field-body">The specific unit number or none for all wwn units.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>Use Cases</em></p>
+<ol class="arabic simple">
+<li>Retrieve the wwn unit information.</li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_fru.html#module-pyfos_brocade_fru" title="pyfos_brocade_fru: PyFOS module to provide REST support for Fru (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fru</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sensor_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">sensor_show</span></code> - PyFOS util to show the details about sensors.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="port_trunk_area_create_add.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">port_trunk_area_create_add</span></code> - PyFOS util for adding or creating a port trunk.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/wwncard_show.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="port_trunk_area_create_add.html" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sensor_show.html" title="sensor_show - PyFOS util to show the details about sensors."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

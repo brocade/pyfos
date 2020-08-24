@@ -21,6 +21,7 @@ system security.
 
 """
 
+
 from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
 import pyfos.pyfos_version as version
@@ -3057,7 +3058,7 @@ class sshutil(pyfos_rest_util.rest_object):
 
             Reads whether the username is allowed in the object.
 
-            :rtype: None or the PGID.	
+            :rtype: None or the PGID.
 
         .. method:: set_rekey_interval(int)
 
@@ -3712,6 +3713,10 @@ class security_certificate_generate(pyfos_rest_util.rest_object):
         | domain-name                                    | The domain name.                  |:func:`set_domain_name`                      |
         |                                                | Only needed to generate a CSR.    |:func:`peek_domain_name`                     |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | keypair-tag                                    | The unique name to identify the   |:func:`set_keypair_tag`                      |
+        |                                                | local extension certificate       |                                             |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+
 
         .. method:: get(session)
 
@@ -3912,6 +3917,13 @@ class security_certificate_generate(pyfos_rest_util.rest_object):
             :param domain_name: The domain name.
             :rtype: None or a dictionary of error information.
 
+        .. method:: set_keypair_tag(keypair-tag)
+
+            Sets the unique user defined name for Extension local certificate.
+
+            :param keypair-tag: The unique name to create a CSR/certificate.
+            :rtype: A dictionary in case of error or a success response.
+
         """
 
     def __init__(self, dictvalues={}):
@@ -3930,7 +3942,7 @@ class security_certificate_generate(pyfos_rest_util.rest_object):
             "algorithm-type", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "key-size", pyfos_type.type_int,
+            "key-size", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "hash-type", pyfos_type.type_str,
@@ -3956,6 +3968,10 @@ class security_certificate_generate(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "domain-name", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "keypair-tag", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
 
         self.load(dictvalues, 1)
 # class security-certificate-management(pyfos_rest_util.rest_object):
@@ -3991,6 +4007,12 @@ class security_certificate_action(pyfos_rest_util.rest_object):
         | remote-user-name                               | The username for the remote host. |:func:`set_remote_user_name`                 |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
         | remote-user-password                           | The password for the remote host. |:func:`set_remote_user_password`             |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | ca-certificate                                 | The CA filename for extension     |:func:`set_ca_certificate`                   |
+        |                                                | certificate import                |                                             |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | keypair-tag                                    | The unique name to identify the   |:func:`set_keypair_tag`                      |
+        |                                                | local extension certificate       |                                             |
         +------------------------------------------------+-----------------------------------+---------------------------------------------+
 
     *Object Methods*
@@ -4138,6 +4160,19 @@ class security_certificate_action(pyfos_rest_util.rest_object):
             :param password: The password for remote host.
             :rtype: A dictionary in case of error or a success response.
 
+        .. method:: set_keypair_tag(keypair-tag)
+
+            Sets the unique user defined name for Extension local certificate.
+
+            :param keypair-tag: The unique name to create a CSR/certificate.
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_ca_certificate(ca-certificate)
+
+             Sets the CA certificate name for import of Extension certificate.
+
+            :param password: The password for remote host.
+            :rtype: A dictionary in case of error or a success response.
         """
 
     def __init__(self, dictvalues={}):
@@ -4173,5 +4208,129 @@ class security_certificate_action(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "remote-directory", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "ca-certificate", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "keypair-tag", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
+
+        self.load(dictvalues, 1)
+
+
+class security_certificate_extension(pyfos_rest_util.rest_object):
+    """This class provides options to display and configure certificates.
+
+    Important Class Members:
+
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | Attribute Name                                 | Description                       |Frequently Used Methods                      |
+        +================================================+===================================+=============================================+
+        | certificate-entity                             | The certificate entity (CSR,      |:func:`set_certificate_entity`               |
+        |                                                | switch, or CA certificate.        |:func:`peek_certificate_entity`              |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | certificate                                    | The certificate.                  |:func:`peek_certificate`                     |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | certificate-hexdump                            | The certificate in hex format.    |:func:`peek_certificate_hexdump`             |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | certificate-name                               | The name of extension certificate |:func:`peek_certificate_name`                |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | keypair-tag                                    | The unique name to identify the   |:func:`peek_keypair_tag`                     |
+        |                                                | local extension certificate       |                                             |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+        | local-certificate                              | The certificate is local for an   |:func:`peek_local_certificate`               |
+        |                                                | extension switch or not           |                                             |
+        +------------------------------------------------+-----------------------------------+---------------------------------------------+
+
+    *Object Methods*
+
+        .. method:: get(session)
+
+            Returns a :class:`seccertmgmt_show` object or a list of objects
+            filled with the certificate attributes. If certificate entity
+            and certificate type is specified, a certificate matching the name
+            of the certificate entity and type is returned or an empty object
+            is returned if no match is found.
+
+            Each object can be printed using :func:`pyfos_util.response_print`.
+            and individual attributes accessed through peek methods.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`seccertmgmt` object to get a object or
+                a list of objects if there are more than one.
+
+    *Attribute Methods*
+
+        .. method:: set_certificate_entity(cert)
+
+            Sets the certificate entity in the object.
+
+            :param cert: The certificate entity to be set within the object.
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_certificate_entity()
+
+            Reads the certificate entity in the object.
+
+            :rtype: The certificate entity.
+
+        .. method:: peek_certificate()
+
+            Gets the certificate in the object.
+
+            :rtype: None or a certificate.
+
+        .. method:: peek_certificate_hexdump()
+
+            Gets the certificate in hex format in the object.
+
+            :rtype: None or the certificate in hex format.
+
+        .. method:: peek_keypair_tag()
+
+            gets the unique user defined name for Extension local certificate.
+
+            :rtype: None or keypair-tag.
+
+        .. method:: peek_certificate_name()
+
+             Gets the certificate name.
+
+            :rtype: None or certitifcate name.
+
+        .. method:: peek_local_certificate()
+
+             Gets if its a local certificate.
+
+            :rtype: None or true/false.
+
+        """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.security_certificate_extension,
+                         "/rest/running/brocade-security/security-certificate-extension",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "certificate-entity", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "certificate", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "certificate-hexdump", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "local-certificate", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "keypair-tag", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "certificate-name", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
 
         self.load(dictvalues, 1)

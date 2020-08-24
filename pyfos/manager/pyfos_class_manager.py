@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+# Copyright 2018-2019 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -39,11 +39,12 @@ from pyfos.pyfos_brocade_extension_tunnel import extension_circuit_statistics
 from pyfos.pyfos_brocade_extension_tunnel import extension_tunnel
 from pyfos.pyfos_brocade_extension_tunnel import extension_tunnel_statistics
 from pyfos.pyfos_brocade_extension_ip_route import extension_ip_route
-from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
+from pyfos.pyfos_brocade_interface import extension_ip_interface
 from pyfos.pyfos_brocade_extension_ipsec_policy import extension_ipsec_policy
 from pyfos.pyfos_brocade_interface import gigabitethernet
 from pyfos.pyfos_brocade_interface import \
     gigabitethernet_statistics
+from pyfos.pyfos_brocade_interface import logical_e_port
 from pyfos.pyfos_brocade_fibrechannel_logical_switch import \
     fibrechannel_logical_switch
 from pyfos.pyfos_brocade_fibrechannel_switch import \
@@ -53,6 +54,7 @@ from pyfos.pyfos_brocade_access_gateway import f_port_list
 from pyfos.pyfos_brocade_access_gateway import policy
 from pyfos.pyfos_brocade_access_gateway import n_port_settings
 from pyfos.pyfos_brocade_access_gateway import n_port_map
+from pyfos.pyfos_brocade_fabric import access_gateway
 from pyfos.pyfos_brocade_fibrechannel_configuration import\
      switch_configuration
 from pyfos.pyfos_brocade_fibrechannel_configuration import\
@@ -89,6 +91,9 @@ from pyfos.pyfos_brocade_security import password
 from pyfos.pyfos_brocade_security import security_certificate
 from pyfos.pyfos_brocade_security import security_certificate_generate
 from pyfos.pyfos_brocade_security import security_certificate_action
+from pyfos.pyfos_brocade_fru import sensor
+from pyfos.pyfos_brocade_fru import wwn
+from pyfos.pyfos_brocade_fru import history_log
 import pyfos.pyfos_util as utils
 import pyfos.pyfos_auth as auth
 
@@ -167,7 +172,11 @@ class clsmanager():
                security_certificate_action,
                radius_server,
                chassis,
-               ha_status]
+               ha_status,
+               sensor,
+               wwn,
+               history_log,
+               logical_e_port]
     ordering = dict()
     sessionmgr = dict()
     mystageoperation = dict()
@@ -790,8 +799,7 @@ class clsmanager():
             if auth.is_failed_login(newsession):
                 cls.sleep(20, session)
                 continue
-            else:
-                break
+            break
         if not auth.is_failed_login(newsession):
             # print('old', cls.sessionkey(session), 'New',
             #       cls.sessionkey(newsession))
@@ -1053,6 +1061,7 @@ class clsmanager():
                            gigabitethernet,
                            gigabitethernet_statistics,
                            fibrechannel_logical_switch,
+                           logical_e_port,
                            ]
         if instcls in vfsupportedlist:
             return True
@@ -1181,6 +1190,14 @@ class clsmanager():
             return (0, 0, 0, 0, 0)
         if instcls == radius_server:
             return (0, 0, 0, 0, 0)
+        if instcls == history_log:
+            return (0, 0, 0, 0, 0)
+        if instcls == sensor:
+            return (0, 0, 0, 0, 0)
+        if instcls == wwn:
+            return (0, 0, 0, 0, 0)
+        if instcls == logical_e_port:
+            return (0, 0, 0, 0, 0)
         return (0, 0, 0, 0, 0)
 
     @classmethod
@@ -1206,6 +1223,7 @@ class clsmanager():
                                                 'cfg_member_zone_zone_name']}))
         sheetdict[defined].update(dict({'zone': ['zone_zone_name',
                                                  'zone_zone_type',
+                                                 'zone_zone_type_string',
                                                  'zone_member_entry_' +
                                                  'entry_name',
                                                  'zone_member_entry_' +

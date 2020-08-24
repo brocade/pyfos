@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+
+# Copyright © 2019-2020 Broadcom. All rights reserved.
+# The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,274 +15,159 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
 
-:mod:`snmp_v3_account_modify` - PyFOS util for updating snmp v3 account
-***********************************************************************
-The :mod:`snmp_v3_account__modify` provides option to modify snmp v3 account
-attribute
-
-This module can be used to modify snmpv3 account attributes.
-
-* inputs:
-
-|  Infrastructure options:
-
-  | -i,--ipaddr=IPADDR     IP address of FOS switch
-  | -L,--login=LOGIN       login name.
-  | -P,--password=PASSWORD password.
-  | -f,--vfid=VFID         VFID to which the request is directed to [OPTIONAL].
-  | -s,--secured=MODE      HTTPS mode "self" or "CA" [OPTIONAL].
-  | -v,--verbose           verbose mode[OPTIONAL].
-
-|  Util scripts options:
-
-  | --index=VALUE             Index of SNMPv3 account
-  | --user-name=VALUE         The snmpv3 user name
-  | --authentication_protocol The snmpv3 user authentication protocol[OPTIONAL]
-  | --privacy_protocol        The snmpv3 user privacy protocol[OPTIONAL]
-  | --authentication_password The snmpv3 user authentication password[OPTIONAL]
-  | --privacy_password        The snmpv3 user privacy password[OPTIONAL]
-  | --manager_engine_id       The snmp manager engine id[OPTIONAL]
-
-* outputs:
-
-    * Status of the patch operation on v3 account's attributes
-
-.. function:: v3_acc_obj.set_user_name(username)
-
-    * Configures usm user name
-
-        Example usage of the method::
-
-            ret = v3_acc_obj.set_user_name(username)
-            print (ret)
-
-        Details::
-
-            v3_acc_obj = v3_account()
-            if username is not None:
-               v3_acc_obj.set_user_name(username)
-
-            result = _set_snmp_v3_account(session, v1_acc_obj)
-
-        * inputs:
-            :param session: session returned by login.
-            :param username: user name of a snmpv3 account
-
-        * outputs:
-            :rtype: dictionary of return status matching rest response
-
-
-.. function:: v3_acc_obj.set_authentication_protocol(authProt)
-
-    * Configures snmpv3 user authenticaiton protocol
-
-        Example usage of the method::
-
-            ret = v3_acc_obj.set_authentication_protocol(authProt)
-            print (ret)
-
-        Details::
-
-            v3_acc_obj = v3_account()
-            if authProt is not None:
-               v3_acc_obj.set_authentication_protocol(authProt)
-
-            result = _set_authentication_protocol(session, v1_acc_obj)
-
-        * inputs:
-            :param session: session returned by login.
-            :param authProt: snmpv3 user's authentication protocol
-
-        * outputs:
-            :rtype: dictionary of return status matching rest response
-
-
-.. function:: v3_acc_obj.set_privacy_protocol(privProt)
-
-    * Configures snmpv3 user's privacy protocol
-
-        Example usage of the method::
-
-            ret = v3_acc_obj.set_privacy_protocol(privProt)
-            print (ret)
-
-        Details::
-
-            v3_acc_obj = v3_account()
-            if privProt is not None:
-               v3_acc_obj.set_privacy_protocol(privProt)
-
-            result = _set_privacy_protocol(session, v1_acc_obj)
-
-        * inputs:
-            :param session: session returned by login.
-            :param authProt: snmpv3 user's privacy protocol
-
-        * outputs:
-            :rtype: dictionary of return status matching rest response
-
-
-.. function:: v3_acc_obj.set_authentication_password(authPasswd)
-
-    * Configures snmpv3 user's authenticaiton password
-
-        Example usage of the method::
-
-            ret = v3_acc_obj.set_authentication_password(authPasswd)
-            print (ret)
-
-        Details::
-
-            v3_acc_obj = v3_account()
-            if authPasswd is not None:
-               v3_acc_obj.set_authentication_password(authPasswd)
-
-            result = _set_authentication_password(session, v1_acc_obj)
-
-        * inputs:
-            :param session: session returned by login.
-            :param authPasswd: snmpv3 user's authentication password
-
-        * outputs:
-            :rtype: dictionary of return status matching rest response
-
-
-.. function:: v3_acc_obj.set_privacy_password(privPasswd)
-
-    * Configures snmpv3 user's privacy password
-
-        Example usage of the method::
-
-            ret = v3_acc_obj.set_privacy_password(privPasswd)
-            print (ret)
-
-        Details::
-
-            v3_acc_obj = v3_account()
-            if privPasswd is not None:
-               v3_acc_obj.set_privacy_password(privPasswd)
-
-            result = _set_privacy_password(session, v1_acc_obj)
-
-        * inputs:
-            :param session: session returned by login.
-            :param privPasswd: snmpv3 user's privacy password
-
-        * outputs:
-            :rtype: dictionary of return status matching rest response
-
-
-.. function:: v3_acc_obj.set_manager_engine_id(mgrEngId)
-
-    * Configures snmpv3 manager engine id
-
-        Example usage of the method::
-
-            ret = v3_acc_obj.set_manager_engine_id(mgrEngId)
-            print (ret)
-
-        Details::
-
-            v3_acc_obj = v3_account()
-            if mgrEngId is not None:
-               v3_acc_obj.set_manager_engine_id(mgrEngId)
-
-            result = _set_manager_engine_id(session, v1_acc_obj)
-
-        * inputs:
-            :param session: session returned by login.
-            :param mgrEngId: snmpv3 manager engine id
-
-        * outputs:
-            :rtype: dictionary of return status matching rest response
+# snmp_v3_account_modify.py(pyGen v1.0.0)
 
 
 """
 
+:mod:`snmp_v3_account_modify` - PyFOS util to modify for v3_account
+*******************************************************************************
+The :mod:`snmp_v3_account_modify` PyFOS util to modify for v3_account
+
+
+The SNMPv3 user account. This parameter is used to accesses system via SNMPv3\
+in a secured manner by means of authentication and privacy. This parameter\
+is also used to receive the traps and informs notifications for the\
+configured host recipient. Refer to RFC 3414.
+
+snmp_v3_account_modify : usage
+
+* Infrastructure Options:
+    * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
+    * -L,--login=LOGIN: The login name.
+    * -P,--password=PASSWORD: The password.
+    * -f,--vfid=VFID: The VFID to which the request is directed.
+    * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
+    * -v,--verbose: Verbose mode [Optional].
+
+* Util Script Options:
+    * --authentication-protocol=AUTHENTICATION-PROTOCOL The authorization\
+      protocol(MD5 or SHA) for the SNMPv3 user. Refer to RFC 3414.
+    * --privacy-password=PRIVACY-PASSWORD This is write-only leaf and it\
+      defines the privacy password for the SNMPv3 user to access the system\
+      resources. The password should be base64 encoded. Refer to RFC 3414.
+    * --index=INDEX The label for this object.
+    * --manager-engine-id=MANAGER-ENGINE-ID The user-defined engine ID for the\
+      SNMP manager which is used to receive the SNMPv3 informs\
+      notifications. This parameter is applicable only when informs is\
+      enabled.
+    * --authentication-password=AUTHENTICATION-PASSWORD This is write-only\
+      leaf and it defines the authentication password for the SNMPv3 user to\
+      access the system resources. The password should be base64 encoded.\
+      Refer to RFC 3414.
+    * --user-group=USER-GROUP Indicates whether the SNMPv3 user belongs to a\
+      read-only or a read-write group.
+    * --privacy-protocol=PRIVACY-PROTOCOL The privacy protocol (DES or\
+      AES128) for the SNMPv3 user. Refer to RFC 3414.
+    * --user-name=USER-NAME The name of the user that connects to the agent.
+* Output:
+    * Python dictionary content with RESTCONF response data.
+
+
+.. function:: snmp_v3_account_modify.modify_v3_account(session,\
+authentication_protocol, privacy_password, index, manager_engine_id,\
+authentication_password, user_group, privacy_protocol, user_name)
+
+    *Modify v3_account*
+
+        Example Usage of the Method::
+
+            ret = snmp_v3_account_modify.modify_v3_account(session,\
+            authentication_protocol, privacy_password, index,\
+            manager_engine_id, authentication_password, user_group,\
+            privacy_protocol, user_name)
+            print (ret)
+
+        Details::
+
+            v3_accountObj = v3_account()
+            v3_accountObj.set_authentication_protocol(authentication_protocol)
+            v3_accountObj.set_privacy_password(privacy_password)
+            v3_accountObj.set_index(index)
+            v3_accountObj.set_manager_engine_id(manager_engine_id)
+            v3_accountObj.set_authentication_password(authentication_password)
+            v3_accountObj.set_user_group(user_group)
+            v3_accountObj.set_privacy_protocol(privacy_protocol)
+            v3_accountObj.set_user_name(user_name)
+            print (ret)
+
+        * Input::
+
+            :param session: The session returned by the login.
+            :param authentication_protocol: The authorization protocol(MD5 or\
+              SHA) for the SNMPv3 user. Refer to RFC 3414.
+            :param privacy_password: This is write-only leaf and it defines\
+              the privacy password for the SNMPv3 user to access the system\
+              resources. The password should be base64 encoded. Refer to RFC\
+              3414.
+            :param index: The label for this object.
+            :param manager_engine_id: The user-defined engine ID for the SNMP\
+              manager which is used to receive the SNMPv3 informs\
+              notifications. This parameter is applicable only when informs\
+              is enabled.
+            :param authentication_password: This is write-only leaf and it\
+              defines the authentication password for the SNMPv3 user to\
+              access the system resources. The password should be base64\
+              encoded. Refer to RFC 3414.
+            :param user_group: Indicates whether the SNMPv3 user belongs to a\
+              read-only or a read-write group.
+            :param privacy_protocol: The privacy protocol (DES or AES128) for\
+              the SNMPv3 user. Refer to RFC 3414.
+            :param user_name: The name of the user that connects to the agent.
+
+        * Output:
+
+            :rtype: Dictionary of response
+
+"""
+
+
+# Start utils imports
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
-from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_snmp import v3_account
 
-
-def _set_snmp_v3_account(session, restobject):
-    return restobject.patch(session)
-
-
-def _set_user_name(session, username):
-    v3_acc_obj = v3_account()
-    if username is not None:
-        v3_acc_obj.set_user_name(username)
-    result = _set_snmp_v3_account(session, v3_acc_obj)
-    return result
+from pyfos.utils import brcd_util
+# End module imports
 
 
-def _set_authentication_protocol(session, authProt):
-    v3_acc_obj = v3_account()
-    if authProt is not None:
-        v3_acc_obj.set_authentication_protocol(authProt)
-    result = _set_snmp_v3_account(session, v3_acc_obj)
-    return result
+def _modify_v3_account(session, v3_accountObj):
+    return v3_accountObj.patch(session)
 
 
-def _set_privacy_protocol(session, privProt):
-    v3_acc_obj = v3_account()
-    if privProt is not None:
-        v3_acc_obj.set_privacy_protocol(privProt)
-    result = _set_snmp_v3_account(session, v3_acc_obj)
-    return result
+def modify_v3_account(session, authentication_protocol=None,
+                      privacy_password=None, index=None,
+                      manager_engine_id=None, authentication_password=None,
+                      user_group=None, privacy_protocol=None, user_name=None):
+    v3_accountObj = v3_account()
+    v3_accountObj.set_authentication_protocol(authentication_protocol)
+    v3_accountObj.set_privacy_password(privacy_password)
+    v3_accountObj.set_index(index)
+    v3_accountObj.set_manager_engine_id(manager_engine_id)
+    v3_accountObj.set_authentication_password(authentication_password)
+    v3_accountObj.set_user_group(user_group)
+    v3_accountObj.set_privacy_protocol(privacy_protocol)
+    v3_accountObj.set_user_name(user_name)
+    return _modify_v3_account(session, v3_accountObj)
 
 
-def _set_authentication_password(session, authPasswd):
-    v3_acc_obj = v3_account()
-    if authPasswd is not None:
-        v3_acc_obj.set_authentication_password(authPasswd)
-    result = _set_snmp_v3_account(session, v3_acc_obj)
-    return result
-
-
-def _set_privacy_password(session, privPasswd):
-    v3_acc_obj = v3_account()
-    if privPasswd is not None:
-        v3_acc_obj.set_privacy_password(privPasswd)
-    result = _set_snmp_v3_account(session, v3_acc_obj)
-    return result
-
-
-def _set_manager_engine_id(session, mgrEngId):
-    v3_acc_obj = v3_account()
-    if mgrEngId is not None:
-        v3_acc_obj.set_manager_engine_id(mgrEngId)
-    result = _set_snmp_v3_account(session, v3_acc_obj)
-    return result
-
-
-def validate(v3_acc_obj):
-    if (v3_acc_obj.peek_index() is None and
-       v3_acc_obj.peek_user_name() is None):
+def validate(v3_accountObj):
+    if v3_accountObj.peek_index() is None or\
+       v3_accountObj.peek_user_name() is None:
         return 1
     return 0
 
 
 def main(argv):
-
-    # Print arguments
-    # print(sys.argv[1:])
-
-    filters = ['index', 'user_name', 'authentication_protocol',
-               'privacy_protocol', 'authentication_password',
-               'privacy_password', 'manager_engine_id']
-
+    filters = ["authentication_protocol", "privacy_password", "index",
+               "manager_engine_id", "authentication_password", "user_group",
+               "privacy_protocol", "user_name"]
     inputs = brcd_util.parse(argv, v3_account, filters, validate)
-
     session = brcd_util.getsession(inputs)
-
-    result = _set_snmp_v3_account(inputs['session'], inputs['utilobject'])
+    result = _modify_v3_account(session, inputs['utilobject'])
     pyfos_util.response_print(result)
-
     pyfos_auth.logout(session)
 
 

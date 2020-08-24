@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>blade_extncfg_set - PyFOS util for setting extension blade modes. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>blade_extncfg_set - PyFOS util for setting extension blade modes. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk." href="port_trunk_area_create_add.html" />
+    <link rel="next" title="history_show - PyFOS util to display history log records of all the FRU’s." href="history_show.html" />
     <link rel="prev" title="blade_show - PyFOS util to show the blade information." href="blade_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="port_trunk_area_create_add.html" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk."
+          <a href="history_show.html" title="history_show - PyFOS util to display history log records of all the FRU’s."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="blade_show.html" title="blade_show - PyFOS util to show the blade information."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -48,12 +48,11 @@
 <p>This module is a stand-alone script that can be used to create an extension
 tunnel.</p>
 <p>blade_extncfg_set.py: Usage</p>
-<ul>
-<li><p class="first">Input:</p>
-</li>
+<ul class="simple">
+<li>Input:</li>
 <li><dl class="first docutils">
 <dt>Infrastructure options:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>-i,–ipaddr=IPADDR     The IP address of the FOS switch.</li>
 <li>-L,–login=LOGIN       The login name.</li>
 <li>-P,–password=PASSWORD The password.</li>
@@ -66,7 +65,7 @@ tunnel.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Util Script Options:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>–slot=SLOT: Sets the “slot-number”.</li>
 <li>–app-mode=VALUE: Sets the “extension-app-mode”.</li>
 <li>–ve-mode=VALUE: Sets the “extension-ve-mode”.</li>
@@ -77,7 +76,7 @@ tunnel.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
@@ -90,12 +89,12 @@ tunnel.</p>
 <dd><p><em>Set Extension Blade Modes</em></p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">blade_extncfg_set</span><span class="o">.</span><span class="n">extncfg_set</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">blade_extncfg_set</span><span class="o">.</span><span class="n">extncfg_set</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
 <span class="n">slot</span><span class="p">,</span> <span class="n">appmode</span><span class="p">,</span> <span class="n">vemode</span><span class="p">,</span> <span class="n">gemode</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -155,8 +154,8 @@ Module <a class="reference internal" href="pyfos_brocade_fru.html#module-pyfos_b
   <p class="topless"><a href="blade_show.html"
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">blade_show</span></code> - PyFOS util to show the blade information.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="port_trunk_area_create_add.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">port_trunk_area_create_add</span></code> - PyFOS util for adding or creating a port trunk.</a></p>
+  <p class="topless"><a href="history_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">history_show</span></code> - PyFOS util to display history log records of all the FRU’s.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -190,12 +189,12 @@ Module <a class="reference internal" href="pyfos_brocade_fru.html#module-pyfos_b
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="port_trunk_area_create_add.html" title="port_trunk_area_create_add - PyFOS util for adding or creating a port trunk."
+          <a href="history_show.html" title="history_show - PyFOS util to display history log records of all the FRU’s."
              >next</a> |</li>
         <li class="right" >
           <a href="blade_show.html" title="blade_show - PyFOS util to show the blade information."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

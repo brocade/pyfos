@@ -1,0 +1,175 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>zoning_object_expunge - PyFOS util used for expunging a zone object. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="zoning_pzone_create_add - PyFOS util for specific Zoning use case." href="zoning_pzone_create_add.html" />
+    <link rel="prev" title="zoning_hanging_zone_find - PyFOS util for misc use case." href="zoning_hanging_zone_find.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="zoning_pzone_create_add.html" title="zoning_pzone_create_add - PyFOS util for specific Zoning use case."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="zoning_hanging_zone_find.html" title="zoning_hanging_zone_find - PyFOS util for misc use case."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-zoning_object_expunge"></span><div class="section" id="zoning-object-expunge-pyfos-util-used-for-expunging-a-zone-object">
+<h1><a class="reference internal" href="#module-zoning_object_expunge" title="zoning_object_expunge: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zoning_object_expunge</span></code></a> - PyFOS util used for expunging a zone object.<a class="headerlink" href="#zoning-object-expunge-pyfos-util-used-for-expunging-a-zone-object" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-zoning_object_expunge" title="zoning_object_expunge: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zoning_object_expunge</span></code></a> PyFOS util is used to expunge a zone object.</p>
+<p>Use this utility to expunge a zone object from the zone database.  In addition
+to deleting the specified object, this will also remove the object from the
+member lists of all other objects.  After successful execution, the specified
+object will no longer exist in the defined configuration.  You can use this
+utility for all zone object types including cfgs, zones, aliases, WWN members,
+and D,I members.  Members of Target Peer Zones are not allowed to be expunged.</p>
+<p>This utility changes the defined configuration.  After successful completion
+of the expunge operation, this utility will automatically save the changes to
+nonvolatile memory (similar to the ‘cfgSave’ CLI).  If for some reason the
+save operation fails, the expunge operation will be undone by way of a
+transaction abort operation.</p>
+<p>If the expunge operation results in editing the defined configuration version
+of the current effective configuration, upon successful completion of the
+expunge and implicit save operation, the defined and effective configurations
+will be mismatched which can result in undesired behavior.  In this case, it
+is highly recommended to enable the configuration with the
+<a class="reference internal" href="zoning_cfg_enable.html#module-zoning_cfg_enable" title="zoning_cfg_enable: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zoning_cfg_enable</span></code></a> PyFOS utility.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the object being expunged is the only member of a zone object, the
+parent object is also deleted.  If the parent object that is implicitly
+deleted happens to also be the enabled zone configuration, the implicit
+save operation which is performed after expunge will fail.  In this case,
+users should first either enable a different configuration with the
+<a class="reference internal" href="zoning_cfg_enable.html#module-zoning_cfg_enable" title="zoning_cfg_enable: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zoning_cfg_enable</span></code></a> PyFOS utility, or disable the current enabled
+configuration using the <a class="reference internal" href="zoning_cfg_disable.html#module-zoning_cfg_disable" title="zoning_cfg_disable: PyFOS module to manage specific FOS Zone use case (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zoning_cfg_disable</span></code></a> PyFOS utility and retry
+the expunge utility.</p>
+</div>
+<ul class="simple">
+<li>Input:</li>
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config    file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–zone-object: Name of the object to be expunged.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Status of the expunge operation.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="zoning_hanging_zone_find.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">zoning_hanging_zone_find</span></code> - PyFOS util for misc use case.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="zoning_pzone_create_add.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">zoning_pzone_create_add</span></code> - PyFOS util for specific Zoning use case.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/zoning_object_expunge.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="zoning_pzone_create_add.html" title="zoning_pzone_create_add - PyFOS util for specific Zoning use case."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="zoning_hanging_zone_find.html" title="zoning_hanging_zone_find - PyFOS util for misc use case."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

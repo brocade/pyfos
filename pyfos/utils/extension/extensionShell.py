@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Copyright © 2018 Broadcom. All Rights Reserved. The term “Broadcom” refers to
 # Broadcom Inc. and/or its subsidiaries.
@@ -54,12 +54,12 @@ from pyfos import pyfos_util
 from pyfos.pyfos_brocade_extension_tunnel import extension_tunnel
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit_statistics
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
-from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
+from pyfos.pyfos_brocade_interface import extension_ip_interface
 from pyfos.pyfos_brocade_extension_ip_route import extension_ip_route
 from pyfos.pyfos_rest_util import rest_object
 
 
-isHttps = "0"
+isHttps = None
 session = None
 
 
@@ -297,7 +297,8 @@ def parse_port(arg, myobject, value_dict):
         # print(port)
         if len(port) > 0:
             name = port[0]
-            if isinstance(myobject, (extension_ip_interface, extension_ip_route)):
+            if isinstance(myobject,
+                          (extension_ip_interface, extension_ip_route)):
                 name = re.sub('ge', '', port[0])
             value_dict.update({'name': name})
 
@@ -353,7 +354,8 @@ def parse_cid(arg, myobject, value_dict):
     pattern_verify = re.search('\d', arg)
     # print(arg, pattern_verify)
     if pattern_verify:
-        if isinstance(myobject, (extension_circuit, extension_circuit_statistics)):
+        if isinstance(myobject,
+                      (extension_circuit, extension_circuit_statistics)):
             # print(arg, pattern_verify)
             value_dict.update({'circuit-id': arg})
             return 0
@@ -402,7 +404,8 @@ def handler(user_command):
             if parse_port(argv[i], myobject, value_dict):
                 return
         if cmd == 'cfg' and i == 3:
-            if argv[i] == 'create' or argv[i] == 'modify' or argv[i] == 'delete':
+            if argv[i] == 'create' or argv[i] == 'modify' or\
+               argv[i] == 'delete':
                 op = argv[i]
             else:
                 print("Incorrect option used")
@@ -415,7 +418,7 @@ def handler(user_command):
                     return
                 elif parse_ipaddress(argv[i], myobject, value_dict):
                     return
-            i += 1
+        i += 1
     if cmd == 'cfg':
         # if argc > 4 and isinstance(myobject, extension_tunnel):
         #       parse_tunnel(user_command, myobject, value_dict)

@@ -1,4 +1,4 @@
-PyFOS - 1.2.1
+PyFOS - 2.0.0
 =============
 
 ### What is PyFOS ###
@@ -26,7 +26,7 @@ PyFOS - 1.2.1
 
 ### FOS and PyFOS versions ###
 
-    PyFOS 1.2.1 covers up to FOS 8.2.2
+    PyFOS 2.0.0 covers up to FOS 9.0.0a
 
 ### Directory structure ###
 
@@ -45,17 +45,14 @@ PyFOS - 1.2.1
 
 ### Installation ###
 
-    1) install dependencies
-        pip3 install --user openpyxl colorconsole xlrd jsondiff requests xmltodict paramiko
+    pyfos can be installed directly from github.com or using pip
 
-    2) pyfos can be installed directly from github.com or using pip
-
-        2.1) install pyfos directly from github.com into the library path
+        1) install pyfos directly from github.com into the library path
             git clone https://github.com/brocade/pyfos
             cd pyfos
             pip3 install --user -e .
 
-        2.2) install pyfos using pip into the library path
+        2) install pyfos using pip into the library path
             pip3 install --user pyfos
 
 ### HTML based documentation ###
@@ -190,3 +187,32 @@ PyFOS - 1.2.1
     CAA - Entity:  https://na3.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=f657df18-ed64-4c51-a8f2-618bbd17d355
                 
     For more information on contributing, see CONTRIBUTING.md.
+
+### Docker Deployment ###
+  
+    Docker is an open source containerization platform which enables developers to package pyfos 
+    into standardized executable components. Docker-compose is used to manage pyfos application
+    that is built upon multiple containers and all of which reside on the same host. Users
+    can also define peristent volumes for storage, configure service
+    dependancies and specifiy base nodes using docker-compose.
+
+#### Docker Dependencies ####
+
+    - Docker
+    - Docker-Compose
+
+#### Installation Steps ####
+ 
+    The below are the steps to install docker container for pyfos application.
+ 
+    1. Change directory to pyfos repository.
+    2. Build the "pyfos" container
+            "docker-compose -f docker-compose.yml build"
+    3. Start the container
+            "docker-compose -f docker-compose.yml up"
+    4. Install the pyfos repository within the container
+            "docker-compose -f docker-compose.yml exec python3 -m pip install -e ."
+
+##### Connect to Container #####
+
+    docker-compose -f docker-compose.yml exec pyfos bash

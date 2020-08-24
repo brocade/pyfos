@@ -1,0 +1,455 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_operation_extension - PyFOS module for RPC commanddefinition for Extension operation on a Brocade switch. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="bulk_zoning - PyFOS util for bulk Zoning update use case." href="bulk_zoning.html" />
+    <link rel="prev" title="pyfos_brocade_extension - PyFOS module for management and statistics for brocade extension." href="pyfos_brocade_extension.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bulk_zoning.html" title="bulk_zoning - PyFOS util for bulk Zoning update use case."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_extension.html" title="pyfos_brocade_extension - PyFOS module for management and statistics for brocade extension."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_operation_extension"></span><div class="section" id="pyfos-brocade-operation-extension-pyfos-module-for-rpc-commanddefinition-for-extension-operation-on-a-brocade-switch">
+<h1><a class="reference internal" href="#module-pyfos_brocade_operation_extension" title="pyfos_brocade_operation_extension: PyFOS module to support Extension RPC operation. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_operation_extension</span></code></a> - PyFOS module for RPC commanddefinition for Extension operation on a Brocade switch.<a class="headerlink" href="#pyfos-brocade-operation-extension-pyfos-module-for-rpc-commanddefinition-for-extension-operation-on-a-brocade-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_operation_extension" title="pyfos_brocade_operation_extension: PyFOS module to support Extension RPC operation. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_operation_extension</span></code></a> The PyFOS module support for RPCcommand definition for Extension operation on a Brocade switch.</p>
+<dl class="class">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_operation_extension.</code><code class="descname">extension_operation_parameters</code><span class="sig-paren">(</span><em>dictvalues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of extension_operation_parameters</p>
+<p><em>Description extension_operation_parameters</em></p>
+<blockquote>
+<div>The extension operation input container.</div></blockquote>
+<p>Important class members of extension_operation_parameters:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="36%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>slot</td>
+<td>The slot number of for the datapath
+processor.</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_slot" title="pyfos_brocade_operation_extension.extension_operation_parameters.set_slot"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_slot()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_slot" title="pyfos_brocade_operation_extension.extension_operation_parameters.peek_slot"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_slot()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>dp-id</td>
+<td>Extension Data Path Processor ID. Based on
+platform either it will have a single DP or
+dual DP. In case of single DP only DP0 is
+supported, and in case of dual DP both DP0
+and DP1 are supported 0 : DP0 1 : DP1.</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_dp_id" title="pyfos_brocade_operation_extension.extension_operation_parameters.set_dp_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_dp_id()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_dp_id" title="pyfos_brocade_operation_extension.extension_operation_parameters.peek_dp_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_dp_id()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>config-default</td>
+<td>Default the extension configuration for the
+switch or blade. The config default operation
+is a disruptive operation and details are as
+below. switch : After successful operation
+the switch  automatically reboots. blade : A
+blade should be in online state for the
+operation  to be allowed and the blade may be
+slot powered off and on  to allow different
+extension modes to be applied correctly.
+Supported values: false: No operation true :
+Default the extension configuration.</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_config_default" title="pyfos_brocade_operation_extension.extension_operation_parameters.set_config_default"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_config_default()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_config_default" title="pyfos_brocade_operation_extension.extension_operation_parameters.peek_config_default"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_config_default()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>global-lan-statistics-reset</td>
+<td>Reset the global LAN statistics on a DP.
+Supported values: false: No operation true :
+Reset the global LAN statistics.</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_global_lan_statistics_reset" title="pyfos_brocade_operation_extension.extension_operation_parameters.set_global_lan_statistics_reset"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_global_lan_statistics_reset()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_global_lan_statistics_reset" title="pyfos_brocade_operation_extension.extension_operation_parameters.peek_global_lan_statistics_reset"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_global_lan_statistics_reset()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>config-clear</td>
+<td>Clear the extension configuration for the
+switch or blade. The config clear operation
+may be disruptive in nature. switch : A
+switch needs to be rebooted after a config
+clear operation, without which future config
+operations will be blocked. blade : A blade
+needs to be powered off before clearing the
+slot corresponding configuration. Supported
+values: false: No operation true : Clear the
+extension configuration.</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_config_clear" title="pyfos_brocade_operation_extension.extension_operation_parameters.set_config_clear"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_config_clear()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_config_clear" title="pyfos_brocade_operation_extension.extension_operation_parameters.peek_config_clear"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_config_clear()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions for extension_operation_parameters</em></p>
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the instances of class “extension_operation_parameters from</dt>
+<dd>switch. The object can be printed using
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><em>Class functions for extension_operation_parameters</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.peek_slot">
+<code class="descname">peek_slot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_slot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to slot in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.set_slot">
+<code class="descname">set_slot</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_slot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of slot in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and a value
+with “slot” as the key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.peek_dp_id">
+<code class="descname">peek_dp_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_dp_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to dp-id in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.set_dp_id">
+<code class="descname">set_dp_id</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_dp_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of dp-id in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and a value
+with “dp-id” as the key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.peek_config_default">
+<code class="descname">peek_config_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_config_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to config-default in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.set_config_default">
+<code class="descname">set_config_default</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_config_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of config-default in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and a value
+with “config-default” as the key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.peek_global_lan_statistics_reset">
+<code class="descname">peek_global_lan_statistics_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_global_lan_statistics_reset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to global-lan-statistics-reset in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.set_global_lan_statistics_reset">
+<code class="descname">set_global_lan_statistics_reset</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_global_lan_statistics_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of global-lan-statistics-reset in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and a value
+with “global-lan-statistics-reset” as the key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.peek_config_clear">
+<code class="descname">peek_config_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.peek_config_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to config-clear in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_parameters.set_config_clear">
+<code class="descname">set_config_clear</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_parameters.set_config_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of config-clear in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and a value
+with “config-clear” as the key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_operation_extension.extension_operation_status">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_operation_extension.</code><code class="descname">extension_operation_status</code><span class="sig-paren">(</span><em>dictvalues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of extension_operation_status</p>
+<p><em>Description extension_operation_status</em></p>
+<blockquote>
+<div>The container for Extension  operation status</div></blockquote>
+<p>Important class members of extension_operation_status:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="31%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>status-message</td>
+<td>The status message informing
+the operation status</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_status.set_status_message" title="pyfos_brocade_operation_extension.extension_operation_status.set_status_message"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_status_message()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_operation_extension.extension_operation_status.peek_status_message" title="pyfos_brocade_operation_extension.extension_operation_status.peek_status_message"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_status_message()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions for extension_operation_status</em></p>
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_status.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_status.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the instances of class “extension_operation_status from switch.</dt>
+<dd>The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><em>Class functions for extension_operation_status</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_status.peek_status_message">
+<code class="descname">peek_status_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_status.peek_status_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to status-message in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_extension.extension_operation_status.set_status_message">
+<code class="descname">set_status_message</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_extension.extension_operation_status.set_status_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of status-message in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and a value
+with “status-message” as the key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_rest_util.html#module-pyfos_rest_util" title="pyfos_rest_util: PyFOS module to provide REST utility functions (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rest_util</span></code></a>
+Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p>The Example utils</p>
+<p class="last">Module <a class="reference internal" href="extension_operation_set.html#module-extension_operation_set" title="extension_operation_set: PyFOS module for Extension RPC operation. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">extension_operation_set</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_extension.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_extension</span></code> - PyFOS module for management and statistics for brocade extension.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bulk_zoning.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">bulk_zoning</span></code> - PyFOS util for bulk Zoning update use case.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_operation_extension.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bulk_zoning.html" title="bulk_zoning - PyFOS util for bulk Zoning update use case."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_extension.html" title="pyfos_brocade_extension - PyFOS module for management and statistics for brocade extension."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

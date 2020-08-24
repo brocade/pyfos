@@ -1,0 +1,141 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>switchshow_with_auth_token_manager - PyFOS util for switchshow using AuthTokenManager login support. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="switchshow_with_auth_token - PyFOS util for switchshow using AuthToken login support." href="switchshow_with_auth_token.html" />
+    <link rel="prev" title="auth_token_set_default_config - PyFOS util to set the default token store for AuthTokenManager to the user specified one." href="auth_token_set_default_config.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="switchshow_with_auth_token.html" title="switchshow_with_auth_token - PyFOS util for switchshow using AuthToken login support."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="auth_token_set_default_config.html" title="auth_token_set_default_config - PyFOS util to set the default token store for AuthTokenManager to the user specified one."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-switchshow_with_auth_token_manager"></span><div class="section" id="switchshow-with-auth-token-manager-pyfos-util-for-switchshow-using-authtokenmanager-login-support">
+<h1><a class="reference internal" href="#module-switchshow_with_auth_token_manager" title="switchshow_with_auth_token_manager: PyFOS module to show example usage of AuthTokenManager for REST operations. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switchshow_with_auth_token_manager</span></code></a> - PyFOS util for switchshow using AuthTokenManager login support.<a class="headerlink" href="#switchshow-with-auth-token-manager-pyfos-util-for-switchshow-using-authtokenmanager-login-support" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-switchshow_with_auth_token_manager" title="switchshow_with_auth_token_manager: PyFOS module to show example usage of AuthTokenManager for REST operations. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switchshow_with_auth_token_manager</span></code></a> PyFOS util for switchshow using AuthTokenManager login support.</p>
+<dl class="function">
+<dt id="switchshow_with_auth_token_manager.example_login">
+<code class="descclassname">switchshow_with_auth_token_manager.</code><code class="descname">example_login</code><span class="sig-paren">(</span><em>user='admin'</em>, <em>password='fibranne'</em>, <em>ip='10.200.154.63'</em>, <em>https=None</em>, <em>throttle=1.1</em>, <em>verbose=0</em>, <em>tokenArg=None</em>, <em>sessionless=False</em><span class="sig-paren">)</span><a class="headerlink" href="#switchshow_with_auth_token_manager.example_login" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is a wrapper function to get a session dictionary for REST
+operation based on the input options specified, all subsequent REST
+operation can be performed by using this session dictionary. The session
+returned is based on inputs for.</p>
+<dl class="docutils">
+<dt><strong>Regular REST login session</strong></dt>
+<dd><em>tokenArg</em> is None
+<em>sessionless</em> is False</dd>
+<dt><strong>Auth Token based REST login session</strong></dt>
+<dd><em>tokenArg</em> is either a Token Manager instance or an Auth token string
+<em>password</em> is None
+<em>sessionless</em> is False.</dd>
+<dt><strong>sessionless  session without any login</strong></dt>
+<dd><em>tokenArg</em> must be None
+<em>password</em> is mandatory
+<em>sessionless</em> is True.</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="auth_token_delete.html#module-auth_token_delete" title="auth_token_delete: PyFOS module to Delete an AuthToken from the FOS switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_delete</span></code></a>
+Module <a class="reference internal" href="auth_token_generate.html#module-auth_token_generate" title="auth_token_generate: PyFOS module to generate an AuthToken from a FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_generate</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_add_token.html#module-auth_token_manager_add_token" title="auth_token_manager_add_token: PyFOS module to add an AuthToken to Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_add_token</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_delete_token.html#module-auth_token_manager_delete_token" title="auth_token_manager_delete_token: PyFOS module to Delete an AuthToken from Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_delete_token</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_show.html#module-auth_token_manager_show" title="auth_token_manager_show: PyFOS module to Display  AuthToken's and Auth Token Manager instance configurations. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_show</span></code></a>
+Module <a class="reference internal" href="auth_token_migrate_token.html#module-auth_token_migrate_token" title="auth_token_migrate_token: PyFOS module to migrate AuthTokens across AuthTokenManager Instance. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_migrate_token</span></code></a>
+Module <a class="reference internal" href="auth_token_reset_default_config.html#module-auth_token_reset_default_config" title="auth_token_reset_default_config: PyFOS module to reset the default configuration store for Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_reset_default_config</span></code></a>
+Module <a class="reference internal" href="auth_token_set_default_config.html#module-auth_token_set_default_config" title="auth_token_set_default_config: PyFOS module to set a custom Auth Token store as default for Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_set_default_config</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="auth_token_set_default_config.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">auth_token_set_default_config</span></code> - PyFOS util to set the default token store for AuthTokenManager to the user specified one.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="switchshow_with_auth_token.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">switchshow_with_auth_token</span></code> - PyFOS util for switchshow using AuthToken login support.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/switchshow_with_auth_token_manager.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="switchshow_with_auth_token.html" title="switchshow_with_auth_token - PyFOS util for switchshow using AuthToken login support."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="auth_token_set_default_config.html" title="auth_token_set_default_config - PyFOS util to set the default token store for AuthTokenManager to the user specified one."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

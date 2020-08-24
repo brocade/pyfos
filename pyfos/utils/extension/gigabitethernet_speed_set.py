@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-# Copyright © 2018 Broadcom. All Rights Reserved. The term “Broadcom” refers to
-# Broadcom Inc. and/or its subsidiaries.
+
+# Copyright © 2019-2020 Broadcom. All rights reserved.
+# The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,16 +16,23 @@
 # limitations under the License.
 
 
+# gigabitethernet_speed_set.py(pyGen v1.0.0)
+
+
 """
 
-:mod:`gigabitethernet_speed_set` - PyFOS util to set GE_Port speed.
+:mod:`gigabitethernet_speed_set` - PyFOS util to modify for\
+ gigabitethernet
+******************************************************************************\
 *******************************************************************************
-The :mod:`gigabitethernet_speed_set` util is used to set the GE_Port speed.
+The:mod:`gigabitethernet_speed_set` PyFOS util to modify for gigabitethernet
 
-This module is a stand-alone script that can be used to set the
-switch GE_Port speed on an extension platform.
 
-gigabitethernet_speed_set.py: Usage
+The list of gigabitethernet interfaces on the device. System-controlled\
+ interfaces created by the system are always present in this list, whether\
+ they are configured or not.
+
+gigabitethernet_speed_set: usage
 
 * Infrastructure Options:
     * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
@@ -33,88 +41,89 @@ gigabitethernet_speed_set.py: Usage
     * -f,--vfid=VFID: The VFID to which the request is directed.
     * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
     * -v,--verbose: Verbose mode [Optional].
+    * -a,--authtoken: AuthToken value or AuthTokenManager config\
+    file[OPTIONAL].
+    * -z,--nosession: Sessionless authentication based login[OPTIONAL].
+    * --nocredential: No credential to be sent in the request[OPTIONAL].
 
 * Util Script Options:
-    * -n,--name=NAME: Sets the name.
-    *    --speed=VALUE: Sets the speed.
-
+    * --name=NAME: The name of the interface.
+    * --speed=SPEED: For PHY types that may operate at various speeds, this\
+      leaf allows the interface to be forced to operate at a particular\
+      speed.  Without any explicit configuration, gigabitethernet interfaces\
+      run at the maximum capable speed.
 * Output:
     * Python dictionary content with RESTCONF response data.
 
-.. function:: gigabitethernet_speed_set.set_port_speed(session,\
-name, speed)
 
-    *Modify Extension Gigabitethernet Speed*
+.. function:: gigabitethernet_speed_set.modify_gigabitethernet(session, name,\
+speed)
 
-        Example Usage of the Method::
+    *Modify gigabitethernet*
 
-            ret = gigabitethernet_speed_set.set_port_speed(session,
-            name, speed)
-            print (ret)
+    Example Usage of the Method::
 
-        Details::
-                gigabitethernet = gigabitethernet()
-                gigabitethernet.set_name(name)
-                gigabitethernet.set_speed(speed)
+            ret = gigabitethernet_speed_set.modify_gigabitethernet(session,\
+ name, speed)
+            print(ret)
 
-                result = gigabitethernet.patch(session)
+    Details::
 
-        * Input:
-            :param session: The session returned by the login.
-            :param name: The GE_Port name expressed as slot/port.
-            :param speed: The speed at which to set the GE_Port.
+        gigabitethernetObj = gigabitethernet()
+        gigabitethernetObj.set_name(name)
+        gigabitethernetObj.set_speed(speed)
+        ret = _modify_gigabitethernet(session, gigabitethernetObj)
+        print(ret)
 
-        * Output:
-            :rtype: A dictionary of return status matching the REST response.
+    **Inputs**
 
-        *Use Cases*
+    :param session: The session returned by the login.
+    :param name: The name of the interface.
+    :param speed: For PHY types that may operate at various speeds, this leaf\
+      allows the interface to be forced to operate at a particular speed. \
+      Without any explicit configuration, gigabitethernet interfaces run at\
+      the maximum capable speed.
 
-         Modify the extension GE_Port speed to 1G or 10G.
+    **Output**
+
+    :rtype: Dictionary of response
+
 """
 
 
+# Start utils imports
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
 from pyfos.pyfos_brocade_interface import gigabitethernet
+
 from pyfos.utils import brcd_util
+# End module imports
 
 
-isHttps = "0"
+def _modify_gigabitethernet(session, gigabitethernetObj):
+    return gigabitethernetObj.patch(session)
 
 
-def _set_port_speed(session, rest_obj):
-    result = rest_obj.patch(session)
-    return result
+def modify_gigabitethernet(session, name=None, speed=None):
+    gigabitethernetObj = gigabitethernet()
+    gigabitethernetObj.set_name(name)
+    gigabitethernetObj.set_speed(speed)
+    return _modify_gigabitethernet(session, gigabitethernetObj)
 
 
-def set_port_speed(session, name, speed):
-    geObject = gigabitethernet()
-    geObject.set_name(name)
-    geObject.set_speed(speed)
-    result = _set_port_speed(session, geObject)
-    return result
-
-
-def validate(geObject):
-    if geObject.peek_name() is None or \
-       geObject.peek_speed() is None:
+def validate(gigabitethernetObj):
+    if gigabitethernetObj.peek_name() is None or\
+       gigabitethernetObj.peek_speed() is None:
         return 1
     return 0
 
 
 def main(argv):
-    # myinputs = "-h -i 10.17.3.70 --name 4/17 --speed 10000000000"
-    # myinputs = "-h -i 10.17.3.70  --speed 1000000000 -n 4/17"
-    # myinputs = "--name 4/17 --speed 1000000000"
-    # myinputs = "-i 10.17.3.70 --name 4/17"
-    # argv = myinputs.split()
-    filters = ['name', 'speed']
-    inputs = brcd_util.parse(argv, gigabitethernet, filters,
-                             validate)
+    filters = ["name", "speed"]
+    inputs = brcd_util.parse(argv, gigabitethernet, filters, validate)
     session = brcd_util.getsession(inputs)
-
-    result = _set_port_speed(inputs['session'], inputs['utilobject'])
+    result = _modify_gigabitethernet(session, inputs['utilobject'])
     pyfos_util.response_print(result)
     pyfos_auth.logout(session)
 

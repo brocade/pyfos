@@ -692,3 +692,388 @@ class blade(pyfos_rest_util.rest_object):
             version.VER_RANGE_821b_and_ABOVE))
 
         self.load(dictvalues, 1)
+
+
+class history_log(pyfos_rest_util.rest_object):
+    """This class provides the entire history log records of all the FRU's.
+
+    Important class members:
+
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | Attribute name                    | Description                    | Frequently used methods                               |
+        +===================================+================================+=======================================================+
+        | fru-type                          | Type of the fru                |:meth:`peek_fru_type`                                  |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | position                          | Physical location where the    |:meth:`peek_position`                                  |
+        |                                   | fru is located                 |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | state                             | State of the fru               |:meth:`peek_state`                                     |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | part-number                       | Part number of the Unit        |:meth:`peek_part_number`                               |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | serial-number                     | Serial number of the Unit      |:meth:`peek_serial_number`                             |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-stamp                        | Timestamp of the event         |:meth:`peek_time_stamp`                                |
+        |                                   | generated                      |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+
+    *Object methods*
+
+        .. classmethod:: get()
+
+            Returns :class:`history_log`
+            object or a list of objects filled with
+            historylog attributes.
+
+            Each object can be printed using :func:`pyfos_util.response_print`
+            and individual attributes accessed through peek methods.
+
+            :param session: session handler returned by
+                :func:`pyfos_auth.login`
+            :rtype: dictionary of error or
+                :class:`history_log` object
+
+    *Attribute methods*
+
+        .. method:: peek_fru_type()
+
+            Reads type of the fru from the object.
+
+            :rtype: None or fru type.
+
+        .. method:: peek_position()
+
+            Reads physical location where the fru is located from the object.
+
+            :rtype: None or physical location of the fru.
+
+        .. method:: peek_state()
+
+            Reads state of the fru.
+
+            :rtype: None or state of the fru.
+
+        .. method:: peek_part_number()
+
+            Reads part number of the fru.
+
+            :rtype: None or part number of the fru.
+
+        .. method:: peek_serial_number()
+
+            Reads serial number of the fru.
+
+            :rtype: None or serial number of the fru.
+
+        .. method:: peek_time_stamp()
+
+            Reads timestamp of the event generated for the fru.
+
+            :rtype: None or time stamp of the event.
+
+        """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.history_show,
+                         "/rest/running/brocade-fru/history-log",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "fru-type", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "position", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "state", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-stamp", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "part-number", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "serial-number", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.load(dictvalues, 1)
+
+
+class sensor(pyfos_rest_util.rest_object):
+    """This class provides information for the given sensor id.
+
+    Important class members:
+
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | Attribute name                    | Description                    | Frequently used methods                               |
+        +===================================+================================+=======================================================+
+        | id                                | Sensor id number               |:meth:`peek_id`                                        |
+        |                                   |                                |:meth:`set_id`                                         |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | slot-number                       | Physical slot in the chassis   |:meth:`peek_slot_number`                               |
+        |                                   | in which the blade is inserted |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | index                             | Sensor index                   |:meth:`peek_index`                                     |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | state                             | Operational state              |:meth:`peek_state`                                     |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | category                          | Type of the sensor             |:meth:`peek_category`                                  |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | temperature                       | Temperature of the fru         |:meth:`peek_temperature`                               |
+        |                                   | sensor                         |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+
+    *Object methods*
+
+        .. classmethod:: get()
+
+            Returns :class:`sensor`
+            object or a list of objects filled with
+            Sensor attributes.
+
+            Each object can be printed using :func:`pyfos_util.response_print`
+            and individual attributes accessed through peek methods.
+
+            :param session: session handler returned by
+                :func:`pyfos_auth.login`
+            :rtype: dictionary of error or
+                :class:`sensor` object
+
+    *Attribute methods*
+
+        .. method:: peek_id()
+
+            Reads the number of the sensor id from the object.
+
+            :rtype: None or sensor id.
+
+        .. method:: set_id()
+
+            Set the number of the sensor id in the object.
+
+            :rtype: A dictionary of error or a success response and
+             a value with sensor id as the key.
+
+        .. method:: peek_slot_number()
+
+            Reads the number of the physical slot in the chassis
+            from the object.
+
+            :rtype: None or physical slot number in the chassis.
+
+        .. method:: peek_index()
+
+            Reads sensor index in the specific fru.
+
+            :rtype: None or sensor index.
+
+        .. method:: peek_state()
+
+            Reads current operational state of the sensor.
+
+            :rtype: None or operational state of the sensor.
+
+        .. method:: peek_category()
+
+            Reads the type of the sensor.
+
+            :rtype: None or sensor type.
+
+        .. method:: peek_temperature()
+
+            Reads temperature of the sensor.
+
+            :rtype: None or Temperature of the sensor.
+
+        """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.sensor_id,
+                         "/rest/running/brocade-fru/sensor",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "id", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute(
+            "slot-number", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "index", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "state", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "category", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "temperature", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.load(dictvalues, 1)
+
+
+class wwn(pyfos_rest_util.rest_object):
+    """This class provides information for the given wwn unit.
+
+    Important class members:
+
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | Attribute name                    | Description                    | Frequently used methods                               |
+        +===================================+================================+=======================================================+
+        | unit-number                       | WWN card Unit number           |:meth:`peek_unit_number`                               |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | generation-number                 | WWN card generation number     |:meth:`peek_generation_number`                         |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | part-number                       | Part number of the Unit        |:meth:`peek_part_number`                               |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | serial-number                     | Serial number of the Unit      |:meth:`peek_serial_number`                             |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | airflow-direction                 | Air flow direction of the Unit |:meth:`peek_airflow_direction`                         |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | vendor-serial-number              | Externally supplied serial     |:meth:`peek_vendor_serial_number`                      |
+        |                                   | number of the Unit             |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | vendor-part-number                | Externally supplied part       |:meth:`peek_vendor_part_number`                        |
+        |                                   | number of the Unit             |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | vendor-revision-number            | supplier revision number       |:meth:`peek_vendor_revision_number`                    |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-alive                        | Number of days the Unit        |:meth:`peek_time_alive`                                |
+        |                                   | has been powered on            |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | time-awake                        | Number of days since the Unit  |:meth:`peek_time_awake`                                |
+        |                                   | last powered on                |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+        | power-usage                       | power being consumed           |:meth:`peek_power_usage`                               |
+        |                                   | by the unit                    |                                                       |
+        +-----------------------------------+--------------------------------+-------------------------------------------------------+
+
+    *Object methods*
+
+        .. classmethod:: get()
+
+            Returns :class:`wwn`
+            object or a list of objects filled with
+            WWN attributes.
+
+            Each object can be printed using :func:`pyfos_util.response_print`
+            and individual attributes accessed through peek methods.
+
+            :param session: session handler returned by
+                :func:`pyfos_auth.login`
+            :rtype: dictionary of error or
+                :class:`wwn` object
+
+    *Attribute methods*
+
+        .. method:: peek_unit_number()
+
+            Reads wwncard unit number from the object.
+
+            :rtype: None or wwn unit number.
+
+        .. method:: peek_generation-number()
+
+            Reads wwncard generation number from the object.
+
+            :rtype: None or generation number of the unit.
+
+        .. method:: peek_vendor_serial_number()
+
+            Reads vendor serial number from the object.
+
+            :rtype: None or vendor serial number of the unit.
+
+        .. method:: peek_vendor_part_number()
+
+            Reads vendor part number from the object.
+
+            :rtype: None or vendor part number of the unit.
+
+        .. method:: peek_vendor_revision_number()
+
+            Reads vendor revision number from the object.
+
+            :rtype: None or vendor revision number of the unit.
+
+        .. method:: peek_airflow_direction()
+
+            Reads airflow direction of the wwncard unit.
+
+            :rtype: None or airflow direction of the wwncard.
+
+        .. method:: peek_part_number()
+
+            Reads part number of the wwncard unit.
+
+            :rtype: None or part number of the wwncard unit.
+
+        .. method:: peek_serial_number()
+
+            Reads serial number of the wwncard unit.
+
+            :rtype: None or serial number of the wwncard unit.
+
+        .. method:: peek_power_usage()
+
+            Reads power being consumed by the object.
+
+            :rtype: None or power usage by the Unit.
+
+        .. method:: peek_time_awake()
+
+            Reads the number of days the wwncard unit has been powered on.
+
+            :rtype: None or time awake of the wwncard.
+
+        .. method:: peek_time_alive()
+
+            Reads number of days since the wwncard was last powered on.
+
+            :rtype: None or time alive of the wwncard.
+
+        """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.wwn_unit,
+                         "/rest/running/brocade-fru/wwn",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "unit-number", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute(
+            "airflow-direction", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "power-usage", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "generation-number", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "vendor-serial-number", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "vendor-part-number", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "vendor-revision-number", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "part-number", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "serial-number", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-alive", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "time-awake", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.load(dictvalues, 1)

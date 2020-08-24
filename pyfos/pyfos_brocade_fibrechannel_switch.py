@@ -36,64 +36,89 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
     Important Class Members:
 
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | Attribute Name                | Description                   |Frequently Used Methods                               |
-        +===============================+===============================+======================================================+
-        | name                          | The WWN name of switch.       |:meth:`set_name`                                      |
-        |                               |                               |:meth:`peek_name`                                     |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | domain-id                     | The domain ID of the switch.  |:meth:`peek_domain_id`                                |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | user-friendly-name            | The user friendly name of     |:meth:`set_user_friendly_name`                        |
-        |                               | the switch.                   |:meth:`peek_user_friendly_name`                       |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | fcid                          | The FCID of the switch.       |:meth:`peek_fcid`                                     |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | vf-id                         | The VFID of the switch.       |:meth:`peek_vf_id`                                    |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | principal                     | Whether principal or not.     |:meth:`peek_principal`                                |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | enabled-state                 | Enabled or disabled state.    |:meth:`set_enabled_state`                             |
-        |                               |                               |:meth:`peek_enabled_state`                            |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | up-time                       | The uptime of the switch.     |:meth:`peek_up_time`                                  |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | model                         | The model of the switch.      |:meth:`peek_model`                                    |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | firmware-version              |The FOS version of the switch. |:meth:`peek_firmware_version`                         |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | ip-address/ip-address         | A list of IPv4/IPv6           |:meth:`set_ip_address_ip_address`                     |
-        |                               | addresses.                    |:meth:`peek_ip_address_ip_address`                    |
-        |                               |                               |                                                      |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | ip-static-gateway-list/       | IPv4 and IPv6 static gateway  |:meth:`set_ip_static_gateway_list_ip_static_gateway`  |
-        | ip-static-gateway             | addresses for the switch IP.  |:meth:`peek_ip_static_gateway_list_ip_static_gateway` |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | subnet-mask                   | IPv4 subnet mask of the       |:meth:`set_subnet_mask`                               |
-        |                               | switch IP network.            |:meth:`peek_subnet_mask`                              |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | domain-name                   |The DNS domain name of switch. |:meth:`set_domain_name`                               |
-        |                               |                               |:meth:`peek_domain_name`                              |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | dns-servers/dns-server        | A list of addresses of DNS    |:meth:`set_dns_servers_dns_server`                    |
-        |                               | servers containing the map    |:meth:`peek_dns_servers_dns_server`                   |
-        |                               | of switch domain names to     |                                                      |
-        |                               | IPv4/IPv6 addresses.          |                                                      |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | fabric-user-friendly-name     | The user friendly name of     |:meth:`set_fabric_user_friendly_name`                 |
-        |                               | the fabric.                   |:meth:`peek_fabric_user_friendly_name`                |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | ag-mode                       | Enables or disables AG mode.  |:meth:`set_ag_mode`                                   |
-        |                               |                               |:meth:`peek_ag_mode`                                  |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | banner                        | The login banner message.     |:meth:`set_banner`                                    |
-        |                               |                               |:meth:`peek_banner`                                   |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | is-enabled-state              | Enabled or disabled state.    |:meth:`set_enabled_state`                             |
-        |                               |                               |:meth:`peek_enabled_state`                            |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
-        | operational-status            | Current state of the switch.  |:meth:`peek_operational_status`                       |
-        +-------------------------------+-------------------------------+------------------------------------------------------+
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | Attribute Name                     | Description                   |Frequently Used Methods                               |
+        +====================================+===============================+======================================================+
+        | name                               | The WWN name of switch.       |:meth:`set_name`                                      |
+        |                                    |                               |:meth:`peek_name`                                     |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | domain-id                          | The domain ID of the switch.  |:meth:`peek_domain_id`                                |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | user-friendly-name                 | The user friendly name of     |:meth:`set_user_friendly_name`                        |
+        |                                    | the switch.                   |:meth:`peek_user_friendly_name`                       |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | fcid                               | The FCID of the switch.       |:meth:`peek_fcid`                                     |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | vf-id                              | The VFID of the switch.       |:meth:`peek_vf_id`                                    |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | principal                          | Whether principal or not.     |:meth:`peek_principal`                                |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | enabled-state                      | Enabled or disabled state.    |:meth:`set_enabled_state`                             |
+        |                                    |                               |:meth:`peek_enabled_state`                            |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | up-time                            | The uptime of the switch.     |:meth:`peek_up_time`                                  |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | model                              | The model of the switch.      |:meth:`peek_model`                                    |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | firmware-version                   |The FOS version of the switch. |:meth:`peek_firmware_version`                         |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | ip-address/ip-address              | A list of IPv4/IPv6           |:meth:`set_ip_address_ip_address`                     |
+        |                                    | addresses.                    |:meth:`peek_ip_address_ip_address`                    |
+        |                                    |                               |                                                      |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | ip-static-gateway-list/            | IPv4 and IPv6 static gateway  |:meth:`set_ip_static_gateway_list_ip_static_gateway`  |
+        | ip-static-gateway                  | addresses for the switch IP.  |:meth:`peek_ip_static_gateway_list_ip_static_gateway` |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | subnet-mask                        | IPv4 subnet mask of the       |:meth:`set_subnet_mask`                               |
+        |                                    | switch IP network.            |:meth:`peek_subnet_mask`                              |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | domain-name                        |The DNS domain name of switch. |:meth:`set_domain_name`                               |
+        |                                    |                               |:meth:`peek_domain_name`                              |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | dns-servers/dns-server             | A list of addresses of DNS    |:meth:`set_dns_servers_dns_server`                    |
+        |                                    | servers containing the map    |:meth:`peek_dns_servers_dns_server`                   |
+        |                                    | of switch domain names to     |                                                      |
+        |                                    | IPv4/IPv6 addresses.          |                                                      |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | fabric-user-friendly-name          | The user friendly name of     |:meth:`set_fabric_user_friendly_name`                 |
+        |                                    | the fabric.                   |:meth:`peek_fabric_user_friendly_name`                |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | ag-mode                            | Enables or disables AG mode.  |:meth:`set_ag_mode`                                   |
+        |                                    |                               |:meth:`peek_ag_mode`                                  |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | banner                             | The login banner message.     |:meth:`set_banner`                                    |
+        |                                    |                               |:meth:`peek_banner`                                   |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | is-enabled-state                   | Enabled or disabled state.    |:meth:`set_is_enabled_state`                          |
+        |                                    |                               |:meth:`peek_is_enabled_state`                         |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | operational-status                 | Current state of the switch.  |:meth:`peek_operational_status`                       |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | in-order-delivery-enabled          | Enables or disables the In    |:meth:`set_in_order_delivery_enabled`                 |
+        |                                    | Order Delivery (IOD)          |:meth:`peek_in_order_delivery_enabled`                |
+        |                                    | capability for switch.        |                                                      |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | dynamic-load-sharing               | Current state of the          |:meth:`set_dynamic_load_sharing`                      |
+        |                                    | dynamic-load-sharing (DLS)    |:meth:`peek_dynamic_load_sharing`                     |
+        |                                    | state for switch.             |                                                      |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | advanced-performance-tuning-policy | Current policy for the        |:meth:`set_advanced_performance_tuning_policy`        |
+        |                                    | Advanced Performance Tuning   |:meth:`peek_advanced_performance_tuning_policy`       |
+        |                                    | control of the switch.        |                                                      |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | lacp-system-priority               | The LACP system priority of   |:meth:`set_lacp_system_priority`                      |
+        |                                    | the switch. This is used for  |:meth:`peek_lacp_system_priority`                     |
+        |                                    | determining the system that is|                                                      |
+        |                                    | responsible for resolving     |                                                      |
+        |                                    | conflicts in the choice of LAG|                                                      |
+        |                                    | groups.A lower numerical value|                                                      |
+        |                                    | has a higher prioity          |                                                      |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+        | lacp-system-mac-address            | The LACP system MAC address of|:meth:`peek_lacp_system_mac_address`                  |
+        |                                    | of the switch.                |                                                      |
+        +------------------------------------+-------------------------------+------------------------------------------------------+
+
+    *Object methods*
 
         .. method:: get(session, name=None)
 
@@ -163,7 +188,7 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
             Sets the domain ID in the object.
 
-            :param name: The DID of the switch to be set within the object.
+            :param did: The DID of the switch to be set within the object.
             :rtype: None or a dictionary of error information.
 
         .. method:: peek_domain_id()
@@ -353,6 +378,79 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
 
             :rtype: None or enabled state of :data:`ENABLE`,
                 :data:`DISABLE`, :data:`UNDEFINED`, or :data:`TESTING`.
+
+        .. method:: set_in_order_delivery_enabled(newstate)
+
+            Enables or disables the In Order Delivery (IOD) feature of
+                a switch in the object.
+
+            :param newstate: A boolean state to enable or disable  the IOD
+                feature.
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_in_order_delivery_enabled()
+
+            Reads the In Order Delivery (IOD) feature's state of a switch
+                in the object.
+
+            :rtype: None or enabled state of :data:`ENABLE`,
+                :data:`DISABLE`.
+
+        .. method:: set_dynamic_load_sharing(newcapability)
+
+            Sets the dynamic-load-sharing (DLS) capability of a switch
+                in the object.
+
+            :param newcapability: One of the following strings for the desired
+                capability: :data:`disabled`, :data:`dls`,
+                :data:`lossless-dls`, or :data:`two-hop-lossless-dls`.
+
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_dynamic_load_sharing()
+
+            Reads the dynamic-load-sharing capability of a switch in
+                the object.
+
+            :rtype: None or the string :data:`disabled`, :data:`dls`,
+                :data:`lossless-dls`, or :data:`two-hop-lossless-dls`.
+
+        .. method:: set_advanced_performance_tuning_policy(newpolicy)
+
+            Sets the Advanced Performance Tuning (APT) policy used by the
+                switch in the object.
+
+            :param newpolicy: One of the following supported policies:
+                :data:`port-based`, :data:`device-based` (FICON support only),
+                or :data:`exchange-based`.
+
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_advanced_performance_tuning_policy()
+
+            Reads the current Advanced Performance Tuning (APT) policy
+                of switch in the object.
+
+            :rtype: None or the string :data:`port-based`,
+                :data:`device-based`, or :data:`exchange-based`.
+
+        .. method:: set_lacp_system_priority(sysPriority)
+
+            Sets the system priority of lacp.
+
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_lacp_system_priority()
+
+            Reads the lacp system priority value from the switch Object
+
+            :rtype: None on error and value on success
+
+        .. method:: peek_lacp_system_mac_address()
+
+            Reads the LACP system MAC address from the switch Object
+
+            :rtype: None on error and value on success
          """
 
     def __init__(self, dictvalues={}):
@@ -444,5 +542,237 @@ class fibrechannel_switch(pyfos_rest_util.rest_object):
             "operational-status", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
             version.VER_RANGE_821b_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "dynamic-load-sharing", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "in-order-delivery-enabled", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "advanced-performance-tuning-policy", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "lacp-system-priority", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "lacp-system-mac-address", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
+
+        self.load(dictvalues, 1)
+
+
+class topology_domain(pyfos_rest_util.rest_object):
+    """Class representing each domain in the fabric that is reachable from
+    the queried switch, and the results of the most recent Fabric Shortest
+    Path First calculation detailing how the queried switch reaches the
+    specified destination domain.
+
+    Important Class Members:
+
+        +---------------------------+--------------------------------+----------------------------------------+
+        | Attribute Name            | Description                    |Frequently Used Methods                 |
+        +===========================+================================+========================================+
+        | domain-id                 | Destination fabric domain.     | :meth:`peek_domain_id`                 |
+        +---------------------------+--------------------------------+----------------------------------------+
+        | path-count                | The number of lowest, equal    | :meth:`peek_path_count`                |
+        |                           | cost paths available.          |                                        |
+        +---------------------------+--------------------------------+----------------------------------------+
+        | metric                    | Lowest path cost of the in-use | :meth:`peek_metric`                    |
+        |                           | paths to reach the domain.     |                                        |
+        +---------------------------+--------------------------------+----------------------------------------+
+        | is-local-translate-domain | If the destination domain is   | :meth:`peek_is_local_translate_domain` |
+        |                           | reachable via a local EX-Port. |                                        |
+        +---------------------------+--------------------------------+----------------------------------------+
+        | out-ports                 | The local ports used for       | :meth:`peek_out_ports`                 |
+        |                           | routing traffic to the domain. |                                        |
+        +---------------------------+--------------------------------+----------------------------------------+
+
+    *Object methods*
+
+        .. method:: get(session, domain_id=None)
+
+            Returns a :class:`topology_domain` object with details from the
+            switch, list of :class:`topology_domain` objects, or a dictionary
+            with error information. If the optional :class:`domain_id`
+            parameter is given, the corresponding :class:`topology_domain`
+            object is returned, or a dict of error information.
+
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :param domain_id: The destination domain for which to get local
+                out ports to use for reaching the domain. Defaults to None.
+            :type domain_id: int, optional
+            :rtype: A :class:`topology_domain` object, list of
+                :class:`topology_domain` objects, or dictionary with error
+                information.
+
+    *Attribute Methods*
+
+        .. method:: peek_domain_id()
+
+            Gets the domain ID in the object.
+
+            :rtype: None or an integer of the domain ID
+
+        .. method:: peek_path_count()
+
+            Gets the number of lowest, equal cost paths available as of the
+            last Fabric Shortest Path First calculations.
+
+            :rtype: None or an integer of the number of paths
+
+        .. method:: peek_metric()
+
+            Gets the path cost associated with routing to domain.
+
+            :rtype: None or an integer of the path cost.
+
+        .. method:: peek_is_local_translate_domain
+
+            Gets a flag indicating if the domain is reachable via a local
+            EX-Port.
+
+            :rtype: None or boolean
+
+        .. method:: peek_out_ports()
+
+            Gets the list of local ports that are programmed for routing \
+            traffic to the domain.
+
+            :rtype: A dictionary with a list of the out ports as strings
+        """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.fabric_topology_domain,
+                         "/rest/running/brocade-fibrechannel-switch/" +
+                         "topology-domain",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "domain-id", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute(
+            "path-count", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "metric", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "is-local-translate-domain", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "out-ports", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+        self.add(pyfos_rest_util.rest_attribute(
+            "port", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
+            ['out-ports'])
+
+        self.load(dictvalues, 1)
+
+
+class topology_route(pyfos_rest_util.rest_object):
+    """Class containing a mapping of how the switch's ports are routed, as
+    ingress ports, to their corresponding egress ports for frames destined
+    to the specified destination domain. Reports the greatest number of hops
+    across all the equal cost paths to reach the specified destination domain.
+
+    Important Class Members:
+
+        +----------------+-----------------------------------+----------------------------------------+
+        | Attribute Name | Description                       | Frequently Used Methods                |
+        +================+===================================+========================================+
+        | domain-id      | Destination fabric domain for the | :meth:`peek_domain_id`                 |
+        |                | shown routes.                     |                                        |
+        +----------------+-----------------------------------+----------------------------------------+
+        | hop-count      | Greatest number of hops among all | :meth:`peek_hop_count`                 |
+        |                | equal cost paths used by this     |                                        |
+        |                | switch to reach the domain.       |                                        |
+        +----------------+-----------------------------------+----------------------------------------+
+        | out-port       | The egress port for these ingress | :meth:`peek_out_port`                  |
+        |                | ports, for traffic to the domain. |                                        |
+        +----------------+-----------------------------------+----------------------------------------+
+        | in-ports       | The switch's ports that are       | :meth:`peek_in_ports`                  |
+        |                | routed this out-port for frames   |                                        |
+        |                | destined to the domain.           |                                        |
+        +----------------+-----------------------------------+----------------------------------------+
+
+    *Object methods*
+
+        .. method:: get(session)
+
+            Returns a list of :class:`topology_route` objects, an empty
+            :class:`topology_route` object, or a dictionary with error
+            information.
+
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A list of :class:`topology_route` objects, an empty
+                :class:`topology_route` object, or dictionary with error
+                information.
+
+    *Attribute Methods*
+
+        .. method:: peek_domain_id()
+
+            Gets the domain ID for the object.
+
+            :rtype: None or an integer of the domain ID.
+
+        .. method:: peek_hop_count()
+
+            Gets the number of hops to the destination domain from the
+            object. This is the largest number of hops across all equal cost
+            paths to reach the domain.
+
+            :rtype: None or an integer of the number of hops.
+
+        .. method:: peek_out_port()
+
+            Gets the out-port or egress port that these ingress ports are
+            utilizing.
+
+            :rtype: None or the out-port as an integer.
+
+        .. method:: peek_in_ports()
+
+            Gets the list of local ports that are utilizing this out-port.
+
+            :rtype: A dictionary with a list of the out ports as strings
+        """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.fabric_topology_route,
+                         "/rest/running/brocade-fibrechannel-switch/" +
+                         "topology-route",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "domain-id", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "hop-count", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "out-port", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "in-ports", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+        self.add(pyfos_rest_util.rest_attribute(
+            "port", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
+            ['in-ports'])
 
         self.load(dictvalues, 1)

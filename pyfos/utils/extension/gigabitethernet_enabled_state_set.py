@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-# Copyright © 2018 Broadcom. All Rights Reserved. The term “Broadcom” refers to
-# Broadcom Inc. and/or its subsidiaries.
+
+# Copyright © 2019-2020 Broadcom. All rights reserved.
+# The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,16 +16,24 @@
 # limitations under the License.
 
 
+# gigabitethernet_enabled_state_set.py(pyGen v1.0.0)
+
+
 """
 
-:mod:`gigabitethernet_enabled_state_set` - PyFOS util to set the GE_Port state.
-***********************************************************************************
-The :mod:`gigabitethernet_enabled_state_set` util sets the GE_Port state.
+:mod:`gigabitethernet_enabled_state_set` - PyFOS util to modify for\
+ gigabitethernet
+******************************************************************************\
+*******************************************************************************
+The:mod:`gigabitethernet_enabled_state_set` PyFOS util to modify for\
+ gigabitethernet
 
-This module is a stand-alone script that can be used to set the\
- GE_Port enabled state on an extension platform.
 
-gigabitethernet_enabled_state_set.py: Usage
+The list of gigabitethernet interfaces on the device. System-controlled\
+ interfaces created by the system are always present in this list, whether\
+ they are configured or not.
+
+gigabitethernet_enabled_state_set: usage
 
 * Infrastructure Options:
     * -i,--ipaddr=IPADDR: The IP address of the FOS switch.
@@ -33,83 +42,86 @@ gigabitethernet_enabled_state_set.py: Usage
     * -f,--vfid=VFID: The VFID to which the request is directed.
     * -s,--secured=MODE: The HTTPS mode "self" or "CA" [Optional].
     * -v,--verbose: Verbose mode [Optional].
+    * -a,--authtoken: AuthToken value or AuthTokenManager config\
+    file[OPTIONAL].
+    * -z,--nosession: Sessionless authentication based login[OPTIONAL].
+    * --nocredential: No credential to be sent in the request[OPTIONAL].
 
 * Util Script Options:
-    * -n,--name=NAME: Sets the name.
-    * -e,--enabled-state=VALUE: Sets the enabled state.
-
+    * --name=NAME: The name of the interface.
+    * --enabled-state=ENABLED-STATE: Enabled or disabled state of the\
+      brocade-interface-types:  0 : Disabled 1 : Enabled
 * Output:
     * Python dictionary content with RESTCONF response data.
 
-.. function:: gigabitethernet_enabled_state_set.port_state_set(\
-session, name, enabled)
 
-    *Modify Extension Gigabitethernet State*
+.. function:: gigabitethernet_enabled_state_set.modify_gigabitethernet(\
+session, name, enabled_state)
 
-        Example Usage of the Method::
+    *Modify gigabitethernet*
 
-            ret = gigabitethernet_enabled_state_set.port_state_set(
-            session, name, enabled)
-            print (ret)
+    Example Usage of the Method::
 
-        Details::
+            ret =\
+ gigabitethernet_enabled_state_set.modify_gigabitethernet(session, name,\
+ enabled_state)
+            print(ret)
 
-            gestate = {
-                            "name": name,
-                            "enabled-state": enabled,
-                      }
-            gigabitethernet = gigabitethernet(gestate)
-            result = gigabitethernet.patch(session)
+    Details::
 
-        * Input:
-            :param session: The session returned by the login.
-            :param name: The GE_Port name expressed as slot/port.
-            :param speed: The speed for the GE _Port to be set.
+        gigabitethernetObj = gigabitethernet()
+        gigabitethernetObj.set_name(name)
+        gigabitethernetObj.set_enabled_state(enabled_state)
+        ret = _modify_gigabitethernet(session, gigabitethernetObj)
+        print(ret)
 
-        * Output:
-            :rtype: A dictionary of return status matching the REST response.
+    **Inputs**
 
-        *Use Cases*
+    :param session: The session returned by the login.
+    :param name: The name of the interface.
+    :param enabled_state: Enabled or disabled state of the\
+      brocade-interface-types:  0 : Disabled 1 : Enabled
 
-         Modify the extension GE_Port state to enabled or disabled.
+    **Output**
+
+    :rtype: Dictionary of response
+
 """
 
+
+# Start utils imports
 import sys
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
 from pyfos.pyfos_brocade_interface import gigabitethernet
+
 from pyfos.utils import brcd_util
-
-isHttps = "0"
-
-
-def _set_port_state(session, restobject):
-    return restobject.patch(session)
+# End module imports
 
 
-def port_state_set(session, name, enabled):
-    value_dict = {'name': name, 'enabled-state': enabled}
-    geObject = gigabitethernet(value_dict)
-    result = _set_port_state(session, geObject)
-    return result
+def _modify_gigabitethernet(session, gigabitethernetObj):
+    return gigabitethernetObj.patch(session)
 
 
-def validate(geObject):
-    if geObject.peek_name() is None or \
-       geObject.peek_enabled_state() is None:
+def modify_gigabitethernet(session, name=None, enabled_state=None):
+    gigabitethernetObj = gigabitethernet()
+    gigabitethernetObj.set_name(name)
+    gigabitethernetObj.set_enabled_state(enabled_state)
+    return _modify_gigabitethernet(session, gigabitethernetObj)
+
+
+def validate(gigabitethernetObj):
+    if gigabitethernetObj.peek_name() is None or\
+       gigabitethernetObj.peek_enabled_state() is None:
         return 1
     return 0
 
 
 def main(argv):
-    # myinputs = "-h -i 10.17.3.70 -n 4/17 -e 1"
-    # argv = myinputs.split()
-    filters = ['name', 'enabled_state']
-    inputs = brcd_util.parse(argv, gigabitethernet, filters,
-                             validate)
-    geObject = inputs['utilobject']
+    filters = ["name", "enabled_state"]
+    inputs = brcd_util.parse(argv, gigabitethernet, filters, validate)
     session = brcd_util.getsession(inputs)
-    result = _set_port_state(inputs['session'], geObject)
+    result = _modify_gigabitethernet(session, inputs['utilobject'])
     pyfos_util.response_print(result)
     pyfos_auth.logout(session)
 

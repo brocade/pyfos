@@ -33,6 +33,7 @@ sys.path.insert(0, os.path.abspath('../pyfos/utils/name_server'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/misc'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/access_gateway'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/logical_switch'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/layer2'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/system_security'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/time'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/chassis'))
@@ -43,13 +44,25 @@ sys.path.insert(0, os.path.abspath('../pyfos/utils/license'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/maps'))
 sys.path.insert(0, os.path.abspath('../pyfos/manager'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/supportsave'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/supportlink'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/dns_config'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/switch_ip_config'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/trunk'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/snmp'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/module_version'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/errdump'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/auditdump'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/supportftp'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/logical_fabric'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/fabric_traffic_controller'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/fabric'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/auth_token'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/fcrouter'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/firmwarecleaninstall'))
 sys.path.insert(0, os.path.abspath('../pyfos/utils/firmwaredownload'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/slot_test'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/showstatus'))
+sys.path.insert(0, os.path.abspath('../pyfos/utils/End_Device_Management'))
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -159,7 +172,7 @@ html_theme = 'default'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+#html_static_path = ['_static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied

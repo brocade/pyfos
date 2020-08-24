@@ -206,3 +206,102 @@ class fabric_switch(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
             version.VER_RANGE_821b_and_ABOVE))
         self.load(dictvalues, 1)
+
+
+class access_gateway(pyfos_rest_util.rest_object):
+
+    """Class of agshow
+
+    Important class members:
+
+        +---------------------------+------------------------------+---------------------------------------+
+        | Attribute name            | Description                  |Frequstly used methods                 |
+        +===========================+==============================+=======================================+
+        | switch-wwn                | The WWN of the connected AG  |:meth:`peek_switch_wwn`                |
+        +---------------------------+------------------------------+---------------------------------------+
+        | user-friendly-name        | user friendly name of switch |:meth:`peek_switch_user_friendly_name` |
+        +---------------------------+------------------------------+---------------------------------------+
+        | firmware-version          | firmware version running on  |:meth:`peek_firmware_version`          |
+        |                           | AG                           |                                       |
+        +---------------------------+------------------------------+---------------------------------------+
+        | ip-address                | IPv4 address of the AG       |:meth:`peek_ip_address`                |
+        +---------------------------+------------------------------+---------------------------------------+
+        | is-edge-ag                | Connected AG is Core AG      |                                       |
+        |                           | or Edge AG.                  |:meth:`peek_is_edge_ag`                |
+        +---------------------------+------------------------------+---------------------------------------+
+
+    *Object methods*
+
+        .. method:: get(session)
+
+            Returns a :class:`access_gateway` object or a list of objects
+            filled with attributes gathered throuth the session passed in.
+            Each object can be printed using :func:`pyfos_util.response_print`
+            and individual attributes accessed through peek methods.
+
+            :param session: session handler returned by
+                :func:`pyfos_auth.login`
+            :rtype: a :class:`access_gateway` object if there is
+                only one switch within fabric or
+                a list of objects if there are more than one
+
+    *Attribute methods*
+
+        .. method:: peek_switch_wwn()
+
+            Reads the connected AG wwn in the object.
+
+            :rtype: None or connected AG wwn
+
+        .. method:: peek_switch_user_friendly_name()
+
+            Reads user friendly name in the object.
+
+            :rtype: None or user friendly name of the switch
+
+        .. method:: peek_firmware_version()
+
+            Reads the connected AG  in the object.
+
+            :rtype: None or connected AG firmware version
+
+         .. method:: peek_ip_address()
+
+            Reads IPv4 address of the AG in the object.
+
+            :rtype: None or IPv4 of the connected AG
+
+         .. method:: peek_is_edge_ag()
+
+            Reads Connected AG is Core AG and edge AG in the object.
+
+            :rtype: None or AG is Core AG and edge AG
+
+"""
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.ag_show,
+                         "/rest/running/brocade-fabric/access-gateway",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "switch-wwn", pyfos_type.type_wwn,
+            None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute(
+            "user-friendly-name", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "firmware-version", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "ip-addresses", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+        self.add(pyfos_rest_util.rest_attribute(
+            "ip-address", pyfos_type.type_ip_addr,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
+            ["ip-addresses"])
+        self.add(pyfos_rest_util.rest_attribute(
+            "is-edge-ag", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
+        self.load(dictvalues, 1)

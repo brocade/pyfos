@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_license - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>pyfos_brocade_license - PyFOS module for the licenses installed on the switch. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyfos_brocade_name_server - PyFOS module to provide rest support for Name Server." href="pyfos_brocade_name_server.html" />
-    <link rel="prev" title="pyfos_brocade_interface - PyFOS module for Brocade Interface objects." href="pyfos_brocade_interface.html" /> 
+    <link rel="next" title="pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP." href="pyfos_brocade_snmp.html" />
+    <link rel="prev" title="pyfos_brocade_time - PyFOS module to provide rest support for time server." href="pyfos_brocade_time.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_name_server.html" title="pyfos_brocade_name_server - PyFOS module to provide rest support for Name Server."
+          <a href="pyfos_brocade_snmp.html" title="pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_interface.html" title="pyfos_brocade_interface - PyFOS module for Brocade Interface objects."
+          <a href="pyfos_brocade_time.html" title="pyfos_brocade_time - PyFOS module to provide rest support for time server."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,176 +42,1540 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-pyfos_brocade_license"></span><div class="section" id="pyfos-brocade-license-pyfos-module-to-provide-rest-support-forlicenses-installed-on-the-specific-switch-in-the-fabric">
-<h1><a class="reference internal" href="#module-pyfos_brocade_license" title="pyfos_brocade_license: PyFOS module to provide REST support for license (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_license</span></code></a> - PyFOS module to provide rest support forLicenses installed on the specific switch in the fabric.<a class="headerlink" href="#pyfos-brocade-license-pyfos-module-to-provide-rest-support-forlicenses-installed-on-the-specific-switch-in-the-fabric" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-pyfos_brocade_license" title="pyfos_brocade_license: PyFOS module to provide REST support for license (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_license</span></code></a> provides the REST support for License.</p>
+  <span class="target" id="module-pyfos_brocade_license"></span><div class="section" id="pyfos-brocade-license-pyfos-module-for-the-licenses-installed-on-the-switch">
+<h1><a class="reference internal" href="#module-pyfos_brocade_license" title="pyfos_brocade_license: PyFOS module to provide REST support for license (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_license</span></code></a> - PyFOS module for the licenses installed on the switch.<a class="headerlink" href="#pyfos-brocade-license-pyfos-module-for-the-licenses-installed-on-the-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_license" title="pyfos_brocade_license: PyFOS module to provide REST support for license (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_license</span></code></a> The PyFOS module support for the licenses installed on the switch.</p>
 <dl class="class">
-<dt id="pyfos_brocade_license.license">
-<em class="property">class </em><code class="descclassname">pyfos_brocade_license.</code><code class="descname">license</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class of licenses installed on a switch</p>
-<p>Important class members:</p>
+<dt id="pyfos_brocade_license.end_user_license_agreement">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_license.</code><code class="descname">end_user_license_agreement</code><span class="sig-paren">(</span><em>dictvalues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.end_user_license_agreement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of end_user_license_agreement</p>
+<p><em>Description end_user_license_agreement</em></p>
+<blockquote>
+<div>Detailed view of End User License Agreement.</div></blockquote>
+<p>Important class members of end_user_license_agreement:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="23%" />
-<col width="26%" />
-<col width="50%" />
+<col width="24%" />
+<col width="31%" />
+<col width="45%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
+<tr class="row-odd"><th class="head">Attribute Name</th>
 <th class="head">Description</th>
-<th class="head">Frequently used methods</th>
+<th class="head">Frequently Used Methods</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>name</td>
-<td>The license key for one or
-morefeatures installed on
-the switch</td>
-<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_name" title="pyfos_brocade_license.license.peek_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+<tr class="row-even"><td>text</td>
+<td>Contents of accepted Broacade
+EULA (End User License
+Agreement).</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.end_user_license_agreement.peek_text" title="pyfos_brocade_license.end_user_license_agreement.peek_text"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_text()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>features/feature</td>
-<td>The list of features that
-that are integrated in a
-single license key</td>
-<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_features_feature" title="pyfos_brocade_license.license.peek_features_feature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_features_feature()</span></code></a></td>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions for end_user_license_agreement</em></p>
+<dl class="function">
+<dt id="pyfos_brocade_license.end_user_license_agreement.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.end_user_license_agreement.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the instances of class “end_user_license_agreement from switch.</dt>
+<dd>The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="row-even"><td>capacity</td>
-<td>The capacity of the license
-installed on the switch.This
-field is displayed  only for
-the capacity based license
-in the output.</td>
-<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_capacity" title="pyfos_brocade_license.license.peek_capacity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_capacity()</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><em>Class functions for end_user_license_agreement</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_license.end_user_license_agreement.peek_text">
+<code class="descname">peek_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.end_user_license_agreement.peek_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to text in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_license.license">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_license.</code><code class="descname">license</code><span class="sig-paren">(</span><em>dictvalues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of license</p>
+<p><em>Description license</em></p>
+<blockquote>
+<div>A list of licenses installed on the switch.</div></blockquote>
+<p>Important class members of license:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="30%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>features</td>
+<td>A list of features that are
+integrated in a single license key</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_features" title="pyfos_brocade_license.license.peek_features"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_features()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>generation-date</td>
+<td>The generation date for the license
+installed on the switch. The
+generation date for the license in
+‘MM/DD/YYYY’ format. This leaf is
+valid only for serial number based
+licenses.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_generation_date" title="pyfos_brocade_license.license.peek_generation_date"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_generation_date()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>expiration-date</td>
+<td>The expiration date for the license
+installed on the switch. The
+expiration date for the license in
+‘MM/DD/YYYY’ format. This attribute
+is displayed only when the time based
+license installed on the system.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_expiration_date" title="pyfos_brocade_license.license.peek_expiration_date"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_expiration_date()</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>consumed</td>
-<td>The number of consumed slots
-of the license installed
-on the switch.</td>
-<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_consumed" title="pyfos_brocade_license.license.peek_consumed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_consumed()</span></code></a></td>
+<td>The number of slots configured to use
+the license installed on the switch.
+This leaf is displayed only for a
+slot-based license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_consumed" title="pyfos_brocade_license.license.peek_consumed"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_consumed()</span></code></a></td>
 </tr>
-<tr class="row-even"><td>configured-blade-slots/
-configured-blade-slot</td>
-<td>The list of Configured Blade
-Slots of the specific license
-installed on the switch.</td>
-<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_configured_blade_slots_configured_blade_slot" title="pyfos_brocade_license.license.peek_configured_blade_slots_configured_blade_slot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_configured_blade_slots_configured_blade_slot()</span></code></a></td>
+<tr class="row-even"><td>feature</td>
+<td>The name of the feature.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_features_feature" title="pyfos_brocade_license.license.peek_features_feature"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_features_feature()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>expiration-date</td>
-<td>The expiry date of the
-specific license installed
-on the system.
-the format of the date
-is ‘MM/DD/YYYY’.</td>
-<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_expiration_date" title="pyfos_brocade_license.license.peek_expiration_date"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_expiration_date()</span></code></a></td>
+<tr class="row-odd"><td>capacity</td>
+<td>The capacity for the license
+installed on the switch. This
+parameter is displayed only for a
+capacity-based license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_capacity" title="pyfos_brocade_license.license.peek_capacity"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_capacity()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>active-firmware-version</td>
+<td>A human readable string identifying
+the running firmware version for the
+Trusted FOS (TruFOS) Certificate
+license installed on a switch.
+Example of running firmware version
+mentioned below.
+‘9.0.0’,‘9.0.0+’,‘9.0.0++’,‘9.1.0-‘,
+‘9.0.0–’,‘9.0.0*,9.1.0+’</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_active_firmware_version" title="pyfos_brocade_license.license.peek_active_firmware_version"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_active_firmware_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>The representation of the license
+would be either license key or serial
+number. The license key is a string
+with alpha numeric characters and the
+License serial number is a string
+with the format of
+‘FOS-XX-X-XX-XXXXXXXX’. Example of a
+license key and serial number
+mentioned below. License key:
+‘HP9ttZNSgmB4MCD3NmNWgQDWtAKBFtXtBSFJ
+F’ Serial number:
+‘FOS-00-0-02-11201234’</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_name" title="pyfos_brocade_license.license.peek_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>target-firmware-version</td>
+<td>A human readable string identifying
+the target firmware version for the
+Trusted FOS (TruFOS) Certificate
+license installed on a switch.
+Example of target firmware version
+mentioned below.
+‘9.0.0’,‘9.0.0+’,‘9.0.0++’,‘9.1.0-‘,
+‘9.0.0–’,‘9.0.0*,9.1.0+’</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_target_firmware_version" title="pyfos_brocade_license.license.peek_target_firmware_version"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_target_firmware_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>configured-blade-slot</td>
+<td>The configured blade slot details.
+This leaf is displayed only for a
+slot based license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_configured_blade_slots_configured_blade_slot" title="pyfos_brocade_license.license.peek_configured_blade_slots_configured_blade_slot"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_configured_blade_slots_configured_blade_slot()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>configured-blade-slots</td>
+<td>A list of slot numbers of the
+configured blade slots for the
+license installed on the switch.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_configured_blade_slots" title="pyfos_brocade_license.license.peek_configured_blade_slots"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_configured_blade_slots()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>license-format</td>
+<td>To determine the specified license is
+certificate or key based.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.license.peek_license_format" title="pyfos_brocade_license.license.peek_license_format"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_license_format()</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Object methods</em></p>
-<blockquote>
-<div><dl class="classmethod">
+<p><em>Object functions for license</em></p>
+<dl class="function">
 <dt id="pyfos_brocade_license.license.get">
-<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <a class="reference internal" href="#pyfos_brocade_license.license" title="pyfos_brocade_license.license"><code class="xref py py-class docutils literal notranslate"><span class="pre">license</span></code></a> object filled with attributes
-gathered throuth the session passed in. Each object can be printed
-using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a> and individual attributes
-accessed through peek methods.</p>
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the instances of class “license from switch. The object can be</dt>
+<dd>printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
-<code class="xref py py-func docutils literal notranslate"><span class="pre">utils.brcd_util.getsession()</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">a <a class="reference internal" href="#pyfos_brocade_license.license" title="pyfos_brocade_license.license"><code class="xref py py-class docutils literal notranslate"><span class="pre">license</span></code></a> object</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-</div></blockquote>
-<p><em>Attribute methods</em></p>
+<p><em>Class functions for license</em></p>
 <blockquote>
-<div><dl class="method">
-<dt id="pyfos_brocade_license.license.peek_name">
-<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the license key string from the license Object</p>
+<div><dl class="function">
+<dt id="pyfos_brocade_license.license.peek_features">
+<code class="descname">peek_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to features in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyfos_brocade_license.license.peek_features_feature">
-<code class="descname">peek_features_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_features_feature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the list of features from the license Object</p>
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_generation_date">
+<code class="descname">peek_generation_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_generation_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to generation-date in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyfos_brocade_license.license.peek_capacity">
-<code class="descname">peek_capacity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_capacity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the capacity from the license Object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyfos_brocade_license.license.peek_consumed">
-<code class="descname">peek_consumed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_consumed" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the consumed slots from the license Object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyfos_brocade_license.license.peek_configured_blade_slots_configured_blade_slot">
-<code class="descname">peek_configured_blade_slots_configured_blade_slot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_configured_blade_slots_configured_blade_slot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the configured blade slots from the license Object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
+<dl class="function">
 <dt id="pyfos_brocade_license.license.peek_expiration_date">
 <code class="descname">peek_expiration_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_expiration_date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the expiration date from the license Object</p>
+<dd><p>Reads the value assigned to expiration-date in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and value on success</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_consumed">
+<code class="descname">peek_consumed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_consumed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to consumed in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_features_feature">
+<code class="descname">peek_features_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_features_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to feature in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_capacity">
+<code class="descname">peek_capacity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_capacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to capacity in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_active_firmware_version">
+<code class="descname">peek_active_firmware_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_active_firmware_version" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to active-firmware-version in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_name">
+<code class="descname">peek_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to name in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_target_firmware_version">
+<code class="descname">peek_target_firmware_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_target_firmware_version" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to target-firmware-version in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_configured_blade_slots_configured_blade_slot">
+<code class="descname">peek_configured_blade_slots_configured_blade_slot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_configured_blade_slots_configured_blade_slot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to configured-blade-slot in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_configured_blade_slots">
+<code class="descname">peek_configured_blade_slots</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_configured_blade_slots" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to configured-blade-slots in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.license.peek_license_format">
+<code class="descname">peek_license_format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.license.peek_license_format" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to license-format in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_license.</code><code class="descname">ports_on_demand_license_info</code><span class="sig-paren">(</span><em>dictvalues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of ports_on_demand_license_info</p>
+<p><em>Description ports_on_demand_license_info</em></p>
+<blockquote>
+<div>Contains information related to ports-on-demand license reservations.</div></blockquote>
+<p>Important class members of ports_on_demand_license_info:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="26%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>licensed-qsfp-port-count</td>
+<td>Indicates number of QSFP ports assigned
+to the ports on demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_qsfp_port_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>SFP-DD based port member assigned to
+ports-on-demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_sfp_dd_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port</td>
+<td>QSFP based port member not assigned to
+base switch or ports on demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_qsfp_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_qsfp_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unassigned_qsfp_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sfp-port-assigned-count</td>
+<td>Total number of SFP based ports assigned
+to base switch allowance or installed
+licenses.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_assigned_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_assigned_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_port_assigned_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-dd-count</td>
+<td>Total count of SFP Double Density (dd)
+based ports available on the switch.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>Licensed SFP-DD port that is offline.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_dd_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_dd_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_offline_sfp_dd_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-dd-port-base-switch-assigned-count</td>
+<td>Indicates number of SFP-DD ports
+assigned to base switch allowance</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_assigned_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_assigned_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_port_base_switch_assigned_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>unassigned-sfp-dd-port-members</td>
+<td>Contains list of SFP-DD ports not
+assigned to base switch or ports on
+demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_dd_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_dd_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unassigned_sfp_dd_port_members()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-port-license-allowance-count</td>
+<td>Indicates maximum assignments
+provisioned by SFP based ports on demand
+license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_license_allowance_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_license_allowance_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_port_license_allowance_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>licensed-sfp-dd-port-members</td>
+<td>Contains list of SFP-DD ports assigned
+to ports-on-demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_sfp_dd_port_members()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-dd-license-allowance-count</td>
+<td>Indicates maximum assignments
+provisioned by SFP-DD ports on demand
+license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_license_allowance_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_license_allowance_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_license_allowance_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>licensed-sfp-dd-port-count</td>
+<td>Indicates number of SFP-DD ports
+assigned to the ports on demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_sfp_dd_port_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>licensed-offline-qsfp-port-members</td>
+<td>Contains list of licensed QSFP ports
+that are offline.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_qsfp_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_qsfp_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_offline_qsfp_port_members()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sfp-port-count</td>
+<td>Total count of SFP based ports available
+on the switch.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_port_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port</td>
+<td>Licensed QSFP port that is offline.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_qsfp_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_qsfp_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_offline_qsfp_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sfp-dd-port-base-switch-members</td>
+<td>Contains list of SFP-DD based ports
+assigned to base switch allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_port_base_switch_members()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-port-license-reservation-available-count</td>
+<td>Indicates license reservations available
+for use by unassigned SFP ports.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_license_reservation_available_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_license_reservation_available_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_port_license_reservation_available_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>SFP based port not assigned to base
+switch or port on demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unassigned_sfp_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>qsfp-port-base-switch-assigned-count</td>
+<td>Indicates number of QSFP ports assigned
+to base switch allowance</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_assigned_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_assigned_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qsfp_port_base_switch_assigned_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>qsfp-license-allowance-count</td>
+<td>Indicates maximum assignments
+provisioned by QSFP ports on demand
+license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_license_allowance_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_license_allowance_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qsfp_license_allowance_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-port-base-switch-allowance-count</td>
+<td>Indicates port assignments provisioned
+by base switch allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_allowance_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_allowance_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_port_base_switch_allowance_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sfp-dd-port-on-demand-license</td>
+<td>Specifies if Double Density (dd) ports
+on demand license is installed. true :
+Double Density ports on demand license
+installed. false : Double Density ports
+on demand license is not installed.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_on_demand_license" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_on_demand_license"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_port_on_demand_license()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port-on-demand-license</td>
+<td>Specifies if ports on demand license is
+installed or not. true : Ports on demand
+license is installed. false : Ports on
+demand license is not installed.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_port_on_demand_license" title="pyfos_brocade_license.ports_on_demand_license_info.peek_port_on_demand_license"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port_on_demand_license()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>unassigned-sfp-port-members</td>
+<td>Contains list of SFP ports not assigned
+to base switch or ports on demand
+license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unassigned_sfp_port_members()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port</td>
+<td>SFP based port assigned to base switch
+allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_port_base_switch_members_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>Licensed SFP port that is offline.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_offline_sfp_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>port</td>
+<td>QSFP based port assigned to base switch
+allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qsfp_port_base_switch_members_port()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>licensed-sfp-port-members</td>
+<td>Contains list of SFP ports assigned to
+ports-on-demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_sfp_port_members()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>qsfp-base-switch-allowance-count</td>
+<td>Indicates port assignments provisioned
+by base switch allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_base_switch_allowance_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_base_switch_allowance_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qsfp_base_switch_allowance_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>qsfp-port-assigned-count</td>
+<td>Total number of QSFP based ports
+assigned to base switch allowance or
+installed licenses.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_assigned_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_assigned_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qsfp_port_assigned_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-dd-port-license-reservation-available-count</td>
+<td>Indicates license reservations available
+for use by unassigned SFP-DD ports.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_license_reservation_available_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_license_reservation_available_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_port_license_reservation_available_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sfp-dd-port-assigned-count</td>
+<td>Total number of SFP-DD based ports
+assigned to base switch allowance or
+installed licenses.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_assigned_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_assigned_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_port_assigned_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>qsfp-port-license-reservation-available-count</td>
+<td>Indicates license reservations available
+for use by unassigned QSFP ports.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_license_reservation_available_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_license_reservation_available_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qsfp_port_license_reservation_available_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>SFP-DD based port member assigned to
+base switch allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_port_base_switch_members_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>qflex-port-on-demand-license</td>
+<td>Specifies if Q-flex ports on demand
+license is installed. true : Q-flex
+ports on demand license installed. false
+: Q-flex ports on demand license is not
+installed.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qflex_port_on_demand_license" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qflex_port_on_demand_license"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qflex_port_on_demand_license()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>qsfp-port-count</td>
+<td>Total count of QSFP based ports
+available on the switch.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qsfp_port_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>licensed-offline-sfp-port-members</td>
+<td>Contains list of licensed SFP ports that
+are offline.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_offline_sfp_port_members()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>sfp-port-base-switch-members</td>
+<td>Contains list of SFP based ports
+assigned to base switch allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_port_base_switch_members()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>licensed-sfp-port-count</td>
+<td>Indicates number of SFP ports assigned
+to the ports on demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_sfp_port_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>SFP-DD based port member not assigned to
+base switch or ports on demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_dd_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_dd_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unassigned_sfp_dd_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-dd-base-switch-allowance-count</td>
+<td>Indicates port assignments provisioned
+by base switch allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_base_switch_allowance_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_base_switch_allowance_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_dd_base_switch_allowance_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>licensed-offline-sfp-dd-port-members</td>
+<td>Contains list of licensed SFP-DD ports
+that are offline.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_dd_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_dd_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_offline_sfp_dd_port_members()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>provisioned-sfp-port-count</td>
+<td>Total number of SFP based ports
+provisioned for use in the switch.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_sfp_port_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_sfp_port_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_provisioned_sfp_port_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>provisioned-sfp-dd-port-count</td>
+<td>Total number of SFP-DD based ports
+provisioned for use in the switch.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_sfp_dd_port_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_sfp_dd_port_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_provisioned_sfp_dd_port_count()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>sfp-port-base-switch-assigned-count</td>
+<td>Indicates number of SFP ports assigned
+to base switch allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_assigned_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_assigned_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_sfp_port_base_switch_assigned_count()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>SFP based port assigned to port on
+demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_sfp_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>unassigned-qsfp-port-members</td>
+<td>Contains list of QSFP ports not assigned
+to base switch or ports on demand
+license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_qsfp_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_qsfp_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_unassigned_qsfp_port_members()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>licensed-qsfp-port-members</td>
+<td>Contains list of QSFP ports assigned to
+port on demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_qsfp_port_members()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>qsfp-port-base-switch-members</td>
+<td>Contains list of QSFP based ports
+assigned to base switch allowance.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_members" title="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_members"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_qsfp_port_base_switch_members()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>QSFP based port assigned to port on
+demand license.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_members_port" title="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_members_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_licensed_qsfp_port_members_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>provisioned-qsfp-port-count</td>
+<td>Total number of QSFP based ports
+provisioned for use in the switch.</td>
+<td><a class="reference internal" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_qsfp_port_count" title="pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_qsfp_port_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_provisioned_qsfp_port_count()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions for ports_on_demand_license_info</em></p>
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the instances of class “ports_on_demand_license_info from switch.</dt>
+<dd>The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><em>Class functions for ports_on_demand_license_info</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_count">
+<code class="descname">peek_licensed_qsfp_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-qsfp-port-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_members_port">
+<code class="descname">peek_licensed_sfp_dd_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_qsfp_port_members_port">
+<code class="descname">peek_unassigned_qsfp_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_qsfp_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_assigned_count">
+<code class="descname">peek_sfp_port_assigned_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_assigned_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-port-assigned-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_count">
+<code class="descname">peek_sfp_dd_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to sfp-dd-count in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_dd_port_members_port">
+<code class="descname">peek_licensed_offline_sfp_dd_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_dd_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_assigned_count">
+<code class="descname">peek_sfp_dd_port_base_switch_assigned_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_assigned_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to</dt>
+<dd>sfp-dd-port-base-switch-assigned-count in the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_dd_port_members">
+<code class="descname">peek_unassigned_sfp_dd_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_dd_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to unassigned-sfp-dd-port-members in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_license_allowance_count">
+<code class="descname">peek_sfp_port_license_allowance_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_license_allowance_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-port-license-allowance-count in</dt>
+<dd>the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_members">
+<code class="descname">peek_licensed_sfp_dd_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-sfp-dd-port-members in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_license_allowance_count">
+<code class="descname">peek_sfp_dd_license_allowance_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_license_allowance_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-dd-license-allowance-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_count">
+<code class="descname">peek_licensed_sfp_dd_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_dd_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-sfp-dd-port-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_qsfp_port_members">
+<code class="descname">peek_licensed_offline_qsfp_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_qsfp_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-offline-qsfp-port-members in</dt>
+<dd>the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_count">
+<code class="descname">peek_sfp_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to sfp-port-count in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_qsfp_port_members_port">
+<code class="descname">peek_licensed_offline_qsfp_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_qsfp_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_members">
+<code class="descname">peek_sfp_dd_port_base_switch_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-dd-port-base-switch-members in</dt>
+<dd>the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_license_reservation_available_count">
+<code class="descname">peek_sfp_port_license_reservation_available_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_license_reservation_available_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to</dt>
+<dd>sfp-port-license-reservation-available-count in the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_port_members_port">
+<code class="descname">peek_unassigned_sfp_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_assigned_count">
+<code class="descname">peek_qsfp_port_base_switch_assigned_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_assigned_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to qsfp-port-base-switch-assigned-count</dt>
+<dd>in the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_license_allowance_count">
+<code class="descname">peek_qsfp_license_allowance_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_license_allowance_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to qsfp-license-allowance-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_allowance_count">
+<code class="descname">peek_sfp_port_base_switch_allowance_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_allowance_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-port-base-switch-allowance-count</dt>
+<dd>in the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_on_demand_license">
+<code class="descname">peek_sfp_dd_port_on_demand_license</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_on_demand_license" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-dd-port-on-demand-license in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_port_on_demand_license">
+<code class="descname">peek_port_on_demand_license</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_port_on_demand_license" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to port-on-demand-license in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_port_members">
+<code class="descname">peek_unassigned_sfp_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to unassigned-sfp-port-members in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_members_port">
+<code class="descname">peek_sfp_port_base_switch_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_port_members_port">
+<code class="descname">peek_licensed_offline_sfp_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_members_port">
+<code class="descname">peek_qsfp_port_base_switch_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_members">
+<code class="descname">peek_licensed_sfp_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-sfp-port-members in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_base_switch_allowance_count">
+<code class="descname">peek_qsfp_base_switch_allowance_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_base_switch_allowance_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to qsfp-base-switch-allowance-count in</dt>
+<dd>the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_assigned_count">
+<code class="descname">peek_qsfp_port_assigned_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_assigned_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to qsfp-port-assigned-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_license_reservation_available_count">
+<code class="descname">peek_sfp_dd_port_license_reservation_available_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_license_reservation_available_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to</dt>
+<dd>sfp-dd-port-license-reservation-available-count in the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_assigned_count">
+<code class="descname">peek_sfp_dd_port_assigned_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_assigned_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-dd-port-assigned-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_license_reservation_available_count">
+<code class="descname">peek_qsfp_port_license_reservation_available_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_license_reservation_available_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to</dt>
+<dd>qsfp-port-license-reservation-available-count in the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_members_port">
+<code class="descname">peek_sfp_dd_port_base_switch_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_port_base_switch_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qflex_port_on_demand_license">
+<code class="descname">peek_qflex_port_on_demand_license</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qflex_port_on_demand_license" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to qflex-port-on-demand-license in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_count">
+<code class="descname">peek_qsfp_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to qsfp-port-count in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_port_members">
+<code class="descname">peek_licensed_offline_sfp_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-offline-sfp-port-members in</dt>
+<dd>the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_members">
+<code class="descname">peek_sfp_port_base_switch_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-port-base-switch-members in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_count">
+<code class="descname">peek_licensed_sfp_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-sfp-port-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_dd_port_members_port">
+<code class="descname">peek_unassigned_sfp_dd_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_sfp_dd_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_base_switch_allowance_count">
+<code class="descname">peek_sfp_dd_base_switch_allowance_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_dd_base_switch_allowance_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-dd-base-switch-allowance-count in</dt>
+<dd>the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_dd_port_members">
+<code class="descname">peek_licensed_offline_sfp_dd_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_offline_sfp_dd_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-offline-sfp-dd-port-members</dt>
+<dd>in the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_sfp_port_count">
+<code class="descname">peek_provisioned_sfp_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_sfp_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to provisioned-sfp-port-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_sfp_dd_port_count">
+<code class="descname">peek_provisioned_sfp_dd_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_sfp_dd_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to provisioned-sfp-dd-port-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_assigned_count">
+<code class="descname">peek_sfp_port_base_switch_assigned_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_sfp_port_base_switch_assigned_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to sfp-port-base-switch-assigned-count</dt>
+<dd>in the object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_members_port">
+<code class="descname">peek_licensed_sfp_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_sfp_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_qsfp_port_members">
+<code class="descname">peek_unassigned_qsfp_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_unassigned_qsfp_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to unassigned-qsfp-port-members in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_members">
+<code class="descname">peek_licensed_qsfp_port_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to licensed-qsfp-port-members in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_members">
+<code class="descname">peek_qsfp_port_base_switch_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_qsfp_port_base_switch_members" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to qsfp-port-base-switch-members in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_members_port">
+<code class="descname">peek_licensed_qsfp_port_members_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_licensed_qsfp_port_members_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_qsfp_port_count">
+<code class="descname">peek_provisioned_qsfp_port_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_license.ports_on_demand_license_info.peek_provisioned_qsfp_port_count" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Reads the value assigned to provisioned-qsfp-port-count in the</dt>
+<dd>object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
 </tr>
 </tbody>
 </table>
@@ -233,11 +1597,11 @@ accessed through peek methods.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="pyfos_brocade_interface.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_interface</span></code> - PyFOS module for Brocade Interface objects.</a></p>
+  <p class="topless"><a href="pyfos_brocade_time.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_time</span></code> - PyFOS module to provide rest support for time server.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="pyfos_brocade_name_server.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_name_server</span></code> - PyFOS module to provide rest support for Name Server.</a></p>
+  <p class="topless"><a href="pyfos_brocade_snmp.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_snmp</span></code> - PyFOS module to provide rest support for SNMP.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -271,12 +1635,12 @@ accessed through peek methods.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_name_server.html" title="pyfos_brocade_name_server - PyFOS module to provide rest support for Name Server."
+          <a href="pyfos_brocade_snmp.html" title="pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP."
              >next</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_interface.html" title="pyfos_brocade_interface - PyFOS module for Brocade Interface objects."
+          <a href="pyfos_brocade_time.html" title="pyfos_brocade_time - PyFOS module to provide rest support for time server."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

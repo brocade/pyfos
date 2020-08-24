@@ -1,0 +1,191 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>lldp_gigabitethernet_operations - PyFOS util support for RPC operations of lldp_operations &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="snmp_system_show - PyFOS util to show the snmp system information." href="snmp_system_show.html" />
+    <link rel="prev" title="end_device_management - PyFOS util support for RPC operations ofEnd_Device_parameters" href="end_device_management.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="snmp_system_show.html" title="snmp_system_show - PyFOS util to show the snmp system information."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="end_device_management.html" title="end_device_management - PyFOS util support for RPC operations ofEnd_Device_parameters"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-lldp_gigabitethernet_operations"></span><div class="section" id="lldp-gigabitethernet-operations-pyfos-util-support-for-rpc-operations-of-lldp-operations">
+<h1><a class="reference internal" href="#module-lldp_gigabitethernet_operations" title="lldp_gigabitethernet_operations: PyFOS module to perform LLDP operations (clear-neighbor or reset-statistics) on a gigabitethernet port (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lldp_gigabitethernet_operations</span></code></a> - PyFOS util  support for RPC operations of lldp_operations<a class="headerlink" href="#lldp-gigabitethernet-operations-pyfos-util-support-for-rpc-operations-of-lldp-operations" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-lldp_gigabitethernet_operations" title="lldp_gigabitethernet_operations: PyFOS module to perform LLDP operations (clear-neighbor or reset-statistics) on a gigabitethernet port (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lldp_gigabitethernet_operations</span></code></a> PyFOS util  support for RPC operations of lldp_operations</p>
+<p>LLDP actions container</p>
+<p>lldp_gigabitethernet_operations : usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config    file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–slot-port=SLOT-PORT: Port name</li>
+<li>–action=ACTION: LLDP actions on the given port</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="lldp_gigabitethernet_operations.lldp_gigabitethernet_operations.rpc_lldp_operations">
+<code class="descclassname">lldp_gigabitethernet_operations.</code><code class="descname">rpc_lldp_operations</code><span class="sig-paren">(</span><em>session</em>, <em>slot_port</em>, <em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#lldp_gigabitethernet_operations.lldp_gigabitethernet_operations.rpc_lldp_operations" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>RPC lldp_operations</em></p>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">lldp_gigabitethernet_operations</span><span class="o">.</span><span class="n">rpc_lldp_operations</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">slot_port</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lldp_operationsObj</span> <span class="o">=</span> <span class="n">lldp_operations</span><span class="p">()</span>
+<span class="n">lldp_operationsObj</span><span class="o">.</span><span class="n">set_slot_port</span><span class="p">(</span><span class="n">slot_port</span><span class="p">)</span>
+<span class="n">lldp_operationsObj</span><span class="o">.</span><span class="n">set_action</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">_rpc_lldp_operations</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">lldp_operationsObj</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Inputs</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> – The session returned by the login.</li>
+<li><strong>slot_port</strong> – Port name</li>
+<li><strong>action</strong> – LLDP actions on the given port</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="end_device_management.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">end_device_management</span></code> - PyFOS util  support for RPC operations ofEnd_Device_parameters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="snmp_system_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">snmp_system_show</span></code> - PyFOS util to show the snmp system information.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/lldp_gigabitethernet_operations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="snmp_system_show.html" title="snmp_system_show - PyFOS util to show the snmp system information."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="end_device_management.html" title="end_device_management - PyFOS util support for RPC operations ofEnd_Device_parameters"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

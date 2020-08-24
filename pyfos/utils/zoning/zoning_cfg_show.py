@@ -49,25 +49,7 @@ def usage():
 def main(argv):
     valid_options = []
     inputs = brcd_util.generic_input(argv, usage, valid_options)
-
-    session = pyfos_auth.login(inputs["login"], inputs["password"],
-                               inputs["ipaddr"], inputs["secured"],
-                               verbose=inputs["verbose"])
-    if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)
-              [pyfos_auth.LOGIN_ERROR_KEY])
-        brcd_util.full_usage(usage, valid_options)
-        sys.exit()
-
-    brcd_util.exit_register(session)
-
-    vfid = None
-    if 'vfid' in inputs:
-        vfid = inputs['vfid']
-
-    if vfid is not None:
-        pyfos_auth.vfid_set(session, vfid)
+    session = brcd_util.getsession(inputs)
 
     defined_zone = pyfos_zone.defined_configuration.get(session)
     pyfos_util.response_print(defined_zone)

@@ -1,0 +1,324 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>lan_flow_statistics_show - PyFOS util to show for lan_flow_statistics &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="traffic_control_list_create - PyFOS util to create for traffic_control_list" href="traffic_control_list_create.html" />
+    <link rel="prev" title="global_lan_statistics_show - PyFOS util to show for global_lan_statistics" href="global_lan_statistics_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="traffic_control_list_create.html" title="traffic_control_list_create - PyFOS util to create for traffic_control_list"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="global_lan_statistics_show.html" title="global_lan_statistics_show - PyFOS util to show for global_lan_statistics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-lan_flow_statistics_show"></span><div class="section" id="lan-flow-statistics-show-pyfos-util-to-show-for-lan-flow-statistics">
+<h1><a class="reference internal" href="#module-lan_flow_statistics_show" title="lan_flow_statistics_show: PyFOS module to display extension LAN flow statistics. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lan_flow_statistics_show</span></code></a> - PyFOS util to show for lan_flow_statistics<a class="headerlink" href="#lan-flow-statistics-show-pyfos-util-to-show-for-lan-flow-statistics" title="Permalink to this headline">¶</a></h1>
+<p>The:mod:<cite>lan_flow_statistics_show</cite> PyFOS util to show for lan_flow_statistics</p>
+<p>The LAN per-flow statistics.</p>
+<p>lan_flow_statistics_show: usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config    file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–out-bytes-wan-compression=OUT-BYTES-WAN-COMPRESSION: Total bytes sent      compression engine on WAN.</li>
+<li>–in-packets-lan-session-manager=IN-PACKETS-LAN-SESSION-MANAGER: Total      packets received by LAN session manager.</li>
+<li>–vlan-priority=VLAN-PRIORITY: Specifies the VLAN priority associated      with the flow.</li>
+<li>–traffic-control-list-name=TRAFFIC-CONTROL-LIST-NAME: The      traffic-control-list name matching the flow filter to allow the      traffic.</li>
+<li>–out-bytes-lan-session-manager=OUT-BYTES-LAN-SESSION-MANAGER: Total      bytes sent by LAN session manager.</li>
+<li>–tcp-retransmits=TCP-RETRANSMITS: TCP retransmits /lost packets.</li>
+<li>–zero-window-count=ZERO-WINDOW-COUNT: The count of TCP zero window      encountered.</li>
+<li>–active-flow=ACTIVE-FLOW: Indicates that LAN flow is currently active.       true: The flow is active. false: The flow is not active.</li>
+<li>–in-drops-lan-session-manager=IN-DROPS-LAN-SESSION-MANAGER: The number      of drops at the ingress from LAN session manager.</li>
+<li>–destination-port=DESTINATION-PORT: Remote destination port number of      the LAN flow.</li>
+<li>–in-bytes-average=IN-BYTES-AVERAGE: The throughput in bps for packets      received via an extension tunnel over WAN per 30s average.</li>
+<li>–destination-ip-address=DESTINATION-IP-ADDRESS: Destination IP address      corresponding to the LAN flow.</li>
+<li>–in-bytes-lan-session-manager=IN-BYTES-LAN-SESSION-MANAGER: Total bytes      received by LAN session manager.</li>
+<li>–in-bytes-lan-compression=IN-BYTES-LAN-COMPRESSION: Total bytes      received by compression engine from LAN.</li>
+<li>–out-tcp-packets=OUT-TCP-PACKETS: Total TCP packets sent.</li>
+<li>–duplicate-acknowledgement=DUPLICATE-ACKNOWLEDGEMENT: TCP duplicate ACK      received.</li>
+<li>–source-port=SOURCE-PORT: Source port number of the LAN flow.</li>
+<li>–dp-id=DP-ID: Extension Data Path Processor ID associated with flow.      Based on platform either it will have a single DP or dual DP. In case      of single DP only DP0 is supported, and in case of dual DP both DP0      and DP1 are supported  0 : DP0 1 : DP1.</li>
+<li>–in-bytes-wan-compression=IN-BYTES-WAN-COMPRESSION: Total bytes      received by compression engine from WAN.</li>
+<li>–in-tcp-bytes=IN-TCP-BYTES: Total bytes received.</li>
+<li>–vlan-id=VLAN-ID: Specifies the VLAN ID associated with the flow. When      not set, this value will show up as 0.</li>
+<li>–out-packets-lan-session-manager=OUT-PACKETS-LAN-SESSION-MANAGER: Total      packets sent by LAN session manager.</li>
+<li>–zero-window-maximum-duration=ZERO-WINDOW-MAXIMUM-DURATION: The maximum      of zero window duration encountered.</li>
+<li>–source-ip-address=SOURCE-IP-ADDRESS: Source IP address corresponding      to the LAN flow.</li>
+<li>–fast-retransmits=FAST-RETRANSMITS: TCP fast retransmits count.</li>
+<li>–rtt=RTT: round trip time.</li>
+<li>–ve-port=VE-PORT: The VE port of the extension-tunnel interface.</li>
+<li>–hcl-flow=HCL-FLOW: Indicates that LAN flow is in HCL.  true: The flow      is in HCL. false: The flow is not in HCL.</li>
+<li>–dscp=DSCP: DSCP value for the LAN flow.</li>
+<li>–slot=SLOT: In case of non-chassis system, the slot number is always 0.      In case of chassis system, it is the slot number of chassis in which      the extension blade is inserted in. In case of chassis, slot number is      non-zero value.</li>
+<li>–crc-errors=CRC-ERRORS: Number of CRC errors encountered.</li>
+<li>–lan-interface=LAN-INTERFACE: The interface corresponding to the      traffic. This could be either a GE port or a LAG name associated with      the LAN flow.</li>
+<li>–local-host-mss=LOCAL-HOST-MSS: The local-host-mss is the MSS of the      TCP connection at the LAN ingress side connected host.</li>
+<li>–start-time=START-TIME: Indicates the LAN flow start time.</li>
+<li>–out-tcp-bytes=OUT-TCP-BYTES: Total bytes sent.</li>
+<li>–out-bytes-average=OUT-BYTES-AVERAGE: The throughput in bps for packets      sent over the extension tunnel on WAN per 30s average.</li>
+<li>–slow-retransmits=SLOW-RETRANSMITS: TCP slow retransmits count.</li>
+<li>–out-drops-lan-session-manager=OUT-DROPS-LAN-SESSION-MANAGER: The      number of drops at the egress from LAN session manager.</li>
+<li>–out-bytes-lan-compression=OUT-BYTES-LAN-COMPRESSION: Total bytes sent      by compression engine on LAN.</li>
+<li>–flow-index=FLOW-INDEX: flow index associated with the LAN flow. This      is a dynamic index associated with the LAN flow. Depending on the LAN      flow behavior the index may change and also can get reused after some      time but at any given time they will be unique.</li>
+<li>–qos=QOS: The IP priority QOS associated with the flow.</li>
+<li>–in-tcp-packets=IN-TCP-PACKETS: Total TCP packets received.</li>
+<li>–tcp-out-of-order-packets=TCP-OUT-OF-ORDER-PACKETS: TCP total out of      order packets.</li>
+<li>–end-time=END-TIME: Indicates the LAN flow end time.</li>
+<li>–remote-host-mss=REMOTE-HOST-MSS: The remote-host-mss is the MSS of the      TCP connection at peer extension tunnel endpoint connected host to its      the LAN ingress side.</li>
+<li>–protocol=PROTOCOL: Describes that the Layer 4 protocol of the flow.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="lan_flow_statistics_show.lan_flow_statistics_show.show_lan_flow_statistics">
+<code class="descclassname">lan_flow_statistics_show.</code><code class="descname">show_lan_flow_statistics</code><span class="sig-paren">(</span><em>session</em>, <em>out_bytes_wan_compression</em>, <em>in_packets_lan_session_manager</em>, <em>vlan_priority</em>, <em>traffic_control_list_name</em>, <em>out_bytes_lan_session_manager</em>, <em>tcp_retransmits</em>, <em>zero_window_count</em>, <em>active_flow</em>, <em>in_drops_lan_session_manager</em>, <em>destination_port</em>, <em>in_bytes_average</em>, <em>destination_ip_address</em>, <em>in_bytes_lan_session_manager</em>, <em>in_bytes_lan_compression</em>, <em>out_tcp_packets</em>, <em>duplicate_acknowledgement</em>, <em>source_port</em>, <em>dp_id</em>, <em>in_bytes_wan_compression</em>, <em>in_tcp_bytes</em>, <em>vlan_id</em>, <em>out_packets_lan_session_manager</em>, <em>zero_window_maximum_duration</em>, <em>source_ip_address</em>, <em>fast_retransmits</em>, <em>rtt</em>, <em>mapped_tunnel_ve_port</em>, <em>hcl_flow</em>, <em>dscp</em>, <em>slot</em>, <em>crc_errors</em>, <em>lan_interface</em>, <em>local_host_mss</em>, <em>start_time</em>, <em>out_tcp_bytes</em>, <em>out_bytes_average</em>, <em>slow_retransmits</em>, <em>out_drops_lan_session_manager</em>, <em>out_bytes_lan_compression</em>, <em>flow_index</em>, <em>mapped_tunnel_qos</em>, <em>in_tcp_packets</em>, <em>tcp_out_of_order_packets</em>, <em>end_time</em>, <em>remote_host_mss</em>, <em>protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#lan_flow_statistics_show.lan_flow_statistics_show.show_lan_flow_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Show lan_flow_statistics</em></p>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">lan_flow_statistics_show</span><span class="o">.</span><span class="n">show_lan_flow_statistics</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">out_bytes_wan_compression</span><span class="p">,</span> <span class="n">in_packets_lan_session_manager</span><span class="p">,</span> <span class="n">vlan_priority</span><span class="p">,</span> <span class="n">traffic_control_list_name</span><span class="p">,</span> <span class="n">out_bytes_lan_session_manager</span><span class="p">,</span> <span class="n">tcp_retransmits</span><span class="p">,</span> <span class="n">zero_window_count</span><span class="p">,</span> <span class="n">active_flow</span><span class="p">,</span> <span class="n">in_drops_lan_session_manager</span><span class="p">,</span> <span class="n">destination_port</span><span class="p">,</span> <span class="n">in_bytes_average</span><span class="p">,</span> <span class="n">destination_ip_address</span><span class="p">,</span> <span class="n">in_bytes_lan_session_manager</span><span class="p">,</span> <span class="n">in_bytes_lan_compression</span><span class="p">,</span> <span class="n">out_tcp_packets</span><span class="p">,</span> <span class="n">duplicate_acknowledgement</span><span class="p">,</span> <span class="n">source_port</span><span class="p">,</span> <span class="n">dp_id</span><span class="p">,</span> <span class="n">in_bytes_wan_compression</span><span class="p">,</span> <span class="n">in_tcp_bytes</span><span class="p">,</span> <span class="n">vlan_id</span><span class="p">,</span> <span class="n">out_packets_lan_session_manager</span><span class="p">,</span> <span class="n">zero_window_maximum_duration</span><span class="p">,</span> <span class="n">source_ip_address</span><span class="p">,</span> <span class="n">fast_retransmits</span><span class="p">,</span> <span class="n">rtt</span><span class="p">,</span> <span class="n">mapped_tunnel_ve_port</span><span class="p">,</span> <span class="n">hcl_flow</span><span class="p">,</span> <span class="n">dscp</span><span class="p">,</span> <span class="n">slot</span><span class="p">,</span> <span class="n">crc_errors</span><span class="p">,</span> <span class="n">lan_interface</span><span class="p">,</span> <span class="n">local_host_mss</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">out_tcp_bytes</span><span class="p">,</span> <span class="n">out_bytes_average</span><span class="p">,</span> <span class="n">slow_retransmits</span><span class="p">,</span> <span class="n">out_drops_lan_session_manager</span><span class="p">,</span> <span class="n">out_bytes_lan_compression</span><span class="p">,</span> <span class="n">flow_index</span><span class="p">,</span> <span class="n">mapped_tunnel_qos</span><span class="p">,</span> <span class="n">in_tcp_packets</span><span class="p">,</span> <span class="n">tcp_out_of_order_packets</span><span class="p">,</span> <span class="n">end_time</span><span class="p">,</span> <span class="n">remote_host_mss</span><span class="p">,</span> <span class="n">protocol</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lan_flow_statisticsObj</span> <span class="o">=</span> <span class="n">lan_flow_statistics</span><span class="p">()</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_out_bytes_wan_compression</span><span class="p">(</span> <span class="n">out_bytes_wan_compression</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_in_packets_lan_session_manager</span><span class="p">(</span> <span class="n">in_packets_lan_session_manager</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_vlan_priority</span><span class="p">(</span><span class="n">vlan_priority</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_traffic_control_list_name</span><span class="p">(</span> <span class="n">traffic_control_list_name</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_out_bytes_lan_session_manager</span><span class="p">(</span> <span class="n">out_bytes_lan_session_manager</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_tcp_retransmits</span><span class="p">(</span><span class="n">tcp_retransmits</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_zero_window_count</span><span class="p">(</span><span class="n">zero_window_count</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_active_flow</span><span class="p">(</span><span class="n">active_flow</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_in_drops_lan_session_manager</span><span class="p">(</span> <span class="n">in_drops_lan_session_manager</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_destination_port</span><span class="p">(</span><span class="n">destination_port</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_in_bytes_average</span><span class="p">(</span><span class="n">in_bytes_average</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_destination_ip_address</span><span class="p">(</span><span class="n">destination_ip_address</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_in_bytes_lan_session_manager</span><span class="p">(</span> <span class="n">in_bytes_lan_session_manager</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_in_bytes_lan_compression</span><span class="p">(</span> <span class="n">in_bytes_lan_compression</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_out_tcp_packets</span><span class="p">(</span><span class="n">out_tcp_packets</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_duplicate_acknowledgement</span><span class="p">(</span> <span class="n">duplicate_acknowledgement</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_source_port</span><span class="p">(</span><span class="n">source_port</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_dp_id</span><span class="p">(</span><span class="n">dp_id</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_in_bytes_wan_compression</span><span class="p">(</span> <span class="n">in_bytes_wan_compression</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_in_tcp_bytes</span><span class="p">(</span><span class="n">in_tcp_bytes</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_vlan_id</span><span class="p">(</span><span class="n">vlan_id</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_out_packets_lan_session_manager</span><span class="p">(</span> <span class="n">out_packets_lan_session_manager</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_zero_window_maximum_duration</span><span class="p">(</span> <span class="n">zero_window_maximum_duration</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_source_ip_address</span><span class="p">(</span><span class="n">source_ip_address</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_fast_retransmits</span><span class="p">(</span><span class="n">fast_retransmits</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_rtt</span><span class="p">(</span><span class="n">rtt</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_mapped_tunnel_ve_port</span><span class="p">(</span><span class="n">mapped_tunnel_ve_port</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_hcl_flow</span><span class="p">(</span><span class="n">hcl_flow</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_dscp</span><span class="p">(</span><span class="n">dscp</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_slot</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_crc_errors</span><span class="p">(</span><span class="n">crc_errors</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_lan_interface</span><span class="p">(</span><span class="n">lan_interface</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_local_host_mss</span><span class="p">(</span><span class="n">local_host_mss</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_start_time</span><span class="p">(</span><span class="n">start_time</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_out_tcp_bytes</span><span class="p">(</span><span class="n">out_tcp_bytes</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_out_bytes_average</span><span class="p">(</span><span class="n">out_bytes_average</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_slow_retransmits</span><span class="p">(</span><span class="n">slow_retransmits</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_out_drops_lan_session_manager</span><span class="p">(</span> <span class="n">out_drops_lan_session_manager</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_out_bytes_lan_compression</span><span class="p">(</span> <span class="n">out_bytes_lan_compression</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_flow_index</span><span class="p">(</span><span class="n">flow_index</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_mapped_tunnel_qos</span><span class="p">(</span><span class="n">mapped_tunnel_qos</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_in_tcp_packets</span><span class="p">(</span><span class="n">in_tcp_packets</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_tcp_out_of_order_packets</span><span class="p">(</span> <span class="n">tcp_out_of_order_packets</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_end_time</span><span class="p">(</span><span class="n">end_time</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_remote_host_mss</span><span class="p">(</span><span class="n">remote_host_mss</span><span class="p">)</span>
+<span class="n">lan_flow_statisticsObj</span><span class="o">.</span><span class="n">set_protocol</span><span class="p">(</span><span class="n">protocol</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">_show_lan_flow_statistics</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">lan_flow_statisticsObj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Inputs</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> – The session returned by the login.</li>
+<li><strong>out_bytes_wan_compression</strong> – Total bytes sent compression engine on      WAN.</li>
+<li><strong>in_packets_lan_session_manager</strong> – Total packets received by LAN      session manager.</li>
+<li><strong>vlan_priority</strong> – Specifies the VLAN priority associated with the      flow.</li>
+<li><strong>traffic_control_list_name</strong> – The traffic-control-list name matching      the flow filter to allow the traffic.</li>
+<li><strong>out_bytes_lan_session_manager</strong> – Total bytes sent by LAN session      manager.</li>
+<li><strong>tcp_retransmits</strong> – TCP retransmits /lost packets.</li>
+<li><strong>zero_window_count</strong> – The count of TCP zero window encountered.</li>
+<li><strong>active_flow</strong> – Indicates that LAN flow is currently active.  true:      The flow is active. false: The flow is not active.</li>
+<li><strong>in_drops_lan_session_manager</strong> – The number of drops at the ingress      from LAN session manager.</li>
+<li><strong>destination_port</strong> – Remote destination port number of the LAN flow.</li>
+<li><strong>in_bytes_average</strong> – The throughput in bps for packets received via an      extension tunnel over WAN per 30s average.</li>
+<li><strong>destination_ip_address</strong> – Destination IP address corresponding to the      LAN flow.</li>
+<li><strong>in_bytes_lan_session_manager</strong> – Total bytes received by LAN session      manager.</li>
+<li><strong>in_bytes_lan_compression</strong> – Total bytes received by compression      engine from LAN.</li>
+<li><strong>out_tcp_packets</strong> – Total TCP packets sent.</li>
+<li><strong>duplicate_acknowledgement</strong> – TCP duplicate ACK received.</li>
+<li><strong>source_port</strong> – Source port number of the LAN flow.</li>
+<li><strong>dp_id</strong> – Extension Data Path Processor ID associated with flow. Based      on platform either it will have a single DP or dual DP. In case of      single DP only DP0 is supported, and in case of dual DP both DP0 and      DP1 are supported  0 : DP0 1 : DP1.</li>
+<li><strong>in_bytes_wan_compression</strong> – Total bytes received by compression      engine from WAN.</li>
+<li><strong>in_tcp_bytes</strong> – Total bytes received.</li>
+<li><strong>vlan_id</strong> – Specifies the VLAN ID associated with the flow. When not      set, this value will show up as 0.</li>
+<li><strong>out_packets_lan_session_manager</strong> – Total packets sent by LAN session      manager.</li>
+<li><strong>zero_window_maximum_duration</strong> – The maximum of zero window duration      encountered.</li>
+<li><strong>source_ip_address</strong> – Source IP address corresponding to the LAN flow.</li>
+<li><strong>fast_retransmits</strong> – TCP fast retransmits count.</li>
+<li><strong>rtt</strong> – round trip time.</li>
+<li><strong>mapped_tunnel_ve_port</strong> – The VE port of the extension-tunnel      interface.</li>
+<li><strong>hcl_flow</strong> – Indicates that LAN flow is in HCL.  true: The flow is in      HCL. false: The flow is not in HCL.</li>
+<li><strong>dscp</strong> – DSCP value for the LAN flow.</li>
+<li><strong>slot</strong> – In case of non-chassis system, the slot number is always 0.      In case of chassis system, it is the slot number of chassis in which      the extension blade is inserted in. In case of chassis, slot number is      non-zero value.</li>
+<li><strong>crc_errors</strong> – Number of CRC errors encountered.</li>
+<li><strong>lan_interface</strong> – The interface corresponding to the traffic. This      could be either a GE port or a LAG name associated with the LAN flow.</li>
+<li><strong>local_host_mss</strong> – The local-host-mss is the MSS of the TCP connection      at the LAN ingress side connected host.</li>
+<li><strong>start_time</strong> – Indicates the LAN flow start time.</li>
+<li><strong>out_tcp_bytes</strong> – Total bytes sent.</li>
+<li><strong>out_bytes_average</strong> – The throughput in bps for packets sent over the      extension tunnel on WAN per 30s average.</li>
+<li><strong>slow_retransmits</strong> – TCP slow retransmits count.</li>
+<li><strong>out_drops_lan_session_manager</strong> – The number of drops at the egress      from LAN session manager.</li>
+<li><strong>out_bytes_lan_compression</strong> – Total bytes sent by compression engine      on LAN.</li>
+<li><strong>flow_index</strong> – flow index associated with the LAN flow. This is a      dynamic index associated with the LAN flow. Depending on the LAN flow      behavior the index may change and also can get reused after some time      but at any given time they will be unique.</li>
+<li><strong>mapped_tunnel_qos</strong> – The IP priority QOS associated with the flow.</li>
+<li><strong>in_tcp_packets</strong> – Total TCP packets received.</li>
+<li><strong>tcp_out_of_order_packets</strong> – TCP total out of order packets.</li>
+<li><strong>end_time</strong> – Indicates the LAN flow end time.</li>
+<li><strong>remote_host_mss</strong> – The remote-host-mss is the MSS of the TCP      connection at peer extension tunnel endpoint connected host to its the      LAN ingress side.</li>
+<li><strong>protocol</strong> – Describes that the Layer 4 protocol of the flow.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or one/more instance of class lan_flow_statistics on Success     or a dictionary with error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_extension.html#module-pyfos_brocade_extension" title="pyfos_brocade_extension: PyFOS module to support Extension LAN/HCL objects for REST. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_extension</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="global_lan_statistics_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">global_lan_statistics_show</span></code> - PyFOS util to show for global_lan_statistics</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="traffic_control_list_create.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">traffic_control_list_create</span></code> - PyFOS util to create for traffic_control_list</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/lan_flow_statistics_show.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="traffic_control_list_create.html" title="traffic_control_list_create - PyFOS util to create for traffic_control_list"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="global_lan_statistics_show.html" title="global_lan_statistics_show - PyFOS util to show for global_lan_statistics"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

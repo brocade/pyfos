@@ -1,4 +1,4 @@
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+# Copyright 2018-2019 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,9 +35,17 @@ ZONE = "ZONE"
 PEER_ZONE = "PEER_ZONE"
 ALIAS = "ALIAS"
 
+# These ZONE_TYPE_XXXXX definitions are deprecated beginning in FOS 9.0.0.
+# From FOS 9.0.0 and onwards, please use the ZONE_TYPE_STRING_XXXXX definitions.
 ZONE_TYPE_DEFAULT = 0
 ZONE_TYPE_PEER = 1
 ZONE_TYPE_TDZ = 2
+
+# These zone-type-string definitions are newly created in FOS 9.0.0
+# and should be used in place of the above ZONE_TYPE_XXXXX definitions.
+ZONE_TYPE_STRING_DEFAULT = "zone"
+ZONE_TYPE_STRING_PEER = "user-created-peer-zone"
+ZONE_TYPE_STRING_TDZ = "target-created-peer-zone"
 
 ZONE_DEFAULT_NO_ACCESS = 'd__efault__Cfg'
 
@@ -53,7 +61,7 @@ class defined_configuration(pyfos_rest_util.rest_object):
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
         | Attribute name                    | Description                   |Frequently used methods                                |
         +===================================+===============================+=======================================================+
-        | cfg                               | a list of cfg 		    |:func:`set_cfg`                                        |
+        | cfg                               | a list of cfg                 |:func:`set_cfg`                                        |
         |                                   |                               |:func:`peek_cfg`                                       |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
         | cfg-name                          | name of cfg                   |:func:`set_cfg_cfg_name`                               |
@@ -62,7 +70,7 @@ class defined_configuration(pyfos_rest_util.rest_object):
         | member_zone/zone-name             | list of zone members in cfg   |:func:`set_cfg_member_zone_zone_name`                  |
         |                                   |                               |:func:`peek_cfg_member_zone_zone_name`                 |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | zone                              | a list of zone 		    |:func:`set_zone`                                       |
+        | zone                              | a list of zone                |:func:`set_zone`                                       |
         |                                   |                               |:func:`peek_zone`                                      |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
         | zone-name                         | name of zone                  |:func:`set_zone_zone_name`                             |
@@ -71,13 +79,16 @@ class defined_configuration(pyfos_rest_util.rest_object):
         | zone-type                         | type of zone                  |:func:`set_zone_zone_type`                             |
         |                                   |                               |:func:`peek_zone_zone_type`                            |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
+        | zone-type-string                  | type of zone                  |:func:`set_zone_zone_type_string`                      |
+        |                                   |                               |:func:`peek_zone_zone_type_string`                     |
+        +-----------------------------------+-------------------------------+-------------------------------------------------------+
         | member-entry/entry-name           | list of device members in zone|:func:`set_zone_member_entry_entry_name`               |
         |                                   |                               |:func:`peek_zone_member_entry_entry_name`              |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
         | member-entry/principal-entry-name | list of principal device      |:func:`set_zone_member_entry_principal_entry_name`     |
         |                                   | members in zone               |:func:`peek_zone_member_entry_principal_entry_name`    |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
-        | alias                             | a list of alias 		    |:func:`set_alias`                                      |
+        | alias                             | a list of alias               |:func:`set_alias`                                      |
         |                                   |                               |:func:`peek_alias`                                     |
         +-----------------------------------+-------------------------------+-------------------------------------------------------+
         | alias-name                        | name of alias                 |:func:`set_alias_alias_name`                           |
@@ -249,17 +260,32 @@ class defined_configuration(pyfos_rest_util.rest_object):
         .. method:: set_zone_zone_type(zone_type)
 
             Sets zone type to default or peer zone in the object.
-            Type of 0 indicate normal Zone while
-            type of 1 indicates Peer Zone.
+            A zone type of 0 indicates a normal zone while a zone
+            type of 1 indicates a peer zone.
 
             :param zone_type: zone type
             :rtype: dictionary of error or success response
 
         .. method:: peek_zone_zone_type()
 
-            Reads zone type in the object.
+            Reads the zone type in the object.
 
             :rtype: None or zone type
+
+        .. method:: set_zone_zone_type_string(zone_type_string)
+
+            Sets the zone type string to default or peer zone in the object.
+            A zone type string of 'zone' indicates a zone that is not a peer zone.
+            A zone type string of 'user-created-peer-zone' indicates a peer zone.
+
+            :param zone_type_string: zone type string
+            :rtype: dictionary of error or success response
+
+        .. method:: peek_zone_zone_type_string()
+
+            Reads the zone type string in the object.
+
+            :rtype: None or zone type string
 
         .. method:: set_zone_member_entry_entry_name(entry_list)
 
@@ -358,7 +384,12 @@ class defined_configuration(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY), ["zone"])
         self.add(pyfos_rest_util.rest_attribute(
             "zone-type", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG), ["zone"])
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_820_TO_900), ["zone"])
+        self.add(pyfos_rest_util.rest_attribute(
+            "zone-type-string", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE), ["zone"])
         self.add(pyfos_rest_util.rest_attribute(
             "member-entry", pyfos_type.type_na,
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER), ["zone"])
@@ -434,9 +465,11 @@ class effective_configuration(pyfos_rest_util.rest_object):
         +-----------------------------------+---------------------------+-----------------------------------------------------------+
         | zone-type                         | type of zone              |:func:`peek_enabled_zone_zone_type`                        |
         +-----------------------------------+---------------------------+-----------------------------------------------------------+
+        | zone-type-string                  | type of zone              |:func:`peek_enabled_zone_zone_type_string`                 |
+        +-----------------------------------+---------------------------+-----------------------------------------------------------+
         | member-entry/entry-name           | device entry list         |:func:`peek_enabled_zone_member_entry_entry_name`          |
         +-----------------------------------+---------------------------+-----------------------------------------------------------+
-        | embmer-entry/principal-entry-name | principal device entry    |:func:`peek_enabled_zone_member_entry_principal_entry_name`|
+        | member-entry/principal-entry-name | principal device entry    |:func:`peek_enabled_zone_member_entry_principal_entry_name`|
         |                                   | list                      |                                                           |
         +-----------------------------------+---------------------------+-----------------------------------------------------------+
 
@@ -568,13 +601,13 @@ class effective_configuration(pyfos_rest_util.rest_object):
 
             Reads transaction buffer size in the object.
 
-            :rtype: None or transactdion buffer size
+            :rtype: None or transaction buffer size
 
         .. method:: peek_transaction_token()
 
             Reads transaction token in the object.
 
-            :rtype: None or transactdion token
+            :rtype: None or transaction token
 
         .. method:: peek_db_chassis_wide_committed()
 
@@ -596,9 +629,15 @@ class effective_configuration(pyfos_rest_util.rest_object):
 
         .. method:: peek_enabled_zone_zone_type()
 
-            Reads zone type in the object.
+            Reads the zone type in the object.
 
             :rtype: None or zone type
+
+        .. method:: peek_enabled_zone_zone_type_string()
+
+            Reads the zone type string in the object.
+
+            :rtype: None or zone type string
 
         .. method:: peek_enabled_zone_member_entry_entry_name()
 
@@ -660,7 +699,12 @@ class effective_configuration(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_KEY), ["enabled-zone"])
         self.add(pyfos_rest_util.rest_attribute(
             "zone-type", pyfos_type.type_int,
-            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG), ["enabled-zone"])
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_820_TO_900), ["enabled-zone"])
+        self.add(pyfos_rest_util.rest_attribute(
+            "zone-type-string", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_900_and_ABOVE), ["enabled-zone"])
         self.add(pyfos_rest_util.rest_attribute(
             "member-entry", pyfos_type.type_na,
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER_NOT_CONFIG),
@@ -674,5 +718,161 @@ class effective_configuration(pyfos_rest_util.rest_object):
             [pyfos_type.type_wwn, pyfos_type.type_domain_port],
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST_NOT_CONFIG),
             ["enabled-zone", "member-entry"])
+
+        self.load(dictvalues, 1)
+
+
+class fabric_lock(pyfos_rest_util.rest_object):
+    """Class containing the zoning fabric lock attributes
+
+    class members:
+
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | Attribute name                   | Description                   |Frequently used methods                      |
+        +==================================+===============================+=============================================+
+        | lock-principal-domain-id         | the domain id that currently  |:func:`peek_lock_principal_domain_id`        |
+        |                                  | holds the zone fabric lock    |                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | lock-principal-transaction-token | the token of the open zone    |:func:`peek_lock_principal_transaction_token`|
+        |                                  | transaction on the current    |                                             |
+        |                                  | lock principal domain id      |                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | timeout                          | the current zone fabric lock  |:func:`peek_timeout`                         |
+        |                                  | timeout value of the current  |                                             |
+        |                                  | open lock principal           |                                             |
+        |                                  | transaction token             |                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | remaining-time                   | the remaining time of the open|:func:`peek_remaining_time`                  |
+        |                                  | zone transaction owned by the |                                             |
+        |                                  | lock principal domain id      |                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | client-role                      | role name of the client that  |:func:`peek_client_role`                     |
+        |                                  | owns the zone fabric lock     |                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | client-user-name                 | user name of the client that  |:func:`peek_client_user_name`                |
+        |                                  | owns the zone fabric lock     |                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | client-ip-address                | ip address of the client that |:func:`peek_client_ip_address`               |
+        |                                  | owns the zone fabric lock     |                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | client-interface                 | interface used by the client  |:func:`peek_client_interface`                |
+        |                                  | that owns the zone fabric lock|                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+        | client-application-namee         | application name used by the  |:func:`peek_client_application_name`         |
+        |                                  | client that owns the zone     |                                             |
+        |                                  | fabric lock                   |                                             |
+        +----------------------------------+-------------------------------+---------------------------------------------+
+
+    *Object methods*
+
+        .. method:: get()
+
+            Return :class:`fabric-lock` object
+            with values for all the attributes.
+            The object can be printed using :func:`pyfos_utils.response_print`
+
+            :param session: session handler returned by
+                :func:`pyfos_auth.login`
+            :rtype: dictionary of error or
+                :class:`fabric-lock` object
+
+    *Attribute methods*
+
+        .. method:: peek_lock_principal_domain_id()
+
+            Reads the lock principal domain id that currently
+            holds the zone fabric lock.
+
+            :rtype: 0 or the lock principal domain id
+
+        .. method:: peek_lock_principal_transaction_token()
+
+            Reads the token of the open zone transaction on the current
+            lock principal domain id.
+
+            :rtype: None or the lock principal transaction token
+
+        .. method:: peek_timeout()
+
+            Reads the current zone fabric lock timeout value of the
+            currently open lock principal transaction token
+
+            :rtype: None or the timeout value
+
+        .. method:: peek_remaining_time()
+
+            Reads the remaining time of the open zone transaction
+            owned by the lock principal domain id.
+
+            :rtype: None or the remaining time
+
+        .. method:: peek_client_role()
+
+            Reads the role name of the client that owns the
+            zone fabric lock.
+
+            :rtype: None or the client role
+
+        .. method:: peek_client_user_name()
+
+            Reads the user name of the client that owns the
+            zone fabric lock.
+
+            :rtype: None or the client user name
+
+        .. method:: peek_client_ip_address()
+
+            Reads the ip address of the client that owns the
+            zone fabric lock.
+
+            :rtype: None or the client ip address
+
+        .. method:: peek_client_interface()
+
+            Reads the interface used by the client that owns the
+            zone fabric lock.
+
+            :rtype: None or the client interface
+
+        .. method:: peek_client_application_name()
+
+            Reads the application name of the client that owns the
+            zone fabric lock.
+
+            :rtype: None or the client application name
+
+    """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.zone_fabric_lock,
+                         "/rest/running/brocade-zone/fabric-lock",
+                         version.VER_RANGE_900_and_ABOVE)
+        self.add(pyfos_rest_util.rest_attribute(
+            "lock-principal-domain-id", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "lock-principal-transaction-token", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "timeout", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "remaining-time", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "client-role", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "client-user-name", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "client-ip-address", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "client-interface", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "client-application-name", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
 
         self.load(dictvalues, 1)

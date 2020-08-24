@@ -40,11 +40,6 @@ This module is a stand-alone script and API that can be used to clear a Zone DB.
     Therefore, zoning_cfg_disable.py should normally be executed
     before zoning_cfg_clear.py to avoid unexpected errors.
 
-.. note::
-    Internally, the script does cfgsave after cfgclear.
-    So, zoning_cfg_disable.py should normally be executed
-    before zoning_cfg_clear.py to avoid expected errors.
-
 """
 
 import sys

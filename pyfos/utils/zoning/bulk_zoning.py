@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# Copyright © 2018 Broadcom. All Rights Reserved. The term “Broadcom” refers to
-# Broadcom Inc. and/or its subsidiaries.
+# Copyright © 2018-2019 Broadcom. All Rights Reserved. The term “Broadcom”
+# refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -158,6 +158,7 @@ def parse_zonecreate(command_line):
                     {
                         "zone-name": zonename,
                         "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                        "zone-type-string": pyfos_zone.ZONE_TYPE_STRING_PEER,
                         "member-entry":
                             {
                                 "principal-entry-name": pmembers,
@@ -369,6 +370,7 @@ def handle_zone_create(session, defined, name, members, usepeer, apply_to_fos):
                     {
                         "zone-name": name,
                         "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                        "zone-type-string": pyfos_zone.ZONE_TYPE_STRING_PEER,
                         "member-entry":
                             {
                                 "principal-entry-name": members[0:1],

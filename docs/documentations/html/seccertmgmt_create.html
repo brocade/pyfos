@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seccertmgmt_create - PyFOS util for generating certificates on a switch. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>seccertmgmt_create - PyFOS util for generating certificates on a switch. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="seccertmgmt_action - PyFOS util to modify certificates." href="seccertmgmt_action.html" />
-    <link rel="prev" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch." href="seccertmgmt_show.html" /> 
+    <link rel="prev" title="seccertmgmt_extension_show - PyFOS util to show Extension certificates." href="seccertmgmt_extension_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify certificates."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch."
+          <a href="seccertmgmt_extension_show.html" title="seccertmgmt_extension_show - PyFOS util to show Extension certificates."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -66,6 +66,7 @@ and type.</p>
 <div><div class="line-block">
 <div class="line">–certificate-entity=ENTITY-NAME    Sets the certificate entity name.</div>
 <div class="line">–certificate-type=CERT-TYPE        Sets the certificate type.</div>
+<div class="line">–keypair-tag=VALUE                 Sets the keypair-tag for Extension.</div>
 <div class="line">–key-size=VALUE                    Sets the key size.</div>
 <div class="line">–country-name=VALUE                Sets the country name.</div>
 <div class="line">–state-name=VALUE                  Sets the state name.</div>
@@ -100,11 +101,11 @@ and type.</p>
 print (ret)</p>
 </div></blockquote>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">seccertmgmt_create</span><span class="o">.</span><span class="n">create_system_security_seccertmgmt</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">seccertmgmt_create</span><span class="o">.</span><span class="n">create_system_security_seccertmgmt</span><span class="p">(</span>
   <span class="n">session</span><span class="p">,</span> <span class="s1">&#39;cert&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -117,7 +118,7 @@ print (ret)</p>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">The associated certificate entity                                 (ca-client/ca-server/cert/csr).</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">param cert_type:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">The associated certificate type                               (commoncert/https/syslog/ldap/radius).</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The associated certificate type                               (commoncert/https/syslog/ldap/radius/extension).</td>
 </tr>
 </tbody>
 </table>
@@ -161,8 +162,8 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="seccertmgmt_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_show</span></code> - PyFOS util for displaying certificates in the switch.</a></p>
+  <p class="topless"><a href="seccertmgmt_extension_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_extension_show</span></code> - PyFOS util to show Extension certificates.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="seccertmgmt_action.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">seccertmgmt_action</span></code> - PyFOS util to modify certificates.</a></p>
@@ -202,9 +203,9 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
           <a href="seccertmgmt_action.html" title="seccertmgmt_action - PyFOS util to modify certificates."
              >next</a> |</li>
         <li class="right" >
-          <a href="seccertmgmt_show.html" title="seccertmgmt_show - PyFOS util for displaying certificates in the switch."
+          <a href="seccertmgmt_extension_show.html" title="seccertmgmt_extension_show - PyFOS util to show Extension certificates."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

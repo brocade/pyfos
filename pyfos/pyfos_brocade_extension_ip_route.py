@@ -1,4 +1,8 @@
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+#!/usr/bin/env python3
+
+
+# Copyright © 2019-2020 Broadcom. All rights reserved.
+# The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,150 +15,195 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+# pyfos_brocade_extension_ip_route.py(pyGen v1.0.0)
+
+
 """
 
-:mod:`pyfos_brocade_extension_ip_route` - PyFOS module for extension \
-IP routes.
-********************************************************************************
-The :mod:`pyfos_brocade_extension_iproute` module provides REST support for
-IP route extension objects.
+:mod:`pyfos_brocade_extension_ip_route` - PyFOS module Represents static\
+ IP route on the IP interface defined on extension blade or system.
+******************************************************************************\
+*******************************************************************************
+The:mod:`pyfos_brocade_extension_ip_route` The PyFOS module support\
+ Represents static IP route on the IP interface defined on extension blade\
+ or system.
 """
+
+
+# Start module imports
 from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
+# End module imports
 
 
 class extension_ip_route(pyfos_rest_util.rest_object):
-    """Class of extension_iproute
 
-    Important Class Members:
+    """Class of extension_ip_route
 
-        +----------------+--------------+-----------------------------+
-        | Attribute Name | Description  |Frequently Used Functions    |
-        +================+==============+=============================+
-        |name            |The slot/port |:func:`peek_name`            |
-        |                |name of the   |:func:`set_name`             |
-        |                |GE_Port.      |                             |
-        +----------------+--------------+-----------------------------+
-        |ip-address      |The IPv4/IPv6 |:func:`peek_ip_address`      |
-        |                |address.      |                             |
-        +----------------+--------------+-----------------------------+
-        |dp-id           |The data-path |:func:`peek_dp_id`           |
-        |                |processor ID. |:func:`set_dp_id`            |
-        |                |              |                             |
-        +----------------+--------------+-----------------------------+
-        |ip-prefix-length|The IP prefix |:func:`peek_ip_prefix_length`|
-        |                |length.       |:func:`set_ip_prefix_length` |
-        +----------------+--------------+-----------------------------+
-        |ip-gateway      |The IP address|:func:`peek_ip_gateway`      |
-        |                |of the        |                             |
-        |                |gateway.      |                             |
-        |                |              |                             |
-        +----------------+--------------+-----------------------------+
-        |status-flags    |The IP        |:func:`peek_status_flags`    |
-        |                |interface     |                             |
-        |                |flags.        |                             |
-        +----------------+--------------+-----------------------------+
+    *Description extension_ip_route*
 
-    *Object Functions*
+        Represents static IP route on the IP interface defined on extension
+        blade or system.
 
-        .. function:: get()
+    Important class members of extension_ip_route:
 
-            Fills the object with values for all the attributes. Once filled,
-            the object can be printed using :func:`pyfos_utils.response_print`.
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | Attribute Name           | Description                     |  Frequently Used Methods                        |
+        +==========================+=================================+=================================================+
+        | dp-id                    | Extension Data Path Processor   | :func:`peek_dp_id`                              |
+        |                          | ID associated with the IP       | :func:`set_dp_id`                               |
+        |                          | Route. Based on platform        |                                                 |
+        |                          | either it will have a single    |                                                 |
+        |                          | DP or dual DP. In case of       |                                                 |
+        |                          | single DP only DP0 is           |                                                 |
+        |                          | supported, and in case of       |                                                 |
+        |                          | dual DP both DP0 and DP1 are    |                                                 |
+        |                          | supported. 0 : DP0 1 : DP1      |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | ip-prefix-length         | The prefix length operator      | :func:`peek_ip_prefix_length`                   |
+        |                          | for the destination IP          | :func:`set_ip_prefix_length`                    |
+        |                          | address. Once set, prefix       |                                                 |
+        |                          | length can not be changed.      |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | name                     | The name of the interface.      | :func:`peek_name`                               |
+        |                          |                                 | :func:`set_name`                                |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | ip-address               | Specifies the destination       | :func:`peek_ip_address`                         |
+        |                          | IPv4/IPv6 address.              | :func:`set_ip_address`                          |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | ip-gateway               | Specifies the IP address of     | :func:`peek_ip_gateway`                         |
+        |                          | an IP router that can route     | :func:`set_ip_gateway`                          |
+        |                          | packets to the destination IP   |                                                 |
+        |                          | address. The gateway address    |                                                 |
+        |                          | must be on the same IP subnet   |                                                 |
+        |                          | as one of the port IP           |                                                 |
+        |                          | addresses. This operand is      |                                                 |
+        |                          | optional with IPv6 addresses.   |                                                 |
+        |                          | Once set, IP gateway can not    |                                                 |
+        |                          | changed.                        |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | status-flags             | Iproute Flags:  U = Usable G    | :func:`peek_status_flags`                       |
+        |                          | = Gateway H = Host C =          |                                                 |
+        |                          | Created (Interface) S =         |                                                 |
+        |                          | Static L = LinkLayer            |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
 
-            :param session: The session handler returned
-             by :func:`pyfos_auth.login`.
-            :rtype: A dictionary of errors or a success response.
+    *Object functions for extension_ip_route*
 
-    *Attribute Functions*
+    .. function:: get()
 
-        .. function:: peek_name()
+        Get the instances of class "extension_ip_route from switch. The object
+         can be printed using :func:`pyfos_utils.response_print`.
 
-            Reads the name from the object.
+        :param session: The session handler returned by
+         :func:`pyfos_auth.login`.
 
-            :rtype: None on error and a value on success.
+        :rtype: A dictionary of errors or a success response.
 
-        .. function:: peek_ip_address()
 
-            Reads the IP address from the object.
-
-            :rtype: None on error and a value on success.
+    *Class functions for extension_ip_route*
 
         .. function:: peek_dp_id()
 
-            Reads the data-path processor ID from the object.
+            Reads the value assigned to dp-id in the object.
 
             :rtype: None on error and a value on success.
+
+
+        .. function:: set_dp_id(value)
+
+            Set the value of dp-id in the object.
+
+            :rtype: A dictionary of error or a success response and a value
+             with "dp-id" as the key
+
 
         .. function:: peek_ip_prefix_length()
 
-            Reads the IP prefix length from an object.
+            Reads the value assigned to ip-prefix-length in the object.
 
             :rtype: None on error and a value on success.
+
+
+        .. function:: set_ip_prefix_length(value)
+
+            Set the value of ip-prefix-length in the object.
+
+            :rtype: A dictionary of error or a success response and a value
+             with "ip-prefix-length" as the key
+
+
+        .. function:: peek_name()
+
+            Reads the value assigned to name in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: set_name(value)
+
+            Set the value of name in the object.
+
+            :rtype: A dictionary of error or a success response and a value
+             with "name" as the key
+
+
+        .. function:: peek_ip_address()
+
+            Reads the value assigned to ip-address in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: set_ip_address(value)
+
+            Set the value of ip-address in the object.
+
+            :rtype: A dictionary of error or a success response and a value
+             with "ip-address" as the key
+
 
         .. function:: peek_ip_gateway()
 
-            Reads the IP gateway from an object.
+            Reads the value assigned to ip-gateway in the object.
 
             :rtype: None on error and a value on success.
+
+
+        .. function:: set_ip_gateway(value)
+
+            Set the value of ip-gateway in the object.
+
+            :rtype: A dictionary of error or a success response and a value
+             with "ip-gateway" as the key
+
 
         .. function:: peek_status_flags()
 
-            Reads the IP interface flags from an object.
+            Reads the value assigned to status-flags in the object.
 
             :rtype: None on error and a value on success.
 
-        .. function:: set_name(name)
 
-            Sets the name in the object.
+    """
 
-            :rtype: A dictionary of error or a success response
-             and a value with the name as the key.
+    def __init__(self, dictvalues=None):
 
-        .. function:: set_ip_address(ip_address)
+        clsuri = "/rest" + "/running" + "/brocade-extension-ip-route" +\
+                 "/extension-ip-route"
+        clstype = pyfos_rest_util.rest_obj_type.iproute
+        super().__init__(clstype, clsuri)
 
-            Sets the IP address in the object.
-
-            :rtype: A dictionary of error or a success response
-             and a value with "ip-address" as the key.
-
-        .. function:: set_dp_id(dpid)
-
-            Sets the data-path processor ID in the object.
-
-            :rtype: A dictionary of error or a success response and
-             a value with the DP ID as the key.
-
-        .. function:: set_ip_prefix_length(prefixlength)
-
-            Sets the IP prefix length in the object.
-
-            :rtype: A dictionary of error or a success response and a value
-             with "ip-prefix-length" as the key.
-
-        .. function:: set_ip_gateway(gateway)
-
-            Sets the IP address of the gateway in the object.
-
-            :rtype: A dictionary of error or a success response and a value
-             with the IP address of the gateway as the key.
-
-        """
-    def __init__(self, dictvalues={}):
-        super().__init__(pyfos_rest_util.rest_obj_type.iproute,
-                         "/rest/running/brocade-extension-ip-route"
-                         "/extension-ip-route")
-        self.add(pyfos_rest_util.rest_attribute("name",
-                 pyfos_type.type_str, None,
-                 pyfos_rest_util.REST_ATTRIBUTE_KEY))
-        self.add(pyfos_rest_util.rest_attribute("ip-address",
-                 pyfos_type.type_ip_addr, None,
-                 pyfos_rest_util.REST_ATTRIBUTE_KEY))
-        self.add(pyfos_rest_util.rest_attribute("dp-id",
-                 pyfos_type.type_int, None,
-                 pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute("dp-id", pyfos_type.type_int,
+                 None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
         self.add(pyfos_rest_util.rest_attribute("ip-prefix-length",
                  pyfos_type.type_int, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute("name", pyfos_type.type_str,
+                 None, pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute("ip-address",
+                 pyfos_type.type_ip_addr, None,
                  pyfos_rest_util.REST_ATTRIBUTE_KEY))
         self.add(pyfos_rest_util.rest_attribute("ip-gateway",
                  pyfos_type.type_ip_addr, None,

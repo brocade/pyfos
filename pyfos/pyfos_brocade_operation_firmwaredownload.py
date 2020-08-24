@@ -54,6 +54,9 @@ class firmwaredownload(pyfos_rest_util.rest_object):
         +---------------------------+-------------------------------+---------------------------------------+
         | activate                  | active firmware.              |:func:`set_activate`                   |
         +---------------------------+-------------------------------+---------------------------------------+
+        | eula-action               | BSN EULA action.              |:func:`set_eula_action`                |
+        +---------------------------+-------------------------------+---------------------------------------+
+
 
     *Object Methods*
 
@@ -77,6 +80,7 @@ class firmwaredownload(pyfos_rest_util.rest_object):
                 ss_obj.set_protcolo("scp")
                 ss_obj.set_stage(False)
                 ss_obj.set_activate(True)
+                ss_obj.set_eula_action("accept_eula")
                 ss_obj.post(session)
 
             The above example triggers the firmwerdownload operation.
@@ -145,7 +149,15 @@ class firmwaredownload(pyfos_rest_util.rest_object):
             :param stage: boolean.
             :rtype: A dictionary of errors or a success response.
 
+        .. method:: set_eula_action()
+
+            Indicates action for BSN EULA
+
+            :param choice: accept-eula, decline-eula or display-eula.
+            :rtype: A dictionary of errors or a success response.
+
         """
+
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.rpc_firmwaredownload,
                          "/rest/operations/firmwaredownload",
@@ -173,5 +185,8 @@ class firmwaredownload(pyfos_rest_util.rest_object):
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute("activate",
                  pyfos_type.type_bool, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("eula-action",
+                 pyfos_type.type_str, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.load(dictvalues, 1)

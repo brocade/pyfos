@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>snmp_v1_trap_modify - PyFOS util for updating snmp v1 trap entries &#8212; PyFOS 1.2.1 documentation</title>
+    <title>snmp_v1_trap_modify - PyFOS util for updating snmp v1 trap entries &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="snmp_v1_trap_show.html" title="snmp_v1_trap_show - PyFOS util to show the snmp v1 trap configuration."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -91,19 +91,19 @@ ipaddress, port number and severity level.</p>
 <li><p class="first">Configures host ip address</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span>  <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_host</span><span class="p">(</span><span class="n">host_ip</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span>  <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_host</span><span class="p">(</span><span class="n">host_ip</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">v1_trap_obj</span> <span class="o">=</span> <span class="n">v1_trap</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v1_trap_obj</span> <span class="o">=</span> <span class="n">v1_trap</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">host_ip</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
    <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_host</span><span class="p">(</span><span class="n">host_ip</span><span class="p">)</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_v1_trap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">v1_trap_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -145,19 +145,19 @@ ipaddress, port number and severity level.</p>
 <li><p class="first">Configures trap severity level</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span>  <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_trap_severity_level</span><span class="p">(</span><span class="n">sev_level</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span>  <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_trap_severity_level</span><span class="p">(</span><span class="n">sev_level</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">v1_trap_obj</span> <span class="o">=</span> <span class="n">v1_trap</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v1_trap_obj</span> <span class="o">=</span> <span class="n">v1_trap</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">sev_level</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
    <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_trap_severity_level</span><span class="p">(</span><span class="n">sev_level</span><span class="p">)</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_v1_trap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">v1_trap_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -200,19 +200,19 @@ ipaddress, port number and severity level.</p>
 <li><p class="first">Configures port number of the host</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span>  <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_port_number</span><span class="p">(</span><span class="n">port_number</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span>  <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_port_number</span><span class="p">(</span><span class="n">port_number</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">v1_trap_obj</span> <span class="o">=</span> <span class="n">v1_trap</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v1_trap_obj</span> <span class="o">=</span> <span class="n">v1_trap</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">port_number</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
    <span class="n">v1_trap_obj</span><span class="o">.</span><span class="n">set_port_number</span><span class="p">(</span><span class="n">port_number</span><span class="p">)</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_v1_trap</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">v1_trap_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -304,7 +304,7 @@ Module <a class="reference internal" href="pyfos_brocade_snmp.html#module-pyfos_
         <li class="right" >
           <a href="snmp_v1_trap_show.html" title="snmp_v1_trap_show - PyFOS util to show the snmp v1 trap configuration."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

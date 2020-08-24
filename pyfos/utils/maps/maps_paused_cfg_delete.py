@@ -36,9 +36,13 @@ Supported members are ports, SFPs, and circuits.
     * -v,--verbose           Verbose mode [OPTIONAL].
 
 * Util Script Options:
-    --group-type            Specifies the MAPS policy.
-    --members-member        Sets the members (separated by ";") on which to \
-                             pause or continue MAPS monitoring.
+    --group-type          Specifies the group. \
+                             'all' indicates complete supported groups \
+                             to be paused or restarted.
+    --members-member      Sets the members (separated by ";") on which to \
+                             pause or continue MAPS monitoring. \
+                             'all' indicates complete group specified \
+                             to be puased or restarted.
 
 * Output:
     * A success response or a dictionary in case of error.

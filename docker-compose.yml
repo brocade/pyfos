@@ -1,0 +1,18 @@
+version: "3"
+services:
+    pyfos:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: "${IMAGE}:${VERSION}"
+        tty: true
+        container_name: ${IMAGE}
+        labels:
+            com.broadcom.description: "PyFOS as a container"
+            com.broadcom.department: "Brocade"
+            com.broadcom.project: ${IMAGE}
+            com.broadcom.service: ${IMAGE}
+            com.broadcom.version: ${VERSION}
+        network_mode: host
+        volumes:
+            - .:${REPO_MOUNT}

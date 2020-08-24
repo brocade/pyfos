@@ -18,7 +18,8 @@
 
 :mod:`license_install` - PyFOS util to trigger the license_install operation.
 *******************************************************************************
-The :mod:`license_install` util is used to execute the license_install operation.
+The :mod:`license_install` util is used to execute the license_install \
+operation.
 
 This module is a stand-alone script and API that can be used to execute the \
 license_install operation.
@@ -45,12 +46,11 @@ license_install operation.
 """
 
 import sys
-from time import sleep
 from pyfos import pyfos_auth
-from pyfos.pyfos_brocade_operation_show_status import show_status
-from pyfos.pyfos_brocade_operation_license import license
+from pyfos.pyfos_brocade_operation_license import license_parameters
 from pyfos import pyfos_util
 from pyfos.utils import brcd_util
+
 
 def usage():
     print("  Util Script Options:")
@@ -67,8 +67,8 @@ def main(argv):
                                inputs["ipaddr"], inputs["secured"],
                                verbose=inputs["verbose"])
     if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)[pyfos_auth.LOGIN_ERROR_KEY])
+        print("login failed because", session.get(
+              pyfos_auth.CREDENTIAL_KEY)[pyfos_auth.LOGIN_ERROR_KEY])
         brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
@@ -79,7 +79,7 @@ def main(argv):
         brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
-    l_obj = license()
+    l_obj = license_parameters()
     l_obj.set_action("install")
     l_obj.set_name(inputs["name"])
     l_rsp_obj = l_obj.post(session)

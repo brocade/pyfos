@@ -1,0 +1,192 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>global_lan_statistics_show - PyFOS util to show for global_lan_statistics &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="lan_flow_statistics_show - PyFOS util to show for lan_flow_statistics" href="lan_flow_statistics_show.html" />
+    <link rel="prev" title="gigabitethernet_statistics_show - PyFOS util to show for gigabitethernet_statistics" href="gigabitethernet_statistics_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="lan_flow_statistics_show.html" title="lan_flow_statistics_show - PyFOS util to show for lan_flow_statistics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gigabitethernet_statistics_show.html" title="gigabitethernet_statistics_show - PyFOS util to show for gigabitethernet_statistics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-global_lan_statistics_show"></span><div class="section" id="global-lan-statistics-show-pyfos-util-to-show-for-global-lan-statistics">
+<h1><a class="reference internal" href="#module-global_lan_statistics_show" title="global_lan_statistics_show: PyFOS module to display extension global LAN statistics. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">global_lan_statistics_show</span></code></a> - PyFOS util to show for global_lan_statistics<a class="headerlink" href="#global-lan-statistics-show-pyfos-util-to-show-for-global-lan-statistics" title="Permalink to this headline">¶</a></h1>
+<p>The:mod:<cite>global_lan_statistics_show</cite> PyFOS util to show for global_lan_statistics</p>
+<p>Represents global LAN DP statistics for extension blade or system.</p>
+<p>global_lan_statistics_show: usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config    file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–dp-id=DP-ID: Extension Data Path Processor ID. Based on platform      either it will have a single DP or dual DP. In case of single DP only      DP0 is supported, and in case of dual DP both DP0 and DP1 are      supported  0 : DP0 1 : DP1.</li>
+<li>–slot=SLOT: In case of non-chassis system, the slot number is always 0.      In case of chassis system, it is the slot number of chassis in which      the extension blade is inserted in. In case of chassis, slot number is      non-zero value.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="global_lan_statistics_show.global_lan_statistics_show.show_global_lan_statistics">
+<code class="descclassname">global_lan_statistics_show.</code><code class="descname">show_global_lan_statistics</code><span class="sig-paren">(</span><em>session</em>, <em>dp_id</em>, <em>slot</em><span class="sig-paren">)</span><a class="headerlink" href="#global_lan_statistics_show.global_lan_statistics_show.show_global_lan_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Show global_lan_statistics</em></p>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">global_lan_statistics_show</span><span class="o">.</span><span class="n">show_global_lan_statistics</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">dp_id</span><span class="p">,</span> <span class="n">slot</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">global_lan_statisticsObj</span> <span class="o">=</span> <span class="n">global_lan_statistics</span><span class="p">()</span>
+<span class="n">global_lan_statisticsObj</span><span class="o">.</span><span class="n">set_dp_id</span><span class="p">(</span><span class="n">dp_id</span><span class="p">)</span>
+<span class="n">global_lan_statisticsObj</span><span class="o">.</span><span class="n">set_slot</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">_show_global_lan_statistics</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">global_lan_statisticsObj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Inputs</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> – The session returned by the login.</li>
+<li><strong>dp_id</strong> – Extension Data Path Processor ID. Based on platform either      it will have a single DP or dual DP. In case of single DP only DP0 is      supported, and in case of dual DP both DP0 and DP1 are supported  0 :      DP0 1 : DP1.</li>
+<li><strong>slot</strong> – In case of non-chassis system, the slot number is always 0.      In case of chassis system, it is the slot number of chassis in which      the extension blade is inserted in. In case of chassis, slot number is      non-zero value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or one/more instance of class global_lan_statistics on    Success  or a dictionary with error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_extension.html#module-pyfos_brocade_extension" title="pyfos_brocade_extension: PyFOS module to support Extension LAN/HCL objects for REST. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_extension</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gigabitethernet_statistics_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">gigabitethernet_statistics_show</span></code> - PyFOS util to show for gigabitethernet_statistics</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lan_flow_statistics_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">lan_flow_statistics_show</span></code> - PyFOS util to show for lan_flow_statistics</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/global_lan_statistics_show.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="lan_flow_statistics_show.html" title="lan_flow_statistics_show - PyFOS util to show for lan_flow_statistics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gigabitethernet_statistics_show.html" title="gigabitethernet_statistics_show - PyFOS util to show for gigabitethernet_statistics"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

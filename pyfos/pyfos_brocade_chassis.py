@@ -66,6 +66,11 @@ class chassis(pyfos_rest_util.rest_object):
         +-----------------------------+-------------------------------+----------------------------------------+
         | vf-supported                | VF supported or not           |:meth:`peek_vf_supported`               |
         +-----------------------------+-------------------------------+----------------------------------------+
+        | fcr-enabled                 | FCR enabled or disabled state |:meth:`set_fcr_enabled`                 |
+        |                             |                               |:meth:`peek_fcr_enabled`                |
+        +-----------------------------+-------------------------------+----------------------------------------+
+        | fcr-supported               | FCR supported or not          |:meth:`peek_fcr_supported`              |
+        +-----------------------------+-------------------------------+----------------------------------------+
 
 
     *Object methods*
@@ -196,6 +201,25 @@ class chassis(pyfos_rest_util.rest_object):
 
         :rtype: None or VF supported state of the chassis
 
+    .. method:: set_fcr_enabled(value)
+
+        Sets the value of fcr-enabled in the object.
+
+        :rtype: A dictionary of error or a success response and
+         a value with "fcr-enabled" as the key
+
+    .. method:: peek_fcr_enabled()
+
+        Reads the value assigned to fcr-enabled in the object.
+
+        :rtype: None on error and a value on success.
+
+    .. method:: peek_fcr_supported()
+
+        Reads the value assigned to fcr-supported in the object.
+
+        :rtype: None on error and a value on success.
+
     """
 
     def __init__(self, dictvalues={}):
@@ -241,6 +265,12 @@ class chassis(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "vf-supported", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "fcr-enabled", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "fcr-supported", pyfos_type.type_bool,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
 
         self.load(dictvalues, 1)

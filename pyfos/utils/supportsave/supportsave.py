@@ -45,6 +45,12 @@ and copies them to the remote server.
                      supportsave files.
   |    --protocol=PROTOCOL: Sets the protocol (ftp|scp|sftp) used for the \
                             remote server connection.
+  |    --port=PORT: User defined port number can be configured for scp/sftp\
+                   protocol
+  |    --serial-mode=SERIAL-MODE: Legacy serial-mode module supportsave\
+      collection. true  : Supportsave process will be done serialize module\
+      by module. false : Supportsave process will be done in parallel for\
+      multiple modules.
 
 * Output:
 
@@ -78,6 +84,12 @@ and copies them to the remote server.
             :param user: The remote server user.
             :param password: The remote server password.
             :param protocol: The remote server connection.
+            :param port: User defined port number can be configured only for\
+              scp/sftp protocol
+            :param serial_mode: Legacy serial-mode module supportsave\
+              collection. true  : Supportsave process will be done serialize\
+              module by module. false : Supportsave process will be done in\
+              parallel for multiple modules.
 
         * Output:
             :rtype: A dictionary of return status matching the REST response.
@@ -155,7 +167,7 @@ def ss_validate(ss_obj):
 
 def main(argv):
     filters = ['host', 'user_name',
-               'password', 'remote_directory',
+               'password', 'remote_directory', 'port', 'serial_mode',
                'protocol']
     inputs = brcd_util.parse(argv, supportsave, filters, ss_validate)
     ss_obj = inputs['utilobject']

@@ -1,0 +1,175 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pod_license_show - PyFOS util to show forports_on_demand_license_info &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="license_install - PyFOS util to trigger the license_install operation." href="license_install.html" />
+    <link rel="prev" title="license_show - PyFOS util to show for license" href="license_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="license_install.html" title="license_install - PyFOS util to trigger the license_install operation."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="license_show.html" title="license_show - PyFOS util to show for license"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pod_license_show"></span><div class="section" id="pod-license-show-pyfos-util-to-show-forports-on-demand-license-info">
+<h1><a class="reference internal" href="#module-pod_license_show" title="pod_license_show: PyFOS module to trigger pod licen get operation (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pod_license_show</span></code></a> - PyFOS util to show forports_on_demand_license_info<a class="headerlink" href="#pod-license-show-pyfos-util-to-show-forports-on-demand-license-info" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pod_license_show" title="pod_license_show: PyFOS module to trigger pod licen get operation (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pod_license_show</span></code></a> PyFOS util to show forports_on_demand_license_info</p>
+<p>Contains information related to ports-on-demand license reservations.</p>
+<p>pod_license_show : usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Util Script Options:</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="pod_license_show.pod_license_show.show_ports_on_demand_license_info">
+<code class="descclassname">pod_license_show.</code><code class="descname">show_ports_on_demand_license_info</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pod_license_show.pod_license_show.show_ports_on_demand_license_info" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Show ports_on_demand_license_info</em></p>
+<blockquote>
+<div><p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">pod_license_show</span><span class="o">.</span><span class="n">show_ports_on_demand_license_info</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ports_on_demand_license_infoObj</span> <span class="o">=</span> <span class="n">ports_on_demand_license_info</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">Input:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">param</span> <span class="n">session</span><span class="p">:</span> <span class="n">The</span> <span class="n">session</span> <span class="n">returned</span> <span class="n">by</span> <span class="n">the</span> <span class="n">login</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Output:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">None or more instance of class            ports_on_demand_license_info on Success  or a dictionary with            error.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="license_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">license_show</span></code> - PyFOS util to show for license</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license_install.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">license_install</span></code> - PyFOS util to trigger the license_install operation.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pod_license_show.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="license_install.html" title="license_install - PyFOS util to trigger the license_install operation."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="license_show.html" title="license_show - PyFOS util to show for license"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

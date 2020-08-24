@@ -1,4 +1,4 @@
-# Copyright 2019 Brocade Communications Systems LLC.  All rights reserved.
+# Copyright 2020 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__copyright__ = 'Copyright 2019 Brocade Communications Systems LLC.  All rights reserved.'
+__copyright__ = 'Copyright 2020 Brocade Communications Systems LLC.  All rights reserved.'
 __license__ = 'the Apache License, Version 2.0'
-__version_major_minor__ = '1.2'
-__version__ = '1.2.1'
+__version_major_minor__ = '2.0'
+__version__ = '2.0.0'

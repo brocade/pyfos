@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>passwd_modify - PyFOS util to change a password. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>passwd_modify - PyFOS util to change a password. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="seccertmgmt_delete.html" title="seccertmgmt_delete - PyFOS util for deleting certificates on a switch."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -44,7 +44,7 @@
             
   <span class="target" id="module-passwd_modify"></span><div class="section" id="passwd-modify-pyfos-util-to-change-a-password">
 <h1><a class="reference internal" href="#module-passwd_modify" title="passwd_modify: PyFOS module provides option to change passord for a specified user. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">passwd_modify</span></code></a> - PyFOS util to change a password.<a class="headerlink" href="#passwd-modify-pyfos-util-to-change-a-password" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-passwd_modify" title="passwd_modify: PyFOS module provides option to change passord for a specified user. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">passwd_modify</span></code></a> util provides options to change a passord for a specified user.</p>
+<p>The <a class="reference internal" href="#module-passwd_modify" title="passwd_modify: PyFOS module provides option to change passord for a specified user. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">passwd_modify</span></code></a> util provides options to change a password for a specified user.</p>
 <p>This module is a stand-alone script that can be used to change a password.</p>
 <ul class="simple">
 <li>Input:</li>
@@ -54,8 +54,8 @@
 </div>
 <div class="line-block">
 <div class="line">-i,–ipaddr=IPADDR     The IP address of the FOS switch.</div>
-<div class="line">-L,–login=LOGIN       The login name.</div>
-<div class="line">-P,–password=PASSWORD The password.</div>
+<div class="line">-L,–login=LOGIN       login name.</div>
+<div class="line">-P,–password=PASSWORD password.</div>
 <div class="line">-f,–vfid=VFID         The VFID to which the request                             is directed [OPTIONAL].</div>
 <div class="line">-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</div>
 <div class="line">-v,–verbose           Verbose mode [OPTIONAL].</div>
@@ -64,8 +64,8 @@
 <li><p class="first">Util Script Options:</p>
 <div class="line-block">
 <div class="line">–user-name=USERNAME             Specifies the user name.</div>
-<div class="line">–old-password=PASSWD            Enters the current password.</div>
-<div class="line">–new-password=PASSWD            Sets the new password.</div>
+<div class="line">–old-password=PASSWD            Enters the current password in base64.</div>
+<div class="line">–new-password=PASSWD            Sets the new password in base64.</div>
 </div>
 </li>
 <li><p class="first">Output:</p>
@@ -85,12 +85,12 @@
 <li><p class="first">Changes the password for a specified user.</p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">passwd_modify</span><span class="o">.</span><span class="n">change_password</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">USERNAME</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">passwd_modify</span><span class="o">.</span><span class="n">change_password</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">USERNAME</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PASSWD</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PASSWD</span><span class="p">:</span>
     <span class="n">USERNAME</span> <span class="o">=</span> <span class="n">root</span>
     <span class="n">PASSWORD</span> <span class="o">=</span> <span class="n">pray4green</span>
     <span class="n">PASSWORD</span> <span class="o">=</span> <span class="n">go4green</span>
@@ -100,7 +100,7 @@
 <span class="n">result</span> <span class="o">=</span> <span class="n">sshutil_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -201,7 +201,7 @@ Module <a class="reference internal" href="pyfos_brocade_security.html#module-py
         <li class="right" >
           <a href="seccertmgmt_delete.html" title="seccertmgmt_delete - PyFOS util for deleting certificates on a switch."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

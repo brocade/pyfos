@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>raslog_show - PyFOS util for retrieving the RASLog message. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>raslog_show - PyFOS util for retrieving the RASLog message. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="log_setting_keep_alive_period_set.html" title="log_setting_keep_alive_period_set - PyFOS util for setting the keepalive period."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -47,28 +47,24 @@
 <p>The <a class="reference internal" href="#module-raslog_show" title="raslog_show: PyFOS util for configuring raslog op use case. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">raslog_show</span></code></a> util provides for retrieving the RASLog message.</p>
 <p>This module is a stand-alone script that can be used to display RASLog message
 attributes.</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>-L=&lt;login&gt;: The login ID. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>-P=&lt;password&gt;: The password. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: The IP address.</p>
-</li>
+<li>-i=&lt;IP address&gt;: The IP address.</li>
 <li><dl class="first docutils">
 <dt>-f=&lt;VFID&gt;: The VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd><p class="first last">a VFID of 128 is assumed.</p>
-</dd>
+<dd>a VFID of 128 is assumed.</dd>
 </dl>
 </li>
 </ul>
@@ -77,7 +73,7 @@ attributes.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Util Script Options:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>–message-id &lt;message_id&gt;: Sets the message ID for the RASLog                                  to retrieve.</li>
 </ul>
 </dd>
@@ -85,7 +81,7 @@ attributes.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>RASLog attributes in JSON format.</li>
 </ul>
 </dd>
@@ -96,16 +92,16 @@ attributes.</p>
 <dt id="raslog_show.show_raslog">
 <code class="descclassname">raslog_show.</code><code class="descname">show_raslog</code><span class="sig-paren">(</span><em>session</em>, <em>msg_id</em><span class="sig-paren">)</span><a class="headerlink" href="#raslog_show.show_raslog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">raslog_show</span><span class="o">.</span><span class="n">show_raslog</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">msg_id</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">raslog_show</span><span class="o">.</span><span class="n">show_raslog</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">msg_id</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">raslog_show</span><span class="o">.</span><span class="n">show_raslog</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">raslog_show</span><span class="o">.</span><span class="n">show_raslog</span><span class="p">(</span>
   <span class="n">session</span><span class="p">,</span> <span class="s1">&#39;AUTH-1001&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -197,7 +193,7 @@ attributes.</p>
         <li class="right" >
           <a href="log_setting_keep_alive_period_set.html" title="log_setting_keep_alive_period_set - PyFOS util for setting the keepalive period."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

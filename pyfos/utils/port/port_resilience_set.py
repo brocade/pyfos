@@ -30,8 +30,10 @@ resilience state of a port.
     * -i=<IP address>: IP address
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
         VFID of 128 is assumed.
-    * -n=port name
     * --enable/--disable
+
+* Util scripts options:
+    --name=NAME                               Port in slot/port.
 
 * outputs:
     * Enables the Credit Recovery and Forward Error Correction features on the

@@ -40,10 +40,13 @@ firmwarecleaninstall operation.
   |    --hostname=REMOTE-SERVER: Sets the remote server IP address or \
                              domain-name.
   |    --username=USER-NAME: Sets the user name of the remote server.
-  |    --userpassword=PASSWORD: Sets the remote user password in base64 format.
+  |    --userpassword=PASSWORD: Sets the remote user password in base64 \
+                                format. Use "" for empty password for \
+                                anonymous ftp.
   |    --filename=PATH: Sets the remote directory path to firmware location.
   |    --protocol=PROTOCOL: Sets the protocol (ftp|scp|sftp) used for the \
-                            remote server connection.
+  |    --acceptEULA: Indicates acceptance of BSN EULA.
+  |    --displayEULA: Display BSN EULA.
 
 * Output:
 
@@ -53,7 +56,6 @@ firmwarecleaninstall operation.
 
 import sys
 import getpass
-from time import sleep
 from pyfos import pyfos_auth
 from pyfos.pyfos_brocade_operation_show_status import show_status
 from pyfos.pyfos_brocade_operation_firmwarecleaninstall import firmwarecleaninstall
@@ -67,15 +69,18 @@ def usage():
     print("                                 domain-name.")
     print("    --username=USER-NAME         Sets the user name of the remote server.")
     print("    --userpassword=PASSWORD      Sets the remote user password in base64 format.")
+    print("                                 Use \"\" for empty password for anonymous ftp.")
     print("    --filename=PATH              Sets the remote directory path to firmware")
     print("                                 location.")
     print("    --protocol=PROTOCOL          Sets the protocol (ftp|scp|sftp) used for the")
     print("                                 remote server connection.")
+    print("    --acceptEULA                 Indicates acceptance of BSN EULA")
+    print("    --displayEULA                Display BSN EULA")
     print()
 
 
 def main(argv):
-    valid_options = ["hostname", "username", "userpassword", "filename", "protocol"]
+    valid_options = ["hostname", "username", "userpassword", "filename", "protocol", "acceptEULA", "displayEULA"]
     inputs = brcd_util.generic_input(argv, usage, valid_options)
 
     session = pyfos_auth.login(inputs["login"], inputs["password"],
@@ -128,6 +133,14 @@ def main(argv):
         sys.exit()
     else:
         fci.set_remote_directory(inputs["filename"])
+
+    if "acceptEULA" in inputs or "displayEULA" in inputs:
+        if "acceptEULA" in inputs:
+            fci.set_eula_action("accept-eula")
+        else:
+            fci.set_eula_action("display-eula")
+    else:
+        fci.set_eula_action("decline_eula")
 
     fci_rsp_obj = fci.post(session)
     if ("info-message" in fci_rsp_obj and

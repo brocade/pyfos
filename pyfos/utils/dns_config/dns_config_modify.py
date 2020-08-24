@@ -90,7 +90,10 @@ import pyfos.pyfos_version as version
 def _modify_dns_config_params(session, swobject):
     if swobject.peek_name() is None:
         current_swobj = fibrechannel_switch.get(session)
-        swobject.set_name(current_swobj.peek_name())
+        if isinstance(current_swobj, fibrechannel_switch):
+            swobject.set_name(current_swobj.peek_name())
+        else:
+            return current_swobj
     result = swobject.patch(session)
     return result
 

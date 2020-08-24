@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>chassis_vf_enabled_set - PyFOS util to set the VF-enabled state on a chassis. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>chassis_vf_enabled_set - PyFOS util to set the VF-enabled state on a chassis. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="media_show - PyFOS util to display port media information." href="media_rdp_show.html" />
+    <link rel="next" title="chassis_fcr_enabled_set - PyFOS util to modify FCR state for chassis" href="chassis_fcr_enabled_set.html" />
     <link rel="prev" title="chassis_name_set - PyFOS util to set user friendly name to chassis." href="chassis_name_set.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="media_rdp_show.html" title="media_show - PyFOS util to display port media information."
+          <a href="chassis_fcr_enabled_set.html" title="chassis_fcr_enabled_set - PyFOS util to modify FCR state for chassis"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="chassis_name_set.html" title="chassis_name_set - PyFOS util to set user friendly name to chassis."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -69,10 +69,10 @@
 <div class="line-block">
 <div class="line">–vf-enabled=VALUE     Sets the VF-enabled state (enable=true,                             disable=false).</div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
@@ -86,20 +86,20 @@
 <li><p class="first">Sets the VF-enabled state on a chassis.</p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">chassis_vf_enabled_set</span><span class="o">.</span><span class="n">set_vf_enabled</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">chassis_vf_enabled_set</span><span class="o">.</span><span class="n">set_vf_enabled</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
           <span class="n">enabled</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">vfstate</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vfstate</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;vf-enabled&quot;</span><span class="p">:</span> <span class="n">enabled</span><span class="p">,</span>
           <span class="p">}</span>
 <span class="n">chassis_obj</span> <span class="o">=</span> <span class="n">chassis</span><span class="p">(</span><span class="n">vfstate</span><span class="p">)</span>
 <span class="k">return</span> <span class="n">chassis_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -155,8 +155,8 @@ Module <a class="reference internal" href="pyfos_brocade_chassis.html#module-pyf
   <p class="topless"><a href="chassis_name_set.html"
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">chassis_name_set</span></code> - PyFOS util to set user friendly name to chassis.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="media_rdp_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">media_show</span></code> - PyFOS util to display port media information.</a></p>
+  <p class="topless"><a href="chassis_fcr_enabled_set.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">chassis_fcr_enabled_set</span></code> - PyFOS util to modify FCR state for chassis</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -190,12 +190,12 @@ Module <a class="reference internal" href="pyfos_brocade_chassis.html#module-pyf
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="media_rdp_show.html" title="media_show - PyFOS util to display port media information."
+          <a href="chassis_fcr_enabled_set.html" title="chassis_fcr_enabled_set - PyFOS util to modify FCR state for chassis"
              >next</a> |</li>
         <li class="right" >
           <a href="chassis_name_set.html" title="chassis_name_set - PyFOS util to set user friendly name to chassis."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

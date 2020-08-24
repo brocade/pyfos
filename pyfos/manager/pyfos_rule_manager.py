@@ -876,13 +876,13 @@ class rmclass(rmelem):
                 self.codeme = code(tabs, obj + " = " + self.obj)
                 self.codeme += code(tabs, "if not isinstance(" + obj +
                                     " , list):")
-                self.codeme += code(tabs+1, obj + " = [ " + obj + " ]")
+                self.codeme += code(tabs + 1, obj + " = [ " + obj + " ]")
             elif self.flags == rmclass.diff:
                 self.codeme += code(tabs, "self.cfgmgr = args[\"tgtcfgmgr\"]")
                 self.codeme += code(tabs, obj + " =  self.cfgmgr.get(" +
-                                    session['vfid']+"," + self.cls.__name__ +
+                                    session['vfid'] + "," + self.cls.__name__ +
                                     "," + args["tgtslot"] +
-                                    "," + self.request+", session)")
+                                    "," + self.request + ", session)")
             # print (self.codeme)
         else:
             insobj = inskey(self.key)
@@ -1047,8 +1047,8 @@ class rmcond(rmelem):
             else:
                 ret = self.ret
         else:
-            if self.lhs is None or (self.rhs is None
-               and self.op not in ("not any", "any")):
+            if self.lhs is None or (self.rhs is None and
+               self.op not in ("not any", "any")):
                 # print ("LHS/RHS is none", "LHS=", self.lhs, "RHS", self.rhs)
                 return False
             if self.eleval is None:
@@ -1106,8 +1106,8 @@ class rmcond(rmelem):
             self.codeme += code(0, mykey + " = eval(\"not " +
                                 ckey(self.lhs.key) + "\"")
         else:
-            if self.lhs is None or (self.rhs is None
-               and self.op not in("any", "not any")):
+            if self.lhs is None or (self.rhs is None and
+               self.op not in ("any", "not any")):
                 # print ("LHS/RHS is none", "LHS=", self.lhs, "RHS", self.rhs)
                 return ""
             else:
@@ -1137,7 +1137,7 @@ class rmcond(rmelem):
                 if isinstance(self.rhs, rmattribute):
                     self.codeme += code(tabs, "if inspect.ismethod(" +
                                         rhs + "):")
-                    self.codeme += code(tabs+1, rhs + " = eval(\"" +
+                    self.codeme += code(tabs + 1, rhs + " = eval(\"" +
                                         rhs + "()\")")
 
             if self.op == "=":
@@ -1300,7 +1300,7 @@ class rmrule(rmelem):
                         # rmcond
                         self.early(session, tag, outargs, key, 2)
                         ret = self.forloop(session, tag, keysmap,
-                                           count+1, inargs, outargs)
+                                           count + 1, inargs, outargs)
                         # clean
                         self.early(session, tag, outargs, key, 1)
         return dict({key: ret})
@@ -1393,7 +1393,7 @@ class rmrule(rmelem):
             key = self.inarg[i].key
             keylen = clslist + "len"
 
-            self.codeme += code(tabs+i, "if " + clslist +
+            self.codeme += code(tabs + i, "if " + clslist +
                                 " is None or isinstance(" + clslist +
                                 ", list) and len(" + clslist + ") == 0:")
             self.codeme += code(tabs + i + 1, clslist + "_len = 1")
@@ -1404,8 +1404,8 @@ class rmrule(rmelem):
                                 " in range(" + keylen + "):")
             self.codeme += code(tabs + i + 1, "if " + clslist +
                                 " is None or isinstance(" + clslist +
-                                ", list) and len(" + clslist+") == 0:")
-            self.codeme += code(tabs+i + 2, clsinst + " = None")
+                                ", list) and len(" + clslist + ") == 0:")
+            self.codeme += code(tabs + i + 2, clsinst + " = None")
             self.codeme += code(tabs + i + 1, "else:")
             self.codeme += code(tabs + i + 2, clsinst + " = " + clslist +
                                 "[" + key + "]")
@@ -1526,8 +1526,10 @@ class rmmanager():
                     if not isinstance(clsobj, type(source.inarg[j])):
                         continue
                     if clsobj.cls not in self.ruleclassorm.keys():
-                        self.ruleclassorm.update(dict({clsobj.cls: {
-                          clsobj.request: {'rules': {source.key: source}}}}))
+                        newdict = dict({clsobj.cls: {clsobj.request:
+                                                     {'rules':
+                                                      {source.key: source}}}})
+                        self.ruleclassorm.update(newdict)
                     else:
                         classdict = self.ruleclassorm[clsobj.cls]
                         if clsobj.request not in classdict.keys():
@@ -1674,11 +1676,11 @@ class rmmanager():
                          None,
                          None,
                          list([
-                             rmanyclass('i1',
-                                        None,
-                                        clsmanager.getConfigOperation(
-                                            allop[i]), rmclass.diff)
-                             ]),
+                              rmanyclass('i1',
+                                         None,
+                                         clsmanager.getConfigOperation(
+                                             allop[i]), rmclass.diff)
+                              ]),
                          None,
                          None))
         for i in range(len(allop)):

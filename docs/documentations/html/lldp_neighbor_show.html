@@ -1,0 +1,199 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>lldp_neighbor_show - PyFOS util to show for lldp_neighbor &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="lldp_profile_create - PyFOS util to create for lldp_profile" href="lldp_profile_create.html" />
+    <link rel="prev" title="lldp_global_tlv_del - PyFOS util to delete for lldp_global" href="lldp_global_tlv_del.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="lldp_profile_create.html" title="lldp_profile_create - PyFOS util to create for lldp_profile"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="lldp_global_tlv_del.html" title="lldp_global_tlv_del - PyFOS util to delete for lldp_global"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-lldp_neighbor_show"></span><div class="section" id="lldp-neighbor-show-pyfos-util-to-show-for-lldp-neighbor">
+<h1><a class="reference internal" href="#module-lldp_neighbor_show" title="lldp_neighbor_show: PyFOS module to show LLDP neighbors (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lldp_neighbor_show</span></code></a> - PyFOS util to show for lldp_neighbor<a class="headerlink" href="#lldp-neighbor-show-pyfos-util-to-show-for-lldp-neighbor" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-lldp_neighbor_show" title="lldp_neighbor_show: PyFOS module to show LLDP neighbors (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lldp_neighbor_show</span></code></a> PyFOS util to show for lldp_neighbor</p>
+<p>The list of LLDP neighbor devices connected to the switch.</p>
+<p>lldp_neighbor_show : usage</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Infrastructure Options:</dt>
+<dd><ul class="first last">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
+<li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
+<li>-v,–verbose: Verbose mode [Optional].</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Util Script Options:</dt>
+<dd><ul class="first last">
+<li>–dead-interval=DEAD-INTERVAL The dead interval of the the LLDP      neighbor.</li>
+<li>–remaining-life=REMAINING-LIFE The remaining life of the LLDP neighbor.</li>
+<li>–system-name=SYSTEM-NAME The system name of the LLDP neighbor.</li>
+<li>–slot-port=SLOT-PORT The local interface name.</li>
+<li>–remote-interface-name=REMOTE-INTERFACE-NAME The remote interface name      of the LLDP neighbor device connected to local switch ethernet      interface.</li>
+<li>–chassis-id=CHASSIS-ID The chassis ID of the LLDP neighbor.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="function">
+<dt id="lldp_neighbor_show.lldp_neighbor_show.show_lldp_neighbor">
+<code class="descclassname">lldp_neighbor_show.</code><code class="descname">show_lldp_neighbor</code><span class="sig-paren">(</span><em>session</em>, <em>dead_interval</em>, <em>remaining_life</em>, <em>system_name</em>, <em>slot_port</em>, <em>remote_interface_name</em>, <em>chassis_id</em><span class="sig-paren">)</span><a class="headerlink" href="#lldp_neighbor_show.lldp_neighbor_show.show_lldp_neighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Show lldp_neighbor</em></p>
+<blockquote>
+<div><p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">lldp_neighbor_show</span><span class="o">.</span><span class="n">show_lldp_neighbor</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>            <span class="n">dead_interval</span><span class="p">,</span> <span class="n">remaining_life</span><span class="p">,</span> <span class="n">system_name</span><span class="p">,</span> <span class="n">slot_port</span><span class="p">,</span>            <span class="n">remote_interface_name</span><span class="p">,</span> <span class="n">chassis_id</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lldp_neighborObj</span> <span class="o">=</span> <span class="n">lldp_neighbor</span><span class="p">()</span>
+<span class="n">lldp_neighborObj</span><span class="o">.</span><span class="n">set_dead_interval</span><span class="p">(</span><span class="n">dead_interval</span><span class="p">)</span>
+<span class="n">lldp_neighborObj</span><span class="o">.</span><span class="n">set_remaining_life</span><span class="p">(</span><span class="n">remaining_life</span><span class="p">)</span>
+<span class="n">lldp_neighborObj</span><span class="o">.</span><span class="n">set_system_name</span><span class="p">(</span><span class="n">system_name</span><span class="p">)</span>
+<span class="n">lldp_neighborObj</span><span class="o">.</span><span class="n">set_slot_port</span><span class="p">(</span><span class="n">slot_port</span><span class="p">)</span>
+<span class="n">lldp_neighborObj</span><span class="o">.</span><span class="n">set_remote_interface_name</span><span class="p">(</span><span class="n">remote_interface_name</span><span class="p">)</span>
+<span class="n">lldp_neighborObj</span><span class="o">.</span><span class="n">set_chassis_id</span><span class="p">(</span><span class="n">chassis_id</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">Input:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">param</span> <span class="n">session</span><span class="p">:</span> <span class="n">The</span> <span class="n">session</span> <span class="n">returned</span> <span class="n">by</span> <span class="n">the</span> <span class="n">login</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">dead_interval</span><span class="p">:</span> <span class="n">The</span> <span class="n">dead</span> <span class="n">interval</span> <span class="n">of</span> <span class="n">the</span> <span class="n">the</span> <span class="n">LLDP</span> <span class="n">neighbor</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">remaining_life</span><span class="p">:</span> <span class="n">The</span> <span class="n">remaining</span> <span class="n">life</span> <span class="n">of</span> <span class="n">the</span> <span class="n">LLDP</span> <span class="n">neighbor</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">system_name</span><span class="p">:</span> <span class="n">The</span> <span class="n">system</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">LLDP</span> <span class="n">neighbor</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">slot_port</span><span class="p">:</span> <span class="n">The</span> <span class="n">local</span> <span class="n">interface</span> <span class="n">name</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">remote_interface_name</span><span class="p">:</span> <span class="n">The</span> <span class="n">remote</span> <span class="n">interface</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span>              <span class="n">LLDP</span> <span class="n">neighbor</span> <span class="n">device</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">local</span> <span class="n">switch</span> <span class="n">ethernet</span>              <span class="n">interface</span><span class="o">.</span>
+<span class="p">:</span><span class="n">param</span> <span class="n">chassis_id</span><span class="p">:</span> <span class="n">The</span> <span class="n">chassis</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">LLDP</span> <span class="n">neighbor</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Output:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">None or more instance of class lldp_neighbor on Success             or a dictionary with error.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="lldp_global_tlv_del.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">lldp_global_tlv_del</span></code> - PyFOS util to delete for lldp_global</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lldp_profile_create.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">lldp_profile_create</span></code> - PyFOS util to create for lldp_profile</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/lldp_neighbor_show.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="lldp_profile_create.html" title="lldp_profile_create - PyFOS util to create for lldp_profile"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="lldp_global_tlv_del.html" title="lldp_global_tlv_del - PyFOS util to delete for lldp_global"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

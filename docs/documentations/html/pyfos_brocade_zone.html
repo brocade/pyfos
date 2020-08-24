@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_zone - PyFOS module to provide rest support for Zoning. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>pyfos_brocade_zone - PyFOS module to provide rest support for Zoning. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_brocade_fibrechannel_trunk.html" title="pyfos_brocade_fibrechannel_trunk - PyFOS module to provide REST support for trunking."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -94,28 +94,33 @@
 <td><a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.set_zone_zone_type" title="pyfos_brocade_zone.defined_configuration.set_zone_zone_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_zone_zone_type()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.peek_zone_zone_type" title="pyfos_brocade_zone.defined_configuration.peek_zone_zone_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_zone_zone_type()</span></code></a></td>
 </tr>
-<tr class="row-even"><td>member-entry/entry-name</td>
+<tr class="row-even"><td>zone-type-string</td>
+<td>type of zone</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.set_zone_zone_type_string" title="pyfos_brocade_zone.defined_configuration.set_zone_zone_type_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_zone_zone_type_string()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.peek_zone_zone_type_string" title="pyfos_brocade_zone.defined_configuration.peek_zone_zone_type_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_zone_zone_type_string()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>member-entry/entry-name</td>
 <td>list of device members in zone</td>
 <td><a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.set_zone_member_entry_entry_name" title="pyfos_brocade_zone.defined_configuration.set_zone_member_entry_entry_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_zone_member_entry_entry_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.peek_zone_member_entry_entry_name" title="pyfos_brocade_zone.defined_configuration.peek_zone_member_entry_entry_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_zone_member_entry_entry_name()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>member-entry/principal-entry-name</td>
+<tr class="row-even"><td>member-entry/principal-entry-name</td>
 <td>list of principal device
 members in zone</td>
 <td><a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.set_zone_member_entry_principal_entry_name" title="pyfos_brocade_zone.defined_configuration.set_zone_member_entry_principal_entry_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_zone_member_entry_principal_entry_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.peek_zone_member_entry_principal_entry_name" title="pyfos_brocade_zone.defined_configuration.peek_zone_member_entry_principal_entry_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_zone_member_entry_principal_entry_name()</span></code></a></td>
 </tr>
-<tr class="row-even"><td>alias</td>
+<tr class="row-odd"><td>alias</td>
 <td>a list of alias</td>
 <td><a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.set_alias" title="pyfos_brocade_zone.defined_configuration.set_alias"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_alias()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.peek_alias" title="pyfos_brocade_zone.defined_configuration.peek_alias"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_alias()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>alias-name</td>
+<tr class="row-even"><td>alias-name</td>
 <td>name of alias</td>
 <td><a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.set_alias_alias_name" title="pyfos_brocade_zone.defined_configuration.set_alias_alias_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_alias_alias_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.peek_alias_alias_name" title="pyfos_brocade_zone.defined_configuration.peek_alias_alias_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_alias_alias_name()</span></code></a></td>
 </tr>
-<tr class="row-even"><td>member-entry/alias-entry-name</td>
+<tr class="row-odd"><td>member-entry/alias-entry-name</td>
 <td>list of entries in alias</td>
 <td><a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.set_alias_member_entry_alias_entry_name" title="pyfos_brocade_zone.defined_configuration.set_alias_member_entry_alias_entry_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_alias_member_entry_alias_entry_name()</span></code></a>
 <a class="reference internal" href="#pyfos_brocade_zone.defined_configuration.peek_alias_member_entry_alias_entry_name" title="pyfos_brocade_zone.defined_configuration.peek_alias_member_entry_alias_entry_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_alias_member_entry_alias_entry_name()</span></code></a></td>
@@ -152,7 +157,7 @@ The object can be printed using <code class="xref py py-func docutils literal no
 attribute’s set method.  This command is used to create
 a new cfg, zone, or alias.</p>
 <p>Example usage of the method to create a new cfg:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">defined_configuration_obj</span> <span class="o">=</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">defined_configuration_obj</span> <span class="o">=</span>
     <span class="n">pyfos_newzone</span><span class="o">.</span><span class="n">defined_configuration</span><span class="p">()</span>
 <span class="n">defined_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_cfg_name</span><span class="p">(</span><span class="s2">&quot;newcfg&quot;</span><span class="p">)</span>
 <span class="n">zones</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;zone1&quot;</span><span class="p">,</span> <span class="s2">&quot;zone2&quot;</span><span class="p">}</span>
@@ -187,7 +192,7 @@ attribute’s set method. This command is used to
 add to the existing members
 of cfg, zone or alias.</p>
 <p>Example usage of the method to add to an existing cfg:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">defined_configuration_obj</span> <span class="o">=</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">defined_configuration_obj</span> <span class="o">=</span>
     <span class="n">pyfos_newzone</span><span class="o">.</span><span class="n">defined_configuration</span><span class="p">()</span>
 <span class="n">defined_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_cfg_name</span><span class="p">(</span><span class="s2">&quot;newcfg&quot;</span><span class="p">)</span>
 <span class="n">zones</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;zone3&quot;</span><span class="p">,</span> <span class="s2">&quot;zone4&quot;</span><span class="p">}</span>
@@ -222,7 +227,7 @@ set method. This command is used to delete an cfg, zone,
 or alias or delete the existing members
 of cfg, zone or alias.</p>
 <p>Example usage of the method to delete from an existing cfg:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">defined_configuration_obj</span> <span class="o">=</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">defined_configuration_obj</span> <span class="o">=</span>
     <span class="n">pyfos_newzone</span><span class="o">.</span><span class="n">defined_configuration</span><span class="p">()</span>
 <span class="n">defined_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_cfg_name</span><span class="p">(</span><span class="s2">&quot;newcfg&quot;</span><span class="p">)</span>
 <span class="n">zones</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;zone3&quot;</span><span class="p">,</span> <span class="s2">&quot;zone4&quot;</span><span class="p">}</span>
@@ -231,7 +236,7 @@ of cfg, zone or alias.</p>
 </pre></div>
 </div>
 <p>Example usage of the method to delete an existing cfg:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">defined_configuration_obj</span> <span class="o">=</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">defined_configuration_obj</span> <span class="o">=</span>
     <span class="n">pyfos_newzone</span><span class="o">.</span><span class="n">defined_configuration</span><span class="p">()</span>
 <span class="n">defined_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_cfg_name</span><span class="p">(</span><span class="s2">&quot;newcfg&quot;</span><span class="p">)</span>
 <span class="n">defined_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_member_zone_zone_name</span><span class="p">(</span><span class="n">zones</span><span class="p">)</span>
@@ -414,8 +419,8 @@ zone type and list of members</td>
 <dt id="pyfos_brocade_zone.defined_configuration.set_zone_zone_type">
 <code class="descname">set_zone_zone_type</code><span class="sig-paren">(</span><em>zone_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.defined_configuration.set_zone_zone_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets zone type to default or peer zone in the object.
-Type of 0 indicate normal Zone while
-type of 1 indicates Peer Zone.</p>
+A zone type of 0 indicates a normal zone while a zone
+type of 1 indicates a peer zone.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -431,12 +436,44 @@ type of 1 indicates Peer Zone.</p>
 <dl class="method">
 <dt id="pyfos_brocade_zone.defined_configuration.peek_zone_zone_type">
 <code class="descname">peek_zone_zone_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.defined_configuration.peek_zone_zone_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads zone type in the object.</p>
+<dd><p>Reads the zone type in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or zone type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.defined_configuration.set_zone_zone_type_string">
+<code class="descname">set_zone_zone_type_string</code><span class="sig-paren">(</span><em>zone_type_string</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.defined_configuration.set_zone_zone_type_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the zone type string to default or peer zone in the object.
+A zone type string of ‘zone’ indicates a zone that is not a peer zone.
+A zone type string of ‘user-created-peer-zone’ indicates a peer zone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>zone_type_string</strong> – zone type string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.defined_configuration.peek_zone_zone_type_string">
+<code class="descname">peek_zone_zone_type_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.defined_configuration.peek_zone_zone_type_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the zone type string in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or zone type string</td>
 </tr>
 </tbody>
 </table>
@@ -678,11 +715,15 @@ token</td>
 <td>type of zone</td>
 <td><a class="reference internal" href="#pyfos_brocade_zone.effective_configuration.peek_enabled_zone_zone_type" title="pyfos_brocade_zone.effective_configuration.peek_enabled_zone_zone_type"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_enabled_zone_zone_type()</span></code></a></td>
 </tr>
-<tr class="row-even"><td>member-entry/entry-name</td>
+<tr class="row-even"><td>zone-type-string</td>
+<td>type of zone</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.effective_configuration.peek_enabled_zone_zone_type_string" title="pyfos_brocade_zone.effective_configuration.peek_enabled_zone_zone_type_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_enabled_zone_zone_type_string()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>member-entry/entry-name</td>
 <td>device entry list</td>
 <td><a class="reference internal" href="#pyfos_brocade_zone.effective_configuration.peek_enabled_zone_member_entry_entry_name" title="pyfos_brocade_zone.effective_configuration.peek_enabled_zone_member_entry_entry_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_enabled_zone_member_entry_entry_name()</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>embmer-entry/principal-entry-name</td>
+<tr class="row-even"><td>member-entry/principal-entry-name</td>
 <td>principal device entry
 list</td>
 <td><a class="reference internal" href="#pyfos_brocade_zone.effective_configuration.peek_enabled_zone_member_entry_principal_entry_name" title="pyfos_brocade_zone.effective_configuration.peek_enabled_zone_member_entry_principal_entry_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_enabled_zone_member_entry_principal_entry_name()</span></code></a></td>
@@ -718,7 +759,7 @@ The object can be printed using <code class="xref py py-func docutils literal no
 <dd><p>Apply changes. Fields involved are set within the object using
 attribute’s set method.</p>
 <p>Example usage of the method to enable an cfg:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">current_effective_configuration</span> <span class="o">=</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">current_effective_configuration</span> <span class="o">=</span>
     <span class="n">pyfos_newzone</span><span class="o">.</span><span class="n">effective_configuration_get</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 
 <span class="n">effective_configuration_obj</span> <span class="o">=</span>
@@ -730,7 +771,7 @@ attribute’s set method.</p>
 </pre></div>
 </div>
 <p>Example usage of the method to save an cfg:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">current_effective_configuration</span> <span class="o">=</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">current_effective_configuration</span> <span class="o">=</span>
     <span class="n">pyfos_newzone</span><span class="o">.</span><span class="n">effective_configuration_get</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 
 <span class="n">effective_configuration_obj</span> <span class="o">=</span>
@@ -742,7 +783,7 @@ attribute’s set method.</p>
 </pre></div>
 </div>
 <p>Example usage of set_cfg_action:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">effective_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_action</span><span class="p">(</span><span class="n">pyfos_zone</span><span class="o">.</span><span class="n">CFG_ACTION_SAVE</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">effective_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_action</span><span class="p">(</span><span class="n">pyfos_zone</span><span class="o">.</span><span class="n">CFG_ACTION_SAVE</span><span class="p">)</span>
 <span class="n">effective_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_action</span><span class="p">(</span><span class="n">pyfos_zone</span><span class="o">.</span><span class="n">CFG_DISABLE</span><span class="p">)</span>
 <span class="n">effective_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_action</span><span class="p">(</span><span class="n">pyfos_zone</span><span class="o">.</span><span class="n">CFG_CLEAR</span><span class="p">)</span>
 <span class="n">effective_configuration_obj</span><span class="o">.</span><span class="n">set_cfg_action</span><span class="p">(</span><span class="n">pyfos_zone</span><span class="o">.</span><span class="n">CFG_ABORT</span><span class="p">)</span>
@@ -926,7 +967,7 @@ Mode of 1 is all access &amp; 0 is no access.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or transactdion buffer size</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or transaction buffer size</td>
 </tr>
 </tbody>
 </table>
@@ -940,7 +981,7 @@ Mode of 1 is all access &amp; 0 is no access.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or transactdion token</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or transaction token</td>
 </tr>
 </tbody>
 </table>
@@ -991,12 +1032,26 @@ Mode of 1 is all access &amp; 0 is no access.</p>
 <dl class="method">
 <dt id="pyfos_brocade_zone.effective_configuration.peek_enabled_zone_zone_type">
 <code class="descname">peek_enabled_zone_zone_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.effective_configuration.peek_enabled_zone_zone_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads zone type in the object.</p>
+<dd><p>Reads the zone type in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or zone type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.effective_configuration.peek_enabled_zone_zone_type_string">
+<code class="descname">peek_enabled_zone_zone_type_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.effective_configuration.peek_enabled_zone_zone_type_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the zone type string in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or zone type string</td>
 </tr>
 </tbody>
 </table>
@@ -1025,6 +1080,241 @@ Mode of 1 is all access &amp; 0 is no access.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or list of devices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_brocade_zone.fabric_lock">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_zone.</code><code class="descname">fabric_lock</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class containing the zoning fabric lock attributes</p>
+<p>class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="28%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequently used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>lock-principal-domain-id</td>
+<td>the domain id that currently
+holds the zone fabric lock</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_lock_principal_domain_id" title="pyfos_brocade_zone.fabric_lock.peek_lock_principal_domain_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_lock_principal_domain_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>lock-principal-transaction-token</td>
+<td>the token of the open zone
+transaction on the current
+lock principal domain id</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_lock_principal_transaction_token" title="pyfos_brocade_zone.fabric_lock.peek_lock_principal_transaction_token"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_lock_principal_transaction_token()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>timeout</td>
+<td>the current zone fabric lock
+timeout value of the current
+open lock principal
+transaction token</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_timeout" title="pyfos_brocade_zone.fabric_lock.peek_timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_timeout()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>remaining-time</td>
+<td>the remaining time of the open
+zone transaction owned by the
+lock principal domain id</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_remaining_time" title="pyfos_brocade_zone.fabric_lock.peek_remaining_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_remaining_time()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>client-role</td>
+<td>role name of the client that
+owns the zone fabric lock</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_client_role" title="pyfos_brocade_zone.fabric_lock.peek_client_role"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_client_role()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>client-user-name</td>
+<td>user name of the client that
+owns the zone fabric lock</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_client_user_name" title="pyfos_brocade_zone.fabric_lock.peek_client_user_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_client_user_name()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>client-ip-address</td>
+<td>ip address of the client that
+owns the zone fabric lock</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_client_ip_address" title="pyfos_brocade_zone.fabric_lock.peek_client_ip_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_client_ip_address()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>client-interface</td>
+<td>interface used by the client
+that owns the zone fabric lock</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_client_interface" title="pyfos_brocade_zone.fabric_lock.peek_client_interface"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_client_interface()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>client-application-namee</td>
+<td>application name used by the
+client that owns the zone
+fabric lock</td>
+<td><a class="reference internal" href="#pyfos_brocade_zone.fabric_lock.peek_client_application_name" title="pyfos_brocade_zone.fabric_lock.peek_client_application_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_client_application_name()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="xref py py-class docutils literal notranslate"><span class="pre">fabric-lock</span></code> object
+with values for all the attributes.
+The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">fabric-lock</span></code> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_lock_principal_domain_id">
+<code class="descname">peek_lock_principal_domain_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_lock_principal_domain_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the lock principal domain id that currently
+holds the zone fabric lock.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">0 or the lock principal domain id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_lock_principal_transaction_token">
+<code class="descname">peek_lock_principal_transaction_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_lock_principal_transaction_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the token of the open zone transaction on the current
+lock principal domain id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the lock principal transaction token</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_timeout">
+<code class="descname">peek_timeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the current zone fabric lock timeout value of the
+currently open lock principal transaction token</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the timeout value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_remaining_time">
+<code class="descname">peek_remaining_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_remaining_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the remaining time of the open zone transaction
+owned by the lock principal domain id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the remaining time</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_client_role">
+<code class="descname">peek_client_role</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_client_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the role name of the client that owns the
+zone fabric lock.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the client role</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_client_user_name">
+<code class="descname">peek_client_user_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_client_user_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the user name of the client that owns the
+zone fabric lock.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the client user name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_client_ip_address">
+<code class="descname">peek_client_ip_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_client_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the ip address of the client that owns the
+zone fabric lock.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the client ip address</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_client_interface">
+<code class="descname">peek_client_interface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_client_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the interface used by the client that owns the
+zone fabric lock.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the client interface</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_zone.fabric_lock.peek_client_application_name">
+<code class="descname">peek_client_application_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_zone.fabric_lock.peek_client_application_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the application name of the client that owns the
+zone fabric lock.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or the client application name</td>
 </tr>
 </tbody>
 </table>
@@ -1089,7 +1379,7 @@ Mode of 1 is all access &amp; 0 is no access.</p>
         <li class="right" >
           <a href="pyfos_brocade_fibrechannel_trunk.html" title="pyfos_brocade_fibrechannel_trunk - PyFOS module to provide REST support for trunking."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

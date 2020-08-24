@@ -15,10 +15,10 @@
 
 """
 
-:mod:`fabric_configuration_show` - PyFOS util for fetching the fabric \
+:mod:`configure_fabric_show` - PyFOS util for fetching the fabric \
 configuration.
 *************************************************************************************
-The :mod:`fabric_configuration_show` util displays the fabric configuration.
+The :mod:`configure_fabric_show` util displays the fabric configuration.
 
 This module is a stand-alone script that can be used to display fabric
 attributes.
@@ -39,7 +39,7 @@ attributes.
 
         Example Usage of the Method::
 
-            ret = fabric_configure_get.show_fabric_configuration(session)
+            ret = configure_fabric_show.show_fabric_configuration(session)
             print (ret)
 
         Details::
@@ -68,15 +68,23 @@ from pyfos.utils import brcd_util
 
 
 def show_fabric_configuration(session):
-    fabric_conf_obj = fabric()
-    result = fabric_conf_obj.get(session)
+    fabric_conf_Obj = fabric()
+    result = fabric_conf_Obj.get(session)
     return result
+
+
+def validate(fabric_conf_Obj):
+    if fabric_conf_Obj.peek_insistent_domain_id_enabled() is None or\
+       fabric_conf_Obj.peek_principal_selection_enabled() is None or\
+       fabric_conf_Obj.peek_principal_priority() is None:
+        return 0
+    return 0
 
 
 def main(argv):
 
     filters = []
-    inputs = brcd_util.parse(argv, fabric, filters)
+    inputs = brcd_util.parse(argv, fabric, filters, validate)
 
     session = brcd_util.getsession(inputs)
 

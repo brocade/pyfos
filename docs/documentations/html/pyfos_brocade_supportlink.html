@@ -1,0 +1,819 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_supportlink - PyFOS module to provide REST support for supportlink. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_operation_supportlink - PyFOS module for the supportlink operation." href="pyfos_brocade_operation_supportlink.html" />
+    <link rel="prev" title="maps_fpi_profile_show - PyFOS util to display a MAPS FPI policy." href="maps_fpi_profile_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_supportlink.html" title="pyfos_brocade_operation_supportlink - PyFOS module for the supportlink operation."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="maps_fpi_profile_show.html" title="maps_fpi_profile_show - PyFOS util to display a MAPS FPI policy."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_supportlink"></span><div class="section" id="pyfos-brocade-supportlink-pyfos-module-to-provide-rest-support-for-supportlink">
+<h1><a class="reference internal" href="#module-pyfos_brocade_supportlink" title="pyfos_brocade_supportlink: PyFOS module to config REST SupportLink (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_supportlink</span></code></a> - PyFOS module to provide REST support for supportlink.<a class="headerlink" href="#pyfos-brocade-supportlink-pyfos-module-to-provide-rest-support-for-supportlink" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_supportlink" title="pyfos_brocade_supportlink: PyFOS module to config REST SupportLink (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_supportlink</span></code></a> module provides REST support for supportlink.</p>
+<dl class="class">
+<dt id="pyfos_brocade_supportlink.supportlink_profile">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_supportlink.</code><code class="descname">supportlink_profile</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Supportlink profile provides information on profile.</div></blockquote>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>server</td>
+<td>IP address or DNS name of server</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_server" title="pyfos_brocade_supportlink.supportlink_profile.set_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_server()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_server" title="pyfos_brocade_supportlink.supportlink_profile.peek_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_server()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>HTTPS port of server</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_port" title="pyfos_brocade_supportlink.supportlink_profile.set_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_port()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_port" title="pyfos_brocade_supportlink.supportlink_profile.peek_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>user-name</td>
+<td>user name of account in server</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_user_name" title="pyfos_brocade_supportlink.supportlink_profile.set_user_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_user_name()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_user_name" title="pyfos_brocade_supportlink.supportlink_profile.peek_user_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_user_name()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>start-date</td>
+<td>start date of operation</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_start_date" title="pyfos_brocade_supportlink.supportlink_profile.set_start_date"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_start_date()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_start_date" title="pyfos_brocade_supportlink.supportlink_profile.peek_start_date"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_start_date()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>start-time</td>
+<td>start time of operation</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_start_time" title="pyfos_brocade_supportlink.supportlink_profile.set_start_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_start_time()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_start_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_start_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_start_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>end-time-period</td>
+<td>end time period from start time</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_end_time_period" title="pyfos_brocade_supportlink.supportlink_profile.set_end_time_period"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_end_time_period()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_end_time_period" title="pyfos_brocade_supportlink.supportlink_profile.peek_end_time_period"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_end_time_period()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>retry-time</td>
+<td>retry time afterfail of operation</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_retry_time" title="pyfos_brocade_supportlink.supportlink_profile.set_retry_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_retry_time()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_retry_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_retry_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_retry_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>period</td>
+<td>frequency of operation</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_period" title="pyfos_brocade_supportlink.supportlink_profile.set_period"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_period()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_period" title="pyfos_brocade_supportlink.supportlink_profile.peek_period"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_period()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>collection-time</td>
+<td>collection time</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_collection_time" title="pyfos_brocade_supportlink.supportlink_profile.set_collection_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_collection_time()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_collection_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_collection_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_collection_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>group-tag</td>
+<td>custom group tag</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_group_tag" title="pyfos_brocade_supportlink.supportlink_profile.set_group_tag"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_group_tag()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_group_tag" title="pyfos_brocade_supportlink.supportlink_profile.peek_group_tag"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_group_tag()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>proxy-server</td>
+<td>IP address or DNS name of proxy</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_server" title="pyfos_brocade_supportlink.supportlink_profile.set_proxy_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_proxy_server()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_server" title="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_proxy_server()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>proxy-port</td>
+<td>HTTPS port of proxy server</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_port" title="pyfos_brocade_supportlink.supportlink_profile.set_proxy_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_proxy_port()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_port" title="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_proxy_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>proxy-user</td>
+<td>user name of account in proxy</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_user" title="pyfos_brocade_supportlink.supportlink_profile.set_proxy_user"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_proxy_user()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_user" title="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_user"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_proxy_user()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>proxy-password</td>
+<td>proxy password</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_password" title="pyfos_brocade_supportlink.supportlink_profile.set_proxy_password"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_proxy_password()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_password" title="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_password"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_proxy_password()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>proxy-protocol</td>
+<td>protocol used in proxy</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_protocol" title="pyfos_brocade_supportlink.supportlink_profile.set_proxy_protocol"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_proxy_protocol()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_protocol" title="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_protocol"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_proxy_protocol()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>supportlink-enabled</td>
+<td>supportlink feature true/false</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.set_supportlink_enabled" title="pyfos_brocade_supportlink.supportlink_profile.set_supportlink_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_supportlink_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_supportlink_enabled" title="pyfos_brocade_supportlink.supportlink_profile.peek_supportlink_enabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_supportlink_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>random-start-time</td>
+<td>switch upload time</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_random_start_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_random_start_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_random_start_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>next_collection_time</td>
+<td>next collection time</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_next_collection_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_next_collection_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_next_collection_time()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>next_service_start_time</td>
+<td>next upload time</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_next_service_start_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_next_service_start_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_next_service_start_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>next_service_retry_time</td>
+<td>next upload retry time</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_next_service_retry_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_next_service_retry_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_next_service_retry_time()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>last_collection_time</td>
+<td>last successful collection time</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_last_collection_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_last_collection_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_last_collection_time()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>last_upload_time</td>
+<td>last successful upload time</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_profile.peek_last_upload_time" title="pyfos_brocade_supportlink.supportlink_profile.peek_last_upload_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_last_upload_time()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">credit_stall_dashboard</span></code> object.
+Returns the credit stall dashboard information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A <code class="xref py py-class docutils literal notranslate"><span class="pre">credit_stall_dashboard</span></code> object.                     A dictionary in case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.patch">
+<code class="descname">patch</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace entry members. Fields involved are set
+within the object using
+attribute’s set method. This command is used to
+update config parameters of the supportlink.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_server">
+<code class="descname">set_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the IP address or DNS name of the server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_server">
+<code class="descname">peek_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the IP address or DNS name of the server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_port">
+<code class="descname">set_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the HTTPS port of the server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_port">
+<code class="descname">peek_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the HTTPS port of the server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_user_name">
+<code class="descname">set_user_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_user_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the user name of account in server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_user_name">
+<code class="descname">peek_user_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_user_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user name of account in server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_start_date">
+<code class="descname">set_start_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_start_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the start date of operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_start_date">
+<code class="descname">peek_start_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_start_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the start date of operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_start_time">
+<code class="descname">set_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the start time of operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_start_time">
+<code class="descname">peek_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the start time of operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_end_time_period">
+<code class="descname">set_end_time_period</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_end_time_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the end time period form the start time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_end_time_period">
+<code class="descname">peek_end_time_period</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_end_time_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the end time period form the start time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_retry_time">
+<code class="descname">set_retry_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_retry_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the retry time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_retry_time">
+<code class="descname">peek_retry_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_retry_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the retry time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_period">
+<code class="descname">set_period</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the period/frequency of operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_period">
+<code class="descname">peek_period</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the period/frequency of operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_collection_time">
+<code class="descname">set_collection_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_collection_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the collection time of operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_collection_time">
+<code class="descname">peek_collection_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_collection_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the collection time of operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_group_tag">
+<code class="descname">set_group_tag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_group_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the custom group tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_group_tag">
+<code class="descname">peek_group_tag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_group_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the custom group tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_proxy_server">
+<code class="descname">set_proxy_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the IP address or DNS name of proxy server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_server">
+<code class="descname">peek_proxy_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the IP address or DNS name of proxy server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_proxy_port">
+<code class="descname">set_proxy_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the HTTPS port of proxy server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_port">
+<code class="descname">peek_proxy_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the HTTPS port of proxy server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_proxy_user">
+<code class="descname">set_proxy_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the user name of account in proxy server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_user">
+<code class="descname">peek_proxy_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user name of account in proxy server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_proxy_password">
+<code class="descname">set_proxy_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the proxy password.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_password">
+<code class="descname">peek_proxy_password</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the proxy password.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_proxy_protocol">
+<code class="descname">set_proxy_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_proxy_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the type of proxy protocol used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_proxy_protocol">
+<code class="descname">peek_proxy_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_proxy_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the type of proxy protocol used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.set_supportlink_enabled">
+<code class="descname">set_supportlink_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.set_supportlink_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the enable/disable status of the supportlink feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_supportlink_enabled">
+<code class="descname">peek_supportlink_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_supportlink_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the enable/disable status of the supportlink feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_random_start_time">
+<code class="descname">peek_random_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_random_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the random upload time calculated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_next_collection_time">
+<code class="descname">peek_next_collection_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_next_collection_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next collection time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_next_service_start_time">
+<code class="descname">peek_next_service_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_next_service_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next upload time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_next_service_retry_time">
+<code class="descname">peek_next_service_retry_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_next_service_retry_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next upload retry time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_last_collection_time">
+<code class="descname">peek_last_collection_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_last_collection_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the last successful collection time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_supportlink.supportlink_profile.peek_last_upload_time">
+<code class="descname">peek_last_upload_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile.peek_last_upload_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the last successful upload time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary in case of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_rest_util.html#module-pyfos_rest_util" title="pyfos_rest_util: PyFOS module to provide REST utility functions (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_rest_util</span></code></a>
+Module <a class="reference internal" href="pyfos_version.html#module-pyfos_version" title="pyfos_version: PyFOS module to represent FOS version and range (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_version</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="maps_fpi_profile_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">maps_fpi_profile_show</span></code> - PyFOS util to display a MAPS FPI policy.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_operation_supportlink.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_supportlink</span></code> - PyFOS module for the supportlink  operation.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_supportlink.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_supportlink.html" title="pyfos_brocade_operation_supportlink - PyFOS module for the supportlink operation."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="maps_fpi_profile_show.html" title="maps_fpi_profile_show - PyFOS util to display a MAPS FPI policy."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

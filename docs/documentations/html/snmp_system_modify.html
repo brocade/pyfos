@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>snmp_system_modify - PyFOS util for updating snmp system attributes &#8212; PyFOS 1.2.1 documentation</title>
+    <title>snmp_system_modify - PyFOS util for updating snmp system attributes &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="snmp_system_show.html" title="snmp_system_show - PyFOS util to show the snmp system information."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -98,12 +98,12 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <li><p class="first">Configures system description</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">description</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
@@ -111,7 +111,7 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_system</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -156,12 +156,12 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <li><p class="first">Configures system location</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_location</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_location</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_location</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">location</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_location</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
@@ -169,7 +169,7 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_system</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -213,12 +213,12 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <li><p class="first">Configures system contact</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_contact</span><span class="p">(</span><span class="n">contact</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_contact</span><span class="p">(</span><span class="n">contact</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_contact</span><span class="p">(</span><span class="n">contact</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">contact</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_contact</span><span class="p">(</span><span class="n">contact</span><span class="p">)</span>
@@ -226,7 +226,7 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_system</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -270,12 +270,12 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <li><p class="first">Configures snmpv3 informs enabled</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_informs_enabled</span><span class="p">(</span><span class="n">informs_enabled</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_informs_enabled</span><span class="p">(</span><span class="n">informs_enabled</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_informs_enabled</span><span class="p">(</span><span class="n">informs_enabled</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">informs_enabled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_informs_enabled</span><span class="p">(</span><span class="n">informs_enabled</span><span class="p">)</span>
@@ -283,7 +283,7 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_informs_enabled</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -328,12 +328,12 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <li><p class="first">Configures snmpv3 passwords encryption flag enabled</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_encryption_enabled</span><span class="p">(</span><span class="n">encrypt_enabled</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_encryption_enabled</span><span class="p">(</span><span class="n">encrypt_enabled</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_encryption_enabled</span><span class="p">(</span><span class="n">encrypt_enabled</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">encrypt_enabled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_encryption_enabled</span><span class="p">(</span><span class="n">encrypt_enabled</span><span class="p">)</span>
@@ -341,7 +341,7 @@ security level for get &amp; set operations and snmpv1 enabled.</p>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_system</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -387,12 +387,12 @@ encryption flag enabled.</td>
 <li><p class="first">Configures system audit interval</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">audit_interval</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">audit_interval</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">audit_interval</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">audit_interval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">audit_interval</span><span class="p">)</span>
@@ -400,7 +400,7 @@ encryption flag enabled.</td>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmp_audit_interval</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -445,12 +445,12 @@ encryption flag enabled.</td>
 <li><p class="first">Configures snmp default values</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_default_config_default_control</span><span class="p">(</span><span class="n">default_contrl</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_default_config_default_control</span><span class="p">(</span><span class="n">default_contrl</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_audit_interval</span><span class="p">(</span><span class="n">default_contrl</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">default_contrl</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_default_config_default_control</span><span class="p">(</span><span class="n">default_contrl</span><span class="p">)</span>
@@ -458,7 +458,7 @@ encryption flag enabled.</td>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_default_control</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -503,12 +503,12 @@ encryption flag enabled.</td>
 <li><p class="first">Configures snmp GET security level</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_get_level</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_get_level</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_get_level</span><span class="p">(</span><span class="n">sec_get_level</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">sec_get_level</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_get_level</span><span class="p">(</span><span class="n">sec_get_level</span><span class="p">)</span>
@@ -516,7 +516,7 @@ encryption flag enabled.</td>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_security_get_level</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -561,12 +561,12 @@ encryption flag enabled.</td>
 <li><p class="first">Configures snmp SET security level</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_set_level</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_set_level</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_set_level</span><span class="p">(</span><span class="n">sec_set_level</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">sec_set_level</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_security_set_level</span><span class="p">(</span><span class="n">sec_set_level</span><span class="p">)</span>
@@ -574,7 +574,7 @@ encryption flag enabled.</td>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_security_set_level</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -619,12 +619,12 @@ encryption flag enabled.</td>
 <li><p class="first">Configures snmpv1 flag enabled</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_snmpv1_enabled</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">system_obj</span><span class="o">.</span><span class="n">set_snmpv1_enabled</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system_obj</span> <span class="o">=</span> <span class="n">system</span><span class="p">()</span>
 <span class="n">system_obj</span><span class="o">.</span><span class="n">set_snmpv1_enabled</span><span class="p">(</span><span class="n">snmpv1_enabled</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">snmpv1_enabled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">system_obj</span><span class="o">.</span><span class="n">set_snmpv1_enabled</span><span class="p">(</span><span class="n">snmpv1_enabled</span><span class="p">)</span>
@@ -632,7 +632,7 @@ encryption flag enabled.</td>
 <span class="n">result</span> <span class="o">=</span> <span class="n">_set_snmpv1_enabled</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">system_obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -725,7 +725,7 @@ Module <a class="reference internal" href="pyfos_brocade_snmp.html#module-pyfos_
         <li class="right" >
           <a href="snmp_system_show.html" title="snmp_system_show - PyFOS util to show the snmp system information."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

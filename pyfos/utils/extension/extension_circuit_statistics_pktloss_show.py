@@ -77,7 +77,7 @@ from pyfos import pyfos_util
 from pyfos.utils import brcd_util
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit_statistics
 from pyfos.pyfos_brocade_extension_tunnel import extension_circuit
-from pyfos.pyfos_brocade_extension_ip_interface import extension_ip_interface
+from pyfos.pyfos_brocade_interface import extension_ip_interface
 from pyfos.pyfos_brocade_interface import \
      gigabitethernet_statistics
 

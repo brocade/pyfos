@@ -28,7 +28,6 @@ los_tovport
     * -P=<password>: Password. If not provided, interactive
         prompt will request one.
     * -i=<IP address>: IP address
-    * -n=<port name>: <slot>/<port> name of the port
     * -u=<user name>: string name to be assigned to switch
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
         VFID of 128 is assumed.

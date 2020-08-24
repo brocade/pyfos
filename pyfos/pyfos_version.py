@@ -1,4 +1,4 @@
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+# Copyright 2018-2019 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,11 +16,15 @@
 
 :mod:`pyfos_version` - PyFOS module  to provide versioning functionality \
         for rest classes and attributes.
-**********************************************************************************
+*****************************************************************************\
+*****************************************************************************
 The :mod:`pyfos_version`  Provides the versioning support for REST
 supported classes.
 
 """
+
+
+import json
 
 
 def compareRelease(lhs, rhs):
@@ -50,6 +54,14 @@ def relvalue(rel):
         return 0
     else:
         return 0
+
+
+class version_encoder(json.JSONEncoder):
+    def default(self, obj):
+        if hasattr(obj, 'reprJSON'):
+            return obj.reprJSON()
+        else:
+            return json.JSONEncoder.default(self, obj)
 
 
 class fosversion():
@@ -200,6 +212,17 @@ class fosversion():
                 return True
         return False
 
+    def reprJSON(self):
+        retdict = dict()
+        retdict["major"] = self.major
+        retdict["minor"] = self.minor
+        retdict["patch"] = self.patch
+        retdict["release"] = self.release
+        return retdict
+
+    def __repr__(self):
+        return json.dumps(self, cls=version_encoder, sort_keys=True, indent=4)
+
 
 class fosversion_range():
     """
@@ -235,11 +258,24 @@ class fosversion_range():
                 return True
         return False
 
+    def reprJSON(self):
+        retdict = dict()
+        retdict["start"] = self.start
+        retdict["end"] = self.end
+        return retdict
+
+    def __repr__(self):
+        return json.dumps(self, cls=version_encoder, sort_keys=True, indent=4)
+
 
 VER_820 = "8.2.0"
 VER_RANGE_820_ABOVE = {'START': "8.2.0", 'END': "9999.9999.9"}
 VER_RANGE_820_TO_821A = {'START': "8.2.0", 'END': "8.2.1a"}
 VER_RANGE_820_PATCH_A = {'START': "8.2.0", 'END': "8.2.0a"}
+VER_RANGE_820_TO_900 = {'START': "8.2.0", 'END': "9.0.0"}
 VER_RANGE_820a_and_ABOVE = {'START': "8.2.0a", 'END': "9999.9999.9"}
 VER_RANGE_821_and_ABOVE = {'START': "8.2.1", 'END': "9999.9999.9"}
 VER_RANGE_821b_and_ABOVE = {'START': "8.2.1b", 'END': "9999.9999.9"}
+VER_RANGE_822a_and_ABOVE = {'START': "8.2.2a", 'END': "9999.9999.9"}
+VER_RANGE_900_and_ABOVE = {'START': "9.0.0", 'END': "9999.9999.9"}
+VER_RANGE_900a_and_ABOVE = {'START': "9.0.0a", 'END': "9999.9999.9"}

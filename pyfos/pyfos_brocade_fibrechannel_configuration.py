@@ -1,4 +1,4 @@
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+# Copyright 2018-2019 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -45,6 +45,14 @@ class switch_configuration(pyfos_rest_util.rest_object):
         |area-mode       | Sets the     |:meth:`set_area_mode`        |
         |                | address bits |:meth:`peek_area_mode`       |
         |                | for the area.|                             |
+        +----------------+--------------+-----------------------------+
+        |trunk-enabled   | Sets the     |:meth:`set_trunk_enabled`    |
+        |                | trunking mode|:meth:`peek_trunk_enabled`   |
+        |                | for switch   |                             |
+        +----------------+--------------+-----------------------------+
+        |xisl-enabled    | Sets the     |:meth:`set_xisl_enabled`     |
+        |                | xisl mode for|:meth:`peek_xisl_enabled`    |
+        |                | the switch   |                             |
         +----------------+--------------+-----------------------------+
 
     *Object Methods*
@@ -144,6 +152,33 @@ class switch_configuration(pyfos_rest_util.rest_object):
 
             :rtype: None or the mode of the port address of the switch.
 
+        .. method:: set_trunk_enabled(mode)
+
+            Sets trunk enable/disable bit in the object.
+
+            :param mode: True/False to enable/disable trunking on the switch.
+
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_trunk_enabled()
+
+            Reads trunk enable/disable leaf in the object.
+
+            :rtype: True/False based on trunking enabled or not on the switch.
+
+        .. method:: set_xisl_enabled(mode)
+
+            Sets xisl enable/disable bit in the object.
+
+            :param mode: True/False to enable/disable xisl mode on the switch.
+
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_xisl_enabled()
+
+            Reads xisl mode in the object.
+
+            :rtype: True/False based on xisl enabled or not on the switch.
         """
 
     def __init__(self, dictvalues={}):
@@ -161,6 +196,13 @@ class switch_configuration(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "area-mode", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "trunk-enabled", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "xisl-enabled", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
 
         self.load(dictvalues, 1)
 
@@ -537,6 +579,11 @@ class zone_configuration(pyfos_rest_util.rest_object):
 |                         |is enabled  |                                     |
 |                         |for zoning. |                                     |
 +-------------------------+------------+-------------------------------------+
+|fabric-lock-timeout      |Set the     |:meth:`set_fabric_lock_timeout`      |
+|                         |fabric lock |:meth:`peek_fabric_lock_timeout`     |
+|                         |timeout     |                                     |
+|                         |for zoning. |                                     |
++-------------------------+------------+-------------------------------------+
 
     *Object Methods*
 
@@ -604,6 +651,20 @@ class zone_configuration(pyfos_rest_util.rest_object):
 
             :rtype: None or the node-name-zoning-enabled value.
 
+        .. method:: set_fabric_lock_timeout(value)
+
+            Sets the fabric-lock-timeout attribute in the object.
+
+            :param value: The fabric-lock-timeout value to be set within
+                          the object.
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_fabric_lock_timeout()
+
+            Reads the fabric-lock-timeout attribute in the object.
+
+            :rtype: None or the fabric-lock-timeout value.
+
         """
 
     def __init__(self, dictvalues={}):
@@ -616,6 +677,10 @@ class zone_configuration(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "node-name-zoning-enabled", pyfos_type.type_bool,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "fabric-lock-timeout", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG,
+            version.VER_RANGE_900_and_ABOVE))
 
         self.load(dictvalues, 1)
 
@@ -632,6 +697,18 @@ class fabric(pyfos_rest_util.rest_object):
 |                             |consistent  |meth:`peek_insistent_domain_id_enabled`|
 |                             |domain ID   |                                       |
 |                             |mode.       |                                       |
++-----------------------------+------------+---------------------------------------+
+| principal-selection-enabled |Enables or  |meth:`set_principal_selection_enabled` |
+|                             |disables    |meth:`peek_principal_selection_enabled`|
+|                             |principal   |                                       |
+|                             |switch      |                                       |
+|                             |selection.  |                                       |
++-----------------------------+------------+---------------------------------------+
+| principal-priority          |Sets the    |meth:`set_principal_priority`          |
+|                             |principal   |meth:`peek_principal_priority`         |
+|                             |selection   |                                       |
+|                             |priority of |                                       |
+|                             |the switch  |                                       |
 +-----------------------------+------------+---------------------------------------+
 
     *Object Methods*
@@ -661,6 +738,12 @@ class fabric(pyfos_rest_util.rest_object):
                 # set the idid mode attribute to enable the
                 # insistent domain on the switch
                 fabric_obj.set_insistent_domain_id_enabled(True)
+                # enable or disable principal selection mode
+                # mode in the switch.
+                fabric_obj.set_principal_selection_enabled(True)
+                # set the priority value to select the principal
+                # switch.
+                fabric_obj.set_principal_priority(value)
                 # execute HTTP patch command to apply the object to the
                 # switch connected through session
                 fabric_obj.patch(session)
@@ -673,7 +756,9 @@ class fabric(pyfos_rest_util.rest_object):
                 # initialize the fabric object and
                 # set the insistent-domain-id-enabled attribute
                 fabric_obj = pyfos_brocade_fibrechannel_configuration.fabric(
-                    {"insistent-domain-id-enabled" : True})
+                    {"insistent-domain-id-enabled" : True,
+                     "principal-selection-enabled" : True,
+                     "principal-priority" : value})
                 # execute HTTP patch command to apply the object to the
                 # switch connected through session
                 fabric_obj.patch(session)
@@ -698,6 +783,33 @@ class fabric(pyfos_rest_util.rest_object):
 
             :rtype: True or False.
 
+
+        .. method:: set_principal_selection_enabled(value)
+
+            Set the value of principal-selection-enabled in the object.
+
+            :rtype: A dictionary of error or a success response.
+
+        .. method:: peek_principal_selection_enabled()
+
+            Reads the value assigned to principal-selection-enabled in the
+             object.
+
+            :rtype: True or False.
+
+
+        .. method:: set_principal_priority(value)
+
+            Set the value of principal-priority in the object.
+
+            :rtype: A dictionary of error or a success response.
+
+        .. method:: peek_principal_priority()
+
+            Reads the value assigned to principal-priority in the object.
+
+            :rtype: None on error and a value on success.
+
         """
 
     def __init__(self, dictvalues={}):
@@ -709,5 +821,152 @@ class fabric(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute(
             "insistent-domain-id-enabled", pyfos_type.type_bool,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("principal-selection-enabled",
+                 pyfos_type.type_bool, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("principal-priority",
+                 pyfos_type.type_str, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+
+        self.load(dictvalues, 1)
+
+
+class chassis_config_settings(pyfos_rest_util.rest_object):
+    """Class of configurable parameters of the FC switch corresponding
+       to chassis configuration.
+
+    Class Members:
+
++---------------------------------+-----------------+---------------------------------------------+
+|Attribute Name                   |Description      |Frequently Used Methods             	  |
++=================================+=================+=============================================+
+|firmware-synchronization-enabled |Enables          |:meth:`set_firmware_synchronization_enabled` |
+|                                 |firmware syncing |:meth:`peek_firmware_synchronization_enabled`|
+|                                 |from Active CP   |                                		  |
+|                                 |to Standby CP    |            	                          |
+|				  |Automatically    |                    	                  |
++---------------------------------+-----------------+---------------------------------------------+
+|http-session-ttl                 |Denotes time-out |:meth:`set_http_session_ttl`         	  |
+|                                 |value for BNA,   |:meth:`peek_http_session_ttl`	          |
+|                                 |SANNav, REST,    |                      	                  |
+|                                 |PyFOS in seconds.|                                             |
++---------------------------------+-----------------+---------------------------------------------+
+|ezserver-enabled                 |Enables          |:meth:`set_ezserver_enabled`   		  |
+|                                 |EZServer         |:meth:`peek_ezserver_enabled`		  |
+|                                 |True - enable    |                                  		  |
+|                                 |False - disable. |                                    	  |
++---------------------------------+-----------------+---------------------------------------------+
+
+    *Object Methods*
+
+        .. method:: get(session)
+
+            Returns a :class:`chassis_config_settings` object with attributes from
+            the chassis configuration.
+
+            Each object can be printed using :func:`pyfos_util.response_print`,
+            and individual attributes can be accessed through peek methods.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of error or a
+                :class:`chassis_config_settings` object.
+
+        .. method:: patch(session)
+
+            Applies configurable attribute(s) within the object to the zone
+            configuration.
+
+            *Example Using Individual Sets:*
+
+            .. code-block:: python
+
+                # Initialize the zone_configuration object
+                obj =
+                pyfos_brocade_fibrechannel_configuration.chassis_config_settings()
+                # Set the ezserver-enabled attribute
+                obj.set_ezserver-enabled('true')
+                # Execute HTTP patch command to apply the object to the
+                # switch connected through session
+                obj.patch(session)
+
+
+            .. code-block:: python
+
+                # Initialize the zone_configuration object and
+                # set the node-name-zoning-enabled attribute
+                obj =
+                pyfos_brocade_fibrechannel_configuration.ezserver-enabled(
+                    {"ezserver-enabled" : 'true'})
+                # Execute HTTP patch command to apply the object to the
+                # switch connected through session
+                obj.patch(session)
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of error or success information.
+
+    *Attribute Methods*
+
+q
+        .. method:: set_firmware_synchronization_enabled(value)
+
+            Enables Firmware synchronization automatically between Active and Standby CP's.
+
+            :param value: A boolean value.
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_firmware_synchronization_enabled()
+
+            Reads the firmware-synchronization-enabled attribute in the object.
+
+            :rtype: None or the firmware-synchronization-enabled value.
+
+        .. method:: set_http_session_ttl(value)
+
+            Sets the session timeout value for BNA, SANNav, REST, PyFOS in the object.
+
+            :param value: The Session-timeout value to be set within
+                          the object.
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_http_session_ttl()
+
+            Reads the session-timeout attribute in the object.
+
+            :rtype: None or the session-timeout value.
+
+        .. method:: set_ezserver_enabled(value)
+
+            Sets the EZServer enabling attribute in the object.
+
+            :param value: The ezserver value within
+                          the object.
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_ezserver_enabled()
+
+            Reads the ezserver_enabled attribute in the object.
+
+            :rtype: None or the ezserver-enabled value .
+
+        """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.
+                         fibrechannel_configuration_zone,
+                         "/rest/running/brocade-fibrechannel-configuration/"
+                         "chassis-config-settings",
+                         version.VER_RANGE_821_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute("firmware-synchronization-enabled",
+                 pyfos_type.type_bool, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "http-session-ttl", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("ezserver-enabled",
+                 pyfos_type.type_bool, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)

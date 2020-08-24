@@ -37,6 +37,7 @@ Access Gateway mode.
 
   | --n-port=N-PORT                           N-Port Name
   | --static-f-ports=STATIC-F-PORTS           List of statically mapped F-ports
+  | --preferred-f-port=PREFERRED-F-PORTS      List of preferred F-ports
   | --config-f-ports=CONFIG-F-PORTS           List of mapped F-ports
 
 * outputs:
@@ -100,6 +101,34 @@ Access Gateway mode.
 
         1. Statically Map F-ports to the N-port
 
+.. function:: nport_map_add.add_preferred_fports(session, nport, preffports)
+
+    * Sets the preferred N_Port for the F_Ports
+
+        Example usage of the method::
+
+           ret = nport_map_add.add_preferred_fports(session, nport, preffports)
+           print (ret)
+
+        Details::
+
+            nport_obj = n_port_map()
+            nport_obj.set_n_port(nport)
+            if preffports is not None:
+               nport_obj.set_preferred_f_ports_preferred_f_port(preffports)
+            result = _add_access_gateway_nportmap(session, nport_obj)
+
+        * inputs:
+            :param session: session returned by login.
+            :param N-port: N-port identifier in slot/port format.
+            :param preffports: Sets the preferred N_Port for the F_Ports.
+
+        * outputs:
+            :rtype: Dictionary of return status matching rest response
+
+        *use cases*
+
+        1. Sets the preferred N_Port for the F_Ports
 
 """
 
@@ -127,15 +156,25 @@ def add_static_fports(session, nport, sfports):
     nport_obj = n_port_map()
     nport_obj.set_n_port(nport)
     if sfports is not None:
-        nport_obj.set_configured_f_port_list_f_port(sfports)
+        nport_obj.set_static_f_port_list_f_port(sfports)
+    result = _add_access_gateway_nportmap(session, nport_obj)
+    return result
+
+
+def add_preferred_fports(session, nport, preffports):
+    nport_obj = n_port_map()
+    nport_obj.set_n_port(nport)
+    if preffports is not None:
+        nport_obj.set_preferred_f_ports_preferred_f_port(preffports)
     result = _add_access_gateway_nportmap(session, nport_obj)
     return result
 
 
 def validate(nportmap_obj):
     if (nportmap_obj.peek_n_port() is None or
-        (not nportmap_obj.peek_configured_f_port_list_f_port() and
-         not nportmap_obj.peek_static_f_port_list_f_port())):
+            (not nportmap_obj.peek_configured_f_port_list_f_port() and
+             not nportmap_obj.peek_static_f_port_list_f_port() and
+             not nportmap_obj.peek_preferred_f_ports_preferred_f_port())):
         return 1
     return 0
 
@@ -146,7 +185,8 @@ def main(argv):
     # print(sys.argv[1:])
 
     filters = [
-        'n_port', 'configured_f_port_list_f_port', 'static_f_port_list_f_port']
+        'n_port', 'configured_f_port_list_f_port',
+        'static_f_port_list_f_port', 'preferred_f_ports_preferred_f_port']
     inputs = brcd_util.parse(argv, n_port_map, filters, validate)
 
     session = brcd_util.getsession(inputs)

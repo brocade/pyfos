@@ -40,6 +40,7 @@ This module can be used to modify N-port mappings, Failover and Failback modes.
   | --n-port=N-PORT                           N-Port Name
   | --failback=FAILBACK                       Failback mode of N-port <0|1>
   | --failover=FAILOVER                       Failover mode of N-port <0|1>
+  | --preferred-f-ports=CONFIG-F-PORTS        List of preferred mapped F-ports
 
 * outputs:
 
@@ -165,6 +166,40 @@ configuration for the specified N_Port.
         *use cases*
 
        1. Configures Failover mode for N-port
+
+.. function:: nport_map_modify.set_preferred_fports(session, nport, preffports)
+
+     * The specified list of F-ports sets as preferred N_Port.
+
+        Example usage of the method::
+
+            ret = nport_map_modify.set_preferred_fports\
+(session, nport, preffports)
+            print (ret)
+
+        Details::
+
+            nport_obj = n_port_map()
+            nport_obj.set_n_port(nport)
+            if preffports is not None:
+                nport_obj.set_preferred_f_ports_preferred_f_port(preffports)
+
+            result = _set_access_gateway_nportmap(session, nport_obj)
+
+        * inputs:
+            :param session: session returned by login.
+            :param N-port: N-port identifier in slot/port format.
+            :param preffports: Sets the preferred N_Port for the F_Ports
+
+        * outputs:
+            :rtype: dictionary of return status matching rest response
+
+        *use cases*
+
+          1. Configures a specified list of F_Ports to be preferred mapped
+             to a given N_Port. This new map configuration will overwrite
+             any existing preferred mapping configuration for the specified
+             N_Port.
 """
 
 import sys
@@ -191,7 +226,16 @@ def set_static_fports(session, nport, sfports):
     nport_obj = n_port_map()
     nport_obj.set_n_port(nport)
     if sfports is not None:
-        nport_obj.set_configured_f_port_list_f_port(sfports)
+        nport_obj.set_static_f_port_list_f_port(sfports)
+    result = _set_access_gateway_nportmap(session, nport_obj)
+    return result
+
+
+def set_preferred_fports(session, nport, preffports):
+    nport_obj = n_port_map()
+    nport_obj.set_n_port(nport)
+    if preffports is not None:
+        nport_obj.set_preferred_f_ports_preferred_f_port(preffports)
     result = _set_access_gateway_nportmap(session, nport_obj)
     return result
 
@@ -214,10 +258,11 @@ def set_failover_mode(session, nport, failovermode):
 
 def validate(nportmap_obj):
     if (nportmap_obj.peek_n_port() is None or
-        (not nportmap_obj.peek_configured_f_port_list_f_port() and
-            not nportmap_obj.peek_static_f_port_list_f_port() and
-            nportmap_obj.peek_failover_enabled() is None and
-            nportmap_obj.peek_failback_enabled() is None)):
+            (not nportmap_obj.peek_configured_f_port_list_f_port() and
+             not nportmap_obj.peek_static_f_port_list_f_port() and
+             not nportmap_obj.peek_preferred_f_ports_preferred_f_port() and
+             nportmap_obj.peek_failover_enabled() is None and
+             nportmap_obj.peek_failback_enabled() is None)):
         return 1
     return 0
 
@@ -229,7 +274,8 @@ def main(argv):
 
     filters = [
         'n_port', 'configured_f_port_list_f_port', 'static_f_port_list_f_port',
-        'failback_enabled', 'failover_enabled']
+        'preferred_f_ports_preferred_f_port', 'failback_enabled',
+        'failover_enabled']
     inputs = brcd_util.parse(argv, n_port_map, filters, validate)
 
     session = brcd_util.getsession(inputs)

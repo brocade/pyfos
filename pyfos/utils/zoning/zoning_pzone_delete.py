@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+# Copyright 2018-2019 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -59,7 +59,8 @@ def pzonedelete(session, zones):
         zones = [
                     {
                         "zone-name": name,
-                        "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                        "zone-type": 1,
+                        "zone-type-string": "user-created-peer-zone"
                     }
                ]
         result = pzonedelete(session, zones)
@@ -84,7 +85,8 @@ def __pzonedelete(session, name):
     zones = [
                 {
                     "zone-name": name,
-                    "zone-type": pyfos_zone.ZONE_TYPE_PEER
+                    "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                    "zone-type-string": pyfos_zone.ZONE_TYPE_STRING_PEER
                 }
             ]
     return pzonedelete(session, zones)

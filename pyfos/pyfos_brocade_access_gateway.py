@@ -606,6 +606,10 @@ N_Port-to-F_Port mapping.
         +------------------------------------------------+-----------------------------------+------------------------------------------------------------+
         | n-port-info/attached-switch-ip-address         | The attached switch out-of-band   |:func:`peek_n_port_info_attached_switch_ip_address`         |
         |                                                | IP address.                       |                                                            |
+        |                                                |                                   |                                                            |
+        +------------------------------------------------+-----------------------------------+------------------------------------------------------------+
+        | preferred-f-ports/preferred-f-port             | preferred N_Port for the F_Ports  |:func:`peek_preferred_f_ports_preferred_f_port`             |
+        |                                                |                                   |:func:`set_preferred_f_ports_preferred_f_port`              |
         +------------------------------------------------+-----------------------------------+------------------------------------------------------------+
 
     *Object Methods*
@@ -818,6 +822,19 @@ N_Port-to-F_Port mapping.
 
             :rtype: None or the out-of-band IP addresses of the fabric switch.
 
+        .. method:: set_preferred_f_ports_preferred_f_port(fport_list)
+
+            Sets the preferred N_Port for the F_Ports in the object.
+
+            :param fport_list: A list of F_Ports to be mapped statically.
+            :rtype: None or a dictionary of error information.
+
+        .. method:: peek_preferred_f_ports_preferred_f_port()
+
+            Gets the preferred N_Port for the F_Ports in the object.
+
+            :rtype: None or a list of preferred F_Ports.
+
 
         """
 
@@ -851,7 +868,7 @@ N_Port-to-F_Port mapping.
             "attached-port-wwn", pyfos_type.type_wwn,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG), ["n-port-info"])
         self.add(pyfos_rest_util.rest_attribute(
-            "n-port-fcid", pyfos_type.type_int,
+            "n-port-fcid", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG), ["n-port-info"])
         self.add(pyfos_rest_util.rest_attribute(
             "attached-switch-user-friendly-name", pyfos_type.type_str,
@@ -876,6 +893,13 @@ N_Port-to-F_Port mapping.
             "f-port", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
             ["static-f-port-list"])
+        self.add(pyfos_rest_util.rest_attribute(
+            "preferred-f-ports", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+        self.add(pyfos_rest_util.rest_attribute(
+            "preferred-f-port", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
+            ["preferred-f-ports"])
 
         self.load(dictvalues, 1)
 

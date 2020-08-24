@@ -1,4 +1,4 @@
-# Copyright © 2018 Broadcom.  All rights reserved.
+# Copyright © 2018-2019 Broadcom.  All rights reserved.
 # The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -251,11 +251,11 @@ import getopt
 import ast
 import sys
 import os
-import paramiko
 import select
 import threading
-import socket
+# import socket
 import base64
+import paramiko
 from pyfos import pyfos_util
 from pyfos.pyfos_type import pyfos_type, rest_yang_type, rest_yang_config
 from pyfos.pyfos_version import fosversion, fosversion_range, VER_RANGE_820_ABOVE
@@ -268,6 +268,7 @@ class rest_obj_type():
     """
     unknown = 0
     reservedcount = 1
+    pseudo_rest_object = 2
     # do no use enums from 1-9
     extension_start = 10
     ipif = 11
@@ -279,6 +280,14 @@ class rest_obj_type():
     ipsec = 17
     gige = 18
     gige_stats = 19
+    dp_hcl_status = 20
+    traffic_control_list = 21
+    global_lan_statistics = 22
+    lan_flow_statistics = 23
+    circuit_qos_statistics = 24
+    wan_statistics = 25
+    extension_operation_parameters = 26
+    extension_operation_status = 27
     extension_end = 100
     fos_start = 101
     zone = 102
@@ -293,8 +302,16 @@ class rest_obj_type():
     fdmi_port = 111
     logical_switch = 112
     name_server = 113
+    zone_fabric_lock = 114
+    fabric_topology_domain = 115
+    fabric_topology_route = 116
+    logical_e_port = 117
+    ag_show = 118
     fibrechannel_configuration_port = 121
     fibrechannel_configuration_zone = 122
+    fabric_traffic_controller = 123
+    lsan_zone = 123
+    lsan_device = 124
     # configuration
     switch_configuration = 130
     f_port_login_settings = 131
@@ -307,6 +324,11 @@ class rest_obj_type():
     ps_unit = 156
     blade_slot = 157
     chassis_show = 158
+    sensor_id = 159
+    wwn_unit = 160
+    history_show = 161
+    routing_configuration = 162
+    edge_fabric_alias = 163
     # logging
     audit = 170
     syslog = 171
@@ -314,6 +336,9 @@ class rest_obj_type():
     raslog = 173
     raslog_module = 174
     log_quiet_control = 175
+    error_log = 176
+    audit_log = 177
+    supportftp = 178
     # AG objects
     ag_start = 200
     ag_portgroup = 201
@@ -323,6 +348,13 @@ class rest_obj_type():
     ag_nportsettings = 205
     ag_device_list = 206
     ag_end = 299
+    # Layer2
+    portchannel = 300
+    lldp_global = 301
+    lldp_profile = 302
+    lldp_neighbor = 303
+    lldp_statistics = 304
+    lldp_operations = 305
     # system security objects 400 - 500
     time_zone = 400
     clock_server = 401
@@ -349,10 +381,16 @@ class rest_obj_type():
     sshutil_key = 422
     sshutil_public_key = 423
     sshutil_public_key_action = 424
-    fos_end = 425
+    security_certificate_extension = 425
+    sensor_id = 426
+    wwn_unit = 427
+    history_show = 428
+    # fos_end = 425
     # use enums from 100 onwards
     license_start = 500
     license = 501
+    ports_on_demand_license_info = 502
+    license_parameters = 503
     license_end = 599
     #SNMP
     snmp_start = 600
@@ -376,17 +414,31 @@ class rest_obj_type():
     system_resources = 707
     dashboard_misc = 708
     dashboard_rule = 709
+    credit_stall_dashboard = 710
+    oversubscription_dashboard = 711
+    dashboard_history = 712
+    fpi_profile = 713
     #Module version
     module_version = 800
+    # Supportlink
+    supportlink_profile = 1000
     #RPC
     rpc_start = 5000
     rpc_show_status = 5001
     rpc_supportsave = 5002
-    rpc_firmwaredownload = 5003
-    rpc_license = 5004
-    rpc_firmwarecleaninstall = 5005
+    rpc_device_management = 5003
+    fabric_operation_parameters = 5004
+    slot_test = 5005
+    rpc_firmwaredownload = 5006
+    rpc_license = 5007
+    rpc_firmwarecleaninstall = 5008
+    rpc_config = 5009
+    rpc_supportlink = 5010
+    rpc_lldp = 5011
+    zone_operation_parameters = 5012
 
     rpc_end = 6000
+    end_user_license_agreement = 6001
 
 
 def getrestobjectname(objtype, fmt=0):
@@ -415,12 +467,30 @@ def getrestobjectname(objtype, fmt=0):
             return "Extension GigE"
         elif objtype == rest_obj_type.gige_stats:
             return "Extension GigE Stats"
+        elif objtype == rest_obj_type.dp_hcl_status:
+            return "Extension DP HCL Status"
+        elif objtype == rest_obj_type.lan_flow_statistics:
+            return "Extension LAN Flow Stats"
+        elif objtype == rest_obj_type.global_lan_statistics:
+            return "Extension Global LAN Stats"
+        elif objtype == rest_obj_type.traffic_control_list:
+            return "Extension Traffic Control List"
+        elif objtype == rest_obj_type.wan_statistics:
+            return "Extension WAN Statistics"
+        elif objtype == rest_obj_type.extension_operation_parameters:
+            return "ExtensionRPC"
+        elif objtype == rest_obj_type.extension_operation_status:
+            return "ExtensionRPCstatus"
+        elif objtype == rest_obj_type.circuit_qos_statistics:
+            return "Extension Circuit QOS Stats"
         elif objtype == rest_obj_type.zone:
             return "FOS ZONE"
         elif objtype == rest_obj_type.zone_defined:
             return "FOS Defined Zone"
         elif objtype == rest_obj_type.zone_effective:
             return "FOS Effective Zone"
+        elif objtype == rest_obj_type.zone_fabric_lock:
+            return "FOS Zone Fabric Lock"
         elif objtype == rest_obj_type.fabric:
             return "FOS Fabric"
         elif objtype == rest_obj_type.switch:
@@ -449,8 +519,20 @@ def getrestobjectname(objtype, fmt=0):
             return "FOS FDMI Port"
         elif objtype == rest_obj_type.logical_switch:
             return "FOS Logical Switch"
+        elif objtype == rest_obj_type.logical_e_port:
+            return "FOS Logical Fabric"
+        elif objtype == rest_obj_type.lsan_zone:
+            return "FCR LSAN Zone"
+        elif objtype == rest_obj_type.lsan_device:
+            return "FCR LSAN Device"
+        elif objtype == rest_obj_type.routing_configuration:
+            return "FCR Switch Routing Configuration"
+        elif objtype == rest_obj_type.edge_fabric_alias:
+            return "FCR Edge Fabric Alias"
         elif objtype == rest_obj_type.name_server:
             return "FOS Name Server"
+        elif objtype == rest_obj_type.ag_show:
+            return "AG Show"
         elif objtype == rest_obj_type.fibrechannel_configuration_port:
             return "FOS Fibrechannel Configuration Port"
         elif objtype == rest_obj_type.fibrechannel_configuration_zone:
@@ -525,22 +607,38 @@ def getrestobjectname(objtype, fmt=0):
             return "syslog server details"
         elif objtype == rest_obj_type.log_setting:
             return "log setting details"
+        elif objtype == rest_obj_type.supportftp:
+            return "supportftp cfg details"
+        elif objtype == rest_obj_type.supportlink_profile:
+            return "supportlink_profile cfg details"
         elif objtype == rest_obj_type.rpc_show_status:
             return "rpc show status"
         elif objtype == rest_obj_type.rpc_supportsave:
             return "rpc supportsave"
+        elif objtype == rest_obj_type.rpc_device_management:
+            return "rpc device management"
         elif objtype == rest_obj_type.raslog:
             return "raslog details"
         elif objtype == rest_obj_type.raslog_module:
             return "raslog module details"
         elif objtype == rest_obj_type.log_quiet_control:
             return "log quiet details"
+        elif objtype == rest_obj_type.error_log:
+            return "errdump logs"
+        elif objtype == rest_obj_type.audit_log:
+            return "auditdump logs"
         elif objtype == rest_obj_type.switch_configuration:
             return "configure switch details"
         elif objtype == rest_obj_type.f_port_login_settings:
             return "configure f-port login details"
         elif objtype == rest_obj_type.license:
             return "license"
+        elif objtype == rest_obj_type.ports_on_demand_license_info:
+            return "port on demand license info"
+        elif objtype == rest_obj_type.license_parameters:
+            return "license parameters"
+        elif objtype == rest_obj_type.end_user_license_agreement:
+            return "end user license agreement"
         elif objtype == rest_obj_type.system:
             return "SNMP system configuration details"
         elif objtype == rest_obj_type.mib_capability:
@@ -559,12 +657,34 @@ def getrestobjectname(objtype, fmt=0):
             return "SNMP access control configuration details"
         elif objtype == rest_obj_type.module_version:
             return "Module version details"
+        elif objtype == rest_obj_type.security_certificate_extension:
+            return "Security certificate for Extension"
+        elif objtype == rest_obj_type.fabric_topology_domain:
+            return "FOS Topology Domain"
+        elif objtype == rest_obj_type.fabric_topology_route:
+            return "FOS Topology Route"
+        elif objtype == rest_obj_type.fabric_traffic_controller:
+            return "FOS Fabric Traffic Controller"
+        elif objtype == rest_obj_type.sensor_id:
+            return "sensor details"
+        elif objtype == rest_obj_type.wwn_unit:
+            return "WWNcard details"
+        elif objtype == rest_obj_type.history_show:
+            return "history log details"
+        elif objtype == rest_obj_type.fabric_operation_parameters:
+            return "fabric operation parameters"
+        elif objtype == rest_obj_type.slot_test:
+            return "slot_test"
         elif objtype == rest_obj_type.rpc_firmwaredownload:
             return "rpc firmwaredownload"
         elif objtype == rest_obj_type.rpc_license:
             return "rpc license"
         elif objtype == rest_obj_type.rpc_firmwarecleaninstall:
             return "rpc firmwarecleaninstall"
+        elif objtype == rest_obj_type.rpc_config:
+            return "rpc config"
+        elif objtype == rest_obj_type.zone_operation_parameters:
+            return "zone operation parameters"
         else:
             return "NOT_EXT_OBJECT"
     else:
@@ -588,12 +708,30 @@ def getrestobjectname(objtype, fmt=0):
             return "GigE"
         elif objtype == rest_obj_type.gige_stats:
             return "GigEStats"
+        elif objtype == rest_obj_type.dp_hcl_status:
+            return "DPHCLStatus"
+        elif objtype == rest_obj_type.lan_flow_statistics:
+            return "LANFlowStats"
+        elif objtype == rest_obj_type.global_lan_statistics:
+            return "GlobalLANStats"
+        elif objtype == rest_obj_type.traffic_control_list:
+            return "TCL"
+        elif objtype == rest_obj_type.wan_statistics:
+            return "WANStats"
+        elif objtype == rest_obj_type.extension_operation_parameters:
+            return "ExtensionRPC"
+        elif objtype == rest_obj_type.extension_operation_status:
+            return "ExtensionRPCstatus"
+        elif objtype == rest_obj_type.circuit_qos_statistics:
+            return "CircuitQOSStats"
         elif objtype == rest_obj_type.zone:
             return "zone"
         elif objtype == rest_obj_type.zone_defined:
             return "definedzone"
         elif objtype == rest_obj_type.zone_effective:
             return "effectivezone"
+        elif objtype == rest_obj_type.zone_fabric_lock:
+            return "zonefabriclock"
         elif objtype == rest_obj_type.fabric:
             return "Fabric"
         elif objtype == rest_obj_type.switch:
@@ -606,6 +744,8 @@ def getrestobjectname(objtype, fmt=0):
             return "portdiag"
         elif objtype == rest_obj_type.name_server:
             return "nameserver"
+        elif objtype == rest_obj_type.ag_show:
+            return "agshow"
         elif objtype == rest_obj_type.fibrechannel_configuration_port:
             return "portconfig"
         elif objtype == rest_obj_type.fibrechannel_configuration_zone:
@@ -624,6 +764,16 @@ def getrestobjectname(objtype, fmt=0):
             return "agdevice_list"
         elif objtype == rest_obj_type.logical_switch:
             return "Logicalswitch"
+        elif objtype == rest_obj_type.logical_e_port:
+            return "Logicalfabric"
+        elif objtype == rest_obj_type.lsan_zone:
+            return "fcrlsanzone"
+        elif objtype == rest_obj_type.lsan_device:
+            return "fcrlsandevice"
+        elif objtype == rest_obj_type.routing_configuration:
+            return "fcrroutingconfiguration"
+        elif objtype == rest_obj_type.edge_fabric_alias:
+            return "fcredgefabricalias"
         elif objtype == rest_obj_type.time_zone:
             return "time_zone"
         elif objtype == rest_obj_type.clock_server:
@@ -702,22 +852,38 @@ def getrestobjectname(objtype, fmt=0):
             return "syslogserver"
         elif objtype == rest_obj_type.log_setting:
             return "logsetting"
+        elif objtype == rest_obj_type.supportftp:
+            return "trace"
+        elif objtype == rest_obj_type.supportlink_profile:
+            return "supportlink_profile"
         elif objtype == rest_obj_type.rpc_show_status:
             return "rpcshowstatus"
         elif objtype == rest_obj_type.rpc_supportsave:
             return "rpcsupportsave"
+        elif objtype == rest_obj_type.rpc_device_management:
+            return "rpc device management"
         elif objtype == rest_obj_type.raslog:
             return "raslog"
         elif objtype == rest_obj_type.raslog_module:
             return "raslog_module"
         elif objtype == rest_obj_type.log_quiet_control:
             return "log_quiet_control"
+        elif objtype == rest_obj_type.error_log:
+            return "error_log"
+        elif objtype == rest_obj_type.audit_log:
+            return "audit_log"
         elif objtype == rest_obj_type.switch_configuration:
             return "switch_configuration"
         elif objtype == rest_obj_type.f_port_login_settings:
             return "f_port_login_settings"
         elif objtype == rest_obj_type.license:
             return "license"
+        elif objtype == rest_obj_type.ports_on_demand_license_info:
+            return "ports_on_demand_license_info"
+        elif objtype == rest_obj_type.license_parameters:
+            return "license_parameters"
+        elif objtype == rest_obj_type.end_user_license_agreement:
+            return "end_user_license_agreement"
         elif objtype == rest_obj_type.system:
             return "system"
         elif objtype == rest_obj_type.mib_capability:
@@ -736,12 +902,34 @@ def getrestobjectname(objtype, fmt=0):
             return "access_ control"
         elif objtype == rest_obj_type.module_version:
             return "module_version"
+        elif objtype == rest_obj_type.security_certificate_extension:
+            return "security_cert_extension"
+        elif rest_obj_type.fabric_topology_domain:
+            return "topology_domain"
+        elif rest_obj_type.fabric_topology_route:
+            return "topology_route"
+        elif objtype == rest_obj_type.fabric_traffic_controller:
+            return "fabric_traffic_controller"
+        elif objtype == rest_obj_type.wwn_unit:
+            return "wwncarddetails"
+        elif objtype == rest_obj_type.history_show:
+            return "historydetails"
+        elif objtype == rest_obj_type.sensor_id:
+            return "sensordetails"
+        elif objtype == rest_obj_type.fabric_operation_parameters:
+            return "fabricoperationparameters"
+        elif objtype == rest_obj_type.slot_test:
+            return "slot_test"
         elif objtype == rest_obj_type.rpc_firmwaredownload:
             return "rpcfirmwaredownload"
         elif objtype == rest_obj_type.rpc_license:
             return "rpclicense"
         elif objtype == rest_obj_type.rpc_firmwarecleaninstall:
             return "rpcfirmwarecleaninstall"
+        elif objtype == rest_obj_type.rpc_config:
+            return "rpcconfig"
+        elif objtype == rest_obj_type.zone_operation_parameters:
+            return "zoneoperationparameters"
         else:
             return "Unknown"
 
@@ -931,6 +1119,7 @@ class rest_attribute():
         self.soption = None
         self.help = None
         self.optional = 0
+        self.noarg = False
         self.cmdline = None
         self.row = 0
 
@@ -950,6 +1139,8 @@ class rest_attribute():
         if self.checkusagefilter(None) == 0:
             return
         retdict = self.restobject.overwriteparser(self.uname)
+        if retdict is None:
+            retdict = self.restobject.overwriteparser(self.name)
         self.soption = None
         self.loption = str(self.getallparentstring() + self.getname())
         self.help = "set \"" + self.name + "\""
@@ -1471,10 +1662,9 @@ class rest_attribute():
                                     if k1 in myvalue.keys():
                                         if v1.compare(myvalue[k1]) == 1:
                                             continue
-                                        else:
-                                            compare -= 1
-                                            if compare == 0:
-                                                break
+                                        compare -= 1
+                                        if compare == 0:
+                                            break
 
                                 if compare == 0:
                                     break
@@ -2092,7 +2282,8 @@ class rest_attribute():
             return 0
         if self.filter == 1 and op in (rest_get_method.GET_ALL_FILTERS, rest_get_method.GET_ALL_FILTERS_KEY):
             return 1
-        # print(" Name :" , self.name,  "config: ", self.configchanged," OP:", op, "VAL", self.value)
+        self.dbg_print(DBG, " Name :", self.name, "config: ",
+                       self.configchanged, " OP:", op, "VAL", self.value)
         if self.is_leaf:
             if op == rest_get_method.GET_ALL_KEY_CONFIG:
                 # if self.getisconfig() or self.getiskey() or self.is_mandatory:
@@ -2252,18 +2443,80 @@ def ssh_cmd(login, password, ipaddr, hostkeymust, cmdstr):
         ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
     try:
         ssh.connect(ipaddr, username=login, password=password)
+    # pylint: disable=W0703
     except Exception as e:
-        return (SSH_FAILED_PREFIX + str(e))
+        return SSH_FAILED_PREFIX + str(e)
 
     e_stdin, e_stdout, e_stderr = ssh.exec_command(cmdstr)
     e_resp = e_stdout.read().decode()
+    # mask pylint W0612: Unused variable 'e_stderr' (unused-variable`)
+    # mask pylint W0612: Unused variable 'e_stdin' (unused-variable)
+    if e_stdin is not None:
+        e_stdin = None
+    if e_stderr is not None:
+        e_stderr = None
 
     ssh.close()
 
     return e_resp
 
+EULA_LAST_LINE = "Effective October 1, 2019"
 
-def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
+def ssh_eula_text(login, password, ipaddr, hostkeymust):
+    ssh = paramiko.SSHClient()
+    ssh.load_system_host_keys()
+    if not hostkeymust:
+        ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
+    try:
+        ssh.connect(ipaddr, username=login, password=password)
+    # pylint: disable=W0703
+    except Exception as e:
+        return SSH_FAILED_PREFIX + str(e)
+
+    chan = ssh.invoke_shell()
+    time.sleep(5)
+    cmd = "firmwaredownload --showEULA"
+    chan.send(cmd + "\n")
+
+    last_line = ""
+    eula_text = ""
+    while True:
+        if chan.exit_status_ready():
+            break
+        rl, wl, xl = select.select([chan], [], [], 0.0)
+        # mask pylint W0612: Unused variable 'xl' (unused-variable)
+        if xl is not None:
+            xl = None
+        # mask pylint W0612: Unused variable 'wl' (unused-variable)
+        if wl is not None:
+            wl = None
+        if len(rl) > 0:
+            last_line += chan.recv(1024).decode("ISO-8859-1")
+            if last_line.endswith("\n") or EULA_PAGE in last_line or EULA_LAST_LINE in last_line:
+                if EULA_PAGE in last_line:
+                    eula_text = eula_text + last_line.replace(EULA_PAGE, "")
+                    chan.send(" ")
+                else:
+                    eula_text = eula_text + last_line
+
+                if EULA_LAST_LINE in last_line:
+                    break
+
+                last_line = ""
+
+    ssh.close()
+
+    return eula_text
+
+MAX_PROGRESS = 330
+PASSWORD_INPUT_POMPT = "Password: "
+CONTINUE_PROMPT = "Do you want to continue (Y/N) [Y]:"
+EULA_PROMPT1 = "Please respond with (Y/y) to accept, (N/n) to Not accept, or (D/d) to Display the EULA):"
+EULA_PROMPT2 = "Please respond with (Y/y) to Accept, (N/n) to Not accept, or (D/d) to Display the EULA:"
+EULA_PAGE = "Type <CR> or <SPACE BAR> to continue, <q> to stop"
+NOT_SUPPORTED = "Cannot download the requested firmware because the firmware doesn't support this platform. Please enter another firmware path."
+
+def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr, eula_action):
     session["fd_thread_status"] = "in-progress"
     session["fd_thread_message"] = "in-progress"
     ssh = paramiko.SSHClient()
@@ -2272,25 +2525,34 @@ def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
         ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
     try:
         ssh.connect(ipaddr, username=login, password=password)
+    # pylint: disable=W0703
     except Exception as e:
         session["fd_thread_status"] = "error"
         session["fd_thread_message"] = SSH_FAILED_PREFIX + str(e)
-        return (SSH_FAILED_PREFIX + str(e))
-
+        return SSH_FAILED_PREFIX + str(e)
 
     chan = ssh.invoke_shell()
+    time.sleep(5)
     chan.send(cmdstr + "\n")
 
     keep_progress = False
     progress = 0
     last_line = ""
+    eula_display = False
+    eula_text = ""
     while True:
         if chan.exit_status_ready():
             break
         rl, wl, xl = select.select([chan], [], [], 0.0)
+        # mask pylint W0612: Unused variable 'xl' (unused-variable)
+        if xl is not None:
+            xl = None
+        # mask pylint W0612: Unused variable 'wl' (unused-variable)
+        if wl is not None:
+            wl = None
         if len(rl) > 0:
             last_line += chan.recv(1024).decode()
-            if last_line.endswith("\n") or "Do you want to continue (Y/N) [Y]:" in last_line:
+            if last_line.endswith("\n") or CONTINUE_PROMPT in last_line or PASSWORD_INPUT_POMPT in last_line or EULA_PROMPT1 in last_line or EULA_PROMPT2 in last_line or EULA_PAGE in last_line or NOT_SUPPORTED in last_line:
                 if session["debug"]:
                     if "firmwaredownload  -p" in last_line:
                         print("firmwaredownload output: command being suppressed to avoid printing password")
@@ -2332,11 +2594,47 @@ def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
                     session["fd_thread_message"] = last_line
                     break
 
-                if "Do you want to continue (Y/N) [Y]:" in last_line:
+                if NOT_SUPPORTED in last_line:
+                    if session["debug"]:
+                        print("The firmware does not support the platform")
+                    session["fd_thread_status"] = "error"
+                    session["fd_thread_message"] = last_line
+                    break
+
+                if CONTINUE_PROMPT in last_line:
                     if session["debug"]:
                         print("firmwaredownload got prompt")
                     chan.send("\n")
                     keep_progress = True
+
+                if PASSWORD_INPUT_POMPT in last_line:
+                    if session["debug"]:
+                        print("firmwaredownload got password prompt")
+                    chan.send("\n")
+
+                if eula_display:
+                    if EULA_PAGE in last_line:
+                        eula_text = eula_text + last_line.replace(EULA_PAGE, "")
+                        chan.send(" ")
+                    elif EULA_PROMPT1 in last_line or EULA_PROMPT2 in last_line:
+                        chan.send("N\n")
+                        session["fd_thread_status"] = "error"
+                        session["fd_thread_message"] = eula_text
+                        break
+                    else:
+                        eula_text = eula_text + last_line
+                else:
+                    if EULA_PROMPT1 in last_line or EULA_PROMPT2 in last_line:
+                        if session["debug"]:
+                            print("firmwaredownload got eula prompt", eula_action)
+                        if eula_action == "accept-eula":
+                            chan.send("Y\n")
+                        elif eula_action == "display-eula":
+                            eula_display = True
+                            chan.send("D\n")
+                        else:
+                            chan.send("N\n")
+                            break
 
                 if "HA Rebooting ..." in last_line:
                     if session["debug"]:
@@ -2370,10 +2668,10 @@ def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
 
                 if keep_progress:
                     progress += 1
-                    session["fd_completion"] = int((progress * 100) / 220)
+                    session["fd_completion"] = int((progress * 100) / MAX_PROGRESS)
 
                 last_line = ""
-                
+
     ssh.close()
 
     if session["fd_thread_status"] != "done":
@@ -2382,6 +2680,7 @@ def ssh_firmwaredownload(session, login, password, ipaddr, hostkeymust, cmdstr):
         session["fd_thread_status"] = "error"
 
 
+# pylint: disable=W0613
 def find_if_chassis(session, login, password, ipaddr, hostkeymust):
     ssh_resp = ssh_cmd(session["username"], session["password"], session["ip_addr"], False, "hashow")
     if session["debug"]:
@@ -2397,6 +2696,7 @@ def find_if_chassis(session, login, password, ipaddr, hostkeymust):
     lines = ssh_resp.splitlines()
     for line in lines:
         if ": Standby," in line or ": Non-Redundant" in line:
+            # pylint: disable=R1723
             if "CP0" in line:
                 standby_cp = "CP0"
                 break
@@ -2444,27 +2744,37 @@ def find_if_chassis(session, login, password, ipaddr, hostkeymust):
 
 FIRMWARECLEANINSTALL_REBOOT = "The system is going down for reboot NOW for firmware clean install"
 
-def ssh_firmwarecleaninstall(session, login, password, ipaddr, hostkeymust, cmdstr):
+def ssh_firmwarecleaninstall(session, login, password, ipaddr, hostkeymust, cmdstr, eula_action):
     ssh = paramiko.SSHClient()
     ssh.load_system_host_keys()
     if not hostkeymust:
         ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
     try:
         ssh.connect(ipaddr, username=login, password=password)
+    # pylint: disable=W0703
     except Exception as e:
-        return (SSH_FAILED_PREFIX + str(e))
+        return SSH_FAILED_PREFIX + str(e)
 
     chan = ssh.invoke_shell()
+    time.sleep(5)
     chan.send(cmdstr + "\n")
 
     last_line = ""
+    eula_display = False
+    eula_text = ""
     while True:
         if chan.exit_status_ready():
             break
         rl, wl, xl = select.select([chan], [], [], 0.0)
+        # mask pylint W0612: Unused variable 'xl' (unused-variable)
+        if xl is not None:
+            xl = None
+        # mask pylint W0612: Unused variable 'wl' (unused-variable)
+        if wl is not None:
+            wl = None
         if len(rl) > 0:
             last_line += chan.recv(1024).decode("ISO-8859-1")
-            if last_line.endswith("\n") or "Do you want to continue (Y/N) [Y]:" in last_line:
+            if last_line.endswith("\n") or CONTINUE_PROMPT in last_line or PASSWORD_INPUT_POMPT in last_line or EULA_PROMPT1 in last_line or EULA_PROMPT2 in last_line or EULA_PAGE in last_line or NOT_SUPPORTED in last_line:
                 if session["debug"]:
                     if "firmwarecleaninstall  -p" in last_line:
                         print("firmwarecleaninstall output: command being suppressed to avoid printing password")
@@ -2478,14 +2788,174 @@ def ssh_firmwarecleaninstall(session, login, password, ipaddr, hostkeymust, cmds
                     time.sleep(20)
                     break
 
-                if "Do you want to continue (Y/N) [Y]:" in last_line:
+                if CONTINUE_PROMPT in last_line:
                     if session["debug"]:
                         print("firmwarecleaninstall got prompt")
+                    chan.send("\n")
+
+                if eula_display:
+                    if EULA_PAGE in last_line:
+                        eula_text = eula_text + last_line.replace(EULA_PAGE, "")
+                        chan.send(" ")
+                    elif EULA_PROMPT1 in last_line or EULA_PROMPT2 in last_line:
+                        chan.send("N\n")
+                        last_line = eula_text
+                        break
+                    else:
+                        eula_text = eula_text + last_line
+                else:
+                    if EULA_PROMPT1 in last_line or EULA_PROMPT2 in last_line:
+                        if session["debug"]:
+                            print("firmwaredownload got eula prompt", eula_action)
+                        if eula_action == "accept-eula":
+                            chan.send("Y\n")
+                        elif eula_action == "display-eula":
+                            eula_display = True
+                            chan.send("D\n")
+                        else:
+                            chan.send("N\n")
+                            break
+
+                if PASSWORD_INPUT_POMPT in last_line:
+                    if session["debug"]:
+                        print("firmwarecleaninstall got password prompt")
                     chan.send("\n")
 
                 if "The server is inaccessible or firmware path is invalid" in last_line:
                     if session["debug"]:
                         print("firmwarecleaninstall unable to get the file")
+                    break
+
+                if NOT_SUPPORTED in last_line:
+                    if session["debug"]:
+                        print("The firmware is not supported on this platform")
+                    break
+
+                last_line = ""
+
+    ssh.close()
+
+    return last_line
+
+CONFIG_PASSWORD_PROMPT = " password: "
+CONFIG_CONTINUE_PROMPT = "Do you want to continue [y/n]:"
+CONFIG_TERMINIATED_LINE = "Terminated"
+CONFIG_UP_COMPLETED_LINE = "configUpload complete:"
+CONFIG_REBOOT_LINE = "Rebooting!"
+CONFIG_DOWN_COMPLETED_LINE = "configDownload complete:"
+CONFIG_DOWN_COMPLETED_LINE2 = "port2area files downloaded successfully"
+CONFIG_USAGE = "configupload Usage"
+CONFIG_SEG_FAULT = "Segmentation fault"
+CONFIG_UNKNOWN_ID = "unknown fabric ID"
+CONFIG_NOT_PERMITTED = "configUpload not permitted"
+CONFIG_DOWN_STOPPED = "configdownload stopped"
+
+def ssh_config(session, login, password, ipaddr, hostkeymust, cmdstr, secure_password):
+    ssh = paramiko.SSHClient()
+    ssh.load_system_host_keys()
+    if not hostkeymust:
+        ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
+    try:
+        ssh.connect(ipaddr, username=login, password=password)
+    # pylint: disable=W0703
+    except Exception as e:
+        return SSH_FAILED_PREFIX + str(e)
+
+    chan = ssh.invoke_shell()
+    time.sleep(5)
+    chan.send(cmdstr + "\n")
+
+    last_line = ""
+    while True:
+        if chan.exit_status_ready():
+            break
+        rl, wl, xl = select.select([chan], [], [], 0.0)
+        # mask pylint W0612: Unused variable 'xl' (unused-variable)
+        if xl is not None:
+            xl = None
+        # mask pylint W0612: Unused variable 'wl' (unused-variable)
+        if wl is not None:
+            wl = None
+        if len(rl) > 0:
+            last_line += chan.recv(1024).decode("ISO-8859-1")
+            if last_line.endswith("\n") or CONFIG_PASSWORD_PROMPT in last_line or CONFIG_CONTINUE_PROMPT in last_line:
+                if session["debug"]:
+                    if "configupload  -all" in last_line:
+                        print("config output: configupload -all")
+                    elif "configupload  -vf" in last_line:
+                        print("config output: configupload -vf")
+                    elif "configupload  -map" in last_line:
+                        print("config output: configupload -map")
+                    elif "configdownload  -all" in last_line:
+                        print("config output: configdownload -all")
+                    elif "configdownload  -vf" in last_line:
+                        print("config output: configdownload -vf")
+                    elif "configdownload  -map" in last_line:
+                        print("config output: configdownload -map")
+                    else:
+                        print("config output:", last_line)
+
+                if CONFIG_PASSWORD_PROMPT in last_line:
+                    if session["debug"]:
+                        print("config got password prompt")
+                    chan.send(base64.b64decode(secure_password).decode("utf-8") + "\n")
+
+                if CONFIG_CONTINUE_PROMPT in last_line:
+                    if session["debug"]:
+                        print("config got continue prompt")
+                    chan.send("y\n")
+
+                if CONFIG_TERMINIATED_LINE in last_line or CONFIG_UP_COMPLETED_LINE in last_line or CONFIG_REBOOT_LINE in last_line or CONFIG_DOWN_COMPLETED_LINE in last_line or CONFIG_USAGE in last_line or CONFIG_SEG_FAULT in last_line or CONFIG_UNKNOWN_ID in last_line or CONFIG_NOT_PERMITTED in last_line or CONFIG_DOWN_COMPLETED_LINE2 in last_line or CONFIG_DOWN_STOPPED in last_line:
+                    if session["debug"]:
+                        print("breaking.")
+                    break
+
+                last_line = ""
+
+    ssh.close()
+
+    return last_line
+
+REBOOT_PROMPT = "Are you sure you want to reboot the switch [y/n]?"
+
+def ssh_reboot(session, login, password, ipaddr, hostkeymust, cmdstr):
+    ssh = paramiko.SSHClient()
+    ssh.load_system_host_keys()
+    if not hostkeymust:
+        ssh.set_missing_host_key_policy(paramiko.client.WarningPolicy())
+    try:
+        ssh.connect(ipaddr, username=login, password=password)
+    # pylint: disable=W0703
+    except Exception as e:
+        return SSH_FAILED_PREFIX + str(e)
+
+    chan = ssh.invoke_shell()
+    time.sleep(5)
+    chan.send(cmdstr + "\n")
+
+    last_line = ""
+    while True:
+        if chan.exit_status_ready():
+            break
+        rl, wl, xl = select.select([chan], [], [], 0.0)
+        # mask pylint W0612: Unused variable 'xl' (unused-variable)
+        if xl is not None:
+            xl = None
+        # mask pylint W0612: Unused variable 'wl' (unused-variable)
+        if wl is not None:
+            wl = None
+        if len(rl) > 0:
+            last_line += chan.recv(1024).decode("ISO-8859-1")
+            if last_line.endswith("\n") or REBOOT_PROMPT in last_line:
+                if session["debug"]:
+                    print("reboot output:", last_line)
+
+                if REBOOT_PROMPT in last_line:
+                    if session["debug"]:
+                        print("reboot got prompt")
+                    chan.send("y\n")
+                    time.sleep(10)
+                    last_line = "Rebooting!"
                     break
 
                 last_line = ""
@@ -2500,6 +2970,8 @@ FIRMWAREDOWNLOAD_URI = "/rest/operations/firmwaredownload"
 FIRMWARECLEANINSTALL_URI = "/rest/operations/firmwarecleaninstall"
 SHOW_STATUS_URI = "/rest/operations/show-status"
 CHASSIS_URI = "/rest/running/brocade-chassis/chassis"
+LICENSE_EULA_URI = "/rest/running/brocade-license/end-user-license-agreement"
+CONFIG_URI = "/rest/operations/config"
 SSH_URIS = [
     {
         "uri": LICENSE_URI,
@@ -2516,6 +2988,15 @@ SSH_URIS = [
     {
         "uri": CHASSIS_URI,
         "rest_fos_version": fosversion("9.0.0")
+    },
+    {
+        "uri": LICENSE_EULA_URI,
+        "rest_fos_version": fosversion("9.0.0")
+    },
+    {
+        # there are no plans for configupload/download support in rest
+        "uri": CONFIG_URI,
+        "rest_fos_version": fosversion("9999.9999.9")
     }
     ]
 
@@ -2562,8 +3043,10 @@ class rest_handler(rest_debug):
         time.sleep(3)
 
     def isvalidsession(self, session):
+        nocred = session.get("nocredential", False)
         # print self.session
-        if isinstance(session, dict) and "credential" in session.keys():
+        if not nocred and isinstance(session, dict) and \
+           "credential" in session.keys():
             if "Authorization" in session['credential'].keys():
                 return 1
         return 0
@@ -2607,19 +3090,36 @@ class rest_handler(rest_debug):
 
         return ssh_resp.rstrip()
 
+    def process_ssh_eula(self, session):
+        if session["debug"]:
+            print("cmd requested eula_text")
+
+        ssh_resp = ssh_eula_text(session["username"], session["password"], session["ip_addr"], False)
+
+        retval = {}
+        retval["text"] = ssh_resp
+        return retval
+
     def show_all(self, session, negative=0, is_tc=0):
         ret = self.obj.is_valid(session)
         if ret["info-code"] != 0:
             return ret
         if is_tc:
             self.createtest("show_all", negative)
-        retdict = pyfos_util.get_request(session, self.uri_base, "")
+        retdict = {}
+        if self.uri_base == LICENSE_EULA_URI:
+            if self.is_ssh(session, self.uri_base, session["version"]):
+                retdict["end-user-license-agreement"] = self.process_ssh_eula(session)
+            else:
+                retdict = pyfos_util.get_request(session, self.uri_base, "")
+        else:
+            retdict = pyfos_util.get_request(session, self.uri_base, "")
 
         if pyfos_util.is_failed_resp(retdict):
             return retdict
 
-        if self.is_ssh(session, self.uri_base, session["version"]):
-            if self.uri_base == CHASSIS_URI:
+        if self.uri_base == CHASSIS_URI:
+            if self.is_ssh(session, self.uri_base, session["version"]):
                 retdict["chassis"]["license-id"] = self.process_ssh_license_id(session)
 
         return retdict
@@ -2692,7 +3192,7 @@ class rest_handler(rest_debug):
         elif ssh_resp.startswith("\nLicense Removed"):
             ret_dict["Response"]["license-operation-status"]["status-message"] = "License Remove success"
         else:
-                ret_dict["Response"]["license-operation-status"]["status-message"] = ssh_resp.replace("\n", " ")
+            ret_dict["Response"]["license-operation-status"]["status-message"] = ssh_resp.replace("\n", " ")
 
         return ret_dict
 
@@ -2700,25 +3200,25 @@ class rest_handler(rest_debug):
         ret_dict = {"Response" : {"firmwarecleaninstall-operation-status" : {"status-message": "NA"}}}
         cmd = "firmwarecleaninstall "
 
-        if self.peek_protocol() == None:
+        if self.peek_protocol() is  None:
             ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Protocol (ftp/scp/sftp) required"
             return ret_dict
         else:
             cmd = cmd + " -p " + self.peek_protocol()
 
-        if self.peek_host() == None:
+        if self.peek_host() is  None:
             ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Host name required"
             return ret_dict
         else:
             cmd = cmd + " " + self.peek_host() + ","
 
-        if self.peek_user_name() == None:
+        if self.peek_user_name() is  None:
             ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "User name required"
             return ret_dict
         else:
             cmd = cmd + self.peek_user_name() + ","
 
-        if self.peek_remote_directory() == None:
+        if self.peek_remote_directory() is  None:
             ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Remote directory required"
             return ret_dict
         else:
@@ -2727,12 +3227,13 @@ class rest_handler(rest_debug):
         if session["debug"]:
             print("cmd requested without password", cmd)
 
-        if self.peek_password() == None:
+        if self.peek_password() is  None:
             ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Password required"
             return ret_dict
         else:
             try:
                 cmd = cmd + base64.b64decode(self.peek_password()).decode("utf-8")
+            # pylint: disable=W0702
             except:
                 ret_dict["Response"]["firmwarecleaninstall-operation-status"]["status-message"] = "Password cannot be decoded"
                 return ret_dict
@@ -2744,13 +3245,13 @@ class rest_handler(rest_debug):
         else:
             ssh_resp = ""
             if is_chassis is False:
-                ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], session["ip_addr"], False, cmd)
+                ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], session["ip_addr"], False, cmd, self.peek_eula_action())
                 ret_dict = {"Response" : {"firmwareclean-operation-status" : {"status-message": ssh_resp}}}
             else:
-                ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], standby_ip, False, cmd)
+                ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], standby_ip, False, cmd, self.peek_eula_action())
 
                 if FIRMWARECLEANINSTALL_REBOOT in ssh_resp:
-                    ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], session["ip_addr"], False, cmd)
+                    ssh_resp = ssh_firmwarecleaninstall(session, session["username"], session["password"], session["ip_addr"], False, cmd, self.peek_eula_action())
                     if FIRMWARECLEANINSTALL_REBOOT in ssh_resp:
                         ret_dict = {"Response" : {"firmwareclean-operation-status" : {"status-message": ssh_resp}}}
                     else:
@@ -2760,11 +3261,114 @@ class rest_handler(rest_debug):
 
         return ret_dict
 
+    def process_ssh_config(self, session):
+        ret_dict = {"Response" : {"config-operation-status" : {"status-message": "NA"}}}
+        cmd = ""
+
+        if self.peek_upload() is  None:
+            ret_dict["Response"]["config-operation-status"]["status-message"] = "Indicate upload or download"
+            return ret_dict
+        else:
+            if self.peek_upload() is  True:
+                cmd = cmd + "configupload "
+            else:
+                cmd = cmd + "configdownload "
+
+        if self.peek_type() is  None:
+            ret_dict["Response"]["config-operation-status"]["status-message"] = "Indicate all, vf, or map"
+            return ret_dict
+        else:
+            if self.peek_type() == "all":
+                cmd = cmd + " -all"
+            elif "vf" in self.peek_type():
+                cmd = cmd + " -vf"
+            elif "fid" in self.peek_type():
+                fid = self.peek_type()[4:]
+                try:
+                    int_fid = int(fid)
+                except Exception as ex:
+                    ret_dict["Response"]["config-operation-status"]["status-message"] = "Unknown type. fid option should include fid in the form of fid=xx"
+                    return ret_dict
+                cmd = cmd + " -fid " + str(int_fid)
+            elif "map" in self.peek_type():
+                valid_fid = True
+                fid = self.peek_type()[4:]
+                try:
+                    int_fid = int(fid)
+                except Exception as ex:
+                    valid_fid = False
+
+                if valid_fid:
+                    cmd = cmd + " -fid " + str(int_fid) + " -map"
+                else:
+                    cmd = cmd + " -all -map"
+            else:
+                ret_dict["Response"]["config-operation-status"]["status-message"] = "Unknown type. Indicate all, vf, or map"
+                return ret_dict
+
+        if self.peek_protocol() is None:
+            ret_dict["Response"]["config-operation-status"]["status-message"] = "Protocol (ftp/scp/sftp) required"
+            return ret_dict
+        else:
+            cmd = cmd + " -p " + self.peek_protocol()
+            if self.peek_protocol() == "scp" or self.peek_protocol() == "sftp":
+                cmd = cmd + " -P 22 "
+
+        if self.peek_host() is None:
+            ret_dict["Response"]["config-operation-status"]["status-message"] = "Host name required"
+            return ret_dict
+        else:
+            cmd = cmd + " " + self.peek_host() + ","
+
+        if self.peek_user_name() is None:
+            ret_dict["Response"]["config-operation-status"]["status-message"] = "User name required"
+            return ret_dict
+        else:
+            cmd = cmd + self.peek_user_name() + ","
+
+        if self.peek_path() is None:
+            ret_dict["Response"]["config-operation-status"]["status-message"] = "Path and filename required"
+            return ret_dict
+        else:
+            cmd = cmd + self.peek_path() + ","
+
+        if session["debug"]:
+            print("cmd requested without password", cmd)
+
+        # password is always passed interatively to avoid weird bash shell
+        # issues with special characters
+        if self.peek_password() is None:
+            ret_dict["Response"]["config-operation-status"]["status-message"] = "Password required"
+            return ret_dict
+        else:
+            if self.peek_protocol() == "ftp":
+                cmd = cmd + base64.b64decode(self.peek_password()).decode("utf-8")
+
+        if self.peek_upload() is False:
+            ssh_resp = ssh_cmd(session["username"], session["password"], session["ip_addr"], False, "chassisdisable -force")
+            if ssh_resp != "":
+                ret_dict = {"Response" : {"config-operation-status" : {"status-message": "failed to chassisdisable for configdownload"}}}
+                return ret_dict
+
+        ssh_resp = ssh_config(session, session["username"], session["password"], session["ip_addr"], False, cmd, self.peek_password())
+        if self.peek_upload() is True:
+            ret_dict = {"Response" : {"config-operation-status" : {"status-message": ssh_resp.replace("\n", " ").replace("\r", " ")}}}
+        else:
+            if CONFIG_DOWN_COMPLETED_LINE in ssh_resp:
+                ssh_resp = ssh_reboot(session, session["username"], session["password"], session["ip_addr"], False, "reboot")
+            if CONFIG_DOWN_COMPLETED_LINE2 in ssh_resp:
+                ssh_resp = ssh_reboot(session, session["username"], session["password"], session["ip_addr"], False, "reboot")
+
+            ret_dict = {"Response" : {"config-operation-status" : {"status-message": ssh_resp.replace("\n", " ").replace("\r", " ")}}}
+
+        return ret_dict
+
+
     def process_ssh_firmwaredownload(self, session):
         ret_dict = {'show-status': {'message-id': '0', 'status': 'queued', 'application-name': 'RESTAPI', 'percentage-complete': '0', 'operation': 'firmwaredownload', 'firmwaredownload': {'message': 'XXX'}}}
         cmd = ""
 
-        if self.peek_activate() == True:
+        if self.peek_activate() is True:
             cmd = "firmwareactivate"
 
             if session["debug"]:
@@ -2773,10 +3377,10 @@ class rest_handler(rest_debug):
 
             cmd = "firmwaredownload "
 
-            if self.peek_stage() == True:
+            if self.peek_stage() is True:
                 cmd = cmd + " -r "
 
-            if self.peek_protocol() == None:
+            if self.peek_protocol() is None:
                 ret_dict["show-status"]["firmwaredownload"]["message"] = "Protocol (ftp/scp/sftp) required"
                 return ret_dict
             else:
@@ -2786,19 +3390,19 @@ class rest_handler(rest_debug):
                     ret_dict["show-status"]["firmwaredownload"]["message"] = "Protocol (ftp/scp/sftp) required"
                     return ret_dict
 
-            if self.peek_host() == None:
+            if self.peek_host() is None:
                 ret_dict["show-status"]["firmwaredownload"]["message"] = "Host name required"
                 return ret_dict
             else:
                 cmd = cmd + " " + self.peek_host() + ","
 
-            if self.peek_user_name() == None:
+            if self.peek_user_name() is None:
                 ret_dict["show-status"]["firmwaredownload"]["message"] = "User name required"
                 return ret_dict
             else:
                 cmd = cmd + self.peek_user_name() + ","
 
-            if self.peek_remote_directory() == None:
+            if self.peek_remote_directory() is None:
                 ret_dict["show-status"]["firmwaredownload"]["message"] = "Remote directory required"
                 return ret_dict
             else:
@@ -2807,18 +3411,19 @@ class rest_handler(rest_debug):
             if session["debug"]:
                 print("cmd requested without password", cmd)
 
-            if self.peek_password() == None:
+            if self.peek_password() is None:
                 ret_dict["show-status"]["firmwaredownload"]["message"] = "Password required"
                 return ret_dict
             else:
                 try:
                     cmd = cmd + base64.b64decode(self.peek_password()).decode("utf-8")
+                # pylint: disable=W0702
                 except:
-                    return  {"client-error-code": 400, "client-error-message": "Bad Request", "client-errors" : {"errors": {"@xmlns": "urn:ietf:params:xml:ns:yang:ietf-restconf", "error": [{"error-type": "application", "error-tag": "operation-failed", "error-app-tag": "Error", "error-message": "Password cannot be decoded", "error-info": { "error-code": 589824, "error-module": "cal"}}]}}}
+                    return  {"client-error-code": 400, "client-error-message": "Bad Request", "client-errors" : {"errors": {"@xmlns": "urn:ietf:params:xml:ns:yang:ietf-restconf", "error": [{"error-type": "application", "error-tag": "operation-failed", "error-app-tag": "Error", "error-message": "Password cannot be decoded", "error-info": {"error-code": 589824, "error-module": "cal"}}]}}}
 
-        ssh_resp = "\n"
+        # ssh_resp = "\n"
 
-        session["fd_thread"] = threading.Thread(target=ssh_firmwaredownload, args=(session, session["username"], session["password"], session["ip_addr"], False, cmd))
+        session["fd_thread"] = threading.Thread(target=ssh_firmwaredownload, args=(session, session["username"], session["password"], session["ip_addr"], False, cmd, self.peek_eula_action()))
 
         session["fd_thread"].start()
         session["fd_thread_status"] = "queued"
@@ -2860,6 +3465,8 @@ class rest_handler(rest_debug):
             return self.process_ssh_firmwarecleaninstall(session)
         elif uri == FIRMWAREDOWNLOAD_URI:
             return self.process_ssh_firmwaredownload(session)
+        elif uri == CONFIG_URI:
+            return self.process_ssh_config(session)
         elif uri == SHOW_STATUS_URI:
             return self.process_ssh_show_status(session)
         else:
@@ -3367,9 +3974,25 @@ class rest_object(rest_handler):
                 return self.use_custom_dict[clonename]
         return None
 
+    def ignoreclifilters(self, filters, key):
+        usagefilterdict = dict()
+        testcondition = list()
+        usagefilterdict.update(dict({"ignoreMandatory" : list(["ipaddr", "login", "password"])}))
+        usagefilterdict.update(dict({"ignoreMandatoryNonIP": list(["login", "password"])}))
+        selectivecheck = [item for item in filters if item in usagefilterdict.keys()]
+        if len(selectivecheck):
+            testcondition = [item for item in selectivecheck if key in usagefilterdict[item]]
+        return bool(len(testcondition))
+
     def showusage(self, filters=None):
-        cmd_mandatory = " <-i IPADDR> <-L LOGIN> <-P PASSWORD>"
-        cmd_optional = " [-f VFID] [-s MODE] [-v]"
+        cmd_mandatory = ""
+        if not self.ignoreclifilters(filters, "ipaddr"):
+            cmd_mandatory = " <-i IPADDR>"
+        if not self.ignoreclifilters(filters, "login"):
+            cmd_mandatory += " <-L LOGIN>"
+        if not self.ignoreclifilters(filters, "login"):
+            cmd_mandatory += " <-P PASSWORD>"
+        cmd_optional = " [-f VFID] [-s MODE] [-v] [-a AuthToken] [-z]"
         objusagestr = ""
         objkeystr = ""
         objmandatory = ""
@@ -3389,12 +4012,29 @@ class rest_object(rest_handler):
         usagestr = "\n" + os.path.basename(sys.argv[0]) + cmd_mandatory + cmd_optional + "\n"
         usagestr += 'Usage:\n'
         usagestr += "\n  Infrastructure options:\n\n"
-        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-i,", "ipaddr=IPADDR", "IP address of FOS switch.")
-        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-L,", "login=LOGIN", "login name.")
-        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-P,", "password=PASSWORD", "password.")
-        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-f,", "vfid=VFID", "VFID of LS context to which the request is directed to [OPTIONAL].")
-        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-s,", "secured=MODE", "HTTPS mode \"self\" or \"CA\" [OPTIONAL].")
-        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-v,", "verbose", "verbose mode[OPTIONAL].")
+        if not self.ignoreclifilters(filters, "ipaddr"):
+            usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-i,",
+                        "ipaddr=IPADDR", "IP address of FOS switch.")
+        if not self.ignoreclifilters(filters, "login"):
+            usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-L,",
+                        "login=LOGIN", "login name.")
+        if not self.ignoreclifilters(filters, "password"):
+            usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-P,",
+                        "password=PASSWORD", "password.")
+        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-f,", "vfid=VFID",
+                    "VFID of LS context to which the request is directed" +
+                    " to [OPTIONAL].")
+        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-s,",
+                    "secured=MODE",
+                    "HTTPS mode \"self\" or \"CA\" [OPTIONAL].")
+        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-v,", "verbose",
+                    "verbose mode[OPTIONAL].")
+        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-a,", "authtoken",
+                    "AuthToken value or AuthTokenManager config file[OPTIONAL].")
+        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "-z,", "nosession",
+                    "Sessionless authentication based login[OPTIONAL].")
+        usagestr += '{0:5}{1:3}--{2:40}{3:35}\n'.format("", "", "nocredential",
+                    "No credential to be sent in the request.[OPTIONAL].")
         usagestr += "\n  Utils script specific options:\n\n"
         usagestr += objusagestr
 
@@ -3425,6 +4065,11 @@ class rest_object(rest_handler):
             self.dbg_print(DBG, opt, arg,
                            v1.getmyopts(rest_useropt.FILTER_ALLOPT, filters))
             if opt in v1.getmyopts(rest_useropt.FILTER_ALLOPT, filters):
+                vshrtopt = v1.getmyopts(rest_useropt.FILTER_SHRTOPT, filters)
+                vlongopt = v1.getmyopts(rest_useropt.FILTER_LONGOPT, filters)
+                if not opt in vshrtopt:
+                    if opt in vlongopt and opt != vlongopt:
+                        continue
                 if v1.is_leaf and v1.is_list:
                     return v1.parseInfraset(arg.split(';'))
                 elif v1.is_leaf:
@@ -3470,14 +4115,26 @@ class rest_object(rest_handler):
     @classmethod
     def parse(cls, argv, inputs, filters, custom_cli, validate=None):
         myobj = cls()
+        return myobj.parse_commandline(argv, inputs, filters,
+                                       custom_cli, validate)
+
+    def parse_commandline(self, argv, inputs, filters, custom_cli, validate=None):
+        myobj = self
         if custom_cli is not None:
             myobj.setmycustomcli(custom_cli)
-        myopts = ["help", "ipaddr=", "vfid=", "login=", "password=", "secured=", "verbose"] + myobj.getmyopts(rest_useropt.FILTER_LGETOPT, filters)
-        myobj.dbg_print(DBG, "Short:", myobj.getmyopts(rest_useropt.FILTER_SGETOPT, filters))
-        myobj.dbg_print(DBG, "LONG:", myobj.getmyopts(rest_useropt.FILTER_LGETOPT, filters))
+        myopts = ["help", "ipaddr=", "vfid=", "login=", "password=",
+                  "secured=", "verbose", "authtoken=", "nosession", "nocredential"] +\
+                 myobj.getmyopts(rest_useropt.FILTER_LGETOPT, filters)
+        myobj.dbg_print(DBG, "Short:",
+                        myobj.getmyopts(rest_useropt.FILTER_SGETOPT, filters))
+        myobj.dbg_print(DBG, "LONG:",
+                        myobj.getmyopts(rest_useropt.FILTER_LGETOPT, filters))
         # pylint: disable=W0612
         try:
-            opts, args = getopt.getopt(argv, "hi:f:L:P:s:v" + myobj.getmyopts(rest_useropt.FILTER_SGETOPT, filters), myopts)
+            opts, args = getopt.getopt(argv, "hi:f:L:P:s:avz" +
+                                       myobj.getmyopts(
+                                           rest_useropt.FILTER_SGETOPT,
+                                           filters), myopts)
         except getopt.GetoptError as err:
             print("getopt error", str(err))
             print(myobj.showusage(filters))
@@ -3498,8 +4155,16 @@ class rest_object(rest_handler):
                     return None
                 inputs.update({'vfid': int(arg)})
             elif opt in ("-L", "--login"):
+                if arg is not None and arg[0] == "-":
+                    print("Incorrect Login specified.")
+                    print(myobj.showusage(filters))
+                    return None
                 inputs.update({'login': arg})
             elif opt in ("-P", "--password"):
+                if arg is not None and arg[0] == "-":
+                    print("Incorrect password specified.")
+                    print(myobj.showusage(filters))
+                    return None
                 inputs.update({'password': arg})
             elif opt in ("-s", "--secured"):
                 if arg not in ('self', 'CA'):
@@ -3508,37 +4173,72 @@ class rest_object(rest_handler):
                 inputs.update({'secured': arg})
             elif opt in ("-v", "--verbose"):
                 inputs.update({'verbose': 1})
+            elif opt in ("-a", "--authtoken"):
+                if len(arg) == 0:
+                    inputs.update({'authtoken': None})
+                else:
+                    inputs.update({'authtoken': arg})
+            elif opt in ("-z", "--nosession"):
+                inputs.update({'sessionless': True})
+            elif opt == "--nocredential":
+                inputs.update({'nocredential': True})
+                filters.append("ignoreMandatoryNonIP")
             elif myobj.parse_attrib(opt, arg, filters):
                 print("Invalid options specified ", opt)
                 print(myobj.showusage(filters))
                 return None
 
-        if "ipaddr" not in inputs.keys():
+        if "ipaddr" not in inputs.keys() and not\
+           self.ignoreclifilters(filters, "ipaddr"):
             print("Missing IP address input")
             print(myobj.showusage(filters))
             return None
             # ipaddr = input("Please provide switch IP address:")
             # inputs.update({'ipaddr': ipaddr})
-
-        ipaddr = inputs['ipaddr']
-        if not pyfos_util.isIPAddr(ipaddr):
-            print("*** Invalid ipaddr:", ipaddr)
-            print(myobj.showusage(filters))
-            return None
-
+        elif not self.ignoreclifilters(filters, "ipaddr"):
+            ipaddr = inputs['ipaddr']
+            if not pyfos_util.isIPAddr(ipaddr) and\
+               not self.ignoreclifilters(filters, "ipaddr"):
+                print("*** Invalid ipaddr:", ipaddr)
+                print(myobj.showusage(filters))
+                return None
         if validate is not None and validate(myobj) != 0:
             print("Please provide the missing util script option.")
             print(myobj.showusage(filters))
             return None
 
-        if "login" not in inputs.keys():
+        if "login" not in inputs.keys() and\
+           not self.ignoreclifilters(filters, "login"):
             login = input("Login:")
             inputs.update({'login': login})
 
-        if "password" not in inputs.keys():
+        if "password" not in inputs.keys() and "authtoken" not in inputs.keys()\
+           and not self.ignoreclifilters(filters, "password"):
             password = getpass.getpass()
             inputs.update({'password': password})
-
+        elif "password" in inputs.keys() and "authtoken" in inputs.keys()\
+             and not self.ignoreclifilters(filters, "password"):
+            print("No Password needed in case of authToken based authentication.")
+            print(myobj.showusage(filters))
+            return None
+        if 'nocredential' in inputs.keys():
+            if "password" in inputs.keys():
+                print("No password required with \"--nocredential\" option.")
+                return None
+            if "login" in inputs.keys():
+                print("No login user required with \"--nocredential\" option.")
+                return None
+            if "authtoken" in inputs.keys():
+                print("No authtoken input required with \"--nocredential\" option.")
+                return None
+        if 'sessionless' in inputs.keys() and inputs['sessionless'] is True:
+            if "authtoken" in inputs.keys():
+                print("No authtoken input required with \"--nosession\" option.")
+                return None
+            if "nocredential" in inputs.keys():
+                print("The \"--nocredential\" input and \"--nosession\" " +
+                      "options not supported together.")
+                return None
         if "secured" not in inputs.keys():
             inputs.update({'secured': None})
 
@@ -3648,7 +4348,8 @@ class rest_object(rest_handler):
 
     def is_valid(self, session):
         self.setdbg_session(session)
-        if self.isvalidsession(session) == 0:
+        nocred = session.get("nocredential", False)
+        if not nocred and self.isvalidsession(session) == 0:
             return {"info-code": -1,
                     "info-message": "Invalid session",
                     "info-type": "Incorrect auth details in session"}
@@ -3672,8 +4373,9 @@ class rest_object(rest_handler):
     def create_html_content(self, optype=0, session=None, add_container=1):
         version = None
         if session is not None:
-            version = session['version']
-            self.setdbg_session(session)
+            version = session.get('version', None)
+            if version is not None:
+                self.setdbg_session(session)
         if version is None:
             version = self.version_active
         string_post = ""
@@ -3968,3 +4670,17 @@ class rest_object(rest_handler):
 
     def setconfigchanged(self, change=0):
         self.configchanged |= change
+
+    @staticmethod
+    def pseudodictrestobject(clidict):
+        """ Static method available to create a pseudo rest object Instance."""
+        if isinstance(clidict, dict) and any(clidict):
+            for mycontainer, attributes in clidict.items():
+                restobject = rest_object(rest_obj_type.pseudo_rest_object, mycontainer)
+                for k, v in attributes.items():
+                    restobject.dbg_print(DBG, k, v['valtype'], v['resttype'])
+                    restobject.add(rest_attribute(k, v['valtype'], None, v['resttype']))
+                restobject.setmycustomcli(attributes)
+                restobject.dbg_print(DBG, restobject)
+                return restobject
+        return None

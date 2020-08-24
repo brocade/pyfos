@@ -1,4 +1,8 @@
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+#!/usr/bin/env python3
+
+
+# Copyright © 2019-2020 Broadcom. All rights reserved.
+# The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,132 +15,193 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+# pyfos_brocade_extension_ipsec_policy.py(pyGen v1.0.0)
+
+
 """
 
-:mod:`pyfos_brocade_extension_ipsec_policy` - PyFOS module for an IPsec policy.
+:mod:`pyfos_brocade_extension_ipsec_policy` - PyFOS module Represents\
+ IPsec policy defined on extension blade or system.
+******************************************************************************\
 *******************************************************************************
-The :mod:`pyfos_brocade_extension_ipsec_policy` module provides REST
-support for an extension IPsec policy.
+The:mod:`pyfos_brocade_extension_ipsec_policy` The PyFOS module support\
+ Represents IPsec policy defined on extension blade or system.
 """
+
+
+# Start module imports
 from pyfos import pyfos_rest_util
 from pyfos.pyfos_type import pyfos_type
+# End module imports
 
 
 class extension_ipsec_policy(pyfos_rest_util.rest_object):
+
     """Class of extension_ipsec_policy
 
-    Important Class Members:
+    *Description extension_ipsec_policy*
 
-        +--------------------+------------------+---------------------------------+
-        | Attribute Name     | Description      |Frequently Used Functions        |
-        +====================+==================+=================================+
-        |policy-name         |The name of the   |:func:`peek_policy_name`         |
-        |                    |IPsec policy.     |:func:`set_policy_name`          |
-        +--------------------+------------------+---------------------------------+
-        |profile-name        |The profile name  |:func:`peek_profile_name`        |
-        |                    |of the policy.    |:func:`set_profile_name`         |
-        +--------------------+------------------+---------------------------------+
-        |authentication-data |The autentication |:func:`peek_authentication_data` |
-        |                    |data of the       |:func:`set_authentication_data`  |
-        |                    |policy.           |                                 |
-        +--------------------+------------------+---------------------------------+
-        |restart-ike-sessions|Restarts the      |:func:`peek_restart_ike_sessions`|
-        |                    |IKE session.      |:func:`set_restart_ike_sessions` |
-        +--------------------+------------------+---------------------------------+
-        |num-ike-sessions    |The total number  |:func:`peek_num_ike_sessions`    |
-        |                    |of IKE sessions.  |                                 |
-        +--------------------+------------------+---------------------------------+
+        Represents IPsec policy defined on extension blade or system.
 
-    *Object Functions*
+    Important class members of extension_ipsec_policy:
 
-        .. function:: get()
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | Attribute Name           | Description                     |  Frequently Used Methods                        |
+        +==========================+=================================+=================================================+
+        | policy-name              | Specifies the name for the      | :func:`peek_policy_name`                        |
+        |                          | IPsec policy. The IPsec         | :func:`set_policy_name`                         |
+        |                          | policy name can be up to 31     |                                                 |
+        |                          | characters long and cannot      |                                                 |
+        |                          | contain certain special         |                                                 |
+        |                          | characters and keywords such    |                                                 |
+        |                          | as 'all' and 'none'.            |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | restart-ike-sessions     | Write-only leaf, will not be    | :func:`peek_restart_ike_sessions`               |
+        |                          | returned in GET request. Set    | :func:`set_restart_ike_sessions`                |
+        |                          | it to 1 to restart all          |                                                 |
+        |                          | inactive IKE sessions for       |                                                 |
+        |                          | this policy in PATCH request.   |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | authentication-data      | Specifies the                   | :func:`peek_authentication_data`                |
+        |                          | authentication-data depending   | :func:`set_authentication_data`                 |
+        |                          | on the profile used: For        |                                                 |
+        |                          | 'preshared' profile, this       |                                                 |
+        |                          | field specifies the             |                                                 |
+        |                          | preshared-key to be used for    |                                                 |
+        |                          | authentication. This operand    |                                                 |
+        |                          | is required with shared-key     |                                                 |
+        |                          | authentication. Preshared key   |                                                 |
+        |                          | length should have minimum      |                                                 |
+        |                          | length of 16 characters and     |                                                 |
+        |                          | maximum length of 64            |                                                 |
+        |                          | characters. For 'pki'           |                                                 |
+        |                          | profile, this field specifies   |                                                 |
+        |                          | the local key pair name to      |                                                 |
+        |                          | use for IKE authentication.     |                                                 |
+        |                          | This operand is required with   |                                                 |
+        |                          | PKI profile. Key pair name      |                                                 |
+        |                          | length should have minimum      |                                                 |
+        |                          | length of 1 character and       |                                                 |
+        |                          | maximum length of 32            |                                                 |
+        |                          | characters. Authentication      |                                                 |
+        |                          | data will returned as a zero    |                                                 |
+        |                          | length string for read          |                                                 |
+        |                          | operations on policies with     |                                                 |
+        |                          | 'preshared' profile.            |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | profile-name             | Specifies the IPsec profile     | :func:`peek_profile_name`                       |
+        |                          | to use with the IPSec policy.   | :func:`set_profile_name`                        |
+        |                          | Valid values for profile name   |                                                 |
+        |                          | are 'preshared' and 'pki'.      |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | num-ike-sessions         | Number of IKE Sessions.         | :func:`peek_num_ike_sessions`                   |
+        +--------------------------+---------------------------------+-------------------------------------------------+
 
-            Fills the object with values for all the attributes. Once filled,
-            the object can be printed using :func:`pyfos_utils.response_print`.
+    *Object functions for extension_ipsec_policy*
 
-            :param session: The session handler returned
-             by :func:`pyfos_auth.login`.
-            :rtype: A dictionary of error or a success response.
+    .. function:: get()
 
-    *Attribute Functions*
+        Get the instances of class "extension_ipsec_policy from switch. The
+         object can be printed using :func:`pyfos_utils.response_print`.
+
+        :param session: The session handler returned by
+         :func:`pyfos_auth.login`.
+
+        :rtype: A dictionary of errors or a success response.
+
+
+    *Class functions for extension_ipsec_policy*
 
         .. function:: peek_policy_name()
 
-            Reads the policy name from an IPsec object.
+            Reads the value assigned to policy-name in the object.
 
             :rtype: None on error and a value on success.
 
-        .. function:: peek_profile_name()
 
-            Reads the profile name from an IPsec object.
+        .. function:: set_policy_name(value)
 
-            :rtype: None on error and a value on success.
+            Set the value of policy-name in the object.
 
-        .. function:: peek_authentication_data()
+            :rtype: A dictionary of error or a success response and a value
+             with "policy-name" as the key
 
-            Reads the authentication data from an IPsec object.
-
-            :rtype: None on error and a value on success.
 
         .. function:: peek_restart_ike_sessions()
 
-            Reads the restart IKE session value from an IPsec object.
+            Reads the value assigned to restart-ike-sessions in the object.
 
             :rtype: None on error and a value on success.
+
+
+        .. function:: set_restart_ike_sessions(value)
+
+            Set the value of restart-ike-sessions in the object.
+
+            :rtype: A dictionary of error or a success response and a value
+             with "restart-ike-sessions" as the key
+
+
+        .. function:: peek_authentication_data()
+
+            Reads the value assigned to authentication-data in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: set_authentication_data(value)
+
+            Set the value of authentication-data in the object.
+
+            :rtype: A dictionary of error or a success response and a value
+             with "authentication-data" as the key
+
+
+        .. function:: peek_profile_name()
+
+            Reads the value assigned to profile-name in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: set_profile_name(value)
+
+            Set the value of profile-name in the object.
+
+            :rtype: A dictionary of error or a success response and a value
+             with "profile-name" as the key
+
 
         .. function:: peek_num_ike_sessions()
 
-            Reads the number of IKE sessions for an IPsec object.
+            Reads the value assigned to num-ike-sessions in the object.
 
             :rtype: None on error and a value on success.
 
-        .. function:: set_policy_name(policyName)
-
-            Sets the policy name in an IPsec object.
-
-            :rtype: A dictionary of error or a success response and a value
-             with the policy name as the key.
-
-        .. function:: set_profile_name(profileName)
-
-            Sets the profile name in an IPsec object.
-
-            :rtype: A dictionary of error or a success response and a value
-             with the profile name as the key.
-
-        .. function:: set_authentication_data(authData)
-
-            Sets the authentication data in an object.
-
-            :rtype: A dictionary of error or a success response and a value
-             with the authentication data as the key.
-
-        .. function:: set_restart_ike_sessions(restartIkeSession)
-
-            Sets the restart IKE session in an IPsec object.
-
-            :rtype: A dictionary of error or a success response and a value
-             with the restart IKE session as the key.
 
     """
 
-    def __init__(self, dictvalues={}):
-        super().__init__(pyfos_rest_util.rest_obj_type.ipsec,
-                         "/rest/running/brocade-extension-ipsec-policy/"
-                         "extension-ipsec-policy")
+    def __init__(self, dictvalues=None):
+
+        clsuri = "/rest" + "/running" + "/brocade-extension-ipsec-policy" +\
+                 "/extension-ipsec-policy"
+        clstype = pyfos_rest_util.rest_obj_type.ipsec
+        super().__init__(clstype, clsuri)
+
         self.add(pyfos_rest_util.rest_attribute("policy-name",
                  pyfos_type.type_str, None,
                  pyfos_rest_util.REST_ATTRIBUTE_KEY))
+        self.add(pyfos_rest_util.rest_attribute("authentication-data",
+                 pyfos_type.type_str, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute("profile-name",
                  pyfos_type.type_str, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
-        self.add(pyfos_rest_util.rest_attribute("authentication-data",
-                 pyfos_type.type_str, None,
+        self.add(pyfos_rest_util.rest_attribute("restart-ike-sessions",
+                 pyfos_type.type_int, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute("num-ike-sessions",
                  pyfos_type.type_int, None,
                  pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
-        self.add(pyfos_rest_util.rest_attribute("restart-ike-sessions",
-                 pyfos_type.type_int, None,
-                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.load(dictvalues, 1)

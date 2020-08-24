@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gigabitethernet_speed_set - PyFOS util to set GE_Port speed. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>gigabitethernet_speed_set - PyFOS util to modify for gigabitethernet &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="gigabitethernet_statistics_show - PyFOS util for GE_Port statistics." href="gigabitethernet_statistics_show.html" />
-    <link rel="prev" title="gigabitethernet_show - PyFOS util to display the GE_Port data." href="gigabitethernet_show.html" /> 
+    <link rel="next" title="gigabitethernet_statistics_show - PyFOS util to show for gigabitethernet_statistics" href="gigabitethernet_statistics_show.html" />
+    <link rel="prev" title="gigabitethernet_show - PyFOS util to show for gigabitethernet" href="gigabitethernet_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="gigabitethernet_statistics_show.html" title="gigabitethernet_statistics_show - PyFOS util for GE_Port statistics."
+          <a href="gigabitethernet_statistics_show.html" title="gigabitethernet_statistics_show - PyFOS util to show for gigabitethernet_statistics"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="gigabitethernet_show.html" title="gigabitethernet_show - PyFOS util to display the GE_Port data."
+          <a href="gigabitethernet_show.html" title="gigabitethernet_show - PyFOS util to show for gigabitethernet"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,38 +42,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-gigabitethernet_speed_set"></span><div class="section" id="gigabitethernet-speed-set-pyfos-util-to-set-ge-port-speed">
-<h1><a class="reference internal" href="#module-gigabitethernet_speed_set" title="gigabitethernet_speed_set: PyFOS module to set port speed of an Extension GE port. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gigabitethernet_speed_set</span></code></a> - PyFOS util to set GE_Port speed.<a class="headerlink" href="#gigabitethernet-speed-set-pyfos-util-to-set-ge-port-speed" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-gigabitethernet_speed_set" title="gigabitethernet_speed_set: PyFOS module to set port speed of an Extension GE port. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gigabitethernet_speed_set</span></code></a> util is used to set the GE_Port speed.</p>
-<p>This module is a stand-alone script that can be used to set the
-switch GE_Port speed on an extension platform.</p>
-<p>gigabitethernet_speed_set.py: Usage</p>
-<ul>
+  <span class="target" id="module-gigabitethernet_speed_set"></span><div class="section" id="gigabitethernet-speed-set-pyfos-util-to-modify-for-gigabitethernet">
+<h1><a class="reference internal" href="#module-gigabitethernet_speed_set" title="gigabitethernet_speed_set: PyFOS module to set port speed of an Extension GE port. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gigabitethernet_speed_set</span></code></a> - PyFOS util to modify for gigabitethernet<a class="headerlink" href="#gigabitethernet-speed-set-pyfos-util-to-modify-for-gigabitethernet" title="Permalink to this headline">¶</a></h1>
+<p>The:mod:<cite>gigabitethernet_speed_set</cite> PyFOS util to modify for gigabitethernet</p>
+<p>The list of gigabitethernet interfaces on the device. System-controlled interfaces created by the system are always present in this list, whether they are configured or not.</p>
+<p>gigabitethernet_speed_set: usage</p>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Infrastructure Options:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
 <li>-L,–login=LOGIN: The login name.</li>
 <li>-P,–password=PASSWORD: The password.</li>
 <li>-f,–vfid=VFID: The VFID to which the request is directed.</li>
 <li>-s,–secured=MODE: The HTTPS mode “self” or “CA” [Optional].</li>
 <li>-v,–verbose: Verbose mode [Optional].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config    file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Util Script Options:</dt>
-<dd><ul class="first last simple">
-<li>-n,–name=NAME: Sets the name.</li>
-<li>–speed=VALUE: Sets the speed.</li>
+<dd><ul class="first last">
+<li>–name=NAME: The name of the interface.</li>
+<li>–speed=SPEED: For PHY types that may operate at various speeds, this      leaf allows the interface to be forced to operate at a particular      speed.  Without any explicit configuration, gigabitethernet interfaces      run at the maximum capable speed.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
@@ -81,60 +83,45 @@ switch GE_Port speed on an extension platform.</p>
 </li>
 </ul>
 <dl class="function">
-<dt id="gigabitethernet_speed_set.gigabitethernet_speed_set.set_port_speed">
-<code class="descclassname">gigabitethernet_speed_set.</code><code class="descname">set_port_speed</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>speed</em><span class="sig-paren">)</span><a class="headerlink" href="#gigabitethernet_speed_set.gigabitethernet_speed_set.set_port_speed" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Modify Extension Gigabitethernet Speed</em></p>
-<blockquote>
-<div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">gigabitethernet_speed_set</span><span class="o">.</span><span class="n">set_port_speed</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
-<span class="n">name</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+<dt id="gigabitethernet_speed_set.gigabitethernet_speed_set.modify_gigabitethernet">
+<code class="descclassname">gigabitethernet_speed_set.</code><code class="descname">modify_gigabitethernet</code><span class="sig-paren">(</span><em>session</em>, <em>name</em>, <em>speed</em><span class="sig-paren">)</span><a class="headerlink" href="#gigabitethernet_speed_set.gigabitethernet_speed_set.modify_gigabitethernet" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Modify gigabitethernet</em></p>
+<p>Example Usage of the Method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">gigabitethernet_speed_set</span><span class="o">.</span><span class="n">modify_gigabitethernet</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>Details::</dt>
-<dd><p class="first">gigabitethernet = gigabitethernet()
-gigabitethernet.set_name(name)
-gigabitethernet.set_speed(speed)</p>
-<p class="last">result = gigabitethernet.patch(session)</p>
-</dd>
-</dl>
-<ul>
-<li><dl class="first docutils">
-<dt>Input:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<p>Details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gigabitethernetObj</span> <span class="o">=</span> <span class="n">gigabitethernet</span><span class="p">()</span>
+<span class="n">gigabitethernetObj</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">gigabitethernetObj</span><span class="o">.</span><span class="n">set_speed</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">_modify_gigabitethernet</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">gigabitethernetObj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Inputs</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param session:</th><td class="field-body">The session returned by the login.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">The GE_Port name expressed as slot/port.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">param speed:</th><td class="field-body">The speed at which to set the GE_Port.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Output:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A dictionary of return status matching the REST response.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> – The session returned by the login.</li>
+<li><strong>name</strong> – The name of the interface.</li>
+<li><strong>speed</strong> – For PHY types that may operate at various speeds, this leaf      allows the interface to be forced to operate at a particular speed.       Without any explicit configuration, gigabitethernet interfaces run at      the maximum capable speed.</li>
 </ul>
-<p><em>Use Cases</em></p>
-<blockquote>
-<div>Modify the extension GE_Port speed to 1G or 10G.</div></blockquote>
-</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of response</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -152,10 +139,10 @@ Module <a class="reference internal" href="pyfos_brocade_interface.html#module-p
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="gigabitethernet_show.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">gigabitethernet_show</span></code> - PyFOS util to display the GE_Port data.</a></p>
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">gigabitethernet_show</span></code> - PyFOS util to show for gigabitethernet</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="gigabitethernet_statistics_show.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">gigabitethernet_statistics_show</span></code> - PyFOS util for GE_Port statistics.</a></p>
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">gigabitethernet_statistics_show</span></code> - PyFOS util to show for gigabitethernet_statistics</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -189,12 +176,12 @@ Module <a class="reference internal" href="pyfos_brocade_interface.html#module-p
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="gigabitethernet_statistics_show.html" title="gigabitethernet_statistics_show - PyFOS util for GE_Port statistics."
+          <a href="gigabitethernet_statistics_show.html" title="gigabitethernet_statistics_show - PyFOS util to show for gigabitethernet_statistics"
              >next</a> |</li>
         <li class="right" >
-          <a href="gigabitethernet_show.html" title="gigabitethernet_show - PyFOS util to display the GE_Port data."
+          <a href="gigabitethernet_show.html" title="gigabitethernet_show - PyFOS util to show for gigabitethernet"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

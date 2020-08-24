@@ -37,6 +37,7 @@ CA-Client, CA-Server, and supported certificates.
 
   |    --certificate-entity=ENTITY-NAME    Sets the certificate entity name.
   |    --certificate-type=CERT-TYPE        Sets the certificate type name.
+  |    --ca-certificate=CACERT             Sets the CA certificate for import.
   |    --certificate-name=CERTNAME         Sets the certificate name.
   |    --ca-certificate-name=CACERTNAME    Sets the CA certificate name.
   |    --seccertmgmt-operation=OPERATION   Sets the seccertmgmt operation.
@@ -46,6 +47,8 @@ CA-Client, CA-Server, and supported certificates.
   |    --remote-login-user=LOGINUSER       Sets the remote login user.
   |    --remote-login-password=PASSWORD    Sets the remote login base64 \
                                            encrypted password.
+  |    --keypair-tag=KEYPAIR               Sets the keypair-tag for associated\
+                                           certificate.
 
 * Output:
 
@@ -53,7 +56,8 @@ CA-Client, CA-Server, and supported certificates.
 
 .. function:: seccertmgmt_modify.export_import_cert(session, action, \
 certificate-entity, certificate-type, certificate-name, ca-certificate-name, \
-protocol, remote_ip, remote_dir, login_name, login_password)
+protocol, remote_ip, remote_dir, login_name, login_password, keypiar-tag, \
+ca-certificate)
 
     * Imports a specified certificate from a remote server to a switch.
 
@@ -90,6 +94,8 @@ login_name, login_password)
             :param remote-host-directoy: The location in the remote host.
             :param remote-login-user: The user name of the remote host.
             :param remote-login-password: The password of the remote host.
+            :param ca-certificate: The CA who signed the Extension certificate.
+            :param keypair-tag: The keypair-tag associated with certificate.
 
         * Output:
             :rtype: A dictionary of return status matching the REST response.
@@ -130,6 +136,19 @@ def export_import_cert(session, action, cert_entity, cert_type, cert_name,
     return result
 
 
+def validate(seccertmgmt_obj):
+    if (seccertmgmt_obj.peek_certificate_entity() is None or
+            seccertmgmt_obj.peek_certificate_type() is None):
+        print("Missing input(s)")
+        return 1
+    if (seccertmgmt_obj.peek_certificate_type() != "extension" and
+            seccertmgmt_obj.peek_ca_certificate() is not None):
+        print("Additional input(s): \"CA certificate\" is provided for" +
+              "non Extension certificate.")
+        return 1
+    return 0
+
+
 def main(argv):
 
     # Print arguments
@@ -137,25 +156,17 @@ def main(argv):
 
     filters = ['certificate_entity', 'certificate_type', 'operation',
                'certificate_name', 'remote_host_ip', 'remote_directory',
-               'protocol', 'remote_user_name', 'remote_user_password']
+               'protocol', 'remote_user_name', 'remote_user_password',
+               'ca_certificate', 'keypair_tag']
 
-    inputs = brcd_util.parse(argv, security_certificate_action, filters)
+    inputs = brcd_util.parse(argv, security_certificate_action, filters,
+                             validate)
 
     seccertmgmt_obj = inputs['utilobject']
 
-    # using variables instead of calling functions as the
-    # function names are lengthy and difficult to fit the
-    # the line length less than 80 chars for flake8.
-
-    if (seccertmgmt_obj.peek_certificate_entity() is None or
-            seccertmgmt_obj.peek_certificate_type() is None):
-        print("Missing input(s)")
-        print(inputs['utilusage'])
-        sys.exit()
-
     session = brcd_util.getsession(inputs)
 
-    result = _export_import_cert(inputs['session'], inputs['utilobject'])
+    result = _export_import_cert(inputs['session'], seccertmgmt_obj)
     pyfos_util.response_print(result)
     pyfos_auth.logout(session)
 

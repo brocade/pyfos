@@ -16,7 +16,7 @@
 
 :mod:`passwd_modify` - PyFOS util to change a password.
 ***************************************************************************************
-The :mod:`passwd_modify` util provides options to change a passord for a \
+The :mod:`passwd_modify` util provides options to change a password for a \
 specified user.
 
 This module is a stand-alone script that can be used to change a password.
@@ -26,8 +26,8 @@ This module is a stand-alone script that can be used to change a password.
 | Infrastructure Options:
 
 |   -i,--ipaddr=IPADDR     The IP address of the FOS switch.
-|   -L,--login=LOGIN       The login name.
-|   -P,--password=PASSWORD The password.
+|   -L,--login=LOGIN       login name.
+|   -P,--password=PASSWORD password.
 |   -f,--vfid=VFID         The VFID to which the request \
                             is directed [OPTIONAL].
 |   -s,--secured=MODE      The HTTPS mode "self" or "CA" [OPTIONAL].
@@ -36,8 +36,8 @@ This module is a stand-alone script that can be used to change a password.
 * Util Script Options:
 
   |    --user-name=USERNAME             Specifies the user name.
-  |    --old-password=PASSWD            Enters the current password.
-  |    --new-password=PASSWD            Sets the new password.
+  |    --old-password=PASSWD            Enters the current password in base64.
+  |    --new-password=PASSWD            Sets the new password in base64.
 
 * Output:
 
@@ -81,6 +81,8 @@ new_password)
 """
 
 import sys
+import base64
+import re
 from pyfos import pyfos_auth
 from pyfos import pyfos_util
 from pyfos.pyfos_brocade_security import password
@@ -100,24 +102,27 @@ def change_password(session, user_name, old_password, new_password):
     return result
 
 
+def validate(passwd_obj):
+    b64regex = r'^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$'
+    if passwd_obj.peek_old_password() is None or\
+       passwd_obj.peek_new_password() is None or\
+       passwd_obj.peek_user_name() is None:
+        return 1
+    if re.search(b64regex, passwd_obj.peek_old_password()) is None:
+        print("Not a base64 encoded value for 'old-password' -> ",
+              passwd_obj.peek_old_password())
+        return 1
+    if re.search(b64regex, passwd_obj.peek_new_password()) is None:
+        print("Not a base64 encoded value for 'new-password' -> ",
+              passwd_obj.peek_new_password())
+        return 1
+    return 0
+
+
 def main(argv):
-
-    # Print arguments
-    # print(sys.argv[1:])
-
     filters = ['user_name', 'old_password', 'new_password']
-    inputs = brcd_util.parse(argv, password, filters)
-
-    passwd_obj = inputs['utilobject']
-
-    if (passwd_obj.peek_user_name() is None and
-            passwd_obj.peek_new_password() is None):
-        print("Missing input(s)")
-        print(inputs['utilusage'])
-        sys.exit()
+    inputs = brcd_util.parse(argv, password, filters, validate)
     session = brcd_util.getsession(inputs)
-
-    # pyfos_util.response_print(inputs['utilobject'].displaycustomcli())
     result = _change_password(inputs['session'], inputs['utilobject'])
     pyfos_util.response_print(result)
     pyfos_auth.logout(session)

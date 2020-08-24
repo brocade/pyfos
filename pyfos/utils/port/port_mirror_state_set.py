@@ -29,7 +29,6 @@ mirrorport.
     * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: IP address.
-    * -n=<port name>: <slot>/<port> name of the port.
     * -u=<user name>: The string name to be assigned to switch.
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
         a VFID of 128 is assumed.

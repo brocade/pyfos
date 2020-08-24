@@ -1,0 +1,297 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_auth_token - PyFOS module to facilitate Auth-Token based session to a FOS switch. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_config_manager - PyFOS module to provide config related handling Support." href="pyfos_config_manager.html" />
+    <link rel="prev" title="pyfos_type - PyFOS module for pyfos_rest_util.rest_attribute to associate correct data type and yang type informations in pyfos along with support for correct data type conversion and validations support for peek_ and set_ methods." href="pyfos_type.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_config_manager.html" title="pyfos_config_manager - PyFOS module to provide config related handling Support."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_type.html" title="pyfos_type - PyFOS module for pyfos_rest_util.rest_attribute to associate correct data type and yang type informations in pyfos along with support for correct data type conversion and validations support for peek_ and set_ methods."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_auth_token"></span><div class="section" id="pyfos-auth-token-pyfos-module-to-facilitate-auth-token-based-session-to-a-fos-switch">
+<h1><a class="reference internal" href="#module-pyfos_auth_token" title="pyfos_auth_token: PyFOS module to support Auth Token based REST authentication. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth_token</span></code></a> - PyFOS module to facilitate         Auth-Token based session to a FOS switch.<a class="headerlink" href="#pyfos-auth-token-pyfos-module-to-facilitate-auth-token-based-session-to-a-fos-switch" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_auth_token" title="pyfos_auth_token: PyFOS module to support Auth Token based REST authentication. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth_token</span></code></a> module provides functions to create,
+delete Auth-Token and Management, including establishing session
+with FOS switch using them.</p>
+<dl class="class">
+<dt id="pyfos_auth_token.auth_token">
+<em class="property">class </em><code class="descclassname">pyfos_auth_token.</code><code class="descname">auth_token</code><span class="sig-paren">(</span><em>session=None</em>, <em>myarg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents a REST-supported Auth-Token for a FOS switch.</p>
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the AuthToken for the FOS switch as in session.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the AuthToken created for a FOS switch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token.reprJSON">
+<code class="descname">reprJSON</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token.reprJSON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represent auth_token in JSON.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token.setValue">
+<code class="descname">setValue</code><span class="sig-paren">(</span><em>ip</em>, <em>user</em>, <em>uauth_token</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token.setValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the auth_token instance with the values specified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_auth_token.auth_token_manager">
+<em class="property">class </em><code class="descclassname">pyfos_auth_token.</code><code class="descname">auth_token_manager</code><span class="sig-paren">(</span><em>configfile=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Manager for AuthToken[s] created for all FOS switches.</p>
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.addToken">
+<code class="descname">addToken</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.addToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the AuthToken to the current AuthToken store.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.debugshow">
+<code class="descname">debugshow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.debugshow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display AuthToken Manager configuration and AuthTokens.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.findToken">
+<code class="descname">findToken</code><span class="sig-paren">(</span><em>ip</em>, <em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.findToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the AuthToken for the user for a FOS switch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.generateToken">
+<code class="descname">generateToken</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.generateToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an AuthToken for the user for a FOS switch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.getToken">
+<code class="descname">getToken</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.getToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the AuthToken for the user for a FOS switch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.migrate">
+<code class="descname">migrate</code><span class="sig-paren">(</span><em>tokenManager</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.migrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Migrate AuthToken manager from another instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.readConfStore">
+<code class="descname">readConfStore</code><span class="sig-paren">(</span><em>userConfigFile=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.readConfStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the Default/User configured Config Store details.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.readTokenStore">
+<code class="descname">readTokenStore</code><span class="sig-paren">(</span><em>tokenFile</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.readTokenStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the Default/User configured AutToken Store details.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.readUserConfStore">
+<code class="descname">readUserConfStore</code><span class="sig-paren">(</span><em>userConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.readUserConfStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the Default Config/AutToken Store details.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.removeToken">
+<code class="descname">removeToken</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.removeToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the AuthToken to the current AuthToken store.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.resetUserDefaultStore">
+<code class="descname">resetUserDefaultStore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.resetUserDefaultStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the Default store for AuthToken Manager.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.setUserStoreAsDefaultStore">
+<code class="descname">setUserStoreAsDefaultStore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.setUserStoreAsDefaultStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the User store as Default store for AuthToken Manager.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.setdefaultStore">
+<code class="descname">setdefaultStore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.setdefaultStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the Default Config/AutToken Store details.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display AuthToken Manager configuration and AuthTokens.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.writeDefaultConfStore">
+<code class="descname">writeDefaultConfStore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.writeDefaultConfStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the Default Config store.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.writeDefaultTokenStore">
+<code class="descname">writeDefaultTokenStore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.writeDefaultTokenStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the Default AuthToken store.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.writeTokenStore">
+<code class="descname">writeTokenStore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.writeTokenStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the AuthToken store.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.writeUserConfStore">
+<code class="descname">writeUserConfStore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.writeUserConfStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the User Config store.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_auth_token.auth_token_manager.writeUserTokenStore">
+<code class="descname">writeUserTokenStore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.auth_token_manager.writeUserTokenStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the User AuthToken store.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_auth_token.json_encoder">
+<em class="property">class </em><code class="descclassname">pyfos_auth_token.</code><code class="descname">json_encoder</code><span class="sig-paren">(</span><em>skipkeys=False</em>, <em>ensure_ascii=True</em>, <em>check_circular=True</em>, <em>allow_nan=True</em>, <em>sort_keys=False</em>, <em>indent=None</em>, <em>separators=None</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.json_encoder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyfos_auth_token.json_encoder.default">
+<code class="descname">default</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth_token.json_encoder.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method in a subclass such that it returns
+a serializable object for <code class="docutils literal notranslate"><span class="pre">o</span></code>, or calls the base implementation
+(to raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>).</p>
+<p>For example, to support arbitrary iterators, you could
+implement default like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">iterable</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+    <span class="c1"># Let the base class default method raise the TypeError</span>
+    <span class="k">return</span> <span class="n">JSONEncoder</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="auth_token_delete.html#module-auth_token_delete" title="auth_token_delete: PyFOS module to Delete an AuthToken from the FOS switch. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_delete</span></code></a>
+Module <a class="reference internal" href="auth_token_generate.html#module-auth_token_generate" title="auth_token_generate: PyFOS module to generate an AuthToken from a FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_generate</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_add_token.html#module-auth_token_manager_add_token" title="auth_token_manager_add_token: PyFOS module to add an AuthToken to Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_add_token</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_delete_token.html#module-auth_token_manager_delete_token" title="auth_token_manager_delete_token: PyFOS module to Delete an AuthToken from Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_delete_token</span></code></a>
+Module <a class="reference internal" href="auth_token_manager_show.html#module-auth_token_manager_show" title="auth_token_manager_show: PyFOS module to Display  AuthToken's and Auth Token Manager instance configurations. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_manager_show</span></code></a>
+Module <a class="reference internal" href="auth_token_migrate_token.html#module-auth_token_migrate_token" title="auth_token_migrate_token: PyFOS module to migrate AuthTokens across AuthTokenManager Instance. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_migrate_token</span></code></a>
+Module <a class="reference internal" href="auth_token_reset_default_config.html#module-auth_token_reset_default_config" title="auth_token_reset_default_config: PyFOS module to reset the default configuration store for Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_reset_default_config</span></code></a>
+Module <a class="reference internal" href="auth_token_set_default_config.html#module-auth_token_set_default_config" title="auth_token_set_default_config: PyFOS module to set a custom Auth Token store as default for Auth Token Manager. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auth_token_set_default_config</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_type.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_type</span></code> - PyFOS module for <code class="docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code> to associate correct data type and yang type informations in pyfos along with support for correct data type conversion and validations support for <em>peek_</em> and <em>set_</em> methods.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_config_manager.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_config_manager</span></code> - PyFOS module  to provide config related        handling Support.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_auth_token.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_config_manager.html" title="pyfos_config_manager - PyFOS module to provide config related handling Support."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_type.html" title="pyfos_type - PyFOS module for pyfos_rest_util.rest_attribute to associate correct data type and yang type informations in pyfos along with support for correct data type conversion and validations support for peek_ and set_ methods."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

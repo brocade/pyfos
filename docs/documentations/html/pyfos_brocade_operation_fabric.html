@@ -1,0 +1,234 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_operation_fabric - PyFOS module The RPCcommand definition for fabric operation. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_operation_pcie_health - PyFOS module for Brocade PCIe health operations." href="pyfos_brocade_operation_pcie_health.html" />
+    <link rel="prev" title="pyfos_brocade_operation_show_status - PyFOS module for supportsaveoperation status" href="pyfos_brocade_operation_show_status.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_pcie_health.html" title="pyfos_brocade_operation_pcie_health - PyFOS module for Brocade PCIe health operations."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_show_status.html" title="pyfos_brocade_operation_show_status - PyFOS module for supportsaveoperation status"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_operation_fabric"></span><div class="section" id="pyfos-brocade-operation-fabric-pyfos-module-the-rpccommand-definition-for-fabric-operation">
+<h1><a class="reference internal" href="#module-pyfos_brocade_operation_fabric" title="pyfos_brocade_operation_fabric: PyFOS module to perform fabric configuration related operations (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_operation_fabric</span></code></a> - PyFOS module The RPCcommand definition for fabric operation.<a class="headerlink" href="#pyfos-brocade-operation-fabric-pyfos-module-the-rpccommand-definition-for-fabric-operation" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_operation_fabric" title="pyfos_brocade_operation_fabric: PyFOS module to perform fabric configuration related operations (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_operation_fabric</span></code></a> The PyFOS modulesupport The RPC command definition for fabric operation.</p>
+<dl class="class">
+<dt id="pyfos_brocade_operation_fabric.fabric_operation_parameters">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_operation_fabric.</code><code class="descname">fabric_operation_parameters</code><span class="sig-paren">(</span><em>dictvalues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_fabric.fabric_operation_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of fabric_operation_parameters</p>
+<p><em>Description fabric_operation_parameters</em></p>
+<blockquote>
+<div>Input container to perform fabric related operation.</div></blockquote>
+<p>Important class members of fabric_operation_parameters:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="42%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>build-fabric</td>
+<td>The input which is required
+to initiate the build fabric
+operation. This operation
+requires switch to be enabled
+state. And only ‘true’ should
+be used as input. To verify
+the build fabric status
+please infer
+brocade-fibrechannel-fabric?</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_fabric.fabric_operation_parameters.set_build_fabric" title="pyfos_brocade_operation_fabric.fabric_operation_parameters.set_build_fabric"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_build_fabric()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_operation_fabric.fabric_operation_parameters.peek_build_fabric" title="pyfos_brocade_operation_fabric.fabric_operation_parameters.peek_build_fabric"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_build_fabric()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p><em>Object functions for fabric_operation_parameters</em></p>
+<dl class="function">
+<dt id="pyfos_brocade_operation_fabric.fabric_operation_parameters.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_fabric.fabric_operation_parameters.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the instances of class “fabric_operation_parameters from switch.</dt>
+<dd>The object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_operation_fabric.fabric_operation_parameters.post">
+<code class="descname">post</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_fabric.fabric_operation_parameters.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs fabric configuration related operations.</p>
+<p><em>Example Usage of the Method to initiate build fabric operation::</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">fabric_operations</span><span class="o">.</span><span class="n">rpc_fabric_operation_parameters</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>            <span class="n">build_fabric</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Details::</em></p>
+<blockquote>
+<div>fabric_operation_parametersObj = fabric_operation_parameters()
+fabric_operation_parametersObj.set_build_fabric(build_fabric)
+print (ret)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</li>
+<li><strong>build_fabric</strong> – The input which is required to initiate the          build fabric operation. This operation requires switch to be          enabled state. And only ‘true’ should be used as input. To          verify the build fabric status please infer          brocade-fibrechannel-fabric?</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A dictionary of error or success information.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><em>Class functions for fabric_operation_parameters</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_operation_fabric.fabric_operation_parameters.peek_build_fabric">
+<code class="descname">peek_build_fabric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_fabric.fabric_operation_parameters.peek_build_fabric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to build-fabric in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_operation_fabric.fabric_operation_parameters.set_build_fabric">
+<code class="descname">set_build_fabric</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_fabric.fabric_operation_parameters.set_build_fabric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of build-fabric in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_operation_show_status.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_show_status</span></code> - PyFOS module for supportsaveoperation status</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_operation_pcie_health.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_pcie_health</span></code> - PyFOS module for Brocade PCIe health operations.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_operation_fabric.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_pcie_health.html" title="pyfos_brocade_operation_pcie_health - PyFOS module for Brocade PCIe health operations."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_show_status.html" title="pyfos_brocade_operation_show_status - PyFOS module for supportsaveoperation status"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

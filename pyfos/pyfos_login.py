@@ -18,37 +18,59 @@ from pyfos import pyfos_util
 
 LOGIN_RESTCONF = "/rest/login"
 LOGOUT_RESTCONF = "/rest/logout"
+AUTHTOKEN = "/rest/auth-token"
 
 
 def credential_to_user(credential):
     auth_str = credential.get("Authorization")
     encoded_str = auth_str.split(" ")[1]
-    print("print encoded string", encoded_str)
+    # print("print encoded string", encoded_str)
     credential_in_char = base64.b64decode(encoded_str)
 
     return credential_in_char.split(":")[0]
 
 
-def login(user, password, ip_addr, isHttps):
-    if isHttps == "self":
-        conn = httplib.HTTPSConnection(
-                ip_addr, context=ssl._create_unverified_context())
-    elif isHttps == "CA":
-        conn = httplib.HTTPSConnection(ip_addr)
-    else:
-        conn = httplib.HTTPConnection(ip_addr)
+def login(user, password, ip_addr, isHttps, delay, authtoken=None,
+          sessionless=False):
+    request_uri = None
+    request_auth = None
 
-    auth = user + ":" + password
+    if sessionless is True:
+        request_auth = "Basic "
+    else:
+        if authtoken is not None:
+            request_uri = LOGIN_RESTCONF
+            request_auth = "Custom_Auth "
+        else:
+            request_uri = LOGIN_RESTCONF
+            request_auth = "Custom_Basic "
+
+        if isHttps == "self":
+            conn = httplib.HTTPSConnection(
+                    ip_addr, 443, context=ssl._create_unverified_context())
+        elif isHttps == "CA":
+            conn = httplib.HTTPSConnection(ip_addr, 443)
+        else:
+            conn = httplib.HTTPConnection(ip_addr, 80)
+
+    if authtoken is not None:
+        auth = user + ":" + authtoken.auth_token
+    else:
+        auth = user + ":" + password
+
     auth_encoded = base64.b64encode(auth.encode())
 
-    credential = {"Authorization": "Basic " + auth_encoded.decode(),
+    credential = {"Authorization": request_auth + auth_encoded.decode(),
                   "User-Agent": "Rest-Conf"}
+    # print(credential)
 
-#    print ("being sent", credential)
+    # print ("being sent", credential)
+    if sessionless is True:
+        # Check the content dict returned here is default
+        return credential, {"content-type": "application/yang-data+xml",
+                            "content-version": None}
+    resp = pyfos_util.bsn_request(conn, "POST", request_uri, "", credential, delay)
 
-    conn.request("POST", LOGIN_RESTCONF, "", credential)
-
-    resp = conn.getresponse()
 #    print resp.reason
 #    page = resp.read()
 #    print page
@@ -81,20 +103,19 @@ def login(user, password, ip_addr, isHttps):
                                          "content-version": content_ver}
 
 
-def logout(credential, ip_addr, isHttps):
+def logout(credential, ip_addr, isHttps, delay):
     if isHttps == "self":
         conn = httplib.HTTPSConnection(
-                ip_addr, context=ssl._create_unverified_context())
+                ip_addr, 443, context=ssl._create_unverified_context())
     elif isHttps == "CA":
-        conn = httplib.HTTPSConnection(ip_addr)
+        conn = httplib.HTTPSConnection(ip_addr, 443)
     else:
-        conn = httplib.HTTPConnection(ip_addr)
+        conn = httplib.HTTPConnection(ip_addr, 80)
 
 #    print credential
 
-    conn.request("POST", LOGOUT_RESTCONF, "", credential)
+    resp = pyfos_util.bsn_request(conn, "POST", LOGOUT_RESTCONF, "", credential, delay)
 
-    resp = conn.getresponse()
 #    print resp.status
 #    print resp.reason
 #    page = resp.read()

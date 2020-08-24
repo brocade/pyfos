@@ -1,0 +1,252 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_operation_end_device_management - PyFOS module for the End Device Management operation. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_operation_lldp - PyFOS module The RPC command definition for LLDP port operations on a Brocade switch." href="pyfos_brocade_operation_lldp.html" />
+    <link rel="prev" title="pyfos_brocade_operation_license - PyFOS module The RPC commanddefinition for license operation on a Brocade switch." href="pyfos_brocade_operation_license.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_lldp.html" title="pyfos_brocade_operation_lldp - PyFOS module The RPC command definition for LLDP port operations on a Brocade switch."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_license.html" title="pyfos_brocade_operation_license - PyFOS module The RPC commanddefinition for license operation on a Brocade switch."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_operation_end_device_management"></span><div class="section" id="pyfos-brocade-operation-end-device-management-pyfos-module-for-the-end-device-management-operation">
+<h1><a class="reference internal" href="#module-pyfos_brocade_operation_end_device_management" title="pyfos_brocade_operation_end_device_management: PyFOS module to trigger End Device Management operation (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_operation_end_device_management</span></code></a> - PyFOS module for the End Device Management operation.<a class="headerlink" href="#pyfos-brocade-operation-end-device-management-pyfos-module-for-the-end-device-management-operation" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_operation_end_device_management" title="pyfos_brocade_operation_end_device_management: PyFOS module to trigger End Device Management operation (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_operation_end_device_management</span></code></a> module provides RESTsupport for the End Device Management operation.</p>
+<dl class="class">
+<dt id="pyfos_brocade_operation_end_device_management.end_device_management">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_operation_end_device_management.</code><code class="descname">end_device_management</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_end_device_management.end_device_management" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of the End Device Management Operation</p>
+<p>Important Class Members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="35%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>n-port-wwn</td>
+<td>The (PWWN) of the device.</td>
+<td><code class="xref py py-func docutils literal notranslate"><span class="pre">set_n_port_wwn()</span></code></td>
+</tr>
+<tr class="row-odd"><td>n-port-id</td>
+<td>The (FCID) of the device</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_end_device_management.end_device_management.set_n_port_id" title="pyfos_brocade_operation_end_device_management.end_device_management.set_n_port_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_n_port_id()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>version</td>
+<td>Version identifier for the device.</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_end_device_management.end_device_management.set_version" title="pyfos_brocade_operation_end_device_management.end_device_management.set_version"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_version()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>payload</td>
+<td>Opaque payload in base64 format</td>
+<td><a class="reference internal" href="#pyfos_brocade_operation_end_device_management.end_device_management.set_payload" title="pyfos_brocade_operation_end_device_management.end_device_management.set_payload"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_payload()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_operation_end_device_management.end_device_management.post">
+<code class="descname">post</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_end_device_management.end_device_management.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manages HBA. The required fields are set
+within the object using the attribute’s set method.
+This method is used for managing the HBA.</p>
+<p>Example Usage of the Method to
+Post the End Device Management Operation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ss_obj</span> <span class="o">=</span>
+    <span class="n">pyfos_brocade_operation_end_device_management</span><span class="o">.</span><span class="n">end_device_management</span><span class="p">()</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_n_port_wwn</span><span class="p">(</span><span class="s2">&quot;xx:xx:xx:xx:xx:xx:xx:xx:xx&quot;</span><span class="p">)</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_n_port_id</span><span class="p">(</span><span class="s2">&quot;DDAAAL&quot;</span><span class="p">)</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_verison</span><span class="p">(</span><span class="n">verison</span><span class="p">)</span>
+<span class="n">ss_obj</span><span class="o">.</span><span class="n">set_payload</span><span class="p">(</span><span class="s2">&quot;xyz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above example triggers the End Device Management Operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute Methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_operation_end_device_management.end_device_management.set_port_wwn">
+<code class="descname">set_port_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_end_device_management.end_device_management.set_port_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the remote device PWWN in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>n-port-wwn</strong> – The PWWN of the remote device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_operation_end_device_management.end_device_management.set_n_port_id">
+<code class="descname">set_n_port_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_end_device_management.end_device_management.set_n_port_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the FCID of the remote device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>n-port-id</strong> – The FCID of the remote device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_operation_end_device_management.end_device_management.set_payload">
+<code class="descname">set_payload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_end_device_management.end_device_management.set_payload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the payload for the remote device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>payload</strong> – The payload for the remote host.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_operation_end_device_management.end_device_management.set_version">
+<code class="descname">set_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_operation_end_device_management.end_device_management.set_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the version for the remote device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>version</strong> – Version identifier used by the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_operation_license.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_license</span></code> - PyFOS module The RPC commanddefinition for license operation on a Brocade switch.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_operation_lldp.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_operation_lldp</span></code> - PyFOS module The RPC command definition for LLDP port operations on a Brocade switch.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_operation_end_device_management.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_lldp.html" title="pyfos_brocade_operation_lldp - PyFOS module The RPC command definition for LLDP port operations on a Brocade switch."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_operation_license.html" title="pyfos_brocade_operation_license - PyFOS module The RPC commanddefinition for license operation on a Brocade switch."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

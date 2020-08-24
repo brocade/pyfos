@@ -29,13 +29,12 @@ This module is a stand-alone script that can be used to set or reset a port\
     * -P=<password>: The password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: The IP address.
-    * -n=<port name>: The <slot>/<port> name of the port.
     * -u=<user name>: The string name to be assigned to a switch.
     * -f=<VFID>: The VFID or -1 if VF is disabled. If unspecified,
         a VFID of 128 is assumed.
 
 * Util Script Options:
-    -n,--name=NAME                     The port in slot/port format.
+    --name=NAME                     The port in slot/port format.
     --trunk_enabled=TRUNK_ENABLED      Sets the trunk port enabled flag <0|1>.
 
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_auth - PyFOS module to facilitate establishing a session to a FOS switch. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>pyfos_auth - PyFOS module to facilitate establishing a session to a FOS switch. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="index.html" title="Welcome to PyFOS’ Documentation!"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -85,7 +85,7 @@ direct the subsequent requests to a given VFID.</p>
 </ul>
 </div>
 <p>Example usage of the module:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">session</span> <span class="o">=</span> <span class="n">pyfos_auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">&quot;myname&quot;</span><span class="p">,</span> <span class="s2">&quot;mypassword&quot;</span><span class="p">,</span> <span class="s2">&quot;10.10.10.10&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">pyfos_auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">&quot;myname&quot;</span><span class="p">,</span> <span class="s2">&quot;mypassword&quot;</span><span class="p">,</span> <span class="s2">&quot;10.10.10.10&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">pyfos_auth</span><span class="o">.</span><span class="n">is_failed_login</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;login failed because&quot;</span><span class="p">,</span>
@@ -140,24 +140,24 @@ direct the subsequent requests to a given VFID.</p>
 </div></blockquote>
 <dl class="function">
 <dt id="pyfos_auth.login">
-<code class="descclassname">pyfos_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>ip_addr</em>, <em>is_https</em>, <em>throttle_delay=1.1</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.login" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pyfos_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>ip_addr</em>, <em>is_https</em>, <em>throttle_delay=4</em>, <em>verbose=0</em>, <em>tokenArg=None</em>, <em>sessionless=False</em>, <em>nocred=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_auth.login" title="Permalink to this definition">¶</a></dt>
 <dd><p>Establish a session to the FOS switch based on a valid login credential.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>username</strong> – User name to establish a session.</li>
 <li><strong>password</strong> – Password to establish a session.</li>
 <li><strong>ip_addr</strong> – IP address of the FOS switch with which to             establish a session.</li>
 <li><strong>is_https</strong> – None to indicate HTTP, “self” to indicate             HTTPS with a self-signed certificate, and “CA” to indicate             HTTPS with a CA-signed certificate.</li>
 <li><strong>throttle_delay</strong> – Delay in seconds, to account for the maximum             number of requests allowed on FOS RESTCONF. The maximum number             of request per period is configurable on FOS.</li>
 <li><strong>verbose</strong> – 1 for verbose session.</li>
+<li><strong>tokenArg</strong> – The “AuthToken” input argument, The values supported are             a string “AuthToken” or an “AuthTokenManager” instance. The utils             will use TokenManager instance internally for its use. The custom             tokenManager implementation may pass the string “AuthToken”.</li>
+<li><strong>sessionless</strong> – The session-less authentication for REST request.             The value passed is False by default. If the value is True then             login session is not used, however existing infra can continue to             use the login and logout infra as no-operation in this scenario .</li>
+<li><strong>nocred</strong> – There is no credential needed for the REST request.             The support is limited to some known requests only and is not            supported for all REST requests.    :rtype: Dictionary of the error description.
+<a class="reference internal" href="#error-structure-reference"><span class="std std-ref">Generic error structure</span></a>                 or session description.</li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Dictionary of the error description.
-<a class="reference internal" href="#error-structure-reference"><span class="std std-ref">Generic error structure</span></a>                 or session description.</p>
 </td>
 </tr>
 </tbody>
@@ -276,7 +276,7 @@ RESTCONF throttling limit.</p>
         <li class="right" >
           <a href="index.html" title="Welcome to PyFOS’ Documentation!"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

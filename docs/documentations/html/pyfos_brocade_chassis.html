@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_chassis - PyFOS module to provide REST support for Chassis objects. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>pyfos_brocade_chassis - PyFOS module to provide REST support for Chassis objects. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_brocade_security.html" title="pyfos_brocade_security - PyFOS module to provide REST support forsystem security."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -122,6 +122,15 @@ generally known</td>
 <td>VF supported or not</td>
 <td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_vf_supported" title="pyfos_brocade_chassis.chassis.peek_vf_supported"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_vf_supported()</span></code></a></td>
 </tr>
+<tr class="row-odd"><td>fcr-enabled</td>
+<td>FCR enabled or disabled state</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.set_fcr_enabled" title="pyfos_brocade_chassis.chassis.set_fcr_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_fcr_enabled()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_fcr_enabled" title="pyfos_brocade_chassis.chassis.peek_fcr_enabled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fcr_enabled()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fcr-supported</td>
+<td>FCR supported or not</td>
+<td><a class="reference internal" href="#pyfos_brocade_chassis.chassis.peek_fcr_supported" title="pyfos_brocade_chassis.chassis.peek_fcr_supported"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fcr_supported()</span></code></a></td>
+</tr>
 </tbody>
 </table>
 </div></blockquote>
@@ -155,7 +164,7 @@ and individual attributes accessed through peek methods.</p>
 using attribute’s set method. This command is used to
 set the chassis name.</p>
 <p>Example usage of the method to set the chassis user friendly name:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">chassis_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_chassis</span><span class="o">.</span><span class="n">chassis</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">chassis_obj</span> <span class="o">=</span> <span class="n">pyfos_brocade_chassis</span><span class="o">.</span><span class="n">chassis</span><span class="p">()</span>
 <span class="n">chassis_obj</span><span class="o">.</span><span class="n">set_chassis_user_friendly_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="n">chassis_obj</span><span class="o">.</span><span class="n">set_vf_enabled</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>
 <span class="n">chassis_obj</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
@@ -385,6 +394,49 @@ set the chassis name.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or VF supported state of the chassis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.set_fcr_enabled">
+<code class="descname">set_fcr_enabled</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.set_fcr_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the value of fcr-enabled in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of error or a success response and
+a value with “fcr-enabled” as the key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_fcr_enabled">
+<code class="descname">peek_fcr_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_fcr_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to fcr-enabled in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_chassis.chassis.peek_fcr_supported">
+<code class="descname">peek_fcr_supported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_chassis.chassis.peek_fcr_supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to fcr-supported in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
 </tr>
 </tbody>
 </table>
@@ -670,7 +722,7 @@ and individual attributes accessed through peek methods.</p>
         <li class="right" >
           <a href="pyfos_brocade_security.html" title="pyfos_brocade_security - PyFOS module to provide REST support forsystem security."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

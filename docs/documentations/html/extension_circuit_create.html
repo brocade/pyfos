@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>extension_circuit_create - PyFOS util for creating a circuit object. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>extension_circuit_create - PyFOS util for creating a circuit object. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="extension_circuit_delete - PyFOS util for deleting a circuit object." href="extension_circuit_delete.html" />
-    <link rel="prev" title="extension_ip_route_delete - PyFOS util for deleting an IP route." href="extension_ip_route_delete.html" /> 
+    <link rel="prev" title="extension_ip_route_show - PyFOS util to show forextension_ip_route" href="extension_ip_route_show.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="extension_circuit_delete.html" title="extension_circuit_delete - PyFOS util for deleting a circuit object."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="extension_ip_route_delete.html" title="extension_ip_route_delete - PyFOS util for deleting an IP route."
+          <a href="extension_ip_route_show.html" title="extension_ip_route_show - PyFOS util to show forextension_ip_route"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -48,10 +48,10 @@
 <p>This module is a stand-alone script that can be used to create an extension
 circuit.</p>
 <p>extension_circuit_create.py: Usage</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Infrastructure Options:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
 <li>-L,–login=LOGIN: The login name.</li>
 <li>-P,–password=PASSWORD: The password.</li>
@@ -64,7 +64,7 @@ circuit.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Util Scripts Option:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>-n,–name=NAME: Sets the name or slot/port of the circuit.</li>
 <li>-c,–circuit-id=CIRCUIT-ID: Sets the ID of the circuit.</li>
 <li>-S,–local-ip=LOCAL-IP: Sets the local IP address of the circuit.</li>
@@ -77,7 +77,7 @@ circuit.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
@@ -90,14 +90,14 @@ circuit.</p>
 <dd><p><em>Create Extension Circuit</em></p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_circuit_create</span><span class="o">.</span><span class="n">create_extension_circuit</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">extension_circuit_create</span><span class="o">.</span><span class="n">create_extension_circuit</span><span class="p">(</span>
 <span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">local</span><span class="p">,</span> <span class="n">remote</span><span class="p">,</span> <span class="n">minB</span> <span class="o">=</span> <span class="mi">500000</span><span class="p">,</span>
 <span class="n">maxB</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">circuit</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                 <span class="s2">&quot;circuit-id&quot;</span><span class="p">:</span> <span class="n">circuit</span><span class="p">,</span>
                 <span class="s2">&quot;local-ip-address&quot;</span><span class="p">:</span> <span class="n">local</span><span class="p">,</span>
@@ -109,7 +109,7 @@ circuit.</p>
 <span class="n">session</span><span class="p">,</span> <span class="n">circuit</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -169,8 +169,8 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="extension_ip_route_delete.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extension_ip_route_delete</span></code> - PyFOS util for deleting an IP route.</a></p>
+  <p class="topless"><a href="extension_ip_route_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">extension_ip_route_show</span></code> - PyFOS util to show forextension_ip_route</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="extension_circuit_delete.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">extension_circuit_delete</span></code> - PyFOS util for deleting a circuit object.</a></p>
@@ -210,9 +210,9 @@ Module <a class="reference internal" href="pyfos_brocade_extension_tunnel.html#m
           <a href="extension_circuit_delete.html" title="extension_circuit_delete - PyFOS util for deleting a circuit object."
              >next</a> |</li>
         <li class="right" >
-          <a href="extension_ip_route_delete.html" title="extension_ip_route_delete - PyFOS util for deleting an IP route."
+          <a href="extension_ip_route_show.html" title="extension_ip_route_show - PyFOS util to show forextension_ip_route"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -33,7 +33,8 @@
 
 * Output:
     The MAPS configuration information such as recipient mail address,
-    sender mail address, relay configuration and domain name.
+    sender mail address, relay configuration, domain name and
+    global quiet time.
 """
 
 import sys

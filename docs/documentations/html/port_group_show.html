@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>port_group_show - PyFOS util to show the port-group information. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>port_group_show - PyFOS util to show the port-group information. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="logical_switch_create - PyFOS util for creating a Logical switch" href="logical_switch_create.html" />
+    <link rel="next" title="access_gateway_show - PyFOS util for displaying connected access gateway information." href="access_gateway_show.html" />
     <link rel="prev" title="port_group_remove - PyFOS util to remove the port-group." href="port_group_remove.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="logical_switch_create.html" title="logical_switch_create - PyFOS util for creating a Logical switch"
+          <a href="access_gateway_show.html" title="access_gateway_show - PyFOS util for displaying connected access gateway information."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="port_group_remove.html" title="port_group_remove - PyFOS util to remove the port-group."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -72,10 +72,10 @@ supported only when the port group policy is enabled.</p>
 <div class="line">–id=ID             Port-group ID</div>
 </div>
 </div></blockquote>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>outputs:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Port group information. When port-group ID is not provided,
 all the existing port-groups will be displayed.</li>
 </ul>
@@ -90,7 +90,7 @@ all the existing port-groups will be displayed.</li>
 <li><p class="first">Display the port-groups configured on the AG.</p>
 <blockquote>
 <div><p>Example usage of the method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="c1"># Example 1: Display all the port-groups</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1: Display all the port-groups</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">port_group_show</span><span class="o">.</span><span class="n">show_port_group</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 
@@ -100,14 +100,14 @@ all the existing port-groups will be displayed.</li>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">portgroup_obj</span> <span class="o">=</span> <span class="n">port_group</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">portgroup_obj</span> <span class="o">=</span> <span class="n">port_group</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">pgid</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># All port-groups</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">portgroup_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">pgid</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>inputs:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -163,8 +163,8 @@ Module <a class="reference internal" href="pyfos_brocade_access_gateway.html#mod
   <p class="topless"><a href="port_group_remove.html"
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">port_group_remove</span></code> - PyFOS util to remove the port-group.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="logical_switch_create.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">logical_switch_create</span></code> - PyFOS util for creating a Logical switch</a></p>
+  <p class="topless"><a href="access_gateway_show.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">access_gateway_show</span></code> - PyFOS util for displaying connected access gateway information.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -198,12 +198,12 @@ Module <a class="reference internal" href="pyfos_brocade_access_gateway.html#mod
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="logical_switch_create.html" title="logical_switch_create - PyFOS util for creating a Logical switch"
+          <a href="access_gateway_show.html" title="access_gateway_show - PyFOS util for displaying connected access gateway information."
              >next</a> |</li>
         <li class="right" >
           <a href="port_group_remove.html" title="port_group_remove - PyFOS util to remove the port-group."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

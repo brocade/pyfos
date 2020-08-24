@@ -73,7 +73,6 @@ class json_encoder(json.JSONEncoder):
 
 
 def parse_page(page):
-    # print (page)
     ret_elements = xmltodict.parse(page)
     return ret_elements
 
@@ -164,9 +163,16 @@ def rpc_response_parse(response):
                      "info-type": "Informational"}
         return ret_error
     elif response.status >= 200 and response.status < 300:
-        # print page
-        ret_elements = parse_page(page)
-        return ret_elements["Response"]
+        if response.status == 204:
+            ret_elements = {"http-resp-code": response.status,
+                            "success-code": response.status,
+                            "success-message": response.reason,
+                            "success-type": "Success"}
+            return ret_elements
+        else:
+            # print page
+            ret_elements = parse_page(page)
+            return ret_elements["Response"]
     elif response.status >= 300 and response.status < 400:
         ret_error = {"redirection-code": response.status,
                      "redirection-message": response.reason,
@@ -463,11 +469,11 @@ def http_connection(session):
 
     if isHttps == "self":
         conn = httplib.HTTPSConnection(
-                ip_addr, context=ssl._create_unverified_context())
+                ip_addr, 443, context=ssl._create_unverified_context())
     elif isHttps == "CA":
-        conn = httplib.HTTPSConnection(ip_addr)
+        conn = httplib.HTTPSConnection(ip_addr, 443)
     else:
-        conn = httplib.HTTPConnection(ip_addr)
+        conn = httplib.HTTPConnection(ip_addr, 80)
 
     return conn
 
@@ -478,6 +484,20 @@ def vfidstr_get(session):
         return ""
     else:
         return VF_ID + str(vfid)
+
+
+def getcredential(session):
+    nocred = session.get("nocredential")
+    if nocred:
+        credential = dict({})
+    else:
+        credential = session.get("credential")
+    return credential
+
+
+def getthrottledelay(session):
+    delay = session.get("throttle_delay")
+    return delay
 
 
 def debug(session, http_cmd, cmd, content):
@@ -507,39 +527,49 @@ def debug(session, http_cmd, cmd, content):
     current_request = request
 
 
+def bsn_request(conn, command, uri, body, credential, delay):
+
+    conn.request(command, uri, body, credential)
+
+    resp = conn.getresponse()
+    if resp.status == 503:
+        if delay > 0:
+            time.sleep(delay)
+
+        conn.request(command, uri, body, credential)
+
+        resp = conn.getresponse()
+
+        return resp
+    else:
+        return resp
+
+
 def options_request(session, cmd, content):
-    credential = session.get("credential")
+    credential = getcredential(session)
+    delay = getthrottledelay(session)
     vfidstr = vfidstr_get(session)
 
     conn = http_connection(session)
 
     debug(session, GET, cmd + vfidstr, content)
 
-    conn.request("OPTIONS", cmd + vfidstr, content, credential)
+    resp = bsn_request(conn, "OPTIONS", cmd + vfidstr, content, credential, delay)
 
-    delay = session.get("throttle_delay")
-    if delay > 0:
-        time.sleep(delay)
-
-    resp = conn.getresponse()
     return get_response_parse(resp, True)
 
 
 def get_request(session, cmd, content):
-    credential = session.get("credential")
+    credential = getcredential(session)
+    delay = getthrottledelay(session)
     vfidstr = vfidstr_get(session)
 
     conn = http_connection(session)
 
     debug(session, GET, cmd + vfidstr, content)
 
-    conn.request("GET", cmd + vfidstr, content, credential)
+    resp = bsn_request(conn, "GET", cmd + vfidstr, content, credential, delay)
 
-    delay = session.get("throttle_delay")
-    if delay > 0:
-        time.sleep(delay)
-
-    resp = conn.getresponse()
     return get_response_parse(resp)
 
 
@@ -548,92 +578,72 @@ def put_request(session, cmd, content):
 
 
 def put_request_orig(session, cmd, content):
-    credential = session.get("credential")
+    credential = getcredential(session)
+    delay = getthrottledelay(session)
     vfidstr = vfidstr_get(session)
 
     conn = http_connection(session)
 
     debug(session, PUT, cmd + vfidstr, content)
 
-    conn.request("PUT", cmd + vfidstr, content, credential)
+    resp = bsn_request(conn, "PUT", cmd + vfidstr, content, credential, delay)
 
-    delay = session.get("throttle_delay")
-    if delay > 0:
-        time.sleep(delay)
-
-    resp = conn.getresponse()
     return set_response_parse(resp)
 
 
 def patch_request(session, cmd, content):
-    credential = session.get("credential")
+    credential = getcredential(session)
+    delay = getthrottledelay(session)
     vfidstr = vfidstr_get(session)
 
     conn = http_connection(session)
 
     debug(session, PATCH, cmd + vfidstr, content)
 
-    conn.request("PATCH", cmd + vfidstr, content, credential)
+    resp = bsn_request(conn, "PATCH", cmd + vfidstr, content, credential, delay)
 
-    delay = session.get("throttle_delay")
-    if delay > 0:
-        time.sleep(delay)
-
-    resp = conn.getresponse()
     return set_response_parse(resp)
 
 
 def post_request(session, cmd, content):
-    credential = session.get("credential")
+    credential = getcredential(session)
+    delay = getthrottledelay(session)
     vfidstr = vfidstr_get(session)
 
     conn = http_connection(session)
 
     debug(session, POST, cmd + vfidstr, content)
 
-    conn.request("POST", cmd + vfidstr, content, credential)
+    resp = bsn_request(conn, "POST", cmd + vfidstr, content, credential, delay)
 
-    delay = session.get("throttle_delay")
-    if delay > 0:
-        time.sleep(delay)
-
-    resp = conn.getresponse()
     return set_response_parse(resp)
 
 
 def delete_request(session, cmd, content):
-    credential = session.get("credential")
+    credential = getcredential(session)
+    delay = getthrottledelay(session)
     vfidstr = vfidstr_get(session)
 
     conn = http_connection(session)
 
     debug(session, DELETE, cmd + vfidstr, content)
 
-    conn.request("DELETE", cmd + vfidstr, content, credential)
+    resp = bsn_request(conn, "DELETE", cmd + vfidstr, content, credential, delay)
 
-    delay = session.get("throttle_delay")
-    if delay > 0:
-        time.sleep(delay)
-
-    resp = conn.getresponse()
     return set_response_parse(resp)
 
 
 def rpc_request(session, cmd, content):
-    credential = session.get("credential")
+    credential = getcredential(session)
+    delay = getthrottledelay(session)
     vfidstr = vfidstr_get(session)
 
     conn = http_connection(session)
 
     debug(session, POST, cmd + vfidstr, content)
 
-    conn.request("POST", cmd + vfidstr, content, credential)
+    resp = bsn_request(conn, "POST", cmd + vfidstr, content, credential, delay)
 
-    delay = session.get("throttle_delay")
-    if delay > 0:
-        time.sleep(delay)
-
-    resp = conn.getresponse()
     return rpc_response_parse(resp)
 
 
@@ -698,14 +708,14 @@ def isIPAddr(inputstring):
 
         return True
     # check for IPv6
-    elif inputstring.count(":") == 7:
+    elif inputstring.count(":") > 2:
         for i in inputstring.split(":"):
             try:
                 int(i, 16)
             except ValueError:
                 return False
 
-            if len(i) != 4:
+            if len(i) > 4:
                 return False
 
         return True

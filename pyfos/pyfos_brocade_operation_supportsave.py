@@ -48,6 +48,19 @@ class supportsave(pyfos_rest_util.rest_object):
         +---------------------------+-------------------------------+---------------------------------------+
         | protocol                  | Protocol to access the host.  |:func:`set_protocol`                   |
         +---------------------------+-------------------------------+---------------------------------------+
+        | serial-mode               | Legacy serial-mode module     | :func:`set_serial_mode`               |
+        |                           | supportsave collection. true  |                                       |
+        |                           | : Supportsave process will be |                                       |
+        |                           | done serialize module by      |                                       |
+        |                           | module. false : Supportsave   |                                       |
+        |                           | process will be done in       |                                       |
+        |                           | parallel for multiple         |                                       |
+        |                           | modules.                      |                                       |
+        +---------------------------+-------------------------------+---------------------------------------+
+        | port                      | User defined port number can  | :func:`set_port`                      |
+        |                           | be configured only for        |                                       |
+        |                           | scp/sftp protocol             |                                       |
+        +---------------------------+-------------------------------+---------------------------------------+
 
     *Object Methods*
 
@@ -114,6 +127,22 @@ class supportsave(pyfos_rest_util.rest_object):
             :param protocol: The protocol to communicate with the server.
             :rtype: A dictionary of errors or a success response.
 
+        .. method:: set_serial_mode(value)
+
+            Set the value of serial-mode in the supportsave object.
+
+            :param serial_mode: Legacy serial-mode module supportsave.
+            :rtype: A dictionary of error or a success response and a value
+             with "serial-mode" as the key
+
+        .. method:: set_port(value)
+
+            Set the value of port in the supportsave object.
+
+            :param port: Port number of remote server .
+            :rtype: A dictionary of error or a success response and a value
+             with "port" as the key
+
         """
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.rpc_supportsave,
@@ -133,5 +162,11 @@ class supportsave(pyfos_rest_util.rest_object):
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute("protocol",
                  pyfos_type.type_str, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("serial-mode",
+                 pyfos_type.type_bool, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("port",
+                 pyfos_type.type_int, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.load(dictvalues, 1)

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>pyfos_brocade_snmp - PyFOS module to provide rest support for SNMP. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules." href="pyfos_brocade_module_version.html" />
-    <link rel="prev" title="pyfos_brocade_time - PyFOS module to provide rest support for time server." href="pyfos_brocade_time.html" /> 
+    <link rel="prev" title="pyfos_brocade_license - PyFOS module for the licenses installed on the switch." href="pyfos_brocade_license.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="pyfos_brocade_module_version.html" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_time.html" title="pyfos_brocade_time - PyFOS module to provide rest support for time server."
+          <a href="pyfos_brocade_license.html" title="pyfos_brocade_license - PyFOS module for the licenses installed on the switch."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -889,7 +889,8 @@ using the attribute’s set method.</p>
 <tr class="row-even"><td>community-group</td>
 <td>Community belongs to the group
 RO or RW</td>
-<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_account.peek_community_group" title="pyfos_brocade_snmp.v1_account.peek_community_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_community_group()</span></code></a></td>
+<td><a class="reference internal" href="#pyfos_brocade_snmp.v1_account.peek_community_group" title="pyfos_brocade_snmp.v1_account.peek_community_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_community_group()</span></code></a>
+<a class="reference internal" href="#pyfos_brocade_snmp.v1_account.set_community_group" title="pyfos_brocade_snmp.v1_account.set_community_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_community_group()</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -979,6 +980,20 @@ using the attribute’s set method.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or group name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v1_account.set_community_group">
+<code class="descname">set_community_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v1_account.set_community_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set group name of the SNMP v1 account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary of error or success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1197,7 +1212,9 @@ using the attribute’s set method.</p>
 <tr class="row-even"><td>user-group</td>
 <td>SNMP v3 user belongs to the
 group snmpadmin or snmpuser</td>
-<td><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.peek_user_group" title="pyfos_brocade_snmp.v3_account.peek_user_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_user_group()</span></code></a></td>
+<td><p class="first"><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.peek_user_group" title="pyfos_brocade_snmp.v3_account.peek_user_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_user_group()</span></code></a></p>
+<p class="last"><a class="reference internal" href="#pyfos_brocade_snmp.v3_account.set_user_group" title="pyfos_brocade_snmp.v3_account.set_user_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_user_group()</span></code></a></p>
+</td>
 </tr>
 <tr class="row-odd"><td>authentication-protocol</td>
 <td>Authentication protocol for
@@ -1282,7 +1299,7 @@ using the attribute’s set method.</p>
 <dl class="method">
 <dt id="pyfos_brocade_snmp.v3_account.set_user_name">
 <code class="descname">set_user_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.set_user_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set SNMP V3 user nane.</p>
+<dd><p>Set SNMP V3 user name.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1310,12 +1327,26 @@ using the attribute’s set method.</p>
 <dl class="method">
 <dt id="pyfos_brocade_snmp.v3_account.peek_user_group">
 <code class="descname">peek_user_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.peek_user_group" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads group of the SNMP v3 user.</p>
+<dd><p>Reads group name of the SNMP v3 user.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or group of the SNMP v3 user.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_snmp.v3_account.set_user_group">
+<code class="descname">set_user_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.set_user_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set group name of the SNMP v3 user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary value of error or success response.</td>
 </tr>
 </tbody>
 </table>
@@ -1366,7 +1397,7 @@ using the attribute’s set method.</p>
 <dl class="method">
 <dt id="pyfos_brocade_snmp.v3_account.peek_privacy_protocol">
 <code class="descname">peek_privacy_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_snmp.v3_account.peek_privacy_protocol" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads privacy protoco of the SNMP v3 user.</p>
+<dd><p>Reads privacy protocol of the SNMP v3 user.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1682,8 +1713,8 @@ using the attribute’s set method.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="pyfos_brocade_time.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_time</span></code> - PyFOS module to provide rest support for time server.</a></p>
+  <p class="topless"><a href="pyfos_brocade_license.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_license</span></code> - PyFOS module for the licenses installed on the switch.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="pyfos_brocade_module_version.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_module_version</span></code> - PyFOS module to provide module level version information for all the supported modules.</a></p>
@@ -1723,9 +1754,9 @@ using the attribute’s set method.</p>
           <a href="pyfos_brocade_module_version.html" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules."
              >next</a> |</li>
         <li class="right" >
-          <a href="pyfos_brocade_time.html" title="pyfos_brocade_time - PyFOS module to provide rest support for time server."
+          <a href="pyfos_brocade_license.html" title="pyfos_brocade_license - PyFOS module for the licenses installed on the switch."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -36,6 +36,7 @@ and type.
 
    |   --certificate-entity=ENTITY-NAME    Sets the certificate entity name.
    |   --certificate-type=CERT-TYPE        Sets the certificate type.
+   |   --keypair-tag=VALUE                 Sets the keypair-tag for Extension.
    |   --key-size=VALUE                    Sets the key size.
    |   --country-name=VALUE                Sets the country name.
    |   --state-name=VALUE                  Sets the state name.
@@ -47,6 +48,7 @@ and type.
                                            certificate is valid.
    |   --domain-name=VALUE                 Sets the domain name.
    |   --locality-name=VALUE               Sets the locality name.
+
 
 * Output:
     * The certificate created.
@@ -71,7 +73,7 @@ cert_entity, cert_type)
             :param cert_entity: The associated certificate entity \
                                 (ca-client/ca-server/cert/csr).
             :param cert_type: The associated certificate type \
-                              (commoncert/https/syslog/ldap/radius).
+                              (commoncert/https/syslog/ldap/radius/extension).
 
         * Output:
             :rtype: A dictionary of return status matching the REST response.
@@ -97,7 +99,7 @@ def _create_cert(session, restobject):
 def create_security_certificate(session, cert_entity, cert_type, algo_type,
                                 key_size, hash_type, years, country_name,
                                 state_name, locality_name, organization_name,
-                                unit_name, domain_name):
+                                unit_name, domain_name, keypair=None):
     seccertmgmt_obj = security_certificate_generate()
     seccertmgmt_obj.set_certificate_entity(cert_entity)
     seccertmgmt_obj.set_certificate_type(cert_type)
@@ -111,9 +113,35 @@ def create_security_certificate(session, cert_entity, cert_type, algo_type,
     seccertmgmt_obj.set_organization_name(organization_name)
     seccertmgmt_obj.set_unit_name(unit_name)
     seccertmgmt_obj.set_domain_name(domain_name)
+    seccertmgmt_obj.set_keypair_tag(keypair)
 
     result = _create_cert(session, seccertmgmt_obj)
     return result
+
+
+def validate(seccertmgmt_obj):
+    if (seccertmgmt_obj.peek_certificate_entity() is None or
+            seccertmgmt_obj.peek_certificate_type() is None):
+        print("Missing input(s)")
+        return 1
+    if (seccertmgmt_obj.peek_certificate_type() == "extension" and
+            seccertmgmt_obj.peek_keypair_tag() is None):
+        print("Missing input(s): \"keypair-tag\" is required for Extension.")
+        return 1
+    if (seccertmgmt_obj.peek_certificate_type() != "extension" and
+            seccertmgmt_obj.peek_keypair_tag() is not None):
+        print("Missing input(s): \"keypair-tag\" is provided for non" +
+              " Extension certificate.")
+        return 1
+    if seccertmgmt_obj.peek_certificate_entity() == "csr":
+        if (seccertmgmt_obj.peek_country_name() is None or
+                seccertmgmt_obj.peek_state_name() is None or
+                seccertmgmt_obj.peek_locality_name() is None or
+                seccertmgmt_obj.peek_organization_name() is None or
+                seccertmgmt_obj.peek_unit_name() is None):
+            print("Missing input(s)")
+            return 1
+    return 0
 
 
 def main(argv):
@@ -123,31 +151,16 @@ def main(argv):
     filters = ['certificate_entity', 'certificate_type', 'algorithm_type',
                'key_size', 'hash_type', 'years', 'country_name', 'state_name',
                'locality_name', 'organization_name', 'unit_name',
-               'domain_name']
+               'domain_name', 'keypair_tag']
 
-    inputs = brcd_util.parse(argv, security_certificate_generate, filters)
+    inputs = brcd_util.parse(argv, security_certificate_generate, filters,
+                             validate)
 
     seccertmgmt_obj = inputs['utilobject']
 
     session = brcd_util.getsession(inputs)
 
-    if (seccertmgmt_obj.peek_certificate_entity() is None or
-            seccertmgmt_obj.peek_certificate_type() is None):
-        print("Missing input(s)")
-        print(inputs['utilusage'])
-        sys.exit()
-
-    if seccertmgmt_obj.peek_certificate_entity() == "csr":
-        if (seccertmgmt_obj.peek_country_name() is None or
-                seccertmgmt_obj.peek_state_name() is None or
-                seccertmgmt_obj.peek_locality_name() is None or
-                seccertmgmt_obj.peek_organization_name() is None or
-                seccertmgmt_obj.peek_unit_name() is None):
-            print("Missing input(s)")
-            print(inputs['utilusage'])
-            sys.exit()
-
-    result = _create_cert(inputs['session'], inputs['utilobject'])
+    result = _create_cert(inputs['session'], seccertmgmt_obj)
 
     pyfos_util.response_print(result)
 

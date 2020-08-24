@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>powersupply_show - PyFOS util to show the power supply unit information. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>powersupply_show - PyFOS util to show the power supply unit information. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="fan_show.html" title="fan_show - PyFOS util to show the fan unit information."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -68,10 +68,10 @@
 <div class="line">–unit-number=unit-number     Sets the unit number.</div>
 </div>
 </div></blockquote>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Power supply unit information. When the unit number is not provided,
 all power supply units will be displayed.</li>
 </ul>
@@ -86,7 +86,7 @@ all power supply units will be displayed.</li>
 <li><p class="first">Displays the power supply unit details.</p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="c1"># Example 1: Display all the ps_units</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1: Display all the ps_units</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">ps_unit_show</span><span class="o">.</span><span class="n">show_ps_unit</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 
@@ -96,14 +96,14 @@ all power supply units will be displayed.</li>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ps_obj</span> <span class="o">=</span> <span class="n">power_supply</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ps_obj</span> <span class="o">=</span> <span class="n">power_supply</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">unit</span><span class="o">-</span><span class="n">number</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># All powersupply units</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">ps_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">ps_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -199,7 +199,7 @@ Module <a class="reference internal" href="pyfos_brocade_fru.html#module-pyfos_b
         <li class="right" >
           <a href="fan_show.html" title="fan_show - PyFOS util to show the fan unit information."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

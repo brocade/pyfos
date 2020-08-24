@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+# Copyright 2018-2019 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -69,7 +69,8 @@ def pzoneremove(session, zones):
         zones = [
                     {
                         "zone-name": name,
-                        "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                        "zone-type": 1,
+                        "zone-type-string": "user-created-peer-zone",
                         "member-entry":
                             {
                                 "entry-name": members,
@@ -101,6 +102,7 @@ def __pzoneremove(session, name, members, pmembers):
                 {
                     "zone-name": name,
                     "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                    "zone-type-string": pyfos_zone.ZONE_TYPE_STRING_PEER,
                     "member-entry": {
                                         "entry-name": members,
                                     }
@@ -111,6 +113,7 @@ def __pzoneremove(session, name, members, pmembers):
                 {
                     "zone-name": name,
                     "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                    "zone-type-string": pyfos_zone.ZONE_TYPE_STRING_PEER,
                     "member-entry": {
                                         "principal-entry-name": pmembers
                                     }
@@ -121,6 +124,7 @@ def __pzoneremove(session, name, members, pmembers):
                 {
                     "zone-name": name,
                     "zone-type": pyfos_zone.ZONE_TYPE_PEER,
+                    "zone-type-string": pyfos_zone.ZONE_TYPE_STRING_PEER,
                     "member-entry": {
                                         "entry-name": members,
                                         "principal-entry-name": pmembers

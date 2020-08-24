@@ -1,0 +1,387 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_brocade_fabric_traffic_controller - PyFOS module for Fabric Traffic Controller. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_brocade_fibrechannel_routing - PyFOS module provides REST support for FC Router switch" href="pyfos_brocade_fibrechannel_routing.html" />
+    <link rel="prev" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules." href="pyfos_brocade_module_version.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fibrechannel_routing.html" title="pyfos_brocade_fibrechannel_routing - PyFOS module provides REST support for FC Router switch"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_module_version.html" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_brocade_fabric_traffic_controller"></span><div class="section" id="pyfos-brocade-fabric-traffic-controller-pyfos-module-for-fabric-traffic-controller">
+<h1><a class="reference internal" href="#module-pyfos_brocade_fabric_traffic_controller" title="pyfos_brocade_fabric_traffic_controller: PyFOS module to provide REST support for Fabric Traffic Controller (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fabric_traffic_controller</span></code></a> - PyFOS module for Fabric Traffic Controller.<a class="headerlink" href="#pyfos-brocade-fabric-traffic-controller-pyfos-module-for-fabric-traffic-controller" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_brocade_fabric_traffic_controller" title="pyfos_brocade_fabric_traffic_controller: PyFOS module to provide REST support for Fabric Traffic Controller (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_fabric_traffic_controller</span></code></a> provides REST support for Fabric Traffic Controller.</p>
+<dl class="class">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_fabric_traffic_controller.</code><code class="descname">fabric_traffic_controller_device</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of Fabric Traffic Controller</p>
+<p>Important class members:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="26%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute name</th>
+<th class="head">Description</th>
+<th class="head">Frequstly used methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>n-port-id</td>
+<td>Fibre Channel Address</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_id" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_n_port_id()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>n-port-wwn</td>
+<td>N_Port World Wide Name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_wwn" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_wwn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_n_port_wwn()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>f-port-wwn</td>
+<td>Fabric Port World Wide Name</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_f_port_wwn" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_f_port_wwn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_f_port_wwn()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port-index</td>
+<td>Port Index</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_port_index" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_port_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_port_index()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>rdf-registrations</td>
+<td>Registered Diagnostic
+Functions (RDF)</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_rdf_registrations" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_rdf_registrations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_rdf_registrations()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>congestion-states</td>
+<td>Congestion States</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_congestion_states" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_congestion_states"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_congestion_states()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>edc-owner</td>
+<td>Fibre Channel Address of the
+device that originated the
+Exchange Diagnostic
+Capabilities (EDC) exchange</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_edc_owner" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_edc_owner"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_edc_owner()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>fpin-send-statistics</td>
+<td>FPIN Send statistics</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_fpin_send_statistics" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_fpin_send_statistics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fpin_send_statistics()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>fpin-receive-statistics</td>
+<td>FPIN Receive statistics</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_fpin_receive_statistics" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_fpin_receive_statistics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_fpin_receive_statistics()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>n-port-diagnostic-capabilities</td>
+<td>Diagnostic Capabilities of the
+N_Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_diagnostic_capabilities" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_diagnostic_capabilities"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_n_port_diagnostic_capabilities()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>f-port-diagnostic-capabilities</td>
+<td>Diagnostic Capabilities of the
+Fabric Port</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_f_port_diagnostic_capabilities" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_f_port_diagnostic_capabilities"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_f_port_diagnostic_capabilities()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>applied-signaling-capabilities</td>
+<td>Applied Congestion Detection
+Signaling Capabilities at this
+Port Index</td>
+<td><a class="reference internal" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_applied_signaling_capabilities" title="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_applied_signaling_capabilities"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek_applied_signaling_capabilities()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object methods</em></p>
+<blockquote>
+<div><dl class="staticmethod">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>n_port_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">fabric_traffic_controller</span></code> object or a list of
+objects filled with device attributes.</p>
+<p>Each object can be printed using <a class="reference internal" href="pyfos_util.html#pyfos_util.response_print" title="pyfos_util.response_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_util.response_print()</span></code></a>
+and individual attributes accessed through peek methods.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">n-port-id</span></code> object or list of objects. Dictionary in
+case of error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+<p><em>Attribute methods</em></p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_id">
+<code class="descname">peek_n_port_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads N_Port Identifier from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or N_Port Identifier of the device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_wwn">
+<code class="descname">peek_n_port_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads N_Port world wide name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or N_Port world wide name of device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_f_port_wwn">
+<code class="descname">peek_f_port_wwn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_f_port_wwn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Fabric Port world wide name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Fabric Port world wide name of device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_port_index">
+<code class="descname">peek_port_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_port_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Port Index of the N_Port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Port Index number of N_Port</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_rdf_registrations">
+<code class="descname">peek_rdf_registrations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_rdf_registrations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Registered Diagnostic Functions for the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Registered Diagnostic Functions for the device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_congestion_states">
+<code class="descname">peek_congestion_states</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_congestion_states" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Congestion states that apply to the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Congestion States</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_edc_owner">
+<code class="descname">peek_edc_owner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_edc_owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads N_Port Identifier of the device that owns the EDC exchange.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or N_Port Identifier of the EDC exchange owner</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_fpin_send_statistics">
+<code class="descname">peek_fpin_send_statistics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_fpin_send_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FPIN send statistics from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or FPIN Send Statistics</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_fpin_receive_statistics">
+<code class="descname">peek_fpin_receive_statistics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_fpin_receive_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads FPIN receive statistics from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or FPIN Receive Statistics</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_diagnostic_capabilities">
+<code class="descname">peek_n_port_diagnostic_capabilities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_n_port_diagnostic_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads N_Port diagnostic capabilities from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or N_Port Diagnostic Capabilities</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_f_port_diagnostic_capabilities">
+<code class="descname">peek_f_port_diagnostic_capabilities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_f_port_diagnostic_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Fabric Port diagnostic capabilities from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Fabric Port Diagnostic Capabilities</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_applied_signaling_capabilities">
+<code class="descname">peek_applied_signaling_capabilities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_fabric_traffic_controller.fabric_traffic_controller_device.peek_applied_signaling_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads Applied signaling capabilities from the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or Applied Signaling Capabilities</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_brocade_module_version.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_module_version</span></code> - PyFOS module to provide module level version information for all the supported modules.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_brocade_fibrechannel_routing.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_brocade_fibrechannel_routing</span></code> - PyFOS module provides REST support for FC Router switch</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_brocade_fabric_traffic_controller.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_fibrechannel_routing.html" title="pyfos_brocade_fibrechannel_routing - PyFOS module provides REST support for FC Router switch"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_brocade_module_version.html" title="pyfos_brocade_module_version - PyFOS module to provide module level version information for all the supported modules."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

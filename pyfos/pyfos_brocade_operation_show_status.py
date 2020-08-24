@@ -21,7 +21,7 @@ operation status
 ***************************************************************************\
 ********************
 The :mod:`pyfos_brocade_operation_show_status` provides REST support for
-supportsave operation status.
+firmwaredownload and supportsave operation status.
 
 """
 
@@ -103,7 +103,8 @@ class show_status(pyfos_rest_util.rest_object):
         """
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.rpc_show_status,
-                         "/rest/operations/show-status", ver.VER_RANGE_821_and_ABOVE, 1)
+                         "/rest/operations/show-status",
+                         ver.VER_RANGE_900_and_ABOVE, 1)
         self.add(pyfos_rest_util.rest_attribute("message-id",
                  pyfos_type.type_int, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
@@ -119,4 +120,14 @@ class show_status(pyfos_rest_util.rest_object):
         self.add(pyfos_rest_util.rest_attribute("operation",
                  pyfos_type.type_str, None,
                  pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+                 "eula-text", pyfos_type.type_str,
+                 None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+                 "firmwaredownload", pyfos_type.type_na,
+                 dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+        self.add(pyfos_rest_util.rest_attribute(
+                 "message", pyfos_type.type_na,
+                 None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
+                 ["firmwaredownload"])
         self.load(dictvalues, 1)

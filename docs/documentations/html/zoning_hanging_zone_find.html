@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>zoning_hanging_zone_find - PyFOS util for misc use case. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>zoning_hanging_zone_find - PyFOS util for misc use case. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="zoning_pzone_create_add - PyFOS util for specific Zoning use case." href="zoning_pzone_create_add.html" />
+    <link rel="next" title="zoning_object_expunge - PyFOS util used for expunging a zone object." href="zoning_object_expunge.html" />
     <link rel="prev" title="zoning_def_zone - PyFOS util for specific Zoning use case." href="zoning_def_zone.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="zoning_pzone_create_add.html" title="zoning_pzone_create_add - PyFOS util for specific Zoning use case."
+          <a href="zoning_object_expunge.html" title="zoning_object_expunge - PyFOS util used for expunging a zone object."
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="zoning_def_zone.html" title="zoning_def_zone - PyFOS util for specific Zoning use case."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -55,28 +55,24 @@ execution and they may not account for devices taken offline on purpose
 or devices that are toggling due to various reasons. Therefore, the
 list of zones to be removed may contain those zones that do not
 contain any online devices due to above reasons.</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Inputs:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>-L=&lt;login&gt;: Login ID. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>-P=&lt;password&gt;: Password. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: IP address.</p>
-</li>
+<li>-i=&lt;IP address&gt;: IP address.</li>
 <li><dl class="first docutils">
 <dt>-f=&lt;VFID&gt;: VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd><p class="first last">a VFID of 128 is assumed.</p>
-</dd>
+<dd>a VFID of 128 is assumed.</dd>
 </dl>
 </li>
 </ul>
@@ -88,9 +84,8 @@ contain any online devices due to above reasons.</p>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>Displays “Hanging Zones” and Zones to remain. Then the script</dt>
-<dd><p class="first last">accepts interactive “YES” input to purge those zones or any
-other inputs to skip.</p>
-</dd>
+<dd>accepts interactive “YES” input to purge those zones or any
+other inputs to skip.</dd>
 </dl>
 </li>
 </ul>
@@ -114,8 +109,8 @@ other inputs to skip.</p>
   <p class="topless"><a href="zoning_def_zone.html"
                         title="previous chapter"><code class="docutils literal notranslate"><span class="pre">zoning_def_zone</span></code> - PyFOS util for specific Zoning use case.</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="zoning_pzone_create_add.html"
-                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">zoning_pzone_create_add</span></code> - PyFOS util for specific Zoning use case.</a></p>
+  <p class="topless"><a href="zoning_object_expunge.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">zoning_object_expunge</span></code> - PyFOS util used for expunging a zone object.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -149,12 +144,12 @@ other inputs to skip.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="zoning_pzone_create_add.html" title="zoning_pzone_create_add - PyFOS util for specific Zoning use case."
+          <a href="zoning_object_expunge.html" title="zoning_object_expunge - PyFOS util used for expunging a zone object."
              >next</a> |</li>
         <li class="right" >
           <a href="zoning_def_zone.html" title="zoning_def_zone - PyFOS util for specific Zoning use case."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

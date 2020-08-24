@@ -1,0 +1,253 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyfos_type - PyFOS module for pyfos_rest_util.rest_attribute to associate correct data type and yang type informations in pyfos along with support for correct data type conversion and validations support for peek_ and set_ methods. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyfos_auth_token - PyFOS module to facilitate Auth-Token based session to a FOS switch." href="pyfos_auth_token.html" />
+    <link rel="prev" title="pyfos_version - PyFOS module to provide versioning functionality for rest classes and attributes." href="pyfos_version.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_auth_token.html" title="pyfos_auth_token - PyFOS module to facilitate Auth-Token based session to a FOS switch."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_version.html" title="pyfos_version - PyFOS module to provide versioning functionality for rest classes and attributes."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-pyfos_type"></span><div class="section" id="pyfos-type-pyfos-module-for-pyfos-rest-util-rest-attribute-to-associate-correct-data-type-and-yang-type-informations-in-pyfos-along-with-support-for-correct-data-type-conversion-and-validations-support-for-peek-and-set-methods">
+<h1><a class="reference internal" href="#module-pyfos_type" title="pyfos_type: PyFOS module to for matching a yang attribute as a rest_attribute (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_type</span></code></a> - PyFOS module for <a class="reference internal" href="pyfos_rest_util.html#pyfos_rest_util.rest_attribute" title="pyfos_rest_util.rest_attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code></a> to associate correct data type and yang type informations in pyfos along with support for correct data type conversion and validations support for <em>peek_</em> and <em>set_</em> methods.<a class="headerlink" href="#pyfos-type-pyfos-module-for-pyfos-rest-util-rest-attribute-to-associate-correct-data-type-and-yang-type-informations-in-pyfos-along-with-support-for-correct-data-type-conversion-and-validations-support-for-peek-and-set-methods" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyfos_type" title="pyfos_type: PyFOS module to for matching a yang attribute as a rest_attribute (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_type</span></code></a> PyFOS module to identify and associate the data type
+and yang type informations for <a class="reference internal" href="pyfos_rest_util.html#pyfos_rest_util.rest_attribute" title="pyfos_rest_util.rest_attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code></a>.</p>
+<dl class="class">
+<dt id="pyfos_type.pyfos_type">
+<em class="property">class </em><code class="descclassname">pyfos_type.</code><code class="descname">pyfos_type</code><span class="sig-paren">(</span><em>my_pyfos_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_type.pyfos_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>class for management of all data types supported for PyFOS class
+<a class="reference internal" href="pyfos_rest_util.html#pyfos_rest_util.rest_attribute" title="pyfos_rest_util.rest_attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code></a> types.The class also support
+type conversion and validation to known data types using different
+functions like <a class="reference internal" href="#pyfos_type.pyfos_type.validate_peek" title="pyfos_type.pyfos_type.validate_peek"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_peek()</span></code></a> and  <a class="reference internal" href="#pyfos_type.pyfos_type.validate_peek_help" title="pyfos_type.pyfos_type.validate_peek_help"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_peek_help()</span></code></a>.</p>
+<ul>
+<li><p class="first">PyFOS type enum table:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="27%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">PyFOS type enum</th>
+<th class="head">Supported Input value</th>
+<th class="head">Description and details of the enum type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>type_na</em></td>
+<td>python None/dict/list</td>
+<td>Specifies leaf type for composite type like yang container,
+list or leaf list. Also for leaf type where no validations
+needed.</td>
+</tr>
+<tr class="row-odd"><td><em>type_int</em></td>
+<td>Integer input values</td>
+<td>Specifies leaf type which takes integer input values the
+yang zero based counters, integer values bound by range etc</td>
+</tr>
+<tr class="row-even"><td><em>type_wwn</em></td>
+<td>string equivalent wwn</td>
+<td>Specifies leaf type which takes yang wwn input values str</td>
+</tr>
+<tr class="row-odd"><td><em>type_str</em></td>
+<td>string input value</td>
+<td>Specifies leaf type which takes string input values.</td>
+</tr>
+<tr class="row-even"><td><em>type_bool</em></td>
+<td>True/False or 0/1</td>
+<td>Specifies boolean leaf type and can use python boolean or
+integer equivalent value  for the same 1:True 0:False</td>
+</tr>
+<tr class="row-odd"><td><em>type_ip_addr</em></td>
+<td>string input in IP v4/v6</td>
+<td>Specifies leaf type which represents an IPv4/IPv6 addr</td>
+</tr>
+<tr class="row-even"><td><em>type_ipv6_addr</em></td>
+<td>string input in IP v6</td>
+<td>Specifies leaf type which represents an IPV6 addr</td>
+</tr>
+<tr class="row-odd"><td><em>type_zoning_name</em></td>
+<td>string input value</td>
+<td>Specifies leaf type which takes string input confirming to
+zoning rules/checks</td>
+</tr>
+<tr class="row-even"><td><em>type_domain_port</em></td>
+<td>Integer input values</td>
+<td>Specifies leaf type which takes integer port values.</td>
+</tr>
+<tr class="row-odd"><td><em>type_float</em></td>
+<td>float input values</td>
+<td>Specifies leaf type which takes float input values.</td>
+</tr>
+<tr class="row-even"><td>type_hex_str</td>
+<td>String input values for HEX</td>
+<td>Specifies leaf type which takes hex input value</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+<dl class="method">
+<dt id="pyfos_type.pyfos_type.get_type">
+<code class="descname">get_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_type.pyfos_type.get_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the pyfos type value from the class object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_type.pyfos_type.get_type_str">
+<code class="descname">get_type_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_type.pyfos_type.get_type_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the string equivalent enum value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_type.pyfos_type.validate_peek">
+<code class="descname">validate_peek</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_type.pyfos_type.validate_peek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for helper function <a class="reference internal" href="#pyfos_type.pyfos_type.validate_peek_help" title="pyfos_type.pyfos_type.validate_peek_help"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_peek_help()</span></code></a> for
+validation and also conversion of input data value into the correct
+data type equivalent. This function is used for <em>peek_</em> method of
+<a class="reference internal" href="pyfos_rest_util.html#pyfos_rest_util.rest_attribute" title="pyfos_rest_util.rest_attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_type.pyfos_type.validate_peek_help">
+<code class="descname">validate_peek_help</code><span class="sig-paren">(</span><em>cur_type</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_type.pyfos_type.validate_peek_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for validation and also conversion of input data
+value into the correct data type equivalent. This function is common
+and is used for both <em>peek_</em> and <em>set_</em> variants setters and getters
+alike for <a class="reference internal" href="pyfos_rest_util.html#pyfos_rest_util.rest_attribute" title="pyfos_rest_util.rest_attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyfos_type.pyfos_type.validate_set">
+<code class="descname">validate_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_type.pyfos_type.validate_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate set for <a class="reference internal" href="pyfos_rest_util.html#pyfos_rest_util.rest_attribute" title="pyfos_rest_util.rest_attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_type.rest_yang_config">
+<em class="property">class </em><code class="descclassname">pyfos_type.</code><code class="descname">rest_yang_config</code><a class="headerlink" href="#pyfos_type.rest_yang_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>class rest_yang_config indicates the yang attributes associated with
+pyfos class <a class="reference internal" href="pyfos_rest_util.html#pyfos_rest_util.rest_attribute" title="pyfos_rest_util.rest_attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code></a> like <em>key</em>,
+<em>config</em>, <em>mandatory</em> etc.</p>
+<ul class="simple">
+<li>yang_leaf: The pyfos rest_attribute is only a leaf in the yang.</li>
+<li>yang_key: The pyfos attribute is a key in the yang.</li>
+<li>yang_config: The pyfos attribute is a config in the yang.</li>
+<li>yang_not_config: The pyfos attribute is not for configuration in yang.</li>
+<li>yanf_mandatory: The pyfos attribute is mandatory in yang.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyfos_type.rest_yang_type">
+<em class="property">class </em><code class="descclassname">pyfos_type.</code><code class="descname">rest_yang_type</code><a class="headerlink" href="#pyfos_type.rest_yang_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>class rest_yang_type indicates the yang equivalent attribute type
+information for pyfos class <a class="reference internal" href="pyfos_rest_util.html#pyfos_rest_util.rest_attribute" title="pyfos_rest_util.rest_attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfos_rest_util.rest_attribute</span></code></a>
+like <em>container</em>, <em>list</em>, <em>leaf</em>, <em>leaf list</em>.</p>
+<ul class="simple">
+<li>yang_leaf: The pyfos attribute is a leaf in the yang.</li>
+<li>yang_container: The pyfos attribute is a container in the yang.</li>
+<li>yang_list: The pyfos attribute is a list in the yang.</li>
+<li>yang_leaf_list: The pyfos attribute is a leaf list in the yang</li>
+</ul>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyfos_version.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_version</span></code> - PyFOS module  to provide versioning functionality         for rest classes and attributes.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyfos_auth_token.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">pyfos_auth_token</span></code> - PyFOS module to facilitate         Auth-Token based session to a FOS switch.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyfos_type.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyfos_auth_token.html" title="pyfos_auth_token - PyFOS module to facilitate Auth-Token based session to a FOS switch."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyfos_version.html" title="pyfos_version - PyFOS module to provide versioning functionality for rest classes and attributes."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

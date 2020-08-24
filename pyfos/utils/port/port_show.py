@@ -30,9 +30,12 @@ only one of the specified ports.
     * -P=<password>: Password. If not provided, an interactive
         prompt will request one.
     * -i=<IP address>: IP address.
-    * -n=<port name>: <slot>/<port> name of the port.
     * -f=<VFID>: VFID or -1 if VF is disabled. If unspecified,
         VFID of 128 is assumed.
+
+* Util scripts options:
+    --name=NAME                               Port in slot/port.
+
 
 * Outputs:
     * List of port attributes of a given port.

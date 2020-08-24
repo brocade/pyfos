@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>switch_configuration_show - PyFOS util for configuring switch operation &#8212; PyFOS 1.2.1 documentation</title>
+    <title>switch_configuration_show - PyFOS util for configuring switch operation &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="switch_configuration_modify - PyFOS util for configuring the switch" href="switch_configuration_modify.html" />
-    <link rel="prev" title="audit_modify - PyFOS util to modify the audit configuration on a switch." href="audit_modify.html" /> 
+    <link rel="prev" title="supportftp_modify - PyFOS util to modify supportftp config." href="supportftp_modify.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="switch_configuration_modify.html" title="switch_configuration_modify - PyFOS util for configuring the switch"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="audit_modify.html" title="audit_modify - PyFOS util to modify the audit configuration on a switch."
+          <a href="supportftp_modify.html" title="supportftp_modify - PyFOS util to modify supportftp config."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -47,28 +47,24 @@
 <p>The <a class="reference internal" href="#module-switch_configuration_show" title="switch_configuration_show: This pyfos util standalone script can be used to display switch attributes. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">switch_configuration_show</span></code></a> util provides for configuring switch operation.</p>
 <p>This module is a stand-alone script that can be used to display switch
 attributes.</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>-L=&lt;login&gt;: The login ID. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>-P=&lt;password&gt;: The password. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: The IP address.</p>
-</li>
+<li>-i=&lt;IP address&gt;: The IP address.</li>
 <li><dl class="first docutils">
 <dt>-f=&lt;VFID&gt;: The VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd><p class="first last">a VFID of 128 is assumed.</p>
-</dd>
+<dd>a VFID of 128 is assumed.</dd>
 </dl>
 </li>
 </ul>
@@ -77,7 +73,7 @@ attributes.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>The switch attributes in JSON format.</li>
 </ul>
 </dd>
@@ -88,17 +84,17 @@ attributes.</p>
 <dt id="switch_configuration_show.show_switch_conf">
 <code class="descclassname">switch_configuration_show.</code><code class="descname">show_switch_conf</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#switch_configuration_show.show_switch_conf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">switch_configuration_show</span><span class="o">.</span><span class="n">show_switch_conf</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">switch_configuration_show</span><span class="o">.</span><span class="n">show_switch_conf</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">switch_conf_obj</span> <span class="o">=</span> <span class="n">switch_configuration</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch_conf_obj</span> <span class="o">=</span> <span class="n">switch_configuration</span><span class="p">()</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">switch_conf_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -145,8 +141,8 @@ attributes.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="audit_modify.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">audit_modify</span></code> - PyFOS util to modify the audit configuration on a switch.</a></p>
+  <p class="topless"><a href="supportftp_modify.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">supportftp_modify</span></code> - PyFOS util to modify supportftp config.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="switch_configuration_modify.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">switch_configuration_modify</span></code> - PyFOS util for configuring the switch</a></p>
@@ -186,9 +182,9 @@ attributes.</p>
           <a href="switch_configuration_modify.html" title="switch_configuration_modify - PyFOS util for configuring the switch"
              >next</a> |</li>
         <li class="right" >
-          <a href="audit_modify.html" title="audit_modify - PyFOS util to modify the audit configuration on a switch."
+          <a href="supportftp_modify.html" title="supportftp_modify - PyFOS util to modify supportftp config."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

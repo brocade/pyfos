@@ -172,10 +172,12 @@ and/or revert the drifts in config by applying of older configs to a switch.
             {
                 "fibrechannel": {
                     "auto-negotiate": "1",
+                    "clean-address-enabled": "false",
                     "compression-active": "0",
                     "compression-configured": "0",
                     "credit-recovery-active": "0",
                     "credit-recovery-enabled": "0",
+                    "congestion-signal-enabled": "true",
                     "d-port-enable": "0",
                     "default-index": "0",
                     "e-port-credit": "0",

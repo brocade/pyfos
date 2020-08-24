@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>media_show - PyFOS util to display port media information. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>media_show - PyFOS util to display port media information. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="fan_show - PyFOS util to show the fan unit information." href="fan_show.html" />
-    <link rel="prev" title="chassis_vf_enabled_set - PyFOS util to set the VF-enabled state on a chassis." href="chassis_vf_enabled_set.html" /> 
+    <link rel="prev" title="chassis_fcr_enabled_set - PyFOS util to modify FCR state for chassis" href="chassis_fcr_enabled_set.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="fan_show.html" title="fan_show - PyFOS util to show the fan unit information."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="chassis_vf_enabled_set.html" title="chassis_vf_enabled_set - PyFOS util to set the VF-enabled state on a chassis."
+          <a href="chassis_fcr_enabled_set.html" title="chassis_fcr_enabled_set - PyFOS util to modify FCR state for chassis"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -73,10 +73,10 @@ is given, media information will be displayed for all ports.</p>
 <div class="line">–name=Interface/slot/port                  Sets the port name.</div>
 </div>
 </div></blockquote>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Media information about specified port. When the port is not provided,
 media information will be displayed for all existing ports.</li>
 </ul>
@@ -91,7 +91,7 @@ media information will be displayed for all existing ports.</li>
 <li><p class="first">Display the port media information.</p>
 <blockquote>
 <div><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="c1"># Example 1: Display media information for all ports.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1: Display media information for all ports.</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">media_rdp_show</span><span class="o">.</span><span class="n">show_media_rdp</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 
@@ -101,14 +101,14 @@ media information will be displayed for all existing ports.</li>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">media_object</span> <span class="o">=</span> <span class="n">media_rdp</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">media_object</span> <span class="o">=</span> <span class="n">media_rdp</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">slot_port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1">#All ports media</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">media_object</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">media_object</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -163,8 +163,8 @@ Module <a class="reference internal" href="pyfos_brocade_media.html#module-pyfos
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="chassis_vf_enabled_set.html"
-                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">chassis_vf_enabled_set</span></code> - PyFOS util to set the VF-enabled state on a chassis.</a></p>
+  <p class="topless"><a href="chassis_fcr_enabled_set.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">chassis_fcr_enabled_set</span></code> - PyFOS util to modify FCR state for chassis</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="fan_show.html"
                         title="next chapter"><code class="docutils literal notranslate"><span class="pre">fan_show</span></code> - PyFOS util to show the fan unit information.</a></p>
@@ -204,9 +204,9 @@ Module <a class="reference internal" href="pyfos_brocade_media.html#module-pyfos
           <a href="fan_show.html" title="fan_show - PyFOS util to show the fan unit information."
              >next</a> |</li>
         <li class="right" >
-          <a href="chassis_vf_enabled_set.html" title="chassis_vf_enabled_set - PyFOS util to set the VF-enabled state on a chassis."
+          <a href="chassis_fcr_enabled_set.html" title="chassis_fcr_enabled_set - PyFOS util to modify FCR state for chassis"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

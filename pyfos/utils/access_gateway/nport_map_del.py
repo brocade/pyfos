@@ -37,6 +37,7 @@ when the switch is in Access Gateway mode.
 
   | --config-f-ports=CONFIG-F-PORTS           List of mapped F-ports
   | --static-f-ports=STATIC-F-PORTS           List of statically mapped F-ports
+  | --preferred-f-ports=CONFIG-F-PORTS        List of preferred mapped F-ports
   | --n-port=N-PORT                           N-Port Name
 
 * outputs:
@@ -84,7 +85,6 @@ when the switch is in Access Gateway mode.
 
         Details::
 
-
             nport_obj = n_port_map()
             nport_obj.set_n_port(nport)
             if sfports is not None:
@@ -101,8 +101,38 @@ when the switch is in Access Gateway mode.
 
         *use cases*
 
-1.Removes specified list of static F_Ports from the mapping for a given N_Port.
+         1. Removes specified list of static F_Ports from \
+         the mapping for a given N_Port.
 
+.. function:: nport_map_del.del_preferred_fports(session, nport, preffports)
+
+    * Deletes the preferred N_Port for the F_Ports
+
+        Example usage of the method::
+
+            ret = nport_map_del.del_preferred_fports\
+(session, nport, preffports)
+            print (ret)
+
+        Details::
+
+            nport_obj = n_port_map()
+            nport_obj.set_n_port(nport)
+            if preffports is not None:
+                nport_obj.set_preferred_f_ports_preferred_f_port(preffports)
+            result = _del_access_gateway_nportmap(session, nport_obj)
+
+        * inputs:
+            :param session: session returned by login.
+            :param N-port: N-port identifier in slot/port format.
+            :param preffports: F-port to be preferred to N_Port.
+
+        * outputs:
+            :rtype: dictionary of return status matching rest response
+
+        *use cases*
+
+         1. Deletes the preferred N_Port for the F_Ports.
 
 """
 
@@ -130,15 +160,25 @@ def del_static_fports(session, nport, sfports):
     nport_obj = n_port_map()
     nport_obj.set_n_port(nport)
     if sfports is not None:
-        nport_obj.set_configured_f_port_list_f_port(sfports)
+        nport_obj.set_static_f_port_list_f_port(sfports)
+    result = _del_access_gateway_nportmap(session, nport_obj)
+    return result
+
+
+def del_preferred_fports(session, nport, preffports):
+    nport_obj = n_port_map()
+    nport_obj.set_n_port(nport)
+    if preffports is not None:
+        nport_obj.set_preferred_f_ports_preferred_f_port(preffports)
     result = _del_access_gateway_nportmap(session, nport_obj)
     return result
 
 
 def validate(nportmap_obj):
     if (nportmap_obj.peek_n_port() is None or
-        (not nportmap_obj.peek_configured_f_port_list_f_port() and
-            not nportmap_obj.peek_static_f_port_list_f_port())):
+            (not nportmap_obj.peek_configured_f_port_list_f_port() and
+             not nportmap_obj.peek_static_f_port_list_f_port() and
+             not nportmap_obj.peek_preferred_f_ports_preferred_f_port())):
         return 1
     return 0
 
@@ -149,7 +189,8 @@ def main(argv):
     # print(sys.argv[1:])
 
     filters = [
-        'n_port', 'configured_f_port_list_f_port', 'static_f_port_list_f_port']
+        'n_port', 'configured_f_port_list_f_port',
+        'static_f_port_list_f_port', 'preferred_f_ports_preferred_f_port']
     inputs = brcd_util.parse(argv, n_port_map, filters, validate)
 
     session = brcd_util.getsession(inputs)

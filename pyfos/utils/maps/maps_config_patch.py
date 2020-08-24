@@ -21,7 +21,8 @@
 
 This script is used to configure MAPS such as email addresses and
 relay configuration.
-Note: For updating maps-config class, any one attribute is mandatory.
+Note: For updating maps-config class, any one attribute in the
+Util Script Options is mandatory.
 
 * Input:
 
@@ -36,7 +37,7 @@ Note: For updating maps-config class, any one attribute is mandatory.
     * -v,--verbose           Verbose mode [OPTIONAL].
 
 * Util Script Options:
-    --action               Sets one or more global actions (separated by ";").
+    --actions-action       Sets one or more global actions (separated by ";").
     --decommission-cfg     Sets the decommision behavior.
     --recipient-address    Sets one or more email addresses in the "to" list.
     --sender-address       Sets the sender email address.
@@ -44,6 +45,9 @@ Note: For updating maps-config class, any one attribute is mandatory.
     --relay-ip-address     Sets the relay configuration.
     --test-email-subject   Sets the test email subject.
     --test-email-body      Sets the test email body.
+    --quiet-time           Sets the global quiet time.
+    --f-port-fpi-profile   Sets the F-Port FPI profile.
+    --e-port-fpi-profile   Sets the E-Port FPI profile.
 
 * Output:
     * A success response or a dictionary in case of error.
@@ -62,7 +66,8 @@ def main(argv):
     filters = ["actions_action", "decommission_cfg", "sender_address",
                "recipient_address_list_recipient_address", "domain_name",
                "relay_ip_address", "test_email_subject",
-               "test_email_body"]
+               "test_email_body", "quiet_time",
+               "f_port_fpi_profile", "e_port_fpi_profile"]
 
     inputs = brcd_util.parse(argv, maps_config, filters)
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fabric_configuration_show - PyFOS util for fetching the fabric configuration. &#8212; PyFOS 1.2.1 documentation</title>
+    <title>configure_fabric_show - PyFOS util for fetching the fabric configuration. &#8212; PyFOS 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="switch_ip_config_modify.html" title="switch_ip_config_modify - PyFOS util to modify the IP configuration."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,33 +42,29 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-configure_fabric_show"></span><div class="section" id="fabric-configuration-show-pyfos-util-for-fetching-the-fabric-configuration">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">fabric_configuration_show</span></code> - PyFOS util for fetching the fabric configuration.<a class="headerlink" href="#fabric-configuration-show-pyfos-util-for-fetching-the-fabric-configuration" title="Permalink to this headline">¶</a></h1>
-<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">fabric_configuration_show</span></code> util displays the fabric configuration.</p>
+  <span class="target" id="module-configure_fabric_show"></span><div class="section" id="configure-fabric-show-pyfos-util-for-fetching-the-fabric-configuration">
+<h1><a class="reference internal" href="#module-configure_fabric_show" title="configure_fabric_show: Pyfos util to display fabric attributes (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configure_fabric_show</span></code></a> - PyFOS util for fetching the fabric configuration.<a class="headerlink" href="#configure-fabric-show-pyfos-util-for-fetching-the-fabric-configuration" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-configure_fabric_show" title="configure_fabric_show: Pyfos util to display fabric attributes (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configure_fabric_show</span></code></a> util displays the fabric configuration.</p>
 <p>This module is a stand-alone script that can be used to display fabric
 attributes.</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>-L=&lt;login&gt;: The login ID. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>-P=&lt;password&gt;: The password. If not provided, an interactive</dt>
-<dd><p class="first last">prompt will request one.</p>
-</dd>
+<dd>prompt will request one.</dd>
 </dl>
 </li>
-<li><p class="first">-i=&lt;IP address&gt;: The IP address.</p>
-</li>
+<li>-i=&lt;IP address&gt;: The IP address.</li>
 <li><dl class="first docutils">
 <dt>-f=&lt;VFID&gt;: The VFID or -1 if VF is disabled. If unspecified,</dt>
-<dd><p class="first last">a VFID of 128 is assumed.</p>
-</dd>
+<dd>a VFID of 128 is assumed.</dd>
 </dl>
 </li>
 </ul>
@@ -77,7 +73,7 @@ attributes.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Output:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Python dictionary content with RESTCONF response data.</li>
 </ul>
 </dd>
@@ -88,17 +84,17 @@ attributes.</p>
 <dt id="configure_fabric_show.show_fabric_configuration">
 <code class="descclassname">configure_fabric_show.</code><code class="descname">show_fabric_configuration</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#configure_fabric_show.show_fabric_configuration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Example Usage of the Method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">ret</span> <span class="o">=</span> <span class="n">fabric_configure_get</span><span class="o">.</span><span class="n">show_fabric_configuration</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span> <span class="o">=</span> <span class="n">configure_fabric_show</span><span class="o">.</span><span class="n">show_fabric_configuration</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">fabric_conf_obj</span> <span class="o">=</span> <span class="n">fabric_configuration</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fabric_conf_obj</span> <span class="o">=</span> <span class="n">fabric_configuration</span><span class="p">()</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">fabric_conf_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Input:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -188,7 +184,7 @@ attributes.</p>
         <li class="right" >
           <a href="switch_ip_config_modify.html" title="switch_ip_config_modify - PyFOS util to modify the IP configuration."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 1.2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

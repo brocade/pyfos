@@ -45,10 +45,8 @@ license_remove operation.
 """
 
 import sys
-from time import sleep
 from pyfos import pyfos_auth
-from pyfos.pyfos_brocade_operation_show_status import show_status
-from pyfos.pyfos_brocade_operation_license import license
+from pyfos.pyfos_brocade_operation_license import license_parameters
 from pyfos import pyfos_util
 from pyfos.utils import brcd_util
 
@@ -68,19 +66,24 @@ def main(argv):
                                inputs["ipaddr"], inputs["secured"],
                                verbose=inputs["verbose"])
     if pyfos_auth.is_failed_login(session):
-        print("login failed because",
-              session.get(pyfos_auth.CREDENTIAL_KEY)[pyfos_auth.LOGIN_ERROR_KEY])
+        print("login failed because", session.get(
+              pyfos_auth.CREDENTIAL_KEY)[pyfos_auth.LOGIN_ERROR_KEY])
         brcd_util.full_usage(usage, valid_options)
         sys.exit()
 
     brcd_util.exit_register(session)
 
+    if "FOS-" in inputs["name"]:
+        err_str ="Invalid license format. " 
+        print(err_str + "Please specify only key based license.")
+        brcd_util.full_usage(usage, valid_options)
+        sys.exit()
+
     if "name" not in inputs:
         print("License key is required")
         brcd_util.full_usage(usage, valid_options)
         sys.exit()
-
-    l_obj = license()
+    l_obj = license_parameters()
     l_obj.set_action("remove")
     l_obj.set_name(inputs["name"])
     l_rsp_obj = l_obj.post(session)
@@ -91,7 +94,6 @@ def main(argv):
         pyfos_auth.logout(session)
         sys.exit()
     if pyfos_util.is_failed_resp(l_rsp_obj):
-        print("Firmwaredownload operation failed.\n")
         pyfos_util.response_print(l_rsp_obj)
     else:
         pyfos_util.response_print(l_rsp_obj)

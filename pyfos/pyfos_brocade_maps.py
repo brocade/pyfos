@@ -181,7 +181,7 @@ class maps_policy(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "rule", pyfos_type.type_str,
+            "rule", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["rule-list"])
 
         self.add(pyfos_rest_util.rest_attribute(
@@ -413,7 +413,7 @@ class group(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "member", pyfos_type.type_str,
+            "member", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["members"])
 
         self.load(dictvalues, 1)
@@ -716,9 +716,9 @@ class rule(pyfos_rest_util.rest_object):
 
         .. method:: set_quiet_time()
 
-            Sets the quiet time. If the quiet time is configured, then reporting \
-            of rule violations will be done only after the expiry of the \
-            quiet time.
+            Sets the quiet time. If the quiet time is configured, then \
+            reporting of rule violations will be done only after the expiry \
+            of the quiet time.
 
             :rtype: A dictionary in case of error or a success response.
 
@@ -804,7 +804,7 @@ class rule(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "action", pyfos_type.type_str,
+            "action", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["actions"])
 
         self.add(pyfos_rest_util.rest_attribute(
@@ -880,6 +880,9 @@ class maps_config(pyfos_rest_util.rest_object):
         +------------------------------------------+-------------------------------------------+--------------------------------------------------------+
         | test-email/body                          | The body for sending test email.          |:func:`set_test_email_body`                             |
         |                                          |                                           |:func:`peek_test_email_body`                            |
+        +------------------------------------------+-------------------------------------------+--------------------------------------------------------+
+        | quiet-time                               | The Global Quiet Time.                    |:func:`set_quiet_time`                                  |
+        |                                          |                                           |:func:`peek_quiet_time`                                 |
         +------------------------------------------+-------------------------------------------+--------------------------------------------------------+
 
     *Object Methods*
@@ -1011,6 +1014,43 @@ class maps_config(pyfos_rest_util.rest_object):
 
             :rtype: A dictionary in case of error or a success response.
 
+        .. method:: set_quiet_time()
+
+            Configures the global quiet time.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_quiet_time()
+
+            Gets the configured global quiet time.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_f_port_fpi_profile()
+
+            Configures the F-port FPI profile name.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_f_port_fpi_profile()
+
+            Gets the configured F-port FPI profile name.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_e_port_fpi_profile()
+
+            Configures the E-port FPI profile name.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_e_port_fpi_profile()
+
+            Gets the configured global quiet time.
+            Gets the configured E-port FPI profile name.
+
+            :rtype: A dictionary in case of error or a success response.
+
     """
 
     def __init__(self, dictvalues={}):
@@ -1023,7 +1063,7 @@ class maps_config(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "action", pyfos_type.type_str,
+            "action", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["actions"])
 
         self.add(pyfos_rest_util.rest_attribute(
@@ -1035,7 +1075,7 @@ class maps_config(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "recipient-address", pyfos_type.type_str,
+            "recipient-address", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
             ["recipient-address-list"])
 
@@ -1056,7 +1096,7 @@ class maps_config(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "subject", pyfos_type.type_str,
+            "subject", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["test-email"])
 
         self.add(pyfos_rest_util.rest_attribute(
@@ -1064,8 +1104,20 @@ class maps_config(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "body", pyfos_type.type_str,
+            "body", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["test-email"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "quiet-time", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "f-port-fpi-profile", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "e-port-fpi-profile", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)
 
@@ -1112,22 +1164,25 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
         | flash-health                        | The flash usage state. Flash usage       |:func:`peek_flash_health`                           |
         |                                     | could be above the threshold or limit.   |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
-        | marginal-port-health                | The  state of the marginal ports.        |:func:`peek_marginal_port_health`                   |
+        | marginal-port-health                | The state of the marginal ports.         |:func:`peek_marginal_port_health`                   |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
-        | faulty-port-health                  | The  state of the faulty ports state.    |:func:`peek_faulty_port_health`                     |
+        | faulty-port-health                  | The state of the faulty ports state.     |:func:`peek_faulty_port_health`                     |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
-        | missing-sfp-health                  | The  state of the missing SFPs state.    |:func:`peek_missing_sfp_health`                     |
+        | missing-sfp-health                  | The state of the missing SFPs state.     |:func:`peek_missing_sfp_health`                     |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
-        | error-port-health                   | The  state of the error ports state.     |:func:`peek_error_port_health`                      |
+        | error-port-health                   | The state of the error ports state.      |:func:`peek_error_port_health`                      |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
         | expired-certificate-health          | The expired certificate state.           |:func:`peek_expired_certificate_health`             |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
         | airflow-mismatch-health             | The air flow mismatch state.             |:func:`peek_airflow_mismatch_health`                |
+        |                                     |                                          |                                                    |
+        +-------------------------------------+------------------------------------------+----------------------------------------------------+
+        | marginal-sfp-health                 | The state of marginal sfps.              |:func:`peek_marginal_sfp_health`                    |
         |                                     |                                          |                                                    |
         +-------------------------------------+------------------------------------------+----------------------------------------------------+
 
@@ -1140,8 +1195,8 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
 
             :param session: The session handler returned by
                 :func:`pyfos_auth.login`.
-            :rtype: A :class:`switch_status_policy_report` object. A dictionary \
-                    in case of error.
+            :rtype: A :class:`switch_status_policy_report` object. \
+                    A dictionary in case of error.
 
     *Attribute Methods*
 
@@ -1241,6 +1296,12 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
 
             :rtype: A dictionary in case of error or a success response.
 
+        .. method:: peek_marginal_sfp_health()
+
+           Reads the marginal sfp's health state.
+
+            :rtype: A dictionary in case of error or a success response.
+
     """
 
     def __init__(self, dictvalues={}):
@@ -1312,6 +1373,10 @@ class switch_status_policy_report(pyfos_rest_util.rest_object):
 
         self.add(pyfos_rest_util.rest_attribute(
             "airflow-mismatch-health", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "marginal-sfp-health", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
 
         self.load(dictvalues, 1)
@@ -1527,7 +1592,7 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "time-base", pyfos_type.type_str,
+            "time-base", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
             ["base-time-bases"])
 
@@ -1536,7 +1601,7 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "rule-on-rule-time-base", pyfos_type.type_str,
+            "rule-on-rule-time-base", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
             ["rule-on-rule-time-bases"])
 
@@ -1577,7 +1642,7 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "action", pyfos_type.type_str,
+            "action", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["actions"])
 
         self.add(pyfos_rest_util.rest_attribute(
@@ -1593,7 +1658,7 @@ class monitoring_system_matrix(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "logical-operator", pyfos_type.type_str,
+            "logical-operator", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
             ["logical-operators"])
 
@@ -1683,7 +1748,7 @@ class paused_cfg(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "member", pyfos_type.type_str,
+            "member", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["members"])
 
         self.load(dictvalues, 1)
@@ -1977,7 +2042,668 @@ class dashboard_rule(pyfos_rest_util.rest_object):
             dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
 
         self.add(pyfos_rest_util.rest_attribute(
-            "object", pyfos_type.type_str,
+            "object", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["objects"])
+
+        self.load(dictvalues, 1)
+
+
+class credit_stall_dashboard(pyfos_rest_util.rest_object):
+
+    """
+        Credit stall dashboard provides information on ports.
+
+    Important Class Members:
+
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | Attribute Name                | Description                      |Frequently Used Methods                       |
+        +===============================+==================================+==============================================+
+        | slot-port                     | slot and port information in     |:func:`peek_slot_port`                        |
+        |                               | slot/port format.                |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | timestamp                     | timestamp of the credit-stall    |:func:`peek_timestamp`                        |
+        |                               | congestion data sample.          |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | state                         | state of the credit-stall        |:func:`peek_state`                            |
+        |                               | congestion data sample.          |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | frequency                     | number of times port is in       |:func:`peek_frequency`                        |
+        |                               | congestion state for given minute|                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+
+    *Object Methods*
+
+        .. staticmethod:: get(session)
+
+            Returns a :class:`credit_stall_dashboard` object.
+            Returns the credit stall dashboard information.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`credit_stall_dashboard` object. \
+                    A dictionary in case of error.
+
+    *Attribute Methods*
+
+        .. method:: peek_slot_port()
+
+            Returns the slot and port information in slot/port format.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_timestamp()
+
+            Returns the timestamp of the credit-stall congestion data sample.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_state()
+
+            Returns the state of the credit-stall congestion data sample.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_frequency()
+
+            Returns the number of times port is in congestion state \
+            for given minute.
+
+            :rtype: A dictionary in case of error or a success response.
+
+    """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.credit_stall_dashboard,
+                         "/rest/running/brocade-maps/credit-stall-dashboard",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "slot-port", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "timestamp", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "state", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "frequency", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.load(dictvalues, 1)
+
+
+class oversubscription_dashboard(pyfos_rest_util.rest_object):
+
+    """
+        oversubscription dashboard gives the details of ports which
+        are oversubscribed.
+
+    Important Class Members:
+
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | Attribute Name                | Description                      |Frequently Used Methods                       |
+        +===============================+==================================+==============================================+
+        | slot-port                     | slot and port information in     |:func:`peek_slot_port`                        |
+        |                               | slot/port format.                |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | timestamp                     | timestamp of the oversubscription|:func:`peek_timestamp`                        |
+        |                               | data sample.                     |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | state                         | state of the oversubscription    |:func:`peek_state`                            |
+        |                               | data sample.                     |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+
+    *Object Methods*
+
+        .. staticmethod:: get(session)
+
+            Returns a :class:`oversubscription_dashboard` object.
+            Returns the oversubscription dashboard information.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`oversubscription_dashboard` object. \
+                    A dictionary in case of error.
+
+    *Attribute Methods*
+
+        .. method:: peek_slot_port()
+
+            Returns the slot and port information in slot/port format.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_timestamp()
+
+            Returns the timestamp of the oversubscription data sample.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_state()
+
+            Returns the state of the oversubscription data sample.
+
+            :rtype: A dictionary in case of error or a success response.
+
+    """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(
+                     pyfos_rest_util.rest_obj_type.oversubscription_dashboard,
+                     "/rest/running/brocade-maps/"
+                     "oversubscription-dashboard",
+                     version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "slot-port", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "timestamp", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "state", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.load(dictvalues, 1)
+
+
+class dashboard_history(pyfos_rest_util.rest_object):
+
+    """
+        The historical data of various counters.
+
+    Important Class Members:
+
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | Attribute Name                | Description                      |Frequently Used Methods                       |
+        +===============================+==================================+==============================================+
+        | category                      | logical grouping of the counters |:func:`peek_category`                         |
+        |                               |                                  |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | date                          | Date of the day when the         |:func:`peek_date`                             |
+        |                               | counters' data was cached        |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | crc-errors                    | group of ports on which CRC      |:func:`peek_crc_errors`                       |
+        |                               | errors were detected.            |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | itw-errors                    | group of ports on which ITW      |:func:`peek_itw_errors`                       |
+        |                               | errors were detected.            |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | link-failure                  | group of ports on which Link     |:func:`peek_link_failure`                     |
+        |                               | failure errors were detected.    |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | signal-loss                   | group of ports on which signal   |:func:`peek_signal_loss`                      |
+        |                               | loss errors were detected.       |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | protocol-errors               | group of ports on which          |:func:`peek_protocol_errors`                  |
+        |                               | protocol errors were detected.   |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | state-change                  | group of ports on which state    |:func:`peek_state_change`                     |
+        |                               | changes were detected.           |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | link-reset                    | group of ports on which link     |:func:`peek_link_reset`                       |
+        |                               | reset were detected.             |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | c3-tx-to                      | group of ports on which class 3  |:func:`peek_c3_tx_to`                         |
+        |                               | frame timeouts were detected.    |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | rx-perf                       | list of ports sorted based on    |:func:`peek_rx_perf`                          |
+        |                               | percentage of RX BW used.        |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | tx-perf                       | list of ports sorted based on    |:func:`peek_tx_perf`                          |
+        |                               | percentage of TX BW used.        |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+        | utilization                   | list of ports sorted based on    |:func:`peek_utilization`                      |
+        |                               | percentage of total BW (RX + TX) |                                              |
+        +-------------------------------+----------------------------------+----------------------------------------------+
+
+    *Object Methods*
+
+        .. staticmethod:: get(session)
+
+            Returns a :class:`dashboard_history` object.
+            Returns the dashboard history information.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`dashboard_history` object. \
+                    A dictionary in case of error.
+
+    *Attribute Methods*
+
+        .. method:: peek_category()
+
+            Returns the dashboard category.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_date()
+
+            Returns Date of the day when the counters were cached.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_crc_errors()
+
+            Returns the group of ports on which CRC errors were detected.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_itw_errors()
+
+            Returns the group of ports on which ITW errors were detected.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_port_loss()
+
+            Returns the port loss.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_link_failure()
+
+            Returns the group of ports on which Link failure errors \
+            were detected.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_signal_loss()
+
+            Returns the group of ports on which signal loss errors \
+            were detected.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_protocol_errors()
+
+            Returns the group of ports on which protocol errors were \
+            detected.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_state_change()
+
+            Returns the group of ports on which state changes were \
+            detected.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_link_reset()
+
+            Returns the group of ports on which link reset were detected.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_c3_tx_to()
+
+            Returns the group of ports on which class 3 \
+            frame timeout errors were detected.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_rx_perf()
+
+            Returns list of ports sorted based on percentage of RX BW used.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_tx_perf()
+
+            Returns list of ports sorted based on percentage of TX BW used.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_utilization()
+
+            Returns list of ports sorted based on percentage of total \
+            BW (RX + TX).
+
+            :rtype: A dictionary in case of error or a success response.
+
+    """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.dashboard_history,
+                         "/rest/running/brocade-maps/dashboard-history",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "category", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "date", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "crc-errors", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["crc-errors"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "itw-errors", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["itw-errors"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-loss", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["port-loss"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "link-failure", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["link-failure"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "signal-loss", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["signal-loss"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "protocol-errors", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
+            ["protocol-errors"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "state-change", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["state-change"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "link-reset", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["link-reset"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "c3-tx-to", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["c3-tx-to"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "rx-perf", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["rx-perf"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "tx-perf", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["tx-perf"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "utilization", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-data", pyfos_type.type_na,
+            None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST), ["utilization"])
+
+        self.load(dictvalues, 1)
+
+
+class fpi_profile(pyfos_rest_util.rest_object):
+
+    """
+
+        The FPI profile. This container enables you to create and manage
+        Fabric Performance Impact monitoring thresholds. The FPI Profile
+        is a set of FPI states such as performance impact, frame loss
+        and thresholds for each state are Transmit Queue Latency (TXQL),
+        CREDIT-ZERO buffer. The FPI rules in MAPS policy gets the thresholds
+        for each state from the active FPI profile.
+        The FPI profile is per logical switch.
+
+    Important Class Members:
+
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+        | Attribute Name               | Description                |Frequently Used Methods                                      |
+        +==============================+============================+=============================================================+
+        | name                         | FPI profile name           |:func:`peek_name`                                            |
+        |                              |                            |:func:`set_name`                                             |
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+        | predefined-profile           | whether the profile is     |:func:`peek_predefined_profile`                              |
+        |                              | predefined or user defined |                                                             |
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+        | performance-impact/          | TXQL threshold in msec     |:func:`peek_performance_impact_transmit_queue_latency`       |
+        | transmit-queue-latency       |                            |:func:`set_performance_impact_transmit_queue_latency`        |
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+        | performance-impact/          | credit-zero buffer stats   |:func:`peek_performance_impact_credit_zero_percentage_1_sec` |
+        | credit-zero-percentage-1-sec | threshold % in 1-second    |:func:`set_performance_impact_credit_zero_percentage_1_sec`  |
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+        | performance-impact/          | credit-zero buffer stats   |:func:`peek_performance_impact_credit_zero_percentage_5_sec` |
+        | credit-zero-percentage-5-sec | threshold % in 5-second    |:func:`set_performance_impact_credit_zero_percentage_5_sec`  |
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+        | performance-impact/          | credit-zero buffer stats   |:func:`peek_performance_impact_credit_zero_percentage_10_sec`|
+        | credit-zero-percentage-10-sec| threshold % in 10-second   |:func:`set_performance_impact_credit_zero_percentage_10_sec` |
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+        | frame-loss/                  | TXQL threshold in msec     |:func:`peek_frame_loss_transmit_queue_latency`               |
+        | transmit-queue-latency       |                            |:func:`set_frame_loss_transmit_queue_latency`                |
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+        | port-oversubscription/       | TX utilization in          |:func:`peek_port_oversubscription_transmit_percentage`       |
+        | transmit-percentage          | percentage                 |                                                             |
+        +------------------------------+----------------------------+-------------------------------------------------------------+
+
+
+    *Object Methods*
+
+        .. staticmethod:: get(session)
+
+            Returns a :class:`fpi_profile` object.
+            Returns the dashboard history information.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A :class:`fpi_profile` object. \
+                    A dictionary in case of error.
+
+        .. method:: post(session)
+
+            Creates an user defined FPI profile with user configured
+            values for Transmit Queue Latency(TXQL) threshold in milliseconds
+            or credit-zero buffer stats threshold percentage in
+            1-second or 5-second or 10-second.
+
+        .. method:: patch(session)
+
+            Updates an user defined FPI profile with user configured
+            values for Transmit Queue Latency(TXQL) threshold in milliseconds
+            or credit-zero buffer stats threshold percentage in
+            1-second or 5-second or 10-second.
+
+        .. method:: delete(session)
+
+            Deletes the FPI profile.
+
+            :param session: The session handler returned by
+                :func:`pyfos_auth.login`.
+            :rtype: A dictionary of errors or a success response.
+
+
+    *Attribute Methods*
+
+        .. method:: peek_name()
+
+           Returns the FPI profile name.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_name()
+
+           Configure the FPI profile name.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_predefined_profile()
+
+            Returns Whether the profile is predefined or user-defined.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_performance_impact_transmit_queue_latency()
+
+            Returns The Transmit Queue latency(TXQL) threshold in milliseconds.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_performance_impact_transmit_queue_latency()
+
+            Set the Transmit Queue latency(TXQL) threshold in milliseconds.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_performance_impact_credit_zero_percentage_1_sec()
+
+            Returns The credit-zero buffer stats threshold percentage \
+            in 1-second.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_performance_impact_credit_zero_percentage_1_sec()
+
+            Set the credit-zero buffer stats threshold percentage in 1-second.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_performance_impact_credit_zero_percentage_5_sec()
+
+            Returns The credit-zero buffer stats threshold percentage \
+            in 5-second.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_performance_impact_credit_zero_percentage_5_sec()
+
+            Set the credit-zero buffer stats threshold percentage in 5-second.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_performance_impact_credit_zero_percentage_10_sec()
+
+            Returns The credit-zero buffer stats threshold percentage \
+            in 10-second.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_performance_impact_credit_zero_percentage_10_sec()
+
+            Set The credit-zero buffer stats threshold percentage in 10-second.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_frame_loss_transmit_queue_latency()
+
+            Returns The Transmit Queue Latency(TXQL) threshold in milliseconds.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: set_frame_loss_transmit_queue_latency()
+
+            Set The Transmit Queue Latency(TXQL) threshold in milliseconds.
+
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_port_oversubscription_transmit_percentage()
+
+            Returns The Transmit(TX) utilization in percentage.
+
+            :rtype: A dictionary in case of error or a success response.
+
+    """
+
+    def __init__(self, dictvalues={}):
+        super().__init__(pyfos_rest_util.rest_obj_type.fpi_profile,
+                         "/rest/running/brocade-maps/fpi-profile",
+                         version.VER_RANGE_900_and_ABOVE)
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "name", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "predefined-profile", pyfos_type.type_bool,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "performance-impact", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "transmit-queue-latency", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG),
+            ["performance-impact"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "credit-zero-percentage-1-sec", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG),
+            ["performance-impact"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "credit-zero-percentage-5-sec", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG),
+            ["performance-impact"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "credit-zero-percentage-10-sec", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG),
+            ["performance-impact"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "frame-loss", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "transmit-queue-latency", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG),
+            ["frame-loss"])
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "port-oversubscription", pyfos_type.type_na,
+            dict(), pyfos_rest_util.REST_ATTRIBUTE_CONTAINER))
+
+        self.add(pyfos_rest_util.rest_attribute(
+            "transmit-percentage", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG),
+            ["port-oversubscription"])
 
         self.load(dictvalues, 1)

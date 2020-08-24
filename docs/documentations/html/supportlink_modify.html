@@ -1,0 +1,167 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>supportlink_modify - PyFOS util to modify supportlink config. &#8212; PyFOS 2.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="supportlink_operation - PyFOS util to trigger the supportlink operation." href="supportlink_operation.html" />
+    <link rel="prev" title="supportlink_show - PyFOS util to display the supportlink profile information." href="supportlink_show.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="supportlink_operation.html" title="supportlink_operation - PyFOS util to trigger the supportlink operation."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="supportlink_show.html" title="supportlink_show - PyFOS util to display the supportlink profile information."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-supportlink_modify"></span><div class="section" id="supportlink-modify-pyfos-util-to-modify-supportlink-config">
+<h1><a class="reference internal" href="#module-supportlink_modify" title="supportlink_modify: PyFOS util to modify supportlink config. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">supportlink_modify</span></code></a> - PyFOS util to modify supportlink config.<a class="headerlink" href="#supportlink-modify-pyfos-util-to-modify-supportlink-config" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-supportlink_modify" title="supportlink_modify: PyFOS util to modify supportlink config. (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">supportlink_modify</span></code></a> Util is used to modify the
+supportlink config used to access server for sending trace data.</p>
+<p>This module is a stand-alone script that can be used to
+modify the supportlink config in the switch.</p>
+<p>supportlink_modify.py: Usage</p>
+<ul>
+<li><p class="first">Input:</p>
+</li>
+<li><p class="first">Infrastructure options:</p>
+<blockquote>
+<div><ul class="simple">
+<li>-i,–ipaddr=IPADDR: The IP address of the FOS switch.</li>
+<li>-L,–login=LOGIN: The login name.</li>
+<li>-P,–password=PASSWORD: The password.</li>
+<li>-f,–vfid=VFID         The VFID to which the request is                              directed [OPTIONAL].</li>
+<li>-s,–secured=MODE      The HTTPS mode “self” or “CA” [OPTIONAL].</li>
+<li>-v,–verbose           Verbose mode [OPTIONAL].</li>
+<li>-a,–authtoken: AuthToken value or AuthTokenManager config                      file[OPTIONAL].</li>
+<li>-z,–nosession: Sessionless authentication based login[OPTIONAL].</li>
+<li>–nocredential: No credential to be sent in the request[OPTIONAL].</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Util scripts options:</p>
+<blockquote>
+<div><ul class="simple">
+<li>–server=SERVER: IP address or DNS name of server</li>
+<li>-p,–port=VALUE: HTTPS port of server</li>
+<li>-u,–user-name=VALUE: user name of account in server</li>
+<li>-d,–start-date=VALUE: start date of operation</li>
+<li>-t,–start-time=VALUE: start time of operation</li>
+<li>-o,–end-time-period=VALUE: end time period from the start time</li>
+<li>-r,–retry-time=VALUE: retry time after failure of operation</li>
+<li>-i,–period=VALUE: frequency of operation</li>
+<li>-c,–collection-time=VALUE: collection time</li>
+<li>-g,–group-tag=VALUE: custom group tag</li>
+<li>-v,–proxy-server=VALUE: IP address or DNS name of proxy server</li>
+<li>-x,–proxy-port=VALUE: HTTPS port of proxy server</li>
+<li>-y,–proxy-user=VALUE: user name of account in proxy server</li>
+<li>-w,–proxy-password=VALUE: proxy password</li>
+<li>-l,–proxy-protocol=VALUE: protocol used</li>
+<li>-e,–supportlink-enabled=BOOL: supportlink feature enable/disable flag</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Output:</dt>
+<dd><ul class="first last simple">
+<li>Python dictionary content with RESTCONF response data.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Module <a class="reference internal" href="pyfos_auth.html#module-pyfos_auth" title="pyfos_auth: PyFOS module to facilitate establishing a session to FOS switch (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_auth</span></code></a>
+Module <a class="reference internal" href="pyfos_brocade_supportlink.html#module-pyfos_brocade_supportlink" title="pyfos_brocade_supportlink: PyFOS module to config REST SupportLink (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_supportlink</span></code></a>
+Module <a class="reference internal" href="pyfos_version.html#module-pyfos_version" title="pyfos_version: PyFOS module to represent FOS version and range (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_version</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="supportlink_show.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">supportlink_show</span></code> - PyFOS util to display the supportlink profile information.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="supportlink_operation.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">supportlink_operation</span></code> - PyFOS util to trigger the supportlink operation.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/supportlink_modify.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="supportlink_operation.html" title="supportlink_operation - PyFOS util to trigger the supportlink operation."
+             >next</a> |</li>
+        <li class="right" >
+          <a href="supportlink_show.html" title="supportlink_show - PyFOS util to display the supportlink profile information."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Brocade Communications Systems LLC..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>
