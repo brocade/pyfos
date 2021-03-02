@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 Brocade Communications Systems LLC.  All rights reserved.
+# Copyright 2021 Brocade Communications Systems LLC.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -447,4 +447,128 @@ class supportlink_profile(pyfos_rest_util.rest_object):
             "group-tag", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
+        self.load(dictvalues, 1)
+
+
+class supportlink_history(pyfos_rest_util.rest_object):
+
+    """Class of supportlink_history
+
+    *Description supportlink_history*
+
+        The supportLink history is used to retrieve the failures occurred
+        during the inventory upload operations.
+
+    Important class members of supportlink_history:
+
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | Attribute Name           | Description                     |  Frequently Used Methods                        |
+        +==========================+=================================+=================================================+
+        | server                   | SupportLink destination         | :func:`peek_server`                             |
+        |                          | server address or domain        |                                                 |
+        |                          | name.                           |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | error-code               | It indicates the exact          | :func:`peek_error_code`                         |
+        |                          | failure occurred during         |                                                 |
+        |                          | supportLink upload operation.   |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | error-message            | The error message provides      | :func:`peek_error_message`                      |
+        |                          | the reason for the              |                                                 |
+        |                          | supportLink upload operation    |                                                 |
+        |                          | failures.                       |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | port                     | The HTTPS port number of the    | :func:`peek_port`                               |
+        |                          | destination server.             |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | time-stamp               | The time when supportLink       | :func:`peek_time_stamp`                         |
+        |                          | upload operation failed.        |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+        | index                    | The index of the specific       | :func:`peek_index`                              |
+        |                          | upload failure entry and it     |                                                 |
+        |                          | is used as a label for this     |                                                 |
+        |                          | object.                         |                                                 |
+        +--------------------------+---------------------------------+-------------------------------------------------+
+
+    *Object functions for supportlink_history*
+
+    .. function:: get()
+
+        Get the instances of class "supportlink_history from switch. The
+         object can be printed using :func:`pyfos_utils.response_print`.
+
+        :param session: The session handler returned by
+         :func:`pyfos_auth.login`.
+
+        :rtype: A dictionary of errors or a success response.
+
+
+    *Class functions for supportlink_history*
+
+        .. function:: peek_server()
+
+            Reads the value assigned to server in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: peek_error_code()
+
+            Reads the value assigned to error-code in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: peek_error_message()
+
+            Reads the value assigned to error-message in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: peek_port()
+
+            Reads the value assigned to port in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: peek_time_stamp()
+
+            Reads the value assigned to time-stamp in the object.
+
+            :rtype: None on error and a value on success.
+
+
+        .. function:: peek_index()
+
+            Reads the value assigned to index in the object.
+
+            :rtype: None on error and a value on success.
+
+
+    """
+
+    def __init__(self, dictvalues=None):
+
+        clsuri = "/rest" + "/running" + "/brocade-supportlink" +\
+                 "/supportlink-history"
+        clstype = pyfos_rest_util.rest_obj_type.supportlink_history
+        clsver = version.VER_RANGE_900_and_ABOVE
+        super().__init__(clstype, clsuri, clsver)
+
+        self.add(pyfos_rest_util.rest_attribute("server", pyfos_type.type_str,
+                 None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("error-code",
+                 pyfos_type.type_int, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("error-message",
+                 pyfos_type.type_str, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("port", pyfos_type.type_int,
+                 None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("time-stamp",
+                 pyfos_type.type_str, None,
+                 pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute("index", pyfos_type.type_int,
+                 None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.load(dictvalues, 1)

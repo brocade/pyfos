@@ -1,4 +1,4 @@
-PyFOS - 2.0.0
+PyFOS - 2.0.1
 =============
 
 ### What is PyFOS ###
@@ -26,7 +26,7 @@ PyFOS - 2.0.0
 
 ### FOS and PyFOS versions ###
 
-    PyFOS 2.0.0 covers up to FOS 9.0.0a
+    PyFOS 2.0.1 covers up to FOS 9.0.1
 
 ### Directory structure ###
 

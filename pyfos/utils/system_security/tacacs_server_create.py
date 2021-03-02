@@ -38,6 +38,11 @@ TACACS+ server.
 
 * Util Script Options:
     --server                Specifies the TACACS+ server name or IP address.
+    --port                  Specifies the TACACS+ server port number.
+    --timeout               Specifies the TACACS+ server timeout value.
+    --authentication        Specifies the TACACS+ server authentication type.
+    --secret                Specifies the TACACS+ server secret type.
+    --encryption            Specifies the TACACS+ server encryption type.
 
 * Output:
     * A success response or a dictionary in case of error.
@@ -52,7 +57,8 @@ from pyfos.utils import brcd_util
 
 
 def main(argv):
-    filters = ["server"]
+    filters = ["server", "port", "timeout", "authentication",
+               "secret", "encryption_type"]
     inputs = brcd_util.parse(argv, tacacs_server, filters)
 
     tacacs_obj = inputs['utilobject']

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_supportlink - PyFOS module to provide REST support for supportlink. &#8212; PyFOS 2.0.0 documentation</title>
+    <title>pyfos_brocade_supportlink - PyFOS module to provide REST support for supportlink. &#8212; PyFOS 2.0.1 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="maps_fpi_profile_show.html" title="maps_fpi_profile_show - PyFOS util to display a MAPS FPI policy."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.1 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -45,6 +45,178 @@
   <span class="target" id="module-pyfos_brocade_supportlink"></span><div class="section" id="pyfos-brocade-supportlink-pyfos-module-to-provide-rest-support-for-supportlink">
 <h1><a class="reference internal" href="#module-pyfos_brocade_supportlink" title="pyfos_brocade_supportlink: PyFOS module to config REST SupportLink (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_supportlink</span></code></a> - PyFOS module to provide REST support for supportlink.<a class="headerlink" href="#pyfos-brocade-supportlink-pyfos-module-to-provide-rest-support-for-supportlink" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-pyfos_brocade_supportlink" title="pyfos_brocade_supportlink: PyFOS module to config REST SupportLink (Linux)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfos_brocade_supportlink</span></code></a> module provides REST support for supportlink.</p>
+<dl class="class">
+<dt id="pyfos_brocade_supportlink.supportlink_history">
+<em class="property">class </em><code class="descclassname">pyfos_brocade_supportlink.</code><code class="descname">supportlink_history</code><span class="sig-paren">(</span><em>dictvalues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of supportlink_history</p>
+<p><em>Description supportlink_history</em></p>
+<blockquote>
+<div>The supportLink history is used to retrieve the failures occurred
+during the inventory upload operations.</div></blockquote>
+<p>Important class members of supportlink_history:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="31%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute Name</th>
+<th class="head">Description</th>
+<th class="head">Frequently Used Methods</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>server</td>
+<td>SupportLink destination
+server address or domain
+name.</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_history.peek_server" title="pyfos_brocade_supportlink.supportlink_history.peek_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_server()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>error-code</td>
+<td>It indicates the exact
+failure occurred during
+supportLink upload operation.</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_history.peek_error_code" title="pyfos_brocade_supportlink.supportlink_history.peek_error_code"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_error_code()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>error-message</td>
+<td>The error message provides
+the reason for the
+supportLink upload operation
+failures.</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_history.peek_error_message" title="pyfos_brocade_supportlink.supportlink_history.peek_error_message"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_error_message()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>The HTTPS port number of the
+destination server.</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_history.peek_port" title="pyfos_brocade_supportlink.supportlink_history.peek_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_port()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>time-stamp</td>
+<td>The time when supportLink
+upload operation failed.</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_history.peek_time_stamp" title="pyfos_brocade_supportlink.supportlink_history.peek_time_stamp"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_time_stamp()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>index</td>
+<td>The index of the specific
+upload failure entry and it
+is used as a label for this
+object.</td>
+<td><a class="reference internal" href="#pyfos_brocade_supportlink.supportlink_history.peek_index" title="pyfos_brocade_supportlink.supportlink_history.peek_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_index()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><em>Object functions for supportlink_history</em></p>
+<dl class="function">
+<dt id="pyfos_brocade_supportlink.supportlink_history.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_history.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get the instances of class “supportlink_history from switch. The</dt>
+<dd>object can be printed using <code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_utils.response_print()</span></code>.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – The session handler returned by
+<a class="reference internal" href="pyfos_auth.html#pyfos_auth.login" title="pyfos_auth.login"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyfos_auth.login()</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A dictionary of errors or a success response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><em>Class functions for supportlink_history</em></p>
+<blockquote>
+<div><dl class="function">
+<dt id="pyfos_brocade_supportlink.supportlink_history.peek_server">
+<code class="descname">peek_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_history.peek_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to server in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_supportlink.supportlink_history.peek_error_code">
+<code class="descname">peek_error_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_history.peek_error_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to error-code in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_supportlink.supportlink_history.peek_error_message">
+<code class="descname">peek_error_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_history.peek_error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to error-message in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_supportlink.supportlink_history.peek_port">
+<code class="descname">peek_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_history.peek_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to port in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_supportlink.supportlink_history.peek_time_stamp">
+<code class="descname">peek_time_stamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_history.peek_time_stamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to time-stamp in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_supportlink.supportlink_history.peek_index">
+<code class="descname">peek_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_history.peek_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to index in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
 <dl class="class">
 <dt id="pyfos_brocade_supportlink.supportlink_profile">
 <em class="property">class </em><code class="descclassname">pyfos_brocade_supportlink.</code><code class="descname">supportlink_profile</code><span class="sig-paren">(</span><em>dictvalues={}</em><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_supportlink.supportlink_profile" title="Permalink to this definition">¶</a></dt>
@@ -808,7 +980,7 @@ Module <a class="reference internal" href="pyfos_version.html#module-pyfos_versi
         <li class="right" >
           <a href="maps_fpi_profile_show.html" title="maps_fpi_profile_show - PyFOS util to display a MAPS FPI policy."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

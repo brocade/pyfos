@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyfos_brocade_interface - PyFOS module for Brocade Interface objects. &#8212; PyFOS 2.0.0 documentation</title>
+    <title>pyfos_brocade_interface - PyFOS module for Brocade Interface objects. &#8212; PyFOS 2.0.1 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="pyfos_brocade_fibrechannel_logical_switch.html" title="pyfos_brocade_fibrechannel_logical_switch - PyFOS module to provide REST support for Logical Switch objects."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.1 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -767,6 +767,22 @@ disable</td>
 <tr class="row-even"><td>index</td>
 <td>user-port of the port</td>
 <td><a class="reference internal" href="#pyfos_brocade_interface.fibrechannel.peek_index" title="pyfos_brocade_interface.fibrechannel.peek_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_index()</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>neighbor-port-index</td>
+<td>The neighbor port index
+logically connected to this
+port.</td>
+<td><a class="reference internal" href="#pyfos_brocade_interface.fibrechannel.peek_neighbor_port_index" title="pyfos_brocade_interface.fibrechannel.peek_neighbor_port_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_neighbor_port_index()</span></code></a></td>
+</tr>
+<tr class="row-even"><td><dl class="first last docutils">
+<dt>neighbor-switch-user</dt>
+<dd>-friendly-name</dd>
+</dl>
+</td>
+<td>The neighbor switch user
+friendly name logically
+connected to this port.</td>
+<td><a class="reference internal" href="#pyfos_brocade_interface.fibrechannel.peek_neighbor_switch_user_friendly_name" title="pyfos_brocade_interface.fibrechannel.peek_neighbor_switch_user_friendly_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">peek_neighbor_switch_user_friendly_name()</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -2679,6 +2695,34 @@ with “preferred-front-domain-id” as the key</td>
 <dt>Reads the list of areas of the switch in the</dt>
 <dd>object.</dd>
 </dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_interface.fibrechannel.peek_neighbor_port_index">
+<code class="descname">peek_neighbor_port_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_interface.fibrechannel.peek_neighbor_port_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to neighbor-port-index in the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None on error and a value on success.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyfos_brocade_interface.fibrechannel.peek_neighbor_switch_user_friendly_name">
+<code class="descname">peek_neighbor_switch_user_friendly_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfos_brocade_interface.fibrechannel.peek_neighbor_switch_user_friendly_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the value assigned to neighbor-switch-user-frienly-name in the object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -5557,7 +5601,7 @@ Module <a class="reference internal" href="extension_ip_interface_show.html#modu
         <li class="right" >
           <a href="pyfos_brocade_fibrechannel_logical_switch.html" title="pyfos_brocade_fibrechannel_logical_switch - PyFOS module to provide REST support for Logical Switch objects."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

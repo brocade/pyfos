@@ -473,7 +473,7 @@ PyFOS contains open source Python modules to facilitate mangement of FOS switche
    supportlink_show
    supportlink_modify
    supportlink_operation
-
+   supportlink_history_show  
 
 
 *PyFOS Operation utils Modules:*

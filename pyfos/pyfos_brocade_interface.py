@@ -395,6 +395,14 @@ class fibrechannel(pyfos_rest_util.rest_object):
         +-------------------------------+-------------------------------+------------------------------------------------+
         | index                         | user-port of the port         |:func:`peek_index`                              |
         +-------------------------------+-------------------------------+------------------------------------------------+
+        | neighbor-port-index           | The neighbor port index       |:func:`peek_neighbor_port_index`                |
+        |                               | logically connected to this   |                                                |
+        |                               | port.                         |                                                |
+        +-------------------------------+-------------------------------+------------------------------------------------+
+        |  neighbor-switch-user         | The neighbor switch user      |:func:`peek_neighbor_switch_user_friendly_name` |
+        |       -friendly-name          | friendly name logically       |                                                |                                                
+        |                               | connected to this port.       |                                                |
+        +-------------------------------+-------------------------------+------------------------------------------------+
 
     *Object methods*
 
@@ -1243,7 +1251,19 @@ class fibrechannel(pyfos_rest_util.rest_object):
 
             :rtype: None on error and a value on success.
 
-        """
+        .. function:: peek_neighbor_port_index()
+
+            Reads the value assigned to neighbor-port-index in the object.
+
+            :rtype: None on error and a value on success.
+
+        .. function:: peek_neighbor_switch_user_friendly_name()
+
+            Reads the value assigned to neighbor-switch-user-frienly-name in the object.
+
+            :rtype: None on error and a value on success.
+
+     """
 
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.port_config,
@@ -1556,6 +1576,14 @@ class fibrechannel(pyfos_rest_util.rest_object):
             "area", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST,
             version.VER_RANGE_900_and_ABOVE), ["areas"])
+        self.add(pyfos_rest_util.rest_attribute(
+            "neighbor-port-index", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_901_and_ABOVE))
+        self.add(pyfos_rest_util.rest_attribute(
+            "neighbor-switch-user-friendly-name", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG,
+            version.VER_RANGE_901_and_ABOVE))
         # """
         # self.add(pyfos_rest_util.rest_attribute(
         #    "debug", pyfos_type.type_int,
@@ -3553,7 +3581,7 @@ class logical_e_port(pyfos_rest_util.rest_object):
             :rtype: None on error and a value on success.
 
 
-        """
+     """
 
     def __init__(self, dictvalues=None):
 
@@ -3585,5 +3613,5 @@ class logical_e_port(pyfos_rest_util.rest_object):
             "port", pyfos_type.type_na,
             None, pyfos_rest_util.REST_ATTRIBUTE_LEAF_LIST),
             ["associated-physical-ports"])
-
         self.load(dictvalues, 1)
+

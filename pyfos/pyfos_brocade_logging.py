@@ -1031,6 +1031,9 @@ class supportftp(pyfos_rest_util.rest_object):
         | protocol                               | Protocol(ftp/scp/sftp)    |:meth:`peek_protocol`                               |
         |                                        | to transfer trace data    |:meth:`set_protocol`                                |
         +----------------------------------------+---------------------------+----------------------------------------------------+
+        | port                                   | Port used to(scp/sftp)    |:meth:`peek_port`                                   |
+        |                                        | to transfer trace data    |:meth:`set_port`                                    |
+        +----------------------------------------+---------------------------+----------------------------------------------------+
         | connectivity-check-interval            | Time interval in hours to |:meth:`peek_connectivity_check_interval`            |
         |                                        | check server connectivity |:meth:`set_connectivity_check_interval`             |
         +----------------------------------------+---------------------------+----------------------------------------------------+
@@ -1156,6 +1159,19 @@ class supportftp(pyfos_rest_util.rest_object):
             :param protocol: protocol(ftp/scp/sftp) used to transfer data
             :rtype: None or dictionary of error information
 
+        .. method:: peek_port()
+
+            Reads the port attribute of supportftp object.
+
+            :rtype: port used to transfer data
+
+        .. method:: set_port(port)
+
+            Sets the port attribute of supportftp object.
+
+            :param port: port used with scp/sftp used to transfer data
+            :rtype: None or dictionary of error information
+
         .. method:: peek_connectivity_check_interval()
 
             Reads the connectivity-check-interval attribute \
@@ -1195,6 +1211,9 @@ supportftp object.
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "protocol", pyfos_type.type_str,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "port", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "connectivity-check-interval", pyfos_type.type_int,

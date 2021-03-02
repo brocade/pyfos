@@ -46,7 +46,7 @@ parameters for supportftp
         Details::
 
             filters = ["host", "user_name", "remote_directory", \
-                  "auto_enabled", "protocol", \
+                  "auto_enabled", "protocol", "port", \
                   "connectivity_check_interval"]
             result = supportftp.get(session, None, filters)
             return result
@@ -64,7 +64,8 @@ parameters for supportftp
         3. Retrieve directory path of trace data in server
         4. Retrieve auto-supportftp enable state in boolean
         5. Retrieve protocol to transfer data
-        6. Retreive interval to check server connectivity
+        6. Retrieve port number used by protocol to transfer data
+        7. Retreive interval to check server connectivity
 
 
 """
@@ -79,7 +80,7 @@ import pyfos.pyfos_version as version
 
 def show_supportftp_params(session):
     filters = ["host", "user_name", "remote_directory",
-               "auto_enabled", "protocol",
+               "auto_enabled", "protocol", "port",
                "connectivity_check_interval"]
     result = supportftp.get(session, None, filters)
     return result

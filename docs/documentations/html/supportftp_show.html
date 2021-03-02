@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>supportftp_show - PyFOS util for showing supportftp config. &#8212; PyFOS 2.0.0 documentation</title>
+    <title>supportftp_show - PyFOS util for showing supportftp config. &#8212; PyFOS 2.0.1 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="audit_log_show.html" title="audit_log_show - PyFOS util for showing switch auditlogs."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.1 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -90,7 +90,7 @@ parameters for supportftp</p>
 </pre></div>
 </div>
 <p>Details:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;user_name&quot;</span><span class="p">,</span> <span class="s2">&quot;remote_directory&quot;</span><span class="p">,</span>                   <span class="s2">&quot;auto_enabled&quot;</span><span class="p">,</span> <span class="s2">&quot;protocol&quot;</span><span class="p">,</span>                   <span class="s2">&quot;connectivity_check_interval&quot;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;user_name&quot;</span><span class="p">,</span> <span class="s2">&quot;remote_directory&quot;</span><span class="p">,</span>                   <span class="s2">&quot;auto_enabled&quot;</span><span class="p">,</span> <span class="s2">&quot;protocol&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">,</span>                   <span class="s2">&quot;connectivity_check_interval&quot;</span><span class="p">]</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">supportftp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
 <span class="k">return</span> <span class="n">result</span>
 </pre></div>
@@ -130,6 +130,7 @@ parameters for supportftp</p>
 <li>Retrieve directory path of trace data in server</li>
 <li>Retrieve auto-supportftp enable state in boolean</li>
 <li>Retrieve protocol to transfer data</li>
+<li>Retrieve port number used by protocol to transfer data</li>
 <li>Retreive interval to check server connectivity</li>
 </ol>
 </dd></dl>
@@ -192,7 +193,7 @@ Module <a class="reference internal" href="pyfos_version.html#module-pyfos_versi
         <li class="right" >
           <a href="audit_log_show.html" title="audit_log_show - PyFOS util for showing switch auditlogs."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PyFOS 2.0.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -1,4 +1,4 @@
-# Copyright © 2018-2019 Broadcom.  All rights reserved.
+# Copyright © 2018-2021 Broadcom.  All rights reserved.
 # The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -422,6 +422,7 @@ class rest_obj_type():
     module_version = 800
     # Supportlink
     supportlink_profile = 1000
+    supportlink_history = 1001
     #RPC
     rpc_start = 5000
     rpc_show_status = 5001
@@ -611,6 +612,8 @@ def getrestobjectname(objtype, fmt=0):
             return "supportftp cfg details"
         elif objtype == rest_obj_type.supportlink_profile:
             return "supportlink_profile cfg details"
+        elif objtype == rest_obj_type.supportlink_history:
+            return "supportlink_history details"
         elif objtype == rest_obj_type.rpc_show_status:
             return "rpc show status"
         elif objtype == rest_obj_type.rpc_supportsave:
@@ -2849,6 +2852,8 @@ CONFIG_SEG_FAULT = "Segmentation fault"
 CONFIG_UNKNOWN_ID = "unknown fabric ID"
 CONFIG_NOT_PERMITTED = "configUpload not permitted"
 CONFIG_DOWN_STOPPED = "configdownload stopped"
+CONFIG_FID_NOT = "Configdownload failure : cannot find the specific FID"
+CONFIG_DOWN_NOT_PERMITTED = "configDownload not permitted"
 
 def ssh_config(session, login, password, ipaddr, hostkeymust, cmdstr, secure_password):
     ssh = paramiko.SSHClient()
@@ -2905,7 +2910,7 @@ def ssh_config(session, login, password, ipaddr, hostkeymust, cmdstr, secure_pas
                         print("config got continue prompt")
                     chan.send("y\n")
 
-                if CONFIG_TERMINIATED_LINE in last_line or CONFIG_UP_COMPLETED_LINE in last_line or CONFIG_REBOOT_LINE in last_line or CONFIG_DOWN_COMPLETED_LINE in last_line or CONFIG_USAGE in last_line or CONFIG_SEG_FAULT in last_line or CONFIG_UNKNOWN_ID in last_line or CONFIG_NOT_PERMITTED in last_line or CONFIG_DOWN_COMPLETED_LINE2 in last_line or CONFIG_DOWN_STOPPED in last_line:
+                if CONFIG_TERMINIATED_LINE in last_line or CONFIG_UP_COMPLETED_LINE in last_line or CONFIG_REBOOT_LINE in last_line or CONFIG_DOWN_COMPLETED_LINE in last_line or CONFIG_USAGE in last_line or CONFIG_SEG_FAULT in last_line or CONFIG_UNKNOWN_ID in last_line or CONFIG_NOT_PERMITTED in last_line or CONFIG_DOWN_COMPLETED_LINE2 in last_line or CONFIG_DOWN_STOPPED in last_line or CONFIG_FID_NOT in last_line or CONFIG_DOWN_NOT_PERMITTED in last_line:
                     if session["debug"]:
                         print("breaking.")
                     break
@@ -2917,6 +2922,7 @@ def ssh_config(session, login, password, ipaddr, hostkeymust, cmdstr, secure_pas
     return last_line
 
 REBOOT_PROMPT = "Are you sure you want to reboot the switch [y/n]?"
+REBOOT_PROMPT2 = "Are you sure you want to reboot the active CP [y/n]"
 
 def ssh_reboot(session, login, password, ipaddr, hostkeymust, cmdstr):
     ssh = paramiko.SSHClient()
@@ -2946,11 +2952,11 @@ def ssh_reboot(session, login, password, ipaddr, hostkeymust, cmdstr):
             wl = None
         if len(rl) > 0:
             last_line += chan.recv(1024).decode("ISO-8859-1")
-            if last_line.endswith("\n") or REBOOT_PROMPT in last_line:
+            if last_line.endswith("\n") or REBOOT_PROMPT in last_line or REBOOT_PROMPT2 in last_line:
                 if session["debug"]:
                     print("reboot output:", last_line)
 
-                if REBOOT_PROMPT in last_line:
+                if REBOOT_PROMPT in last_line or REBOOT_PROMPT2 in last_line:
                     if session["debug"]:
                         print("reboot got prompt")
                     chan.send("y\n")

@@ -561,6 +561,9 @@ class ldap_server(pyfos_rest_util.rest_object):
         | position                                  | The LDAP server position.        |:func:`set_position`                       |
         |                                           |                                  |:func:`peek_position`                      |
         +-------------------------------------------+----------------------------------+-------------------------------------------+
+        | tls-mode                                  | The LDAP server TLS mode.        |:func:`set_tls_mode`                        |
+        |                                           |                                  |:func:`peek_tls_mode`                       |
+        +-------------------------------------------+----------------------------------+-------------------------------------------+
 
     *Object Methods*
 
@@ -726,6 +729,19 @@ class ldap_server(pyfos_rest_util.rest_object):
 
             :rtype: A dictionary in case of error or a success response.
 
+        .. method:: set_tls_mode(tls_mode)
+
+            Sets the LDAP server TLS mode in the object.
+
+            :param tls_mode: The LDAP server TLS mode to be set within the object.
+            :rtype: A dictionary in case of error or a success response.
+
+        .. method:: peek_tls_mode()
+
+            Reads the LDAP server TLS mode from the object.
+
+            :rtype: A dictionary in case of error or a success response.
+
         """
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.ldap_server,
@@ -746,6 +762,9 @@ class ldap_server(pyfos_rest_util.rest_object):
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "position", pyfos_type.type_int,
+            None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
+        self.add(pyfos_rest_util.rest_attribute(
+            "tls-mode", pyfos_type.type_str,
             None, pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
 
         self.load(dictvalues, 1)

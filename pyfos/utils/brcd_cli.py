@@ -103,7 +103,8 @@ brcd_utils_dict.update({
              "port",
              "timeout",
              "domain",
-             "position"]
+             "position",
+             "tls_mode"]
     },
     "auth_spec": {
         "auth-spec":
@@ -1923,6 +1924,12 @@ brcd_utils_cli_dict.update({
             "optional": 1,
             "soption": None
         },
+        "tls_mode": {
+            "help": "Set the TLS mode for the LDAP server",
+            "loption": "tls-mode",
+            "optional": 1,
+            "soption": None
+        },
     }
 })
 
@@ -3308,19 +3315,19 @@ brcd_utils_cli_dict.update({
         "user_name": {
             "help": "\tConfigure user name of account in server",
             "loption": "user-name",
-            "optional": 1,
+            "optional": 0,
             "soption": "u"
         },
         "password": {
             "help": "\tConfigure password of account in server in Base64",
             "loption": "login-password",
-            "optional": 1,
+            "optional": 0,
             "soption": "w"
         },
         "remote_directory": {
             "help": "\tConfigure directory path in server",
             "loption": "remote-directory",
-            "optional": 1,
+            "optional": 0,
             "soption": "d"
         },
         "auto_enabled": {
@@ -3332,8 +3339,14 @@ brcd_utils_cli_dict.update({
         "protocol": {
             "help": "\tConfigure protocol(ftp/scp/sftp) used to transfer data",
             "loption": "protocol",
-            "optional": 1,
+            "optional": 0,
             "soption": "p"
+        },
+        "port": {
+            "help": "\tConfigure port(scp/sftp) used to transfer data",
+            "loption": "port",
+            "optional": 1,
+            "soption": "o"
         },
         "connectivity_check_interval": {
             "help": "\tConfigure interval to check server connectivity",

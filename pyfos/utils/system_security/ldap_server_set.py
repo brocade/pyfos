@@ -39,6 +39,7 @@ ldap server.
     --timeout                                set ldap server timeout value
     --domain                                 set ldap server domain name
     --position                               set ldap server position
+    --tls-mode                               set ldap server tls mode
 
 * outputs:
     * success response or dictionary in case of error
@@ -53,7 +54,7 @@ from pyfos.utils import brcd_util
 
 
 def main(argv):
-    filters = ["server", "port", "timeout", "domain", "position"]
+    filters = ["server", "port", "timeout", "domain", "position", "tls_mode"]
 
     inputs = brcd_util.parse(argv, ldap_server, filters)
 
@@ -66,7 +67,7 @@ def main(argv):
 
     if not (ldap_obj.peek_port() or
             ldap_obj.peek_timeout() or ldap_obj.peek_domain() or
-            ldap_obj.peek_position()):
+            ldap_obj.peek_position() or ldap_obj.peek_tls_mode()):
         print("Missing command line options")
         print(inputs['utilusage'])
         exit(1)

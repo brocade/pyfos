@@ -42,20 +42,21 @@ supportftp_modify.py: Usage
     * -a,--auto-enabled=BOOL: true/false to enable/disable auto \
 transfer of data
     * -p,--protocol=VALUE: Protocol(ftp/scp/sftp) to transfer data
+    * -o,--port=VALUE: Port used with scp/sftp to transfer data
     * -c,--check-interval=VALUE: Interval to check server connectivity
 
 * Outputs:
     * Python dictionary content with RESTCONF response data.
 
 .. function:: supportftp_modify.modify_supportftp_params(session,\
-host, username, password, directory, auto, protocol, interval)
+host, username, password, directory, auto, protocol, port, interval)
 
     *Modify parameters for server access to transfer data from switch*
 
         Example usage of the method::
 
              ret = supportftp_modify.modify_supportftp_params(session,\
-host, username, password, directory, auto, protocol, interval)
+host, username, password, directory, auto, protocol, port, interval)
              print (ret)
 
         Details::
@@ -73,6 +74,8 @@ host, username, password, directory, auto, protocol, interval)
                  supportftp_obj.set_auto_enabled(auto)
              if protocol is not None:
                  supportftp_obj.set_protocol(protocol)
+             if port is not None:
+                 supportftp_obj.set_port(port)
              if interval is not None:
                  supportftp_obj.\
 set_connectivity_check_interval(interval)
@@ -88,6 +91,7 @@ set_connectivity_check_interval(interval)
             :param directory: Directory path in server
             :param auto: true/false for enable/disable auto supportftp
             :param protocol: Protocol to transfer data
+            :param port: Port used with protocol to transfer data
             :param interval: Interval to check server connectivity
 
         * Outputs:
@@ -127,6 +131,8 @@ def modify_supportftp_params(session, host=None, username=None, password=None,
         supportftp_obj.set_auto_enabled(auto)
     if protocol is not None:
         supportftp_obj.set_protocol(protocol)
+    if port is not None:
+        supportftp_obj.set_port(port)
     if interval is not None:
         supportftp_obj.set_connectivity_check_interval(interval)
     result = _modify_supportftp_params(
@@ -141,6 +147,7 @@ def validate(supportftp_obj):
            supportftp_obj.peek_remote_directory() is None and \
            supportftp_obj.peek_auto_enabled() is None and \
            supportftp_obj.peek_protocol() is None and \
+           supportftp_obj.peek_port() is None and \
            supportftp_obj.peek_connectivity_check_interval() \
            is None:
         return 1
@@ -149,7 +156,7 @@ def validate(supportftp_obj):
 
 def main(argv):
     filters = ["host", "user_name", "password", "remote_directory",
-               "auto_enabled", "protocol",
+               "auto_enabled", "protocol", "port",
                "connectivity_check_interval"]
     inputs = brcd_util.parse(argv, supportftp, filters,
                              validate)
@@ -179,6 +186,8 @@ def main(argv):
             if len(skipattributes) > 0:
                 skipattributes += ","
             skipattributes += "protocol"
+        if supportftp_obj.peek_port() is not None:
+            skipattributes += "port"
         if supportftp_obj.peek_connectivity_check_interval() \
            is not None:
             if len(skipattributes) > 0:

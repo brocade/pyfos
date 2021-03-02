@@ -35,6 +35,10 @@ ldap server.
 
 * Util scripts options:
     --server                                 specify ldap server name/ip
+    --port                                   specify ldap server port number
+    --timeout                                specify ldap server timeout value
+    --domain                                 specify ldap server domain name
+    --tls-mode                               specify ldap server tls mode
 
 * outputs:
     * success response or dictionary in case of error.
@@ -49,7 +53,7 @@ from pyfos.utils import brcd_util
 
 
 def main(argv):
-    filters = ["server"]
+    filters = ["server", "port", "timeout", "domain", "tls_mode"]
     inputs = brcd_util.parse(argv, ldap_server, filters)
 
     ldap_obj = inputs['utilobject']

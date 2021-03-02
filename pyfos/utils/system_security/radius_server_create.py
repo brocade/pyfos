@@ -38,6 +38,11 @@ RADIUS server configuration.
 
 * Util Script Options:
     --server                Specifies the RADIUS server IP address.
+    --port                  Specifies the RADIUS server port number.
+    --timeout               Specifies the RADIUS server timeout value.
+    --authentication        Specifies the RADIUS server authentication type.
+    --secret                Specifies the RADIUS server secret type.
+    --encryption-type       Specifies the RADIUS server encryption type.
 
 * Output:
     * A success response or a dictionary in case of error.
@@ -52,7 +57,8 @@ from pyfos.utils import brcd_util
 
 
 def main(argv):
-    filters = ["server"]
+    filters = ["server", "port", "timeout", "authentication",
+               "secret", "encryption_type"]
     inputs = brcd_util.parse(argv, radius_server, filters)
 
     radius_obj = inputs['utilobject']
