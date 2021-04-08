@@ -104,7 +104,7 @@ class show_status(pyfos_rest_util.rest_object):
     def __init__(self, dictvalues={}):
         super().__init__(pyfos_rest_util.rest_obj_type.rpc_show_status,
                          "/rest/operations/show-status",
-                         ver.VER_RANGE_900_and_ABOVE, 1)
+                         ver.VER_RANGE_821_and_ABOVE, 1)
         self.add(pyfos_rest_util.rest_attribute("message-id",
                  pyfos_type.type_int, None,
                  pyfos_rest_util.REST_ATTRIBUTE_CONFIG))
