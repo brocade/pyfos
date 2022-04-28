@@ -4,9 +4,10 @@ PyFOS - 2.0.1
 ### What is PyFOS ###
 
     PyFOS is a python language binding that works with REST API
-    supported in FOS 8.2.0 and up. PyFOS distribution is meant
-    1) to provide 1-to-1 functional coverage of FOS REST API and
-    2) to provide utility scripts that can be used to directly or
+    supported for FOS versions 8.2.x to 9.0.x. 
+    PyFOS distribution is intended to:
+    1) provide 1-to-1 functional coverage of FOS REST API and
+    2) provide utility scripts that can be used to directly or
     be used as reference examples to create your own. pyfos/pyfos
     directory contains modules & functions that provides 1-to-1
     functional coverage of FOS REST API. pyfos/pyfos/utils directory
