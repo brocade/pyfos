@@ -187,6 +187,8 @@ def main(argv):
                 skipattributes += ","
             skipattributes += "protocol"
         if supportftp_obj.peek_port() is not None:
+            if len(skipattributes) > 0:
+                skipattributes += ","
             skipattributes += "port"
         if supportftp_obj.peek_connectivity_check_interval() \
            is not None:
