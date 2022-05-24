@@ -16,7 +16,7 @@
 
 """
 
-:mod:`fdmi_show` - PyFOS util to show FMDI entries.
+:mod:`fdmi_show` - PyFOS util to show FDMI entries.
 ***********************************************************************************
 The :mod:`fdmi_show` supports 'fdmishow' CLI use case.
 
