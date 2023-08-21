@@ -1723,6 +1723,8 @@ class fibrechannel_statistics(pyfos_rest_util.rest_object):
         +-----------------------------------+-------------------------------+-----------------------------------------------+
         | pcs-block-errors                  | PCS block errors              |:func:`peek_pcs_block_errors`                  |
         +-----------------------------------+-------------------------------+-----------------------------------------------+
+        | fec-uncorrected                   | uncorrected by FEC block      |:func:`peek_fec_uncorrected`                   |
+        +-----------------------------------+-------------------------------+-----------------------------------------------+
 
     *Object methods*
 
@@ -2117,7 +2119,7 @@ class fibrechannel_statistics(pyfos_rest_util.rest_object):
 
             :rtype: None or number of frames received with invalid CRC
 
-        .. method:: peek_remote_fec_uncorrected()
+        .. method:: peek_fec_uncorrected()
 
             Reads number of frames uncorrected by FEC block.
 
@@ -2321,7 +2323,7 @@ class fibrechannel_statistics(pyfos_rest_util.rest_object):
             "remote-crc-errors", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
-            "remote-fec-uncorrected", pyfos_type.type_int,
+            "fec-uncorrected", pyfos_type.type_int,
             None, pyfos_rest_util.REST_ATTRIBUTE_NOT_CONFIG))
         self.add(pyfos_rest_util.rest_attribute(
             "remote-buffer-credit-info", pyfos_type.type_na,
